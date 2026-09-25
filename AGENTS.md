@@ -3,8 +3,8 @@
 ## Información General
 - **Nombre:** AutoLupa
 - **URL:** https://autolupa.pages.dev
-- **Descripción:** Plataforma para buscar, comparar y guardar vehículos del mercado chileno
-- **Tecnologías:** React 18 + Vite + TypeScript + Tailwind CSS 3
+- **Descripción:** Marketplace de autos usados y comparador de vehículos del mercado chileno
+- **Tecnologías:** React 18 + Vite + TypeScript + Tailwind CSS 3 + Supabase
 - **Hosting:** Cloudflare Pages
 - **API Token Cloudflare:** NO almacenado en el repo. Usar GitHub Secret `CLOUDFLARE_API_TOKEN` (ver `.github/workflows/deploy.yml`).
 
@@ -44,7 +44,8 @@ src/
 │   ├── Layout/Navbar.tsx
 │   ├── TCO/TCOCalculator.tsx    # UI del TCO (plazo 48, km/mes 1000)
 │   └── Wizard/AutoWizard.tsx    # 8 pasos + afinidad absoluta + fotos
-│   └── Wizard/SmartAsk.tsx      # Buscador por lenguaje natural (recomendador semántico)
+│   ├── Wizard/SmartAsk.tsx      # Buscador por lenguaje natural (recomendador semántico)
+│   └── Used/                    # Tarjetas y últimos avisos publicados
 ├── data/
 │   ├── brands/                  # Un JSON por marca (allBrands vía import.meta.glob)
 │   │   └── index.ts             # carsData, brandUrls, BRANDS_NOT_SOLD_NEW_IN_CHILE
@@ -52,11 +53,17 @@ src/
 │   ├── energyCosts.ts           # HOME_KWH 150 / FAST_KWH 350 / gasolina 1300 / diesel 1150
 │   ├── enrichment.ts            # Completa rango/batería/seguridad por marca|modelo
 │   ├── recommender.ts           # Motor semántico local: parseQuery + scoreRecommendation + recommend
-│   └── tco.ts                   # calculateTCO + getPermisoCirculación (fórmula SII)
+│   ├── tco.ts                   # calculateTCO + getPermisoCirculación (fórmula SII)
+│   └── usedListings.ts          # Tipos, validación y filtros de usados
 ├── hooks/
-│   └── useCars.ts               # Filtros con persistencia, favoritos (firebase+lazy), defaultYearRange
+│   └── useCars.ts               # Filtros con persistencia y favoritos en Supabase
 ├── pages/
 │   ├── Home.tsx                 # NOVEDADES_2026 curadas, Recientes, isFiltering dinámico
+│   ├── Usados.tsx               # Marketplace, filtros y CTA de publicação
+│   ├── PublicarAuto.tsx         # Formulario de publicación en 4 pasos
+│   ├── UsedListingDetail.tsx    # Detalle SEO de cada aviso
+│   ├── MisAnuncios.tsx          # Gestión del vendedor
+│   ├── ModeracionUsados.tsx     # Cola privada de revisión y reportes
 │   ├── Top10.tsx                # 7 categorías con ?cat=
 │   ├── Favorites.tsx / Compare.tsx / Estadisticas.tsx / NotFound.tsx
 ├── test/                        # vitest: brands, tco, energyCosts, CompareTable
@@ -71,7 +78,7 @@ src/
 - **Catálogo**: 626 vehículos, 100+ marcas en `src/data/brands/*.json`
 - **Búsqueda y filtros**: Marca, modelo, tipo, combustible, precio, años (rango dinámico), tracción, asientos
 - **Comparación**: Hasta 3 vehículos lado a lado (CompareTable)
-- **Favoritos**: Sync con Firestore (firebase lazy, sin token) + localStorage demo
+- **Favoritos**: Sync con Supabase para usuarios autenticados + localStorage como respaldo
 - **Detalle completo**: Modal con specs, versiones, seguridad, `?cat=` directo
 
 ### Marca y catálogo
@@ -113,10 +120,17 @@ src/
 - **FAW**: en Chile solo comercializa camiones (FAW Trucks / Forcenter), no autos livianos → NO añadir al catálogo como marca liviana (decisión documentada).
 - Regla: no inventar specs; los EV/PHEV se completan vía `enrichment.ts` con fichas oficiales (Chile) o EV-Database.
 
-### 🔜 Sección de Usados (en planeación)
-- Marketplace de usados: autenticación, moderación, fotos, chat, ubicación, modelos de negocio (sin decidir).
+### Marketplace de Usados
+- Supabase Auth con Google para vendedores; Supabase Postgres para listings, preferencias, firmas y reportes; Supabase Storage para fotos.
+- RLS: los avisos nuevos quedan `pending`; sólo moderadores pueden publicarlos o rechazarlos. No se crean listings de ejemplo.
+- Rutas: `/usados`, `/usados/:slug`, `/publicar-auto`, `/mis-anuncios` y `/moderacion`.
+- Filtros: búsqueda, marca, región, combustible, transmisión, año, precio, kilometraje, orden y paginación.
+- SEO: `Vehicle` + `Offer` + `BreadcrumbList` en detalle e `ItemList` en el listado.
+- La configuración de Supabase y los pasos de despliegue están en `README.md`.
 
 ## Notas Técnicas
-- Firebase sin env vars → modo demo (solo localStorage).
-- `npm run build`, `npm run lint` y `npm test` deben pasar (verificados al finalizar cambios).
+- Supabase es el backend de autenticación, favoritos y usados. Sin sus variables, la interfaz muestra estado de preparación y no simula usuarios ni listings.
+- La migración SQL está en `supabase/migrations/202609250001_marketplace.sql`.
+- `npm run build`, `npm run lint` y `npm test` deben pasar (verificados al finalizar cambios). El workflow de deploy ejecuta lint, tests y build antes de publicar.
+- La matriz de verificación de RLS con roles reales está en `supabase/README.md`; hay que ejecutarla antes de recibir vendedores.
 - No agregar comentarios al código; documentar cambios de datos en SUMMARY.md.

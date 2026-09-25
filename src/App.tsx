@@ -17,6 +17,10 @@ const Top10 = lazy(() => import('./pages/Top10').then(m => ({ default: m.Top10 }
 const LegalDocs = lazy(() => import('./pages/LegalDocs').then(m => ({ default: m.LegalDocs })));
 const BrandPage = lazy(() => import('./pages/BrandPage').then(m => ({ default: m.BrandPage })));
 const Usados = lazy(() => import('./pages/Usados').then(m => ({ default: m.Usados })));
+const UsedListingDetail = lazy(() => import('./pages/UsedListingDetail').then(m => ({ default: m.UsedListingDetail })));
+const PublicarAuto = lazy(() => import('./pages/PublicarAuto').then(m => ({ default: m.PublicarAuto })));
+const MisAnuncios = lazy(() => import('./pages/MisAnuncios').then(m => ({ default: m.MisAnuncios })));
+const ModeracionUsados = lazy(() => import('./pages/ModeracionUsados').then(m => ({ default: m.ModeracionUsados })));
 const Blog = lazy(() => import('./pages/Blog').then(m => ({ default: m.Blog })));
 const Analytics = lazy(() => import('./pages/Analytics').then(m => ({ default: m.Analytics })));
 
@@ -34,7 +38,7 @@ function PageSkeleton() {
 }
 
 function AppContent() {
-  const { user, loading: authLoading } = useAuth();
+  const { user, loading: authLoading, signInWithGoogle, signOut, isCloudAuthAvailable } = useAuth();
   const {
     cars,
     allCarsCount,
@@ -83,7 +87,12 @@ function AppContent() {
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
       <a href="#main" className="skip-link">Saltar al contenido</a>
-      <Navbar />
+      <Navbar
+        user={user}
+        signInWithGoogle={signInWithGoogle}
+        signOut={signOut}
+        isCloudAuthAvailable={isCloudAuthAvailable}
+      />
 
       {showModal && (
         <SignatureModal
@@ -189,10 +198,42 @@ function AppContent() {
           }
         />
         <Route
+          path="/usados/:slug"
+          element={
+            <Suspense fallback={<PageSkeleton />}>
+              <UsedListingDetail user={user} isCloudAuthAvailable={isCloudAuthAvailable} onSignIn={signInWithGoogle} />
+            </Suspense>
+          }
+        />
+        <Route
           path="/usados"
           element={
             <Suspense fallback={<PageSkeleton />}>
               <Usados />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/publicar-auto"
+          element={
+            <Suspense fallback={<PageSkeleton />}>
+              <PublicarAuto user={user} isCloudAuthAvailable={isCloudAuthAvailable} onSignIn={signInWithGoogle} />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/mis-anuncios"
+          element={
+            <Suspense fallback={<PageSkeleton />}>
+              <MisAnuncios user={user} isCloudAuthAvailable={isCloudAuthAvailable} onSignIn={signInWithGoogle} />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/moderacion"
+          element={
+            <Suspense fallback={<PageSkeleton />}>
+              <ModeracionUsados user={user} isCloudAuthAvailable={isCloudAuthAvailable} onSignIn={signInWithGoogle} />
             </Suspense>
           }
         />

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { useAuth } from '../../hooks/useAuth';
+import type { User } from '../../types';
 import {
   ShieldCheckIcon,
   CubeIcon,
@@ -11,8 +11,14 @@ import {
   SparklesIcon,
 } from '@heroicons/react/24/outline';
 
-export function Navbar() {
-  const { user, signInWithGoogle, signOut } = useAuth();
+interface Props {
+  user: User | null;
+  signInWithGoogle: () => Promise<void>;
+  signOut: () => Promise<void>;
+  isCloudAuthAvailable: boolean;
+}
+
+export function Navbar({ user, signInWithGoogle, signOut, isCloudAuthAvailable }: Props) {
   const location = useLocation();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [darkMode, setDarkMode] = useState(() => localStorage.getItem('darkMode') === 'true');
@@ -44,9 +50,10 @@ export function Navbar() {
 
   const navLinks = [
     { to: '/', label: 'Inicio' },
+    { to: '/usados', label: 'Usados' },
+    { to: '/publicar-auto', label: 'Publicar auto' },
     { to: '/compare', label: 'Comparar' },
     { to: '/favorites', label: 'Favoritos' },
-    { to: '/usados', label: 'Usados' },
     { to: '/blog', label: 'Blog' },
   ];
 
@@ -142,6 +149,9 @@ export function Navbar() {
                   )}
                   <span className="text-sm text-gray-300">{user.displayName}</span>
                 </div>
+                <Link to="/mis-anuncios" className="px-3 py-2 text-sm text-gray-300 hover:text-white transition-colors">
+                  Mis avisos
+                </Link>
                 <button
                   onClick={signOut}
                   className="px-4 py-2 bg-gray-800 dark:bg-gray-700 hover:bg-gray-700 dark:hover:bg-gray-600 rounded-lg text-sm font-medium transition-colors"
@@ -152,7 +162,8 @@ export function Navbar() {
             ) : (
               <button
                 onClick={signInWithGoogle}
-                className="px-4 py-2 bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 rounded-lg text-sm font-medium transition-all flex items-center gap-2 shadow-lg"
+                disabled={!isCloudAuthAvailable}
+                className="px-4 py-2 bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 rounded-lg text-sm font-medium transition-all flex items-center gap-2 shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 <svg className="w-4 h-4" viewBox="0 0 24 24">
                   <path fill="currentColor" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" />
@@ -248,6 +259,7 @@ export function Navbar() {
                   )}
                   <span className="text-sm text-gray-300">{user.displayName}</span>
                 </div>
+                <Link to="/mis-anuncios" onClick={() => setMobileOpen(false)} className="block px-4 py-2 text-sm text-gray-300 hover:bg-white/10 rounded-lg">Mis avisos</Link>
                 <button
                   onClick={() => { signOut(); setMobileOpen(false); }}
                   className="w-full text-left px-4 py-2 text-sm text-gray-300 hover:bg-white/10 rounded-lg"
@@ -257,8 +269,9 @@ export function Navbar() {
               </div>
             ) : (
               <button
-                onClick={() => { signInWithGoogle(); setMobileOpen(false); }}
-                className="w-full text-left px-4 py-2 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg text-sm font-medium"
+                onClick={() => { if (isCloudAuthAvailable) { signInWithGoogle(); setMobileOpen(false); } }}
+                disabled={!isCloudAuthAvailable}
+                className="w-full text-left px-4 py-2 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg text-sm font-medium disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 Iniciar Sesión
               </button>

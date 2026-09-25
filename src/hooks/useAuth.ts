@@ -1,79 +1,47 @@
-import { useState, useEffect } from 'react';
-import { isFirebaseConfigured } from '../lib/firebase';
-import { User } from '../types';
+import { useEffect, useState } from 'react';
+import type { User as SupabaseUser } from '@supabase/supabase-js';
+import { isSupabaseConfigured, supabase } from '../lib/supabase';
+import type { User } from '../types';
+
+function mapUser(authUser: SupabaseUser): User {
+  return {
+    uid: authUser.id,
+    displayName: authUser.user_metadata.full_name || authUser.user_metadata.name || null,
+    email: authUser.email ?? null,
+    photoURL: authUser.user_metadata.avatar_url || null,
+  };
+}
 
 export function useAuth() {
   const [user, setUser] = useState<User | null>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    if (!isFirebaseConfigured) {
+    if (!isSupabaseConfigured || !supabase) {
       setLoading(false);
       return;
     }
 
-    let unsubscribe: (() => void) | null = null;
-    let cancelled = false;
-
-    import('firebase/auth').then((mod) => {
-      if (cancelled) return;
-      const { getAuth, onAuthStateChanged } = mod;
-      const authInstance = getAuth();
-
-      unsubscribe = onAuthStateChanged(authInstance, (firebaseUser) => {
-        if (firebaseUser) {
-          setUser({
-            uid: firebaseUser.uid,
-            displayName: firebaseUser.displayName,
-            email: firebaseUser.email,
-            photoURL: firebaseUser.photoURL,
-          });
-        } else {
-          setUser(null);
-        }
-        setLoading(false);
-      });
-    }).catch(() => {
-      if (!cancelled) setLoading(false);
+    const { data } = supabase.auth.onAuthStateChange((_event, session) => {
+      setUser(session?.user ? mapUser(session.user) : null);
+      setLoading(false);
     });
 
-    return () => {
-      cancelled = true;
-      unsubscribe?.();
-    };
+    return () => data.subscription.unsubscribe();
   }, []);
 
   const signInWithGoogle = async () => {
-    if (!isFirebaseConfigured) {
-      // Demo mode: create fake user
-      setUser({
-        uid: 'demo-user-001',
-        displayName: 'Usuario Demo',
-        email: 'demo@autolupa.cl',
-        photoURL: null,
-      });
-      return;
-    }
-    try {
-      const { getAuth, signInWithPopup, GoogleAuthProvider } = await import('firebase/auth');
-      await signInWithPopup(getAuth(), new GoogleAuthProvider());
-    } catch (error) {
-      console.error('Error signing in:', error);
-    }
+    if (!isSupabaseConfigured || !supabase) return;
+    const redirectTo = `${window.location.origin}${window.location.pathname}${window.location.search}`;
+    const { error } = await supabase.auth.signInWithOAuth({ provider: 'google', options: { redirectTo } });
+    if (error) throw error;
   };
 
   const signOut = async () => {
-    if (!isFirebaseConfigured) {
-      setUser(null);
-      return;
-    }
-    try {
-      const { getAuth, signOut: signOutFirebase } = await import('firebase/auth');
-      await signOutFirebase(getAuth());
-    } catch (error) {
-      console.error('Error signing out:', error);
-    }
+    if (!isSupabaseConfigured || !supabase) return;
+    const { error } = await supabase.auth.signOut();
+    if (error) throw error;
   };
 
-  return { user, loading, signInWithGoogle, signOut };
+  return { user, loading, signInWithGoogle, signOut, isCloudAuthAvailable: isSupabaseConfigured };
 }

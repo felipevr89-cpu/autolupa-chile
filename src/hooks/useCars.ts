@@ -1,7 +1,7 @@
 import { useState, useMemo, useCallback, useEffect } from 'react';
 import { carsData } from '../data/brands';
 import { Car, Filters, User } from '../types';
-import { isFirebaseConfigured } from '../lib/firebase';
+import { isSupabaseConfigured, supabase } from '../lib/supabase';
 
 const currentYear = new Date().getFullYear();
 export const defaultYearRange: [number, number] = [currentYear - 6, currentYear];
@@ -30,33 +30,28 @@ function loadFromStorage<T>(key: string, fallback: T): T {
 }
 
 async function loadFavoritesFromCloud(userId: string): Promise<number[] | null> {
-  try {
-    const { getFirestore, doc, getDoc } = await import('firebase/firestore');
-    const db = getFirestore();
-    const snap = await getDoc(doc(db, 'users', userId, 'preferences', 'favorites'));
-    if (snap.exists()) {
-      const data = snap.data();
-      return data?.carIds ?? null;
-    }
-    return null;
-  } catch {
-    return null;
-  }
+  if (!supabase) return null;
+  const { data, error } = await supabase
+    .from('user_preferences')
+    .select('favorite_car_ids')
+    .eq('user_id', userId)
+    .maybeSingle();
+  if (error || !data) return null;
+  return (data.favorite_car_ids ?? []) as number[];
 }
 
 async function saveFavoritesToCloud(userId: string, carIds: number[]): Promise<void> {
-  try {
-    const { getFirestore, doc, setDoc } = await import('firebase/firestore');
-    const db = getFirestore();
-    await setDoc(doc(db, 'users', userId, 'preferences', 'favorites'), { carIds, updatedAt: new Date().toISOString() });
-  } catch {
-    // silently fail
-  }
+  if (!supabase) return;
+  await supabase.from('user_preferences').upsert({ user_id: userId, favorite_car_ids: carIds });
+}
+
+function favoritesKey(uid?: string): string {
+  return uid ? `autolupa_favorites_${uid}` : 'autolupa_favorites';
 }
 
 export function useCars(user?: User | null) {
   const uid = user?.uid;
-  const isConfiguredUser = !!uid && isFirebaseConfigured && !uid.startsWith('demo-');
+  const isConfiguredUser = !!uid && isSupabaseConfigured;
   const [filters, setFilters] = useState<Filters>(() => loadFromStorage('autolupa_filters', defaultFilters));
   const [compareList, setCompareList] = useState<Car[]>(() => loadFromStorage('autolupa_compare', []));
   const [favorites, setFavorites] = useState<number[]>(() => {
@@ -76,18 +71,32 @@ export function useCars(user?: User | null) {
   }, [searchQuery]);
 
   useEffect(() => {
-    if (!isConfiguredUser) return;
-    loadFavoritesFromCloud(uid!).then(cloudIds => {
-      if (cloudIds && cloudIds.length > 0) {
-        setFavorites(cloudIds);
-        localStorage.setItem('autolupa_favorites', JSON.stringify(cloudIds));
-      } else {
-        const local = loadFromStorage<number[]>('autolupa_favorites', []);
-        if (local.length > 0) {
-          saveFavoritesToCloud(uid!, local);
+    if (!isConfiguredUser || !uid) {
+      setFavorites(loadFromStorage<number[]>(favoritesKey(), []));
+      return;
+    }
+
+    let cancelled = false;
+    const local = loadFromStorage<number[]>(favoritesKey(uid), []);
+    setFavorites(local);
+
+    loadFavoritesFromCloud(uid)
+      .then((cloudIds) => {
+        if (cancelled) return;
+        if (cloudIds) {
+          setFavorites(cloudIds);
+          localStorage.setItem(favoritesKey(uid), JSON.stringify(cloudIds));
+          return;
         }
-      }
-    });
+        if (local.length > 0) {
+          saveFavoritesToCloud(uid, local).catch(() => undefined);
+        }
+      })
+      .catch(() => undefined);
+
+    return () => {
+      cancelled = true;
+    };
   }, [uid, isConfiguredUser]);
 
   const filteredCars = useMemo(() => {
@@ -185,9 +194,10 @@ export function useCars(user?: User | null) {
   const toggleFavorite = useCallback((carId: number) => {
     setFavorites((prev) => {
       const next = prev.includes(carId) ? prev.filter((id) => id !== carId) : [...prev, carId];
-      localStorage.setItem('autolupa_favorites', JSON.stringify(next));
-      if (isConfiguredUser) {
-        saveFavoritesToCloud(uid!, next);
+      const key = favoritesKey(isConfiguredUser ? uid : undefined);
+      localStorage.setItem(key, JSON.stringify(next));
+      if (isConfiguredUser && uid) {
+        saveFavoritesToCloud(uid, next).catch(() => undefined);
       }
       return next;
     });

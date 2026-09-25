@@ -1,280 +1,231 @@
-import { useState, useEffect, useMemo } from 'react';
+import { useEffect, useMemo, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { SEO } from '../components/SEO';
-import { formatPrice } from '../data/brands';
+import { UsedListingCard } from '../components/Used/UsedListingCard';
+import { isSupabaseConfigured } from '../lib/supabase';
+import { getActiveUsedListings, getUsedListingBrands } from '../lib/usedListings';
+import {
+  emptyUsedListingFilters,
+  USED_FUEL_OPTIONS,
+  USED_REGIONS,
+  USED_TRANSMISSION_OPTIONS,
+  type UsedListing,
+  type UsedListingFilters,
+} from '../data/usedListings';
 
-export interface UsedCar {
-  id: string;
-  brand: string;
-  model: string;
-  year: number;
-  km: number;
-  price: number;
-  fuel: string;
-  transmission: string;
-  color: string;
-  region: string;
-  description: string;
-  phone: string;
-  photos: string[];
-  createdAt: string;
-}
+const CURRENT_YEAR = new Date().getFullYear();
+const PAGE_SIZE = 12;
 
-const STORAGE_KEY = 'autolupa_usados';
-const REGIONS = [
-  'Arica y Parinacota', 'Tarapacá', 'Antofagasta', 'Atacama', 'Coquimbo',
-  'Valparaíso', 'Metropolitana', 'O\'Higgins', 'Maule', 'Ñuble',
-  'Biobío', 'Araucanía', 'Los Ríos', 'Los Lagos', 'Aysén', 'Magallanes',
-];
-
-const FUEL_OPTIONS = ['Gasolina', 'Diésel', 'Eléctrico', 'Híbrido', 'Híbrido enchufable'];
-const TRANS_OPTIONS = ['Automática', 'Manual'];
-
-function loadUsados(): UsedCar[] {
-  try {
-    return JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
-  } catch { return []; }
-}
-
-function saveUsados(usados: UsedCar[]) {
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(usados));
-}
-
-function PublishForm({ onPublished }: { onPublished: () => void }) {
-  const [form, setForm] = useState({
-    brand: '', model: '', year: new Date().getFullYear(), km: 0,
-    price: 0, fuel: 'Gasolina', transmission: 'Automática',
-    color: '', region: 'Metropolitana', description: '', phone: '',
-  });
-  const [photos, setPhotos] = useState<string[]>([]);
-  const [success, setSuccess] = useState(false);
-
-  const handlePhotoUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const files = e.target.files;
-    if (!files) return;
-    Array.from(files).slice(0, 5).forEach(file => {
-      const reader = new FileReader();
-      reader.onload = (ev) => {
-        setPhotos(prev => [...prev, ev.target?.result as string].slice(0, 5));
-      };
-      reader.readAsDataURL(file);
-    });
-  };
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!form.brand || !form.model || !form.phone) return;
-    const used: UsedCar = {
-      ...form,
-      id: Date.now().toString(36) + Math.random().toString(36).slice(2, 6),
-      photos,
-      createdAt: new Date().toISOString(),
-    };
-    const existing = loadUsados();
-    saveUsados([used, ...existing]);
-    setSuccess(true);
-    onPublished();
-  };
-
-  if (success) {
-    return (
-      <div className="text-center py-12">
-        <p className="text-6xl mb-4">✅</p>
-        <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">¡Publicación creada!</h3>
-        <p className="text-gray-500 dark:text-gray-400 mb-6">Tu auto ya está visible en el mercado de usados.</p>
-        <button onClick={() => { setSuccess(false); setForm({ ...form, brand: '', model: '', km: 0, price: 0, description: '', phone: '' }); setPhotos([]); }} className="px-6 py-2 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700">
-          Publicar otro auto
-        </button>
-      </div>
-    );
-  }
-
-  return (
-    <form onSubmit={handleSubmit} className="space-y-4">
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-        <div>
-          <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Marca *</label>
-          <input required value={form.brand} onChange={e => setForm({ ...form, brand: e.target.value })} placeholder="Ej: Toyota" className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-sm" />
-        </div>
-        <div>
-          <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Modelo *</label>
-          <input required value={form.model} onChange={e => setForm({ ...form, model: e.target.value })} placeholder="Ej: Corolla" className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-sm" />
-        </div>
-        <div>
-          <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Año</label>
-          <input type="number" value={form.year} onChange={e => setForm({ ...form, year: +e.target.value })} min={1990} max={new Date().getFullYear() + 1} className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-sm" />
-        </div>
-        <div>
-          <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Kilometraje</label>
-          <input type="number" value={form.km} onChange={e => setForm({ ...form, km: +e.target.value })} min={0} className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-sm" />
-        </div>
-        <div>
-          <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Precio (CLP) *</label>
-          <input type="number" value={form.price} onChange={e => setForm({ ...form, price: +e.target.value })} min={0} required className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-sm" />
-        </div>
-        <div>
-          <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Color</label>
-          <input value={form.color} onChange={e => setForm({ ...form, color: e.target.value })} placeholder="Ej: Blanco" className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-sm" />
-        </div>
-        <div>
-          <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Combustible</label>
-          <select value={form.fuel} onChange={e => setForm({ ...form, fuel: e.target.value })} className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-sm">
-            {FUEL_OPTIONS.map(f => <option key={f}>{f}</option>)}
-          </select>
-        </div>
-        <div>
-          <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Transmisión</label>
-          <select value={form.transmission} onChange={e => setForm({ ...form, transmission: e.target.value })} className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-sm">
-            {TRANS_OPTIONS.map(t => <option key={t}>{t}</option>)}
-          </select>
-        </div>
-        <div>
-          <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Región</label>
-          <select value={form.region} onChange={e => setForm({ ...form, region: e.target.value })} className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-sm">
-            {REGIONS.map(r => <option key={r}>{r}</option>)}
-          </select>
-        </div>
-        <div>
-          <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">WhatsApp *</label>
-          <input required value={form.phone} onChange={e => setForm({ ...form, phone: e.target.value })} placeholder="+56 9 1234 5678" className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-sm" />
-        </div>
-      </div>
-      <div>
-        <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Descripción</label>
-        <textarea value={form.description} onChange={e => setForm({ ...form, description: e.target.value })} rows={3} placeholder="Estado del auto, accesorios, mantenciones al día..." className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-sm" />
-      </div>
-      <div>
-        <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Fotos (máx. 5)</label>
-        <input type="file" accept="image/*" multiple onChange={handlePhotoUpload} className="w-full text-sm text-gray-500 dark:text-gray-400" />
-        {photos.length > 0 && (
-          <div className="flex gap-2 mt-2">
-            {photos.map((p, i) => (
-              <img key={i} src={p} alt="" className="w-16 h-16 object-cover rounded-lg" />
-            ))}
-          </div>
-        )}
-      </div>
-      <button type="submit" className="w-full py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-bold text-lg transition-colors">
-        📢 Publicar mi auto gratis
-      </button>
-      <p className="text-xs text-gray-400 dark:text-gray-500 text-center">Publicación gratuita. Sin comisiones. Los compradores te contactan directo por WhatsApp.</p>
-    </form>
-  );
-}
-
-function UsedCarCard({ car }: { car: UsedCar }) {
-  const waText = encodeURIComponent(`Hola, vi tu ${car.brand} ${car.model} ${car.year} en AutoLupa. ¿Sigue disponible?`);
-  const waUrl = `https://wa.me/${car.phone.replace(/[^0-9]/g, '')}?text=${waText}`;
-
-  return (
-    <div className="bg-white dark:bg-gray-800 rounded-2xl overflow-hidden card-shadow hover:shadow-xl transition-all">
-      {car.photos.length > 0 ? (
-        <div className="h-48 overflow-hidden">
-          <img src={car.photos[0]} alt={`${car.brand} ${car.model}`} className="w-full h-full object-cover" />
-        </div>
-      ) : (
-        <div className="h-48 bg-gradient-to-br from-gray-200 to-gray-300 dark:from-gray-700 dark:to-gray-600 flex items-center justify-center">
-          <span className="text-4xl">🚗</span>
-        </div>
-      )}
-      <div className="p-5">
-        <div className="flex items-center justify-between mb-2">
-          <div>
-            <p className="text-xs text-gray-500 dark:text-gray-400 uppercase">{car.brand}</p>
-            <h3 className="text-lg font-bold text-gray-900 dark:text-white">{car.model}</h3>
-          </div>
-          <span className="text-xs font-medium text-gray-400 bg-gray-100 dark:bg-gray-700 px-2 py-1 rounded">{car.year}</span>
-        </div>
-        <div className="flex flex-wrap gap-1.5 mb-3">
-          <span className="text-xs px-2 py-0.5 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded">{car.fuel}</span>
-          <span className="text-xs px-2 py-0.5 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded">{car.transmission}</span>
-          <span className="text-xs px-2 py-0.5 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded">{car.km.toLocaleString('es-CL')} km</span>
-          {car.color && <span className="text-xs px-2 py-0.5 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded">{car.color}</span>}
-        </div>
-        {car.description && <p className="text-sm text-gray-600 dark:text-gray-300 line-clamp-2 mb-3">{car.description}</p>}
-        <div className="flex items-end justify-between pt-3 border-t border-gray-100 dark:border-gray-700">
-          <div>
-            <p className="text-xs text-gray-500 dark:text-gray-400">Precio</p>
-            <p className="text-xl font-bold text-blue-600 dark:text-blue-400">{formatPrice(car.price)}</p>
-          </div>
-          <div className="text-right">
-            <p className="text-xs text-gray-400 dark:text-gray-500 mb-1">📍 {car.region}</p>
-            <a href={waUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 px-4 py-2 bg-green-500 hover:bg-green-600 text-white rounded-lg text-sm font-medium transition-colors">
-              💬 Contactar
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
+function inputClassName() {
+  return 'w-full px-3 py-2.5 border border-gray-200 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-sm text-gray-700 dark:text-gray-300';
 }
 
 export function Usados() {
-  const [usados, setUsados] = useState<UsedCar[]>([]);
-  const [showPublish, setShowPublish] = useState(false);
-  const [filterRegion, setFilterRegion] = useState('');
-  const [filterBrand, setFilterBrand] = useState('');
+  const [filters, setFilters] = useState<UsedListingFilters>(emptyUsedListingFilters);
+  const [listings, setListings] = useState<UsedListing[]>([]);
+  const [brands, setBrands] = useState<string[]>([]);
+  const [total, setTotal] = useState(0);
+  const [page, setPage] = useState(1);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState('');
 
-  useEffect(() => { setUsados(loadUsados()); }, []);
+  const totalPages = Math.max(1, Math.ceil(total / PAGE_SIZE));
+  const hasFilters = useMemo(() => Object.values(filters).some((value) => value !== '' && value !== 'recent'), [filters]);
+  const listingJsonLd = listings.length > 0 ? {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: 'Autos usados en Chile',
+    numberOfItems: listings.length,
+    itemListElement: listings.map((listing, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      url: `${import.meta.env.VITE_SITE_URL || 'https://autolupa.pages.dev'}/usados/${listing.slug}`,
+      name: `${listing.brand} ${listing.model} ${listing.year}`,
+    })),
+  } : undefined;
 
-  const filtered = useMemo(() => {
-    return usados.filter(u => {
-      if (filterRegion && u.region !== filterRegion) return false;
-      if (filterBrand && !u.brand.toLowerCase().includes(filterBrand.toLowerCase())) return false;
-      return true;
-    });
-  }, [usados, filterRegion, filterBrand]);
+  useEffect(() => {
+    if (!isSupabaseConfigured) {
+      setLoading(false);
+      return;
+    }
 
-  const uniqueBrands = [...new Set(usados.map(u => u.brand))].sort();
+    let cancelled = false;
+    setLoading(true);
+    setError('');
+    getActiveUsedListings(filters, page, PAGE_SIZE)
+      .then((result) => {
+        if (cancelled) return;
+        setListings(result.listings);
+        setTotal(result.total);
+      })
+      .catch(() => {
+        if (!cancelled) setError('No pudimos cargar los avisos. Intenta nuevamente.');
+      })
+      .finally(() => {
+        if (!cancelled) setLoading(false);
+      });
+
+    return () => {
+      cancelled = true;
+    };
+  }, [filters, page]);
+
+  useEffect(() => {
+    if (!isSupabaseConfigured) return;
+    getUsedListingBrands().then(setBrands).catch(() => setBrands([]));
+  }, []);
+
+  const updateFilter = <K extends keyof UsedListingFilters>(key: K, value: UsedListingFilters[K]) => {
+    setFilters((current) => ({ ...current, [key]: value }));
+    setPage(1);
+  };
+
+  const resetFilters = () => {
+    setFilters(emptyUsedListingFilters);
+    setPage(1);
+  };
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-      <SEO title="Autos Usados" description="Compra y vende autos usados gratis en Chile. Publica tu auto sin comisiones y contacta directo por WhatsApp." />
+      <SEO
+        title="Autos Usados en Chile: Compra y Publica Gratis"
+        description="Compra autos usados en Chile o publica tu vehículo gratis en AutoLupa. Filtra por marca, precio, kilometraje, año y región. Contacta directo por WhatsApp."
+        jsonLd={listingJsonLd}
+      />
 
-      <div className="text-center mb-10">
-        <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-3">🚗 Autos Usados</h1>
-        <p className="text-gray-600 dark:text-gray-300 max-w-xl mx-auto mb-6">
-          Marketplace gratuito: publica tu auto o contacta al vendedor directo por WhatsApp. Sin comisiones, sin intermediarios.
-        </p>
-        <button
-          onClick={() => setShowPublish(!showPublish)}
-          className="px-8 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl font-bold text-lg hover:from-blue-700 hover:to-purple-700 transition-all shadow-lg"
-        >
-          {showPublish ? '← Volver a listado' : '📢 Publicar mi auto gratis'}
-        </button>
-      </div>
+      <section className="bg-gradient-to-br from-blue-700 via-blue-600 to-purple-700 rounded-3xl px-6 py-10 sm:px-10 sm:py-14 text-white mb-8">
+        <div className="max-w-3xl">
+          <p className="text-blue-100 font-medium mb-3">Marketplace de usados</p>
+          <h1 className="text-3xl sm:text-5xl font-bold mb-4">Encuentra tu próximo auto usado</h1>
+          <p className="text-blue-100 text-lg mb-7">Publica gratis, sin comisiones. Conversa directamente con el vendedor por WhatsApp.</p>
+          <Link
+            to="/publicar-auto"
+            className="inline-flex items-center gap-2 px-6 py-3 bg-white text-blue-700 rounded-xl font-bold hover:bg-blue-50 transition-colors"
+          >
+            📢 Publicar mi auto gratis
+          </Link>
+        </div>
+      </section>
 
-      {showPublish ? (
-        <div className="max-w-2xl mx-auto bg-white dark:bg-gray-800 rounded-2xl p-6 card-shadow">
-          <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-4">Publicar vehículo</h2>
-          <PublishForm onPublished={() => setUsados(loadUsados())} />
+      {!isSupabaseConfigured ? (
+        <div className="rounded-2xl border border-amber-200 bg-amber-50 dark:bg-amber-950/30 dark:border-amber-800 p-6 text-amber-900 dark:text-amber-100">
+          <h2 className="text-lg font-bold mb-2">El mercado está en preparación</h2>
+          <p className="text-sm">Estamos habilitando la base de avisos y la verificación de vendedores. Mientras tanto, puedes comparar autos nuevos y preparar tu publicación.</p>
         </div>
       ) : (
         <>
-          <div className="flex flex-wrap gap-3 mb-6">
-            <select value={filterRegion} onChange={e => setFilterRegion(e.target.value)} className="px-3 py-2 border border-gray-200 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-sm text-gray-700 dark:text-gray-300">
-              <option value="">Todas las regiones</option>
-              {REGIONS.map(r => <option key={r}>{r}</option>)}
-            </select>
-            {uniqueBrands.length > 0 && (
-              <select value={filterBrand} onChange={e => setFilterBrand(e.target.value)} className="px-3 py-2 border border-gray-200 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-sm text-gray-700 dark:text-gray-300">
-                <option value="">Todas las marcas</option>
-                {uniqueBrands.map(b => <option key={b}>{b}</option>)}
-              </select>
-            )}
-            <span className="text-sm text-gray-500 dark:text-gray-400 self-center">{filtered.length} publicacion{filtered.length !== 1 ? 'es' : ''}</span>
-          </div>
+          <div className="grid grid-cols-1 lg:grid-cols-[280px_minmax(0,1fr)] gap-6">
+            <aside className="bg-white dark:bg-gray-800 rounded-2xl p-5 card-shadow h-fit">
+              <div className="flex items-center justify-between mb-4">
+                <h2 className="font-bold text-gray-900 dark:text-white">Filtros</h2>
+                {hasFilters && <button onClick={resetFilters} className="text-xs text-blue-600 dark:text-blue-400 hover:underline">Limpiar</button>}
+              </div>
+              <div className="space-y-4">
+                <label className="block">
+                  <span className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5">Buscar</span>
+                  <input value={filters.search} onChange={(event) => updateFilter('search', event.target.value)} className={inputClassName()} placeholder="Marca o modelo" />
+                </label>
+                <label className="block">
+                  <span className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5">Marca</span>
+                  <select value={filters.brand} onChange={(event) => updateFilter('brand', event.target.value)} className={inputClassName()}>
+                    <option value="">Todas</option>
+                    {brands.map((brand) => <option key={brand} value={brand}>{brand}</option>)}
+                  </select>
+                </label>
+                <label className="block">
+                  <span className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5">Región</span>
+                  <select value={filters.region} onChange={(event) => updateFilter('region', event.target.value)} className={inputClassName()}>
+                    <option value="">Todas</option>
+                    {USED_REGIONS.map((region) => <option key={region}>{region}</option>)}
+                  </select>
+                </label>
+                <label className="block">
+                  <span className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5">Combustible</span>
+                  <select value={filters.fuel} onChange={(event) => updateFilter('fuel', event.target.value as UsedListingFilters['fuel'])} className={inputClassName()}>
+                    <option value="">Todos</option>
+                    {USED_FUEL_OPTIONS.map((option) => <option key={option.value} value={option.value}>{option.label}</option>)}
+                  </select>
+                </label>
+                <label className="block">
+                  <span className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5">Transmisión</span>
+                  <select value={filters.transmission} onChange={(event) => updateFilter('transmission', event.target.value as UsedListingFilters['transmission'])} className={inputClassName()}>
+                    <option value="">Todas</option>
+                    {USED_TRANSMISSION_OPTIONS.map((option) => <option key={option.value} value={option.value}>{option.label}</option>)}
+                  </select>
+                </label>
+                <div className="grid grid-cols-2 gap-2">
+                  <label className="block">
+                    <span className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5">Año mín.</span>
+                    <input type="number" inputMode="numeric" value={filters.minYear} onChange={(event) => updateFilter('minYear', event.target.value)} className={inputClassName()} placeholder="2015" />
+                  </label>
+                  <label className="block">
+                    <span className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5">Año máx.</span>
+                    <input type="number" inputMode="numeric" value={filters.maxYear} onChange={(event) => updateFilter('maxYear', event.target.value)} className={inputClassName()} placeholder={String(CURRENT_YEAR)} />
+                  </label>
+                </div>
+                <div className="grid grid-cols-2 gap-2">
+                  <label className="block">
+                    <span className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5">Precio mín.</span>
+                    <input type="number" inputMode="numeric" value={filters.minPrice} onChange={(event) => updateFilter('minPrice', event.target.value)} className={inputClassName()} placeholder="1.000.000" />
+                  </label>
+                  <label className="block">
+                    <span className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5">Precio máx.</span>
+                    <input type="number" inputMode="numeric" value={filters.maxPrice} onChange={(event) => updateFilter('maxPrice', event.target.value)} className={inputClassName()} placeholder="20.000.000" />
+                  </label>
+                </div>
+                <label className="block">
+                  <span className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5">Km máx.</span>
+                  <input type="number" inputMode="numeric" value={filters.maxMileage} onChange={(event) => updateFilter('maxMileage', event.target.value)} className={inputClassName()} placeholder="100000" />
+                </label>
+                <label className="block">
+                  <span className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5">Ordenar por</span>
+                  <select value={filters.sort} onChange={(event) => updateFilter('sort', event.target.value as UsedListingFilters['sort'])} className={inputClassName()}>
+                    <option value="recent">Más recientes</option>
+                    <option value="price-asc">Menor precio</option>
+                    <option value="price-desc">Mayor precio</option>
+                    <option value="mileage-asc">Menos kilómetros</option>
+                  </select>
+                </label>
+              </div>
+            </aside>
 
-          {filtered.length === 0 ? (
-            <div className="text-center py-16">
-              <p className="text-6xl mb-4">🔍</p>
-              <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">No hay publicaciones aún</h3>
-              <p className="text-gray-500 dark:text-gray-400">Sé el primero en publicar tu auto</p>
-            </div>
-          ) : (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {filtered.map(car => <UsedCarCard key={car.id} car={car} />)}
-            </div>
-          )}
+            <section>
+              <div className="flex items-center justify-between gap-4 mb-4">
+                <p className="text-sm text-gray-500 dark:text-gray-400" aria-live="polite">
+                  {loading ? 'Cargando avisos…' : `${total} ${total === 1 ? 'aviso' : 'avisos'} disponible${total === 1 ? '' : 's'}`}
+                </p>
+              </div>
+
+              {error && <p role="alert" className="rounded-xl bg-red-50 dark:bg-red-950/40 p-4 text-sm text-red-700 dark:text-red-200 mb-4">{error}</p>}
+
+              {loading ? (
+                <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-5" aria-label="Cargando">
+                  {Array.from({ length: 6 }, (_, index) => <div key={index} className="h-80 rounded-2xl bg-gray-200 dark:bg-gray-700 animate-pulse" />)}
+                </div>
+              ) : listings.length === 0 ? (
+                <div className="rounded-2xl border-2 border-dashed border-blue-200 dark:border-blue-900 p-10 text-center">
+                  <p className="text-5xl mb-4">🚙</p>
+                  <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-2">Sé el primero en publicar</h2>
+                  <p className="text-gray-600 dark:text-gray-300 max-w-md mx-auto mb-6">Crea tu aviso gratis. Nuestro equipo lo revisará antes de publicarlo.</p>
+                  <Link to="/publicar-auto" className="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 text-white rounded-xl font-bold hover:bg-blue-700">Publicar mi auto gratis</Link>
+                </div>
+              ) : (
+                <>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-5">
+                    {listings.map((listing) => <UsedListingCard key={listing.id} listing={listing} />)}
+                  </div>
+                  {totalPages > 1 && (
+                    <nav className="flex items-center justify-center gap-3 mt-8" aria-label="Paginación de avisos">
+                      <button onClick={() => setPage((current) => Math.max(1, current - 1))} disabled={page === 1} className="px-4 py-2 rounded-lg border border-gray-200 dark:border-gray-700 text-sm disabled:opacity-40">Anterior</button>
+                      <span className="text-sm text-gray-500 dark:text-gray-400">Página {page} de {totalPages}</span>
+                      <button onClick={() => setPage((current) => Math.min(totalPages, current + 1))} disabled={page === totalPages} className="px-4 py-2 rounded-lg border border-gray-200 dark:border-gray-700 text-sm disabled:opacity-40">Siguiente</button>
+                    </nav>
+                  )}
+                </>
+              )}
+            </section>
+          </div>
         </>
       )}
     </div>

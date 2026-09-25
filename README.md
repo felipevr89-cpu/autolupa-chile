@@ -1,50 +1,89 @@
-# React + TypeScript + Vite
+# AutoLupa
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Marketplace de autos usados y comparador de vehículos para Chile.
 
-Currently, two official plugins are available:
+## Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- React 18, Vite y TypeScript
+- Tailwind CSS
+- Supabase Auth, Postgres, Storage y RLS
+- Cloudflare Pages
 
-## Expanding the ESLint configuration
+## Desarrollo local
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+1. Crear un archivo `.env.local` a partir de `.env.example`.
+2. Completar `VITE_SUPABASE_URL` y `VITE_SUPABASE_ANON_KEY` con las credenciales públicas del proyecto Supabase.
+3. Instalar y ejecutar:
 
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+```bash
+npm install
+npm run dev
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+La aplicación puede abrir el catálogo aunque Supabase no esté configurado, pero el marketplace muestra el estado de preparación y no crea usuarios ni avisos ficticios.
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+## Configurar Supabase
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+1. Crear un proyecto en Supabase.
+2. Abrir el SQL Editor y ejecutar `supabase/migrations/202609250001_marketplace.sql`.
+3. En Authentication → Providers, activar Google y configurar el cliente OAuth.
+4. En Authentication → URL Configuration, usar como Site URL `https://autolupa.pages.dev` y agregar como redirect permitted:
+   - `https://autolupa.pages.dev`
+   - `https://autolupa.pages.dev/publicar-auto`
+   - `http://localhost:5173/**` para desarrollo local, si corresponde.
+5. La migración crea el bucket público `listing-photos` y las políticas de Storage. No se debe usar la `service_role` key en el frontend.
+
+Para crear el primer moderador, iniciar sesión una vez en AutoLupa y ejecutar en el SQL Editor:
+
+```sql
+insert into private.user_roles (user_id, role)
+select id, 'admin'
+from auth.users
+where email = 'CUENTRO_MODERADOR@EXAMPLE.COM'
+on conflict (user_id) do update set role = 'admin';
+```
+
+No publicar la `service_role` key ni las credenciales OAuth en el repositorio.
+
+## GitHub y despliegue
+
+Configurar en GitHub Actions los secrets:
+
+- `CLOUDFLARE_API_TOKEN`
+- `CLOUDFLARE_ACCOUNT_ID`
+- `VITE_SUPABASE_URL`
+- `VITE_SUPABASE_ANON_KEY`
+
+`VITE_SUPABASE_URL` y `VITE_SUPABASE_ANON_KEY` son claves públicas destinadas al navegador; aun así, deben entregarse mediante secrets durante el build. El workflow actual compila con ellas y despliega en Cloudflare Pages.
+
+El token de Cloudflare se mantiene únicamente en `CLOUDFLARE_API_TOKEN`.
+
+## Flujo de usados
+
+- `/usados`: búsqueda y filtros públicos.
+- `/publicar-auto`: formulario gratuito de cuatro pasos.
+- `/usados/:slug`: detalle indexable de un aviso.
+- `/mis-anuncios`: estado, notas de revisión y marcado como vendido.
+- `/moderacion`: cola privada para aprobar, rechazar y resolver reportes.
+
+Todo aviso nuevo nace en estado `pending`. No se insertan listings de ejemplo para ocultar el inventario vacío.
+
+## Seguridad del marketplace
+
+- RLS activa en todas las tablas: el anónimo sólo lee avisos activos publicados y no expirados.
+- Máquina de estados `pending → active | rejected`, `rejected → pending | active`, `active → sold | expired | pending`; cualquier otra transición se rechaza en base de datos.
+- Editar precio, fotos o descripción de un aviso publicado lo devuelve a revisión.
+- Las consultas públicas piden columnas explícitas: el anónimo nunca recibe `seller_id`, notas de moderación ni datos internos.
+- Las fotos se guardan en carpetas por vendedor con UUID y no se pueden enumerar.
+- Cabeceras de seguridad y `no-store` para `/mis-anuncios` y `/moderacion` en `public/_headers`.
+- Fallback SPA explícito en `public/_redirects` para que `/usados/:slug` funcione al entrar directo por URL.
+
+La matriz de verificación con roles reales (`anon`, vendedor A, vendedor B, moderador) está en `supabase/README.md` y debe ejecutarse antes de recibir vendedores reales.
+
+## Verificación
+
+```bash
+npm test
+npm run lint
+npm run build
 ```

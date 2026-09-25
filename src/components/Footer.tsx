@@ -11,12 +11,14 @@ export function Footer() {
           <div>
             <h3 className="text-white font-bold text-lg mb-4">AutoLupa</h3>
             <p className="text-sm leading-relaxed">
-              El comparador de vehículos más completo de Chile. Encuentra, compara y elige el auto ideal para ti.
+              Marketplace y comparador de vehículos para Chile. Compra autos usados, publica tu auto gratis o compara modelos nuevos.
             </p>
           </div>
           <div>
             <h4 className="text-white font-semibold mb-4">Herramientas</h4>
             <ul className="space-y-2 text-sm">
+              <li><Link to="/usados" className="hover:text-white transition-colors">Autos usados</Link></li>
+              <li><Link to="/publicar-auto" className="hover:text-white transition-colors">Publicar auto gratis</Link></li>
               <li><Link to="/" className="hover:text-white transition-colors">Comparador de autos</Link></li>
               <li><Link to="/compare" className="hover:text-white transition-colors">Comparar seleccionados</Link></li>
               <li><Link to="/favorites" className="hover:text-white transition-colors">Mis favoritos</Link></li>

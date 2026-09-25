@@ -1,5 +1,11 @@
-import { useState, useEffect } from 'react';
-import { PRIVACY_POLICY_CONTENT, RESPONSIBILITY_CONTENT } from '../lib/documents';
+import { useEffect, useState } from 'react';
+import {
+  PRIVACY_POLICY_CONTENT,
+  PRIVACY_POLICY_VERSION,
+  RESPONSIBILITY_CONTENT,
+  RESPONSIBILITY_VERSION,
+} from '../lib/documents';
+import { isSupabaseConfigured, supabase } from '../lib/supabase';
 
 interface DocumentStatus {
   privacyPolicy: { signed: boolean; version: string };
@@ -27,8 +33,15 @@ function persistSignature(userId: string, signature: string) {
     if (!parsed[userId].includes(signature)) parsed[userId].push(signature);
     localStorage.setItem(STORAGE_KEY, JSON.stringify(parsed));
   } catch {
-    // almacenamiento no disponible: la firma vive solo en memoria
+    return;
   }
+}
+
+function statusFromSignatures(signatures: Set<string>): DocumentStatus {
+  return {
+    privacyPolicy: { signed: signatures.has(`privacy_policy_v${PRIVACY_POLICY_VERSION}`), version: PRIVACY_POLICY_VERSION },
+    responsibility: { signed: signatures.has(`responsibility_declaration_v${RESPONSIBILITY_VERSION}`), version: RESPONSIBILITY_VERSION },
+  };
 }
 
 export function useDocuments(userId: string | null) {
@@ -37,29 +50,45 @@ export function useDocuments(userId: string | null) {
   const [showModal, setShowModal] = useState<'privacy' | 'responsibility' | null>(null);
 
   useEffect(() => {
+    let cancelled = false;
     if (!userId) {
       setShowModal(null);
       setLoading(false);
       return;
     }
 
-    const signatures = getStoredSignatures(userId);
-    const privacySigned = signatures.has('privacy_policy_v1.0');
-    const responsibilitySigned = signatures.has('responsibility_declaration_v1.0');
-
-    const result: DocumentStatus = {
-      privacyPolicy: { signed: privacySigned, version: '1.0' },
-      responsibility: { signed: responsibilitySigned, version: '1.0' },
+    const applyStatus = (nextStatus: DocumentStatus) => {
+      if (cancelled) return;
+      setStatus(nextStatus);
+      setLoading(false);
+      if (!nextStatus.privacyPolicy.signed) setShowModal('privacy');
+      else if (!nextStatus.responsibility.signed) setShowModal('responsibility');
+      else setShowModal(null);
     };
 
-    setStatus(result);
-    setLoading(false);
+    const load = async () => {
+      if (isSupabaseConfigured && supabase) {
+        const { data, error } = await supabase
+          .from('document_signatures')
+          .select('document_type,document_version')
+          .eq('user_id', userId);
+        if (!error && data) {
+          const signatures = new Set((data as Array<{ document_type: string; document_version: string }>).map((row) => `${row.document_type}_v${row.document_version}`));
+          applyStatus(statusFromSignatures(signatures));
+          return;
+        }
+      }
+      applyStatus(statusFromSignatures(getStoredSignatures(userId)));
+    };
 
-    if (!result.privacyPolicy.signed) {
-      setShowModal('privacy');
-    } else if (!result.responsibility.signed) {
-      setShowModal('responsibility');
-    }
+    setLoading(true);
+    load().catch(() => {
+      applyStatus(statusFromSignatures(getStoredSignatures(userId)));
+    });
+
+    return () => {
+      cancelled = true;
+    };
   }, [userId]);
 
   const sign = async (type: 'privacy' | 'responsibility') => {
@@ -67,35 +96,29 @@ export function useDocuments(userId: string | null) {
 
     const docType = type === 'privacy' ? 'privacy_policy' : 'responsibility_declaration';
     const version = type === 'privacy' ? status.privacyPolicy.version : status.responsibility.version;
+    const signature = `${docType}_v${version}`;
 
-    persistSignature(userId, `${docType}_v${version}`);
+    persistSignature(userId, signature);
+    if (isSupabaseConfigured && supabase) {
+      const { error } = await supabase.from('document_signatures').insert({
+        user_id: userId,
+        document_type: docType,
+        document_version: version,
+      });
+      if (error && error.code !== '23505') return false;
+    }
 
     const signatures = getStoredSignatures(userId);
-    const newStatus: DocumentStatus = {
-      privacyPolicy: {
-        signed: signatures.has('privacy_policy_v1.0'),
-        version: '1.0',
-      },
-      responsibility: {
-        signed: signatures.has('responsibility_declaration_v1.0'),
-        version: '1.0',
-      },
-    };
-
+    const newStatus = statusFromSignatures(signatures);
     setStatus(newStatus);
 
-    if (type === 'privacy' && !newStatus.responsibility.signed) {
-      setShowModal('responsibility');
-    } else {
-      setShowModal(null);
-    }
+    if (type === 'privacy' && !newStatus.responsibility.signed) setShowModal('responsibility');
+    else setShowModal(null);
 
     return true;
   };
 
-  const decline = () => {
-    setShowModal(null);
-  };
+  const decline = () => setShowModal(null);
 
   const needsSignature = status
     ? !status.privacyPolicy.signed || !status.responsibility.signed

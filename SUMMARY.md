@@ -1,9 +1,12 @@
 # AutoLupa - Summary
 
 ## Objective
-Plataforma chilena de comparación/catálogo de autos 0km con datos reales del mercado local. React + TypeScript + Vite. Hosting: Cloudflare Pages (`autolupa.pages.dev`).
+Marketplace chileno de autos usados con comparador integrado de vehículos nuevos. React + TypeScript + Vite + Supabase. Hosting: Cloudflare Pages (`autolupa.pages.dev`).
 
 ## Estado Actual
+- **Marketplace de usados**: `/usados`, detalle por slug, filtros, CTA, publicación en 4 pasos, gestión de avisos, reportes y moderación en Supabase
+- **Persistencia**: listings, fotos, favoritos, perfiles, preferencias y firmas en Supabase; RLS y moderación obligatorias antes de publicar
+- **Seguridad de datos**: máquina de estados en base de datos, proyección pública de columnas, fotos no enumerables, `_headers` con cabeceras de seguridad, `_redirects` para el fallback SPA, CI con lint + tests + build
 - **Core**: Home, CarDetail, Favorites, Compare, FilterPanel, CarGrid funcionando
 - **Catálogo**: 98 marcas / 626 modelos con id único (IDs duplicados corregidos: 310/352/331 renumerados a 647/648/649; marca "Tank" duplicada eliminada)
 - **Top 10** (`/top10`): Rankings por categoría (seguridad, espacio, consumo, potencia, económico, autonomía EV, nuevos). Sincronizado con el parámetro `?cat=` del dropdown de la Navbar
@@ -15,7 +18,7 @@ Plataforma chilena de comparación/catálogo de autos 0km con datos reales del m
 - **Páginas legales**: `/privacidad`, `/terminos`, `/responsabilidad` (LegalDocs) — enlaces funcionales en el Footer, incluidas en el sitemap
 - **Dark/light**: tailwind `dark:` en todos los componentes
 - **PWA**: favicon e ícono propios (`favicon.svg`), manifiesto actualizado (antes `vite.svg`)
-- **Tests**: 31/31 pasando
+- **Tests**: 65 tests pasando (incluye smoke test de las páginas del marketplace)
 - **Lint**: 0 errores / 0 warnings
 - **Build**: compila sin errores (el aviso de chunk >500 KB se debe a los datos de catálogo embebidos en el bundle principal)
 
@@ -30,14 +33,14 @@ Plataforma chilena de comparación/catálogo de autos 0km con datos reales del m
 - Git: `core.fileMode false` activado (se eliminó el ruido NTFS de 600+ archivos)
 
 ## Rendimiento
-- Firebase ya no carga en el bundle inicial (chunk `vendor-firebase` desaparecido): se importa dinámicamente solo cuando hay credenciales configuradas
+- Supabase se carga sólo en las páginas que usan autenticación, favoritos o marketplace; el catálogo nuevo conserva su bundle principal
 - Widgets del modal CarDetail (TCO/EV/Crédito/Guía) convertidos en pestañas que se montan bajo demanda
 
 ## Ajustes recientes
 - **Motor de recomendación semántica local** (`data/recommender.ts` + `Wizard/SmartAsk.tsx`): parseo de consultas libres en español (presupuesto en CLP, uso, combustible con sinónimos, transmisión, plazas, tracción, formato, prioridades, marca, año) + scoring ponderado (presupuesto 20 / uso 20 / combustible 15 / prioridad 15 / plazas 10 / transmisión 8 / tracción 7 / formato 5) con `reasons` explicativas y filtros duros solo para lo explícito (marca, formato, año, ≥6 plazas). Botón "Pregunta con tus palabras" en el hero de Home; chips "Entendí"; top 10 con afinidad; verificación con smoke test sobre el catálogo real (todos los top coherentes). 21 tests nuevos en `recommender.test.ts`
 - **Años dinámicos**: filtros de año usan `new Date().getFullYear()` en vez de valores hardcodeados (2010–2026)
-- **Firmas de documentos**: persistidas en `localStorage` (antes solo en memoria)
-- **SEO**: canonical/og:url por ruta; eliminado SearchAction roto (`?q=`); sitemap completo (incluye `/top10` y legales)
+- **Firmas de documentos**: persistidas en Supabase para cuentas conectadas, con respaldo local si no hay backend
+- **SEO**: canonical/og:url por ruta; `Vehicle` + `Offer` + `BreadcrumbList` en detalle de usados e `ItemList` en el listado; sitemap incluye publicación y usados
 - **Etiquetas**: "AutoMatch IA" renombrado a "Asistente AutoLupa" (es un wizard de reglas, no IA)
 - **Footer**: enlaces legales reales + conteos dinámicos (`brands.length` / `carsData.length`)
 - **Novedades 2026 curado**: el rail de Home ya no es `filter(year>=2026)` (255 autos); ahora muestra 12 lanzamientos notables definidos en `NOVEDADES_2026` (`Home.tsx`)
@@ -74,7 +77,13 @@ Plataforma chilena de comparación/catálogo de autos 0km con datos reales del m
 - `src/components/Filters/FilterPanel.tsx` - Panel de filtros
 - `src/components/Calculator/CreditCalc.tsx` - Simulador de crédito
 - `src/components/Wizard/AutoWizard.tsx` - Asistente de recomendación
-- `src/hooks/useCars.ts` - Estado global (filtros, favoritos, comparador, recientes, sync Firebase)
+- `src/hooks/useCars.ts` - Estado global (filtros, favoritos, comparador, recientes, sync Supabase)
+- `src/lib/usedListings.ts` - Operations de Supabase para listings, fotos, reportes y moderación
+- `src/pages/Usados.tsx` - Marketplace público y filtros
+- `src/pages/PublicarAuto.tsx` - Formulario de cuatro pasos
+- `src/pages/UsedListingDetail.tsx` - Detalle SEO de aviso
+- `src/pages/MisAnuncios.tsx` / `src/pages/ModeracionUsados.tsx` - Gestión y moderación
+- `supabase/migrations/202609250001_marketplace.sql` - Esquema, RLS, roles y Storage
 - `src/data/brands/` - 98 archivos JSON de marcas
 - `src/data/brands/index.ts` - Agregador de datos
 
@@ -86,6 +95,13 @@ Plataforma chilena de comparación/catálogo de autos 0km con datos reales del m
 - **Advertencia de curaduría**: por diseño best-effort, ~15 imágenes son de la misma generación/plataforma comercial (p. ej. BMW Serie 3 G28, TBZ Mazda 6 2023, Tiggo 7 Pro, Roewe para MG RX5/RX8/RX9, Fownix para Arrizo 6, Radar para Riddara RD6, Haval para GWM Dargo, Ssangyong para KGM). Fidelidad por modelo revisada caso a caso; el pase no inventa fotos (cada entrada apunta a su archivo de Commons)
 
 ## Pendientes / Deuda técnica
+- **Configuración externa**: ejecutar la migración de Supabase, activar Google OAuth y cargar las variables públicas en GitHub Actions antes de abrir el marketplace.
+- **Verificación de RLS**: ejecutar la matriz de `supabase/README.md` con usuarios reales (anónimo, vendedor A, vendedor B, moderador) antes de recibir vendedores.
+- **Rate limiting**: no hay límite de frecuencia para publicaciones ni reportes; integrar Cloudflare Turnstile o similar.
+- **Legal**: razón social y RUT siguen marcados como PENDIENTES en la política de privacidad v1.1.
+- **Fotos huérfanas**: no hay limpieza automática al eliminar un aviso o una cuenta.
+- **Ciclo de vida**: falta editar y reenviar un aviso, retirarlo, renovarlo y un proceso que marque `expired`; hoy nadie asigna ese estado.
+- **Sitemap dinámico**: las URLs individuales ya tienen canonical y datos estructurados; falta generar un sitemap server-side con los listings activos cuando haya backend configurado.
 - **Consumo Lynk & Co 09** (MHEV 2.0T): sin cifra oficial chilena verificada; TCO muestra combustible '—'
 - **DFSK Glory iX5 EV**: se confirma que existe como EV (Seres), pero sin ficha chilena con datos de batería/autonomía → carga '—'
 - **Fotos restantes**: 54 siluetas (ver lista arriba) — buscar cuando salgan fotos en Commons o fichas oficiales

@@ -1,5 +1,6 @@
-const CACHE = 'automatch-v1';
+const CACHE = 'autolupa-v2';
 const CORE = ['/', '/index.html', '/manifest.json'];
+const CACHEABLE = ['/assets/', '/car-images/'];
 
 self.addEventListener('install', (event) => {
   event.waitUntil(caches.open(CACHE).then((c) => c.addAll(CORE)));
@@ -26,8 +27,10 @@ self.addEventListener('fetch', (event) => {
     event.respondWith(
       fetch(request)
         .then((res) => {
-          const copy = res.clone();
-          caches.open(CACHE).then((c) => c.put('/index.html', copy));
+          if (res.ok) {
+            const copy = res.clone();
+            caches.open(CACHE).then((c) => c.put('/index.html', copy));
+          }
           return res;
         })
         .catch(() => caches.match('/index.html'))
@@ -39,7 +42,7 @@ self.addEventListener('fetch', (event) => {
     caches.match(request).then((cached) => {
       if (cached) return cached;
       return fetch(request).then((res) => {
-        if (res.ok && (url.pathname.startsWith('/assets/') || url.pathname.endsWith('.svg'))) {
+        if (res.ok && CACHEABLE.some((path) => url.pathname.startsWith(path))) {
           const copy = res.clone();
           caches.open(CACHE).then((c) => c.put(request, copy));
         }

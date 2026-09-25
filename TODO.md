@@ -61,16 +61,19 @@
 
 ---
 
-## 🟢 Prioridad 4 — Sección de Usados (en planeación)
+## 🟢 Prioridad 4 — Marketplace de Usados
 
-- [ ] Definir modelo de negocio (marketplace, lead gen, directo)
-- [ ] Autenticación (Firebase Auth)
-- [ ] Formulario de publicación de vehículos
-- [ ] Upload de fotos (Storage)
-- [ ] Moderación / aprobación de publicaciones
-- [ ] Chat entre comprador y vendedor
-- [ ] Geolocalización / región
-- [ ] Paginación / infinite scroll para listings
+- [x] Backend Supabase (Postgres, Auth y Storage)
+- [x] Formulario de publicación de vehículos en 4 pasos
+- [x] Upload y optimización de fotos en Storage
+- [x] Moderación / aprobación de publicaciones
+- [x] Filtros por marca, región, combustible, transmisión, año, precio y kilometraje
+- [x] Paginación, detalle por slug, contacto WhatsApp y reportes
+- [x] Gestión de avisos del vendedor
+- [ ] Chat en tiempo real entre comprador y vendedor
+- [ ] Geolocalización fina y mapa de avisos
+- [ ] Sitemap server-side de listings activos
+- [ ] Migrar listings antiguo de `localStorage` (no son datos públicos)
 
 ---
 
@@ -120,4 +123,6 @@
 | Precio Montana | ✅ |
 | Orígenes capitalizados | ✅ |
 | Docs comparador | ✅ |
-| 52/52 tests, lint 0, build OK | ✅ |
+| 65/65 tests, lint 0, build OK | ✅ |
+| Marketplace Supabase, formulario, filtros, SEO y moderación | ✅ implementation; external setup pending |
+| RLS, máquina de estados, proyección pública y fotos no enumerables | ✅ migración lista; falta ejecutar matriz con usuarios reales |

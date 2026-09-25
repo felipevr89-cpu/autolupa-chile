@@ -10,6 +10,7 @@ import { CarDetail } from '../components/Cars/CarDetail';
 import { CreditCalc } from '../components/Calculator/CreditCalc';
 import { AutoWizard } from '../components/Wizard/AutoWizard';
 import { SmartAsk } from '../components/Wizard/SmartAsk';
+import { RecentUsedListings } from '../components/Used/RecentUsedListings';
 import { carsData } from '../data/brands';
 import { defaultYearRange } from '../hooks/useCars';
 import { Filters } from '../types';
@@ -176,7 +177,12 @@ export function Home({
           </button>
         </div>
         <p className="text-sm text-gray-500 dark:text-gray-400 mt-2">Responde preguntas o escribe con tus palabras — recomendación 100% local</p>
+        <Link to="/usados" className="inline-block mt-4 text-sm font-semibold text-blue-600 dark:text-blue-400 hover:underline">
+          ¿Buscas un usado? Compra o publica gratis →
+        </Link>
       </div>
+
+      <RecentUsedListings />
 
       {compareList.length > 0 && (
         <div className="mb-6 bg-blue-50 dark:bg-blue-900/30 border border-blue-200 dark:border-blue-800 rounded-xl p-4 flex items-center justify-between">

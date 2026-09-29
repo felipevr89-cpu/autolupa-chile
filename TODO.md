@@ -75,6 +75,21 @@
 - [ ] Sitemap server-side de listings activos
 - [ ] Migrar listings antiguo de `localStorage` (no son datos públicos)
 
+### Configuración externa ✅ (29-09-2026)
+- [x] Proyecto Supabase creado y migración ejecutada
+- [x] Google OAuth (consent screen + provider)
+- [x] Secrets de GitHub Actions (URL y anon key)
+- [x] Matriz de RLS verificada con usuarios reales (15/15)
+
+### Adecuación a la Ley 21.719 (vigente 01-12-2026)
+- [ ] Completar información del responsable (razón social y RUT) en la política de privacidad
+- [ ] Procedimiento de derechos del titular (acuse, 30 días, reclamo ante la Agencia)
+- [ ] Bloqueo temporal con respuesta en 2 días hábiles
+- [ ] Exportación de datos (portabilidad) y baja de cuenta (supresión)
+- [ ] Registro de Actividades de Tratamiento (RAT)
+- [ ] Runbook de reporte de brechas
+- [ ] Sección de transferencias internacionales (Supabase, Cloudflare, Google)
+
 ---
 
 ## 🔵 Prioridad 5 — UX y rendimiento
@@ -124,5 +139,7 @@
 | Orígenes capitalizados | ✅ |
 | Docs comparador | ✅ |
 | 65/65 tests, lint 0, build OK | ✅ |
-| Marketplace Supabase, formulario, filtros, SEO y moderación | ✅ implementation; external setup pending |
-| RLS, máquina de estados, proyección pública y fotos no enumerables | ✅ migración lista; falta ejecutar matriz con usuarios reales |
+| Marketplace Supabase, formulario, filtros, SEO y moderación | ✅ |
+| RLS, máquina de estados, proyección pública y fotos no enumerables | ✅ matriz 15/15 verificada con usuarios reales (29-09-2026) |
+| Configuración externa (migración, OAuth, GitHub Secrets) | ✅ |
+| Renombrado AutoMatch → AutoLupa (carpeta y código) | ✅ |

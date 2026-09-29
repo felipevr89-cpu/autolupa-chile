@@ -12,7 +12,7 @@ const FORCE = process.argv.includes('--force');
 const LIMIT_ARG = process.argv.find((a) => a.startsWith('--limit='));
 const LIMIT = LIMIT_ARG ? parseInt(LIMIT_ARG.split('=')[1], 10) : Infinity;
 
-const UA = 'AutoMatchChile/1.0 (https://automatchs.pages.dev; catalog images) node-fetch';
+const UA = 'AutoLupa/1.0 (https://autolupa.pages.dev; catalog images) node-fetch';
 
 function normalize(s) {
   return s.normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-zA-Z0-9 ]/g, ' ').replace(/\s+/g, ' ').trim();

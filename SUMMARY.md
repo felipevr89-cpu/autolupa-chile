@@ -94,9 +94,23 @@ Marketplace chileno de autos usados con comparador integrado de vehículos nuevo
 - Restaurados **Ioniq 5/6 y Range Rover Sport** con la foto correcta (la nueva generación L461 del Range Rover Sport)
 - **Advertencia de curaduría**: por diseño best-effort, ~15 imágenes son de la misma generación/plataforma comercial (p. ej. BMW Serie 3 G28, TBZ Mazda 6 2023, Tiggo 7 Pro, Roewe para MG RX5/RX8/RX9, Fownix para Arrizo 6, Radar para Riddara RD6, Haval para GWM Dargo, Ssangyong para KGM). Fidelidad por modelo revisada caso a caso; el pase no inventa fotos (cada entrada apunta a su archivo de Commons)
 
+## Configuración de Supabase (29-09-2026)
+- **Proyecto creado**: `eeqhqsteeobegaekynse` (`.env` local con URL, anon key y site URL; el archivo está en `.gitignore`).
+- **Migración ejecutada** por SQL Editor: 6 tablas + `private.user_roles`, RLS en todas, 14 políticas, bucket `listing-photos`, máquina de estados y RPC.
+- **Google OAuth** configurado (consent screen externo + credencial web con redirect `https://eeqhqsteeobegaekynse.supabase.co/auth/v1/callback`; provider habilitado en Supabase).
+- **GitHub Secrets completos**: `CLOUDFLARE_ACCOUNT_ID`, `CLOUDFLARE_API_TOKEN` (previos) + `VITE_SUPABASE_URL` y `VITE_SUPABASE_ANON_KEY` (nuevos).
+- **Matriz RLS ejecutada con usuarios reales**: 15/15 pruebas pasaron (anónimo, vendedor A, vendedor B, moderador). Detalle en `supabase/README.md`. Datos de prueba eliminados al terminar.
+- **Gotcha GoTrue**: insertar usuarios directamente en `auth.users` deja columnas de token en `NULL` y rompe todo login con `Database error querying schema`; crearlos con la API admin.
+
+## Renombrado AutoMatch → AutoLupa
+- Carpeta local renombrada de `automatch/` a `autolupa/` (la sesión de trabajo se movió al nuevo path).
+- Última referencia en código corregida: la User-Agent de `scripts/fetch-images.cjs` decía `AutoMatchChile/1.0 (https://automatchs.pages.dev...)`; ahora es `AutoLupa/1.0 (https://autolupa.pages.dev...)`.
+- Quedan sólo menciones históricas en `AUDITORIA.md`, `SUMMARY.md` y `TODO.md` (documentan el propio renombrado).
+- **Pendiente de decisión**: renombrar también el repositorio de GitHub `automatch-chile` → `autolupa-chile`.
+
 ## Pendientes / Deuda técnica
-- **Configuración externa**: ejecutar la migración de Supabase, activar Google OAuth y cargar las variables públicas en GitHub Actions antes de abrir el marketplace.
-- **Verificación de RLS**: ejecutar la matriz de `supabase/README.md` con usuarios reales (anónimo, vendedor A, vendedor B, moderador) antes de recibir vendedores.
+- **Configuración externa**: ~~ejecutar la migración, activar Google OAuth y cargar los secrets~~ ✅ hecho.
+- **Verificación de RLS**: ~~ejecutar la matriz con usuarios reales~~ ✅ 15/15 (29-09-2026).
 - **Rate limiting**: no hay límite de frecuencia para publicaciones ni reportes; integrar Cloudflare Turnstile o similar.
 - **Legal**: razón social y RUT siguen marcados como PENDIENTES en la política de privacidad v1.1.
 - **Fotos huérfanas**: no hay limpieza automática al eliminar un aviso o una cuenta.

@@ -91,9 +91,37 @@ reset role;
 
 `MODERATOR_ID` debe tener rol en `private.user_roles` (`moderator` o `admin`).
 
+## Resultados de la matriz (29-09-2026)
+
+Ejecutada con la Management API sobre el proyecto `eeqhqsteeobegaekynse`, con tres usuarios reales creados por GoTrue (vendedor A, vendedor B y moderador con rol en `private.user_roles`). 15/15 pruebas pasaron:
+
+| Prueba | Resultado |
+| --- | --- |
+| Anónimo sólo ve avisos activos | 0 filas sin avisos activos |
+| Anónimo inserta | bloqueado por RLS |
+| Vendedor crea aviso | `status = pending` |
+| Vendedor fuerza `status = active` | bloqueado por RLS |
+| Vendedor B no ve el `pending` de A | 0 filas |
+| Vendedor B edita aviso de A | 0 filas |
+| Transición `pending -> sold` | rechazada por trigger |
+| Moderador aprueba | 1 fila, pasa a `active` |
+| Anónimo ve el aviso activo | 1 fila |
+| Vendedor edita precio de aviso activo | vuelve a `pending` |
+| Fotos de otro vendedor | rechazadas por `used_listings_photos_belong_to_seller` |
+| RPC `mark_used_listing_sold` (dueño) | `status = sold` |
+| RPC `mark_used_listing_sold` (vendedor B sobre aviso de A) | rechazada |
+| Anónimo borra aviso | 0 filas borradas |
+| Moderador borra aviso | 1 fila borrada |
+
+Los usuarios y avisos de prueba fueron eliminados al terminar: `auth.users`, `profiles`, `private.user_roles`, `auth.identities` y `used_listings` quedaron en 0.
+
+## Crear usuarios de prueba
+
+Usar la API admin (`POST /auth/v1/admin/users` con la `service_role` key). **No insertar directamente en `auth.users`**: GoTrue guarda `''` (texto vacío) en `confirmation_token`, `recovery_token`, `email_change_token_new`, `email_change_token_current` y `email_change`; si quedan en `NULL`, todo login sobre ese usuario falla con `Database error querying schema`.
+
 ## Pendiente antes de recibir vendedores reales
 
-1. Ejecutar esta matriz con usuarios reales y registrar los resultados.
+1. ~~Ejecutar esta matriz con usuarios reales y registrar los resultados.~~ ✅ 29-09-2026 (15/15).
 2. Añadir Cloudflare Turnstile o rate limiting para publicaciones y reportes: hoy no hay límite de frecuencia.
 3. Limpieza de fotos huérfanas al eliminar un aviso o una cuenta.
 4. Revisión jurídica de los documentos (la razón social y el RUT siguen marcados como PENDIENTES).

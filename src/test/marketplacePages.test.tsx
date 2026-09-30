@@ -27,8 +27,20 @@ describe('marketplace pages without a configured backend', () => {
   });
 
   it('keeps the publish form closed until the backend exists', () => {
-    renderPage(<PublicarAuto user={null} isCloudAuthAvailable={false} onSignIn={noop} />);
+    renderPage(<PublicarAuto user={null} isCloudAuthAvailable={false} onSignIn={noop} onSignInAnonymous={noop} />);
     expect(screen.getByText(/preparación/i)).toBeInTheDocument();
+  });
+
+  it('offers publishing without an account when the backend is live', () => {
+    const anonymous = vi.fn();
+    renderPage(
+      <PublicarAuto user={null} isCloudAuthAvailable onSignIn={noop} onSignInAnonymous={anonymous} />,
+    );
+    expect(screen.getByRole('heading', { name: /sin crear cuenta/i })).toBeInTheDocument();
+    expect(screen.getByText(/pedimos un correo para confirmar/i)).toBeInTheDocument();
+    screen.getByRole('button', { name: /publicar sin crear cuenta/i }).click();
+    expect(anonymous).toHaveBeenCalledTimes(1);
+    expect(screen.getByRole('button', { name: /continuar con google/i })).toBeInTheDocument();
   });
 
   it('asks anonymous visitors to sign in for their listings', () => {

@@ -103,10 +103,15 @@ el detalle es útil al comprar y además educa al usuario. Se agrega en su lugar
 - [x] Título SEO de la home: "Autos Usados y Nuevos en Chile | Publica Gratis - AutoLupa" ✅ (30-09)
 
 ### Semanas 1–3 — 🔴 Formulario en 3 pasos
-- [ ] Paso 1 Datos del auto con autocompletado desde el catálogo (marca/modelo/año)
-- [ ] Paso 2 Fotos con drag-and-drop y múltiples archivos
-- [ ] Paso 3 Contacto con verificación por WhatsApp o email **sin crear cuenta**
-- [ ] Mantener la moderación `pending` actual: la baja de fracción no puede saltarse la revisión
+- [x] Paso 1 Datos del auto (marca, modelo, año, color, combustible, transmisión) ✅ (30-09)
+- [ ] Autocompletado de marca/modelo/año desde el catálogo de 626 vehículos
+- [x] Paso 2 Fotos múltiples con optimización en el navegador (1 a 8) ✅ (30-09)
+- [ ] Drag & drop real en el paso de fotos (hoy es input de archivos)
+- [x] Paso 3 Contacto con verificación de email **sin crear cuenta**: sesión anónima + `updateUser({email})` ✅ (30-09)
+- [ ] Verificación por WhatsApp (requiere proveedor SMS/WhatsApp Business)
+- [x] La moderación `pending` no se salta: trigger + RLS verificados 4/4 ✅ (30-09)
+- [ ] **🔴 Contratar SMTP**: `rate_limit_email_sent` está en **2 correos/hora** y no se puede subir sin SMTP propio. Sin esto el flujo de invitado no aguanta producción (tampoco los restablecimientos de contraseña).
+- [ ] Probar el envío real de `updateUser({email})` cuando la ventana de 2 correos/hora se reinicie
 
 ### Mes 1 — 🟠 Contenido y SEO
 - [ ] Páginas de aterrizaje por ciudad/comuna ("Autos usados en Providencia")

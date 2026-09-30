@@ -37,11 +37,17 @@ export function useAuth() {
     if (error) throw error;
   };
 
+  const signInAnonymously = async () => {
+    if (!isSupabaseConfigured || !supabase) return;
+    const { error } = await supabase.auth.signInAnonymously({ options: { data: { origen: 'publicar_auto' } } });
+    if (error) throw error;
+  };
+
   const signOut = async () => {
     if (!isSupabaseConfigured || !supabase) return;
     const { error } = await supabase.auth.signOut();
     if (error) throw error;
   };
 
-  return { user, loading, signInWithGoogle, signOut, isCloudAuthAvailable: isSupabaseConfigured };
+  return { user, loading, signInWithGoogle, signInAnonymously, signOut, isCloudAuthAvailable: isSupabaseConfigured };
 }

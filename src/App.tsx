@@ -40,7 +40,7 @@ function PageSkeleton() {
 }
 
 function AppContent() {
-  const { user, loading: authLoading, signInWithGoogle, signOut, isCloudAuthAvailable } = useAuth();
+  const { user, loading: authLoading, signInWithGoogle, signInAnonymously, signOut, isCloudAuthAvailable } = useAuth();
   const {
     cars,
     allCarsCount,
@@ -230,7 +230,7 @@ function AppContent() {
           path="/publicar-auto"
           element={
             <Suspense fallback={<PageSkeleton />}>
-              <PublicarAuto user={user} isCloudAuthAvailable={isCloudAuthAvailable} onSignIn={signInWithGoogle} />
+              <PublicarAuto user={user} isCloudAuthAvailable={isCloudAuthAvailable} onSignIn={signInWithGoogle} onSignInAnonymous={signInAnonymously} />
             </Suspense>
           }
         />

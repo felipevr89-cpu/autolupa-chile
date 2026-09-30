@@ -7,4 +7,6 @@ vi.stubEnv('VITE_SUPABASE_ANON_KEY', '');
 
 afterEach(() => {
   cleanup();
+  localStorage.clear();
+  sessionStorage.clear();
 });

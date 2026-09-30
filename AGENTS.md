@@ -124,6 +124,7 @@ src/
 - Supabase Auth con Google para vendedores; Supabase Postgres para listings, preferencias, firmas y reportes; Supabase Storage para fotos.
 - RLS: los avisos nuevos quedan `pending`; sólo moderadores pueden publicarlos o rechazarlos. No se crean listings de ejemplo.
 - Rutas: `/usados`, `/usados/:slug`, `/publicar-auto`, `/mis-anuncios` y `/moderacion`.
+- Publicación sin registro: sesión anónima + verificación de email (`updateUser`), trigger `require_verified_seller` en `used_listings`. Ver `supabase/README.md`.
 - Filtros: búsqueda, marca, región, combustible, transmisión, año, precio, kilometraje, orden y paginación.
 - SEO: `Vehicle` + `Offer` + `BreadcrumbList` en detalle e `ItemList` en el listado.
 - La configuración de Supabase y los pasos de despliegue están en `README.md`.

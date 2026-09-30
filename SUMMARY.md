@@ -136,6 +136,45 @@ Marketplace chileno de autos usados con comparador integrado de vehículos nuevo
 - **Marcas**: no añadir **FAW** como auto liviano (en Chile solo hay FAW Trucks); verificar nuevos anuncios de marcas 2026
 - `SUMMARY.md` y `AGENTS.md` se actualizan manualmente
 
+## Publicación sin registro (30-09-2026)
+
+**Decisión del usuario:** el anónimo inserta en `pending` con email verificado (no cuenta con Google ni insert sin verificación).
+
+### Configuración Supabase (Management API)
+- `external_anonymous_users_enabled: true` (rate limit 60/h).
+- `security_manual_linking_enabled: true` — obligatorio para `updateUser({ email })` en un usuario anónimo.
+- `rate_limit_otp: 60`. **`rate_limit_email_sent` sigue en 2/h y NO se puede subir sin SMTP propio** → es el blocker real de esta función: hasta contratar SMTP solo salen 2 correos de confirmación por hora.
+- Flujo: `signInAnonymously()` → el usuario llena los pasos → `updateUser({ email }, { emailRedirectTo: /publicar-auto })` → el JWT queda con `email` y `is_anonymous=false` **sin cambiar el uid** (verificado por API: mismas fotos y mismos avisos).
+
+### Migración `202609300002_guest_publishing.sql`
+Trigger `require_verified_seller` (BEFORE INSERT OR UPDATE, security definer) sobre `used_listings`:
+1. Sin `email` en el JWT → `Debes confirmar tu correo electronico antes de publicar.`
+2. Sin identidad OAuth (invitado o usuario de contraseña) → `contact_email` debe ser exactamente el correo confirmado.
+3. Moderadores que editan avisos ajenos salen del trigger (`auth.uid() <> seller_id` → no-op).
+
+### Matriz ejecutada (4/4)
+| # | Caso | Resultado |
+|---|---|---|
+| 1 | Invitado sin email confirmado | 400 `Debes confirmar tu correo…` ✅ |
+| 2 | Verificado con `contact_email` distinto | 400 `El correo de contacto debe ser…` ✅ |
+| 3 | Verificado con `contact_email` coincide | 201 `pending` ✅ |
+| 4 | Invitado fuerza `status: active` | 403 RLS ✅ |
+
+El rol anónimo (sin sesión) sigue sin poder insertar: no se tocó ninguna política, solo se añadió el trigger.
+
+### Frontend
+- `useAuth.signInAnonymously()`; `PublicarAuto` ofrece **Publicar sin crear cuenta** (verde) y **Continuar con Google**.
+- Verificación en el paso 4 con panel de estado, botón «Ya confirmé, comprobar» (poll cada 5 s) y «Reenviar correo».
+- Borrador persistido en `localStorage` (menos las fotos) para sobrevivir la recarga al confirmar el correo; banner explicándolo.
+- Navbar muestra **Invitado** cuando no hay nombre (sesión anónima).
+- Tests: 78.
+
+### Pendiente real
+- **Contratar SMTP** (Resend/Postmark) para subir `rate_limit_email_sent`; sin eso el flujo de invitado no aguanta producción.
+- **Probar el envío real** de `updateUser({email})`: la ventana de 2 correos/hora estaba agotada durante el desarrollo.
+
+
+
 ## Backlog estratégico — Lotes 1 y 2 (30-09-2026)
 
 - **SEO local**: título de la home «Autos Usados y Nuevos en Chile | Publica Gratis - AutoLupa», OG/keywords alineados y `<SEO>` explícito en Home.

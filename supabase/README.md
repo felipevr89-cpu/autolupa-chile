@@ -115,6 +115,34 @@ Ejecutada con la Management API sobre el proyecto `eeqhqsteeobegaekynse`, con tr
 
 Los usuarios y avisos de prueba fueron eliminados al terminar: `auth.users`, `profiles`, `private.user_roles`, `auth.identities` y `used_listings` quedaron en 0.
 
+## Publicación sin registro (30-09-2026)
+
+Flujo de invitado: `signInAnonymously()` → el usuario llena el formulario → `updateUser({ email })` → confirmación por correo → insert con `status = 'pending'`.
+
+**Configuración que lo habilita** (Management API `PATCH /v1/projects/{ref}/config/auth`):
+- `external_anonymous_users_enabled: true`
+- `security_manual_linking_enabled: true` (sin esto `updateUser({ email })` sobre un anónimo falla)
+- `rate_limit_anonymous_users: 60`, `rate_limit_otp: 60`
+- `rate_limit_email_sent: 2` y **no se puede subir sin SMTP propio**
+
+**Trigger `require_verified_seller`** (`202609300002_guest_publishing.sql`, BEFORE INSERT OR UPDATE, security definer):
+1. Exige `email` en el JWT: sin confirmar → `Debes confirmar tu correo electronico antes de publicar.`
+2. Si el vendedor no tiene identidad OAuth (invitado o contraseña), `contact_email` debe ser exactamente el correo confirmado.
+3. Si `auth.uid() <> seller_id` (moderador editando) el trigger no hace nada.
+
+Las políticas RLS no se tocaron: el rol anónimo **sin sesión** sigue sin poder insertar, porque una sesión anónima autenticada usa el rol `authenticated`.
+
+### Matriz del trigger (30-09-2026) — 4/4
+
+| # | Caso | Esperado | Resultado |
+|---|---|---|---|
+| 1 | Invitado sin email confirmado | 400 | ✅ `Debes confirmar tu correo…` |
+| 2 | Verificado, `contact_email` distinto | 400 | ✅ `El correo de contacto debe ser…` |
+| 3 | Verificado, `contact_email` coincide | 201 `pending` | ✅ |
+| 4 | Invitado fuerza `status: 'active'` | 403 | ✅ RLS |
+
+Los usuarios y avisos de prueba se borraron al terminar (0 users, 0 listings).
+
 ## Crear usuarios de prueba
 
 Usar la API admin (`POST /auth/v1/admin/users` con la `service_role` key). **No insertar directamente en `auth.users`**: GoTrue guarda `''` (texto vacío) en `confirmation_token`, `recovery_token`, `email_change_token_new`, `email_change_token_current` y `email_change`; si quedan en `NULL`, todo login sobre ese usuario falla con `Database error querying schema`.
@@ -126,3 +154,4 @@ Usar la API admin (`POST /auth/v1/admin/users` con la `service_role` key). **No 
 3. Limpieza de fotos huérfanas al eliminar un aviso o una cuenta.
 4. Revisión jurídica de los documentos (la razón social y el RUT siguen marcados como PENDIENTES).
 5. Migrar a renderizado en servidor para las rutas públicas y generar el sitemap de avisos.
+6. **Contratar SMTP propio** (Resend, Postmark o SendGrid) y subir `rate_limit_email_sent`. Mientras siga en 2 correos/hora no funciona ni la publicación de invitados ni el restablecimiento de contraseña.

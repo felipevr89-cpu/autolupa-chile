@@ -153,7 +153,7 @@ export function Navbar({ user, signInWithGoogle, signOut, isCloudAuthAvailable }
                       className="w-8 h-8 rounded-full ring-2 ring-blue-500"
                     />
                   )}
-                  <span className="text-sm text-gray-300">{user.displayName}</span>
+                  <span className="text-sm text-gray-300">{user.displayName ?? 'Invitado'}</span>
                 </div>
                 <Link to="/mis-anuncios" className="px-3 py-2 text-sm text-gray-300 hover:text-white transition-colors">
                   Mis avisos
@@ -270,7 +270,7 @@ export function Navbar({ user, signInWithGoogle, signOut, isCloudAuthAvailable }
                   {user.photoURL && (
                     <img src={user.photoURL} alt="" className="w-8 h-8 rounded-full" />
                   )}
-                  <span className="text-sm text-gray-300">{user.displayName}</span>
+                  <span className="text-sm text-gray-300">{user.displayName ?? 'Invitado'}</span>
                 </div>
                 <Link to="/mis-anuncios" onClick={() => setMobileOpen(false)} className="block px-4 py-2 text-sm text-gray-300 hover:bg-white/10 rounded-lg">Mis avisos</Link>
                 <button

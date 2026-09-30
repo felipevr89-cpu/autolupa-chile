@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { SEO } from '../components/SEO';
 import { prepareListingPhoto } from '../lib/listingImages';
 import { createUsedListing } from '../lib/usedListings';
+import { supabase } from '../lib/supabase';
 import {
   MAX_LISTING_PHOTOS,
   USED_FUEL_OPTIONS,
@@ -19,6 +20,7 @@ interface Props {
   user: User | null;
   isCloudAuthAvailable: boolean;
   onSignIn: () => Promise<void>;
+  onSignInAnonymous: () => Promise<void>;
 }
 
 const currentYear = new Date().getFullYear();
@@ -40,11 +42,32 @@ const initialDraft: UsedListingDraft = {
   photos: [],
 };
 
+const DRAFT_STORAGE_KEY = 'autolupa_listing_draft';
 const inputClassName = 'w-full px-3 py-2.5 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-sm';
 
-export function PublicarAuto({ user, isCloudAuthAvailable, onSignIn }: Props) {
-  const [step, setStep] = useState(1);
-  const [draft, setDraft] = useState<UsedListingDraft>(initialDraft);
+type PersistedDraft = Omit<UsedListingDraft, 'photos'>;
+
+function loadPersistedDraft(): { draft?: PersistedDraft; step?: number } {
+  try {
+    const raw = localStorage.getItem(DRAFT_STORAGE_KEY);
+    if (!raw) return {};
+    const parsed = JSON.parse(raw) as { draft?: PersistedDraft; step?: number };
+    if (!parsed?.draft || typeof parsed.draft !== 'object') return {};
+    return { draft: parsed.draft, step: parsed.step === 4 ? 4 : undefined };
+  } catch {
+    return {};
+  }
+}
+
+export function PublicarAuto({ user, isCloudAuthAvailable, onSignIn, onSignInAnonymous }: Props) {
+  const persistedRef = useRef<{ draft?: PersistedDraft; step?: number } | null>(null);
+  if (persistedRef.current === null) persistedRef.current = loadPersistedDraft();
+  const persisted = persistedRef.current;
+  const [step, setStep] = useState(persisted.step ?? 1);
+  const [draft, setDraft] = useState<UsedListingDraft>(() => ({
+    ...initialDraft,
+    ...(persisted.draft ?? {}),
+  }));
   const [errors, setErrors] = useState<UsedListingValidationErrors>({});
   const [photoPreviews, setPhotoPreviews] = useState<string[]>([]);
   const [processingPhotos, setProcessingPhotos] = useState(false);
@@ -52,7 +75,47 @@ export function PublicarAuto({ user, isCloudAuthAvailable, onSignIn }: Props) {
   const [submitError, setSubmitError] = useState('');
   const [submitted, setSubmitted] = useState(false);
   const [acceptedTerms, setAcceptedTerms] = useState(false);
+  const [guestFlow, setGuestFlow] = useState(false);
+  const [verificationSent, setVerificationSent] = useState(false);
+  const [sendingVerification, setSendingVerification] = useState(false);
   const previewUrls = useRef<string[]>([]);
+
+  const restoredDraft = Boolean(persisted.draft);
+  const emailVerified = Boolean(user?.email);
+  const mustVerifyEmail = !emailVerified;
+
+  useEffect(() => {
+    const restorable: PersistedDraft = {
+      brand: draft.brand,
+      model: draft.model,
+      year: draft.year,
+      price: draft.price,
+      mileage: draft.mileage,
+      fuel: draft.fuel,
+      transmission: draft.transmission,
+      color: draft.color,
+      region: draft.region,
+      commune: draft.commune,
+      description: draft.description,
+      contactName: draft.contactName,
+      contactPhone: draft.contactPhone,
+      contactEmail: draft.contactEmail,
+    };
+    try {
+      localStorage.setItem(DRAFT_STORAGE_KEY, JSON.stringify({ draft: restorable, step }));
+    } catch {
+      return;
+    }
+  }, [draft, step]);
+
+  useEffect(() => {
+    const client = supabase;
+    if (!verificationSent || !client || user?.email) return undefined;
+    const interval = window.setInterval(() => {
+      client.auth.getUser().catch(() => undefined);
+    }, 5000);
+    return () => window.clearInterval(interval);
+  }, [verificationSent, user?.email]);
 
   useEffect(() => () => {
     previewUrls.current.forEach((url) => URL.revokeObjectURL(url));
@@ -120,6 +183,32 @@ export function PublicarAuto({ user, isCloudAuthAvailable, onSignIn }: Props) {
     setPhotos(draft.photos.filter((_, photoIndex) => photoIndex !== index));
   };
 
+  const sendVerificationEmail = async () => {
+    if (!supabase) {
+      setSubmitError('El backend no está disponible.');
+      return;
+    }
+    setSendingVerification(true);
+    setSubmitError('');
+    try {
+      const { error } = await supabase.auth.updateUser(
+        { email: draft.contactEmail.trim().toLowerCase() },
+        { emailRedirectTo: `${window.location.origin}/publicar-auto` },
+      );
+      if (error) throw error;
+      setGuestFlow(true);
+      setVerificationSent(true);
+    } catch (error) {
+      setSubmitError(
+        error instanceof Error
+          ? `No pudimos enviar el correo de confirmación: ${error.message}`
+          : 'No pudimos enviar el correo de confirmación.',
+      );
+    } finally {
+      setSendingVerification(false);
+    }
+  };
+
   const submit = async () => {
     const validationErrors = validateUsedListingDraft(draft);
     setErrors(validationErrors);
@@ -134,11 +223,27 @@ export function PublicarAuto({ user, isCloudAuthAvailable, onSignIn }: Props) {
       return;
     }
 
+    if (mustVerifyEmail) {
+      if (!draft.contactEmail.trim()) {
+        setErrors({ contactEmail: 'Para publicar sin cuenta necesitamos un correo válido.' });
+        setStep(3);
+        return;
+      }
+      if (!verificationSent) {
+        await sendVerificationEmail();
+        return;
+      }
+      setSubmitError('Tu correo todavía no está confirmado. Haz clic en el enlace que te enviamos y vuelve a esta pestaña.');
+      return;
+    }
+
     setSubmitting(true);
     setSubmitError('');
+    const finalDraft = guestFlow && user?.email ? { ...draft, contactEmail: user.email } : draft;
     try {
-      await createUsedListing(draft);
+      await createUsedListing(finalDraft);
       clearPhotos();
+      localStorage.removeItem(DRAFT_STORAGE_KEY);
       setSubmitted(true);
     } catch (error) {
       setSubmitError(error instanceof Error ? error.message : 'No pudimos publicar tu aviso.');
@@ -166,9 +271,42 @@ export function PublicarAuto({ user, isCloudAuthAvailable, onSignIn }: Props) {
         <SEO title="Publicar Auto Usado Gratis" description="Publica tu auto usado gratis en AutoLupa." />
         <div className="rounded-2xl bg-white dark:bg-gray-800 card-shadow p-8 text-center">
           <p className="text-5xl mb-4">🔑</p>
-          <h1 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">Verifica tu cuenta para publicar</h1>
-          <p className="text-gray-600 dark:text-gray-300 mb-6">Publicar es gratis. Usamos tu cuenta para proteger a compradores y vendedores.</p>
-          <button onClick={() => onSignIn().catch(() => setSubmitError('No pudimos iniciar sesión.'))} className="px-6 py-3 bg-blue-600 text-white rounded-xl font-bold hover:bg-blue-700">Continuar con Google</button>
+          <h1 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">Publica tu auto sin crear cuenta</h1>
+          <p className="text-gray-600 dark:text-gray-300 mb-6">
+            Sin registro ni comisión. Solo pedimos un correo para confirmar que eres real: lo revisamos, tu aviso entra
+            en revisión y aparece en la web cuando lo aprobamos.
+          </p>
+          <div className="flex flex-col gap-3">
+            <button
+              type="button"
+              onClick={async () => {
+                try {
+                  await onSignInAnonymous();
+                } catch {
+                  setSubmitError('No pudimos iniciar la publicación.');
+                }
+              }}
+              className="px-6 py-3 bg-green-600 text-white rounded-xl font-bold hover:bg-green-700"
+            >
+              Publicar sin crear cuenta
+            </button>
+            <button
+              type="button"
+              onClick={async () => {
+                try {
+                  await onSignIn();
+                } catch {
+                  setSubmitError('No pudimos iniciar sesión.');
+                }
+              }}
+              className="px-6 py-3 border border-gray-300 dark:border-gray-600 rounded-xl font-semibold text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700"
+            >
+              Continuar con Google
+            </button>
+          </div>
+          <p className="text-xs text-gray-500 dark:text-gray-400 mt-5">
+            Publicar sin cuenta deja una sesión temporal en este navegador para que puedas editar o retirar tu aviso.
+          </p>
           {submitError && <p role="alert" className="mt-4 text-sm text-red-600 dark:text-red-300">{submitError}</p>}
         </div>
       </div>
@@ -200,6 +338,13 @@ export function PublicarAuto({ user, isCloudAuthAvailable, onSignIn }: Props) {
         <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white">Vende tu auto en AutoLupa</h1>
         <p className="text-gray-600 dark:text-gray-300 mt-2">Te guíamos en 4 pasos. Sin suscripciones ni comisiones.</p>
       </div>
+
+      {restoredDraft && step > 1 && draft.photos.length === 0 && (
+        <div className="mb-6 rounded-xl border border-blue-200 dark:border-blue-800 bg-blue-50 dark:bg-blue-950/40 p-4 text-sm text-blue-800 dark:text-blue-200">
+          Retomamos tu publicación donde la dejaste. Las fotos no se guardan en este navegador: revisa el paso 2 y
+          vuelve a elegirlas si las perdiste.
+        </div>
+      )}
 
       <ol className="grid grid-cols-4 gap-2 mb-8" aria-label="Pasos de publicación">
         {['Vehículo', 'Fotos', 'Contacto', 'Confirmar'].map((label, index) => {
@@ -264,7 +409,20 @@ export function PublicarAuto({ user, isCloudAuthAvailable, onSignIn }: Props) {
               <Field label="Comuna"><input value={draft.commune} onChange={(event) => updateDraft('commune', event.target.value)} className={inputClassName} placeholder="Ej: Las Condes" /></Field>
               <Field label="Tu nombre" error={errors.contactName}><input value={draft.contactName} onChange={(event) => updateDraft('contactName', event.target.value)} className={inputClassName} placeholder="Nombre visible para compradores" /></Field>
               <Field label="WhatsApp" error={errors.contactPhone}><input value={draft.contactPhone} onChange={(event) => updateDraft('contactPhone', event.target.value)} className={inputClassName} placeholder="+56 9 1234 5678" /></Field>
-              <Field label="Correo (opcional)" error={errors.contactEmail}><input type="email" value={draft.contactEmail} onChange={(event) => updateDraft('contactEmail', event.target.value)} className={inputClassName} placeholder="nombre@correo.cl" /></Field>
+              <Field label={mustVerifyEmail ? 'Correo (lo verificamos)' : 'Correo (opcional)'} error={errors.contactEmail}>
+                <input
+                  type="email"
+                  value={draft.contactEmail}
+                  onChange={(event) => updateDraft('contactEmail', event.target.value)}
+                  className={inputClassName}
+                  placeholder="nombre@correo.cl"
+                />
+                {mustVerifyEmail && (
+                  <span className="block text-xs text-gray-500 dark:text-gray-400 mt-1">
+                    Te enviaremos un enlace de confirmación a este correo antes de publicar.
+                  </span>
+                )}
+              </Field>
             </div>
             <div className="mt-4"><Field label="Descripción" error={errors.description}><textarea rows={5} value={draft.description} onChange={(event) => updateDraft('description', event.target.value)} className={inputClassName} placeholder="Describe estado, mantenciones,/accessorios y motivo de venta." /></Field></div>
           </section>
@@ -285,6 +443,44 @@ export function PublicarAuto({ user, isCloudAuthAvailable, onSignIn }: Props) {
               <input type="checkbox" checked={acceptedTerms} onChange={(event) => setAcceptedTerms(event.target.checked)} className="mt-1" />
               <span>Confirmo que los datos y fotos son reales, que vendo el vehículo legítimamente y acepto los <Link to="/terminos" target="_blank" className="text-blue-600 dark:text-blue-400 underline">términos del marketplace v{USED_LISTING_TERMS_VERSION}</Link> y la <Link to="/privacidad" target="_blank" className="text-blue-600 dark:text-blue-400 underline">política de privacidad</Link>.</span>
             </label>
+
+            {mustVerifyEmail && (
+              <div className="mt-5 rounded-xl border border-amber-200 dark:border-amber-800 bg-amber-50 dark:bg-amber-950/30 p-4" role="status">
+                {verificationSent ? (
+                  <>
+                    <p className="text-sm font-semibold text-amber-800 dark:text-amber-200 mb-1">
+                      Confirma tu correo para publicar
+                    </p>
+                    <p className="text-sm text-amber-700 dark:text-amber-300 mb-3">
+                      Enviamos un enlace de confirmación a <strong>{draft.contactEmail}</strong>. Ábrelo y esta pestaña
+                      se actualizará sola. Mientras tanto, todo lo que cargaste queda guardado.
+                    </p>
+                    <div className="flex flex-wrap gap-3">
+                      <button
+                        type="button"
+                        onClick={() => supabase?.auth.getUser().catch(() => undefined)}
+                        className="px-4 py-2 bg-amber-600 text-white rounded-lg text-sm font-semibold hover:bg-amber-700"
+                      >
+                        Ya confirmé, comprobar
+                      </button>
+                      <button
+                        type="button"
+                        onClick={sendVerificationEmail}
+                        disabled={sendingVerification}
+                        className="px-4 py-2 border border-amber-400 text-amber-800 dark:text-amber-200 rounded-lg text-sm font-semibold disabled:opacity-50"
+                      >
+                        {sendingVerification ? 'Enviando…' : 'Reenviar correo'}
+                      </button>
+                    </div>
+                  </>
+                ) : (
+                  <p className="text-sm text-amber-800 dark:text-amber-200">
+                    Para publicar sin cuenta validamos tu correo: en el último paso te enviamos un enlace de
+                    confirmación a <strong>{draft.contactEmail || 'tu correo'}</strong>.
+                  </p>
+                )}
+              </div>
+            )}
           </section>
         )}
 
@@ -295,7 +491,14 @@ export function PublicarAuto({ user, isCloudAuthAvailable, onSignIn }: Props) {
           {step < 4 ? (
             <button type="button" onClick={nextStep} className="px-6 py-3 bg-blue-600 text-white rounded-xl font-semibold hover:bg-blue-700">Continuar</button>
           ) : (
-            <button type="button" onClick={submit} disabled={submitting} className="px-6 py-3 bg-blue-600 text-white rounded-xl font-semibold hover:bg-blue-700 disabled:opacity-50">{submitting ? 'Enviando…' : 'Enviar para revisión'}</button>
+            <button
+              type="button"
+              onClick={submit}
+              disabled={submitting || sendingVerification}
+              className="px-6 py-3 bg-blue-600 text-white rounded-xl font-semibold hover:bg-blue-700 disabled:opacity-50"
+            >
+              {submitting ? 'Enviando…' : sendingVerification ? 'Enviando enlace…' : mustVerifyEmail && verificationSent ? 'Confirmar correo y enviar' : 'Enviar para revisión'}
+            </button>
           )}
         </div>
       </div>

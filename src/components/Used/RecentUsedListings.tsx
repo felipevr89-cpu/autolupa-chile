@@ -13,7 +13,7 @@ export function RecentUsedListings() {
     if (!isSupabaseConfigured) return;
     let cancelled = false;
     setLoading(true);
-    getLatestUsedListings(4)
+    getLatestUsedListings(8)
       .then((result) => {
         if (!cancelled) setListings(result);
       })

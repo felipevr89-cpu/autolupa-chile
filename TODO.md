@@ -122,7 +122,7 @@ el detalle es útil al comprar y además educa al usuario. Se agrega en su lugar
 - [ ] Sección "Reclamos y Sugerencias" con respuesta pública
 
 ### Mes 2 — 🟡 UX
-- [ ] Home con buscador dual (pestañas Nuevos / Usados) + 6–8 últimos avisos reales
+- [x] Home con buscador dual (pestañas Autos nuevos / Autos usados) + 8 últimos avisos reales ✅ (30-09)
 - [ ] Guía de fotos para vendedores (ángulos, luz, resolución) y recorte básico
 - [ ] Botón "Publicar gratis" flotante en móvil
 - [ ] Reducir carga cognitiva: 6 destacados en home + "Ver catálogo completo"

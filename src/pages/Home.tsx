@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback, useMemo, useRef } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { CpuChipIcon, SparklesIcon } from '@heroicons/react/24/solid';
 import { ClockIcon } from '@heroicons/react/24/outline';
 import { Car } from '../types';
@@ -82,6 +82,19 @@ export function Home({
   const [wizardAnswers, setWizardAnswers] = useState<Record<string, string> | null>(null);
   const [askCars, setAskCars] = useState<Car[] | null>(null);
   const catalogRef = useRef<HTMLDivElement>(null);
+  const navigate = useNavigate();
+  const [searchTab, setSearchTab] = useState<'nuevos' | 'usados'>('nuevos');
+  const [usedQuery, setUsedQuery] = useState('');
+
+  const submitSearch = (event: React.FormEvent) => {
+    event.preventDefault();
+    if (searchTab === 'usados') {
+      const query = usedQuery.trim();
+      navigate(query ? `/usados?q=${encodeURIComponent(query)}` : '/usados');
+      return;
+    }
+    catalogRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
 
   const isFiltering = useMemo(() => (
     searchQuery.trim() !== '' ||
@@ -163,6 +176,40 @@ export function Home({
           Compara precios, especificaciones y encuentra el vehículo perfecto para ti en el mercado chileno.
           Publicar es gratis y nunca cobramos comisión por tu venta.
         </p>
+
+        <form onSubmit={submitSearch} className="max-w-2xl mx-auto mb-7 text-left">
+          <div role="tablist" aria-label="Buscar en" className="flex justify-center gap-2 mb-3">
+            {([['nuevos', 'Autos nuevos'], ['usados', 'Autos usados']] as const).map(([key, label]) => (
+              <button
+                key={key}
+                type="button"
+                role="tab"
+                aria-selected={searchTab === key}
+                onClick={() => setSearchTab(key)}
+                className={`px-4 py-2 rounded-full text-sm font-semibold transition-colors ${searchTab === key ? 'bg-blue-600 text-white' : 'bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700'}`}
+              >
+                {label}
+              </button>
+            ))}
+          </div>
+          <div className="flex gap-2">
+            <input
+              value={searchTab === 'nuevos' ? searchQuery : usedQuery}
+              onChange={(event) => (searchTab === 'nuevos' ? setSearchQuery(event.target.value) : setUsedQuery(event.target.value))}
+              aria-label={searchTab === 'nuevos' ? 'Buscar autos nuevos' : 'Buscar autos usados'}
+              placeholder={searchTab === 'nuevos' ? 'Marca, modelo o tipo — Ej: Toyota Corolla' : 'Entre los avisos publicados — Ej: Corolla 2019'}
+              className="flex-1 px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-xl bg-white dark:bg-gray-800 text-gray-900 dark:text-white text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+            <button type="submit" className="px-6 py-3 bg-blue-600 text-white rounded-xl font-bold hover:bg-blue-700 transition-colors">
+              Buscar
+            </button>
+          </div>
+          <p className="text-xs text-gray-500 dark:text-gray-400 mt-2 text-center">
+            {searchTab === 'nuevos'
+              ? `Compara ${allCarsCount} fichas de catálogo con precios y especificaciones`
+              : 'Avisos de particulares y concesionarios, con contacto directo y sin comisión'}
+          </p>
+        </form>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
           <button

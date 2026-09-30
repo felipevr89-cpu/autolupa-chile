@@ -175,6 +175,15 @@ El rol anónimo (sin sesión) sigue sin poder insertar: no se tocó ninguna pol�
 
 
 
+## Lote 4 — Buscador dual de la portada (30-09-2026)
+
+- **Buscador dual en el hero** con pestañas `Autos nuevos` / `Autos usados`:
+  - *Nuevos*: escribe en `searchQuery` (mismo estado que el `FilterPanel`) y al enviar hace scroll al catálogo usando el `catalogRef` que ya existía sin usar.
+  - *Usados*: tiene su propio estado local para no ensuciar el filtro del catálogo y navega a **`/usados?q=…`** (aprovecha los parámetros del lote 3; sin texto va a `/usados`).
+  - Bajo el input cambia el texto de apoyo según la pestaña (catálogo vs. avisos con contacto directo).
+- **`RecentUsedListings`** sube de 4 a **8** avisos recientes.
+- Tests: 89 (`src/test/homeSearch.test.tsx`, 3 nuevos: cambio de pestaña, envío a `/usados?q=` y escritura en el catálogo).
+
 ## Lote 3 — SEO local y sitemap dinámico (30-09-2026)
 
 - **`src/data/chileRegions.ts`**: 16 regiones con slug, nombre corto (igual a `USED_REGIONS`), nombre oficial, capital, provincias, comunas y ciudades. Cifras verificadas contra el dato oficial: **346 comunas, 16 regiones, 56 provincias** (el total se assertúa en los tests).

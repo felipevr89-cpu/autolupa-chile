@@ -153,13 +153,17 @@ export function Home({
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
       <div className="text-center mb-8">
-        <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 dark:text-gray-100 mb-4">
+        <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 dark:text-gray-100 mb-3">
           Encuentra tu <span className="text-blue-600 dark:text-blue-400">auto ideal</span>
         </h1>
-        <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto mb-6">
-          Compara precios, especificaciones y encuentra el vehículo perfecto para ti en el mercado chileno
+        <p className="text-xl font-semibold text-blue-700 dark:text-blue-300 mb-4">
+          El auto que buscas, sin letra chica
         </p>
-        
+        <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto mb-6">
+          Compara precios, especificaciones y encuentra el vehículo perfecto para ti en el mercado chileno.
+          Publicar es gratis y nunca cobramos comisión por tu venta.
+        </p>
+
         <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
           <button
             onClick={() => setShowWizard(true)}
@@ -175,6 +179,12 @@ export function Home({
             <SparklesIcon className="w-5 h-5" />
             <span>Pregunta con tus palabras</span>
           </button>
+          <Link
+            to="/publicar-auto"
+            className="inline-flex items-center gap-2 px-6 py-4 bg-green-600 text-white rounded-2xl font-bold hover:bg-green-700 transition-all"
+          >
+            <span>Publicar mi auto gratis</span>
+          </Link>
         </div>
         <p className="text-sm text-gray-500 dark:text-gray-400 mt-2">Responde preguntas o escribe con tus palabras — recomendación 100% local</p>
         <Link to="/usados" className="inline-block mt-4 text-sm font-semibold text-blue-600 dark:text-blue-400 hover:underline">

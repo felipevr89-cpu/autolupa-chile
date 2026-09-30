@@ -5,11 +5,12 @@ export function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="bg-gray-900 dark:bg-gray-950 text-gray-400 mt-16">
+    <footer className="bg-gray-900 dark:bg-gray-950 text-gray-400 mt-16 pb-24 md:pb-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div>
             <h3 className="text-white font-bold text-lg mb-4">AutoLupa</h3>
+            <p className="text-sm font-semibold text-green-400 mb-2">El auto que buscas, sin letra chica</p>
             <p className="text-sm leading-relaxed">
               Marketplace y comparador de vehículos para Chile. Compra autos usados, publica tu auto gratis o compara modelos nuevos.
             </p>

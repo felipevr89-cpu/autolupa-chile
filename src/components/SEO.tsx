@@ -16,7 +16,7 @@ const brandCount = brands.length;
 export function SEO({ title, description, jsonLd, noIndex = false }: Props) {
   const { pathname } = useLocation();
   const siteName = 'AutoLupa';
-  const fullTitle = title ? `${title} | ${siteName}` : `${siteName} - Comparador de Autos ${new Date().getFullYear()}`;
+  const fullTitle = title ? `${title} | ${siteName}` : `Autos Usados y Nuevos en Chile | Publica Gratis - ${siteName}`;
   const desc = description || `Compara ${carCount} vehículos de ${brandCount} marcas en el mercado chileno. Precios, especificaciones, versiones y más.`;
   const canonical = `${siteUrl}${pathname === '/' ? '/' : pathname}`;
   const structuredData = jsonLd || (pathname === '/'

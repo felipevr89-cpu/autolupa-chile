@@ -111,7 +111,10 @@ function AppContent() {
           path="/"
           element={
             <>
-              <SEO />
+              <SEO
+                title="Autos Usados y Nuevos en Chile | Publica Gratis"
+                description="Publica tu auto gratis y vende sin comisión. Compara precios, kilometraje y especificaciones de autos usados y nuevos en Chile."
+              />
               <Home
               cars={cars}
               allCarsCount={allCarsCount}

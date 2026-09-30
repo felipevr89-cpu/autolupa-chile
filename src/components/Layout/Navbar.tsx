@@ -51,7 +51,6 @@ export function Navbar({ user, signInWithGoogle, signOut, isCloudAuthAvailable }
   const navLinks = [
     { to: '/', label: 'Inicio' },
     { to: '/usados', label: 'Usados' },
-    { to: '/publicar-auto', label: 'Publicar auto' },
     { to: '/compare', label: 'Comparar' },
     { to: '/favorites', label: 'Favoritos' },
     { to: '/blog', label: 'Blog' },
@@ -118,6 +117,13 @@ export function Navbar({ user, signInWithGoogle, signOut, isCloudAuthAvailable }
                 </div>
               )}
             </div>
+
+            <Link
+              to="/publicar-auto"
+              className="ml-1 px-4 py-2 rounded-lg text-sm font-bold bg-green-600 text-white hover:bg-green-500 transition-all"
+            >
+              Publicar gratis
+            </Link>
 
             <button
               onClick={toggleDark}
@@ -196,6 +202,13 @@ export function Navbar({ user, signInWithGoogle, signOut, isCloudAuthAvailable }
       {mobileOpen && (
         <div className="md:hidden border-t border-gray-800 dark:border-gray-700">
           <div className="px-4 py-3 space-y-1">
+            <Link
+              to="/publicar-auto"
+              onClick={() => setMobileOpen(false)}
+              className="block px-4 py-3 rounded-lg text-sm font-bold bg-green-600 text-white text-center hover:bg-green-500 transition-colors"
+            >
+              Publicar mi auto gratis
+            </Link>
             {navLinks.map((link) => (
               <Link
                 key={link.to}
@@ -278,6 +291,15 @@ export function Navbar({ user, signInWithGoogle, signOut, isCloudAuthAvailable }
             )}
           </div>
         </div>
+      )}
+
+      {!mobileOpen && (
+        <Link
+          to="/publicar-auto"
+          className="md:hidden fixed bottom-5 right-5 z-40 flex items-center gap-2 px-5 py-4 rounded-full bg-green-600 text-white font-bold shadow-xl hover:bg-green-500 transition-colors"
+        >
+          Publicar gratis
+        </Link>
       )}
     </nav>
   );

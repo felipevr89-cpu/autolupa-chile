@@ -132,13 +132,13 @@ el detalle es útil al comprar y además educa al usuario. Se agrega en su lugar
 - [ ] "Sello AutoLupa" en fichas: identidad verificada, kilometraje declarado
 - [ ] Verificación por teléfono/WhatsApp; RUT opcional con insignia
 - [ ] Reputación de vendedores (ventas y estrellas)
-- [ ] Banner de seguridad en cada ficha ("nunca transfieras sin ver el auto")
+- [x] Banner de seguridad en cada ficha (`SafetyBanner`: anotaciones vigentes, VIN, transferencia y comisión cero) ✅ (30-09)
 - [ ] Campaña "Sin letra chica": cero comisión por venta
 
 ### Nuevo — 📚 Sección de aprendizaje (terminología)
 - [x] Glosario de términos automotrices (`/glosario`): 27 términos, 5 categorías, buscador y JSON-LD ✅ (30-09)
 - [x] Explicaciones contextuales: `TermTip` con tooltip en CarCard, CarDetail y CompareTable ✅ (30-09)
-- [ ] Vincular desde fichas de vehículo y desde SmartAsk (cuando el usuario pregunta "qué es un PHEV")
+- [x] Vinculo al glosario desde las fichas (dentro del banner de seguridad) y desde el pie del recomendador SmartAsk ✅ (30-09)
 
 ### Mes 4–6 — 🟢 Monetización
 - [ ] Freemium: estándar gratis (10 fotos, 60 días) / destacado $3.990 / premium $7.999

@@ -175,6 +175,15 @@ El rol anónimo (sin sesión) sigue sin poder insertar: no se tocó ninguna pol�
 
 
 
+## Lote 5 — Confianza: banner de seguridad y glosario en fichas (30-09-2026)
+
+- **`src/components/Trust/SafetyBanner.tsx`** con dos contextos:
+  - `used` (5 puntos): no transferir sin ver el auto, **certificado de anotaciones vigentes**, coincidencia VIN/motor con el permiso de circulación, precios sospechosos y aclaración de que AutoLupa no cobra comisión ni gestiones.
+  - `new` (3 puntos): cotización por escrito, precio final con impuestos y entrega, y no pagar reservas a terceros.
+- **Colocación**: ficha de aviso usado (`UsedListingDetail`, antes de "Reportar este aviso") y ficha de catálogo (`CarDetail`, bajo la descripción).
+- **Glosario vinculado**: enlace dentro del banner y en el pie de `SmartAsk` (con `onClick={onClose}` para no dejar el modal abierto sobre `/glosario`).
+- Tests: 92 (`src/test/safetyBanner.test.tsx`, 3 nuevos).
+
 ## Lote 4 — Buscador dual de la portada (30-09-2026)
 
 - **Buscador dual en el hero** con pestañas `Autos nuevos` / `Autos usados`:

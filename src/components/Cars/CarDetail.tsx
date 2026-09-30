@@ -8,6 +8,7 @@ import { TCOCalculator } from '../TCO/TCOCalculator';
 import { EVHub } from '../EV/EVHub';
 import { BuyingGuide } from '../Guides/BuyingGuide';
 import { TermTip } from '../Glossary/TermTip';
+import { SafetyBanner } from '../Trust/SafetyBanner';
 import {
   BoltIcon, WrenchIcon, Battery100Icon, PowerIcon, FireIcon,
   ShieldCheckIcon, CubeIcon, ArrowsRightLeftIcon,
@@ -234,6 +235,10 @@ export function CarDetail({ car, onClose, isFavorite, onToggleFavorite, onPrevCa
           </div>
 
           <p className="text-gray-700 dark:text-gray-300 mb-6 leading-relaxed">{car.description}</p>
+
+          <div className="mb-6">
+            <SafetyBanner context="new" />
+          </div>
 
           {charging && (
             <div className="mb-6 p-4 bg-green-50 dark:bg-green-900/20 rounded-xl">

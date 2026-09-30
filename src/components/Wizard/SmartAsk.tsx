@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import { Car } from '../../types';
 import { recommend, RecommendResult, QueryIntent } from '../../data/recommender';
@@ -266,7 +267,10 @@ export function SmartAsk({ onClose, onSelectCar, onAddToCompare, compareList }: 
 
         <div className="px-6 py-3 border-t border-gray-100 dark:border-gray-700 flex-shrink-0">
           <p className="text-xs text-gray-400 dark:text-gray-500 text-center">
-            Recomendación 100% local: tu consulta no sale del dispositivo
+            Recomendación 100% local: tu consulta no sale del dispositivo.{' '}
+            <Link to="/glosario" onClick={onClose} className="font-semibold text-blue-600 dark:text-blue-400 hover:underline">
+              ¿Qué significa un término? Ver el glosario →
+            </Link>
           </p>
         </div>
       </div>

@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { SEO } from '../components/SEO';
+import { SafetyBanner } from '../components/Trust/SafetyBanner';
 import { formatPrice } from '../data/brands';
 import { USED_FUEL_OPTIONS, USED_TRANSMISSION_OPTIONS, type UsedListing, usedListingWhatsappUrl } from '../data/usedListings';
 import { getUsedListingBySlug, reportUsedListing } from '../lib/usedListings';
@@ -190,6 +191,8 @@ export function UsedListingDetail({ user, isCloudAuthAvailable, onSignIn }: Prop
               <div><p className="font-semibold text-gray-900 dark:text-white">{displayName}</p><p className="text-xs text-gray-500 dark:text-gray-400">Perfil de AutoLupa</p></div>
             </div>
           </div>
+
+          <SafetyBanner />
 
           <details className="rounded-2xl bg-white dark:bg-gray-800 p-5 card-shadow">
             <summary className="cursor-pointer text-sm font-semibold text-gray-700 dark:text-gray-300">Reportar este aviso</summary>

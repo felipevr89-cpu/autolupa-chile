@@ -1,9 +1,10 @@
 import { useEffect, useMemo, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 import { SEO } from '../components/SEO';
 import { UsedListingCard } from '../components/Used/UsedListingCard';
 import { isSupabaseConfigured } from '../lib/supabase';
 import { getActiveUsedListings, getUsedListingBrands } from '../lib/usedListings';
+import { CHILE_REGIONS, regionPath } from '../data/chileRegions';
 import {
   emptyUsedListingFilters,
   USED_FUEL_OPTIONS,
@@ -21,7 +22,13 @@ function inputClassName() {
 }
 
 export function Usados() {
-  const [filters, setFilters] = useState<UsedListingFilters>(emptyUsedListingFilters);
+  const [searchParams, setSearchParams] = useSearchParams();
+  const [filters, setFilters] = useState<UsedListingFilters>(() => ({
+    ...emptyUsedListingFilters,
+    region: searchParams.get('region') ?? '',
+    brand: searchParams.get('brand') ?? '',
+    search: searchParams.get('q') ?? '',
+  }));
   const [listings, setListings] = useState<UsedListing[]>([]);
   const [brands, setBrands] = useState<string[]>([]);
   const [total, setTotal] = useState(0);
@@ -79,11 +86,21 @@ export function Usados() {
   const updateFilter = <K extends keyof UsedListingFilters>(key: K, value: UsedListingFilters[K]) => {
     setFilters((current) => ({ ...current, [key]: value }));
     setPage(1);
+    if (key === 'region' || key === 'brand' || key === 'search') {
+      const paramKey = key === 'search' ? 'q' : key;
+      setSearchParams((current) => {
+        const next = new URLSearchParams(current);
+        if (value) next.set(paramKey, String(value));
+        else next.delete(paramKey);
+        return next;
+      }, { replace: true });
+    }
   };
 
   const resetFilters = () => {
     setFilters(emptyUsedListingFilters);
     setPage(1);
+    setSearchParams(new URLSearchParams(), { replace: true });
   };
 
   return (
@@ -228,6 +245,22 @@ export function Usados() {
           </div>
         </>
       )}
+
+      <section className="mt-12 border-t border-gray-200 dark:border-gray-700 pt-8">
+        <h2 className="text-lg font-bold text-gray-900 dark:text-white mb-1">Autos usados por región</h2>
+        <p className="text-sm text-gray-500 dark:text-gray-400 mb-4">Elige tu zona y revisa los avisos publicados en cada región de Chile.</p>
+        <div className="flex flex-wrap gap-2">
+          {CHILE_REGIONS.map((region) => (
+            <Link
+              key={region.slug}
+              to={regionPath(region)}
+              className="px-3 py-2 rounded-lg text-sm font-medium bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700"
+            >
+              {region.name}
+            </Link>
+          ))}
+        </div>
+      </section>
     </div>
   );
 }

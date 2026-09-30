@@ -114,8 +114,10 @@ el detalle es útil al comprar y además educa al usuario. Se agrega en su lugar
 - [ ] Probar el envío real de `updateUser({email})` cuando la ventana de 2 correos/hora se reinicie
 
 ### Mes 1 — 🟠 Contenido y SEO
-- [ ] Páginas de aterrizaje por ciudad/comuna ("Autos usados en Providencia")
-- [ ] Sitemap dinámico con los avisos activos
+- [x] Páginas de aterrizaje por región: `/autos-usados-en/:slug` (16 landing SEO con breadcrumbs, JSON-LD y contadores) ✅ (30-09)
+- [x] Filtros compartibles: `/usados?region=`, `?brand=` y `?q=` se leen y escriben en la URL ✅ (30-09)
+- [x] Sitemap dinámico en `prebuild` (`scripts/generate-sitemap.mjs`): 12 estáticas + 98 marcas + 16 regiones + avisos activos ✅ (30-09)
+- [ ] Páginas por comuna (346) cuando haya masa de avisos por región
 - [ ] Guías de compra nuevas (transferencia de vehículos, revisión de usado)
 - [ ] Sección "Reclamos y Sugerencias" con respuesta pública
 

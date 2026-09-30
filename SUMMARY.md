@@ -175,6 +175,15 @@ El rol anónimo (sin sesión) sigue sin poder insertar: no se tocó ninguna pol�
 
 
 
+## Lote 3 — SEO local y sitemap dinámico (30-09-2026)
+
+- **`src/data/chileRegions.ts`**: 16 regiones con slug, nombre corto (igual a `USED_REGIONS`), nombre oficial, capital, provincias, comunas y ciudades. Cifras verificadas contra el dato oficial: **346 comunas, 16 regiones, 56 provincias** (el total se assertúa en los tests).
+- **`/autos-usados-en/:regionSlug`** (`src/pages/UsadosRegion.tsx`): landing SEO por región con breadcrumb, `CollectionPage` + `BreadcrumbList` + `ItemList` (JSON-LD), tarjetas de datos (capital/comunas/provincias/avisos activos), grid de los 16 avisos, estado vacío con CTA a publicar, skeleton de carga y bloque de navegación a todas las regiones. Slug desconocido → `noindex`.
+- **URLs compartibles en `/usados`**: `?region=`, `?brand=` y `?q=` se leen al montar y se escriben con `replace: true` al filtrar; "Limpiar" borra los parámetros.
+- **Enlace desde `/usados`** a las 16 regiones para el rastreo interno.
+- **`scripts/generate-sitemap.mjs`** corriendo en `prebuild` (antes de `tsc && vite`): rutas estáticas + `/marca/{slug}` de los 98 catálogos + 16 landings + **avisos activos** leídos por REST con `VITE_SUPABASE_URL`/`VITE_SUPABASE_ANON_KEY` (lee `.env` local si existe; si falla, avisa y sigue). Resultado actual: **126 URLs**.
+- Tests: 86 (`src/test/seoLocal.test.tsx`, 6 nuevos).
+
 ## Backlog estratégico — Lotes 1 y 2 (30-09-2026)
 
 - **SEO local**: título de la home «Autos Usados y Nuevos en Chile | Publica Gratis - AutoLupa», OG/keywords alineados y `<SEO>` explícito en Home.

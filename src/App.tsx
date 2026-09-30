@@ -18,6 +18,7 @@ const LegalDocs = lazy(() => import('./pages/LegalDocs').then(m => ({ default: m
 const BrandPage = lazy(() => import('./pages/BrandPage').then(m => ({ default: m.BrandPage })));
 const Usados = lazy(() => import('./pages/Usados').then(m => ({ default: m.Usados })));
 const UsedListingDetail = lazy(() => import('./pages/UsedListingDetail').then(m => ({ default: m.UsedListingDetail })));
+const UsadosRegion = lazy(() => import('./pages/UsadosRegion').then(m => ({ default: m.UsadosRegion })));
 const PublicarAuto = lazy(() => import('./pages/PublicarAuto').then(m => ({ default: m.PublicarAuto })));
 const MisAnuncios = lazy(() => import('./pages/MisAnuncios').then(m => ({ default: m.MisAnuncios })));
 const TusDatos = lazy(() => import('./pages/TusDatos').then(m => ({ default: m.TusDatos })));
@@ -223,6 +224,14 @@ function AppContent() {
           element={
             <Suspense fallback={<PageSkeleton />}>
               <Usados />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/autos-usados-en/:regionSlug"
+          element={
+            <Suspense fallback={<PageSkeleton />}>
+              <UsadosRegion />
             </Suspense>
           }
         />

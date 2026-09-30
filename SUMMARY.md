@@ -175,6 +175,13 @@ El rol anónimo (sin sesión) sigue sin poder insertar: no se tocó ninguna pol�
 
 
 
+## Lote 6 — Guía de fotos y recorte básico (30-09-2026)
+
+- **Guía de fotos en `PublicarAuto` paso 2** (`<details>` "📐 Guía rápida de fotos"): portada 3/4 delantero a la altura del capó, luz sin contraluz, interior con km legibles, motor y arañazos, tapar datos en papeles y formato horizontal (la resolución ya la resuelve `prepareListingPhoto` a 1.800 px).
+- **Recorte básico**: botón "✂︎ Ajustar" en cada miniatura que abre un encuadre **4:3** con arrastre (`pointer events` + `setPointerCapture`), slider de zoom (×1 a ×3 del encuadre) y `cropListingPhoto` en `src/lib/listingImages.ts` que recorta por canvas, centrado en la región visible y reescalado a 1.800 px máximo en JPEG 0,84.
+- El arrastre queda limitado para que la imagen siempre tape el encuadre (`clampCropPos`) y la ventana de recorte se inicializa centrada según `clientWidth/clientHeight` del marco.
+- Sin tests: jsdom no dispone de canvas ni carga imágenes (igual que `prepareListingPhoto`, que tampoco está cubierto).
+
 ## Lote 5 — Confianza: banner de seguridad y glosario en fichas (30-09-2026)
 
 - **`src/components/Trust/SafetyBanner.tsx`** con dos contextos:

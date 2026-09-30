@@ -32,6 +32,37 @@ export async function prepareListingPhoto(file: File): Promise<File> {
   return new File([blob], `${name}.jpg`, { type: 'image/jpeg' });
 }
 
+export async function cropListingPhoto(
+  file: File,
+  crop: { x: number; y: number; width: number; height: number },
+): Promise<File> {
+  const image = await loadImage(file);
+  const sourceX = Math.max(0, Math.min(image.width - 1, crop.x));
+  const sourceY = Math.max(0, Math.min(image.height - 1, crop.y));
+  const sourceWidth = Math.max(1, Math.min(image.width - sourceX, crop.width));
+  const sourceHeight = Math.max(1, Math.min(image.height - sourceY, crop.height));
+  const outputScale = Math.min(1, MAX_DIMENSION / Math.max(sourceWidth, sourceHeight));
+  const width = Math.max(1, Math.round(sourceWidth * outputScale));
+  const height = Math.max(1, Math.round(sourceHeight * outputScale));
+
+  const canvas = document.createElement('canvas');
+  canvas.width = width;
+  canvas.height = height;
+  const context = canvas.getContext('2d');
+  if (!context) throw new Error('No pudimos procesar la imagen.');
+  context.drawImage(image, sourceX, sourceY, sourceWidth, sourceHeight, 0, 0, width, height);
+
+  const blob = await new Promise<Blob>((resolve, reject) => {
+    canvas.toBlob(
+      (result) => result ? resolve(result) : reject(new Error('No pudimos recortar la imagen.')),
+      'image/jpeg',
+      JPEG_QUALITY,
+    );
+  });
+  const name = file.name.replace(/\.[^.]+$/, '') || 'autolupa';
+  return new File([blob], `${name}.jpg`, { type: 'image/jpeg' });
+}
+
 function loadImage(file: File): Promise<HTMLImageElement> {
   return new Promise((resolve, reject) => {
     const url = URL.createObjectURL(file);

@@ -3,6 +3,7 @@ import html2canvas from 'html2canvas';
 import { Car } from '../../types';
 import { formatPrice, getTypeLabel, getFuelLabel } from '../../data/brands';
 import { getChargingCost, getCombustionCostPer100 } from '../../data/energyCosts';
+import { TermTip } from '../Glossary/TermTip';
 
 interface Props {
   cars: Car[];
@@ -15,6 +16,9 @@ type SpecRow = {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   format?: (v: any, car: Car) => string;
   highlight?: 'low' | 'high';
+  glossary?: string;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  valueGlossary?: (v: any, car: Car) => string;
 };
 
 const SectionHeader = ({ title, icon }: { title: string; icon: string }) => (
@@ -101,24 +105,24 @@ export function CompareTable({ cars, onRemove }: Props) {
     { label: 'Modelo', key: 'model' },
     { label: 'Año', key: 'year' },
     { label: 'Tipo', key: 'type', format: (v: string) => getTypeLabel(v) },
-    { label: 'Combustible', key: 'fuel', format: (v: string) => getFuelLabel(v) },
+    { label: 'Combustible', key: 'fuel', format: (v: string) => getFuelLabel(v), valueGlossary: (_v, c) => c.fuel },
     { label: 'Plazas', key: 'seats', highlight: 'high' },
-    { label: 'Transmisión', key: 'transmission', format: (v: string) => v === 'automatica' ? 'Automática' : 'Manual' },
-    { label: 'Tracción', key: 'traction' },
+    { label: 'Transmisión', key: 'transmission', format: (v: string) => v === 'automatica' ? 'Automática' : 'Manual', valueGlossary: (_v, c) => c.transmission === 'automatica' ? 'automatica' : 'manual' },
+    { label: 'Tracción', key: 'traction', glossary: 'traccion' },
     { label: 'Origen', key: 'origin' },
     { label: 'Garantía', format: (_, c) => c.warranty_years ? `${c.warranty_years} años / ${((c.warranty_km ?? 0) / 1000).toFixed(0)} mil km` : '—' },
     { label: 'Precio', key: 'price', format: (v: number) => formatPrice(v), highlight: 'low' },
   ];
 
   const perfSpecs: SpecRow[] = [
-    { label: 'Potencia', key: 'hp', format: (v: number) => `${v} HP`, highlight: 'high' },
-    { label: 'Torque', key: 'torque_nm', format: (v: number) => `${v} Nm` },
+    { label: 'Potencia', key: 'hp', format: (v: number) => `${v} HP`, highlight: 'high', glossary: 'hp' },
+    { label: 'Torque', key: 'torque_nm', format: (v: number) => `${v} Nm`, glossary: 'torque' },
     { label: 'Vel. máxima', key: 'top_speed_kmh', format: (v: number) => `${v} km/h` },
-    { label: 'Autonomía eléctrica', key: 'electric_range_km', format: (v: number) => v > 0 ? `${v} km` : '—', highlight: 'high' },
-    { label: 'Batería', key: 'battery_kwh', format: (v: number) => v > 0 ? `${v} kWh` : '—' },
+    { label: 'Autonomía eléctrica', key: 'electric_range_km', format: (v: number) => v > 0 ? `${v} km` : '—', highlight: 'high', glossary: 'autonomia' },
+    { label: 'Batería', key: 'battery_kwh', format: (v: number) => v > 0 ? `${v} kWh` : '—', glossary: 'kwh' },
     { label: 'Consumo ciudad', key: 'fuel_consumption_city_km_l', format: (v: number) => v > 0 ? `${v} km/L` : '—', highlight: 'high' },
     { label: 'Consumo carretera', key: 'fuel_consumption_highway_km_l', format: (v: number) => v > 0 ? `${v} km/L` : '—', highlight: 'high' },
-    { label: 'Consumo mixto', format: (_, c) => (c.fuel_consumption_mixed_km_l ?? 0) > 0 ? `${c.fuel_consumption_mixed_km_l} km/L` : '—', highlight: 'high' },
+    { label: 'Consumo mixto', format: (_, c) => (c.fuel_consumption_mixed_km_l ?? 0) > 0 ? `${c.fuel_consumption_mixed_km_l} km/L` : '—', highlight: 'high', glossary: 'consumo_mixto' },
     { label: 'Tanque', key: 'fuel_tank_liters', format: (v: number) => v > 0 ? `${v} L` : '—' },
     { label: 'Costo energía / 100 km', format: (_, c) => {
       const ch = getChargingCost(c);
@@ -162,16 +166,19 @@ export function CompareTable({ cars, onRemove }: Props) {
         const differs = diffMode && new Set(displays).size > 1;
         return (
           <tr key={`${groupKey}-${i}`} className="border-b border-gray-50 dark:border-gray-700 hover:bg-gray-50/50 dark:hover:bg-gray-800/50">
-            <td className="p-3 text-sm font-medium text-gray-600 dark:text-gray-400">{spec.label}</td>
+            <td className="p-3 text-sm font-medium text-gray-600 dark:text-gray-400">
+              {spec.glossary ? <TermTip term={spec.glossary}>{spec.label}</TermTip> : spec.label}
+            </td>
             {cars.map((car, idx) => {
               const display = displays[idx];
               const highlightField = spec.highlight === 'low' ? 'price' :
                 spec.highlight === 'high' ? (spec.key || groupKey) : '';
               const winnerClass = getWinnerClass(car, highlightField);
               const diffClass = differs ? 'bg-amber-100/70 dark:bg-amber-900/20' : '';
+              const valueTerm = spec.valueGlossary?.(displays[idx], car);
               return (
                 <td key={car.id} className={`p-3 text-center text-sm ${winnerClass} ${diffClass}`}>
-                  {display}
+                  {valueTerm ? <TermTip term={valueTerm}>{display}</TermTip> : display}
                 </td>
               );
             })}

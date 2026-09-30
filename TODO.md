@@ -99,8 +99,8 @@ el detalle es útil al comprar y además educa al usuario. Se agrega en su lugar
 
 ### Semana 1 — 🔴 Urgente
 - [ ] Dominio `autolupa.cl` (decisión y compra del usuario) + redirección desde `autolupa.pages.dev`
-- [ ] Eslogan de marca y bloque "Publica gratis, sin comisión" en header, hero y botón flotante móvil
-- [ ] Título SEO de la home: "Autos Usados y Nuevos en Chile | Publica Gratis - AutoLupa"
+- [x] Eslogan de marca y bloque "Publica gratis, sin comisión" en header, hero y botón flotante móvil ✅ (30-09)
+- [x] Título SEO de la home: "Autos Usados y Nuevos en Chile | Publica Gratis - AutoLupa" ✅ (30-09)
 
 ### Semanas 1–3 — 🔴 Formulario en 3 pasos
 - [ ] Paso 1 Datos del auto con autocompletado desde el catálogo (marca/modelo/año)
@@ -129,8 +129,8 @@ el detalle es útil al comprar y además educa al usuario. Se agrega en su lugar
 - [ ] Campaña "Sin letra chica": cero comisión por venta
 
 ### Nuevo — 📚 Sección de aprendizaje (terminología)
-- [ ] Glosario de términos automotrices (`/glosario`): HEV, MHEV, PHEV, CVT, tracción integral, torque...
-- [ ] Explicaciones contextuales: al mostrar "Híbrido Enchufable" o "CVT", ícono con tooltip que defina el término
+- [x] Glosario de términos automotrices (`/glosario`): 27 términos, 5 categorías, buscador y JSON-LD ✅ (30-09)
+- [x] Explicaciones contextuales: `TermTip` con tooltip en CarCard, CarDetail y CompareTable ✅ (30-09)
 - [ ] Vincular desde fichas de vehículo y desde SmartAsk (cuando el usuario pregunta "qué es un PHEV")
 
 ### Mes 4–6 — 🟢 Monetización

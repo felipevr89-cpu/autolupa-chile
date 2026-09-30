@@ -21,6 +21,7 @@ const UsedListingDetail = lazy(() => import('./pages/UsedListingDetail').then(m 
 const PublicarAuto = lazy(() => import('./pages/PublicarAuto').then(m => ({ default: m.PublicarAuto })));
 const MisAnuncios = lazy(() => import('./pages/MisAnuncios').then(m => ({ default: m.MisAnuncios })));
 const TusDatos = lazy(() => import('./pages/TusDatos').then(m => ({ default: m.TusDatos })));
+const Glosario = lazy(() => import('./pages/Glosario').then(m => ({ default: m.Glosario })));
 const ModeracionUsados = lazy(() => import('./pages/ModeracionUsados').then(m => ({ default: m.ModeracionUsados })));
 const Blog = lazy(() => import('./pages/Blog').then(m => ({ default: m.Blog })));
 const Analytics = lazy(() => import('./pages/Analytics').then(m => ({ default: m.Analytics })));
@@ -190,6 +191,14 @@ function AppContent() {
           element={
             <Suspense fallback={<PageSkeleton />}>
               <LegalDocs />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/glosario"
+          element={
+            <Suspense fallback={<PageSkeleton />}>
+              <Glosario />
             </Suspense>
           }
         />

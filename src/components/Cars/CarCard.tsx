@@ -2,6 +2,7 @@ import { memo } from 'react';
 import { Car } from '../../types';
 import { formatPrice, getTypeLabel, getFuelLabel, isBrandSoldNewInChile } from '../../data/brands';
 import { CarImage } from './CarImage';
+import { TermTip } from '../Glossary/TermTip';
 
 interface Props {
   car: Car;
@@ -104,13 +105,15 @@ export const CarCard = memo(function CarCard({
             {getTypeLabel(car.type)}
           </span>
           <span className={`px-2.5 py-1 rounded-lg text-xs font-medium ${fuelColors[car.fuel] || 'bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300'}`}>
-            {getFuelLabel(car.fuel)}
+            <TermTip term={car.fuel}>{getFuelLabel(car.fuel)}</TermTip>
           </span>
           <span className="px-2.5 py-1 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-lg text-xs font-medium">
             {car.seats} plazas
           </span>
           <span className="px-2.5 py-1 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-lg text-xs font-medium">
-            {car.transmission === 'automatica' ? 'Automática' : 'Manual'}
+            <TermTip term={car.transmission === 'automatica' ? 'automatica' : 'manual'}>
+              {car.transmission === 'automatica' ? 'Automática' : 'Manual'}
+            </TermTip>
           </span>
         </div>
 

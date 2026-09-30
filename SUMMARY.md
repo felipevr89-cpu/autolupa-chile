@@ -136,6 +136,15 @@ Marketplace chileno de autos usados con comparador integrado de vehículos nuevo
 - **Marcas**: no añadir **FAW** como auto liviano (en Chile solo hay FAW Trucks); verificar nuevos anuncios de marcas 2026
 - `SUMMARY.md` y `AGENTS.md` se actualizan manualmente
 
+## Backlog estratégico — Lotes 1 y 2 (30-09-2026)
+
+- **SEO local**: título de la home «Autos Usados y Nuevos en Chile | Publica Gratis - AutoLupa», OG/keywords alineados y `<SEO>` explícito en Home.
+- **Eslogan** «El auto que buscas, sin letra chica» en hero y footer.
+- **CTA de publicación omnipresente**: navbar desktop, menú móvil, botón flotante en móvil y enlace desde el hero; `Publicar auto` salió de los links normales para no duplicarlo.
+- **Sección de aprendizaje** (`/glosario`): 27 términos en 5 categorías con buscador y `DefinedTermSet` en JSON-LD; enlace en footer y sitemap.
+- **`TermTip`**: tooltip con posicionamiento `fixed` + portal (no se corta con el `overflow` de modales y carruseles) que explica la terminología técnica en CarCard, CarDetail y CompareTable, con enlace al glosario. **Decisión del usuario: la terminología técnica se mantiene**, no se simplifica.
+- Tests: 77 (`glossary.test.tsx` con 8).
+
 ## Datos electrificados completados (fichas oficiales 2026)
 - Se cerró la brecha de **21 modelos EV/PHEV** sin batería/autonomía con fichas oficiales (BYD, Changan, Chery, Chevrolet, Deepal, GAC, Geely, Jetour, JMC, Neta, Soueast). Quedan **2** sin dato fiable: Lynk & Co 09 (consumo MHEV) y DFSK Glory iX5 (batería kWh)
 - **Omoda C5 SHS reclasificado** a `hibrido`: ficha chilena confirma bat. auxiliar de 1,83 kWh sin autonomía EV (no era enchufable)

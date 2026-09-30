@@ -7,6 +7,7 @@ import { CarImage } from './CarImage';
 import { TCOCalculator } from '../TCO/TCOCalculator';
 import { EVHub } from '../EV/EVHub';
 import { BuyingGuide } from '../Guides/BuyingGuide';
+import { TermTip } from '../Glossary/TermTip';
 import {
   BoltIcon, WrenchIcon, Battery100Icon, PowerIcon, FireIcon,
   ShieldCheckIcon, CubeIcon, ArrowsRightLeftIcon,
@@ -177,7 +178,7 @@ export function CarDetail({ car, onClose, isFavorite, onToggleFavorite, onPrevCa
           <div className="mb-4">
             <p className="text-sm font-semibold text-gray-700 dark:text-gray-300">{car.brand}</p>
             <h2 className="text-2xl font-bold text-gray-900 dark:text-white">{car.model}</h2>
-            <p className="text-base font-medium text-gray-800 dark:text-gray-200">{car.year} · {getTypeLabel(car.type)} · {getFuelLabel(car.fuel)}</p>
+            <p className="text-base font-medium text-gray-800 dark:text-gray-200">{car.year} · {getTypeLabel(car.type)} · <TermTip term={car.fuel}>{getFuelLabel(car.fuel)}</TermTip></p>
           </div>
 
           {!isBrandSoldNewInChile(car.brand) && (
@@ -275,35 +276,35 @@ export function CarDetail({ car, onClose, isFavorite, onToggleFavorite, onPrevCa
             {car.hp != null && (
               <div className="p-3 bg-gray-50 dark:bg-gray-800 rounded-xl text-center shadow-sm border border-gray-200 dark:border-gray-600">
                 <BoltIcon className="w-5 h-5 mx-auto text-blue-500 dark:text-blue-400" />
-                <p className="text-[11px] text-gray-600 dark:text-gray-300 font-semibold mt-1">Potencia</p>
+                <p className="text-[11px] text-gray-600 dark:text-gray-300 font-semibold mt-1"><TermTip term="hp">Potencia</TermTip></p>
                 <p className="text-sm font-bold text-gray-900 dark:text-white">{car.hp} HP</p>
               </div>
             )}
             {car.torque_nm != null && (
               <div className="p-3 bg-gray-50 dark:bg-gray-800 rounded-xl text-center shadow-sm border border-gray-200 dark:border-gray-600">
                 <WrenchIcon className="w-5 h-5 mx-auto text-indigo-500 dark:text-indigo-400" />
-                <p className="text-[11px] text-gray-600 dark:text-gray-300 font-semibold mt-1">Torque</p>
+                <p className="text-[11px] text-gray-600 dark:text-gray-300 font-semibold mt-1"><TermTip term="torque">Torque</TermTip></p>
                 <p className="text-sm font-bold text-gray-900 dark:text-white">{car.torque_nm} Nm</p>
               </div>
             )}
             {(car.electric_range_km ?? 0) > 0 && (
               <div className="p-3 bg-gray-50 dark:bg-gray-800 rounded-xl text-center shadow-sm border border-gray-200 dark:border-gray-600">
                 <Battery100Icon className="w-5 h-5 mx-auto text-green-500 dark:text-green-400" />
-                <p className="text-[11px] text-gray-600 dark:text-gray-300 font-semibold mt-1">Autonomía</p>
+                <p className="text-[11px] text-gray-600 dark:text-gray-300 font-semibold mt-1"><TermTip term="autonomia">Autonomía</TermTip></p>
                 <p className="text-sm font-bold text-gray-900 dark:text-white">{car.electric_range_km} km</p>
               </div>
             )}
             {(car.battery_kwh ?? 0) > 0 && (
               <div className="p-3 bg-gray-50 dark:bg-gray-800 rounded-xl text-center shadow-sm border border-gray-200 dark:border-gray-600">
                 <PowerIcon className="w-5 h-5 mx-auto text-lime-500 dark:text-lime-400" />
-                <p className="text-[11px] text-gray-600 dark:text-gray-300 font-semibold mt-1">Batería</p>
+                <p className="text-[11px] text-gray-600 dark:text-gray-300 font-semibold mt-1"><TermTip term="kwh">Batería</TermTip></p>
                 <p className="text-sm font-bold text-gray-900 dark:text-white">{car.battery_kwh} kWh</p>
               </div>
             )}
             {(car.fuel_consumption_mixed_km_l ?? 0) > 0 && (
               <div className="p-3 bg-gray-50 dark:bg-gray-800 rounded-xl text-center shadow-sm border border-gray-200 dark:border-gray-600">
                 <FireIcon className="w-5 h-5 mx-auto text-green-500 dark:text-green-400" />
-                <p className="text-[11px] text-gray-600 dark:text-gray-300 font-semibold mt-1">Consumo mixto</p>
+                <p className="text-[11px] text-gray-600 dark:text-gray-300 font-semibold mt-1"><TermTip term="consumo_mixto">Consumo mixto</TermTip></p>
                 <p className="text-sm font-bold text-gray-900 dark:text-white">{car.fuel_consumption_mixed_km_l} km/L</p>
               </div>
             )}

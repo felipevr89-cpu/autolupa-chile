@@ -43,6 +43,31 @@ describe('marketplace pages without a configured backend', () => {
     expect(screen.getByRole('button', { name: /continuar con google/i })).toBeInTheDocument();
   });
 
+  it('autocompletes brand, model and year from the catalog', () => {
+    const user = { uid: 'uid-1', displayName: 'Ana', email: 'ana@correo.cl', photoURL: null };
+    renderPage(<PublicarAuto user={user} isCloudAuthAvailable onSignIn={noop} onSignInAnonymous={noop} />);
+    expect(document.querySelectorAll('#publish-brands option').length).toBeGreaterThan(50);
+    expect(document.getElementById('publish-models')).toBeTruthy();
+    expect(document.querySelectorAll('#publish-years option').length).toBe(26);
+    expect(screen.getByPlaceholderText('Ej: Toyota')).toBeInTheDocument();
+  });
+
+  it('rejects files that are not photos when they are dropped', async () => {
+    const user = { uid: 'uid-1', displayName: 'Ana', email: 'ana@correo.cl', photoURL: null };
+    renderPage(<PublicarAuto user={user} isCloudAuthAvailable onSignIn={noop} onSignInAnonymous={noop} />);
+    fireEvent.change(screen.getByPlaceholderText('Ej: Toyota'), { target: { value: 'Toyota' } });
+    fireEvent.change(screen.getByPlaceholderText('Ej: Corolla'), { target: { value: 'Corolla' } });
+    fireEvent.click(screen.getByRole('button', { name: /^continuar$/i }));
+    const dropzone = screen.getByText(/elegir o arrastrar fotos/i).closest('label');
+    expect(dropzone).toBeTruthy();
+    fireEvent.dragOver(dropzone as Element, { dataTransfer: { files: [] } });
+    expect(screen.getByText(/suelta aquí tus fotos/i)).toBeInTheDocument();
+    fireEvent.drop(dropzone as Element, {
+      dataTransfer: { files: [new File(['x'], 'nota.txt', { type: 'text/plain' })] },
+    });
+    expect(await screen.findByText(/formato JPG, PNG o WebP/i)).toBeInTheDocument();
+  });
+
   it('asks anonymous visitors to sign in for their listings', () => {
     renderPage(<MisAnuncios user={null} isCloudAuthAvailable onSignIn={noop} />);
     expect(screen.getByRole('button', { name: /continuar con google/i })).toBeInTheDocument();

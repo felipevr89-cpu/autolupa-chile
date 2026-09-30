@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { SEO } from '../components/SEO';
+import { brands as catalogBrands, getModelsByBrand } from '../data/brands';
 import { prepareListingPhoto } from '../lib/listingImages';
 import { createUsedListing } from '../lib/usedListings';
 import { supabase } from '../lib/supabase';
@@ -76,11 +77,15 @@ export function PublicarAuto({ user, isCloudAuthAvailable, onSignIn, onSignInAno
   const [submitted, setSubmitted] = useState(false);
   const [acceptedTerms, setAcceptedTerms] = useState(false);
   const [guestFlow, setGuestFlow] = useState(false);
+  const [dragActive, setDragActive] = useState(false);
   const [verificationSent, setVerificationSent] = useState(false);
   const [sendingVerification, setSendingVerification] = useState(false);
   const previewUrls = useRef<string[]>([]);
 
   const restoredDraft = Boolean(persisted.draft);
+  const catalogBrand = catalogBrands.find((brand) => brand.toLowerCase() === draft.brand.trim().toLowerCase());
+  const modelOptions = catalogBrand ? getModelsByBrand(catalogBrand) : [];
+  const yearOptions = Array.from({ length: 26 }, (_, index) => currentYear + 1 - index);
   const emailVerified = Boolean(user?.email);
   const mustVerifyEmail = !emailVerified;
 
@@ -163,20 +168,37 @@ export function PublicarAuto({ user, isCloudAuthAvailable, onSignIn, onSignInAno
     if (Object.keys(nextErrors).length === 0) setStep((current) => Math.min(4, current + 1));
   };
 
-  const handlePhotoSelection = async (event: React.ChangeEvent<HTMLInputElement>) => {
-    const files = Array.from(event.target.files ?? []).slice(0, MAX_LISTING_PHOTOS - draft.photos.length);
-    if (files.length === 0) return;
+  const addPhotos = async (files: File[]) => {
+    const allowed = ['image/jpeg', 'image/png', 'image/webp'];
+    const selected = files.filter((file) => allowed.includes(file.type));
+    if (selected.length === 0) {
+      if (files.length > 0) setSubmitError('Usa fotos en formato JPG, PNG o WebP.');
+      return;
+    }
+    const room = MAX_LISTING_PHOTOS - draft.photos.length;
+    if (room <= 0) return;
     setProcessingPhotos(true);
     setSubmitError('');
     try {
-      const prepared = await Promise.all(files.map(prepareListingPhoto));
+      const prepared = await Promise.all(selected.slice(0, room).map(prepareListingPhoto));
       setPhotos([...draft.photos, ...prepared].slice(0, MAX_LISTING_PHOTOS));
     } catch (error) {
       setSubmitError(error instanceof Error ? error.message : 'No pudimos procesar las fotos.');
     } finally {
       setProcessingPhotos(false);
-      event.target.value = '';
     }
+  };
+
+  const handlePhotoSelection = async (event: React.ChangeEvent<HTMLInputElement>) => {
+    const files = Array.from(event.target.files ?? []);
+    event.target.value = '';
+    await addPhotos(files);
+  };
+
+  const handlePhotoDrop = async (event: React.DragEvent) => {
+    event.preventDefault();
+    setDragActive(false);
+    await addPhotos(Array.from(event.dataTransfer.files ?? []));
   };
 
   const removePhoto = (index: number) => {
@@ -363,9 +385,18 @@ export function PublicarAuto({ user, isCloudAuthAvailable, onSignIn, onSignInAno
           <section>
             <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-5">Datos del vehículo</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <Field label="Marca" error={errors.brand}><input value={draft.brand} onChange={(event) => updateDraft('brand', event.target.value)} className={inputClassName} placeholder="Ej: Toyota" /></Field>
-              <Field label="Modelo" error={errors.model}><input value={draft.model} onChange={(event) => updateDraft('model', event.target.value)} className={inputClassName} placeholder="Ej: Corolla" /></Field>
-              <Field label="Año" error={errors.year}><input type="number" value={draft.year} onChange={(event) => updateDraft('year', Number(event.target.value))} className={inputClassName} min={1900} max={currentYear + 1} /></Field>
+              <Field label="Marca" error={errors.brand}>
+                <input list="publish-brands" value={draft.brand} onChange={(event) => updateDraft('brand', event.target.value)} className={inputClassName} placeholder="Ej: Toyota" />
+                <datalist id="publish-brands">{catalogBrands.map((brand) => <option key={brand} value={brand} />)}</datalist>
+              </Field>
+              <Field label="Modelo" error={errors.model}>
+                <input list="publish-models" value={draft.model} onChange={(event) => updateDraft('model', event.target.value)} className={inputClassName} placeholder="Ej: Corolla" />
+                <datalist id="publish-models">{modelOptions.map((model) => <option key={model} value={model} />)}</datalist>
+              </Field>
+              <Field label="Año" error={errors.year}>
+                <input list="publish-years" type="number" value={draft.year} onChange={(event) => updateDraft('year', Number(event.target.value))} className={inputClassName} min={1900} max={currentYear + 1} />
+                <datalist id="publish-years">{yearOptions.map((year) => <option key={year} value={year} />)}</datalist>
+              </Field>
               <Field label="Color"><input value={draft.color} onChange={(event) => updateDraft('color', event.target.value)} className={inputClassName} placeholder="Ej: Blanco" /></Field>
               <Field label="Combustible"><select value={draft.fuel} onChange={(event) => updateDraft('fuel', event.target.value as UsedListingDraft['fuel'])} className={inputClassName}>{USED_FUEL_OPTIONS.map((option) => <option key={option.value} value={option.value}>{option.label}</option>)}</select></Field>
               <Field label="Transmisión"><select value={draft.transmission} onChange={(event) => updateDraft('transmission', event.target.value as UsedListingDraft['transmission'])} className={inputClassName}>{USED_TRANSMISSION_OPTIONS.map((option) => <option key={option.value} value={option.value}>{option.label}</option>)}</select></Field>
@@ -377,10 +408,15 @@ export function PublicarAuto({ user, isCloudAuthAvailable, onSignIn, onSignInAno
           <section>
             <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-2">Fotos del vehículo</h2>
             <p className="text-sm text-gray-600 dark:text-gray-300 mb-5">Sube entre 1 y {MAX_LISTING_PHOTOS} fotos reales. La primera será la portada.</p>
-            <label className="block border-2 border-dashed border-blue-200 dark:border-blue-900 rounded-xl p-8 text-center cursor-pointer hover:bg-blue-50 dark:hover:bg-blue-950/20">
+            <label
+              onDragOver={(event) => { event.preventDefault(); setDragActive(true); }}
+              onDragLeave={() => setDragActive(false)}
+              onDrop={handlePhotoDrop}
+              className={`block border-2 border-dashed rounded-xl p-8 text-center cursor-pointer transition-colors ${dragActive ? 'border-blue-500 bg-blue-50 dark:bg-blue-950/40' : 'border-blue-200 dark:border-blue-900 hover:bg-blue-50 dark:hover:bg-blue-950/20'}`}
+            >
               <span className="text-4xl block mb-3">📷</span>
-              <span className="block text-sm font-semibold text-blue-700 dark:text-blue-300">Elegir fotos</span>
-              <span className="block text-xs text-gray-500 dark:text-gray-400 mt-1">JPG, PNG o WebP. Máximo 5 MB por foto.</span>
+              <span className="block text-sm font-semibold text-blue-700 dark:text-blue-300">{dragActive ? 'Suelta aquí tus fotos' : 'Elegir o arrastrar fotos'}</span>
+              <span className="block text-xs text-gray-500 dark:text-gray-400 mt-1">Arrastra las imágenes o haz clic para buscarlas. JPG, PNG o WebP, hasta {MAX_LISTING_PHOTOS}.</span>
               <input type="file" accept="image/jpeg,image/png,image/webp" multiple onChange={handlePhotoSelection} className="sr-only" disabled={processingPhotos || draft.photos.length >= MAX_LISTING_PHOTOS} />
             </label>
             {processingPhotos && <p className="text-sm text-blue-600 dark:text-blue-400 mt-3">Optimizando fotos…</p>}

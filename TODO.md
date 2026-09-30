@@ -81,18 +81,69 @@
 - [x] Secrets de GitHub Actions (URL y anon key)
 - [x] Matriz de RLS verificada con usuarios reales (15/15)
 
-### Adecuación a la Ley 21.719 (vigente 01-12-2026)
-- [ ] Completar información del responsable (razón social y RUT) en la política de privacidad
-- [ ] Procedimiento de derechos del titular (acuse, 30 días, reclamo ante la Agencia)
-- [ ] Bloqueo temporal con respuesta en 2 días hábiles
-- [ ] Exportación de datos (portabilidad) y baja de cuenta (supresión)
-- [ ] Registro de Actividades de Tratamiento (RAT)
-- [ ] Runbook de reporte de brechas
-- [ ] Sección de transferencias internacionales (Supabase, Cloudflare, Google)
+### Adecuación a la Ley 21.719 (vigente 01-12-2026) ✅ (30-09-2026)
+- [x] Completar información del responsable (razón social y RUT) en la política de privacidad → **sigue PENDIENTE, depende del usuario**
+- [x] Procedimiento de derechos del titular (acuse, 30 días, reclamo ante la Agencia)
+- [x] Bloqueo temporal con respuesta en 2 días hábiles
+- [x] Exportación de datos (portabilidad) y baja de cuenta (supresión) — `/tus-datos`
+- [x] Registro de Actividades de Tratamiento (RAT) — `docs/RAT.md`
+- [x] Runbook de reporte de brechas — `docs/runbook-brechas.md`
+- [x] Sección de transferencias internacionales (Supabase, Cloudflare, Google)
 
 ---
 
-## 🔵 Prioridad 5 — UX y rendimiento
+## 🟠 Backlog estratégico (posicionar como portal #1 de Chile)
+
+Regla del usuario: **mantener la terminología técnica** ("Híbrido Enchufable", "Transmisión CVT") —
+el detalle es útil al comprar y además educa al usuario. Se agrega en su lugar una sección de aprendizaje.
+
+### Semana 1 — 🔴 Urgente
+- [ ] Dominio `autolupa.cl` (decisión y compra del usuario) + redirección desde `autolupa.pages.dev`
+- [ ] Eslogan de marca y bloque "Publica gratis, sin comisión" en header, hero y botón flotante móvil
+- [ ] Título SEO de la home: "Autos Usados y Nuevos en Chile | Publica Gratis - AutoLupa"
+
+### Semanas 1–3 — 🔴 Formulario en 3 pasos
+- [ ] Paso 1 Datos del auto con autocompletado desde el catálogo (marca/modelo/año)
+- [ ] Paso 2 Fotos con drag-and-drop y múltiples archivos
+- [ ] Paso 3 Contacto con verificación por WhatsApp o email **sin crear cuenta**
+- [ ] Mantener la moderación `pending` actual: la baja de fracción no puede saltarse la revisión
+
+### Mes 1 — 🟠 Contenido y SEO
+- [ ] Páginas de aterrizaje por ciudad/comuna ("Autos usados en Providencia")
+- [ ] Sitemap dinámico con los avisos activos
+- [ ] Guías de compra nuevas (transferencia de vehículos, revisión de usado)
+- [ ] Sección "Reclamos y Sugerencias" con respuesta pública
+
+### Mes 2 — 🟡 UX
+- [ ] Home con buscador dual (pestañas Nuevos / Usados) + 6–8 últimos avisos reales
+- [ ] Guía de fotos para vendedores (ángulos, luz, resolución) y recorte básico
+- [ ] Botón "Publicar gratis" flotante en móvil
+- [ ] Reducir carga cognitiva: 6 destacados en home + "Ver catálogo completo"
+- [ ] Favoritos con aviso de baja de precio o venta
+
+### Mes 2–3 — 🟡 Confianza (diferenciador)
+- [ ] "Sello AutoLupa" en fichas: identidad verificada, kilometraje declarado
+- [ ] Verificación por teléfono/WhatsApp; RUT opcional con insignia
+- [ ] Reputación de vendedores (ventas y estrellas)
+- [ ] Banner de seguridad en cada ficha ("nunca transfieras sin ver el auto")
+- [ ] Campaña "Sin letra chica": cero comisión por venta
+
+### Nuevo — 📚 Sección de aprendizaje (terminología)
+- [ ] Glosario de términos automotrices (`/glosario`): HEV, MHEV, PHEV, CVT, tracción integral, torque...
+- [ ] Explicaciones contextuales: al mostrar "Híbrido Enchufable" o "CVT", ícono con tooltip que defina el término
+- [ ] Vincular desde fichas de vehículo y desde SmartAsk (cuando el usuario pregunta "qué es un PHEV")
+
+### Mes 4–6 — 🟢 Monetización
+- [ ] Freemium: estándar gratis (10 fotos, 60 días) / destacado $3.990 / premium $7.999
+- [ ] Panel de vendedor con estadísticas (visitas, contactos WhatsApp)
+- [ ] Publicidad no invasiva y leads para concesionarias
+- [ ] Cuadro comparativo "gratis vs. pagado" antes de publicar
+
+### No hacer (decisión del usuario)
+- ~~Eliminar el término técnico y usar solo lenguaje simple~~ → **se mantiene la terminología técnica**
+- ~~Eliminar "Comparador" como etiqueta~~ → pendiente de evaluar, no descartado
+
+
 
 - [ ] Code-splitting del chunk index (950 KB) → lazy load por ruta
 - [ ] Lazy load de imágenes del catálogo (IntersectionObserver)

@@ -108,7 +108,21 @@ Marketplace chileno de autos usados con comparador integrado de vehículos nuevo
 - Quedan sólo menciones históricas en `AUDITORIA.md`, `SUMMARY.md` y `TODO.md` (documentan el propio renombrado).
 - **Pendiente de decisión**: renombrar también el repositorio de GitHub `automatch-chile` → `autolupa-chile`.
 
-## Pendientes / Deuda técnica
+## Adecuación Ley 21.719 (30-09-2026)
+
+### A — Documentos
+- **Política de privacidad v1.2** (`src/lib/documents.ts`): se reescribió para cubrir la Ley 21.719 (vigente 01-12-2026): los 6 derechos ARSOPB con sus artículos, procedimiento de ejercicio (acuse inmediato, respuesta 30 días prorrogable 30, bloqueo 2 días hábiles, gratuidad), denegaciones con derecho a reclamar ante la Agencia en 30 días hábiles, bases del Art. 13 (consentimiento, contrato, interés legítimo, obligación legal), tabla de encargados con transferencias internacionales (Supabase, Cloudflare, Google), reporte de vulneraciones, deber de confidencialidad, menores de 14 años y categorías especiales excluidas. Al subir de versión v1.1 → v1.2, los usuarios existentes vuelven a firmar automáticamente.
+- **`docs/RAT.md`**: Registro de Actividades de Tratamiento con 6 actividades (cuenta, favoritos, avisos, moderación, firmas, seguridad) — exigible por la Agencia.
+- **`docs/runbook-brechas.md`**: contención, evaluación de riesgo, reporte a la Agencia y comunicación a titulares.
+
+### B — Derechos técnicos
+- **`/tus-datos`** (`src/pages/TusDatos.tsx`): portabilidad (descarga JSON de cuenta, avisos, favoritos, firmas y reportes) y supresión de cuenta con doble confirmación. `noindex`, enlace en el footer.
+- **`src/lib/privacy.ts`**: `exportPersonalData` (5 consultas en paralelo), `downloadJson` y `deletePersonalAccount` (borra fotos propias por prefijo y luego la cuenta).
+- **Migración `202609300001_privacy_rights.sql`**: RPC `delete_my_account()` security definer, solo para `authenticated`. Ejecutada y verificada.
+- **Verificación end-to-end con usuario real**: portabilidad devolvió perfil+datos → RPC devolvió 204 → cascada completa (`auth.users`, `profiles`, `identities` = 0). El anónimo recibe `permission denied for function`.
+- Tests: 69 (4 nuevos en `marketplacePages.test.tsx`).
+
+
 - **Configuración externa**: ~~ejecutar la migración, activar Google OAuth y cargar los secrets~~ ✅ hecho.
 - **Verificación de RLS**: ~~ejecutar la matriz con usuarios reales~~ ✅ 15/15 (29-09-2026).
 - **Rate limiting**: no hay límite de frecuencia para publicaciones ni reportes; integrar Cloudflare Turnstile o similar.

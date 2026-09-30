@@ -30,6 +30,7 @@ export function Footer() {
             <ul className="space-y-2 text-sm">
               <li><Link to="/terminos" className="hover:text-white transition-colors">Términos y condiciones</Link></li>
               <li><Link to="/privacidad" className="hover:text-white transition-colors">Política de privacidad</Link></li>
+              <li><Link to="/tus-datos" className="hover:text-white transition-colors">Tus datos (derechos Ley 21.719)</Link></li>
               <li><a href="mailto:info@autolupa.cl" className="hover:text-white transition-colors">Contacto: info@autolupa.cl</a></li>
             </ul>
           </div>

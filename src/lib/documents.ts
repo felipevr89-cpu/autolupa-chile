@@ -1,4 +1,4 @@
-export const PRIVACY_POLICY_VERSION = '1.1';
+export const PRIVACY_POLICY_VERSION = '1.2';
 export const RESPONSIBILITY_VERSION = '1.1';
 export const TERMS_VERSION = '1.1';
 
@@ -6,20 +6,27 @@ export const PRIVACY_POLICY_CONTENT = `# POLÍTICA DE TRATAMIENTO DE DATOS PERSO
 ## AutoLupa Chile
 
 **Versión:** ${PRIVACY_POLICY_VERSION}
-**Fecha de vigencia:** 25/09/2026
+**Fecha de vigencia:** 29/09/2026
+**Normativa de referencia:** Ley N° 21.719 sobre Protección de Datos Personales (vigente desde el 01/12/2026) y Ley N° 19.628.
 
 ---
 
 ## 1. RESPONSABLE DEL TRATAMIENTO
 - **Nombre/Razón Social:** AutoLupa (razón social por definir antes del lanzamiento público)
 - **RUT:** PENDIENTE
-- **Correo electrónico:** privacidad@autolupa.cl
+- **Correo electrónico para comunicaciones y ejercicio de derechos:** privacidad@autolupa.cl
+
+Mientras el responsable no tenga domicilio en Chile constituido formalmente, el correo indicado en este punto es el medio válido y operativo para recibir las comunicaciones de los titulares y de la Agencia de Protección de Datos Personales (Art. 10, Ley 21.719).
 
 ## 2. DATOS PERSONALES QUE RECOPILAMOS
 2.1. **Datos de identificación:** nombre completo, correo electrónico y fotografía de perfil, obtenidos desde tu cuenta de Google.
 2.2. **Datos de uso:** historial de búsqueda, vehículos guardados y parámetros de filtrado.
 2.3. **Datos de publicaciones:** cuando vendes un vehículo, registras marca, modelo, año, precio, kilometraje, combustible, transmisión, color, región, comuna, descripción, fotografías, nombre de contacto, teléfono y correo electrónico.
 2.4. **Datos de moderación:** estado de revisión de tus avisos, notas de los revisores y reportes recibidos.
+2.5. **Datos de evidencia:** aceptaciones de documentos, fecha y versión correspondiente.
+2.6. **Datos de navegación:** dirección IP, tipo de dispositivo y páginas visitadas, tratados de forma agregada para seguridad y mejora del servicio.
+
+No tratamos categorías especiales de datos (Art. 3 de la Ley 21.719): no pedimos ni procesamos datos de salud, biometría, origen racial, convicciones políticas o religiosas, ni datos de menores de 14 años.
 
 ## 3. FINALIDADES DEL TRATAMIENTO
 3.1. **Principal:** permitir buscar, comparar y guardar vehículos del mercado chileno.
@@ -29,8 +36,13 @@ export const PRIVACY_POLICY_CONTENT = `# POLÍTICA DE TRATAMIENTO DE DATOS PERSO
 3.5. **Mejora del servicio:** estadísticas agregadas y anónimas de uso.
 
 ## 4. BASE LEGAL
-- Consentimiento del titular (Art. 12, Ley 21.719)
-- Ejecución de contrato, respecto de las operaciones necesarias para gestionar tu cuenta y tus avisos
+El tratamiento se funda en alguna de las bases del Art. 13 de la Ley 21.719:
+- **Consentimiento** del titular (Art. 12), otorgado al aceptar esta política y revocable en cualquier momento por medios sencillos y gratuitos.
+- **Ejecución de contrato** (letra c): operaciones necesarias para gestionar tu cuenta, tus avisos y tus favoritos.
+- **Interés legítimo** (letra d): seguridad del servicio, prevención de fraude y moderación de contenidos. En estos casos puedes oponerte en cualquier momento y tienes derecho a ser informado de la base invocada.
+- **Obligación legal** (letra b): conservación de evidencias exigida por la normativa chilena.
+
+El responsable acredita la licitud del tratamiento y mantiene la documentación que lo respalda.
 
 ## 5. PUBLICIDAD DE TUS DATOS EN LOS AVISOS
 5.1. Al publicar un aviso, la información de contacto que ingreses (nombre, teléfono y, si lo indicas, correo) queda **visible públicamente** en ese aviso.
@@ -38,22 +50,72 @@ export const PRIVACY_POLICY_CONTENT = `# POLÍTICA DE TRATAMIENTO DE DATOS PERSO
 5.3. Puedes solicitar la eliminación de un aviso, con lo que se retira también su información de contacto de la vía pública. Es tu responsabilidad no publicar datos de terceros sin autorización.
 
 ## 6. DERECHOS DEL TITULAR
-Tienes derecho a acceder, rectificar, suprimir, oponerte, portar y revocar tu consentimiento, escribiendo a privacidad@autolupa.cl o desde tu cuenta.
+Tienes los derechos del Art. 4 de la Ley 21.719. Son personales, intransferibles e irrenunciables:
 
-## 7. CONSERVACIÓN DE DATOS
-- Datos de cuenta: mientras la cuenta esté activa
-- Avisos publicados: hasta que los retires, los marques como vendidos o sean eliminados
-- Historial de uso: 2 años desde la última actividad
-- Evidencia de aceptación de términos: mientras la cuenta esté activa y por el plazo legal aplicable
+- **Acceso (Art. 6):** conocer qué datos tratamos sobre ti, con qué finalidad y a quién se comunican.
+- **Rectificación (Art. 5):** corregir datos inexactos o incompletos.
+- **Supresión (Art. 7):** pedir la eliminación de tus datos cuando ya no sean necesarios.
+- **Oposición (Art. 8):** oponerte a tratamientos determinados, en los casos que la ley contempla.
+- **Portabilidad (Art. 9):** recibir una copia de tus datos en formato electrónico estructurado, genérico y de uso común.
+- **Bloqueo temporal (Art. 8 bis):** pedir la suspensión temporal del tratamiento mientras se resuelve tu solicitud.
 
-## 8. CESIÓN DE DATOS
-No cedemos datos personales a terceros, salvo requerimiento judicial o legal. Usamos proveedores de infraestructura (Supabase y Cloudflare) que tratan datos por cuenta de AutoLupa, conforme a sus propias políticas de privacidad.
+### 6.1. Cómo ejercerlos
+Escribe a **privacidad@autolupa.cl** indicando: tu nombre o el medio que prefieras para recibir la respuesta, la solicitud concreta que formulas y, si corresponde, los antecedentes que la justifican. También puedes hacerlo desde la sección **"Tus datos"** de tu cuenta, que permite descargar tus datos y eliminar tu cuenta sin escribirnos.
 
-## 9. SEGURIDAD
-Aplicamos medidas técnicas y organizativas: control de acceso por RLS, separación de datos internos, moderación previa a la publicación y cifrado en tránsito.
+### 6.2. Plazos de respuesta
+- **Acuse de recibo** de tu solicitud de forma inmediata.
+- **Respuesta en 30 días corridos** desde la recepción, prorrogable una sola vez por 30 días corridos más.
+- **Bloqueo temporal:** respuesta en **2 días hábiles**. Mientras no respondamos, no tratamos los datos que indicaste en la solicitud.
+- El ejercicio de rectificación, supresión, oposición y acceso es **gratuito** (el acceso, al menos una vez por trimestre).
 
-## 10. CAMBIOS EN LA POLÍTICA
-Los cambios serán notificados y requerirán nuevo consentimiento.`;
+### 6.3. Si tu solicitud es denegada
+Te responderemos por escrito fundando la causa y los antecedentes que la justifican, e informándote que dispones de **30 días hábiles** para reclamar ante la Agencia de Protección de Datos Personales. Si no respondemos dentro del plazo, también puedes reclamar directamente ante la Agencia.
+
+### 6.4. Reclamaciones
+La Agencia de Protección de Datos Personales es el organismo encargado de fiscalizar el cumplimiento de la ley. Las reclamaciones se presentan conforme al procedimiento del Art. 41 de la Ley 21.719.
+
+## 7. EJERCICIO DE DERECHOS DESDE TU CUENTA
+La sección **"Tus datos"** de tu cuenta permite, sin escribirnos:
+- **Portabilidad:** descargar un archivo con tus datos en formato JSON estructurado.
+- **Supresión:** eliminar tu cuenta de forma definitiva, junto con tus avisos, favoritos, preferencias, evidencias de aceptación y fotografías subidas.
+
+La eliminación de la cuenta no alcanza a los datos que hayas hecho públicos en avisos de terceros ni a las copias que un comprador conservó de un aviso contactado.
+
+## 8. CONSERVACIÓN DE DATOS
+- **Datos de cuenta:** mientras la cuenta esté activa, o hasta que solicites su eliminación.
+- **Avisos publicados:** hasta que los retires, los marques como vendidos o sean eliminados.
+- **Historial de uso:** 2 años desde la última actividad.
+- **Evidencia de aceptación de términos:** mientras la cuenta esté activa y por el plazo legal aplicable.
+- **Reportes y notas de moderación:** hasta 2 años después de resueltos, por fines de seguridad.
+
+Transcurridos esos plazos, los datos se suprimen o se anonimizan.
+
+## 9. DESTINATARIOS Y TRANSFERENCIAS INTERNACIONALES
+No cedemos datos personales a terceros para sus propios fines, salvo requerimiento judicial o legal.
+
+Usamos **encargados del tratamiento** que procesan datos por cuenta y bajo instrucción de AutoLupa:
+
+| Encargado | Finalidad | País |
+| --- | --- | --- |
+| Supabase | Base de datos, autenticación y almacenamiento de fotos | Estados Unidos |
+| Cloudflare | Alojamiento y entrega del sitio | Estados Unidos |
+| Google | Inicio de sesión con Google | Estados Unidos |
+
+Cada encargado está sujeto a contrato de encargo de tratamiento (DPA) que obliga a confidencialidad y medidas de seguridad. Las transferencias internacionales se realizan con salvaguardas apropiadas, conforme a los Arts. 38 y siguientes de la Ley 21.719. Puedes pedir información sobre las garantías aplicables escribiendo a privacidad@autolupa.cl.
+
+## 10. SEGURIDAD Y VULNERACIONES
+Aplicamos medidas técnicas y organizativas apropiadas al riesgo: control de acceso por RLS, separación de datos internos (el anónimo nunca recibe el identificador del vendedor ni las notas de moderación), fotos no enumerables, moderación previa a la publicación y cifrado en tránsito.
+
+Si ocurriera una vulneración de seguridad con riesgo para tus derechos, la reportaremos a la Agencia de Protección de Datos Personales sin dilaciones indebidas y, cuando corresponda, te la comunicaremos a ti en lenguaje claro, indicando los datos afectados, sus posibles consecuencias y las medidas adoptadas.
+
+## 11. MENORES DE EDAD
+El servicio está dirigido a mayores de 18 años. No tratamos conscientemente datos de menores de 14 años; si nos enteramos de que se han ingresado, los eliminamos.
+
+## 12. DEBER DE CONFIDENCIALIDAD
+Quienes intervienen en la operación del servicio están sujetos al deber de secreto respecto de los datos personales, incluso después de concluida la relación, salvo que el titular los haya hecho manifiestamente públicos.
+
+## 13. CAMBIOS EN LA POLÍTICA
+Los cambios serán notificados y requerirán nuevo consentimiento. Cada versión queda registrada con su fecha y el identificador de quien la aceptó.`;
 
 export const RESPONSIBILITY_CONTENT = `# DECLARACIÓN DE RESPONSABILIDAD Y USO DEL SERVICIO
 ## AutoLupa Chile

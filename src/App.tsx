@@ -20,6 +20,7 @@ const Usados = lazy(() => import('./pages/Usados').then(m => ({ default: m.Usado
 const UsedListingDetail = lazy(() => import('./pages/UsedListingDetail').then(m => ({ default: m.UsedListingDetail })));
 const PublicarAuto = lazy(() => import('./pages/PublicarAuto').then(m => ({ default: m.PublicarAuto })));
 const MisAnuncios = lazy(() => import('./pages/MisAnuncios').then(m => ({ default: m.MisAnuncios })));
+const TusDatos = lazy(() => import('./pages/TusDatos').then(m => ({ default: m.TusDatos })));
 const ModeracionUsados = lazy(() => import('./pages/ModeracionUsados').then(m => ({ default: m.ModeracionUsados })));
 const Blog = lazy(() => import('./pages/Blog').then(m => ({ default: m.Blog })));
 const Analytics = lazy(() => import('./pages/Analytics').then(m => ({ default: m.Analytics })));
@@ -234,6 +235,14 @@ function AppContent() {
           element={
             <Suspense fallback={<PageSkeleton />}>
               <ModeracionUsados user={user} isCloudAuthAvailable={isCloudAuthAvailable} onSignIn={signInWithGoogle} />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/tus-datos"
+          element={
+            <Suspense fallback={<PageSkeleton />}>
+              <TusDatos user={user} isCloudAuthAvailable={isCloudAuthAvailable} onSignIn={signInWithGoogle} />
             </Suspense>
           }
         />

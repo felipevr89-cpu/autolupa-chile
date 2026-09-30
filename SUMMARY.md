@@ -175,6 +175,13 @@ El rol anónimo (sin sesión) sigue sin poder insertar: no se tocó ninguna pol�
 
 
 
+## Lote 7 — Portada liviana y CTA flotante móvil (30-09-2026)
+
+- **Catálogo colapsado por defecto**: la portada muestra una grilla de **6 destacados** (`DESTACADOS`: Corolla, Tucson, Sportage, Swift, CX-5, Hilux — verificados en el catálogo) y un botón **"Ver catálogo completo (N vehículos)"**. El explorador completo (filtros + grilla + paginación) se revela al hacer clic, al buscar desde el buscador dual o cuando `isFiltering` está activo (filtros guardados de una sesión anterior).
+- **`PublishFloat`**: CTA fijo "📢 Publicar gratis" solo en móvil (`sm:hidden`, `z-40`, con `env(safe-area-inset-bottom)`), ausente en `/publicar-auto`, `/mis-anuncios`, `/moderacion` y `/tus-datos`; el pie recibe `pb-24 sm:pb-0` para que no tape el último bloque.
+- Hallazgo importante (verificación del flujo de invitado): `PUT /user {email}` devuelve **`email_address_invalid`** con dominios sin registros DNS (`autolupa.cl` no existe todavía) y **`email_address_not_authorized`** si el SMTP por defecto intenta enviar fuera de la organización Supabase. Confirma que **el SMTP propio sigue siendo blocker de producción**.
+- Tests: 96 (`publishFloat.test.tsx`, 3 nuevos; `homeSearch.test.tsx` ampliado con destacados y apertura del catálogo).
+
 ## Lote 6 — Guía de fotos y recorte básico (30-09-2026)
 
 - **Guía de fotos en `PublicarAuto` paso 2** (`<details>` "📐 Guía rápida de fotos"): portada 3/4 delantero a la altura del capó, luz sin contraluz, interior con km legibles, motor y arañazos, tapar datos en papeles y formato horizontal (la resolución ya la resuelve `prepareListingPhoto` a 1.800 px).

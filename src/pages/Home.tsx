@@ -53,6 +53,16 @@ const NOVEDADES_2026: { brand: string; model: string }[] = [
   { brand: 'Changan', model: 'Lumin' },
 ];
 
+/** Selección corta de la portada: modelos de alta rotación en Chile */
+const DESTACADOS: { brand: string; model: string }[] = [
+  { brand: 'Toyota', model: 'Corolla' },
+  { brand: 'Hyundai', model: 'Tucson' },
+  { brand: 'Kia', model: 'Sportage' },
+  { brand: 'Suzuki', model: 'Swift' },
+  { brand: 'Mazda', model: 'CX-5' },
+  { brand: 'Toyota', model: 'Hilux' },
+];
+
 export function Home({
   cars,
   allCarsCount,
@@ -84,6 +94,7 @@ export function Home({
   const catalogRef = useRef<HTMLDivElement>(null);
   const navigate = useNavigate();
   const [searchTab, setSearchTab] = useState<'nuevos' | 'usados'>('nuevos');
+  const [showCatalog, setShowCatalog] = useState(false);
   const [usedQuery, setUsedQuery] = useState('');
 
   const submitSearch = (event: React.FormEvent) => {
@@ -93,6 +104,7 @@ export function Home({
       navigate(query ? `/usados?q=${encodeURIComponent(query)}` : '/usados');
       return;
     }
+    setShowCatalog(true);
     catalogRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   };
 
@@ -114,6 +126,14 @@ export function Home({
       .filter((c): c is Car => !!c);
     return { nuevos };
   }, []);
+
+  const destacados = useMemo(() => DESTACADOS
+    .map(({ brand, model }) => carsData
+      .filter(c => c.brand === brand && c.model === model)
+      .sort((a, b) => b.year - a.year)[0])
+    .filter((c): c is Car => !!c), []);
+
+  const catalogOpen = showCatalog || isFiltering;
 
   const openCar = useCallback((car: Car) => {
     setSelectedCar(car);
@@ -292,10 +312,39 @@ export function Home({
       )}
 
       <div ref={catalogRef} className="scroll-mt-20">
-        <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-1">Explorar todo el catálogo</h2>
-        <p className="text-sm text-gray-500 dark:text-gray-400 mb-6">Filtra y ordena entre {allCarsCount} vehículos</p>
+        <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-1">
+          {catalogOpen ? 'Explorar todo el catálogo' : 'Autos destacados'}
+        </h2>
+        <p className="text-sm text-gray-500 dark:text-gray-400 mb-6">
+          {catalogOpen
+            ? `Filtra y ordena entre ${allCarsCount} vehículos`
+            : `Una selección de los ${allCarsCount} vehículos disponibles`}
+        </p>
       </div>
 
+      {!catalogOpen && (
+        <>
+          <CarGrid
+            cars={destacados}
+            favorites={favorites}
+            compareList={compareList}
+            onToggleFavorite={onToggleFavorite}
+            onAddToCompare={handleAddToCompare}
+            onRemoveFromCompare={onRemoveFromCompare}
+            onCarClick={openCar}
+          />
+          <div className="mt-6 text-center">
+            <button
+              onClick={() => setShowCatalog(true)}
+              className="px-7 py-3.5 bg-blue-600 text-white rounded-xl font-bold hover:bg-blue-700 transition-colors"
+            >
+              Ver catálogo completo ({allCarsCount} vehículos)
+            </button>
+          </div>
+        </>
+      )}
+
+      {catalogOpen && (
       <div className="flex flex-col lg:flex-row gap-8">
         <aside className="w-full lg:w-80 flex-shrink-0">
           <FilterPanel
@@ -372,6 +421,7 @@ export function Home({
           )}
         </main>
       </div>
+      )}
 
       {selectedCar && (
         <CarDetail

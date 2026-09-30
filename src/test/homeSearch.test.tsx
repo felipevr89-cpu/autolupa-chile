@@ -13,7 +13,7 @@ const filters: Filters = {
   type: [],
   fuel: [],
   seats: [],
-  priceRange: [0, 100000000],
+  priceRange: [0, 500000000],
   transmission: [],
   traction: [],
   minAirbags: 0,
@@ -83,11 +83,27 @@ describe('buscador dual de la portada', () => {
     expect(screen.getByText('ruta=/usados?q=Corolla%202019')).toBeInTheDocument();
   });
 
+  it('muestra 6 destacados antes de abrir el catálogo completo', () => {
+    renderHome();
+    expect(screen.getByRole('heading', { name: /autos destacados/i })).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: /ver catálogo completo \(626 vehículos\)/i })).toBeInTheDocument();
+    expect(screen.queryByText(/mostrando 1-15 de 626 vehículos/i)).not.toBeInTheDocument();
+
+    fireEvent.click(screen.getByRole('button', { name: /ver catálogo completo/i }));
+
+    expect(screen.getByRole('heading', { name: /explorar todo el catálogo/i })).toBeInTheDocument();
+    expect(screen.getByText(/mostrando 1-15 de 626 vehículos/i)).toBeInTheDocument();
+    expect(screen.queryByRole('button', { name: /ver catálogo completo/i })).not.toBeInTheDocument();
+  });
+
   it('escribe en el catálogo cuando la pestaña activa es de nuevos', () => {
     renderHome();
     const input = screen.getByLabelText(/buscar autos nuevos/i);
     fireEvent.change(input, { target: { value: 'SUV' } });
     expect(setSearchQuery).toHaveBeenCalledWith('SUV');
     expect(screen.getByText(/fichas de catálogo/i)).toBeInTheDocument();
+
+    fireEvent.click(screen.getByRole('button', { name: /^buscar$/i }));
+    expect(screen.getByRole('heading', { name: /explorar todo el catálogo/i })).toBeInTheDocument();
   });
 });

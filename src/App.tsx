@@ -5,6 +5,7 @@ import { useCars } from './hooks/useCars';
 import { useDocuments } from './hooks/useDocuments';
 import { Navbar } from './components/Layout/Navbar';
 import { Footer } from './components/Footer';
+import { PublishFloat } from './components/Layout/PublishFloat';
 import { SEO } from './components/SEO';
 import { SignatureModal } from './components/Documents/SignatureModal';
 import { Home } from './pages/Home';
@@ -302,7 +303,11 @@ function AppContent() {
       </Routes>
       </main>
 
-      <Footer />
+      <PublishFloat />
+
+      <div className="pb-24 sm:pb-0">
+        <Footer />
+      </div>
     </div>
   );
 }

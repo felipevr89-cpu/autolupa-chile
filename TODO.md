@@ -124,8 +124,8 @@ el detalle es útil al comprar y además educa al usuario. Se agrega en su lugar
 ### Mes 2 — 🟡 UX
 - [x] Home con buscador dual (pestañas Autos nuevos / Autos usados) + 8 últimos avisos reales ✅ (30-09)
 - [x] Guía de fotos para vendedores (ángulos, luz, papeles y formato) + **recorte básico** con arrastre y zoom en encuadre 4:3 ✅ (30-09)
-- [ ] Botón "Publicar gratis" flotante en móvil
-- [ ] Reducir carga cognitiva: 6 destacados en home + "Ver catálogo completo"
+- [x] Botón "Publicar gratis" flotante en móvil (`PublishFloat`, oculto en /publicar-auto, /mis-anuncios, /moderacion y /tus-datos) ✅ (30-09)
+- [x] Reducir carga cognitiva: la portada muestra **6 destacados** (Corolla, Tucson, Sportage, Swift, CX-5, Hilux) y el catálogo completo (filtros + paginación) se abre con "Ver catálogo completo", al buscar o si ya hay filtros guardados ✅ (30-09)
 - [ ] Favoritos con aviso de baja de precio o venta
 
 ### Mes 2–3 — 🟡 Confianza (diferenciador)

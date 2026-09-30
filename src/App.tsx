@@ -26,6 +26,7 @@ const TusDatos = lazy(() => import('./pages/TusDatos').then(m => ({ default: m.T
 const Glosario = lazy(() => import('./pages/Glosario').then(m => ({ default: m.Glosario })));
 const ModeracionUsados = lazy(() => import('./pages/ModeracionUsados').then(m => ({ default: m.ModeracionUsados })));
 const Blog = lazy(() => import('./pages/Blog').then(m => ({ default: m.Blog })));
+const BlogArticle = lazy(() => import('./pages/BlogArticle').then(m => ({ default: m.BlogArticle })));
 const Analytics = lazy(() => import('./pages/Analytics').then(m => ({ default: m.Analytics })));
 
 function PageSkeleton() {
@@ -265,6 +266,14 @@ function AppContent() {
           element={
             <Suspense fallback={<PageSkeleton />}>
               <TusDatos user={user} isCloudAuthAvailable={isCloudAuthAvailable} onSignIn={signInWithGoogle} />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/blog/:slug"
+          element={
+            <Suspense fallback={<PageSkeleton />}>
+              <BlogArticle />
             </Suspense>
           }
         />

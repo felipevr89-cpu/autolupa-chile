@@ -45,6 +45,11 @@ function brandSlugs() {
     .map((brand) => brand.toLowerCase().replace(/\s+/g, '-'));
 }
 
+function articleSlugs() {
+  const source = readFileSync(join(root, 'src', 'data', 'articles.ts'), 'utf8');
+  return [...source.matchAll(/slug:\s*'([^']+)'/g)].map((match) => match[1]);
+}
+
 function regionSlugs() {
   const source = readFileSync(join(root, 'src', 'data', 'chileRegions.ts'), 'utf8');
   return [...source.matchAll(/slug:\s*'([^']+)'/g)].map((match) => match[1]);
@@ -85,6 +90,7 @@ const routes = [
   ...staticRoutes.map(([path, changefreq, priority]) => ({ loc: `${siteUrl}${path}`, changefreq, priority })),
   ...brandSlugs().map((slug) => ({ loc: `${siteUrl}/marca/${slug}`, changefreq: 'weekly', priority: 0.7 })),
   ...regionSlugs().map((slug) => ({ loc: `${siteUrl}/autos-usados-en/${slug}`, changefreq: 'daily', priority: 0.8 })),
+  ...articleSlugs().map((slug) => ({ loc: `${siteUrl}/blog/${slug}`, changefreq: 'monthly', priority: 0.7 })),
   ...(await activeListingSlugs()).map((slug) => ({ loc: `${siteUrl}/usados/${slug}`, changefreq: 'daily', priority: 0.6 })),
 ];
 

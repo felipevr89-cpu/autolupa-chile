@@ -175,6 +175,18 @@ El rol anónimo (sin sesión) sigue sin poder insertar: no se tocó ninguna pol�
 
 
 
+## Lote 8 — Blog con detalle real y dos guías nuevas (30-09-2026)
+
+- **Problema detectado**: `Blog.tsx` mostraba 9 tarjetas con "Leer más →" sin ruta de destino (no existía `/blog/:slug`), o sea enlaces muertos.
+- **`src/data/articles.ts`**: modelo `Article` con `sections` (heading, párrafos, bullets) + `getArticleBySlug`. Quedan fuera las 9 guías aún sin cuerpo.
+- **`src/pages/BlogArticle.tsx` + ruta `/blog/:slug`**: breadcrumb, `Article` + `BreadcrumbList` en JSON-LD (con `datePublished` ISO), secciones renderizadas y bloque "Sigue en AutoLupa" (usados, comparador, glosario, publicar). Slug desconocido → página no encontrada con `noIndex`.
+- **Listado**: las guías publicadas enlazan a su detalle; las 9 pendientes muestran un chip **"En preparación"** (sin enlace, sin indexar).
+- **Guías nuevas** (datos verificados contra ChileAtiende / Registro Civil):
+  1. `transferencia-vehiculo-chile` — CAV (valor $1.560 según ChileAtiende, cómo pedirlo, qué revisar), documentos, trámite en el Registro Civil con hora previa y ClaveÚnica, tasación fiscal, pasos posteriores (permiso de circulación, SOA) y 4 señales de fraude.
+  2. `revision-auto-usado-checklist` — papeles, carrocería, interior, motor, prueba de conducción, kilometraje (referencia 15.000 km/año) y cierre con precio comparado.
+- **Sitemap**: +2 URLs de artículos (`/blog/{slug}`) → 128 URLs.
+- Tests: 103 (`blogArticles.test.tsx`, 7 nuevos).
+
 ## Lote 7 — Portada liviana y CTA flotante móvil (30-09-2026)
 
 - **Catálogo colapsado por defecto**: la portada muestra una grilla de **6 destacados** (`DESTACADOS`: Corolla, Tucson, Sportage, Swift, CX-5, Hilux — verificados en el catálogo) y un botón **"Ver catálogo completo (N vehículos)"**. El explorador completo (filtros + grilla + paginación) se revela al hacer clic, al buscar desde el buscador dual o cuando `isFiltering` está activo (filtros guardados de una sesión anterior).

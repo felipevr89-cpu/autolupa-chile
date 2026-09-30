@@ -118,7 +118,9 @@ el detalle es útil al comprar y además educa al usuario. Se agrega en su lugar
 - [x] Filtros compartibles: `/usados?region=`, `?brand=` y `?q=` se leen y escriben en la URL ✅ (30-09)
 - [x] Sitemap dinámico en `prebuild` (`scripts/generate-sitemap.mjs`): 12 estáticas + 98 marcas + 16 regiones + avisos activos ✅ (30-09)
 - [ ] Páginas por comuna (346) cuando haya masa de avisos por región
-- [ ] Guías de compra nuevas (transferencia de vehículos, revisión de usado)
+- [x] Guías de compra nuevas: **transferencia de vehículo en Chile** (CAV $1.560, documentos, Registro Civil, permiso de circulación y SOA) y **checklist de revisión de usado** ✅ (30-09)
+- [x] Ruta `/blog/:slug` con detalle real (SEO + JSON-LD Article/Breadcrumb): antes las 9 tarjetas del blog eran enlaces muertos ✅ (30-09)
+- [ ] Escribir el cuerpo de las 9 guías anteriores (hoy muestran "En preparación" y no se indexan)
 - [ ] Sección "Reclamos y Sugerencias" con respuesta pública
 
 ### Mes 2 — 🟡 UX

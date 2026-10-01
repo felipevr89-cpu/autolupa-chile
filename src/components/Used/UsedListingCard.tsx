@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom';
 import { formatPrice } from '../../data/brands';
 import { USED_FUEL_OPTIONS, USED_TRANSMISSION_OPTIONS, type UsedListing, usedListingWhatsappUrl } from '../../data/usedListings';
+import { toSavedListing } from '../../lib/savedListings';
+import { SaveListingButton } from './SaveListingButton';
 
 interface Props {
   listing: UsedListing;
@@ -41,9 +43,12 @@ export function UsedListingCard({ listing }: Props) {
               </Link>
             </h2>
           </div>
-          <span className="text-xs font-medium text-gray-500 dark:text-gray-400 bg-gray-100 dark:bg-gray-700 px-2 py-1 rounded shrink-0">
-            {listing.year}
-          </span>
+          <div className="flex items-start gap-2 shrink-0">
+            <span className="text-xs font-medium text-gray-500 dark:text-gray-400 bg-gray-100 dark:bg-gray-700 px-2 py-1 rounded">
+              {listing.year}
+            </span>
+            <SaveListingButton listing={toSavedListing(listing)} compact />
+          </div>
         </div>
         <div className="flex flex-wrap gap-1.5 mb-3">
           <span className="text-xs px-2 py-0.5 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded">

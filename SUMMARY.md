@@ -175,7 +175,18 @@ El rol anónimo (sin sesión) sigue sin poder insertar: no se tocó ninguna pol�
 
 
 
-## Lote 10 — Las 9 guías del blog con cuerpo real (01-10-2026)
+## Lote 11 — Favoritos con alertas de precio y avisos guardados (01-10-2026)
+
+- **`src/lib/priceWatch.ts`** (seguimiento de precios del catálogo): `autolupa_price_watch` guarda por favorito el precio de referencia y un flag `alert`. `syncPriceWatch(favoritos)` se ejecuta al abrir `/favorites`, registra autos nuevos, detecta bajadas (sin pisar la referencia para que la alerta persista), sube la referencia si el precio sube y purga los autos que dejaron de ser favoritos. `acknowledgePriceAlert` fija la referencia al precio actual.
+- **Panel "⬇️ Bajas de precio en tus favoritos"**: nombre, precio anterior tachado, precio nuevo, monto ahorrado en verde y botones "Entendido" / "Entendido con todo".
+- **`src/lib/savedListings.ts`**: store con `useSyncExternalStore` (`autolupa_saved_listings`) compartido por tarjeta, detalle y favoritos; `toggleSavedListing`, `updateSavedPrice`, `removeSavedListing`, `resetSavedListings` (para tests) y hooks `useSavedListings` / `useIsListingSaved`.
+- **`SaveListingButton`** (`src/components/Used/`): bookmark en `UsedListingCard` (ícono compacto junto al año) y en el panel de precio de `UsedListingDetail`; `aria-pressed` y etiqueta con el título del aviso.
+- **`getSavedUsedListings(ids)`** en `src/lib/usedListings.ts`: consulta con las mismas columnas públicas, filtros de `active` + `published_at`/`expires_at` y RLS por medio; los avisos que no vuelven se marcan "ya no está publicado: vendido, retirado o en revisión".
+- **Sección "⭐ Avisos guardados"** en `/favorites`: estado "Verificando precio y disponibilidad…", aviso de baja con "Entendido" (actualiza la referencia), estado no disponible con link al aviso y botón "Quitar", y nota de reserva si Supabase no responde (conserva el precio de referencia para la próxima visita).
+- Sin backend nuevo: todo el estado de alertas vive en `localStorage` (funciona igual para anónimos y autenticados).
+- Tests: **123** (`src/test/favoritesAlerts.test.tsx`, 9 nuevos: 4 del seguimiento de precios, 1 del store y 4 de la página). lint 0, build OK con códigos de salida reales `TEST=0 LINT=0 BUILD=0`.
+
+
 
 - **`src/data/articles.ts`**: las 9 guías que estaban en "En preparación" pasan a `Article` con `sections` reales (heading + párrafos + bullets), con lo que el blog queda en **11 artículos enlazados** y cero tarjetas sin destino.
 - **Datos verificados antes de escribir** (nada inventado; cifras tomadas del código y del catálogo):

@@ -2,8 +2,10 @@ import { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { SEO } from '../components/SEO';
 import { SafetyBanner } from '../components/Trust/SafetyBanner';
+import { SaveListingButton } from '../components/Used/SaveListingButton';
 import { formatPrice } from '../data/brands';
 import { USED_FUEL_OPTIONS, USED_TRANSMISSION_OPTIONS, type UsedListing, usedListingWhatsappUrl } from '../data/usedListings';
+import { toSavedListing } from '../lib/savedListings';
 import { getUsedListingBySlug, reportUsedListing } from '../lib/usedListings';
 import { isSupabaseConfigured } from '../lib/supabase';
 import type { User } from '../types';
@@ -179,7 +181,10 @@ export function UsedListingDetail({ user, isCloudAuthAvailable, onSignIn }: Prop
             <p className="text-2xl font-bold text-blue-600 dark:text-blue-400 mt-4">{formatPrice(listing.price)}</p>
             <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">{listing.year} · {listing.mileage.toLocaleString('es-CL')} km</p>
             <p className="text-sm text-gray-600 dark:text-gray-300 mt-4">📍 {listing.commune ? `${listing.commune}, ` : ''}{listing.region}</p>
-            <a href={usedListingWhatsappUrl(listing)} target="_blank" rel="noopener noreferrer" className="mt-6 flex items-center justify-center gap-2 w-full px-5 py-3 bg-green-500 hover:bg-green-600 text-white rounded-xl font-bold">Contactar por WhatsApp</a>
+            <div className="mt-4">
+              <SaveListingButton listing={toSavedListing(listing)} />
+            </div>
+            <a href={usedListingWhatsappUrl(listing)} target="_blank" rel="noopener noreferrer" className="mt-4 flex items-center justify-center gap-2 w-full px-5 py-3 bg-green-500 hover:bg-green-600 text-white rounded-xl font-bold">Contactar por WhatsApp</a>
             {listing.contactEmail && <a href={`mailto:${listing.contactEmail}`} className="mt-3 block text-center text-sm text-blue-600 dark:text-blue-400 hover:underline">Enviar correo</a>}
             <p className="text-xs text-gray-500 dark:text-gray-400 mt-4">La publicación es gratuita. AutoLupa no cobra comisión por este aviso.</p>
           </div>

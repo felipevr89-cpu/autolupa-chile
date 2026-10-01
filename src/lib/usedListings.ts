@@ -221,6 +221,23 @@ export async function getActiveUsedListings(
   return { listings: rows.map(mapListing), total: count ?? rows.length };
 }
 
+export async function getSavedUsedListings(ids: string[]): Promise<UsedListing[]> {
+  const unique = [...new Set(ids)].filter(Boolean);
+  if (unique.length === 0) return [];
+  const now = new Date().toISOString();
+  const { data, error } = await client()
+    .from('used_listings')
+    .select(`${publicColumns},${sellerRelation}`)
+    .in('id', unique)
+    .eq('status', 'active')
+    .lte('published_at', now)
+    .or(`expires_at.is.null,expires_at.gt.${now}`);
+
+  if (error) throw error;
+  const rows = (data ?? []) as unknown as UsedListingRow[];
+  return rows.map(mapListing);
+}
+
 export async function getUsedListingBySlug(slug: string): Promise<UsedListing | null> {
   const { data, error } = await client()
     .from('used_listings')

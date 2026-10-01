@@ -42,7 +42,9 @@
 - [ ] Seguridad: abrir autolupa.pages.dev con el navegador de escritorio conectado y revisar la consola por violaciones de CSP (hoy solo se verificó por curl + HTML servido)
 - [ ] Seguridad: decidir si se endurece `script-src` (quitar `'unsafe-inline'`) usando hashes en lugar de JSON-LD inline
 - [x] **Publicación**: edición de mis avisos (precio, km, color, región, comuna, descripción y contacto) con validación propia y aviso de que el cambio vuelve el aviso a revisión ✅ (01-10)
-- [ ] Verificación: mejoras de verificación de vendedor (pendiente de este lote)
+- [x] **Verificación**: estado real del correo en `/mis-anuncios` (chip verificado / verificando / sin correo), botón «Reenviar enlace» y traducción del límite de 2 correos por hora a español ✅ (01-10)
+- [ ] Verificación: badge público «vendedor con correo verificado» en el detalle del aviso (exige migración con columna + trigger sobre `auth.users` y volver a correr la matriz de RLS con roles reales)
+- [ ] Verificación: clic real en el enlace de correo para cerrar el bucle `updateUser({email}) → confirmar → publicar` (pendiente del SMTP por hora)
 
 ---
 

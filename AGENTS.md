@@ -126,6 +126,7 @@ src/
 - Rutas: `/usados`, `/usados/:slug`, `/publicar-auto`, `/mis-anuncios` y `/moderacion`.
 - Publicación sin registro: sesión anónima + verificación de email (`updateUser`), trigger `require_verified_seller` en `used_listings`. Ver `supabase/README.md`.
 - Filtros: búsqueda, marca, región, combustible, transmisión, año, precio, kilometraje, orden y paginación.
+- Verificación de correo: chip de estado + «Reenviar enlace» en `/mis-anuncios` (`src/lib/authVerification.ts`); GoTrue limita a 2 correos/hora y el trigger exige el correo confirmado antes de publicar.
 - SEO: `Vehicle` + `Offer` + `BreadcrumbList` en detalle e `ItemList` en el listado.
 - La configuración de Supabase y los pasos de despliegue están en `README.md`.
 

@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { SEO } from '../components/SEO';
 import { brands as catalogBrands, getModelsByBrand } from '../data/brands';
 import { cropListingPhoto, prepareListingPhoto } from '../lib/listingImages';
+import { verificationErrorMessage } from '../lib/authVerification';
 import { createUsedListing } from '../lib/usedListings';
 import { supabase } from '../lib/supabase';
 import {
@@ -94,7 +95,7 @@ export function PublicarAuto({ user, isCloudAuthAvailable, onSignIn, onSignInAno
   const catalogBrand = catalogBrands.find((brand) => brand.toLowerCase() === draft.brand.trim().toLowerCase());
   const modelOptions = catalogBrand ? getModelsByBrand(catalogBrand) : [];
   const yearOptions = Array.from({ length: 26 }, (_, index) => currentYear + 1 - index);
-  const emailVerified = Boolean(user?.email);
+  const emailVerified = user?.emailVerified ?? Boolean(user?.email);
   const mustVerifyEmail = !emailVerified;
 
   useEffect(() => {
@@ -326,11 +327,7 @@ export function PublicarAuto({ user, isCloudAuthAvailable, onSignIn, onSignInAno
       setGuestFlow(true);
       setVerificationSent(true);
     } catch (error) {
-      setSubmitError(
-        error instanceof Error
-          ? `No pudimos enviar el correo de confirmación: ${error.message}`
-          : 'No pudimos enviar el correo de confirmación.',
-      );
+      setSubmitError(verificationErrorMessage(error, 'No pudimos enviar el correo de confirmación'));
     } finally {
       setSendingVerification(false);
     }

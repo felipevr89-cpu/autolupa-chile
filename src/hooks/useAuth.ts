@@ -9,6 +9,8 @@ function mapUser(authUser: SupabaseUser): User {
     displayName: authUser.user_metadata.full_name || authUser.user_metadata.name || null,
     email: authUser.email ?? null,
     photoURL: authUser.user_metadata.avatar_url || null,
+    emailVerified: Boolean(authUser.email_confirmed_at),
+    pendingEmail: authUser.new_email ?? null,
   };
 }
 

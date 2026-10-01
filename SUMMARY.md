@@ -175,6 +175,16 @@ El rol anónimo (sin sesión) sigue sin poder insertar: no se tocó ninguna pol�
 
 
 
+## Lote 14 — Iteración de verificación: estado y reenvío del correo (01-10-2026)
+
+- **Auditoría del flujo real** (sonda del 30-09 contra GoTrue): `PUT /user {email}` → 200 y el JWT de sesión queda con `email: ""` hasta que se confirma el enlace, así que `require_verified_seller` lanza «Debes confirmar tu correo electronico antes de publicar» con un correo sin confirmar y **no hay agujero**: el JWT no se adelanta a la confirmación. Límite observado: `over_email_send_rate_limit` = 2 correos por hora (1er envío 200, 2do 429).
+- **`User`** (`types/index.ts`) ahora expone `emailVerified` (`email_confirmed_at`) y `pendingEmail` (`new_email`), que llena `useAuth`. Antes la app asumía «correo presente = verificado»: cierto en nuestros flujos (anónimo→cambio de correo y Google), pero frágil si algún día entra un signup sin confirmar.
+- **`PublicarAuto`** usa `emailVerified` real con respaldo a `Boolean(user.email)` para no romper fixtures.
+- **`src/lib/authVerification.ts`**: `resendVerificationEmail(email)` (`auth.resend({ type: 'email_change', emailRedirectTo: /publicar-auto })`), `isVerificationRateLimit` (código `over_email_send_rate_limit` o mensaje con «rate limit») y `verificationErrorMessage(error, fallback)` que traduce el 429 a «Alcanzaste el límite de 2 correos por hora. Espera unos minutos y vuelve a intentarlo.» en vez de dejar «email rate limit exceeded». `PublicarAuto` ya no concatena el error crudo al reenviar.
+- **`/mis-anuncios`**: chip de verificación junto al título con tres estados: «✓ Correo verificado», «Verificando {correo}» + botón **Reenviar enlace** (mensaje `role="status"` con el resultado) o «Sin correo por verificar» + enlace a `/publicar-auto`. Sin verificar, consulta `auth.getUser()` cada 5 s —mismo patrón que `PublicarAuto`— para que el chip pase a verde sin recargar la pestaña.
+- **Descartado por ahora**: badge público «vendedor verificado» en el detalle del aviso. Exige migración (columna en `used_listings` + trigger que lea `auth.users`) y volver a correr la matriz de RLS con roles reales antes de recibir vendedores; queda en `TODO.md`.
+- Tests: **142** (`src/test/verificationStatus.test.tsx`, 6: mensajes del límite de envío, chip verificado, reenvío al correo pendiente, 429 traducido y guía cuando no hay correo). `LINT=0 TEST=0 BUILD=0` con códigos de salida reales.
+
 ## Lote 13 — Iteración de publicación: editar mis avisos (01-10-2026)
 
 - **`ListingEditDraft` + `validateListingEdit` + `toListingEditDraft`** en `src/data/usedListings.ts`: mismas reglas que la BD para precio (100.000–2.000.000.000), kilometraje (0–2.000.000), color (40), región (lista oficial), comuna (80), descripción (20–2.000), nombre (2), teléfono `+56…` vía `normalizeUsedListingPhone` y correo opcional.

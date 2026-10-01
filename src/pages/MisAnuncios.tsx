@@ -2,6 +2,8 @@ import { Fragment, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { SEO } from '../components/SEO';
 import { formatPrice } from '../data/brands';
+import { resendVerificationEmail, verificationErrorMessage } from '../lib/authVerification';
+import { supabase } from '../lib/supabase';
 import {
   toListingEditDraft,
   toUsedListingStatusLabel,
@@ -75,7 +77,7 @@ export function MisAnuncios({ user, isCloudAuthAvailable, onSignIn }: Props) {
     <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
       <SEO title="Mis avisos" description="Gestiona tus autos publicados en AutoLupa." noIndex />
       <div className="flex flex-wrap items-end justify-between gap-4 mb-8">
-        <div><p className="text-sm text-gray-500 dark:text-gray-400 mb-2">Hola, {user.displayName || user.email || 'vendedor'}</p><h1 className="text-3xl font-bold text-gray-900 dark:text-white">Mis avisos</h1></div>
+        <div><p className="text-sm text-gray-500 dark:text-gray-400 mb-2">Hola, {user.displayName || user.email || 'vendedor'}</p><h1 className="text-3xl font-bold text-gray-900 dark:text-white">Mis avisos</h1><div className="mt-3"><VerificationStatus user={user} /></div></div>
         <Link to="/publicar-auto" className="px-5 py-3 bg-blue-600 text-white rounded-xl font-semibold hover:bg-blue-700">Publicar otro auto</Link>
       </div>
       {error && <p role="alert" className="rounded-xl bg-red-50 dark:bg-red-950/40 p-4 text-sm text-red-700 dark:text-red-200 mb-5">{error}</p>}
@@ -283,5 +285,65 @@ function Field({ label, error, children }: { label: string; error?: string; chil
       {children}
       {error && <span className="block text-xs text-red-600 dark:text-red-400 mt-1">{error}</span>}
     </label>
+  );
+}
+
+function VerificationStatus({ user }: { user: User }) {
+  const [sending, setSending] = useState(false);
+  const [message, setMessage] = useState('');
+  const pending = user.pendingEmail ?? (user.emailVerified ? null : user.email);
+
+  useEffect(() => {
+    const client = supabase;
+    if (user.emailVerified || !client) return undefined;
+    const interval = window.setInterval(() => {
+      client.auth.getUser().catch(() => undefined);
+    }, 5000);
+    return () => window.clearInterval(interval);
+  }, [user.emailVerified, user.email, user.pendingEmail]);
+
+  if (user.emailVerified) {
+    return (
+      <span className="inline-flex items-center gap-1.5 rounded-full bg-green-100 dark:bg-green-950 px-3 py-1 text-xs font-semibold text-green-700 dark:text-green-300">
+        ✓ Correo verificado
+      </span>
+    );
+  }
+
+  const resend = async () => {
+    if (!pending) return;
+    setSending(true);
+    setMessage('');
+    try {
+      await resendVerificationEmail(pending);
+      setMessage(`Reenviamos el enlace de confirmación a ${pending}.`);
+    } catch (reason) {
+      setMessage(verificationErrorMessage(reason, 'No pudimos reenviar el enlace'));
+    } finally {
+      setSending(false);
+    }
+  };
+
+  return (
+    <div className="flex flex-wrap items-center gap-3 rounded-xl border border-amber-200 dark:border-amber-800 bg-amber-50 dark:bg-amber-950/30 px-4 py-2">
+      <span className="text-xs font-semibold text-amber-800 dark:text-amber-200">
+        {pending ? `Verificando ${pending}` : 'Sin correo por verificar'}
+      </span>
+      {pending ? (
+        <button
+          type="button"
+          onClick={resend}
+          disabled={sending}
+          className="px-3 py-1.5 border border-amber-400 text-amber-800 dark:text-amber-200 rounded-lg text-xs font-semibold disabled:opacity-50"
+        >
+          {sending ? 'Enviando…' : 'Reenviar enlace'}
+        </button>
+      ) : (
+        <Link to="/publicar-auto" className="text-xs font-semibold text-blue-600 dark:text-blue-400 underline">
+          Verificar correo al publicar
+        </Link>
+      )}
+      {message && <p role="status" className="w-full text-xs text-amber-800 dark:text-amber-200">{message}</p>}
+    </div>
   );
 }

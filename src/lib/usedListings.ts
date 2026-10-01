@@ -3,6 +3,8 @@ import {
   buildUsedListingSlug,
   normalizeUsedListingPhone,
   USED_LISTING_TERMS_VERSION,
+  validateListingEdit,
+  type ListingEditDraft,
   type UsedListing,
   type UsedListingDraft,
   type UsedListingFilters,
@@ -335,6 +337,33 @@ export async function createUsedListing(draft: UsedListingDraft): Promise<void> 
     }
     throw error;
   }
+}
+
+export async function updateUsedListing(listingId: string, draft: ListingEditDraft): Promise<void> {
+  const validationErrors = validateListingEdit(draft);
+  if (Object.keys(validationErrors).length > 0) throw new Error('Revisa los datos del aviso.');
+
+  const database = client();
+  const { data: sessionData, error: sessionError } = await database.auth.getSession();
+  if (sessionError) throw sessionError;
+  if (!sessionData.session?.user) throw new Error('Inicia sesión para editar tu aviso.');
+
+  const { error } = await database
+    .from('used_listings')
+    .update({
+      price_clp: draft.price,
+      mileage_km: draft.mileage,
+      color: draft.color.trim() || null,
+      region: draft.region.trim(),
+      commune: draft.commune.trim() || null,
+      description: draft.description.trim(),
+      contact_name: draft.contactName.trim(),
+      contact_phone: normalizeUsedListingPhone(draft.contactPhone),
+      contact_email: draft.contactEmail.trim() || null,
+    })
+    .eq('id', listingId);
+
+  if (error) throw error;
 }
 
 export async function getMyUsedListings(): Promise<UsedListing[]> {

@@ -175,6 +175,16 @@ El rol anónimo (sin sesión) sigue sin poder insertar: no se tocó ninguna pol�
 
 
 
+## Lote 13 — Iteración de publicación: editar mis avisos (01-10-2026)
+
+- **`ListingEditDraft` + `validateListingEdit` + `toListingEditDraft`** en `src/data/usedListings.ts`: mismas reglas que la BD para precio (100.000–2.000.000.000), kilometraje (0–2.000.000), color (40), región (lista oficial), comuna (80), descripción (20–2.000), nombre (2), teléfono `+56…` vía `normalizeUsedListingPhone` y correo opcional.
+- **`updateUsedListing(id, draft)`** en `src/lib/usedListings.ts`: solo columnas comerciales (precio, km, color, región, comuna, descripción, contacto). **No se puede cambiar marca/modelo/año/fotos**: el `slug` es inmutable por el trigger `protect_used_listing_changes` y cambiar la marca dejaría un slug mentiroso. `updated_at` lo pone el trigger, no el cliente.
+- **`MisAnuncios`**: botón **Editar** (solo en `active`/`pending`/`rejected`; no en vendidos) que abre `EditListingPanel` con el aviso de "todo cambio vuelve el aviso a revisión" (es literal: el trigger manda `active → pending` y limpia `published_at`), banner `role="status"` tras guardar y cancelación sin tocar la base.
+- **`noValidate` en el formulario de edición**: sin él, el `min=100000` nativo bloquea el `submit` y el error en español nunca aparece (detectado por el test).
+- Funcionalidades descartadas y por qué: **retirar aviso** (el trigger reescribe cualquier `active → X` distinto de `sold` a `active`, solo sale vendido) y **renovar** (los avisos se crean con `expires_at = null`, nunca vencen). Ambas exigirían migración.
+- Tests: **135** (`src/test/listingEdit.test.tsx`, 7: validación, guardar con aviso de revisión, error sin llamar a la base, cancelar y no editar vendidos). lint 0, build OK con códigos de salida reales `TEST=0 LINT=0 BUILD=0`.
+- **Nota de entorno**: `dist/` vive en NTFS vía FUSE y `rm -rf`/`emptyDir` de Vite pueden fallar con `ENOTEMPTY` al borrar `dist/car-images` (616 archivos). No es error de build: borrar `dist` y reintentar lo resuelve.
+
 ## Lote 12 — Iteración de seguridad (01-10-2026)
 
 - **`npm audit fix`** (solo `package-lock.json`): `react-router-dom` 7.18.1 → **7.18.4** (GHSA-qwww-vcr4-c8h2) y dependencias intermedias. Resultado: **`npm audit --omit=dev` → 0 vulnerabilidades** (exit 0). Quedan 5 solo de desarrollo (vite 5.4.21 / vitest 2.1.9 / esbuild) cuya corrección exige `vite@8` + `vitest@4` (ruptura mayor) → decisión pendiente; el de esbuild afecta únicamente al servidor de desarrollo local.
@@ -185,7 +195,7 @@ El rol anónimo (sin sesión) sigue sin poder insertar: no se tocó ninguna pol�
 - **Tests de regresión** (`src/test/securityHeaders.test.ts`, 4): CSP con `frame-ancestors`/`nosniff`/HSTS, no-store de las rutas con datos personales, `security.txt` completo y `robots.txt`. Total **128** (`suggestions.test.tsx` +1 del throttle).
 - **Escaneo de secretos verificado**: sin `sbp_`, sin `service_role`, sin JWTs ni claves privadas; `.env` fuera de git (solo `.env.example`); las únicas coincidencias son referencias de documentación.
 
-
+## Lote 11 — Favoritos con alertas de precio y avisos guardados (01-10-2026)
 
 - **`src/lib/priceWatch.ts`** (seguimiento de precios del catálogo): `autolupa_price_watch` guarda por favorito el precio de referencia y un flag `alert`. `syncPriceWatch(favoritos)` se ejecuta al abrir `/favorites`, registra autos nuevos, detecta bajadas (sin pisar la referencia para que la alerta persista), sube la referencia si el precio sube y purga los autos que dejaron de ser favoritos. `acknowledgePriceAlert` fija la referencia al precio actual.
 - **Panel "⬇️ Bajas de precio en tus favoritos"**: nombre, precio anterior tachado, precio nuevo, monto ahorrado en verde y botones "Entendido" / "Entendido con todo".
@@ -196,7 +206,7 @@ El rol anónimo (sin sesión) sigue sin poder insertar: no se tocó ninguna pol�
 - Sin backend nuevo: todo el estado de alertas vive en `localStorage` (funciona igual para anónimos y autenticados).
 - Tests: **123** (`src/test/favoritesAlerts.test.tsx`, 9 nuevos: 4 del seguimiento de precios, 1 del store y 4 de la página). lint 0, build OK con códigos de salida reales `TEST=0 LINT=0 BUILD=0`.
 
-
+## Lote 10 — Las 9 guías del blog con cuerpo real (01-10-2026)
 
 - **`src/data/articles.ts`**: las 9 guías que estaban en "En preparación" pasan a `Article` con `sections` reales (heading + párrafos + bullets), con lo que el blog queda en **11 artículos enlazados** y cero tarjetas sin destino.
 - **Datos verificados antes de escribir** (nada inventado; cifras tomadas del código y del catálogo):
@@ -209,7 +219,7 @@ El rol anónimo (sin sesión) sigue sin poder insertar: no se tocó ninguna pol�
 - **Sitemap**: +9 URLs → **138** (regex de `articles.ts` las toma solas en `prebuild`).
 - Tests: **114** (`blogArticles.test.tsx`: ninguna tarjeta en preparación, todas las guías enlazadas y los 9 slugs publicados). lint 0, build OK, códigos de salida reales `TEST=0 LINT=0 BUILD=0`.
 
-
+## Lote 9 — Reclamos y Sugerencias con respuesta pública (01-10-2026)
 
 - **Migración `supabase/migrations/202609300003_suggestions.sql`** (aplicada en Supabase con el PAT): tabla `public.suggestions` con `kind` (`reclamo`/`sugerencia`), `title` (5–120), `body` (10–2000), `email` opcional, `status` (`open`/`answered`/`closed`), `answer` y `answered_at`, más un chequeo de consistencia `status = 'answered' ⇔ answer y answered_at no nulos`.
 - **RLS**: `SELECT` público solo para filas `answered`/`closed`; `INSERT` permitido a `anon`/`authenticated` únicamente con `status = 'open'` y sin respuesta; `SELECT`/`UPDATE`/`DELETE` de moderador con `is_moderator()`; índices parciales por estado.

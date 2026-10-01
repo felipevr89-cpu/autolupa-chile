@@ -193,6 +193,58 @@ export function validateUsedListingDraft(draft: UsedListingDraft): UsedListingVa
   return errors;
 }
 
+export interface ListingEditDraft {
+  price: number;
+  mileage: number;
+  color: string;
+  region: string;
+  commune: string;
+  description: string;
+  contactName: string;
+  contactPhone: string;
+  contactEmail: string;
+}
+
+export function toListingEditDraft(listing: UsedListing): ListingEditDraft {
+  return {
+    price: listing.price,
+    mileage: listing.mileage,
+    color: listing.color,
+    region: listing.region,
+    commune: listing.commune,
+    description: listing.description,
+    contactName: listing.contactName,
+    contactPhone: listing.contactPhone,
+    contactEmail: listing.contactEmail,
+  };
+}
+
+export function validateListingEdit(draft: ListingEditDraft): UsedListingValidationErrors {
+  const errors: UsedListingValidationErrors = {};
+
+  if (!Number.isFinite(draft.price) || draft.price < 100000 || draft.price > 2000000000) {
+    errors.price = 'Ingresa un precio válido.';
+  }
+  if (!Number.isInteger(draft.mileage) || draft.mileage < 0 || draft.mileage > 2000000) {
+    errors.mileage = 'Ingresa un kilometraje válido.';
+  }
+  if (draft.color.trim().length > 40) errors.color = 'El color es demasiado largo.';
+  if (!USED_REGIONS.includes(draft.region as (typeof USED_REGIONS)[number])) errors.region = 'Selecciona una región.';
+  if (draft.commune.trim().length > 80) errors.commune = 'La comuna es demasiado larga.';
+  if (draft.description.trim().length < 20 || draft.description.trim().length > 2000) {
+    errors.description = 'Describe el vehículo entre 20 y 2.000 caracteres.';
+  }
+  if (draft.contactName.trim().length < 2) errors.contactName = 'Ingresa tu nombre.';
+  if (!/^\+[1-9]\d{7,14}$/.test(normalizeUsedListingPhone(draft.contactPhone))) {
+    errors.contactPhone = 'Ingresa un teléfono válido para WhatsApp.';
+  }
+  if (draft.contactEmail && !EMAIL_PATTERN.test(draft.contactEmail.trim())) {
+    errors.contactEmail = 'Ingresa un correo válido o déjalo vacío.';
+  }
+
+  return errors;
+}
+
 export function buildUsedListingSlug(brand: string, model: string, year: number, suffix: string): string {
   const normalize = (value: string) => value
     .normalize('NFD')

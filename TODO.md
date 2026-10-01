@@ -39,6 +39,7 @@
 
 - [x] **Seguridad**: dependencias parchadas (`npm audit --omit=dev` → 0), CSP + `nosniff` + HSTS + `frame-ancestors` en `_headers`, `no-store` para `/tus-datos`, `.well-known/security.txt`, throttle de 30 s en reclamos y escaneo de secretos ✅ (01-10)
 - [ ] Seguridad: subir vite/vitest a las versiones parchadas (rompe mayor; hoy solo afecta al dev server local)
+- [ ] Seguridad: abrir autolupa.pages.dev con el navegador de escritorio conectado y revisar la consola por violaciones de CSP (hoy solo se verificó por curl + HTML servido)
 - [ ] Seguridad: decidir si se endurece `script-src` (quitar `'unsafe-inline'`) usando hashes en lugar de JSON-LD inline
 - [x] **Publicación**: edición de mis avisos (precio, km, color, región, comuna, descripción y contacto) con validación propia y aviso de que el cambio vuelve el aviso a revisión ✅ (01-10)
 - [ ] Verificación: mejoras de verificación de vendedor (pendiente de este lote)

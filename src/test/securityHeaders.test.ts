@@ -23,6 +23,21 @@ describe('cabeceras y archivos de seguridad', () => {
     expect(headers).toContain('Referrer-Policy: strict-origin-when-cross-origin');
   });
 
+  it('permite todos los orígenes externos que carga index.html', () => {
+    const html = readFileSync(join(process.cwd(), 'index.html'), 'utf8');
+    const origins = new Set(
+      [...html.matchAll(/https:\/\/[^/"'\s]+/g)]
+        .map((match) => match[0])
+        .filter((origin) => origin !== 'https://autolupa.pages.dev'),
+    );
+    expect(origins.size).toBeGreaterThan(0);
+    for (const origin of origins) {
+      expect(headers).toContain(origin);
+    }
+    expect(headers).toContain('style-src');
+    expect(headers).toContain('https://fonts.gstatic.com');
+  });
+
   it('no cachea las rutas con datos personales', () => {
     expect(headers).toMatch(/\/tus-datos\n\s+Cache-Control: private, no-store/);
     expect(headers).toMatch(/\/mis-anuncios\n\s+Cache-Control: private, no-store/);

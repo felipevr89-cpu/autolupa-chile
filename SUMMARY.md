@@ -175,6 +175,17 @@ El rol anónimo (sin sesión) sigue sin poder insertar: no se tocó ninguna pol�
 
 
 
+## Lote 9 — Reclamos y Sugerencias con respuesta pública (01-10-2026)
+
+- **Migración `supabase/migrations/202609300003_suggestions.sql`** (aplicada en Supabase con el PAT): tabla `public.suggestions` con `kind` (`reclamo`/`sugerencia`), `title` (5–120), `body` (10–2000), `email` opcional, `status` (`open`/`answered`/`closed`), `answer` y `answered_at`, más un chequeo de consistencia `status = 'answered' ⇔ answer y answered_at no nulos`.
+- **RLS**: `SELECT` público solo para filas `answered`/`closed`; `INSERT` permitido a `anon`/`authenticated` únicamente con `status = 'open'` y sin respuesta; `SELECT`/`UPDATE`/`DELETE` de moderador con `is_moderator()`; índices parciales por estado.
+- **Hallazgo técnico (documentado para no repetirlo)**: en PostgreSQL, cualquier `RETURNING` —es decir `Prefer: return=representation` o `.select()` encadenado tras un `insert`— exige que la fila devuelva **también** la política de `SELECT`. Como la política pública solo deja ver `answered`/`closed` y la fila nace `open`, ese insert devuelve `42501 new row violates row-level security policy`. **Por eso `sendSuggestion()` inserta sin `.select()`** (PostgREST usa `return=minimal` → 201). Matriz verificada: insert sin representation **201**, `select` anónimo **0 filas**, insert con representation **401**, insert con títulos cortos **23514** (chequeo).
+- **`src/lib/suggestions.ts`**: `validateSuggestionInput`, `sendSuggestion` (con honeypot), `getPublishedSuggestions`, `getOpenSuggestions` y `answerSuggestion` (respeta el chequeo de consistencia).
+- **`/reclamos`** (`src/pages/Reclamos.tsx`, ruta lazy): breadcrumb, JSON-LD `FAQPage` con 4 preguntas, panel "Cómo tratamos tu mensaje" (sin registro, correo opcional, Ley 21.719), formulario con honeypot y validación antes de enviar, confirmación de recepción, lista pública de respuestas con bloque "Respuesta de AutoLupa" y estado vacío.
+- **`/moderacion`**: sección "Reclamos y sugerencias" con los pendientes, correo del autor, campo de respuesta y botones "Publicar respuesta" / "Cerrar" (cierra sin respuesta pública).
+- **Enlaces**: pie de página (columna Legal) y sitemap +1 URL → 129.
+- Tests: 113 (`src/test/suggestions.test.tsx`, 10 nuevos). lint 0, build OK con códigos de salida verificados.
+
 ## Lote 8 — Blog con detalle real y dos guías nuevas (30-09-2026)
 
 - **Problema detectado**: `Blog.tsx` mostraba 9 tarjetas con "Leer más →" sin ruta de destino (no existía `/blog/:slug`), o sea enlaces muertos.

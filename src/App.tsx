@@ -27,6 +27,7 @@ const Glosario = lazy(() => import('./pages/Glosario').then(m => ({ default: m.G
 const ModeracionUsados = lazy(() => import('./pages/ModeracionUsados').then(m => ({ default: m.ModeracionUsados })));
 const Blog = lazy(() => import('./pages/Blog').then(m => ({ default: m.Blog })));
 const BlogArticle = lazy(() => import('./pages/BlogArticle').then(m => ({ default: m.BlogArticle })));
+const Reclamos = lazy(() => import('./pages/Reclamos').then(m => ({ default: m.Reclamos })));
 const Analytics = lazy(() => import('./pages/Analytics').then(m => ({ default: m.Analytics })));
 
 function PageSkeleton() {
@@ -202,6 +203,14 @@ function AppContent() {
           element={
             <Suspense fallback={<PageSkeleton />}>
               <Glosario />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/reclamos"
+          element={
+            <Suspense fallback={<PageSkeleton />}>
+              <Reclamos />
             </Suspense>
           }
         />

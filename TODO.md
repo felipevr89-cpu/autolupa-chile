@@ -121,7 +121,7 @@ el detalle es útil al comprar y además educa al usuario. Se agrega en su lugar
 - [x] Guías de compra nuevas: **transferencia de vehículo en Chile** (CAV $1.560, documentos, Registro Civil, permiso de circulación y SOA) y **checklist de revisión de usado** ✅ (30-09)
 - [x] Ruta `/blog/:slug` con detalle real (SEO + JSON-LD Article/Breadcrumb): antes las 9 tarjetas del blog eran enlaces muertos ✅ (30-09)
 - [ ] Escribir el cuerpo de las 9 guías anteriores (hoy muestran "En preparación" y no se indexan)
-- [ ] Sección "Reclamos y Sugerencias" con respuesta pública
+- [x] Sección "Reclamos y Sugerencias" con respuesta pública: tabla `suggestions` + RLS, `/reclamos` con FAQ y lista de respuestas, y respuesta desde `/moderacion` ✅ (01-10)
 
 ### Mes 2 — 🟡 UX
 - [x] Home con buscador dual (pestañas Autos nuevos / Autos usados) + 8 últimos avisos reales ✅ (30-09)

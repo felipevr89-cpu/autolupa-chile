@@ -44,6 +44,11 @@ describe('validación de reclamos y sugerencias', () => {
     ).resolves.toBeUndefined();
   });
 
+  it('bloquea envíos repetidos dentro de los 30 segundos', async () => {
+    localStorage.setItem('autolupa_suggestion_last_sent', String(Date.now()));
+    await expect(sendSuggestion(base, '')).rejects.toThrow(/Espera unos segundos/);
+  });
+
   it('expone el error cuando el formulario no está configurado', () => {
     expect(new SuggestionsUnavailableError().message).toMatch(/no está disponible/);
   });

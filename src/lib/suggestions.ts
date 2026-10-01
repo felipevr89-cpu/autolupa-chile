@@ -85,8 +85,30 @@ export function validateSuggestionInput(input: SuggestionInput): Record<string, 
   return errors;
 }
 
+const THROTTLE_KEY = 'autolupa_suggestion_last_sent';
+const THROTTLE_MS = 30_000;
+
+function lastSuggestionSentAt(): number {
+  try {
+    return Number(localStorage.getItem(THROTTLE_KEY) ?? 0) || 0;
+  } catch {
+    return 0;
+  }
+}
+
+function markSuggestionSent(): void {
+  try {
+    localStorage.setItem(THROTTLE_KEY, String(Date.now()));
+  } catch {
+    return;
+  }
+}
+
 export async function sendSuggestion(input: SuggestionInput, honeypot: string): Promise<void> {
   if (honeypot.trim()) return;
+  if (Date.now() - lastSuggestionSentAt() < THROTTLE_MS) {
+    throw new Error('Espera unos segundos antes de enviar otro mensaje.');
+  }
   const { error } = await client().from('suggestions').insert({
     kind: input.kind,
     title: input.title.trim(),
@@ -94,6 +116,7 @@ export async function sendSuggestion(input: SuggestionInput, honeypot: string): 
     email: input.email.trim(),
   });
   if (error) throw error;
+  markSuggestionSent();
 }
 
 export async function getPublishedSuggestions(limit = 50): Promise<Suggestion[]> {

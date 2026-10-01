@@ -175,7 +175,17 @@ El rol anónimo (sin sesión) sigue sin poder insertar: no se tocó ninguna pol�
 
 
 
-## Lote 11 — Favoritos con alertas de precio y avisos guardados (01-10-2026)
+## Lote 12 — Iteración de seguridad (01-10-2026)
+
+- **`npm audit fix`** (solo `package-lock.json`): `react-router-dom` 7.18.1 → **7.18.4** (GHSA-qwww-vcr4-c8h2) y dependencias intermedias. Resultado: **`npm audit --omit=dev` → 0 vulnerabilidades** (exit 0). Quedan 5 solo de desarrollo (vite 5.4.21 / vitest 2.1.9 / esbuild) cuya corrección exige `vite@8` + `vitest@4` (ruptura mayor) → decisión pendiente; el de esbuild afecta únicamente al servidor de desarrollo local.
+- **CSP en `public/_headers`** para todas las respuestas: `default-src 'self'`, `object-src 'none'`, `frame-ancestors 'none'`, `base-uri 'self'`, `form-action 'self'`, `script-src 'self' 'unsafe-inline' https://plausible.io`, `style-src 'self' 'unsafe-inline'`, `img-src 'self' data: blob: https:`, `connect-src` con `*.supabase.co` (http+wss), Plausible y Google, `frame-src` con Supabase/Google y `worker-src 'self'` para el service worker. `'unsafe-inline'` en `script-src` es deliberado: el JSON-LD y el polyfill de Vite son scripts inline (documentado, no es XSS-safe al 100%).
+- **`/tus-datos` → `Cache-Control: private, no-store`** en `_headers`, junto a `/mis-anuncios` y `/moderacion`.
+- **`public/.well-known/security.txt`**: contacto, caducidad (01-10-2027), idioma, `Canonical` y política de privacidad.
+- **Anti-spam en `sendSuggestion()`**: ventana de 30 s por navegador (`autolupa_suggestion_last_sent`) con mensaje amable; el honeypot sigue teniendo prioridad.
+- **Tests de regresión** (`src/test/securityHeaders.test.ts`, 4): CSP con `frame-ancestors`/`nosniff`/HSTS, no-store de las rutas con datos personales, `security.txt` completo y `robots.txt`. Total **128** (`suggestions.test.tsx` +1 del throttle).
+- **Escaneo de secretos verificado**: sin `sbp_`, sin `service_role`, sin JWTs ni claves privadas; `.env` fuera de git (solo `.env.example`); las únicas coincidencias son referencias de documentación.
+
+
 
 - **`src/lib/priceWatch.ts`** (seguimiento de precios del catálogo): `autolupa_price_watch` guarda por favorito el precio de referencia y un flag `alert`. `syncPriceWatch(favoritos)` se ejecuta al abrir `/favorites`, registra autos nuevos, detecta bajadas (sin pisar la referencia para que la alerta persista), sube la referencia si el precio sube y purga los autos que dejaron de ser favoritos. `acknowledgePriceAlert` fija la referencia al precio actual.
 - **Panel "⬇️ Bajas de precio en tus favoritos"**: nombre, precio anterior tachado, precio nuevo, monto ahorrado en verde y botones "Entendido" / "Entendido con todo".

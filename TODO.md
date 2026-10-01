@@ -35,6 +35,16 @@
 
 ---
 
+## 🔵 Iteraciones 10-2026 — Seguridad, publicación y verificación
+
+- [x] **Seguridad**: dependencias parchadas (`npm audit --omit=dev` → 0), CSP + `nosniff` + HSTS + `frame-ancestors` en `_headers`, `no-store` para `/tus-datos`, `.well-known/security.txt`, throttle de 30 s en reclamos y escaneo de secretos ✅ (01-10)
+- [ ] Seguridad: subir vite/vitest a las versiones parchadas (rompe mayor; hoy solo afecta al dev server local)
+- [ ] Seguridad: decidir si se endurece `script-src` (quitar `'unsafe-inline'`) usando hashes en lugar de JSON-LD inline
+- [ ] Publicación: mejoras de flujo (pendiente de este lote)
+- [ ] Verificación: mejoras de verificación de vendedor (pendiente de este lote)
+
+---
+
 ## 🟡 Prioridad 3 — Auditoría y limpieza de datos ✅ COMPLETADO
 
 - [x] Navbar decía "AutoMatch" → corregido

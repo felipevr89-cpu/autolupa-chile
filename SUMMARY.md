@@ -175,7 +175,20 @@ El rol anónimo (sin sesión) sigue sin poder insertar: no se tocó ninguna pol�
 
 
 
-## Lote 9 — Reclamos y Sugerencias con respuesta pública (01-10-2026)
+## Lote 10 — Las 9 guías del blog con cuerpo real (01-10-2026)
+
+- **`src/data/articles.ts`**: las 9 guías que estaban en "En preparación" pasan a `Article` con `sections` reales (heading + párrafos + bullets), con lo que el blog queda en **11 artículos enlazados** y cero tarjetas sin destino.
+- **Datos verificados antes de escribir** (nada inventado; cifras tomadas del código y del catálogo):
+  - Catálogo: 626 modelos → 407 gasolina, 94 eléctrico, 67 diésel, 33 híbrido, 25 enchufable; 98 marcas (18 chinas: BYD, Changan, Chery, Deepal, Dongfeng, GAC, Geely, GWM, Hongqi, JAC, Jaecoo, Jetour, KGM, Leapmotor, Maxus, MG, Omoda, Zeekr).
+  - Energía: bencina $1.300/L, diésel $1.150/L, carga hogar $150/kWh, carga rápida $350/kWh, mezcla 80/20 ≈ $190/kWh.
+  - TCU: crédito 11% anual / 48 meses; SOAP $32.000 (≤8M), $48.000 (≤15M), $65.000 (≤25M), $85.000 (sobre 25M); seguro 1,5%; mantención $200k EV / $400k híbrido / $500k gasolina / $550k diésel; depreciación 18/12/9/7%.
+  - Permiso SII: 1/2/3/4/4,5% por tramos de 60/120/250/400 UTM, mínimo 0,5 UTM = $34.876 con UTM ene-2026 $69.751, 25% para EV/PHEV ≥2021 (Ley 21.505).
+  - Rankings (airbags, ISOFIX, baúl y precio reales del catálogo): top airbags ≤$30M (Versa 10 → $13.990.000, Sentra, Civic, Qashqai, ZR-V, X-Trail, Accord, CR-V, Camry), 7 plazas (Spin $13.990.000 con 6 airbags y 530 L, Berlingo 775 L) y SUV familiar (Corolla Cross 8 airbags/440 L, ASX y Yaris Cross 7 airbags desde $17.990.000).
+- **`src/pages/Blog.tsx`**: se eliminó `upcomingArticles` y el chip "En preparación"; todas las tarjetas enlazan a `/blog/:slug`.
+- **Sitemap**: +9 URLs → **138** (regex de `articles.ts` las toma solas en `prebuild`).
+- Tests: **114** (`blogArticles.test.tsx`: ninguna tarjeta en preparación, todas las guías enlazadas y los 9 slugs publicados). lint 0, build OK, códigos de salida reales `TEST=0 LINT=0 BUILD=0`.
+
+
 
 - **Migración `supabase/migrations/202609300003_suggestions.sql`** (aplicada en Supabase con el PAT): tabla `public.suggestions` con `kind` (`reclamo`/`sugerencia`), `title` (5–120), `body` (10–2000), `email` opcional, `status` (`open`/`answered`/`closed`), `answer` y `answered_at`, más un chequeo de consistencia `status = 'answered' ⇔ answer y answered_at no nulos`.
 - **RLS**: `SELECT` público solo para filas `answered`/`closed`; `INSERT` permitido a `anon`/`authenticated` únicamente con `status = 'open'` y sin respuesta; `SELECT`/`UPDATE`/`DELETE` de moderador con `is_moderator()`; índices parciales por estado.

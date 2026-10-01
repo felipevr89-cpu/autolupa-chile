@@ -76,7 +76,7 @@ describe('guías del blog', () => {
 });
 
 describe('listado del blog', () => {
-  it('enlaza las guías publicadas y marca las futuras como en preparación', () => {
+  it('enlaza todas las guías publicadas y ya no queda ninguna en preparación', () => {
     render(
       <HelmetProvider>
         <MemoryRouter>
@@ -92,7 +92,28 @@ describe('listado del blog', () => {
       'href',
       '/blog/revision-auto-usado-checklist',
     );
-    expect(screen.getAllByText(/en preparación/i).length).toBeGreaterThanOrEqual(1);
-    expect(screen.queryByRole('link', { name: /los 10 mejores autos familiares/i })).not.toBeInTheDocument();
+    expect(screen.queryByText(/en preparación/i)).not.toBeInTheDocument();
+    const links = screen.getAllByRole('link');
+    for (const article of articles) {
+      expect(links.some((link) => link.getAttribute('href') === `/blog/${article.slug}`)).toBe(true);
+    }
+  });
+
+  it('publica las nueve guías que estaban en preparación', () => {
+    const pending = [
+      'guia-comparar-autos-chile',
+      'mejores-autos-familia-2026',
+      'autos-electricos-chile-2026',
+      'tcu-costo-vehiculo-propiedad',
+      'seguros-auto-chile-comparar',
+      'autos-chinos-chile-opinion',
+      'hibridos-vs-electricos',
+      'permiso-circulacion-2026',
+      'autos-seguros-chile-latin-ncap',
+    ];
+    expect(articles.length).toBeGreaterThanOrEqual(11);
+    for (const slug of pending) {
+      expect(getArticleBySlug(slug)).toBeDefined();
+    }
   });
 });

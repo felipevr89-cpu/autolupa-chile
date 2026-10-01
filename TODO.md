@@ -120,7 +120,7 @@ el detalle es útil al comprar y además educa al usuario. Se agrega en su lugar
 - [ ] Páginas por comuna (346) cuando haya masa de avisos por región
 - [x] Guías de compra nuevas: **transferencia de vehículo en Chile** (CAV $1.560, documentos, Registro Civil, permiso de circulación y SOA) y **checklist de revisión de usado** ✅ (30-09)
 - [x] Ruta `/blog/:slug` con detalle real (SEO + JSON-LD Article/Breadcrumb): antes las 9 tarjetas del blog eran enlaces muertos ✅ (30-09)
-- [ ] Escribir el cuerpo de las 9 guías anteriores (hoy muestran "En preparación" y no se indexan)
+- [x] Escribir el cuerpo de las 9 guías anteriores ✅ (01-10) — las 9 con `sections` reales, 11 artículos enlazados y chip "En preparación" eliminado
 - [x] Sección "Reclamos y Sugerencias" con respuesta pública: tabla `suggestions` + RLS, `/reclamos` con FAQ y lista de respuestas, y respuesta desde `/moderacion` ✅ (01-10)
 
 ### Mes 2 — 🟡 UX
@@ -167,11 +167,11 @@ el detalle es útil al comprar y además educa al usuario. Se agrega en su lugar
 ## 🟣 Prioridad 6 — SEO y marketing
 
 - [ ] Structured data (JSON-LD) para autos
-- [ ] Blog / sección de guías de compra
-- [ ] Landing pages por marca (ej: /marca/toyota)
+- [x] Blog / sección de guías de compra ✅ (01-10) — 11 artículos con detalle en `/blog/:slug`, JSON-LD Article y en el sitemap
+- [x] Landing pages por marca (`/marca/:brandSlug`, 98 catálogos) ✅ (09-2026)
 - [ ] Meta tags optimizados por página
 - [ ] Google Search Console setup
-- [ ] Sitemap dinámico (generado desde datos)
+- [x] Sitemap dinámico (`scripts/generate-sitemap.mjs` en `prebuild`, 138 URLs) ✅ (30-09)
 
 ---
 

@@ -121,12 +121,20 @@ export function Usados() {
           <p className="text-blue-100 font-medium mb-3">Marketplace de usados</p>
           <h1 className="text-3xl sm:text-5xl font-bold mb-4">Encuentra tu próximo auto usado</h1>
           <p className="text-blue-100 text-lg mb-7">Publica gratis, sin comisiones. Conversa directamente con el vendedor por WhatsApp.</p>
-          <Link
-            to="/publicar-auto"
-            className="inline-flex items-center gap-2 px-6 py-3 bg-white text-blue-700 rounded-xl font-bold hover:bg-blue-50 transition-colors"
-          >
-            📢 Publicar mi auto gratis
-          </Link>
+          <div className="flex flex-wrap gap-3">
+            <Link
+              to="/publicar-auto"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-white text-blue-700 rounded-xl font-bold hover:bg-blue-50 transition-colors"
+            >
+              📢 Publicar mi auto gratis
+            </Link>
+            <Link
+              to="/tasar-auto"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-white/15 hover:bg-white/25 text-white rounded-xl font-bold transition-colors"
+            >
+              🧮 ¿Cuánto vale tu auto?
+            </Link>
+          </div>
         </div>
       </section>
 

@@ -52,6 +52,7 @@ export function Navbar({ user, signInWithGoogle, signOut, isCloudAuthAvailable }
     { to: '/', label: 'Inicio' },
     { to: '/usados', label: 'Usados' },
     { to: '/compare', label: 'Comparar' },
+    { to: '/tasar-auto', label: 'Tasar' },
     { to: '/favorites', label: 'Favoritos' },
     { to: '/blog', label: 'Blog' },
   ];
@@ -239,6 +240,14 @@ export function Navbar({ user, signInWithGoogle, signOut, isCloudAuthAvailable }
               </Link>
             ))}
             <div className="border-t border-gray-800 dark:border-gray-700 my-1" />
+            <Link
+              to="/tasar-auto"
+              onClick={() => setMobileOpen(false)}
+              className="flex items-center gap-3 px-4 py-2 text-sm text-gray-300 hover:bg-white/10 rounded-lg"
+            >
+              <span>🧮</span>
+              <span>¿Cuánto vale mi auto?</span>
+            </Link>
             <Link
               to="/estadisticas-mercado"
               onClick={() => setMobileOpen(false)}

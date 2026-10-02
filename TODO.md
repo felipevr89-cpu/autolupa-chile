@@ -21,7 +21,7 @@
 |------|---------|--------|--------|
 | **15** | **E-E-A-T y fuentes**: autor + fecha de revisión en los 11 artículos (`author`/`dateModified` en JSON-LD), fuentes citadas (CAVEM, ANAC, SII) y etiqueta "precios de referencia: catálogo AutoLupa, actualizado el…" | 11, 14 | ✅ hecho 02-10-2026 |
 | **19** | **Rendimiento y SEO técnico**: code-splitting del `chunk index` (950 KB), lazy-load de imágenes, breadcrumb visible, meta tags por página, eventos de Plausible + Google Search Console | 2, 11 | ✅ hecho 02-10-2026 (index 1196→324 KB; GSC queda para Fase B por la cuenta Google) |
-| **16** | **Tasador "¿cuánto vale tu auto?"**: `/tasar-auto` con depreciación (18/12/9/7%) + comparables del catálogo + CTA "publica a este precio" | 4 | ⬜ |
+| **16** | **Tasador "¿cuánto vale tu auto?"**: `/tasar-auto` con depreciación (18/12/9/7%) + comparables del catálogo + CTA "publica a este precio" | 4 | ✅ hecho 02-10-2026 |
 | **17** | **Búsquedas guardadas + alertas de nuevos avisos**: guardar la búsqueda en `/usados`, contador en navbar, avisos nuevos en `/favorites` (paridad con Chileautos) | 7 | ⬜ |
 | **21** | **Robustez operativa**: anti-abuse en publicación (honeypot + cupo), límites/costos Supabase-Cloudflare con 1.000 fotos, backup+restore probado, matriz RLS re-ejecutada con roles reales, prueba end-to-end del ciclo completo de publicación | riesgo | ⬜ |
 | **18** | **Cerrar las 54 siluetas de foto** del catálogo (Commons + licencia, curaduría por modelo) | 10 | ⬜ |

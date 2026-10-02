@@ -175,6 +175,15 @@ El rol anónimo (sin sesión) sigue sin poder insertar: no se tocó ninguna pol�
 
 
 
+## Lote 16 — Iteración tasador «¿cuánto vale tu auto?» (02-10-2026)
+
+- **Motor** `src/data/tasador.ts` (`estimarValor`, puro y testeable): parte del **precio de lista del catálogo** y aplica depreciación acumulada con la misma escala que `tco.ts` (18% el primer año, 12% hasta 3 años, 9% hasta 6 y 7% después), factor de kilometraje contra los **15.000 km/año esperados** (máx. +1,5% si recorre poco, −15% si dobla lo esperado) y factor de estado (**excelente 1,03 · bueno 1,00 · regular 0,94**). Redondeo a miles y **rango de venta ±6%**.
+- **Comparables**: modelos del mismo tipo con precio ±35% del estimado, ordenados por cercanía y con marcas distintas primero (3 máximo).
+- **Página `/tasar-auto`** (lazy en `App.tsx`): formulario de marca → modelo → versión opcional (con precio de cada versión) → año → kilómetros → estado, con validación y error si falta datos. Resultado con valor grande, rango, tres chips de desglose (antigüedad/kilometraje/estado), comparables con foto y CTA **«Publicar mi auto gratis»**. Aviso explícito: *no es un peritaje ni una tasación oficial*.
+- **Puntos de entrada**: enlace «Tasar» en el nav de escritorio, «¿Cuánto vale mi auto?» en el menú móvil, ítem en el Footer (Herramientas), botón secundario en el hero de `/usados` y `/tasar-auto` agregado al sitemap (`weekly`, 0.9).
+- **Analítica**: evento `Valuation` (marca y antigüedad) al calcular.
+- Tests: **160** (`tasador.test.tsx` +9: depreciación monótona, factores de km y estado, estimación con comparables, efecto de antigüedad/km/estado, modelo inexistente, cálculo desde el formulario, validación y cambio de marca). `LINT=0 TEST=0 BUILD=0`.
+
 ## Lote 19 — Iteración rendimiento y SEO técnico (02-10-2026)
 
 - **Code-splitting** (`vite.config.ts`, `manualChunks`): el catálogo, Supabase y React dejan de viajar en el chunk principal. Antes/después del build: `index` **1196 KB → 324 KB** (gzip **237 → 90 KB**); nuevos chunks `data-catalog` 548 KB (gzip 68), `vendor-supabase` 210 KB (gzip 54), `vendor-react` 193 KB (gzip 63), `data-images` 97 KB. Total JS gzip: 403 KB.

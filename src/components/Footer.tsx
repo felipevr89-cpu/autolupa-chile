@@ -24,6 +24,7 @@ export function Footer() {
               <li><Link to="/compare" className="hover:text-white transition-colors">Comparar seleccionados</Link></li>
               <li><Link to="/favorites" className="hover:text-white transition-colors">Mis favoritos</Link></li>
               <li><Link to="/top10" className="hover:text-white transition-colors">Top 10</Link></li>
+              <li><Link to="/tasar-auto" className="hover:text-white transition-colors">¿Cuánto vale mi auto?</Link></li>
               <li><Link to="/glosario" className="hover:text-white transition-colors">Glosario de autos</Link></li>
             </ul>
           </div>

@@ -29,6 +29,7 @@ const staticRoutes = [
   ['/favorites', 'weekly', 0.6],
   ['/estadisticas', 'weekly', 0.7],
   ['/top10', 'weekly', 0.5],
+  ['/tasar-auto', 'weekly', 0.9],
   ['/privacidad', 'monthly', 0.3],
   ['/terminos', 'monthly', 0.3],
   ['/blog', 'weekly', 0.7],

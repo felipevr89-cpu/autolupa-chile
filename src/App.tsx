@@ -29,6 +29,7 @@ const Blog = lazy(() => import('./pages/Blog').then(m => ({ default: m.Blog })))
 const BlogArticle = lazy(() => import('./pages/BlogArticle').then(m => ({ default: m.BlogArticle })));
 const Reclamos = lazy(() => import('./pages/Reclamos').then(m => ({ default: m.Reclamos })));
 const Analytics = lazy(() => import('./pages/Analytics').then(m => ({ default: m.Analytics })));
+const TasarAuto = lazy(() => import('./pages/TasarAuto').then(m => ({ default: m.TasarAuto })));
 
 function PageSkeleton() {
   return (
@@ -299,6 +300,14 @@ function AppContent() {
           element={
             <Suspense fallback={<PageSkeleton />}>
               <Analytics />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/tasar-auto"
+          element={
+            <Suspense fallback={<PageSkeleton />}>
+              <TasarAuto />
             </Suspense>
           }
         />

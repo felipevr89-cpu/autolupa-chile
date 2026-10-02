@@ -55,9 +55,15 @@ export function SEO({ title, description, jsonLd, noIndex = false }: Props) {
       <meta property="og:description" content={desc} />
       <meta property="og:url" content={canonical} />
       <meta property="og:type" content={pathname.startsWith('/usados/') ? 'product' : 'website'} />
+      <meta property="og:image" content={`${siteUrl}/og.png`} />
+      <meta property="og:image:width" content="1200" />
+      <meta property="og:image:height" content="630" />
+      <meta property="og:image:alt" content={`${siteName}: compara y publica autos en Chile`} />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={fullTitle} />
       <meta name="twitter:description" content={desc} />
+      <meta name="twitter:image" content={`${siteUrl}/og.png`} />
+      <meta name="twitter:image:alt" content={`${siteName}: compara y publica autos en Chile`} />
       <link rel="canonical" href={canonical} />
       <script type="application/ld+json">{JSON.stringify(structuredData)}</script>
     </Helmet>

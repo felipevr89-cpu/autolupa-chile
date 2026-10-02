@@ -6,6 +6,7 @@ import { cropListingPhoto, prepareListingPhoto } from '../lib/listingImages';
 import { verificationErrorMessage } from '../lib/authVerification';
 import { createUsedListing } from '../lib/usedListings';
 import { supabase } from '../lib/supabase';
+import { track } from '../lib/analytics';
 import {
   MAX_LISTING_PHOTOS,
   USED_FUEL_OPTIONS,
@@ -369,6 +370,7 @@ export function PublicarAuto({ user, isCloudAuthAvailable, onSignIn, onSignInAno
       clearPhotos();
       localStorage.removeItem(DRAFT_STORAGE_KEY);
       setSubmitted(true);
+      track('Publish');
     } catch (error) {
       setSubmitError(error instanceof Error ? error.message : 'No pudimos publicar tu aviso.');
     } finally {

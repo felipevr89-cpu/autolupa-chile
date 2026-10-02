@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { SEO } from '../components/SEO';
+import { Breadcrumbs } from '../components/Breadcrumbs';
 import { SafetyBanner } from '../components/Trust/SafetyBanner';
 import { SaveListingButton } from '../components/Used/SaveListingButton';
 import { formatPrice } from '../data/brands';
@@ -8,6 +9,7 @@ import { USED_FUEL_OPTIONS, USED_TRANSMISSION_OPTIONS, type UsedListing, usedLis
 import { toSavedListing } from '../lib/savedListings';
 import { getUsedListingBySlug, reportUsedListing } from '../lib/usedListings';
 import { isSupabaseConfigured } from '../lib/supabase';
+import { track } from '../lib/analytics';
 import type { User } from '../types';
 
 interface Props {
@@ -142,7 +144,10 @@ export function UsedListingDetail({ user, isCloudAuthAvailable, onSignIn }: Prop
         description={`${listing.brand} ${listing.model} ${listing.year} usado en ${listing.region}. Precio ${formatPrice(listing.price)}. Contacta al vendedor por WhatsApp.`}
         jsonLd={jsonLd}
       />
-      <Link to="/usados" className="text-sm text-blue-600 dark:text-blue-400 hover:underline">← Volver a usados</Link>
+      <Breadcrumbs items={[
+        { label: 'Autos usados', href: '/usados' },
+        { label: `${listing.brand} ${listing.model} ${listing.year}` },
+      ]} />
 
       <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,1.25fr)_minmax(320px,0.75fr)] gap-8 mt-5">
         <section>
@@ -184,7 +189,7 @@ export function UsedListingDetail({ user, isCloudAuthAvailable, onSignIn }: Prop
             <div className="mt-4">
               <SaveListingButton listing={toSavedListing(listing)} />
             </div>
-            <a href={usedListingWhatsappUrl(listing)} target="_blank" rel="noopener noreferrer" className="mt-4 flex items-center justify-center gap-2 w-full px-5 py-3 bg-green-500 hover:bg-green-600 text-white rounded-xl font-bold">Contactar por WhatsApp</a>
+            <a href={usedListingWhatsappUrl(listing)} target="_blank" rel="noopener noreferrer" onClick={() => track('ContactSeller', { region: listing.region })} className="mt-4 flex items-center justify-center gap-2 w-full px-5 py-3 bg-green-500 hover:bg-green-600 text-white rounded-xl font-bold">Contactar por WhatsApp</a>
             {listing.contactEmail && <a href={`mailto:${listing.contactEmail}`} className="mt-3 block text-center text-sm text-blue-600 dark:text-blue-400 hover:underline">Enviar correo</a>}
             <p className="text-xs text-gray-500 dark:text-gray-400 mt-4">La publicación es gratuita. AutoLupa no cobra comisión por este aviso.</p>
           </div>

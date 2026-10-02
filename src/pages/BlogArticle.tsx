@@ -1,5 +1,6 @@
 import { Link, useParams } from 'react-router-dom';
 import { SEO } from '../components/SEO';
+import { Breadcrumbs } from '../components/Breadcrumbs';
 import { ARTICLE_AUTHOR, getArticleBySlug } from '../data/articles';
 
 const SITE_URL = import.meta.env.VITE_SITE_URL || 'https://autolupa.pages.dev';
@@ -51,13 +52,10 @@ export function BlogArticle() {
     <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
       <SEO title={article.title} description={article.excerpt} jsonLd={jsonLd} />
 
-      <nav className="text-sm text-gray-500 dark:text-gray-400 mb-6" aria-label="Ruta de navegación">
-        <Link to="/" className="hover:text-blue-600 dark:hover:text-blue-400">Inicio</Link>
-        <span className="mx-2">/</span>
-        <Link to="/blog" className="hover:text-blue-600 dark:hover:text-blue-400">Blog</Link>
-        <span className="mx-2">/</span>
-        <span className="text-gray-700 dark:text-gray-300">{article.category}</span>
-      </nav>
+      <Breadcrumbs items={[
+        { label: 'Blog', href: '/blog' },
+        { label: article.category },
+      ]} />
 
       <header className="mb-8">
         <div className="flex flex-wrap items-center gap-2 mb-3">

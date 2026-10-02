@@ -3,6 +3,7 @@ import { useParams, Link } from 'react-router-dom';
 import { carsData, brands, formatPrice, getTypeLabel, getFuelLabel, getBrandUrl } from '../data/brands';
 import { CarImage } from '../components/Cars/CarImage';
 import { SEO } from '../components/SEO';
+import { Breadcrumbs } from '../components/Breadcrumbs';
 
 export function BrandPage() {
   const { brandSlug } = useParams<{ brandSlug: string }>();
@@ -30,11 +31,7 @@ export function BrandPage() {
         description={`Catálogo completo de ${brandName} en Chile. ${brandCars.length} modelos con precios, especificaciones y comparación.`}
       />
 
-      <nav className="text-sm text-gray-500 dark:text-gray-400 mb-6">
-        <Link to="/" className="hover:text-blue-600">Inicio</Link>
-        <span className="mx-2">/</span>
-        <span className="text-gray-900 dark:text-white font-medium">{brandName}</span>
-      </nav>
+      <Breadcrumbs items={[{ label: brandName }]} />
 
       <div className="flex items-center gap-4 mb-8">
         <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white">{brandName}</h1>

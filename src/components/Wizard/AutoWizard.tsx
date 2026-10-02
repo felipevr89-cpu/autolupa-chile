@@ -2,6 +2,7 @@ import { useState, useMemo } from 'react';
 import { Car } from '../../types';
 import { carsData, formatPrice, getTypeLabel, getFuelLabel } from '../../data/brands';
 import { CarImage } from '../Cars/CarImage';
+import { track } from '../../lib/analytics';
 
 interface Props {
   onClose: () => void;
@@ -306,6 +307,7 @@ export function AutoWizard({ onClose, onSelectCar, initialAnswers, initialShowRe
       setCurrentStep(currentStep + 1);
     } else {
       setShowResults(true);
+      track('Wizard', { respuestas: Object.keys(newAnswers).length });
     }
   };
 

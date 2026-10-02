@@ -175,6 +175,16 @@ El rol anónimo (sin sesión) sigue sin poder insertar: no se tocó ninguna pol�
 
 
 
+## Lote 19 — Iteración rendimiento y SEO técnico (02-10-2026)
+
+- **Code-splitting** (`vite.config.ts`, `manualChunks`): el catálogo, Supabase y React dejan de viajar en el chunk principal. Antes/después del build: `index` **1196 KB → 324 KB** (gzip **237 → 90 KB**); nuevos chunks `data-catalog` 548 KB (gzip 68), `vendor-supabase` 210 KB (gzip 54), `vendor-react` 193 KB (gzip 63), `data-images` 97 KB. Total JS gzip: 403 KB.
+- **Código muerto eliminado**: `src/data/cars-chile.ts` (607 KB, **cero referencias** en `src/`, `scripts/` y configs) era el monolito previo a `src/data/brands/*.json` y duplicaba `brandUrls`. No compilaba al bundle, pero sí al `tsc -b` y a los IDE.
+- **`og:image` / `twitter:image`**: `public/og.png` 1200×630 (38 KB) con el degradado y lupa de `favicon.svg`, generado con Pillow desde `scripts/generate-og.py` (si cambia el dominio se re-genera ahí). Meta tags agregados a `index.html` y a `SEO.tsx` (`og:image`, `og:image:width/height/alt`, `twitter:image`, `twitter:image:alt`, `og:site_name`, `twitter:title/description`). Antes no había ninguna imagen para compartir en redes o en el buscador.
+- **Migas de pan visibles** en `/usados`, `/usados/:slug`, `/blog` y `/blog/:slug` y `/marca/:brand`: se reemplazaron los `<nav>` manuales por el componente `Breadcrumbs` y se le agregó `aria-label="Ruta de navegación"` (antes sólo tres páginas tenían migas visibles: Compare, Estadisticas, Glosario, LegalDocs, Top10).
+- **Eventos de Plausible** (`src/lib/analytics.ts`, `track()`): `Search` (cambio de filtro en `/usados`), `Favorite`, `Compare`, `Publish` (aviso creado), `Wizard` (8 pasos completados) y `ContactSeller` (clic en WhatsApp del aviso). `track()` traga errores si el script no está cargado, así la analítica nunca rompe la interfaz.
+- **Pendiente explícito**: Google Search Console queda fuera de este lote porque exige una cuenta Google del usuario (Fase 0/B), igual que verificar el dominio en Plausible al pasar a `autolupa.cl`.
+- Tests: **151** (`seoPerformance.test.tsx` +6: meta tags en `index.html`, dimensiones reales de `og.png`, `og:image` inyectado por `SEO`, migas visibles y las dos ramas de `track()`). `LINT=0 TEST=0 BUILD=0`.
+
 ## Lote 15 — Iteración E-E-A-T: autoría, revisión y fuentes (02-10-2026)
 
 - **`Article`** (`src/data/articles.ts`) ahora exige `reviewed` / `isoReviewed` / `sources` y exporta `ARTICLE_AUTHOR = 'Equipo editorial de AutoLupa'`. Los 11 artículos quedan con fecha de publicación y fecha de revisión separadas.

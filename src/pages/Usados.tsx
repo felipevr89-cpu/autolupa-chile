@@ -1,8 +1,10 @@
 import { useEffect, useMemo, useState } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 import { SEO } from '../components/SEO';
+import { Breadcrumbs } from '../components/Breadcrumbs';
 import { UsedListingCard } from '../components/Used/UsedListingCard';
 import { isSupabaseConfigured } from '../lib/supabase';
+import { track } from '../lib/analytics';
 import { getActiveUsedListings, getUsedListingBrands } from '../lib/usedListings';
 import { CHILE_REGIONS, regionPath } from '../data/chileRegions';
 import {
@@ -86,6 +88,7 @@ export function Usados() {
   const updateFilter = <K extends keyof UsedListingFilters>(key: K, value: UsedListingFilters[K]) => {
     setFilters((current) => ({ ...current, [key]: value }));
     setPage(1);
+    track('Search', { filtro: String(key), valor: String(value) });
     if (key === 'region' || key === 'brand' || key === 'search') {
       const paramKey = key === 'search' ? 'q' : key;
       setSearchParams((current) => {
@@ -110,6 +113,8 @@ export function Usados() {
         description="Compra autos usados en Chile o publica tu vehículo gratis en AutoLupa. Filtra por marca, precio, kilometraje, año y región. Contacta directo por WhatsApp."
         jsonLd={listingJsonLd}
       />
+
+      <Breadcrumbs items={[{ label: 'Autos usados' }]} />
 
       <section className="bg-gradient-to-br from-blue-700 via-blue-600 to-purple-700 rounded-3xl px-6 py-10 sm:px-10 sm:py-14 text-white mb-8">
         <div className="max-w-3xl">

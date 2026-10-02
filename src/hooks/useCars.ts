@@ -2,6 +2,7 @@ import { useState, useMemo, useCallback, useEffect } from 'react';
 import { carsData } from '../data/brands';
 import { Car, Filters, User } from '../types';
 import { isSupabaseConfigured, supabase } from '../lib/supabase';
+import { track } from '../lib/analytics';
 
 const currentYear = new Date().getFullYear();
 export const defaultYearRange: [number, number] = [currentYear - 6, currentYear];
@@ -169,6 +170,9 @@ export function useCars(user?: User | null) {
   }, []);
 
   const addToCompare = useCallback((car: Car) => {
+    if (compareList.length < 3 && !compareList.some((c) => c.id === car.id)) {
+      track('Compare', { model: `${car.brand} ${car.model}` });
+    }
     setCompareList((prev) => {
       if (prev.length >= 3) return prev;
       if (prev.find((c) => c.id === car.id)) return prev;
@@ -176,7 +180,7 @@ export function useCars(user?: User | null) {
       localStorage.setItem('autolupa_compare', JSON.stringify(next));
       return next;
     });
-  }, []);
+  }, [compareList]);
 
   const removeFromCompare = useCallback((carId: number) => {
     setCompareList((prev) => {
@@ -192,6 +196,7 @@ export function useCars(user?: User | null) {
   }, []);
 
   const toggleFavorite = useCallback((carId: number) => {
+    track('Favorite', { accion: favorites.includes(carId) ? 'quitar' : 'guardar' });
     setFavorites((prev) => {
       const next = prev.includes(carId) ? prev.filter((id) => id !== carId) : [...prev, carId];
       const key = favoritesKey(isConfiguredUser ? uid : undefined);
@@ -201,7 +206,7 @@ export function useCars(user?: User | null) {
       }
       return next;
     });
-  }, [uid, isConfiguredUser]);
+  }, [uid, isConfiguredUser, favorites]);
 
   const isFavorite = useCallback((carId: number) => favorites.includes(carId), [favorites]);
 

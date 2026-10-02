@@ -11,7 +11,7 @@ interface Props {
 
 export function Breadcrumbs({ items }: Props) {
   return (
-    <nav className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400 mb-4">
+    <nav aria-label="Ruta de navegación" className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400 mb-4">
       <Link to="/" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Inicio</Link>
       {items.map((item, i) => (
         <span key={i} className="flex items-center gap-2">

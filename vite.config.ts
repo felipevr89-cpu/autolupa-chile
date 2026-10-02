@@ -11,8 +11,11 @@ export default defineConfig({
   build: {
     rollupOptions: {
       output: {
-        manualChunks: {
-          'vendor-react': ['react', 'react-dom', 'react-router-dom'],
+        manualChunks(id: string) {
+          if (id.includes('node_modules/@supabase/')) return 'vendor-supabase';
+          if (/node_modules\/(react|react-dom|react-router|scheduler|react-helmet-async)\//.test(id)) return 'vendor-react';
+          if (id.includes('/src/data/brands/')) return 'data-catalog';
+          if (id.endsWith('/src/data/carImages.json')) return 'data-images';
         },
       },
     },

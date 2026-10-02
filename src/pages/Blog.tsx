@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { SEO } from '../components/SEO';
+import { Breadcrumbs } from '../components/Breadcrumbs';
 import { articles, Article } from '../data/articles';
 
 function ArticleCard({ article }: { article: Article }) {
@@ -41,6 +42,8 @@ export function Blog() {
         title="Blog — Guías y Consejos de Autos en Chile"
         description="Guías de compra, comparaciones, análisis de costos y consejos para elegir tu próximo auto en Chile."
       />
+
+      <Breadcrumbs items={[{ label: 'Blog' }]} />
 
       <div className="mb-10">
         <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-3">📚 Blog de AutoLupa</h1>

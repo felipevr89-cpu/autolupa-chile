@@ -175,6 +175,16 @@ El rol anónimo (sin sesión) sigue sin poder insertar: no se tocó ninguna pol�
 
 
 
+## Lote 17 — Iteración búsquedas guardadas y alertas (02-10-2026)
+
+- **`src/lib/savedSearches.ts`** (localStorage, sin registro): `addSearch` (guarda filtros + total de avisos al momento de guardar), `removeSearch`, `markSearchSeen`, `getNewCount`, `buildSearchName` («Toyota · Metropolitana · hasta $15.000.000»), `getSearchId` (hash estable de los 10 filtros, el orden no cambia el id) y el contador `autolupa_search_alerts` del navbar. Límite: **8 búsquedas**, con respuestas `added / duplicate / limit / empty`.
+- **`countActiveUsedListings(filters)`** en `src/lib/usedListings.ts`: cuenta avisos activos con los mismos filtros que la búsqueda (`head: true`, sólo `count`), reutilizando `applyUsedListingFilters`. Así el badge «N nuevos» no descarga listados completos.
+- **Panel `SavedSearches`** (`src/components/Used/SavedSearches.tsx`): botón 🔔 Guardar bajo los filtros de `/usados`, lista con nombre, conteo de avisos, badge rojo de nuevos y ✕ para eliminar; al elegir una búsqueda aplica los filtros, marca «vista» (el badge baja a 0) y sincroniza la URL (`q`, `brand`, `region`). Sin Supabase configurado no consulta y muestra «Avisos no disponibles».
+- **Navbar**: badge rojo con el total de avisos nuevos en el enlace «Usados» (escritorio y móvil), leído al cambiar de ruta.
+- **`/favorites`**: sección «🔔 Búsquedas guardadas» en modo compacto que lista las búsquedas y navega a `/usados` con sus filtros (paridad con Chileautos).
+- **Alertas de precio por favorito**: ya existentes (`src/lib/priceWatch.ts`), no se tocaron.
+- Tests: **169** (`savedSearches.test.tsx` +9: nombre legible, id estable, duplicados/límite/vacío, nuevos vistos, contador, guardado desde el panel, aplicación y borrado, modo compacto). `LINT=0 TEST=0 BUILD=0`.
+
 ## Lote 16 — Iteración tasador «¿cuánto vale tu auto?» (02-10-2026)
 
 - **Motor** `src/data/tasador.ts` (`estimarValor`, puro y testeable): parte del **precio de lista del catálogo** y aplica depreciación acumulada con la misma escala que `tco.ts` (18% el primer año, 12% hasta 3 años, 9% hasta 6 y 7% después), factor de kilometraje contra los **15.000 km/año esperados** (máx. +1,5% si recorre poco, −15% si dobla lo esperado) y factor de estado (**excelente 1,03 · bueno 1,00 · regular 0,94**). Redondeo a miles y **rango de venta ±6%**.

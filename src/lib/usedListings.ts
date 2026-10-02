@@ -223,6 +223,23 @@ export async function getActiveUsedListings(
   return { listings: rows.map(mapListing), total: count ?? rows.length };
 }
 
+export async function countActiveUsedListings(filters: UsedListingFilters): Promise<number> {
+  const database = client();
+  const now = new Date().toISOString();
+  let query = database
+    .from('used_listings')
+    .select('id', { count: 'exact', head: true })
+    .eq('status', 'active')
+    .lte('published_at', now)
+    .or(`expires_at.is.null,expires_at.gt.${now}`);
+
+  query = applyUsedListingFilters(query, filters);
+
+  const { count, error } = await query;
+  if (error) throw error;
+  return count ?? 0;
+}
+
 export async function getSavedUsedListings(ids: string[]): Promise<UsedListing[]> {
   const unique = [...new Set(ids)].filter(Boolean);
   if (unique.length === 0) return [];

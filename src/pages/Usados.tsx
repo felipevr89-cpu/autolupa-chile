@@ -3,6 +3,7 @@ import { Link, useSearchParams } from 'react-router-dom';
 import { SEO } from '../components/SEO';
 import { Breadcrumbs } from '../components/Breadcrumbs';
 import { UsedListingCard } from '../components/Used/UsedListingCard';
+import { SavedSearches } from '../components/Used/SavedSearches';
 import { isSupabaseConfigured } from '../lib/supabase';
 import { track } from '../lib/analytics';
 import { getActiveUsedListings, getUsedListingBrands } from '../lib/usedListings';
@@ -104,6 +105,24 @@ export function Usados() {
     setFilters(emptyUsedListingFilters);
     setPage(1);
     setSearchParams(new URLSearchParams(), { replace: true });
+  };
+
+  const applySearch = (next: UsedListingFilters) => {
+    setFilters(next);
+    setPage(1);
+    setSearchParams((current) => {
+      const params = new URLSearchParams(current);
+      const entries: Array<[string, string]> = [
+        ['q', next.search],
+        ['brand', next.brand],
+        ['region', next.region],
+      ];
+      for (const [key, value] of entries) {
+        if (value) params.set(key, value);
+        else params.delete(key);
+      }
+      return params;
+    }, { replace: true });
   };
 
   return (
@@ -217,6 +236,10 @@ export function Usados() {
                     <option value="mileage-asc">Menos kilómetros</option>
                   </select>
                 </label>
+              </div>
+
+              <div className="mt-5 border-t border-gray-200 dark:border-gray-700 pt-4">
+                <SavedSearches filters={filters} currentTotal={total} onApply={applySearch} />
               </div>
             </aside>
 

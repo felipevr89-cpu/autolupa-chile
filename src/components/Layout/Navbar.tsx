@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import type { User } from '../../types';
+import { readAlertCount } from '../../lib/savedSearches';
 import {
   ShieldCheckIcon,
   CubeIcon,
@@ -22,6 +23,11 @@ export function Navbar({ user, signInWithGoogle, signOut, isCloudAuthAvailable }
   const location = useLocation();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [darkMode, setDarkMode] = useState(() => localStorage.getItem('darkMode') === 'true');
+  const [searchAlerts, setSearchAlerts] = useState(() => readAlertCount());
+
+  useEffect(() => {
+    setSearchAlerts(readAlertCount());
+  }, [location]);
 
   useEffect(() => {
     if (darkMode) {
@@ -83,6 +89,11 @@ export function Navbar({ user, signInWithGoogle, signOut, isCloudAuthAvailable }
                 }`}
               >
                 {link.label}
+                {link.to === '/usados' && searchAlerts > 0 && (
+                  <span className="ml-1.5 inline-flex items-center justify-center min-w-4 h-4 px-1 text-[10px] font-bold bg-red-500 text-white rounded-full align-middle">
+                    {searchAlerts}
+                  </span>
+                )}
               </Link>
             ))}
 
@@ -222,6 +233,11 @@ export function Navbar({ user, signInWithGoogle, signOut, isCloudAuthAvailable }
                 }`}
               >
                 {link.label}
+                {link.to === '/usados' && searchAlerts > 0 && (
+                  <span className="ml-1.5 inline-flex items-center justify-center min-w-4 h-4 px-1 text-[10px] font-bold bg-red-500 text-white rounded-full align-middle">
+                    {searchAlerts}
+                  </span>
+                )}
               </Link>
             ))}
             <div className="border-t border-gray-800 dark:border-gray-700 my-1" />

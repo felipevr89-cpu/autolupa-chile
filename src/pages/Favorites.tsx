@@ -1,10 +1,11 @@
 import { useEffect, useMemo, useState } from 'react';
 import { HeartIcon } from '@heroicons/react/24/solid';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Car } from '../types';
 import { CarCard } from '../components/Cars/CarCard';
+import { SavedSearches } from '../components/Used/SavedSearches';
 import { formatPrice } from '../data/brands';
-import type { UsedListing } from '../data/usedListings';
+import type { UsedListing, UsedListingFilters } from '../data/usedListings';
 import { acknowledgePriceAlert, syncPriceWatch, type PriceAlert } from '../lib/priceWatch';
 import {
   removeSavedListing,
@@ -38,6 +39,15 @@ export function Favorites({
     () => allCars.filter((car) => favorites.includes(car.id)),
     [allCars, favorites],
   );
+  const navigate = useNavigate();
+  const applySearch = (next: UsedListingFilters) => {
+    const params = new URLSearchParams();
+    if (next.search) params.set('q', next.search);
+    if (next.brand) params.set('brand', next.brand);
+    if (next.region) params.set('region', next.region);
+    const query = params.toString();
+    navigate(query ? `/usados?${query}` : '/usados');
+  };
   const [alerts, setAlerts] = useState<PriceAlert[]>([]);
 
   useEffect(() => {
@@ -202,6 +212,16 @@ export function Favorites({
           </div>
         </section>
       )}
+
+      <section aria-label="Búsquedas guardadas" className="mt-12">
+        <div className="mb-5">
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white">🔔 Búsquedas guardadas</h2>
+          <p className="text-sm text-gray-600 dark:text-gray-300 mt-1">
+            Tus filtros guardados y los avisos nuevos que calzan con ellos.
+          </p>
+        </div>
+        <SavedSearches compact onApply={applySearch} />
+      </section>
     </div>
   );
 }

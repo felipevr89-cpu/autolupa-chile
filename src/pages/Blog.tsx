@@ -23,7 +23,7 @@ function ArticleCard({ article }: { article: Article }) {
             {article.excerpt}
           </p>
           <div className="flex items-center justify-between mt-auto">
-            <span className="text-xs text-gray-400 dark:text-gray-500">{article.date}</span>
+            <span className="text-xs text-gray-400 dark:text-gray-500">{article.date} · revisado {article.reviewed}</span>
             <span className="text-xs font-medium text-blue-600 dark:text-blue-400 group-hover:underline">
               Leer más →
             </span>

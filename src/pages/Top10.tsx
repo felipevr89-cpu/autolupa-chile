@@ -228,6 +228,10 @@ export function Top10() {
           </div>
         )}
 
+        <p className="mt-8 border-t border-gray-200 dark:border-gray-700 pt-4 text-xs text-gray-500 dark:text-gray-400">
+          Precios y datos del catálogo de AutoLupa (auditoría de datos de septiembre de 2026): son referencias de catálogo, no ofertas. Confirma el precio vigente con el fabricante o el concesionario.
+        </p>
+
         {selectedCar && (
           <CarDetail
             car={selectedCar}

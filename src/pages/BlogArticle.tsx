@@ -1,6 +1,6 @@
 import { Link, useParams } from 'react-router-dom';
 import { SEO } from '../components/SEO';
-import { getArticleBySlug } from '../data/articles';
+import { ARTICLE_AUTHOR, getArticleBySlug } from '../data/articles';
 
 const SITE_URL = import.meta.env.VITE_SITE_URL || 'https://autolupa.pages.dev';
 
@@ -30,10 +30,10 @@ export function BlogArticle() {
         headline: article.title,
         description: article.excerpt,
         datePublished: article.isoDate,
-        dateModified: article.isoDate,
+        dateModified: article.isoReviewed,
         inLanguage: 'es-CL',
         mainEntityOfPage: `${SITE_URL}/blog/${article.slug}`,
-        author: { '@type': 'Organization', name: 'AutoLupa', url: SITE_URL },
+        author: { '@type': 'Organization', name: ARTICLE_AUTHOR, url: SITE_URL },
         publisher: { '@type': 'Organization', name: 'AutoLupa', url: SITE_URL },
       },
       {
@@ -69,6 +69,13 @@ export function BlogArticle() {
         <span className="text-5xl block mb-4">{article.icon}</span>
         <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white leading-tight mb-4">{article.title}</h1>
         <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">{article.excerpt}</p>
+        <p className="mt-4 text-sm text-gray-600 dark:text-gray-300">
+          Por <span className="font-semibold text-gray-900 dark:text-white">{ARTICLE_AUTHOR}</span>
+          <span className="mx-1.5 text-gray-400">·</span>
+          Publicado el <time dateTime={article.isoDate}>{article.date}</time>
+          <span className="mx-1.5 text-gray-400">·</span>
+          Actualizado el <time dateTime={article.isoReviewed}>{article.reviewed}</time>
+        </p>
       </header>
 
       <article className="space-y-9">
@@ -91,6 +98,30 @@ export function BlogArticle() {
           </section>
         ))}
       </article>
+
+      <section className="mt-10 rounded-2xl border border-gray-200 dark:border-gray-700 p-6" aria-label="Fuentes de la guía">
+        <h2 className="text-lg font-bold text-gray-900 dark:text-white mb-2">Fuentes oficiales</h2>
+        <p className="text-sm text-gray-600 dark:text-gray-300 mb-3">
+          Esta guía se contrastó con las fuentes oficiales listadas abajo (consulta del {article.reviewed}).
+        </p>
+        <ul className="space-y-1.5">
+          {article.sources.map((source) => (
+            <li key={source.url}>
+              <a
+                href={source.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm text-blue-600 dark:text-blue-400 hover:underline"
+              >
+                {source.label} ↗
+              </a>
+            </li>
+          ))}
+        </ul>
+        <p className="text-xs text-gray-500 dark:text-gray-400 mt-4">
+          Los precios citados son referenciales y salen del catálogo de AutoLupa; confirma el valor vigente en la fuente oficial o en el concesionario.
+        </p>
+      </section>
 
       <aside className="mt-10 rounded-2xl bg-blue-50 dark:bg-blue-950/30 border border-blue-100 dark:border-blue-900 p-6">
         <h2 className="text-lg font-bold text-gray-900 dark:text-white mb-2">Sigue en AutoLupa</h2>

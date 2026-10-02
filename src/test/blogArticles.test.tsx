@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { render, screen } from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
 import { MemoryRouter, Route, Routes } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
 import { Blog } from '../pages/Blog';
@@ -115,5 +115,51 @@ describe('listado del blog', () => {
     for (const slug of pending) {
       expect(getArticleBySlug(slug)).toBeDefined();
     }
+  });
+});
+
+describe('autoría y fuentes de las guías (E-E-A-T)', () => {
+  it('cada guía declara revisión, fecha ISO y al menos dos fuentes oficiales', () => {
+    for (const article of articles) {
+      expect(article.reviewed.length).toBeGreaterThan(3);
+      expect(article.isoReviewed).toMatch(/^\d{4}-\d{2}-\d{2}$/);
+      expect(article.isoReviewed >= article.isoDate).toBe(true);
+      expect(article.sources.length).toBeGreaterThanOrEqual(2);
+      for (const source of article.sources) {
+        expect(source.label.length).toBeGreaterThan(3);
+        expect(source.url).toMatch(/^https:\/\//);
+      }
+    }
+  });
+
+  it('muestra autor, fechas y fuentes en la página de la guía', () => {
+    const article = getArticleBySlug('permiso-circulacion-2026')!;
+    renderBlogArticle('permiso-circulacion-2026');
+
+    expect(screen.getByText(/equipo editorial de autolupa/i)).toBeInTheDocument();
+    expect(screen.getByText(/actualizado el/i)).toHaveTextContent(article.reviewed);
+    expect(screen.getByRole('heading', { name: 'Fuentes oficiales' })).toBeInTheDocument();
+
+    for (const source of article.sources) {
+      const link = document.querySelector(`a[href="${source.url}"]`);
+      expect(link).not.toBeNull();
+      expect(link!.getAttribute('rel')).toContain('noopener');
+      expect(link!.getAttribute('target')).toBe('_blank');
+      expect(document.body.textContent).toContain(source.label);
+    }
+  });
+
+  it('el JSON-LD separa la fecha de publicación de la de revisión', async () => {
+    const article = getArticleBySlug('autos-electricos-chile-2026')!;
+    renderBlogArticle('autos-electricos-chile-2026');
+
+    await waitFor(() => expect(document.querySelector('script[type="application/ld+json"]')).not.toBeNull());
+    const script = document.querySelector('script[type="application/ld+json"]');
+    const payload = JSON.parse(script!.textContent ?? '{}') as { '@graph': Array<Record<string, unknown>> };
+    const entry = payload['@graph'].find((node) => node['@type'] === 'Article');
+    expect(entry).toBeDefined();
+    expect(entry!.datePublished).toBe(article.isoDate);
+    expect(entry!.dateModified).toBe(article.isoReviewed);
+    expect((entry!.author as Record<string, unknown>).name).toBe('Equipo editorial de AutoLupa');
   });
 });

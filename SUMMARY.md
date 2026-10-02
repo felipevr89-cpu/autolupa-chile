@@ -175,6 +175,17 @@ El rol anónimo (sin sesión) sigue sin poder insertar: no se tocó ninguna pol�
 
 
 
+## Lote 15 — Iteración E-E-A-T: autoría, revisión y fuentes (02-10-2026)
+
+- **`Article`** (`src/data/articles.ts`) ahora exige `reviewed` / `isoReviewed` / `sources` y exporta `ARTICLE_AUTHOR = 'Equipo editorial de AutoLupa'`. Los 11 artículos quedan con fecha de publicación y fecha de revisión separadas.
+- **Fuentes oficiales verificadas antes de enlazar**: cada candidato se comprobó por HTTP (200) y sólo se incluyeron los que responden. Registro Civil, ChileAtiende, SII, ANAC, CAVEM, Latin NCAP, Euro NCAP, Ley Chile (BCN), Ministerio de Energía, SEC, CMF, SERNAC y Autofact. Las URLs profundas de SII daban 404 → se usa la raíz oficial.
+- **Página de la guía** (`BlogArticle.tsx`): línea visible "Por Equipo editorial de AutoLupa · Publicado el… · Actualizado el…" con `<time>`, bloque **"Fuentes oficiales"** (enlaces externos `target="_blank" rel="noopener noreferrer"`) y nota de que los precios son referenciales del catálogo.
+- **JSON-LD**: `dateModified = isoReviewed` (ya no iguala a `datePublished`) y `author = Equipo editorial de AutoLupa`.
+- **Listado del blog**: "30 Sep 2026 · revisado 2 Oct 2026" en cada tarjeta.
+- **`Top10`**: pie con procedencia y fecha de auditoría ("auditoría de datos de septiembre de 2026… referencias de catálogo, no ofertas") y descripción corregida: decía "según datos del mercado chileno" y los datos salen de nuestro catálogo.
+- **Decisión editorial**: no se inventó una persona-experto falsa para el `author` (sería E-E-A-T mentiroso); se usa la organización con nombre visible. Si más adelante hay autor humano real, se cambia en `ARTICLE_AUTHOR`.
+- Tests: **145** (`blogArticles.test.tsx` +3: fuentes de cada guía, autor/fechas/enlaces en la página y JSON-LD con `dateModified` separado). `LINT=0 TEST=0 BUILD=0`.
+
 ## Lote 14 — Iteración de verificación: estado y reenvío del correo (01-10-2026)
 
 - **Auditoría del flujo real** (sonda del 30-09 contra GoTrue): `PUT /user {email}` → 200 y el JWT de sesión queda con `email: ""` hasta que se confirma el enlace, así que `require_verified_seller` lanza «Debes confirmar tu correo electronico antes de publicar» con un correo sin confirmar y **no hay agujero**: el JWT no se adelanta a la confirmación. Límite observado: `over_email_send_rate_limit` = 2 correos por hora (1er envío 200, 2do 429).

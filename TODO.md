@@ -1,5 +1,75 @@
 # AutoLupa — Tareas Pendientes
 
+---
+
+## 🗺️ Plan de mejoras hasta el 100% — Fases 0 / A / B / C (02-10-2026)
+
+> **Premisa del usuario:** el marketplace se abre al público (gente publicando sus autos) **recién cuando el sitio esté al 100%**.
+> Todo lo de la Fase A se construye con la página cerrada al público. Análisis comparativo contra Chileautos, Yapo, auto.cl, Autocosmos y AutosYa en `SUMMARY.md`.
+
+### Fase 0 — Decisiones del usuario (paralelas, no consumen lotes)
+
+- [ ] **0.1 Dominio `autolupa.cl`** + DNS (CNAME → Cloudflare) + 301 desde `.pages.dev` + correo `hola@autolupa.cl` → *contra 2 (tráfico/marca)*
+- [ ] **0.2 Contratar SMTP** (Resend o Postmark) + SPF/DKIM/DMARC del dominio → sube `rate_limit_email_sent` (hoy 2 correos/hora) → *contra 8 (retención, reset de contraseñas, alertas)*
+- [ ] **0.3 Razón social + RUT** en la política de privacidad (Ley 21.719 vigente 01-12-2026) → *contra 12*
+- [ ] **0.4 Definir monetización** (gratis eterno vs planes desde el día 1) → *contra 3*
+- [ ] **0.5 Definir el inventario de siembra** (avisos propios/de conocidos o alianza con 2-3 automotoras) → *contra 1 (liquidez)*
+
+### Fase A — Llegar al 100% (Lotes 15 → 23)
+
+| Lote | Alcance | Contra | Estado |
+|------|---------|--------|--------|
+| **15** | **E-E-A-T y fuentes**: autor + fecha de revisión en los 11 artículos (`author`/`dateModified` en JSON-LD), fuentes citadas (CAVEM, ANAC, SII) y etiqueta "precios de referencia: catálogo AutoLupa, actualizado el…" | 11, 14 | ✅ hecho 02-10-2026 |
+| **19** | **Rendimiento y SEO técnico**: code-splitting del `chunk index` (950 KB), lazy-load de imágenes, breadcrumb visible, meta tags por página, eventos de Plausible + Google Search Console | 2, 11 | ⬜ |
+| **16** | **Tasador "¿cuánto vale tu auto?"**: `/tasar-auto` con depreciación (18/12/9/7%) + comparables del catálogo + CTA "publica a este precio" | 4 | ⬜ |
+| **17** | **Búsquedas guardadas + alertas de nuevos avisos**: guardar la búsqueda en `/usados`, contador en navbar, avisos nuevos en `/favorites` (paridad con Chileautos) | 7 | ⬜ |
+| **21** | **Robustez operativa**: anti-abuse en publicación (honeypot + cupo), límites/costos Supabase-Cloudflare con 1.000 fotos, backup+restore probado, matriz RLS re-ejecutada con roles reales, prueba end-to-end del ciclo completo de publicación | riesgo | ⬜ |
+| **18** | **Cerrar las 54 siluetas de foto** del catálogo (Commons + licencia, curaduría por modelo) | 10 | ⬜ |
+| **20** | **Crédito creíble**: simulador con tasas/CAE de mercado 2026 (no 11% fijo), pie mínimo, total pagado, CTA "pide cotización" | 5 | ⬜ |
+| **22** | **Confianza visible**: badge público "vendedor con correo verificado" (migración + trigger sobre `auth.users`), "Sello AutoLupa", enlace a informe de historial y guía de transferencia, FAQ antiestafas | 6, 12 | ⬜ |
+| **23** | **PWA y compartir**: instalable correcto en iOS, `Web Share API`, skeleton en todas las rutas | 13 | ⬜ |
+
+- [ ] Pendientes heredados que entran en la Fase A: subir **vite/vitest** (rompe mayor, sólo afecta al dev server) y **revisar la CSP en navegador real** cuando esté conectado el de escritorio
+
+**Definición de "100%" para abrir la publicación:** Fase 0 (0.1-0.3) completa + Lotes 15-23 ejecutados + Fase B verde.
+
+### Fase B — Apertura controlada
+
+- [ ] `autolupa.cl` en línea con 301 desde `.pages.dev`
+- [ ] SMTP activo y **bucle real verificado**: `updateUser({email}) → clic → publicar`
+- [ ] Matriz de RLS 15/15 + 4/4 de moderación re-ejecutada
+- [ ] **Siembra de 10-20 avisos reales** con fotos reales (Fase 0.5)
+- [ ] Google Search Console + sitemap con los primeros avisos activos
+- [ ] Primera semana con moderación estricta (todo `pending`) y métricas en Plausible
+- [ ] Campaña "Publica gratis, sin comisión" (bloque ya existente en home)
+
+### Fase C — Post-lanzamiento (no hacer antes: requiere tráfico, dinero o socios)
+
+Chat en tiempo real · reputación/estrellas de vendedores · integración Autofact (historial) y transferencia · financiamiento real con bancos · plan de pagos/destacados · app nativa · motos/camiones/arriendo · páginas por comuna (346) · ads/afiliados · verificación WhatsApp Business · newsletter con SMTP.
+
+### Contra → fase
+
+| # | Contra detectado en el análisis | Dónde se ataca |
+|---|--------------------------------|----------------|
+| 1 | Inventario = 0 | Fase B (siembra) + 0.5 |
+| 2 | Tráfico, marca y dominio | 0.1 + Lote 19 |
+| 3 | Sin modelo de ingresos ni socios | 0.4 + Fase C |
+| 4 | Sin tasador/"¿cuánto vale mi auto?" | Lote 16 |
+| 5 | Sin financiamiento real | Lote 20 (parcial) → Fase C |
+| 6 | Sin historial de informe ni transferencia | Lote 22 (parcial) → Fase C |
+| 7 | Sin alertas de nuevos avisos por búsqueda | Lote 17 |
+| 8 | Email capado a 2 correos/hora | 0.2 |
+| 9 | Sólo autos livianos | decisión: se mantiene al abrir → Fase C |
+| 10 | 54 modelos del catálogo sin foto | Lote 18 |
+| 11 | E-E-A-T del contenido débil | Lote 15 + 19 |
+| 12 | Sin soporte humano | Lote 22 (FAQ) → Fase C |
+| 13 | Sin app nativa | Lote 23 (PWA) → Fase C |
+| 14 | Precios de catálogo sin fuente ni fecha | Lote 15 |
+
+**Orden de ejecución acordado:** `15 → 19 → 16 → 17 → 21 → 18 → 20 → 22 → 23 → Fase B`
+
+---
+
 ## 🔴 Prioridad 1 — Renombrar: AutoLupa ✅ COMPLETADO
 
 - [x] Elegir nombre: **AutoLupa** 🔍

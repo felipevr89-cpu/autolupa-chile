@@ -4,6 +4,11 @@ export interface ArticleSection {
   bullets?: string[];
 }
 
+export interface ArticleSource {
+  label: string;
+  url: string;
+}
+
 export interface Article {
   slug: string;
   title: string;
@@ -13,12 +18,24 @@ export interface Article {
   isoDate: string;
   readTime: string;
   icon: string;
+  reviewed: string;
+  isoReviewed: string;
+  sources: ArticleSource[];
   sections: ArticleSection[];
 }
+
+export const ARTICLE_AUTHOR = 'Equipo editorial de AutoLupa';
 
 export const articles: Article[] = [
   {
     slug: 'transferencia-vehiculo-chile',
+    reviewed: '2 Oct 2026',
+    isoReviewed: '2026-10-02',
+    sources: [
+      { label: 'Registro Civil', url: 'https://www.registrocivil.cl/' },
+      { label: 'ChileAtiende', url: 'https://www.chileatiende.gob.cl/' },
+      { label: 'Servicio de Impuestos Internos', url: 'https://www.sii.cl/' },
+    ],
     title: 'Transferencia de Vehículo en Chile: Documentos, Pasos y Después del Trámite',
     excerpt: 'Qué papeles pide el Registro Civil, cómo obtener el Certificado de Anotaciones Vigentes y qué hacer después con el permiso de circulación y el seguro.',
     category: 'Guía de compra',
@@ -91,6 +108,13 @@ export const articles: Article[] = [
   },
   {
     slug: 'revision-auto-usado-checklist',
+    reviewed: '2 Oct 2026',
+    isoReviewed: '2026-10-02',
+    sources: [
+      { label: 'Autofact', url: 'https://www.autofact.cl/' },
+      { label: 'Registro Civil', url: 'https://www.registrocivil.cl/' },
+      { label: 'SERNAC', url: 'https://www.sernac.cl/' },
+    ],
     title: 'Revisión de Auto Usado Antes de Comprar: Checklist Completo',
     excerpt: 'Papeles, carrocería, interior, motor y prueba de conducción: lo que hay que revisar antes de pagar por un usado, en el orden que ahorra tiempo.',
     category: 'Guía de compra',
@@ -185,6 +209,12 @@ export const articles: Article[] = [
   },
   {
     slug: 'guia-comparar-autos-chile',
+    reviewed: '2 Oct 2026',
+    isoReviewed: '2026-10-02',
+    sources: [
+      { label: 'ANAC', url: 'https://anac.cl/' },
+      { label: 'CAVEM', url: 'https://www.cavem.cl/' },
+    ],
     title: 'Guía para Comparar Autos en Chile: Todo lo que Necesitas Saber',
     excerpt: 'Cómo elegir el auto perfecto según tu presupuesto, necesidades y estilo de vida. Comparación de marcas chinas vs europeas vs japonesas.',
     category: 'Guía de compra',
@@ -259,6 +289,12 @@ export const articles: Article[] = [
   },
   {
     slug: 'mejores-autos-familia-2026',
+    reviewed: '2 Oct 2026',
+    isoReviewed: '2026-10-02',
+    sources: [
+      { label: 'Latin NCAP', url: 'https://latinncap.com/' },
+      { label: 'Euro NCAP', url: 'https://www.euroncap.com/' },
+    ],
     title: 'Los 10 Mejores Autos Familiares en Chile 2026',
     excerpt: 'Selección por presupuesto y uso real: seguridad con airbags e ISOFIX, espacio de baúl y consumo, con precios de referencia de nuestro catálogo.',
     category: 'Rankings',
@@ -339,6 +375,13 @@ export const articles: Article[] = [
   },
   {
     slug: 'autos-electricos-chile-2026',
+    reviewed: '2 Oct 2026',
+    isoReviewed: '2026-10-02',
+    sources: [
+      { label: 'Ley Chile (BCN)', url: 'https://www.bcn.cl/leychile/' },
+      { label: 'Ministerio de Energía', url: 'https://energia.gob.cl/' },
+      { label: 'Superintendencia de Electricidad y Combustibles', url: 'https://www.sec.cl/' },
+    ],
     title: 'Guía de Autos Eléctricos en Chile: Precios, Carga y Autonomía',
     excerpt: 'Costo real de cargar en casa y en red, mantención, permiso de circulación con descuento y qué revisar antes de comprar un auto eléctrico.',
     category: 'Eléctricos',
@@ -421,6 +464,12 @@ export const articles: Article[] = [
   },
   {
     slug: 'tcu-costo-vehiculo-propiedad',
+    reviewed: '2 Oct 2026',
+    isoReviewed: '2026-10-02',
+    sources: [
+      { label: 'Servicio de Impuestos Internos', url: 'https://www.sii.cl/' },
+      { label: 'Ley Chile (BCN)', url: 'https://www.bcn.cl/leychile/' },
+    ],
     title: 'TCU: ¿Cuánto Realmente Cuesta tu Auto al Año?',
     excerpt: 'El Costo Total de Propiedad desglosado: crédito, SOAP, seguro, permiso de circulación, mantención, energía y depreciación, con la metodología que usamos.',
     category: 'Finanzas',
@@ -493,6 +542,12 @@ export const articles: Article[] = [
   },
   {
     slug: 'seguros-auto-chile-comparar',
+    reviewed: '2 Oct 2026',
+    isoReviewed: '2026-10-02',
+    sources: [
+      { label: 'Comisión para el Mercado Financiero', url: 'https://www.cmfchile.cl/' },
+      { label: 'SERNAC', url: 'https://www.sernac.cl/' },
+    ],
     title: 'Cómo Elegir el Mejor Seguro de Auto en Chile',
     excerpt: 'Tipos de cobertura, qué mueve el precio, cómo cotizar comparablemente y los errores más comunes al contratar el seguro del auto.',
     category: 'Finanzas',
@@ -565,6 +620,12 @@ export const articles: Article[] = [
   },
   {
     slug: 'autos-chinos-chile-opinion',
+    reviewed: '2 Oct 2026',
+    isoReviewed: '2026-10-02',
+    sources: [
+      { label: 'ANAC', url: 'https://anac.cl/' },
+      { label: 'CAVEM', url: 'https://www.cavem.cl/' },
+    ],
     title: 'Autos Chinos en Chile: ¿Son Buenos? Opinión y Análisis',
     excerpt: 'Qué marcas chinas operan en Chile, qué mejoraron, los tres riesgos reales (postventa, repuestos y depreciación) y checklist para comprar con confianza.',
     category: 'Análisis',
@@ -636,6 +697,12 @@ export const articles: Article[] = [
   },
   {
     slug: 'hibridos-vs-electricos',
+    reviewed: '2 Oct 2026',
+    isoReviewed: '2026-10-02',
+    sources: [
+      { label: 'Ministerio de Energía', url: 'https://energia.gob.cl/' },
+      { label: 'Ley Chile (BCN)', url: 'https://www.bcn.cl/leychile/' },
+    ],
     title: 'Híbridos vs Eléctricos: ¿Cuál Conviene Más en Chile?',
     excerpt: 'HEV, PHEV y eléctrico puro explicados con números: costo de energía, mantención, permiso de circulación y una matriz de decisión según tu uso.',
     category: 'Eléctricos',
@@ -708,6 +775,12 @@ export const articles: Article[] = [
   },
   {
     slug: 'permiso-circulacion-2026',
+    reviewed: '2 Oct 2026',
+    isoReviewed: '2026-10-02',
+    sources: [
+      { label: 'Servicio de Impuestos Internos', url: 'https://www.sii.cl/' },
+      { label: 'ChileAtiende', url: 'https://www.chileatiende.gob.cl/' },
+    ],
     title: 'Permiso de Circulación 2026: Cuánto Pagarás por tu Auto',
     excerpt: 'Cómo se calcula el permiso con la fórmula del SII, la escala progresiva en UTM, el mínimo legal y el descuento del 25% para eléctricos y enchufables.',
     category: 'Finanzas',
@@ -780,6 +853,12 @@ export const articles: Article[] = [
   },
   {
     slug: 'autos-seguros-chile-latin-ncap',
+    reviewed: '2 Oct 2026',
+    isoReviewed: '2026-10-02',
+    sources: [
+      { label: 'Latin NCAP', url: 'https://latinncap.com/' },
+      { label: 'Euro NCAP', url: 'https://www.euroncap.com/' },
+    ],
     title: 'Los Autos Más Seguros de Chile: Cómo Elegirlos',
     excerpt: 'Qué miden Euro NCAP y Latin NCAP, cómo leer airbags e ISOFIX, y el top 10 de autos con más airbags hasta $30 millones en nuestro catálogo.',
     category: 'Rankings',

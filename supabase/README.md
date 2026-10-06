@@ -91,6 +91,37 @@ reset role;
 
 `MODERATOR_ID` debe tener rol en `private.user_roles` (`moderator` o `admin`).
 
+## Matriz re-ejecutada (06-10-2026) — 22/22
+
+`node scripts/rls-matrix.mjs` reproduce toda la verificación contra producción con usuarios reales creados por la API admin (`POST /auth/v1/admin/users`) y borrados al terminar. Corre en 4 bloques:
+
+| Bloque | Pruebas | Resultado |
+| --- | --- | --- |
+| Matriz RLS | 15 | ✅ 15/15 (igual que el 29-09) |
+| Trigger de invitados | 4 | ✅ 4/4 (igual que el 30-09) |
+| Límites de publicación | 2 | ✅ 2/2 (nuevos, `202610020001_publish_limits.sql`) |
+| Ciclo end-to-end | 1 | ✅ publicar → aprobar → ver → editar → vender |
+
+- **Límites**: 6ª creación en 24 h rechazada por el trigger, 21ª activa rechazada, y al borrar una activa vuelve a dejar pasar.
+- **Hallazgo**: `anon` y `authenticated` tienen **todos** los privilegios sobre `public.used_listings` (Supabase otorga `all` en el esquema `public`); por eso el anónimo no recibe `permission denied` sino que **RLS devuelve 0 filas**. El GRANT no es la defensa, la política lo es.
+- La matriz se ejecuta con `set local role` + `request.jwt.claims` por la Management API (`POST /v1/projects/{ref}/database/query`).
+- Al final verifica `0` filas en `auth.users`, `auth.identities`, `profiles`, `private.user_roles` y `used_listings`, y `0` avisos con slug `test-%`; sale con código 1 si algo queda sucio.
+
+## Límites de publicación (06-10-2026)
+
+Trigger `enforce_publish_limits` (BEFORE INSERT, `202610020001_publish_limits.sql`):
+
+- **máx 20 avisos `active`** por vendedor → `Este vendedor ya tiene 20 avisos activos.`
+- **máx 5 creaciones cada 24 h** por vendedor (`created_at`) → `Alcanzaste el limite de 5 publicaciones cada 24 horas.`
+- Se salta si `auth.uid()` es `null` (service_role / postgres), para no romper backups ni siembra.
+- Del lado del cliente hay una copia de cortesía en `src/lib/antiAbuse.ts`: honeypot `website` en el paso 4, trampa de tiempo ≥ 2 s y cupo de 5/24 h en `localStorage` (errores genéricos para bots). **El trigger es el que vale.**
+
+## Backup y restore
+
+- `node scripts/backup-supabase.mjs` vuelca las 7 tablas de negocio (`used_listings`, `listing_reports`, `profiles`, `user_preferences`, `document_signatures`, `suggestions`, `private.user_roles`) a `supabase/backups/backup-AAAA-MM-DD.json` vía Management API. Usa `SUPABASE_ACCESS_TOKEN` de `.env`.
+- `supabase/backups/` está en `.gitignore`: contiene datos de negocio, no va al repo.
+- **Restore**: con la Management API, `POST /v1/projects/{ref}/database/query` con `truncate ... cascade` de las tablas destino y `insert` fila por fila desde el JSON (los `id` se conservan, así que hay que borrar antes por las FK a `auth.users`). Las fotos no están en el JSON: se respaldan aparte desde Storage si crece el volumen.
+
 ## Resultados de la matriz (29-09-2026)
 
 Ejecutada con la Management API sobre el proyecto `eeqhqsteeobegaekynse`, con tres usuarios reales creados por GoTrue (vendedor A, vendedor B y moderador con rol en `private.user_roles`). 15/15 pruebas pasaron:
@@ -149,8 +180,8 @@ Usar la API admin (`POST /auth/v1/admin/users` con la `service_role` key). **No 
 
 ## Pendiente antes de recibir vendedores reales
 
-1. ~~Ejecutar esta matriz con usuarios reales y registrar los resultados.~~ ✅ 29-09-2026 (15/15).
-2. Añadir Cloudflare Turnstile o rate limiting para publicaciones y reportes: hoy no hay límite de frecuencia.
+1. ~~Ejecutar esta matriz con usuarios reales y registrar los resultados.~~ ✅ 29-09-2026 (15/15) y re-ejecutada ✅ 06-10-2026 (22/22 con `scripts/rls-matrix.mjs`).
+2. ~~Añadir límite de frecuencia para publicaciones.~~ ✅ 06-10-2026 (trigger `enforce_publish_limits`: 5/24 h y 20 activos + antiAbuse en el cliente). **Cloudflare Turnstile sigue pendiente: es Fase 0.6 y requiere el API token del usuario.**
 3. Limpieza de fotos huérfanas al eliminar un aviso o una cuenta.
 4. Revisión jurídica de los documentos (la razón social y el RUT siguen marcados como PENDIENTES).
 5. Migrar a renderizado en servidor para las rutas públicas y generar el sitemap de avisos.

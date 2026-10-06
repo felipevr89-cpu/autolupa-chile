@@ -25,7 +25,7 @@
 | **19** | **Rendimiento y SEO técnico**: code-splitting del `chunk index` (950 KB), lazy-load de imágenes, breadcrumb visible, meta tags por página, eventos de Plausible + Google Search Console | 2, 11 | ✅ hecho 02-10-2026 (index 1196→324 KB; GSC queda para Fase B por la cuenta Google) |
 | **16** | **Tasador "¿cuánto vale tu auto?"**: `/tasar-auto` con depreciación (18/12/9/7%) + comparables del catálogo + CTA "publica a este precio" | 4 | ✅ hecho 02-10-2026 |
 | **17** | **Búsquedas guardadas + alertas de nuevos avisos**: guardar la búsqueda en `/usados`, contador en navbar, avisos nuevos en `/favorites` (paridad con Chileautos) | 7 | ✅ hecho 02-10-2026 |
-| **21** | **Robustez operativa**: anti-abuse en publicación (honeypot + cupo), límites/costos Supabase-Cloudflare con 1.000 fotos, backup+restore probado, matriz RLS re-ejecutada con roles reales, prueba end-to-end del ciclo completo de publicación | riesgo | 🔄 **en curso 02-10-2026** (alcance completo aprobado por el usuario: SQL aplicado + matriz + E2E; ver "Checkpoint Lote 21" abajo) |
+| **21** | **Robustez operativa**: anti-abuse en publicación (honeypot + cupo), límites/costos Supabase-Cloudflare con 1.000 fotos, backup+restore probado, matriz RLS re-ejecutada con roles reales, prueba end-to-end del ciclo completo de publicación | riesgo | ✅ hecho 06-10-2026 (ver "Lote 21" abajo y en `SUMMARY.md`) |
 | **18** | **Cerrar las 54 siluetas de foto** del catálogo (Commons + licencia, curaduría por modelo) | 10 | ⬜ |
 | **20** | **Crédito creíble**: simulador con tasas/CAE de mercado 2026 (no 11% fijo), pie mínimo, total pagado, CTA "pide cotización" | 5 | ⬜ |
 | **22** | **Confianza visible**: badge público "vendedor con correo verificado" (migración + trigger sobre `auth.users`), "Sello AutoLupa", enlace a informe de historial y guía de transferencia, FAQ antiestafas | 6, 12 | ⬜ |
@@ -33,24 +33,17 @@
 
 - [ ] Pendientes heredados que entran en la Fase A: subir **vite/vitest** (rompe mayor, sólo afecta al dev server) y **revisar la CSP en navegador real** cuando esté conectado el de escritorio
 
-#### 📍 Checkpoint Lote 21 (02-10-2026, al apagar) — decisiones tomadas y estado
+#### 📍 Lote 21 completado (06-10-2026) — qué quedó hecho
 
-**Aprobado por el usuario:** alcance **completo** — honeypot/cupo en código, migración SQL de límites **aplicada a producción**, backup ejecutado, matriz RLS + end-to-end re-ejecutadas con usuarios de prueba reales (creados con la API admin y eliminados al terminar), todo documentado. **Turnstile y Google Search Console → Fase 0.6 / 0.7** (credenciales del usuario).
+**Alcance aprobado y ejecutado completo** (Turnstile y Google Search Console quedan en Fase 0.6 / 0.7, dependen de credenciales del usuario):
 
-**Hecho:** sólo investigación (0 código en este lote). **Próximo paso:** el paso 1 de la lista inferior.
+1. ✅ `src/lib/antiAbuse.ts` + hook en `submit()` de `PublicarAuto.tsx`: honeypot `website` en el paso 4, trampa de tiempo ≥2 s desde el montaje y cupo cliente de 5 publicaciones/24 h en `localStorage`; errores genéricos idénticos para bots.
+2. ✅ `supabase/migrations/202610020001_publish_limits.sql` **aplicada a producción**: trigger `enforce_publish_limits` (20 activos + 5 creaciones/24 h, se salta con `auth.uid()` nulo) y verificado con usuarios reales.
+3. ✅ `scripts/backup-supabase.mjs` ejecutado (7 tablas → `supabase/backups/`, en `.gitignore`) y restore documentado en `supabase/README.md`.
+4. ✅ `scripts/rls-matrix.mjs`: matriz 15/15 + 4/4 + 2 límites + 1 E2E = **22/22 PASS**, con limpieza verificada (0 filas).
+5. ✅ Resultados en `supabase/README.md` y `SUMMARY.md`, lint/tests/build en 0.
 
-Hallazgos verificados por HTTP:
-- La clave `service_role` **es recuperable con el PAT** de `.env`: `GET https://api.supabase.com/v1/projects/{ref}/api-keys` (devuelve `anon`, `service_role` y las `default`) — necesaria para `POST /auth/v1/admin/users` (crear usuarios de prueba sin romper los tokens de GoTrue).
-- `{ref}` = `eeqhqsteeobegaekynse`: si se manda el host completo (`…supabase.co`) la Management API responde `Invalid project ref`.
-- Consultas SQL directas: `POST https://api.supabase.com/v1/projects/{ref}/database/query` con el PAT (así se corrió la matriz del 29-09).
-- Esquema usado: `public.used_listings` (`seller_id`, `status`, `slug`, `photo_paths` (1-8), `created_at`, `published_at`, `expires_at`), `private.user_roles`, `listing_reports`. Triggers existentes: `require_verified_seller` + máquina de estados; **falta**: límite de creación por vendedor y limpieza de fotos (`delete_my_account()` borra `auth.users` pero no `storage.objects` → fotos órfanas, pendiente #3 del README).
-
-Plan de ejecución pendiente (en este orden):
-1. `src/lib/antiAbuse.ts` + hook en `submit()` de `PublicarAuto.tsx`: honeypot (input oculto `website` en el paso 4), trampa de tiempo (≥2 s desde el montaje) y cupo cliente de 5 publicaciones/24 h en localStorage; errores genéricos para bots.
-2. `supabase/migrations/202610020001_publish_limits.sql`: trigger BEFORE INSERT en `used_listings` → máx 20 avisos activos por vendedor y máx 5 creaciones cada 24 h; aplicarlo con la Management API y verificarlo con SQL (el trigger real es el que vale, el cliente sólo es cortesía).
-3. `scripts/backup-supabase.mjs` (Management API → JSON de tablas de negocio) ejecutado y gitignore de `supabase/backups/`; restore documentado.
-4. `scripts/rls-matrix.mjs`: crear vendedor A, vendedor B y moderador (admin API + rol en `private.user_roles`), correr la matriz 15/15 + 4/4 y el ciclo E2E (publicar → `pending` → moderador aprueba → anónimo lo ve → editar precio vuelve a `pending` → `sold`), imprimir tabla PASS/FAIL y **borrar todo al final** (0 filas).
-5. Resultados en `supabase/README.md` + `SUMMARY.md`, `lint/test/build` en 0, commit y deploy.
+**Pendiente heredado de este lote** (queda para Fase 0.6/0.7 o más adelante): límite de frecuencia para **reportes** (hoy sólo throttle de 30 s en el cliente), Cloudflare Turnstile y costos de 1.000 fotos en Supabase/Cloudflare.
 
 **Definición de "100%" para abrir la publicación:** Fase 0 (0.1-0.3) completa + Lotes 15-23 ejecutados + Fase B verde.
 

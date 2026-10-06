@@ -4,6 +4,7 @@ import { SEO } from '../components/SEO';
 import { brands as catalogBrands, getModelsByBrand } from '../data/brands';
 import { cropListingPhoto, prepareListingPhoto } from '../lib/listingImages';
 import { verificationErrorMessage } from '../lib/authVerification';
+import { checkAntiAbuse, recordPublish } from '../lib/antiAbuse';
 import { createUsedListing } from '../lib/usedListings';
 import { supabase } from '../lib/supabase';
 import { track } from '../lib/analytics';
@@ -90,7 +91,9 @@ export function PublicarAuto({ user, isCloudAuthAvailable, onSignIn, onSignInAno
   const cropDragRef = useRef<{ pointerX: number; pointerY: number; x: number; y: number } | null>(null);
   const [verificationSent, setVerificationSent] = useState(false);
   const [sendingVerification, setSendingVerification] = useState(false);
+  const [honeypot, setHoneypot] = useState('');
   const previewUrls = useRef<string[]>([]);
+  const mountedAtRef = useRef(Date.now());
 
   const restoredDraft = Boolean(persisted.draft);
   const catalogBrand = catalogBrands.find((brand) => brand.toLowerCase() === draft.brand.trim().toLowerCase());
@@ -348,6 +351,12 @@ export function PublicarAuto({ user, isCloudAuthAvailable, onSignIn, onSignInAno
       return;
     }
 
+    const antiAbuse = checkAntiAbuse({ honeypot, elapsedMs: Date.now() - mountedAtRef.current });
+    if (!antiAbuse.ok) {
+      setSubmitError(antiAbuse.message);
+      return;
+    }
+
     if (mustVerifyEmail) {
       if (!draft.contactEmail.trim()) {
         setErrors({ contactEmail: 'Para publicar sin cuenta necesitamos un correo válido.' });
@@ -367,6 +376,7 @@ export function PublicarAuto({ user, isCloudAuthAvailable, onSignIn, onSignInAno
     const finalDraft = guestFlow && user?.email ? { ...draft, contactEmail: user.email } : draft;
     try {
       await createUsedListing(finalDraft);
+      recordPublish();
       clearPhotos();
       localStorage.removeItem(DRAFT_STORAGE_KEY);
       setSubmitted(true);
@@ -629,6 +639,17 @@ export function PublicarAuto({ user, isCloudAuthAvailable, onSignIn, onSignInAno
         {step === 4 && (
           <section>
             <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-5">Revisa y publica</h2>
+            <label className="sr-only" aria-hidden="true">
+              No completar este campo
+              <input
+                type="text"
+                name="website"
+                value={honeypot}
+                onChange={(event) => setHoneypot(event.target.value)}
+                tabIndex={-1}
+                autoComplete="off"
+              />
+            </label>
             <dl className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-4 rounded-xl bg-gray-50 dark:bg-gray-700/50 p-5">
               <Summary label="Vehículo" value={`${draft.brand} ${draft.model} ${draft.year}`} />
               <Summary label="Precio" value={`$${draft.price.toLocaleString('es-CL')} CLP`} />

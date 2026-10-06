@@ -175,7 +175,17 @@ El rol anónimo (sin sesión) sigue sin poder insertar: no se tocó ninguna pol�
 
 
 
+## Lote 21 — Robustez operativa: anti-abuse, límites, backup y matriz (06-10-2026)
+
+- **`src/lib/antiAbuse.ts`**: trampas de cliente en el `submit()` de `PublicarAuto` — honeypot `website` (paso 4, `sr-only`, `tabIndex=-1`), trampa de tiempo (mínimo 2 s desde el montaje) y cupo de **5 publicaciones/24 h** en `localStorage` (`autolupa_publish_times`). Los fallos de honeypot/tiempo devuelven un mensaje **genérico idéntico** para no delatar la trampa; el cupo explica el límite. El cliente es cortesía: **el trigger de la base es el que vale**.
+- **`supabase/migrations/202610020001_publish_limits.sql`** (aplicada a producción): trigger `enforce_publish_limits` BEFORE INSERT → máx **20 avisos `active`** y máx **5 creaciones cada 24 h** por vendedor; se salta si `auth.uid()` es `null` (service_role/postgres) para no romper backups ni siembra. Verificado con usuarios reales: 6ª creación y 21ª activa rechazadas, y al borrar una activa vuelve a dejar pasar.
+- **`scripts/backup-supabase.mjs`**: vuelca las 7 tablas de negocio a `supabase/backups/backup-AAAA-MM-DD.json` vía Management API (`SUPABASE_ACCESS_TOKEN` de `.env`). Carpeta en `.gitignore`; restore documentado en `supabase/README.md`.
+- **`scripts/rls-matrix.mjs`**: matriz reproducible contra producción — 15 RLS + 4 del trigger de invitados + 2 de límites + 1 ciclo E2E (publicar → aprobar → ver → editar → vender) = **22/22 PASS**, con 6 usuarios de prueba creados por la API admin y borrados al final (verificación de 0 filas en `auth.users`, `auth.identities`, `profiles`, `private.user_roles` y `used_listings`; sale con código 1 si queda algo).
+- **Hallazgo**: `anon`/`authenticated` tienen **todos** los privilegios sobre `public.used_listings` (Supabase otorga `all` en `public`), así que el anónimo no recibe `permission denied` sino **0 filas** por RLS. La defensa es la política, no el GRANT.
+- Tests: **176** (`antiAbuse.test.ts` +7: honeypot, trampa de tiempo, mensaje genérico común, cupo 5/24 h, liberación a las 24 h y basura en `localStorage`). `LINT=0 TEST=0 BUILD=0`.
+
 ## Lote 17 — Iteración búsquedas guardadas y alertas (02-10-2026)
+
 
 - **`src/lib/savedSearches.ts`** (localStorage, sin registro): `addSearch` (guarda filtros + total de avisos al momento de guardar), `removeSearch`, `markSearchSeen`, `getNewCount`, `buildSearchName` («Toyota · Metropolitana · hasta $15.000.000»), `getSearchId` (hash estable de los 10 filtros, el orden no cambia el id) y el contador `autolupa_search_alerts` del navbar. Límite: **8 búsquedas**, con respuestas `added / duplicate / limit / empty`.
 - **`countActiveUsedListings(filters)`** en `src/lib/usedListings.ts`: cuenta avisos activos con los mismos filtros que la búsqueda (`head: true`, sólo `count`), reutilizando `applyUsedListingFilters`. Así el badge «N nuevos» no descarga listados completos.

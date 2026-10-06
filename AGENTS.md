@@ -49,7 +49,7 @@ src/
 ├── data/
 │   ├── brands/                  # Un JSON por marca (allBrands vía import.meta.glob)
 │   │   └── index.ts             # carsData, brandUrls, BRANDS_NOT_SOLD_NEW_IN_CHILE
-│   ├── carImages.json           # Mapeo id → { file, source, license } o null (616 claves)
+│   ├── carImages.json           # Mapeo id → { file, source, license } o null (626 claves)
 │   ├── energyCosts.ts           # HOME_KWH 150 / FAST_KWH 350 / gasolina 1300 / diesel 1150
 │   ├── enrichment.ts            # Completa rango/batería/seguridad por marca|modelo
 │   ├── recommender.ts           # Motor semántico local: parseQuery + scoreRecommendation + recommend
@@ -108,9 +108,10 @@ src/
 
 ## Imágenes (`src/data/carImages.json` + `public/car-images/`)
 - Mapeo id → `{ file, source, license, attribution }` o `null` (silueta).
-- Estado auditado: 572 con foto (todas con source + license), 0 huérfanas, 0 archivos faltantes en disco, 0 archivos huérfanos. 54 modelos en silueta (sin foto encontrada en Commons; ver SUMMARY.md).
-- Regla: no duplicar fuente entre modelos distintos; verificar con el escaneo de `source` compartido.
+- Estado auditado (Lote 18): **626 claves / 617 con foto / 9 siluetas**; todas con source + license + attribution, 0 archivos faltantes en disco, 0 archivos huérfanos.
+- Regla: no duplicar fuente entre modelos distintos; verificar con el escaneo de `source` compartido (las 23 fuentes compartidas son variantes de un mismo modelo).
 - Pase 2026: 131 fotos añadidas desde Commons (API, ancho 1000px, metadata real). ~15 son de la misma generación de plataforma comercial (best-effort documentado en SUMMARY.md); curaduría por modelo.
+- Lote 18: +56 fotos de Commons con curaduría por modelo (ver SUMMARY.md). Scripts: `picks-lote18.cjs` (elecciones), `check-commons.cjs` (categorías/licencia/duplicados) y `download-picks.cjs` (descarga + manifiesto).
 
 ## Pendiente / Próxima Funcionalidad
 

@@ -26,12 +26,13 @@
 | **16** | **Tasador "¿cuánto vale tu auto?"**: `/tasar-auto` con depreciación (18/12/9/7%) + comparables del catálogo + CTA "publica a este precio" | 4 | ✅ hecho 02-10-2026 |
 | **17** | **Búsquedas guardadas + alertas de nuevos avisos**: guardar la búsqueda en `/usados`, contador en navbar, avisos nuevos en `/favorites` (paridad con Chileautos) | 7 | ✅ hecho 02-10-2026 |
 | **21** | **Robustez operativa**: anti-abuse en publicación (honeypot + cupo), límites/costos Supabase-Cloudflare con 1.000 fotos, backup+restore probado, matriz RLS re-ejecutada con roles reales, prueba end-to-end del ciclo completo de publicación | riesgo | ✅ hecho 06-10-2026 (ver "Lote 21" abajo y en `SUMMARY.md`) |
-| **18** | **Cerrar las 54 siluetas de foto** del catálogo (Commons + licencia, curaduría por modelo) | 10 | ⬜ |
+| **18** | **Cerrar las siluetas de foto** del catálogo (Commons + licencia, curaduría por modelo): 65 modelos sin foto → **56 fotos nuevas**, quedan 9 | 10 | ✅ hecho 06-10-2026 (ver "Lote 18" en `SUMMARY.md`) |
 | **20** | **Crédito creíble**: simulador con tasas/CAE de mercado 2026 (no 11% fijo), pie mínimo, total pagado, CTA "pide cotización" | 5 | ⬜ |
 | **22** | **Confianza visible**: badge público "vendedor con correo verificado" (migración + trigger sobre `auth.users`), "Sello AutoLupa", enlace a informe de historial y guía de transferencia, FAQ antiestafas | 6, 12 | ⬜ |
 | **23** | **PWA y compartir**: instalable correcto en iOS, `Web Share API`, skeleton en todas las rutas | 13 | ⬜ |
 
 - [ ] Pendientes heredados que entran en la Fase A: subir **vite/vitest** (rompe mayor, sólo afecta al dev server) y **revisar la CSP en navegador real** cuando esté conectado el de escritorio
+- [ ] **Fotos de otra variante/generación** (11 ids abiertos de `IMAGE_AUDIT_REPORT.md`): 104, 185, 187, 227, 309, 398, 413, 414, 447, 497, 512 — deciden si entra como lote extra de curaduría o si se documenta y se abre con esto
 
 #### 📍 Lote 21 completado (06-10-2026) — qué quedó hecho
 
@@ -74,7 +75,7 @@ Chat en tiempo real · reputación/estrellas de vendedores · integración Autof
 | 7 | Sin alertas de nuevos avisos por búsqueda | Lote 17 |
 | 8 | Email capado a 2 correos/hora | 0.2 |
 | 9 | Sólo autos livianos | decisión: se mantiene al abrir → Fase C |
-| 10 | 54 modelos del catálogo sin foto | Lote 18 |
+| 10 | Modelos sin foto: 65 → **9** (Lote 18 ✅; los restantes no tienen equivalencia en Commons) | Lote 18 ✅ |
 | 11 | E-E-A-T del contenido débil | Lote 15 + 19 |
 | 12 | Sin soporte humano | Lote 22 (FAQ) → Fase C |
 | 13 | Sin app nativa | Lote 23 (PWA) → Fase C |

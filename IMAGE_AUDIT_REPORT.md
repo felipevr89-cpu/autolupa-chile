@@ -19,6 +19,13 @@
 
 ---
 
+> **Estado: 2026-10-06 (tras Lote 18)** — relectura comparando el `source` actual de cada id con el modelo del catálogo y con las categorías de Commons. Este documento es un snapshot del 21-09-2026.
+>
+> - **Resueltos (29 ids)**: 67, 71, 75, 167, 217, 248, 259, 271, 277, 278, 284, 323, 349, 377, 397, 406, 418, 421, 426, 433, 434, 439, 465, 500, 505, 522, 526, 530, 531 — la foto actual corresponde al modelo: 406 apunta a un `Mercedes-Benz EQE 350+`, 433/434 usan los Roewe RX8/RX9 (equivalentes de MG), 323 es Kia Pegas = Soluto, 217/271/277/397/439/465/500/526 se repusieron en el Lote 18 y 530/531 pasaron de `.png` a `.jpg`.
+> - **Abiertos (11 ids, ninguno es silueta)**: 104 (Tiggo 8 Pro Max para Tiggo 9 PHEV) · 185 (Mustang GT para Dark Horse) · 187 (Ranger Limited para Raptor) · 227 (Wingle 7 para Wingle 5) · 309 (Torres Hybrid para EVX) · 398 (`Mercedes-Benz X174` = CLA Shooting Brake para Clase A) · 413 (ML W166 para GLE) · 414 (GL X164 para GLS) · 447 (Montero 4ª gen para Montero Sport) · 497 (TRX para RHO) · 512 (Mégane IV para Megane E-Tech) → quedan listados en `TODO.md`.
+> - Las entradas que la limpieza dejó en `null` (silueta) se cerraron en el **Lote 18**: 56 fotos nuevas, manifiesto con 626 claves / 617 fotos / 9 siluetas (ver `SUMMARY.md`).
+> - Los totales de la tabla (616 entradas / 572 fotos / 24 grupos de fuente compartida) corresponden a esta snapshot original.
+
 ## 🔴 CRITICAL — Source shows a completely different vehicle
 
 These images show a car that is **not** the same model as the catalog entry. Users will see the wrong vehicle.

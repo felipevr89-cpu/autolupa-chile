@@ -371,7 +371,12 @@
     "license": "CC BY-SA 4.0",
     "source": "https://commons.wikimedia.org/wiki/File:Buick_Envision_4_China_2015-04-21.jpg"
   },
-  "63": null,
+  "63": {
+    "file": "/car-images/63.jpg",
+    "attribution": "JustAnotherCarDesigner",
+    "license": "CC0",
+    "source": "https://commons.wikimedia.org/wiki/File:BYD_Tang_L_EV_001.jpg"
+  },
   "64": {
     "file": "/car-images/64.jpg",
     "attribution": "Alexander-93",
@@ -492,7 +497,12 @@
     "license": "CC0",
     "source": "https://commons.wikimedia.org/wiki/File:Changan_Eado_IV_001.jpg"
   },
-  "84": null,
+  "84": {
+    "file": "/car-images/84.jpg",
+    "attribution": "JustAnotherCarDesigner",
+    "license": "CC0",
+    "source": "https://commons.wikimedia.org/wiki/File:Changan_Hunter_facelift_001.jpg"
+  },
   "85": {
     "file": "/car-images/85.jpg",
     "attribution": "RL GNZLZ",
@@ -553,22 +563,42 @@
     "license": "CC BY-SA 4.0",
     "source": "https://commons.wikimedia.org/wiki/File:Chery_Himla_2.3d_Turbo_2026.jpg"
   },
-  "95": null,
-  "96": null,
+  "95": {
+    "file": "/car-images/95.jpg",
+    "attribution": "Poprace",
+    "license": "CC0",
+    "source": "https://commons.wikimedia.org/wiki/File:Chery_Tiggo_3x_MY2024_IMG01.jpg"
+  },
+  "96": {
+    "file": "/car-images/96.jpg",
+    "attribution": "RL GNZLZ",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Chery_Tiggo2_Pro_Max_2025.jpg"
+  },
   "97": {
     "file": "/car-images/97.jpg",
     "attribution": "JamesYoung8167",
     "license": "CC BY-SA 4.0",
     "source": "https://commons.wikimedia.org/wiki/File:Chery_Tiggo_3_facelift_Shishi_01_2022-05-22.jpg"
   },
-  "98": null,
+  "98": {
+    "file": "/car-images/98.jpg",
+    "attribution": "Charles from Port Chester, New York",
+    "license": "CC BY 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Chery_Tiggo_4_Pro_1.5T_Elite_(2022)_(52722210544).jpg"
+  },
   "99": {
     "file": "/car-images/99.jpg",
     "attribution": "Alex Neman",
     "license": "CC BY-SA 4.0",
     "source": "https://commons.wikimedia.org/wiki/File:2023%20Chery%20Tiggo%207%20Pro%2C%20Pakuwon%20Mall%2C%20West%20Surabaya.jpg"
   },
-  "100": null,
+  "100": {
+    "file": "/car-images/100.jpg",
+    "attribution": "Throwawayacc222",
+    "license": "CC0",
+    "source": "https://commons.wikimedia.org/wiki/File:2024_Chery_Tiggo7_Pro_Max_white_front.jpg"
+  },
   "101": {
     "file": "/car-images/101.jpg",
     "attribution": "JustAnotherCarDesigner",
@@ -605,7 +635,12 @@
     "license": "CC BY-SA 4.0",
     "source": "https://commons.wikimedia.org/wiki/File:2021-Chevrolet-Camaro-RS-convertible-front.jpg"
   },
-  "107": null,
+  "107": {
+    "file": "/car-images/107.jpg",
+    "attribution": "RL GNZLZ",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Chevrolet_Captiva_PHEV_Premier_2026.jpg"
+  },
   "108": {
     "file": "/car-images/108.jpg",
     "attribution": "RL GNZLZ",
@@ -672,7 +707,12 @@
     "license": "CC BY-SA 4.0",
     "source": "https://commons.wikimedia.org/wiki/File:2020_SAIC-GM_Chevrolet_Onix_sedan.jpg"
   },
-  "119": null,
+  "119": {
+    "file": "/car-images/119.jpg",
+    "attribution": "Navigator84",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Chevrolet_Sail_II_hatch_01_China_2019-03-17.jpg"
+  },
   "120": {
     "file": "/car-images/120.jpg",
     "attribution": "Navigator84",
@@ -823,18 +863,45 @@
     "license": "CC BY-SA 4.0",
     "source": "https://commons.wikimedia.org/wiki/File:2020%20DFSK%20Glory%20580%20Turbo%20CVT%201.5%20Front%20End.jpg"
   },
-  "145": null,
-  "146": null,
-  "147": null,
+  "145": {
+    "file": "/car-images/145.jpg",
+    "attribution": "Navigator84",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Dongfeng_Fengon_ix5_01_China_2019-03-20.jpg"
+  },
+  "146": {
+    "file": null
+  },
+  "147": {
+    "file": "/car-images/147.jpg",
+    "attribution": "Quzhouliulian",
+    "license": "CC0",
+    "source": "https://commons.wikimedia.org/wiki/File:Forthing_T5_Evo_003.jpg"
+  },
   "148": {
     "file": "/car-images/148.jpg",
     "attribution": "IFCAR",
     "license": "Public domain",
     "source": "https://commons.wikimedia.org/wiki/File:2011_Dodge_Durango_--_03-09-2011.jpg"
   },
-  "149": null,
-  "150": null,
-  "151": null,
+  "149": {
+    "file": "/car-images/149.jpg",
+    "attribution": "JamesYoung8167",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Dongfeng_Aeolus_Yixuan_Shishi_02_2022-06-07.jpg"
+  },
+  "150": {
+    "file": "/car-images/150.jpg",
+    "attribution": "Retired electrician",
+    "license": "CC0",
+    "source": "https://commons.wikimedia.org/wiki/File:Moscow%2C_Dongfeng_Aeolus_Mage_320_(Aeolus_Haohan)_Dec_2025_05.jpg"
+  },
+  "151": {
+    "file": "/car-images/151.jpg",
+    "attribution": "Dinkun Chen",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:DONGFENG_RICH_(SECOND_GENERATION)_(2).jpg"
+  },
   "152": {
     "file": "/car-images/152.jpg",
     "attribution": "User 3204",
@@ -865,14 +932,24 @@
     "license": "CC BY-SA 4.0",
     "source": "https://commons.wikimedia.org/wiki/File:Exeed_LX_IMG001.jpg"
   },
-  "157": null,
+  "157": {
+    "file": "/car-images/157.jpg",
+    "attribution": "Cannonball walk",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Exeed_RX_in_Budapest%2C_Hungary_(front).jpg"
+  },
   "158": {
     "file": "/car-images/158.jpg",
     "attribution": "Anonymousfox36",
     "license": "CC BY-SA 4.0",
     "source": "https://commons.wikimedia.org/wiki/File:Exeed_VX_IMG002.jpg"
   },
-  "159": null,
+  "159": {
+    "file": "/car-images/159.jpg",
+    "attribution": "S5A-0043",
+    "license": "CC BY 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:(SGP-Singapore)_Autonomously_Intelligent_Ride_Farizon_SuperVan_RD3263D_2026-09-23_-_1.jpg"
+  },
   "160": {
     "file": "/car-images/160.jpg",
     "attribution": "Alexander Migl",
@@ -987,14 +1064,24 @@
     "license": "CC BY-SA 4.0",
     "source": "https://commons.wikimedia.org/wiki/File:Ford_Territory_EV_003.jpg"
   },
-  "190": null,
+  "190": {
+    "file": "/car-images/190.jpg",
+    "attribution": "RL GNZLZ",
+    "license": "CC BY-SA 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:2020_Foton_Aumark_815.jpg"
+  },
   "191": {
     "file": "/car-images/191.jpg",
     "attribution": "Kevauto",
     "license": "CC BY-SA 4.0",
     "source": "https://commons.wikimedia.org/wiki/File:Beiqi-Foton_Gratour_(%E4%BC%BD%E9%80%94)_V3,_front_8.10.18.jpg"
   },
-  "192": null,
+  "192": {
+    "file": "/car-images/192.jpg",
+    "attribution": "Jengtingchen",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Foton_Tunland_001.jpg"
+  },
   "193": {
     "file": "/car-images/193.jpg",
     "attribution": "Zotyefan",
@@ -1055,15 +1142,30 @@
     "license": "CC0",
     "source": "https://commons.wikimedia.org/wiki/File:Geely_Galaxy_E5_001.jpg"
   },
-  "203": null,
+  "203": {
+    "file": "/car-images/203.jpg",
+    "attribution": "Jengtingchen",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Geometry_C_001.jpg"
+  },
   "204": {
     "file": "/car-images/204.jpg",
     "attribution": "Milhouse35",
     "license": "CC BY-SA 4.0",
     "source": "https://commons.wikimedia.org/wiki/File:Geely%20Monjaro.jpg"
   },
-  "205": null,
-  "206": null,
+  "205": {
+    "file": "/car-images/205.jpg",
+    "attribution": "Юрий Д.К.",
+    "license": "CC BY 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Moscow_-_2026_-_Geely_Coolray_compact_crossover.jpg"
+  },
+  "206": {
+    "file": "/car-images/206.jpg",
+    "attribution": "Jengtingchen",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Geely_Haoyue_005.jpg"
+  },
   "207": {
     "file": "/car-images/207.jpg",
     "attribution": "JLaw45",
@@ -1124,7 +1226,12 @@
     "license": "CC BY-SA 4.0",
     "source": "https://commons.wikimedia.org/wiki/File:Haval_H6_III_IMG001_(cropped).jpg"
   },
-  "217": null,
+  "217": {
+    "file": "/car-images/217.jpg",
+    "attribution": "JustAnotherCarDesigner",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Haval_Jolion_001.jpg"
+  },
   "218": {
     "file": "/car-images/218.jpg",
     "attribution": "User3204",
@@ -1155,7 +1262,9 @@
     "license": "CC BY 3.0",
     "source": "https://commons.wikimedia.org/wiki/File:2024%20GWM%20Poer%20Sahar%203.0TT%20front%20view.png"
   },
-  "223": null,
+  "223": {
+    "file": null
+  },
   "224": {
     "file": "/car-images/224.jpg",
     "attribution": "RL GNZLZ",
@@ -1408,7 +1517,12 @@
     "license": "CC BY-SA 2.0",
     "source": "https://commons.wikimedia.org/wiki/File:2021%20JAC%20JS2.jpg"
   },
-  "266": null,
+  "266": {
+    "file": "/car-images/266.jpg",
+    "attribution": "EEIM",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Jac_js2_gris_feb_2022.jpg"
+  },
   "267": {
     "file": "/car-images/267.jpg",
     "attribution": "gleb",
@@ -1433,7 +1547,12 @@
     "license": "CC BY-SA 4.0",
     "source": "https://commons.wikimedia.org/wiki/File:JAC_Hunter_facelift_001.jpg"
   },
-  "271": null,
+  "271": {
+    "file": "/car-images/271.jpg",
+    "attribution": "CarsofGlasgow",
+    "license": "CC BY 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:2025_Jaecoo_5_1.6_Luxury_(United_Kingdom)_front_view.jpg"
+  },
   "272": {
     "file": "/car-images/272.jpg",
     "attribution": "© M 93",
@@ -1464,7 +1583,12 @@
     "license": "CC BY 2.0",
     "source": "https://commons.wikimedia.org/wiki/File:The_all-new_Jaguar_F-PACE_-_Studio_(21417287365).jpg"
   },
-  "277": null,
+  "277": {
+    "file": "/car-images/277.jpg",
+    "attribution": "Charles from Port Chester, New York",
+    "license": "CC BY 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Jaguar_F-Type_P450_Coup%C3%A9_(2024)_(54205757667).jpg"
+  },
   "278": {
     "file": "/car-images/278.jpg",
     "license": "CC BY-SA 4.0",
@@ -1561,19 +1685,54 @@
     "license": "CC BY-SA 4.0",
     "source": "https://commons.wikimedia.org/wiki/File:2022_FAW-VW_Jetta_VS7_(facelift,_front).jpg"
   },
-  "295": null,
-  "296": null,
-  "297": null,
+  "295": {
+    "file": "/car-images/295.jpg",
+    "attribution": "RL GNZLZ",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:JMC_Grand_Avenue_2.3d_Turbo_2025.jpg"
+  },
+  "296": {
+    "file": "/car-images/296.jpg",
+    "attribution": "RL GNZLZ",
+    "license": "CC BY-SA 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:2022_JMC_Touring.jpg"
+  },
+  "297": {
+    "file": "/car-images/297.jpg",
+    "attribution": "RL GNZLZ",
+    "license": "CC BY-SA 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:2022_JMC_Vigus_Plus_TDCi.jpg"
+  },
   "298": {
     "file": "/car-images/298.jpg",
     "attribution": "RL GNZLZ",
     "license": "CC BY-SA 2.0",
     "source": "https://commons.wikimedia.org/wiki/File:2022%20JMC%20Vigus%20Plus%20TDCi.jpg"
   },
-  "299": null,
-  "300": null,
-  "301": null,
-  "302": null,
+  "299": {
+    "file": "/car-images/299.jpg",
+    "attribution": "RL GNZLZ",
+    "license": "CC BY-SA 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:2022_JMC_Vigus_TDCi_Work.jpg"
+  },
+  "300": {
+    "file": "/car-images/300.jpg",
+    "attribution": "Retired electrician",
+    "license": "CC0",
+    "source": "https://commons.wikimedia.org/wiki/File:Moscow%2C_Kaiyi_E5%2C_April_2025_02.jpg"
+  },
+  "301": {
+    "file": "/car-images/301.jpg",
+    "attribution": "Retired electrician",
+    "license": "CC0",
+    "source": "https://commons.wikimedia.org/wiki/File:Moscow%2C_Kaiyi_X3%2C_Aug_2025_04.jpg"
+  },
+  "302": {
+    "file": "/car-images/302.jpg",
+    "attribution": "Throwawayacc222",
+    "license": "CC0",
+    "source": "https://commons.wikimedia.org/wiki/File:2022_Kaiyi_X3_PRO_white_front.jpg"
+  },
   "303": {
     "file": "/car-images/303.jpg",
     "attribution": "RL GNZLZ",
@@ -1784,8 +1943,18 @@
     "license": "CC BY 2.0",
     "source": "https://commons.wikimedia.org/wiki/File:Skoda_Rapid.jpg"
   },
-  "338": null,
-  "339": null,
+  "338": {
+    "file": "/car-images/338.jpg",
+    "attribution": "Retired electrician",
+    "license": "CC0",
+    "source": "https://commons.wikimedia.org/wiki/File:Moscow%2C_Kaiyi_X3_black%2C_Sept_2025_01.jpg"
+  },
+  "339": {
+    "file": "/car-images/339.jpg",
+    "attribution": "RL GNZLZ",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Kaiyi_Kyx7_2.0T_Lux_2026.jpg"
+  },
   "340": {
     "file": "/car-images/340.jpg",
     "attribution": "Alexander-93",
@@ -1930,7 +2099,9 @@
     "license": "Public domain",
     "source": "https://commons.wikimedia.org/wiki/File:2019_Lincoln_Nautilus_au_SIAM_2019.jpg"
   },
-  "364": null,
+  "364": {
+    "file": null
+  },
   "365": {
     "file": "/car-images/365.jpg",
     "attribution": "Danjer",
@@ -2123,7 +2294,12 @@
     "license": "CC BY-SA 4.0",
     "source": "https://commons.wikimedia.org/wiki/File:2020_McLaren_GT_front,_Miller_2.1.20.jpg"
   },
-  "397": null,
+  "397": {
+    "file": "/car-images/397.jpg",
+    "attribution": "OWS Photography",
+    "license": "CC BY 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Mercedes-AMG_GT63_(C192)_Washington_DC_Metro_Area%2C_USA_(1).jpg"
+  },
   "398": {
     "file": "/car-images/398.jpg",
     "attribution": "Alexander-93",
@@ -2334,8 +2510,18 @@
     "license": "CC BY-SA 2.0",
     "source": "https://commons.wikimedia.org/wiki/File:MG%20RX5%201.5T%20Comfort%202024%20(53521497261).jpg"
   },
-  "433": null,
-  "434": null,
+  "433": {
+    "file": "/car-images/433.jpg",
+    "attribution": "Jengtingchen",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Roewe_RX8_01.jpg"
+  },
+  "434": {
+    "file": "/car-images/434.jpg",
+    "attribution": "Nortoncc1",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Roewe_RX9%2C_front.jpg"
+  },
   "435": {
     "file": "/car-images/435.jpg",
     "attribution": "Alexander Migl",
@@ -2360,7 +2546,12 @@
     "license": "CC BY-SA 4.0",
     "source": "https://commons.wikimedia.org/wiki/File:Mini%20Convertible%20(F67)%20John%20Cooper%20Works%20DSC%207520.jpg"
   },
-  "439": null,
+  "439": {
+    "file": "/car-images/439.jpg",
+    "attribution": "Damian B Oh",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:MINI_F66_Cooper_S_Favoured_3_Door_Midnight_Black_II_(13).jpg"
+  },
   "440": {
     "file": "/car-images/440.jpg",
     "attribution": "Alexander-93",
@@ -2511,7 +2702,12 @@
     "license": "CC BY-SA 4.0",
     "source": "https://commons.wikimedia.org/wiki/File:NISSAN_X-TRAIL_T33_China_(1).jpg"
   },
-  "465": null,
+  "465": {
+    "file": "/car-images/465.jpg",
+    "attribution": "Ethan Llamas",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:2024_Nissan_Z_Premium_AT_in_Everest_White%2C_front_right%2C_07-21-2024.jpg"
+  },
   "466": {
     "file": "/car-images/466.png",
     "attribution": "Autosdeprimera",
@@ -2710,8 +2906,18 @@
     "license": "Public domain",
     "source": "https://commons.wikimedia.org/wiki/File:Ram%202500%20DT%20Crew%20Cab%20(Auto%20classique%20VAQ%20Baie-d%27Urf%C3%A9%202023).jpg"
   },
-  "499": null,
-  "500": null,
+  "499": {
+    "file": "/car-images/499.jpg",
+    "attribution": "RL GNZLZ",
+    "license": "CC BY-SA 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Ram_700_Laramie_2023.jpg"
+  },
+  "500": {
+    "file": "/car-images/500.jpg",
+    "attribution": "Bull-Doser",
+    "license": "Public domain",
+    "source": "https://commons.wikimedia.org/wiki/File:Ram_ProMaster_Rapid.jpg"
+  },
   "501": {
     "file": "/car-images/501.jpg",
     "attribution": "NaBUru38",
@@ -2766,7 +2972,12 @@
     "license": "CC BY-SA 4.0",
     "source": "https://commons.wikimedia.org/wiki/File:Renault_Kwid_2017_in_Montevideo_(front).jpg"
   },
-  "510": null,
+  "510": {
+    "file": "/car-images/510.jpg",
+    "attribution": "Jason Lawrence",
+    "license": "CC BY 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Renault_Logan_004.jpg"
+  },
   "511": {
     "file": "/car-images/511.jpg",
     "attribution": "Alexander Migl",
@@ -2857,10 +3068,24 @@
     "license": "CC BY-SA 4.0",
     "source": "https://commons.wikimedia.org/wiki/File:2019_SEAT_Tarraco_SE_Tech_TDi_4Drive_SA_2.0_Front.jpg"
   },
-  "526": null,
-  "527": null,
-  "528": null,
-  "529": null,
+  "526": {
+    "file": "/car-images/526.jpg",
+    "attribution": "Cannonball walk",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Seres_3_in_Farnborough%2C_UK_(front).jpg"
+  },
+  "527": {
+    "file": "/car-images/527.jpg",
+    "attribution": "Kevauto",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:2018_Jinbei_T30_single_cab%2C_front_8.7.18.jpg"
+  },
+  "528": {
+    "file": null
+  },
+  "529": {
+    "file": null
+  },
   "530": {
     "file": "/car-images/530.jpg",
     "license": "CC BY-SA 4.0",
@@ -2993,7 +3218,12 @@
     "license": "CC BY-SA 4.0",
     "source": "https://commons.wikimedia.org/wiki/File:2015_Suzuki_Vitara_SZ5_Rugged_Allgrip_1.6.jpg"
   },
-  "555": null,
+  "555": {
+    "file": "/car-images/555.jpg",
+    "attribution": "Great Wall Motors Shalong",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:SWM_Tiger_front_quarter.jpg"
+  },
   "556": {
     "file": "/car-images/556.jpg",
     "attribution": "JamesYoung8167",
@@ -3270,7 +3500,12 @@
     "license": "CC BY-SA 4.0",
     "source": "https://commons.wikimedia.org/wiki/File:2018_Volvo_XC90_2.0.jpg"
   },
-  "610": null,
+  "610": {
+    "file": "/car-images/610.jpg",
+    "attribution": "Alexander Migl",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Wey_Coffee_01_PHEV_IAA_2021_1X7A0219.jpg"
+  },
   "611": {
     "file": "/car-images/611.jpg",
     "attribution": "Andra Febrian",
@@ -3289,11 +3524,39 @@
     "license": "CC BY-SA 4.0",
     "source": "https://commons.wikimedia.org/wiki/File:2022_Zeekr_001_(front).jpg"
   },
-  "614": null,
-  "615": null,
-  "616": null,
-  "617": null,
-  "618": null,
+  "614": {
+    "file": "/car-images/614.jpg",
+    "attribution": "order_242 from Chile",
+    "license": "CC BY-SA 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Dongfeng_ZNA_Rich_TDi-CR_2013_(12894410934).jpg"
+  },
+  "615": {
+    "file": "/car-images/615.jpg",
+    "attribution": "Rutger van der Maar",
+    "license": "CC BY 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Dongfeng_ZNA_Rich.jpg"
+  },
+  "616": {
+    "file": null
+  },
+  "617": {
+    "file": "/car-images/617.jpg",
+    "attribution": "Riley from Christchurch, New Zealand",
+    "license": "CC BY 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:2012_ZX_Auto_Grand_Tiger_Double_Cab_Pickup_(14959057960).jpg"
+  },
+  "618": {
+    "file": "/car-images/618.jpg",
+    "attribution": "order_242 from Chile",
+    "license": "CC BY-SA 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:ZX_Auto_Grandtiger_4WD_2009_(9790340136).jpg"
+  },
+  "619": {
+    "file": "/car-images/619.jpg",
+    "attribution": "Just a Man",
+    "license": "CC BY 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:2025_Chevrolet_Onix_Plus_1.0T_LT_(1).jpg"
+  },
   "620": {
     "file": "/car-images/620.jpg",
     "attribution": "Elise240SX",
@@ -3330,17 +3593,38 @@
     "license": "CC BY-SA 4.0",
     "source": "https://commons.wikimedia.org/wiki/File:Ford%20Expedition%20(fourth%20generation)%20Max%20DSC%202924.jpg"
   },
+  "626": {
+    "file": "/car-images/626.jpg",
+    "attribution": "Jengtingchen",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Ford_Territory_004.jpg"
+  },
+  "627": {
+    "file": "/car-images/627.jpg",
+    "attribution": "Elise240SX",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:2022_Ford_Maverick_XLT_AWD%2C_Rear_Right%2C_10-10-2021.jpg"
+  },
   "628": {
     "file": "/car-images/628.jpg",
     "attribution": "Alexander Migl",
     "license": "CC BY-SA 4.0",
     "source": "https://commons.wikimedia.org/wiki/File:Ford%20E-Transit%201X7A1522.jpg"
   },
+  "629": {
+    "file": null
+  },
+  "630": {
+    "file": null
+  },
   "631": {
     "file": "/car-images/631.jpg",
     "attribution": "Throwawayacc222",
     "license": "CC0",
     "source": "https://commons.wikimedia.org/wiki/File:Soueast%20S07%20black%20front.jpg"
+  },
+  "632": {
+    "file": null
   },
   "633": {
     "file": "/car-images/633.jpg",
@@ -3366,11 +3650,23 @@
     "license": "CC BY-SA 4.0",
     "source": "https://commons.wikimedia.org/wiki/File:Jetour%20T1%202.0T%20Limited%20XWD%202026.jpg"
   },
+  "637": {
+    "file": "/car-images/637.jpg",
+    "attribution": "Ethan Llamas",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Jetour_T1_Lightning_i-DM_Sand_Gold_01.jpg"
+  },
   "638": {
     "file": "/car-images/638.jpg",
     "attribution": "Milhouse35",
     "license": "CC BY-SA 4.0",
     "source": "https://commons.wikimedia.org/wiki/File:Jetour%20T2.jpg"
+  },
+  "639": {
+    "file": "/car-images/639.jpg",
+    "attribution": "Ethan Llamas",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Jetour_T2_Lightning_i-DM_Panda_White.jpg"
   },
   "640": {
     "file": "/car-images/640.jpg",
@@ -3395,6 +3691,18 @@
     "attribution": "RL GNZLZ",
     "license": "CC BY-SA 2.0",
     "source": "https://commons.wikimedia.org/wiki/File:Citroen%20Basalt%20Turbo%20200%20Shine%202025.jpg"
+  },
+  "644": {
+    "file": "/car-images/644.jpg",
+    "attribution": "Alexander-93",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:2024_Citro%C3%ABn_Spacetourer_IMG_2118.jpg"
+  },
+  "645": {
+    "file": "/car-images/645.jpg",
+    "attribution": "Elise240SX",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:2021_Citro%C3%ABn_Jumper_in_Golden_White_Metallic%2C_Front_Right%2C_08-29-2022.jpg"
   },
   "646": {
     "file": "/car-images/646.jpg",

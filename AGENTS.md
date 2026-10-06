@@ -109,9 +109,9 @@ src/
 ## Imágenes (`src/data/carImages.json` + `public/car-images/`)
 - Mapeo id → `{ file, source, license, attribution }` o `null` (silueta).
 - Estado auditado (Lote 18): **626 claves / 617 con foto / 9 siluetas**; todas con source + license + attribution, 0 archivos faltantes en disco, 0 archivos huérfanos.
-- Regla: no duplicar fuente entre modelos distintos; verificar con el escaneo de `source` compartido (las 23 fuentes compartidas son variantes de un mismo modelo).
+- Regla: no duplicar fuente entre modelos distintos; verificar con el escaneo de `source` compartido (las 19 fuentes compartidas son variantes de un mismo modelo).
 - Pase 2026: 131 fotos añadidas desde Commons (API, ancho 1000px, metadata real). ~15 son de la misma generación de plataforma comercial (best-effort documentado en SUMMARY.md); curaduría por modelo.
-- Lote 18: +56 fotos de Commons con curaduría por modelo (ver SUMMARY.md). Scripts: `picks-lote18.cjs` (elecciones), `check-commons.cjs` (categorías/licencia/duplicados) y `download-picks.cjs` (descarga + manifiesto).
+- Lote 18: **67 fotos** de Commons con curaduría por modelo (56 siluetas cerradas + 11 ids de otra variante repuestos por la auditoría; ver SUMMARY.md). Scripts: `picks-lote18.cjs` (elecciones), `check-commons.cjs` (categorías/licencia/duplicados) y `download-picks.cjs` (descarga + manifiesto).
 
 ## Pendiente / Próxima Funcionalidad
 

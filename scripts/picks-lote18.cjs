@@ -1,6 +1,8 @@
 // Fotos elegidas para Lote 18: id del catálogo → archivo de Wikimedia Commons.
-// Cada entrada se verificó con scripts/check-commons.cjs (categorías, licencia,
-// tamaño) y las equivalencias de modelo quedan documentadas en SUMMARY.md.
+// Incluye las 56 siluetas cerradas y los 11 ids de otra variante/generación que
+// abrió IMAGE_AUDIT_REPORT.md. Cada entrada se verificó con
+// scripts/check-commons.cjs (categorías, licencia, tamaño); las equivalencias
+// de modelo quedan documentadas en SUMMARY.md.
 module.exports = {
   63: 'BYD Tang L EV 001.jpg',
   84: 'Changan Hunter facelift 001.jpg',
@@ -58,4 +60,16 @@ module.exports = {
   639: 'Jetour T2 Lightning i-DM Panda White.jpg',
   644: '2024 Citroën Spacetourer IMG 2118.jpg',
   645: '2021 Citroën Jumper in Golden White Metallic, Front Right, 08-29-2022.jpg',
+
+  104: 'Chery Tiggo 9 001.jpg',
+  185: '2024 Ford Mustang Dark Horse.jpg',
+  187: '2024 Ford Ranger Raptor 4x4 Auto.jpg',
+  227: 'Great Wall Wingle 5 facelift II Shishi 01 2022-10-31.jpg',
+  309: 'KGM Torres EVX Auto Zuerich 2025 DSC 3332.jpg',
+  398: 'Mercedes-Benz A 200 (W177, 2021) (54812650862).jpg',
+  413: 'Mercedes-Benz GLE 450 4MATIC (W167, 2026) (55211989821).jpg',
+  414: '2024 Mercedes-Benz X167 GLS 450 4MATIC in Polar White, front right, 06-26-2024.jpg',
+  447: '2024 Mitsubishi Montero Sport 2.4 GLS 4x2 in Sterling Silver Metallic, front right, 06-26-2024.jpg',
+  497: '2026 Ram 1500 RHO in Diamond Black Crystal Pearl, front right, 2026-05-03.jpg',
+  512: '2022 Renault Megane E-Tech Launch Edition - 60kWh (220PS) Electric - Shadow Grey - 05-2024, Front.jpg',
 };

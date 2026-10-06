@@ -88,7 +88,10 @@ async function main() {
       const meta = await info(file);
       if (!meta || !meta.thumb) throw new Error('sin imageinfo');
       if (!meta.license || !meta.attribution) throw new Error('falta licencia o autor');
-      if (usedSources.has(meta.source)) throw new Error('source duplicado');
+      const prev = manifest[String(id)];
+      if (usedSources.has(meta.source) && (!prev || prev.source !== meta.source)) {
+        throw new Error('source duplicado');
+      }
       usedSources.add(meta.source);
       if (meta.width < 800) throw new Error(`thumb solo ${meta.width}px`);
       const dest = path.join(OUT_DIR, `${id}.jpg`);

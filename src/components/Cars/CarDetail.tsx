@@ -10,12 +10,15 @@ import { BuyingGuide } from '../Guides/BuyingGuide';
 import { TermTip } from '../Glossary/TermTip';
 import { SafetyBanner } from '../Trust/SafetyBanner';
 import { ShareButton } from '../Share/ShareButton';
+import { track } from '../../lib/analytics';
 import {
   BoltIcon, WrenchIcon, Battery100Icon, PowerIcon, FireIcon,
   ShieldCheckIcon, CubeIcon, ArrowsRightLeftIcon,
   ArrowUpIcon, CircleStackIcon, StarIcon, ClockIcon,
   GlobeAltIcon,
 } from '@heroicons/react/24/outline';
+
+const siteUrl = import.meta.env.VITE_SITE_URL || 'https://autolupa.pages.dev';
 
 interface Props {
   car: Car;
@@ -63,7 +66,7 @@ function NextSteps({ car }: { car: Car }) {
   const usadosUrl = `https://www.google.com/search?q=${encodeURIComponent(car.brand + ' ' + car.model + ' usado Chile')}`;
   const preciosUrl = `https://www.google.com/search?q=${q}+precio`;
   const shareText = `Mira el ${car.brand} ${car.model} ${car.year} (${formatPrice(car.price)}) en AutoLupa`;
-  const shareUrl = `https://wa.me/?text=${encodeURIComponent(shareText + ' — https://autolupa.pages.dev')}`;
+  const shareUrl = `https://wa.me/?text=${encodeURIComponent(shareText + ` — ${siteUrl}`)}`;
 
   return (
     <div className="mt-8 mb-2 p-5 bg-blue-50 dark:bg-blue-900/20 rounded-2xl">
@@ -111,6 +114,7 @@ function NextSteps({ car }: { car: Car }) {
         href={shareUrl}
         target="_blank"
         rel="noopener noreferrer"
+        onClick={() => track('ContactSeller', { origen: 'auto', marca: car.brand })}
         className="mt-3 flex items-center justify-center gap-2 p-2.5 bg-green-500 dark:bg-green-600 text-white rounded-xl font-medium hover:bg-green-600 dark:hover:bg-green-500 transition-colors text-sm"
       >
         <span>💬</span> Compartir por WhatsApp
@@ -118,8 +122,9 @@ function NextSteps({ car }: { car: Car }) {
       <ShareButton
         title="AutoLupa"
         text={shareText}
-        url="https://autolupa.pages.dev/"
+        url={`${siteUrl}/`}
         label="Compartir este auto"
+        origen="auto"
         className="mt-2 w-full"
       />
     </div>

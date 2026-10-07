@@ -13,6 +13,7 @@ import {
 } from '../../lib/savedSearches';
 import { isSupabaseConfigured } from '../../lib/supabase';
 import { countActiveUsedListings } from '../../lib/usedListings';
+import { track } from '../../lib/analytics';
 
 const MESSAGES: Record<AddSearchResult, string> = {
   added: 'Búsqueda guardada. Te avisamos si entran avisos nuevos.',
@@ -69,7 +70,10 @@ export function SavedSearches({ onApply, filters, currentTotal = 0, compact = fa
     if (!filters) return;
     const result = addSearch(filters, currentTotal);
     setMessage(MESSAGES[result]);
-    if (result === 'added') setSearches(loadSavedSearches());
+    if (result === 'added') {
+      track('SavedSearch', { accion: 'guardar' });
+      setSearches(loadSavedSearches());
+    }
   };
 
   const handleApply = (search: SavedSearch) => {
@@ -80,6 +84,7 @@ export function SavedSearches({ onApply, filters, currentTotal = 0, compact = fa
 
   const handleRemove = (id: string) => {
     setSearches(removeSearch(id));
+    track('SavedSearch', { accion: 'quitar' });
     setMessage('Búsqueda eliminada.');
   };
 

@@ -4,6 +4,8 @@ import { SEO } from '../components/SEO';
 import { Breadcrumbs } from '../components/Breadcrumbs';
 import { GLOSSARY, GLOSSARY_CATEGORIES, searchGlossary, type GlossaryEntry } from '../data/glossary';
 
+const SITE_URL = import.meta.env.VITE_SITE_URL || 'https://autolupa.pages.dev';
+
 const CATEGORY_ICONS: Record<string, string> = {
   propulsion: '⛽',
   transmission: '⚙️',
@@ -51,7 +53,7 @@ export function Glosario() {
           '@context': 'https://schema.org',
           '@type': 'DefinedTermSet',
           name: 'Glosario de terminología automotriz de AutoLupa',
-          url: 'https://autolupa.pages.dev/glosario',
+          url: `${SITE_URL}/glosario`,
           hasDefinedTerm: GLOSSARY.map((entry) => ({
             '@type': 'DefinedTerm',
             name: entry.term,

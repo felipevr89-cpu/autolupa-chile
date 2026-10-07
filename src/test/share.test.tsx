@@ -15,6 +15,7 @@ function setNavigatorProperty(name: string, value: unknown) {
 beforeEach(() => {
   window.localStorage.clear();
   window.matchMedia = originalMatchMedia;
+  window.plausible = vi.fn();
   setNavigatorProperty('userAgent', originalUserAgent);
   setNavigatorProperty('platform', originalPlatform);
   setNavigatorProperty('share', undefined);
@@ -24,6 +25,7 @@ beforeEach(() => {
 
 afterEach(() => {
   vi.restoreAllMocks();
+  delete window.plausible;
 });
 
 describe('botón de compartir', () => {
@@ -31,7 +33,7 @@ describe('botón de compartir', () => {
     const share = vi.fn().mockResolvedValue(undefined);
     setNavigatorProperty('share', share);
 
-    render(<ShareButton title="Toyota Corolla 2020" text="8.500.000 · AutoLupa" url="https://autolupa.pages.dev/usados/toyota-corolla-2020-x1" label="Compartir aviso" />);
+    render(<ShareButton title="Toyota Corolla 2020" text="8.500.000 · AutoLupa" url="https://autolupa.pages.dev/usados/toyota-corolla-2020-x1" label="Compartir aviso" origen="aviso" />);
 
     await userEvent.click(screen.getByRole('button', { name: /compartir aviso/i }));
 
@@ -40,6 +42,7 @@ describe('botón de compartir', () => {
       text: '8.500.000 · AutoLupa',
       url: 'https://autolupa.pages.dev/usados/toyota-corolla-2020-x1',
     });
+    expect(window.plausible).toHaveBeenCalledWith('Share', { props: { origen: 'aviso', accion: 'nativo' } });
     expect(screen.getByRole('button', { name: /compartir aviso/i })).toBeInTheDocument();
   });
 
@@ -47,11 +50,12 @@ describe('botón de compartir', () => {
     const writeText = vi.fn().mockResolvedValue(undefined);
     setNavigatorProperty('clipboard', { writeText });
 
-    render(<ShareButton title="Guía" url="https://autolupa.pages.dev/blog/guia" label="Compartir guía" />);
+    render(<ShareButton title="Guía" url="https://autolupa.pages.dev/blog/guia" label="Compartir guía" origen="guia" />);
 
     await userEvent.click(screen.getByRole('button', { name: /compartir guía/i }));
 
     expect(writeText).toHaveBeenCalledWith('https://autolupa.pages.dev/blog/guia');
+    expect(window.plausible).toHaveBeenCalledWith('Share', { props: { origen: 'guia', accion: 'copiado' } });
     expect(await screen.findByText('¡Enlace copiado!')).toBeInTheDocument();
   });
 
@@ -98,6 +102,7 @@ describe('aviso de instalación', () => {
 
     expect(screen.queryByTestId('install-hint')).toBeNull();
     expect(window.localStorage.getItem('autolupa-install-hint')).toBe('1');
+    expect(window.plausible).toHaveBeenCalledWith('Install', { props: { accion: 'descartar' } });
   });
 
   it('no se muestra cuando la app ya está instalada', () => {
@@ -123,5 +128,6 @@ describe('aviso de instalación', () => {
     await userEvent.click(screen.getByRole('button', { name: 'Instalar' }));
 
     expect(prompt).toHaveBeenCalledTimes(1);
+    expect(window.plausible).toHaveBeenCalledWith('Install', { props: { accion: 'instalar' } });
   });
 });

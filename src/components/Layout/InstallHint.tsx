@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { track } from '../../lib/analytics';
 
 type InstallPromptEvent = Event & { prompt: () => Promise<void> };
 
@@ -35,12 +36,14 @@ export function InstallHint() {
 
   const dismiss = () => {
     localStorage.setItem(DISMISS_KEY, '1');
+    track('Install', { accion: 'descartar' });
     setDismissed(true);
   };
 
   const install = async () => {
     if (!promptEvent) return;
     await promptEvent.prompt();
+    track('Install', { accion: 'instalar' });
     setPromptEvent(null);
   };
 

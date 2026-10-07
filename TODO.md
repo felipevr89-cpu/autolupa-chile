@@ -70,13 +70,24 @@ Tests nuevos: `src/test/share.test.tsx` (7: compartir nativo, copia de enlace, c
 
 ### Fase B — Apertura controlada
 
-- [ ] `autolupa.cl` en línea con 301 desde `.pages.dev`
-- [ ] SMTP activo y **bucle real verificado**: `updateUser({email}) → clic → publicar`
-- [ ] Matriz de RLS 15/15 + 4/4 de moderación re-ejecutada
-- [ ] **Siembra de 10-20 avisos reales** con fotos reales (Fase 0.5)
-- [ ] Google Search Console + sitemap con los primeros avisos activos
-- [ ] Primera semana con moderación estricta (todo `pending`) y métricas en Plausible
-- [ ] Campaña "Publica gratis, sin comisión" (bloque ya existente en home)
+> **Estado 07-10-2026:** la parte de ingeniería quedó preparada (métricas completas, smoke de producción en verde, URLs del sitio centralizadas en `VITE_SITE_URL`). Los 7 puntos dependen de credenciales o decisiones del usuario, salvo los indicados.
+
+| # | Requisito | Estado | Falta / quién |
+|---|-----------|--------|----------------|
+| 1 | `autolupa.cl` en línea con 301 desde `.pages.dev` | ⛔ | **Fase 0.1** (comprar dominio + DNS). Al cambiarlo: `VITE_SITE_URL` en `.github/workflows/deploy.yml`, `index.html` (canonical, `og:url`, `og:image`, `twitter:image` y el `data-domain` de Plausible), `public/robots.txt` (línea `Sitemap`), `public/.well-known/security.txt` y `scripts/generate-sitemap.mjs`; el JS ya lee `VITE_SITE_URL` |
+| 2 | SMTP activo y **bucle real verificado**: `updateUser({email}) → clic → publicar` | ⛔ | **Fase 0.2** (contratar Resend/Postmark + SPF/DKIM/DMARC); el clic real y la verificación final del trigger quedan para esa ventana |
+| 3 | Matriz de RLS 15/15 + 4/4 de moderación re-ejecutada | ⛔ | Renovar el PAT (`SUPABASE_ACCESS_TOKEN`, hoy 401) → `node scripts/apply-migration.mjs supabase/migrations/202610070001_seller_email_verified.sql` y luego `node scripts/rls-matrix.mjs`. Última corrida: **22/22 el 06-10-2026** |
+| 4 | **Siembra de 10-20 avisos reales** con fotos reales | ⛔ | **Fase 0.5** (inventario del usuario) |
+| 5 | Google Search Console + sitemap con los primeros avisos activos | ⛔ | **Fase 0.7** (cuenta Google). El sitemap ya está listo: 140 URLs, incluye `/faq`, suma los avisos activos al regenerarse en cada build (hoy 0, coherente con la siembra pendiente) |
+| 6 | Primera semana con moderación estricta (todo `pending`) y métricas en Plausible | 🟡 | Moderación estricta ✅ (RLS + `require_verified_seller` + `enforce_publish_limits`: todo entra `pending`); métricas ✅ (11 eventos); falta **vivir** la primera semana tras abrir |
+| 7 | Campaña "Publica gratis, sin comisión" | ⛔ | El bloque ya existe en el home; falta lanzar la campaña |
+
+#### ✅ Avances de Fase B hechos el 07-10-2026
+
+1. **Métricas completas del embudo en Plausible** (`window.plausible` con `data-domain="autolupa.pages.dev"`): existían 7 eventos (`Search`, `Compare`, `Favorite`, `Publish`, `Valuation`, `Wizard`, `ContactSeller`); se suman **`ContactSeller {origen:'auto'}`** (WhatsApp desde la ficha del auto), **`Share {origen, accion}`** (nativo / copiado / error) en el `ShareButton`, **`Report`** al enviar un reporte, **`SavedSearch {accion}`** (guardar/quitar) y **`Install {accion}`** (instalar/descartar). Además `ContactSeller` del aviso ahora envía `origen: 'aviso'` junto a `region`.
+2. **Smoke de producción en verde**: 20 rutas (`/`, `/usados`, `/faq`, `/blog`, `/glosario`, `/top10`, `/tasar-auto`, `/reclamos`, `/compare`, `/favorites`, `/publicar-auto`, `/mis-anuncios`, `/moderacion`, `/autos-usados-en/:region`, `/marca/:brand`, 404 incluida) → **200**; `/sitemap.xml` (140 URLs), `/robots.txt`, `/manifest.json` y `/sw.js` → **200**.
+3. **URL del sitio sin hardcodear en el JS**: el JSON-LD del glosario y las URLs de compartir por WhatsApp (tarjeta y ficha) ahora usan `import.meta.env.VITE_SITE_URL || 'https://autolupa.pages.dev'`, igual que el resto; el cambio de dominio queda reducido a la lista de archivos de la fila 1.
+4. Gate: `LINT=0 · TEST=217/217 · BUILD=0`.
 
 ### Fase C — Post-lanzamiento (no hacer antes: requiere tráfico, dinero o socios)
 

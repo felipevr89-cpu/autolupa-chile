@@ -70,7 +70,7 @@ src/
 │   ├── Faq.tsx                  # FAQ antiestafas /faq (FAQPage JSON-LD)
 │   ├── Top10.tsx                # 7 categorías con ?cat=
 │   ├── Favorites.tsx / Compare.tsx / Estadisticas.tsx / NotFound.tsx
-├── test/                        # vitest: brands, tco, credit, energyCosts, CompareTable, listingSeller, trust, share, pwaAssets, moderationLoad, reclamosLoad
+├── test/                        # vitest: brands, tco, credit, energyCosts, CompareTable, listingSeller, trust, share, pwaAssets, moderationLoad, reclamosLoad, analytics
 ├── types/index.ts               # Car, Filters (yearRange), User
 ├── App.tsx                      # Rutas, PageSkeleton, useCars
 └── main.tsx                     # Registro service worker PWA

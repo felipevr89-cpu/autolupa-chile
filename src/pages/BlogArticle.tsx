@@ -81,6 +81,7 @@ export function BlogArticle() {
             text={article.excerpt}
             url={`${SITE_URL}/blog/${article.slug}`}
             label="Compartir guía"
+            origen="guia"
           />
         </div>
       </header>

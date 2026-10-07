@@ -73,6 +73,7 @@ export function UsedListingDetail({ user, isCloudAuthAvailable, onSignIn }: Prop
     setReportError('');
     try {
       await reportUsedListing(listing.id, reportReason);
+      track('Report', { region: listing.region });
       setReportState('sent');
       setReportReason('');
     } catch (error) {
@@ -198,10 +199,11 @@ export function UsedListingDetail({ user, isCloudAuthAvailable, onSignIn }: Prop
                 text={`${formatPrice(listing.price)} · ${listing.region} · AutoLupa`}
                 url={canonical}
                 label="Compartir aviso"
+                origen="aviso"
                 className="w-full"
               />
             </div>
-            <a href={usedListingWhatsappUrl(listing)} target="_blank" rel="noopener noreferrer" onClick={() => track('ContactSeller', { region: listing.region })} className="mt-4 flex items-center justify-center gap-2 w-full px-5 py-3 bg-green-500 hover:bg-green-600 text-white rounded-xl font-bold">Contactar por WhatsApp</a>
+            <a href={usedListingWhatsappUrl(listing)} target="_blank" rel="noopener noreferrer" onClick={() => track('ContactSeller', { origen: 'aviso', region: listing.region })} className="mt-4 flex items-center justify-center gap-2 w-full px-5 py-3 bg-green-500 hover:bg-green-600 text-white rounded-xl font-bold">Contactar por WhatsApp</a>
             {listing.contactEmail && <a href={`mailto:${listing.contactEmail}`} className="mt-3 block text-center text-sm text-blue-600 dark:text-blue-400 hover:underline">Enviar correo</a>}
             <p className="text-xs text-gray-500 dark:text-gray-400 mt-4">La publicación es gratuita. AutoLupa no cobra comisión por este aviso.</p>
           </div>

@@ -4,6 +4,8 @@ import { formatPrice, getTypeLabel, getFuelLabel, isBrandSoldNewInChile } from '
 import { CarImage } from './CarImage';
 import { TermTip } from '../Glossary/TermTip';
 
+const siteUrl = import.meta.env.VITE_SITE_URL || 'https://autolupa.pages.dev';
+
 interface Props {
   car: Car;
   isFavorite: boolean;
@@ -127,7 +129,7 @@ export const CarCard = memo(function CarCard({
           <div className="flex items-center gap-2">
             <span className="text-xs font-medium text-gray-400 dark:text-gray-500">{car.origin}</span>
             <a
-              href={`https://wa.me/?text=${encodeURIComponent(`Mira el ${car.brand} ${car.model} ${car.year} (${formatPrice(car.price)}) en AutoLupa — https://autolupa.pages.dev`)}`}
+              href={`https://wa.me/?text=${encodeURIComponent(`Mira el ${car.brand} ${car.model} ${car.year} (${formatPrice(car.price)}) en AutoLupa — ${siteUrl}`)}`}
               target="_blank"
               rel="noopener noreferrer"
               onClick={(e) => e.stopPropagation()}

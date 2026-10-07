@@ -175,6 +175,15 @@ El rol anónimo (sin sesión) sigue sin poder insertar: no se tocó ninguna pol�
 
 
 
+## Fase B (preparación) — Métricas del embudo, smoke de producción y URLs centralizadas (07-10-2026)
+
+- **Métricas de Plausible completas para la primera semana abierta**: los eventos existentes eran `Search`, `Compare`, `Favorite`, `Publish`, `Valuation`, `Wizard` y `ContactSeller`. Se suman **`Share {origen, accion}`** en `src/components/Share/ShareButton.tsx` (nativo / copiado / error, con la prop `origen` que ahora pasan las 3 colocaciones: aviso, guía, auto), **`ContactSeller {origen:'auto', marca}`** al tocar el WhatsApp de la ficha del auto (`CarDetail`), **`Report`** al enviar un reporte de aviso, **`SavedSearch {accion}`** en guardar/quitar de `SavedSearches` e **`Install {accion}`** en `InstallHint` (instalar / descartar). `ContactSeller` del aviso pasa a enviar `origen: 'aviso'` junto a `region`.
+- **Smoke de producción (07-10-2026)**: 20 rutas raíz y de secciones responden 200 (incluida la ruta 404 del cliente) y `/sitemap.xml` (140 URLs, con `/faq`), `/robots.txt`, `/manifest.json` y `/sw.js` responden 200; el sitemap sigue con 0 URLs de `/usados/:slug` porque aún no hay avisos activos (siembra pendiente en Fase 0.5).
+- **URL del sitio centralizada en el JS**: el JSON-LD del glosario (`/glosario`) y las URLs de compartir por WhatsApp de `CarCard` y `CarDetail` usaban `https://autolupa.pages.dev` literal; ahora usan `import.meta.env.VITE_SITE_URL || 'https://autolupa.pages.dev'`, igual que `SEO`, `BlogArticle`, `Usados`, `UsadosRegion` y `UsedListingDetail`. El cambio de dominio queda sólo en: `VITE_SITE_URL` de `.github/workflows/deploy.yml`, `index.html` (canonical/og/twitter + `data-domain` de Plausible), `public/robots.txt`, `public/.well-known/security.txt` y `scripts/generate-sitemap.mjs`.
+- Tests: **217** (3 nuevos: `src/test/analytics.test.tsx` — contacto desde ficha de auto, contacto + reporte desde ficha de aviso, guardar/quitar búsqueda — y 4 aserciones nuevas en `share.test.tsx` para `Share`/`Install`). `LINT=0 · TEST=217/217 · BUILD=0`.
+
+
+
 ## Lote 23 — PWA y compartir: instalable en iOS, Web Share y skeletons (07-10-2026)
 
 - **Instalable correcto en iOS** (Apple no dispara `beforeinstallprompt`, todo lo demás lo exige la ficha de la app):

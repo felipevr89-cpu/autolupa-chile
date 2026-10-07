@@ -447,7 +447,7 @@ export function Home({
             if (idx < list.length - 1) setSelectedCar(list[idx + 1]);
           }}
         >
-          <CreditCalc price={selectedCar.price} />
+          <CreditCalc car={selectedCar} />
         </CarDetail>
       )}
 

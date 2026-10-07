@@ -31,7 +31,7 @@ npm run build && CLOUDFLARE_API_TOKEN="${{ secrets.CLOUDFLARE_API_TOKEN }}" npx 
 src/
 ├── components/
 │   ├── Calculator/
-│   │   └── CreditCalc.tsx       # Calculadora de crédito (CAE 12%)
+│   │   └── CreditCalc.tsx       # Simulador de crédito (tasas de mercado 2026)
 │   ├── Cars/
 │   │   ├── CarDetail.tsx        # Modal de detalle + TCOCalculator + aviso "no en Chile"
 │   │   ├── CarImage.tsx         # Imagen del carro con fallback a silueta
@@ -50,6 +50,7 @@ src/
 │   ├── brands/                  # Un JSON por marca (allBrands vía import.meta.glob)
 │   │   └── index.ts             # carsData, brandUrls, BRANDS_NOT_SOLD_NEW_IN_CHILE
 │   ├── carImages.json           # Mapeo id → { file, source, license } o null (626 claves)
+│   ├── credit.ts                # Tasas de crédito mercado 2026 + simulateCredit + monthlyPayment
 │   ├── energyCosts.ts           # HOME_KWH 150 / FAST_KWH 350 / gasolina 1300 / diesel 1150
 │   ├── enrichment.ts            # Completa rango/batería/seguridad por marca|modelo
 │   ├── recommender.ts           # Motor semántico local: parseQuery + scoreRecommendation + recommend
@@ -66,7 +67,7 @@ src/
 │   ├── ModeracionUsados.tsx     # Cola privada de revisión y reportes
 │   ├── Top10.tsx                # 7 categorías con ?cat=
 │   ├── Favorites.tsx / Compare.tsx / Estadisticas.tsx / NotFound.tsx
-├── test/                        # vitest: brands, tco, energyCosts, CompareTable
+├── test/                        # vitest: brands, tco, credit, energyCosts, CompareTable
 ├── types/index.ts               # Car, Filters (yearRange), User
 ├── App.tsx                      # Rutas, PageSkeleton, useCars
 └── main.tsx                     # Registro service worker PWA
@@ -86,10 +87,14 @@ src/
 - **Novedades curadas**: `NOVEDADES_2026` (12 lanzamientos) por brand+model, priorizando año 2026.
 
 ### TCO (`src/data/tco.ts`) + `TCOCalculator`
-- Crédito francés 11% anual, plazo 48 (default), SOAP por tramo, seguro 1,5%, mantención por combustible.
+- Crédito francés con tasa típica de mercado 2026 (1% mensual ≈ CAE ref. 12,68%), plazo 48 (default), SOAP por tramo, seguro 1,5%, mantención por combustible.
 - **Permiso de circulación SII** (FAQ 001.170.5079.007): escala progresiva 1–4,5%, mín. 0,5 UTM ($34.876); UTM 2026 = $69.751; EV/PHEV año ≥2021 → 25% (Ley 21.505); tasación ≈ precio × 0,9^antiguedad.
 - **Depreciación** anual según antigüedad (18/12/9/7%).
 - **Carga mixta** EV/PHEV: 80% hogar ($150) + 20% rápida ($350) ≈ $190/kWh; híbrido 50/50; aviso UI si falta batería/autonomía.
+
+### Crédito (`src/data/credit.ts`) + `CreditCalc`
+- Tasas de mercado Chile 2026: **0,7% / 1,0% / 1,5% mensual** (escenarios) → CAE de sólo interés 8,7% / 12,7% / 19,6%. **Pie mínimo 10%** (bancos piden 20–25%) y plazos **12–60 meses**.
+- `simulateCredit` devuelve pie, monto, cuota francesa, total pagado, costo del crédito y CAE ref.; `CreditCalc` (ficha del auto) suma la CTA **«Pide tu cotización»** por WhatsApp con la simulación. No es oferta de crédito: sin seguros ni gastos en el CAE.
 
 ### Wizard (`AutoWizard.tsx`)
 - 8 pasos: presupuesto, uso, combustible, prioridad, km/mes, transmisión, asientos, tracción.

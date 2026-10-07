@@ -236,7 +236,7 @@ export const GLOSSARY: GlossaryEntry[] = [
     aliases: ['cae', 'costo anual equivalente'],
     short: 'El costo real anual de un crédito, con todo incluido.',
     definition:
-      'El Costo Anual Equivalente expresa en porcentaje lo que pagas de verdad por un crédito, incluyendo seguros, gastos y comisiones. Permite comparar ofertas de bancos y financieras en igualdad de condiciones.',
+      'El Costo Anual Equivalente expresa en porcentaje lo que pagas de verdad por un crédito, incluyendo seguros, gastos y comisiones. Permite comparar ofertas de bancos y financieras en igualdad de condiciones. En Chile, el crédito automotriz en 2026 se mueve entre 0,7% y 1,5% mensual de interés, equivalente a un CAE de sólo interés de 8,7% a 19,6% antes de seguros y gastos.',
     category: 'buying',
   },
   {

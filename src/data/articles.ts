@@ -227,7 +227,7 @@ export const articles: Article[] = [
         heading: 'Empieza por el costo total, no por el precio',
         paragraphs: [
           'El precio de la etiqueta es solo la puerta de entrada. El costo real de un auto incluye la cuota del crédito, el seguro obligatorio (SOA) y el complementario, el permiso de circulación, la mantención, la energía (bencina o carga) y cuánto pierde de valor cada año.',
-          'Por eso en AutoLupa calculamos el TCU (Costo Total de Propiedad) de cada ficha: con un crédito francés a 48 meses y 11% anual, SOAP por tramos, seguro estimado en 1,5% del valor del vehículo, permiso de circulación con la fórmula del SII y depreciación según antigüedad.',
+          'Por eso en AutoLupa calculamos el TCU (Costo Total de Propiedad) de cada ficha: con un crédito francés a 48 meses y una tasa de mercado 2026 de 1% mensual (CAE ref. 12,7%), SOAP por tramos, seguro estimado en 1,5% del valor del vehículo, permiso de circulación con la fórmula del SII y depreciación según antigüedad.',
         ],
         bullets: [
           'Compara siempre autos de rango de precio parecido: la cuota es lo que más pesa en el mes a mes.',
@@ -496,7 +496,7 @@ export const articles: Article[] = [
           'Nuestra calculadora de TCU es transparente y usa parámetros claros que puedes revisar en cada ficha.',
         ],
         bullets: [
-          'Crédito francés con 11% anual y 48 meses por defecto (ajustable).',
+          'Crédito francés con tasa de mercado 2026 (1% mensual, CAE ref. 12,7%) y 48 meses por defecto (ajustable).',
           'SOAP 2026 por tramos: $32.000 hasta $8 millones, $48.000 hasta $15 millones, $65.000 hasta $25 millones y $85.000 sobre esa cifra.',
           'Seguro estimado en 1,5% del valor del vehículo al año.',
           'Permiso de circulación con la fórmula oficial del SII (ver guía aparte).',

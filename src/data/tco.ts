@@ -1,9 +1,9 @@
 import { Car } from '../types';
 import { HOME_KWH_CLP, FAST_KWH_CLP, GASOLINE_CLP_PER_L, DIESEL_CLP_PER_L } from './energyCosts';
+import { TYPICAL_MONTHLY_RATE, annualEffectiveRate, monthlyPayment } from './credit';
 
-/** Chilean loan rate (avg 2026, ≈ CAE 12% menos costos) */
-const LOAN_RATE_ANNUAL = 0.11;
-const LOAN_RATE_MONTHLY = LOAN_RATE_ANNUAL / 12;
+const LOAN_RATE_MONTHLY = TYPICAL_MONTHLY_RATE;
+const LOAN_RATE_ANNUAL = annualEffectiveRate(TYPICAL_MONTHLY_RATE);
 
 /** Mixed charging: ~80% hogar y ~20% carga rápida pública */
 const HOME_CHARGE_SHARE = 0.8;
@@ -124,14 +124,7 @@ export function calculateTCO(
 ): TCOResult {
   const price = car.price;
 
-  // Monthly loan payment (French system: fixed payment)
-  const monthlyLoan =
-    loanMonths > 0
-      ? Math.round(
-          (price * LOAN_RATE_MONTHLY * Math.pow(1 + LOAN_RATE_MONTHLY, loanMonths)) /
-            (Math.pow(1 + LOAN_RATE_MONTHLY, loanMonths) - 1)
-        )
-      : 0;
+  const monthlyLoan = loanMonths > 0 ? Math.round(monthlyPayment(price, LOAN_RATE_MONTHLY, loanMonths)) : 0;
 
   const soapAnual = getSoapAnual(price);
   const permisoCirculacion = getPermisoCirculacion(price, car.year, car.fuel);

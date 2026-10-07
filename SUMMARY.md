@@ -175,6 +175,19 @@ El rol anónimo (sin sesión) sigue sin poder insertar: no se tocó ninguna pol�
 
 
 
+## Lote 20 — Crédito creíble: simulador con tasas de mercado 2026 (07-10-2026)
+
+- **`src/data/credit.ts`** (nuevo), con parámetros del crédito automotriz chileno 2026 y sus fuentes:
+  - **Tasa mensual de mercado: 0,7% a 1,5%** — rango promedio 2026 según banco y perfil (KMcheck, «Cómo financiar un auto usado en Chile en 2026»); coinciden ComparaOnline (crédito automotriz) y la comparativa 2026 de tasas (0,49%–1,2%). `RATE_SCENARIOS` = **Mejor tasa 0,7% / Tasa típica 1,0% / Tasa alta 1,5%**.
+  - `annualEffectiveRate` (CAE de sólo interés = (1+i)^12−1 → **8,7% / 12,7% / 19,6%**), `monthlyPayment` (cuota francesa reutilizada por el TCO), `simulateCredit` (pie, monto, cuota, total pagado y costo del crédito) y `formatRatePercent` (coma decimal).
+  - **Pie mínimo 10%** (financieras especializadas, KMcheck) con aviso de que los **bancos piden 20–25%** (ComparaOnline pide 20%; Amicar, Dily, Crediautos y Santander Consumer también 20%) y de que el pie sobre el mínimo baja la cuota.
+  - **Plazos 12 a 60 meses** (plazo típico del mercado; ComparaOnline hasta 60). Se eliminaron las opciones 72/84 meses del TCO, que no corresponden a crédito automotriz.
+- **`CreditCalc`** rediseñado: selector de escenario de tasa (0,7% / 1,0% / 1,5% mensual), slider de pie con banda interpretativa, plazos 12–60 y **4 resultados**: cuota mensual, **total pagado (pie + cuotas)**, **costo del crédito** (intereses) y **CAE ref.** La CTA **«Pide tu cotización»** abre WhatsApp con la simulación completa (marca, modelo, año, precio, pie, plazo, cuota y CAE). Disclaimer explícito: no es oferta de crédito y el CAE se calcula sólo con el interés, sin seguros ni gastos.
+- **`tco.ts`**: `LOAN_RATE_ANNUAL` de 11% fijo → `annualEffectiveRate(TYPICAL_MONTHLY_RATE)` = **12,68%** (1% mensual, tasa típica del rango); el cálculo de la cuota pasa a `monthlyPayment` (mismo francés, un solo lugar). `TCOCalculator`: sin 72/84 meses, la caja de tasa ahora dice **«CAE ref.»** y la nota cita 0,7%–1,5% mensual de mercado.
+- **Contenido alineado**: `articles.ts` (las 2 menciones de «11% anual» → «tasa de mercado 2026 de 1% mensual, CAE ref. 12,7%») y la entrada `cae` del glosario, que ahora cita el rango chileno 2026 (0,7%–1,5% mensual = 8,7%–19,6% de sólo interés).
+- **Fuentes usadas** (verificadas hoy): KMcheck guía 2026 (tasas, pie y plazo), ComparaOnline (pie mínimo 20%, 6–60 meses), rolav 2026 (pie 20% en las financieras), finclaro (rangos de CAE 2026) y ComparaBancaperu (0,49%–1,2% mensual). Los datos se documentan aquí: en el código no se agregan comentarios.
+- Tests: **189** (`src/test/credit.test.tsx`, **13 nuevos**: escenarios dentro del rango, CAE efectivo anual, cuota francesa y lineal, clamps de pie (10–50%) y plazo (12–60), monotonía de pie/tasa, TCO con la tasa típica y UI con CTA WhatsApp). `LINT=0 TEST=0 BUILD=0`.
+
 ## Lote 18 — Fotos del catálogo: siluetas cerradas + curaduría de la auditoría (06-10-2026)
 
 - **Alcance**: los **65 modelos sin foto** (55 con `null` en `carImages.json` + 10 ids ausentes del manifiesto: 619, 626, 627, 629, 630, 632, 637, 639, 644, 645) +, por decisión del usuario, **los 11 ids abiertos de `IMAGE_AUDIT_REPORT.md`** (foto de otra variante/generación, no siluetas).

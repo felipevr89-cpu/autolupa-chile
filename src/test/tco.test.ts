@@ -1,5 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import { calculateTCO } from '../data/tco';
+import { TYPICAL_MONTHLY_RATE, annualEffectiveRate } from '../data/credit';
 import { Car } from '../types';
 
 const mockCar: Car = {
@@ -60,7 +61,8 @@ describe('calculateTCO', () => {
     const result = calculateTCO(mockCar, 48, 1000);
     expect(result.monthlyLoan).toBeGreaterThan(0);
     expect(result.loanMonths).toBe(48);
-    expect(result.loanRate).toBeCloseTo(0.11, 2);
+    expect(result.loanRate).toBeCloseTo(annualEffectiveRate(TYPICAL_MONTHLY_RATE), 5);
+    expect(result.loanRate).toBeCloseTo(0.127, 3);
   });
 
   it('includes all cost components', () => {

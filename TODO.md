@@ -27,7 +27,7 @@
 | **17** | **Búsquedas guardadas + alertas de nuevos avisos**: guardar la búsqueda en `/usados`, contador en navbar, avisos nuevos en `/favorites` (paridad con Chileautos) | 7 | ✅ hecho 02-10-2026 |
 | **21** | **Robustez operativa**: anti-abuse en publicación (honeypot + cupo), límites/costos Supabase-Cloudflare con 1.000 fotos, backup+restore probado, matriz RLS re-ejecutada con roles reales, prueba end-to-end del ciclo completo de publicación | riesgo | ✅ hecho 06-10-2026 (ver "Lote 21" abajo y en `SUMMARY.md`) |
 | **18** | **Cerrar las siluetas de foto** del catálogo (Commons + licencia, curaduría por modelo) + repuesto de los 11 ids abiertos de la auditoría de fotos: 65 modelos sin foto → **56 fotos nuevas** y **11 repuestas**, quedan 9 siluetas | 10 | ✅ hecho 06-10-2026 (ver "Lote 18" en `SUMMARY.md`) |
-| **20** | **Crédito creíble**: simulador con tasas/CAE de mercado 2026 (no 11% fijo), pie mínimo, total pagado, CTA "pide cotización" | 5 | ⬜ |
+| **20** | **Crédito creíble**: simulador con tasas/CAE de mercado 2026 (no 11% fijo), pie mínimo, total pagado, CTA "pide cotización" | 5 | ✅ hecho 07-10-2026 (ver "Lote 20" en `SUMMARY.md`) |
 | **22** | **Confianza visible**: badge público "vendedor con correo verificado" (migración + trigger sobre `auth.users`), "Sello AutoLupa", enlace a informe de historial y guía de transferencia, FAQ antiestafas | 6, 12 | ⬜ |
 | **23** | **PWA y compartir**: instalable correcto en iOS, `Web Share API`, skeleton en todas las rutas | 13 | ⬜ |
 
@@ -70,7 +70,7 @@ Chat en tiempo real · reputación/estrellas de vendedores · integración Autof
 | 2 | Tráfico, marca y dominio | 0.1 + Lote 19 |
 | 3 | Sin modelo de ingresos ni socios | 0.4 + Fase C |
 | 4 | Sin tasador/"¿cuánto vale mi auto?" | Lote 16 |
-| 5 | Sin financiamiento real | Lote 20 (parcial) → Fase C |
+| 5 | Sin financiamiento real | Lote 20 ✅ (simulador con tasas de mercado) → Fase C (socios financieros) |
 | 6 | Sin historial de informe ni transferencia | Lote 22 (parcial) → Fase C |
 | 7 | Sin alertas de nuevos avisos por búsqueda | Lote 17 |
 | 8 | Email capado a 2 correos/hora | 0.2 |

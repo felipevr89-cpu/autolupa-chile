@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Car } from '../../types';
 import { formatPrice } from '../../data/brands';
 import { calculateTCO, TCOResult } from '../../data/tco';
+import { formatRatePercent } from '../../data/credit';
 
 interface Props {
   car: Car;
@@ -34,8 +35,6 @@ export function TCOCalculator({ car }: Props) {
             <option value={36}>36 meses</option>
             <option value={48}>48 meses</option>
             <option value={60}>60 meses</option>
-            <option value={72}>72 meses</option>
-            <option value={84}>84 meses</option>
           </select>
         </div>
         <div>
@@ -95,13 +94,14 @@ export function TCOCalculator({ car }: Props) {
           <p className="text-sm font-bold text-gray-900 dark:text-white">{formatPrice(result.total5Years)}</p>
         </div>
         <div className="p-2.5 bg-white dark:bg-gray-600 rounded-lg text-center">
-          <p className="text-[10px] text-gray-500 dark:text-gray-400">Tasa interés</p>
-          <p className="text-sm font-bold text-gray-900 dark:text-white">{(result.loanRate * 100).toFixed(1)}%</p>
+          <p className="text-[10px] text-gray-500 dark:text-gray-400">CAE ref.</p>
+          <p className="text-sm font-bold text-gray-900 dark:text-white">{formatRatePercent(result.loanRate)}</p>
         </div>
       </div>
 
       <p className="text-[10px] text-gray-400 dark:text-gray-500 mt-3 text-center">
-        Estimaciones basadas en tasas promedio Chile 2026 (crédito 11% anual, carga 80% hogar / 20% rápida,
+        Estimaciones con tasas de mercado Chile 2026 (crédito automotriz 0,7% a 1,5% mensual según banco y perfil;
+        CAE ref. calculado sólo con el interés, sin seguros ni gastos; carga 80% hogar / 20% rápida;
         depreciación según antigüedad). Valores referenciales, no constituyen oferta de crédito.
       </p>
     </div>

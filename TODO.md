@@ -29,10 +29,20 @@
 | **18** | **Cerrar las siluetas de foto** del catálogo (Commons + licencia, curaduría por modelo) + repuesto de los 11 ids abiertos de la auditoría de fotos: 65 modelos sin foto → **56 fotos nuevas** y **11 repuestas**, quedan 9 siluetas | 10 | ✅ hecho 06-10-2026 (ver "Lote 18" en `SUMMARY.md`) |
 | **20** | **Crédito creíble**: simulador con tasas/CAE de mercado 2026 (no 11% fijo), pie mínimo, total pagado, CTA "pide cotización" | 5 | ✅ hecho 07-10-2026 (ver "Lote 20" en `SUMMARY.md`) |
 | **22** | **Confianza visible**: badge público "vendedor con correo verificado" (migración + trigger sobre `auth.users`), "Sello AutoLupa", enlace a informe de historial y guía de transferencia, FAQ antiestafas | 6, 12 | ✅ hecho 07-10-2026 (ver "Lote 22" en `SUMMARY.md`; la migración queda pendiente de aplicar por el PAT 401) |
-| **23** | **PWA y compartir**: instalable correcto en iOS, `Web Share API`, skeleton en todas las rutas | 13 | ⬜ |
+| **23** | **PWA y compartir**: instalable correcto en iOS, `Web Share API`, skeleton en todas las rutas | 13 | ✅ hecho 07-10-2026 (ver "Lote 23" en `SUMMARY.md`) |
 
 - [ ] Pendientes heredados que entran en la Fase A: subir **vite/vitest** (rompe mayor, sólo afecta al dev server) y **revisar la CSP en navegador real** cuando esté conectado el de escritorio
 - [x] ~~**Fotos de otra variante/generación** (11 ids de `IMAGE_AUDIT_REPORT.md`)~~ → repuestas en el **Lote 18** (104, 185, 187, 227, 309, 398, 413, 414, 447, 497, 512); auditoría 40/40
+
+#### 📍 Lote 23 completado (07-10-2026) — qué quedó hecho
+
+1. ✅ **PWA instalable en iOS**: `public/apple-touch-icon.png` (180), `icon-192.png` y `icon-512.png` generados desde el favicon con `scripts/generate-pwa-icons.py` (iOS no acepta iconos SVG); `index.html` suma `apple-touch-icon`, `apple-mobile-web-app-capable`, `mobile-web-app-capable`, `apple-mobile-web-app-status-bar-style` y `apple-mobile-web-app-title`; `public/manifest.json` declara además los PNG 192/512 (el SVG se mantiene para navegadores de escritorio).
+2. ✅ **`<InstallHint>` en el pie** (`src/components/Layout/InstallHint.tsx`): en iPhone, Safari no dispara `beforeinstallprompt`, así que muestra los pasos «Compartir → Añadir a pantalla de inicio»; en Chrome/Android captura el evento y ofrece «Instalar». Se oculta en modo standalone (app ya instalada) y el descarte queda en `localStorage`.
+3. ✅ **Web Share API**: `src/components/Share/ShareButton.tsx` usa `navigator.share` y, si no existe o falla, copia el enlace («¡Enlace copiado!»; «No se pudo copiar» si tampoco hay `clipboard`), sin castigo si el usuario cancela (`AbortError`). Colocado en la ficha del aviso (`/usados/:slug`), la guía del blog (`/blog/:slug`) y la ficha del auto (junto al compartir por WhatsApp).
+4. ✅ **Skeleton sin estados vacíos falsos**: `ModeracionUsados` dejó de mostrar «No hay avisos pendientes» mientras carga (`queueLoading` + 3 skeletons y contadores en «…»), y `Reclamos` ya no muestra «Todavía no hay respuestas publicadas» ni «0 respuestas» antes de que responda el servicio. El resto de las rutas ya tenía skeleton (Suspense por ruta + `Usados`, `UsadosRegion`, `UsedListingDetail`, `MisAnuncios`, `Favorites`).
+5. ✅ Tests 198 → **214**; lint/test/build en 0.
+
+Tests nuevos: `src/test/share.test.tsx` (7: compartir nativo, copia de enlace, cancelación, fallo del navegador y las 3 caras del aviso de instalación), `src/test/pwaAssets.test.ts` (5: manifest, dimensiones reales de los PNG desde su cabecera IHDR, meta de iOS y registro del SW), `src/test/moderationLoad.test.tsx` (2) y `src/test/reclamosLoad.test.tsx` (2).
 
 #### 📍 Lote 22 completado (07-10-2026) — qué quedó hecho
 
@@ -88,7 +98,7 @@ Chat en tiempo real · reputación/estrellas de vendedores · integración Autof
 | 10 | Modelos sin foto: 65 → **9** (Lote 18 ✅; los restantes no tienen equivalencia en Commons) | Lote 18 ✅ |
 | 11 | E-E-A-T del contenido débil | Lote 15 + 19 |
 | 12 | Sin soporte humano | Lote 22 (FAQ) → Fase C |
-| 13 | Sin app nativa | Lote 23 (PWA) → Fase C |
+| 13 | Sin app nativa | Lote 23 ✅ (PWA instalable + Web Share) → Fase C (app nativa) |
 | 14 | Precios de catálogo sin fuente ni fecha | Lote 15 |
 
 **Orden de ejecución acordado:** `15 → 19 → 16 → 17 → 21 → 18 → 20 → 22 → 23 → Fase B`

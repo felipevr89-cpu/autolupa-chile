@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { carsData, brands } from '../data/brands';
+import { InstallHint } from './Layout/InstallHint';
 
 export function Footer() {
   const year = new Date().getFullYear();
@@ -7,6 +8,7 @@ export function Footer() {
   return (
     <footer className="bg-gray-900 dark:bg-gray-950 text-gray-400 mt-16 pb-24 md:pb-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <InstallHint />
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div>
             <h3 className="text-white font-bold text-lg mb-4">AutoLupa</h3>

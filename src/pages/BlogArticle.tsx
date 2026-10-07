@@ -1,6 +1,7 @@
 import { Link, useParams } from 'react-router-dom';
 import { SEO } from '../components/SEO';
 import { Breadcrumbs } from '../components/Breadcrumbs';
+import { ShareButton } from '../components/Share/ShareButton';
 import { ARTICLE_AUTHOR, getArticleBySlug } from '../data/articles';
 
 const SITE_URL = import.meta.env.VITE_SITE_URL || 'https://autolupa.pages.dev';
@@ -74,6 +75,14 @@ export function BlogArticle() {
           <span className="mx-1.5 text-gray-400">·</span>
           Actualizado el <time dateTime={article.isoReviewed}>{article.reviewed}</time>
         </p>
+        <div className="mt-4">
+          <ShareButton
+            title={article.title}
+            text={article.excerpt}
+            url={`${SITE_URL}/blog/${article.slug}`}
+            label="Compartir guía"
+          />
+        </div>
       </header>
 
       <article className="space-y-9">

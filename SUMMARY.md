@@ -175,6 +175,19 @@ El rol anónimo (sin sesión) sigue sin poder insertar: no se tocó ninguna pol�
 
 
 
+## Lote 23 — PWA y compartir: instalable en iOS, Web Share y skeletons (07-10-2026)
+
+- **Instalable correcto en iOS** (Apple no dispara `beforeinstallprompt`, todo lo demás lo exige la ficha de la app):
+  - **Iconos PNG generados con `scripts/generate-pwa-icons.py`** (PIL, réplica del `favicon.svg`: gradiente #2563eb→#7c3aed y lupa) y commiteados en `public/`: **`apple-touch-icon.png` 180×180 a sangre completa** (iOS aplica su propia máscara) y **`icon-192.png` / `icon-512.png` con esquinas redondeadas 20%** para el manifest. iOS y Android rechazan el SVG solo.
+  - `index.html`: `apple-touch-icon`, `apple-mobile-web-app-capable`, `mobile-web-app-capable`, `apple-mobile-web-app-status-bar-style` y `apple-mobile-web-app-title` (más el `theme-color` que ya existía) → Safari instala en modo standalone y a pantalla completa.
+  - `public/manifest.json`: suma `icon-192.png` y `icon-512.png` (`type: image/png`, `purpose: any`) además del SVG; siguen `display: standalone` y `start_url: /`.
+  - **`src/components/Layout/InstallHint.tsx`** en el `Footer`: en iPhone muestra los pasos «Compartir → Añadir a pantalla de inicio» con botón «Entendido» (descarte en `localStorage`); si el navegador emite `beforeinstallprompt` ofrece «Instalar» (`event.prompt()`); y se oculta sola cuando la app ya está en modo standalone.
+- **Web Share API**: **`src/components/Share/ShareButton.tsx`** con cascada `navigator.share` → `navigator.clipboard.writeText` («¡Enlace copiado!» por 2,5 s, o «No se pudo copiar el enlace») y `AbortError` silenciado (el cancelar no copia ni avisa). Tres colocaciones: **ficha del aviso** (`/usados/:slug`, junto a «Guardar aviso», con el canónico), **guía del blog** (`/blog/:slug`, bajo la cabecera de autoría y fecha) y **ficha del auto** (`NextSteps`, debajo de «Compartir por WhatsApp»).
+- **Skeleton en todas las rutas**: a nivel de ruta ya estaba (`Suspense` + `PageSkeleton` en las 31 rutas lazy); se cerraron los **estados vacíos falsos** de las páginas que traen datos: **`ModeracionUsados`** ahora tiene `queueLoading` («Verificando permisos…» libera antes de cargar la cola) y 3 skeletons con los contadores en «…», en vez de enseñar «No hay avisos pendientes» a mitad de carga; **`Reclamos`** suma `listLoading` con skeleton de 2 tarjetas y «… respuestas» antes de caer en «Todavía no hay respuestas publicadas». Ya estaban cubiertos `Usados`, `UsadosRegion`, `UsedListingDetail`, `MisAnuncios` y `Favorites` (`liveState`).
+- Tests: **214** (16 nuevos): `src/test/share.test.tsx` (7), `src/test/pwaAssets.test.ts` (5: manifest, IHDR real de los PNG, meta de iOS y registro del SW), `src/test/moderationLoad.test.tsx` (2) y `src/test/reclamosLoad.test.tsx` (2). `LINT=0 TEST=0 BUILD=0`.
+
+
+
 ## Lote 22 — Confianza visible: sello, correo verificado, FAQ y enlaces (07-10-2026)
 
 - **Bug crítico corregido (estaba roto en producción)**: las 6 consultas de `src/lib/usedListings.ts` usaban el embed `seller:profiles(...)`, pero **no existe FK** (`used_listings.seller_id → auth.users(id)`, no a `profiles`), así que PostgREST respondía siempre `400 PGRST200 "Could not find a relationship between 'used_listings' and 'profiles'"`: `/usados` y la ficha del aviso mostraban «No pudimos cargar los avisos». Ahora la consulta trae sólo columnas propias y `attachSellers()` trae los perfiles en **una sola consulta batch** (`.in('id', …)` sobre `profiles`, política `Public profiles are readable` → `anon, authenticated`); si esa consulta falla, el aviso se muestra igual y se usa el `contact_name` como respaldo. Quedó una sola consulta embebida en el proyecto (`listing:used_listings(…)`, que sí tiene FK).

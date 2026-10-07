@@ -47,9 +47,11 @@ export function Reclamos() {
   const [sent, setSent] = useState(false);
   const [suggestions, setSuggestions] = useState<Suggestion[]>([]);
   const [listNotice, setListNotice] = useState('');
+  const [listLoading, setListLoading] = useState(true);
 
   useEffect(() => {
     if (!isSupabaseConfigured) {
+      setListLoading(false);
       setListNotice('Las respuestas publicadas se mostrarán aquí cuando el formulario esté activo.');
       return;
     }
@@ -60,6 +62,9 @@ export function Reclamos() {
       })
       .catch(() => {
         if (!cancelled) setListNotice('No pudimos cargar las respuestas publicadas en este momento.');
+      })
+      .finally(() => {
+        if (!cancelled) setListLoading(false);
       });
     return () => {
       cancelled = true;
@@ -247,9 +252,14 @@ export function Reclamos() {
       <section className="mb-8">
         <div className="flex items-center justify-between mb-4">
           <h2 className="text-xl font-bold text-gray-900 dark:text-white">Respuestas publicadas</h2>
-          <span className="text-sm text-gray-500 dark:text-gray-400">{suggestions.length} respuestas</span>
+          <span className="text-sm text-gray-500 dark:text-gray-400">{listLoading ? '…' : suggestions.length} respuestas</span>
         </div>
-        {suggestions.length === 0 ? (
+        {listLoading ? (
+          <div className="space-y-4" aria-label="Cargando">
+            <div className="h-28 rounded-2xl bg-gray-200 dark:bg-gray-700 animate-pulse" />
+            <div className="h-28 rounded-2xl bg-gray-200 dark:bg-gray-700 animate-pulse" />
+          </div>
+        ) : suggestions.length === 0 ? (
           <p className="rounded-2xl bg-white dark:bg-gray-800 p-5 text-sm text-gray-500 dark:text-gray-400 card-shadow">
             {listNotice || 'Todavía no hay respuestas publicadas. La primera aparecerá aquí.'}
           </p>

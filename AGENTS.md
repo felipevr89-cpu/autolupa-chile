@@ -41,8 +41,9 @@ src/
 │   ├── EV/EVHub.tsx             # Hub de eléctricos (marca EV > 2021; 25% permiso)
 │   ├── Filters/FilterPanel.tsx  # Filtros con años dinámicos
 │   ├── Guides/BuyingGuide.tsx
-│   ├── Layout/Navbar.tsx
+│   ├── Layout/                 # Navbar + InstallHint (aviso de instalación PWA)
 │   ├── TCO/TCOCalculator.tsx    # UI del TCO (plazo 48, km/mes 1000)
+│   ├── Share/ShareButton.tsx    # Web Share API con fallback a copiar enlace
 │   ├── Trust/                   # SafetyBanner, AutoLupaSeal, DocumentLinks
 │   └── Wizard/AutoWizard.tsx    # 8 pasos + afinidad absoluta + fotos
 │   ├── Wizard/SmartAsk.tsx      # Buscador por lenguaje natural (recomendador semántico)
@@ -69,7 +70,7 @@ src/
 │   ├── Faq.tsx                  # FAQ antiestafas /faq (FAQPage JSON-LD)
 │   ├── Top10.tsx                # 7 categorías con ?cat=
 │   ├── Favorites.tsx / Compare.tsx / Estadisticas.tsx / NotFound.tsx
-├── test/                        # vitest: brands, tco, credit, energyCosts, CompareTable, listingSeller, trust
+├── test/                        # vitest: brands, tco, credit, energyCosts, CompareTable, listingSeller, trust, share, pwaAssets, moderationLoad, reclamosLoad
 ├── types/index.ts               # Car, Filters (yearRange), User
 ├── App.tsx                      # Rutas, PageSkeleton, useCars
 └── main.tsx                     # Registro service worker PWA
@@ -111,7 +112,9 @@ src/
 - Tests: `recommender.test.ts` (21 tests: parser, scoring, límites y edge cases).
 
 ### Visual / PWA
-- Dark mode real, modal y tags con contraste mejorado, skeleton loading, debounce 300 ms, PWA (manifest+sw).
+- Dark mode real, modal y tags con contraste mejorado, skeleton loading en todas las rutas (Suspense + estados de carga por página), debounce 300 ms, PWA (manifest+sw).
+- **PWA instalable en iOS**: `public/apple-touch-icon.png` (180), `icon-192.png` y `icon-512.png` (generados con `scripts/generate-pwa-icons.py`), meta `apple-mobile-web-app-*` en `index.html`, manifest con PNGs. `<InstallHint>` en el footer muestra cómo instalar en iPhone o captura `beforeinstallprompt` en Android/escritorio.
+- **Web Share API**: `ShareButton` (`navigator.share` → clipboard fallback) en la ficha del aviso, la guía del blog y la ficha del auto.
 
 ## Imágenes (`src/data/carImages.json` + `public/car-images/`)
 - Mapeo id → `{ file, source, license, attribution }` o `null` (silueta).

@@ -6,6 +6,7 @@ import { SafetyBanner } from '../components/Trust/SafetyBanner';
 import { AutoLupaSeal } from '../components/Trust/AutoLupaSeal';
 import { DocumentLinks } from '../components/Trust/DocumentLinks';
 import { SaveListingButton } from '../components/Used/SaveListingButton';
+import { ShareButton } from '../components/Share/ShareButton';
 import { formatPrice } from '../data/brands';
 import { USED_FUEL_OPTIONS, USED_TRANSMISSION_OPTIONS, type UsedListing, usedListingWhatsappUrl } from '../data/usedListings';
 import { toSavedListing } from '../lib/savedListings';
@@ -190,6 +191,15 @@ export function UsedListingDetail({ user, isCloudAuthAvailable, onSignIn }: Prop
             <p className="text-sm text-gray-600 dark:text-gray-300 mt-4">📍 {listing.commune ? `${listing.commune}, ` : ''}{listing.region}</p>
             <div className="mt-4">
               <SaveListingButton listing={toSavedListing(listing)} />
+            </div>
+            <div className="mt-3">
+              <ShareButton
+                title={`${listing.brand} ${listing.model} ${listing.year}`}
+                text={`${formatPrice(listing.price)} · ${listing.region} · AutoLupa`}
+                url={canonical}
+                label="Compartir aviso"
+                className="w-full"
+              />
             </div>
             <a href={usedListingWhatsappUrl(listing)} target="_blank" rel="noopener noreferrer" onClick={() => track('ContactSeller', { region: listing.region })} className="mt-4 flex items-center justify-center gap-2 w-full px-5 py-3 bg-green-500 hover:bg-green-600 text-white rounded-xl font-bold">Contactar por WhatsApp</a>
             {listing.contactEmail && <a href={`mailto:${listing.contactEmail}`} className="mt-3 block text-center text-sm text-blue-600 dark:text-blue-400 hover:underline">Enviar correo</a>}

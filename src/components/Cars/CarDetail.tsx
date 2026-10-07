@@ -9,6 +9,7 @@ import { EVHub } from '../EV/EVHub';
 import { BuyingGuide } from '../Guides/BuyingGuide';
 import { TermTip } from '../Glossary/TermTip';
 import { SafetyBanner } from '../Trust/SafetyBanner';
+import { ShareButton } from '../Share/ShareButton';
 import {
   BoltIcon, WrenchIcon, Battery100Icon, PowerIcon, FireIcon,
   ShieldCheckIcon, CubeIcon, ArrowsRightLeftIcon,
@@ -114,6 +115,13 @@ function NextSteps({ car }: { car: Car }) {
       >
         <span>💬</span> Compartir por WhatsApp
       </a>
+      <ShareButton
+        title="AutoLupa"
+        text={shareText}
+        url="https://autolupa.pages.dev/"
+        label="Compartir este auto"
+        className="mt-2 w-full"
+      />
     </div>
   );
 }

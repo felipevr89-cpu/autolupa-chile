@@ -35,6 +35,7 @@ export function Footer() {
               <li><Link to="/privacidad" className="hover:text-white transition-colors">Política de privacidad</Link></li>
               <li><Link to="/tus-datos" className="hover:text-white transition-colors">Tus datos (derechos Ley 21.719)</Link></li>
               <li><Link to="/reclamos" className="hover:text-white transition-colors">Reclamos y sugerencias</Link></li>
+              <li><Link to="/faq" className="hover:text-white transition-colors">Preguntas frecuentes y seguridad</Link></li>
               <li><a href="mailto:info@autolupa.cl" className="hover:text-white transition-colors">Contacto: info@autolupa.cl</a></li>
             </ul>
           </div>

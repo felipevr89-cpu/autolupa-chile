@@ -43,10 +43,13 @@ interface UsedListingRow {
   expires_at: string | null;
   created_at: string;
   updated_at: string;
-  seller: UsedListingSeller | UsedListingSeller[] | null;
 }
 
-const sellerRelation = 'seller:profiles(display_name,avatar_url,created_at)';
+const SELLER_COLUMNS = 'id,display_name,avatar_url,created_at';
+
+interface SellerProfileRow extends UsedListingSeller {
+  id: string;
+}
 
 export const internalUsedListingColumns = [
   'seller_id',
@@ -115,11 +118,6 @@ function getPublicPhotoUrl(path: string): string {
   return client().storage.from('listing-photos').getPublicUrl(path).data.publicUrl;
 }
 
-function mapSeller(seller: UsedListingRow['seller']): UsedListingSeller | null {
-  if (Array.isArray(seller)) return seller[0] ?? null;
-  return seller ?? null;
-}
-
 function mapListing(row: UsedListingRow): UsedListing {
   return {
     id: row.id,
@@ -147,8 +145,30 @@ function mapListing(row: UsedListingRow): UsedListing {
     expiresAt: row.expires_at ?? null,
     featuredUntil: row.featured_until ?? null,
     moderationNote: row.moderation_note ?? null,
-    seller: mapSeller(row.seller),
+    seller: null,
   };
+}
+
+async function selectSellers(ids: string[], withVerification: boolean): Promise<SellerProfileRow[] | null> {
+  const columns = withVerification ? `${SELLER_COLUMNS},email_verified` : SELLER_COLUMNS;
+  const { data, error } = await client().from('profiles').select(columns).in('id', ids);
+  if (error || !data) return null;
+  return data as unknown as SellerProfileRow[];
+}
+
+async function attachSellers(listings: UsedListing[], withVerification = false): Promise<void> {
+  const sellerIds = [...new Set(listings.map((listing) => listing.sellerId).filter(Boolean))];
+  if (sellerIds.length === 0) return;
+
+  let profiles = await selectSellers(sellerIds, withVerification);
+  if (!profiles && withVerification) profiles = await selectSellers(sellerIds, false);
+  if (!profiles) return;
+
+  const byId = new Map(profiles.map((profile) => [profile.id, profile]));
+  for (const listing of listings) {
+    const profile = byId.get(listing.sellerId);
+    if (profile) listing.seller = profile;
+  }
 }
 
 function toOptionalNumber(value: string): number | undefined {
@@ -200,7 +220,7 @@ export async function getActiveUsedListings(
   const now = new Date().toISOString();
   let query = database
     .from('used_listings')
-    .select(`${publicColumns},${sellerRelation}`, { count: 'exact' })
+    .select(publicColumns, { count: 'exact' })
     .eq('status', 'active')
     .lte('published_at', now)
     .or(`expires_at.is.null,expires_at.gt.${now}`);
@@ -219,8 +239,10 @@ export async function getActiveUsedListings(
 
   if (error) throw error;
   const rows = (data ?? []) as unknown as UsedListingRow[];
+  const listings = rows.map(mapListing);
+  await attachSellers(listings);
 
-  return { listings: rows.map(mapListing), total: count ?? rows.length };
+  return { listings, total: count ?? rows.length };
 }
 
 export async function countActiveUsedListings(filters: UsedListingFilters): Promise<number> {
@@ -246,7 +268,7 @@ export async function getSavedUsedListings(ids: string[]): Promise<UsedListing[]
   const now = new Date().toISOString();
   const { data, error } = await client()
     .from('used_listings')
-    .select(`${publicColumns},${sellerRelation}`)
+    .select(publicColumns)
     .in('id', unique)
     .eq('status', 'active')
     .lte('published_at', now)
@@ -254,19 +276,25 @@ export async function getSavedUsedListings(ids: string[]): Promise<UsedListing[]
 
   if (error) throw error;
   const rows = (data ?? []) as unknown as UsedListingRow[];
-  return rows.map(mapListing);
+  const listings = rows.map(mapListing);
+  await attachSellers(listings);
+  return listings;
 }
 
 export async function getUsedListingBySlug(slug: string): Promise<UsedListing | null> {
   const { data, error } = await client()
     .from('used_listings')
-    .select(`${publicColumns},${sellerRelation}`)
+    .select(publicColumns)
     .eq('slug', slug)
     .eq('status', 'active')
     .maybeSingle();
 
   if (error) throw error;
-  return data ? mapListing(data as unknown as UsedListingRow) : null;
+  if (!data) return null;
+
+  const listing = mapListing(data as unknown as UsedListingRow);
+  await attachSellers([listing], true);
+  return listing;
 }
 
 export async function getUsedListingBrands(): Promise<string[]> {
@@ -390,12 +418,14 @@ export async function getMyUsedListings(): Promise<UsedListing[]> {
 
   const { data, error } = await database
     .from('used_listings')
-    .select(`${publicColumns},${privateColumns},${sellerRelation}`)
+    .select(`${publicColumns},${privateColumns}`)
     .eq('seller_id', sessionData.session.user.id)
     .order('created_at', { ascending: false });
 
   if (error) throw error;
-  return ((data ?? []) as unknown as UsedListingRow[]).map(mapListing);
+  const listings = ((data ?? []) as unknown as UsedListingRow[]).map(mapListing);
+  await attachSellers(listings);
+  return listings;
 }
 
 export async function markUsedListingAsSold(listingId: string): Promise<void> {
@@ -427,12 +457,14 @@ export async function isCurrentUserModerator(): Promise<boolean> {
 export async function getModerationQueue(): Promise<UsedListing[]> {
   const { data, error } = await client()
     .from('used_listings')
-    .select(`${publicColumns},${privateColumns},${sellerRelation}`)
+    .select(`${publicColumns},${privateColumns}`)
     .in('status', ['pending', 'rejected'])
     .order('created_at', { ascending: true });
 
   if (error) throw error;
-  return ((data ?? []) as unknown as UsedListingRow[]).map(mapListing);
+  const listings = ((data ?? []) as unknown as UsedListingRow[]).map(mapListing);
+  await attachSellers(listings);
+  return listings;
 }
 
 export async function moderateUsedListing(
@@ -465,14 +497,14 @@ export async function getOpenListingReports(): Promise<Array<{
 }>> {
   const { data, error } = await client()
     .from('listing_reports')
-    .select(`id,listing_id,reporter_id,reason,status,created_at,listing:used_listings(${publicColumns},${privateColumns},${sellerRelation})`)
+    .select(`id,listing_id,reporter_id,reason,status,created_at,listing:used_listings(${publicColumns},${privateColumns})`)
     .in('status', ['open', 'reviewing'])
     .order('created_at', { ascending: true });
 
   if (error) throw error;
   const rows = (data ?? []) as unknown as UsedListingReportRow[];
 
-  return rows.map((row) => {
+  const results = rows.map((row) => {
     const listing = Array.isArray(row.listing) ? row.listing[0] : row.listing;
     return {
       id: row.id,
@@ -482,6 +514,10 @@ export async function getOpenListingReports(): Promise<Array<{
       listing: listing ? mapListing(listing as unknown as UsedListingRow) : null,
     };
   });
+
+  await attachSellers(results.map((result) => result.listing).filter((listing): listing is UsedListing => Boolean(listing)));
+
+  return results;
 }
 
 export async function resolveListingReport(reportId: string): Promise<void> {

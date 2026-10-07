@@ -43,6 +43,7 @@ src/
 │   ├── Guides/BuyingGuide.tsx
 │   ├── Layout/Navbar.tsx
 │   ├── TCO/TCOCalculator.tsx    # UI del TCO (plazo 48, km/mes 1000)
+│   ├── Trust/                   # SafetyBanner, AutoLupaSeal, DocumentLinks
 │   └── Wizard/AutoWizard.tsx    # 8 pasos + afinidad absoluta + fotos
 │   ├── Wizard/SmartAsk.tsx      # Buscador por lenguaje natural (recomendador semántico)
 │   └── Used/                    # Tarjetas y últimos avisos publicados
@@ -65,9 +66,10 @@ src/
 │   ├── UsedListingDetail.tsx    # Detalle SEO de cada aviso
 │   ├── MisAnuncios.tsx          # Gestión del vendedor
 │   ├── ModeracionUsados.tsx     # Cola privada de revisión y reportes
+│   ├── Faq.tsx                  # FAQ antiestafas /faq (FAQPage JSON-LD)
 │   ├── Top10.tsx                # 7 categorías con ?cat=
 │   ├── Favorites.tsx / Compare.tsx / Estadisticas.tsx / NotFound.tsx
-├── test/                        # vitest: brands, tco, credit, energyCosts, CompareTable
+├── test/                        # vitest: brands, tco, credit, energyCosts, CompareTable, listingSeller, trust
 ├── types/index.ts               # Car, Filters (yearRange), User
 ├── App.tsx                      # Rutas, PageSkeleton, useCars
 └── main.tsx                     # Registro service worker PWA
@@ -133,12 +135,13 @@ src/
 - Publicación sin registro: sesión anónima + verificación de email (`updateUser`), trigger `require_verified_seller` en `used_listings`. Ver `supabase/README.md`.
 - Filtros: búsqueda, marca, región, combustible, transmisión, año, precio, kilometraje, orden y paginación.
 - Verificación de correo: chip de estado + «Reenviar enlace» en `/mis-anuncios` (`src/lib/authVerification.ts`); GoTrue limita a 2 correos/hora y el trigger exige el correo confirmado antes de publicar.
+- **Confianza visible (Lote 22)**: badge «Correo del vendedor verificado» en la ficha (query degradable sobre `profiles.email_verified`), `<AutoLupaSeal>`, `<DocumentLinks>` (anotaciones vigentes, transferencia, checklist) y FAQ antiestafas en `/faq`. Las consultas de avisos NO usan embed de perfil: `attachSellers()` en `src/lib/usedListings.ts` trae los perfiles en batch (no existe FK a `profiles`).
 - SEO: `Vehicle` + `Offer` + `BreadcrumbList` en detalle e `ItemList` en el listado.
 - La configuración de Supabase y los pasos de despliegue están en `README.md`.
 
 ## Notas Técnicas
 - Supabase es el backend de autenticación, favoritos y usados. Sin sus variables, la interfaz muestra estado de preparación y no simula usuarios ni listings.
-- La migración SQL está en `supabase/migrations/202609250001_marketplace.sql`.
+- Las migraciones SQL están en `supabase/migrations/` (marketplace, publicación de invitados, límites de publicación y `email_verified` del vendedor) y se aplican con `node scripts/apply-migration.mjs <archivo>`; la matriz RLS con roles reales está en `supabase/README.md`.
 - `npm run build`, `npm run lint` y `npm test` deben pasar (verificados al finalizar cambios). El workflow de deploy ejecuta lint, tests y build antes de publicar.
 - La matriz de verificación de RLS con roles reales está en `supabase/README.md`; hay que ejecutarla antes de recibir vendedores.
 - No agregar comentarios al código; documentar cambios de datos en SUMMARY.md.

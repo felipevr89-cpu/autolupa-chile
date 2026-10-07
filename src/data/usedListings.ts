@@ -102,6 +102,7 @@ export interface UsedListingSeller {
   display_name: string | null;
   avatar_url: string | null;
   created_at: string;
+  email_verified?: boolean;
 }
 
 export interface UsedListing {

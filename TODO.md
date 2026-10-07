@@ -28,11 +28,21 @@
 | **21** | **Robustez operativa**: anti-abuse en publicación (honeypot + cupo), límites/costos Supabase-Cloudflare con 1.000 fotos, backup+restore probado, matriz RLS re-ejecutada con roles reales, prueba end-to-end del ciclo completo de publicación | riesgo | ✅ hecho 06-10-2026 (ver "Lote 21" abajo y en `SUMMARY.md`) |
 | **18** | **Cerrar las siluetas de foto** del catálogo (Commons + licencia, curaduría por modelo) + repuesto de los 11 ids abiertos de la auditoría de fotos: 65 modelos sin foto → **56 fotos nuevas** y **11 repuestas**, quedan 9 siluetas | 10 | ✅ hecho 06-10-2026 (ver "Lote 18" en `SUMMARY.md`) |
 | **20** | **Crédito creíble**: simulador con tasas/CAE de mercado 2026 (no 11% fijo), pie mínimo, total pagado, CTA "pide cotización" | 5 | ✅ hecho 07-10-2026 (ver "Lote 20" en `SUMMARY.md`) |
-| **22** | **Confianza visible**: badge público "vendedor con correo verificado" (migración + trigger sobre `auth.users`), "Sello AutoLupa", enlace a informe de historial y guía de transferencia, FAQ antiestafas | 6, 12 | ⬜ |
+| **22** | **Confianza visible**: badge público "vendedor con correo verificado" (migración + trigger sobre `auth.users`), "Sello AutoLupa", enlace a informe de historial y guía de transferencia, FAQ antiestafas | 6, 12 | ✅ hecho 07-10-2026 (ver "Lote 22" en `SUMMARY.md`; la migración queda pendiente de aplicar por el PAT 401) |
 | **23** | **PWA y compartir**: instalable correcto en iOS, `Web Share API`, skeleton en todas las rutas | 13 | ⬜ |
 
 - [ ] Pendientes heredados que entran en la Fase A: subir **vite/vitest** (rompe mayor, sólo afecta al dev server) y **revisar la CSP en navegador real** cuando esté conectado el de escritorio
 - [x] ~~**Fotos de otra variante/generación** (11 ids de `IMAGE_AUDIT_REPORT.md`)~~ → repuestas en el **Lote 18** (104, 185, 187, 227, 309, 398, 413, 414, 447, 497, 512); auditoría 40/40
+
+#### 📍 Lote 22 completado (07-10-2026) — qué quedó hecho
+
+1. ✅ **Bug crítico de producción resuelto**: las consultas de avisos usaban el embed `seller:profiles(...)`, que **no existe como FK** → PostgREST devolvía `400 PGRST200` y `/usados` y la ficha mostraban «No pudimos cargar los avisos». Se quitó el embed y los perfiles se traen con `attachSellers()` en un batch tolerante a fallo (`src/lib/usedListings.ts`).
+2. ✅ Badge **«Correo del vendedor verificado»** en la ficha del detalle, cargado con query degradable: si falta la columna `profiles.email_verified` se oculta sin romper nada.
+3. ✅ Migración `supabase/migrations/202610070001_seller_email_verified.sql` (columna + trigger `sync_profile_email_verified` sobre `auth.users` + backfill + `notify pgrst`) y `scripts/apply-migration.mjs` para aplicarla por la Management API.
+4. ✅ `<AutoLupaSeal>` (sello de moderación, contacto directo, datos del vendedor), `<DocumentLinks>` (anotaciones vigentes, guía de transferencia, checklist) y **FAQ antiestafas `/faq`** con `FAQPage` JSON-LD, enlazada desde el pie y el sitemap.
+5. ✅ Tests 189 → **198**; lint/test/build en 0.
+
+**Pendiente de este lote**: aplicar la migración — el PAT `SUPABASE_ACCESS_TOKEN` de `.env` responde **401** en `api.supabase.com` → renovarlo en <https://supabase.com/dashboard/account/tokens> y ejecutar `node scripts/apply-migration.mjs supabase/migrations/202610070001_seller_email_verified.sql` (o pegar el SQL en el dashboard). Con ella aplicada: re-ejecutar `scripts/rls-matrix.mjs` y confirmar el badge en producción (ya se enciende sin nuevo push).
 
 #### 📍 Lote 21 completado (06-10-2026) — qué quedó hecho
 

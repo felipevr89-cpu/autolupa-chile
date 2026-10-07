@@ -3,6 +3,8 @@ import { Link, useParams } from 'react-router-dom';
 import { SEO } from '../components/SEO';
 import { Breadcrumbs } from '../components/Breadcrumbs';
 import { SafetyBanner } from '../components/Trust/SafetyBanner';
+import { AutoLupaSeal } from '../components/Trust/AutoLupaSeal';
+import { DocumentLinks } from '../components/Trust/DocumentLinks';
 import { SaveListingButton } from '../components/Used/SaveListingButton';
 import { formatPrice } from '../data/brands';
 import { USED_FUEL_OPTIONS, USED_TRANSMISSION_OPTIONS, type UsedListing, usedListingWhatsappUrl } from '../data/usedListings';
@@ -200,9 +202,18 @@ export function UsedListingDetail({ user, isCloudAuthAvailable, onSignIn }: Prop
               {listing.seller?.avatar_url ? <img src={listing.seller.avatar_url} alt="" className="w-10 h-10 rounded-full" /> : <div className="w-10 h-10 rounded-full bg-blue-100 dark:bg-blue-950 text-blue-700 dark:text-blue-300 flex items-center justify-center font-bold">{displayName.charAt(0).toUpperCase()}</div>}
               <div><p className="font-semibold text-gray-900 dark:text-white">{displayName}</p><p className="text-xs text-gray-500 dark:text-gray-400">Perfil de AutoLupa</p></div>
             </div>
+            {listing.seller?.email_verified && (
+              <span className="mt-3 inline-flex items-center gap-1 text-xs font-semibold text-green-700 dark:text-green-300 bg-green-100 dark:bg-green-900/50 px-2.5 py-1 rounded-full">
+                ✓ Correo verificado
+              </span>
+            )}
           </div>
 
+          <AutoLupaSeal emailVerified={!!listing.seller?.email_verified} />
+
           <SafetyBanner />
+
+          <DocumentLinks />
 
           <details className="rounded-2xl bg-white dark:bg-gray-800 p-5 card-shadow">
             <summary className="cursor-pointer text-sm font-semibold text-gray-700 dark:text-gray-300">Reportar este aviso</summary>

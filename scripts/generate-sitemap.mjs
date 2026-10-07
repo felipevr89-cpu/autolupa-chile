@@ -36,6 +36,7 @@ const staticRoutes = [
   ['/estadisticas-mercado', 'weekly', 0.7],
   ['/glosario', 'weekly', 0.8],
   ['/reclamos', 'weekly', 0.6],
+  ['/faq', 'weekly', 0.8],
 ];
 
 function brandSlugs() {

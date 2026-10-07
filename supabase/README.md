@@ -174,6 +174,13 @@ Las políticas RLS no se tocaron: el rol anónimo **sin sesión** sigue sin pode
 
 Los usuarios y avisos de prueba se borraron al terminar (0 users, 0 listings).
 
+## Aplicar migraciones
+
+`node scripts/apply-migration.mjs supabase/migrations/ARCHIVO.sql` envía el archivo completo por la Management API (`POST /v1/projects/eeqhqsteeobegaekynse/database/query`) con `SUPABASE_ACCESS_TOKEN` de `.env` (se renueva en el dashboard: Account → Tokens). Alternativa: pegar el SQL en el SQL Editor del dashboard.
+
+- `202609250001_marketplace.sql` · `202609300002_guest_publishing.sql` · `202610020001_publish_limits.sql` → aplicadas.
+- `202610070001_seller_email_verified.sql` → **pendiente de aplicar**: agrega `profiles.email_verified` + trigger `sync_profile_email_verified` (`AFTER INSERT OR UPDATE OF email_confirmed_at` sobre `auth.users`, `security definer`) + backfill + `notify pgrst, 'reload schema'`. El frontend la tolera: mientras no exista, el badge «Correo del vendedor verificado» de la ficha se oculta (reintenta sin la columna) y nada se rompe; al aplicarla se enciende sin nuevo push. Después de aplicarla, re-ejecutar `node scripts/rls-matrix.mjs`.
+
 ## Crear usuarios de prueba
 
 Usar la API admin (`POST /auth/v1/admin/users` con la `service_role` key). **No insertar directamente en `auth.users`**: GoTrue guarda `''` (texto vacío) en `confirmation_token`, `recovery_token`, `email_change_token_new`, `email_change_token_current` y `email_change`; si quedan en `NULL`, todo login sobre ese usuario falla con `Database error querying schema`.
@@ -186,3 +193,4 @@ Usar la API admin (`POST /auth/v1/admin/users` con la `service_role` key). **No 
 4. Revisión jurídica de los documentos (la razón social y el RUT siguen marcados como PENDIENTES).
 5. Migrar a renderizado en servidor para las rutas públicas y generar el sitemap de avisos.
 6. **Contratar SMTP propio** (Resend, Postmark o SendGrid) y subir `rate_limit_email_sent`. Mientras siga en 2 correos/hora no funciona ni la publicación de invitados ni el restablecimiento de contraseña.
+7. **Aplicar `202610070001_seller_email_verified.sql`** (ver «Aplicar migraciones»): el PAT de `.env` respondió 401 el 07-10-2026 y hay que renovarlo. Con la migración aplicada, re-ejecutar `scripts/rls-matrix.mjs` y comprobar el badge de correo verificado en una ficha.

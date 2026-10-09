@@ -143,6 +143,7 @@ export function FilterPanel({ filters, updateFilter, resetFilters, resultCount, 
               updateFilter('model', []);
             }}
             placeholder="Todas las marcas"
+            searchable
           />
 
           {modelOptions.length > 0 && (
@@ -152,6 +153,7 @@ export function FilterPanel({ filters, updateFilter, resetFilters, resultCount, 
               selected={filters.model}
               onChange={(v) => updateFilter('model', v)}
               placeholder="Todos los modelos"
+              searchable
             />
           )}
 

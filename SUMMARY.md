@@ -203,6 +203,7 @@ El rol anónimo (sin sesión) sigue sin poder insertar: no se tocó ninguna pol�
 - **Regla base = versión mínima** aplicada a 39 modelos (ej. Rexton $36,19M→$29,99M, Fortuner, Innova, K3, Tasman); **89 precios con decimales de conversión FX redondeados a 100 mil** (ej. Ranger $33.665.100→$33.700.000).
 - Tests: `homeSearch.test.tsx` 626→625. `LINT=0 · TEST=217/217 · BUILD=0`.
 - **Pendiente de esta auditoría**: specs heredadas sin fuente (hp/consumo de Corolla HEV y Fronx HEV, airbags Hilux/RAV4 nueva gen, gama fina L200/Sail), campo `precio lista` separado, Tucson/Sportage (híbrido como versión), y los 245 sin rating de seguridad.
+- **Fotos top ventas recambiadas (09-10-2026, `scripts/picks-top12.cjs`)**: verificación visual de las 12 confirmó 6 con generación/variante incorrecta — Corolla E210 pre-facelift, RAV4 XA50, Baleno 2015-2022, Sail II (HB y sedán) y el i10 europeo en vez del Grand i10. Nuevas fotos curadas en Commons (categoría + licencia + sin duplicados, revisadas una por una): Corolla Altis HEV GR Sport (568), RAV4 Hybrid Z 2025 CC0 (579), Baleno 1.5 GLS 2023 (546), Grand i10 Nios (245), Sail sedán 4ª gen fotografiado en Chile (120) y Aveo 310C HB mexicano como gemelo del Sail HB (119, CC BY 3.0, única opción disponible). Se mantienen Hilux Travo (= nueva Hilux), Triton (= nuevo L200), Raize, Fronx, Soluto/Pegas y ZS 2ª gen por ser generación correcta.
 
 
 ## Lote 23 — PWA y compartir: instalable en iOS, Web Share y skeletons (07-10-2026)

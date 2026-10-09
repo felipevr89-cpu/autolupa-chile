@@ -12,10 +12,12 @@ interface Props {
   selected: string[];
   onChange: (selected: string[]) => void;
   placeholder?: string;
+  searchable?: boolean;
 }
 
-export function MultiSelectDropdown({ label, options, selected, onChange, placeholder = 'Seleccionar...' }: Props) {
+export function MultiSelectDropdown({ label, options, selected, onChange, placeholder = 'Seleccionar...', searchable = false }: Props) {
   const [isOpen, setIsOpen] = useState(false);
+  const [query, setQuery] = useState('');
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -27,6 +29,15 @@ export function MultiSelectDropdown({ label, options, selected, onChange, placeh
     document.addEventListener('mousedown', handleClickOutside);
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
+
+  useEffect(() => {
+    if (!isOpen) setQuery('');
+  }, [isOpen]);
+
+  const normalized = (s: string) => s.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+  const visibleOptions = searchable && query.trim()
+    ? options.filter(o => normalized(o.label).includes(normalized(query.trim())))
+    : options;
 
   const toggleOption = (value: string) => {
     const newSelected = selected.includes(value)
@@ -79,7 +90,22 @@ export function MultiSelectDropdown({ label, options, selected, onChange, placeh
 
       {isOpen && (
         <div className="absolute z-50 w-full mt-1 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl shadow-lg max-h-60 overflow-auto">
-          {options.map((option) => {
+          {searchable && (
+            <div className="sticky top-0 p-2 bg-white dark:bg-gray-800 border-b border-gray-100 dark:border-gray-700">
+              <input
+                type="text"
+                value={query}
+                onChange={(e) => setQuery(e.target.value)}
+                placeholder="Escribe para buscar..."
+                aria-label={`Buscar en ${label}`}
+                className="w-full px-3 py-2 text-sm bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg focus:outline-none focus:border-blue-500 dark:focus:border-blue-400"
+              />
+            </div>
+          )}
+          {visibleOptions.length === 0 && (
+            <p className="px-4 py-3 text-sm text-gray-500 dark:text-gray-400">Sin resultados para "{query}"</p>
+          )}
+          {visibleOptions.map((option) => {
             const isSelected = selected.includes(option.value);
             return (
               <button

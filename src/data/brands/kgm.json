@@ -61,7 +61,7 @@
       "type": "pickup",
       "fuel": "diesel",
       "seats": 5,
-      "price": 29738100,
+      "price": 29700000,
       "transmission": "automatica",
       "traction": "4x4",
       "image_url": "",
@@ -89,7 +89,7 @@
       "versions": [
         {
           "version": "LX 2.2TD 4x4 AT",
-          "price": 29738100,
+          "price": 29700000,
           "transmission": "Automática 6V",
           "traction": "4x4"
         }
@@ -151,7 +151,7 @@
       "type": "suv",
       "fuel": "diesel",
       "seats": 7,
-      "price": 36190000,
+      "price": 29990000,
       "transmission": "automatica",
       "traction": "4x2",
       "image_url": "",

@@ -51,7 +51,7 @@
       "type": "minivan",
       "fuel": "diesel",
       "seats": 7,
-      "price": 34498100,
+      "price": 34500000,
       "transmission": "automatica",
       "traction": "4x2",
       "image_url": "",
@@ -78,13 +78,13 @@
       "versions": [
         {
           "version": "Elite 6+1",
-          "price": 34498100,
+          "price": 34500000,
           "transmission": "Automática 8V",
           "traction": "4x2"
         },
         {
           "version": "Luxury 6+1",
-          "price": 41043100,
+          "price": 41000000,
           "transmission": "Automática 8V",
           "traction": "4x2"
         }
@@ -98,7 +98,7 @@
       "type": "pickup",
       "fuel": "diesel",
       "seats": 5,
-      "price": 20694100,
+      "price": 20700000,
       "transmission": "automatica",
       "traction": "4x2",
       "image_url": "",
@@ -126,19 +126,19 @@
       "versions": [
         {
           "version": "2.0T 4x2 MT",
-          "price": 20694100,
+          "price": 20700000,
           "transmission": "Manual 6V",
           "traction": "4x2"
         },
         {
           "version": "2.0T 4x2 AT",
-          "price": 22694100,
+          "price": 22700000,
           "transmission": "Automática 6V",
           "traction": "4x2"
         },
         {
           "version": "2.0T 4x4 AT",
-          "price": 24694100,
+          "price": 24700000,
           "transmission": "Automática 6V",
           "traction": "4x4"
         }
@@ -152,7 +152,7 @@
       "type": "pickup",
       "fuel": "diesel",
       "seats": 5,
-      "price": 30237900,
+      "price": 30200000,
       "transmission": "automatica",
       "traction": "4x4",
       "image_url": "",
@@ -184,7 +184,7 @@
       "versions": [
         {
           "version": "2.0T Biturbo 4x4 AT",
-          "price": 30237900,
+          "price": 30200000,
           "transmission": "Automática 8V",
           "traction": "4x4"
         }
@@ -198,7 +198,7 @@
       "type": "pickup",
       "fuel": "diesel",
       "seats": 5,
-      "price": 37497900,
+      "price": 37500000,
       "transmission": "automatica",
       "traction": "4x4",
       "image_url": "",
@@ -231,13 +231,13 @@
       "versions": [
         {
           "version": "GL 2.0T 4x4 AT",
-          "price": 37497900,
+          "price": 37500000,
           "transmission": "Automática 8V",
           "traction": "4x4"
         },
         {
           "version": "GLX 2.0T 4x4 AT",
-          "price": 41127900,
+          "price": 41100000,
           "transmission": "Automática 8V",
           "traction": "4x4"
         }

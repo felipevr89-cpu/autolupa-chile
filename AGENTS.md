@@ -51,7 +51,7 @@ src/
 ├── data/
 │   ├── brands/                  # Un JSON por marca (allBrands vía import.meta.glob)
 │   │   └── index.ts             # carsData, brandUrls, BRANDS_NOT_SOLD_NEW_IN_CHILE
-│   ├── carImages.json           # Mapeo id → { file, source, license } o null (626 claves)
+│   ├── carImages.json           # Mapeo id → { file, source, license } o null (625 claves)
 │   ├── credit.ts                # Tasas de crédito mercado 2026 + simulateCredit + monthlyPayment
 │   ├── energyCosts.ts           # HOME_KWH 150 / FAST_KWH 350 / gasolina 1300 / diesel 1150
 │   ├── enrichment.ts            # Completa rango/batería/seguridad por marca|modelo
@@ -79,7 +79,7 @@ src/
 ## Funcionalidades Implementadas
 
 ### Core
-- **Catálogo**: 626 vehículos, 100+ marcas en `src/data/brands/*.json`
+- **Catálogo**: 625 vehículos, 100+ marcas en `src/data/brands/*.json`
 - **Búsqueda y filtros**: Marca, modelo, tipo, combustible, precio, años (rango dinámico), tracción, asientos
 - **Comparación**: Hasta 3 vehículos lado a lado (CompareTable)
 - **Favoritos**: Sync con Supabase para usuarios autenticados + localStorage como respaldo
@@ -105,7 +105,7 @@ src/
 - Resultados con fotos reales (CarImage), no gradientes de marca.
 
 ### Recomendador semántico local (`SmartAsk.tsx` + `data/recommender.ts`)
-- **Motor 100% local/offline, sin API**: `parseQuery` interpreta lenguaje natural en español (presupuesto en CLP "millones/palos/$ con puntos", uso, combustible con sinónimos, transmisión, plazas, tracción, formato, prioridades, marca del catálogo, año) y `recommend` puntúa los 626 autos con pesos por dimensión (presupuesto 20, uso 20, combustible 15, prioridad 15, plazas 10, transmisión 8, tracción 7, formato 5).
+- **Motor 100% local/offline, sin API**: `parseQuery` interpreta lenguaje natural en español (presupuesto en CLP "millones/palos/$ con puntos", uso, combustible con sinónimos, transmisión, plazas, tracción, formato, prioridades, marca del catálogo, año) y `recommend` puntúa los 625 autos con pesos por dimensión (presupuesto 20, uso 20, combustible 15, prioridad 15, plazas 10, transmisión 8, tracción 7, formato 5).
 - **Filtros duros** solo para lo explícito: marca, formato, año mínimo y ≥6 plazas; el resto es scoring suave (nunca vacía resultados sin motivo).
 - **Explicaciones**: cada recomendación incluye `reasons` en español ("Precio $16.490.000 bajo tu tope de $25.000.000", "Motor híbrido", "Calificación 5 estrellas Euro NCAP"…); chips "Entendí:" muestran la intención detectada.
 - UI en Home (botón "Pregunta con tus palabras"): modal con input libre, ejemplos clicables, top 10 con afinidad y motivos, comparar y ver detalle; Escape vuelve al modal tras abrir un resultado.
@@ -118,7 +118,7 @@ src/
 
 ## Imágenes (`src/data/carImages.json` + `public/car-images/`)
 - Mapeo id → `{ file, source, license, attribution }` o `null` (silueta).
-- Estado auditado (Lote 18): **626 claves / 617 con foto / 9 siluetas**; todas con source + license + attribution, 0 archivos faltantes en disco, 0 archivos huérfanos.
+- Estado auditado (09-10-2026): **625 claves / 616 con foto / 9 siluetas** (`file: null`: ids 146, 223, 364, 528, 529, 616, 629, 630, 632); 0 archivos faltantes en disco, 0 archivos huérfanos.
 - Regla: no duplicar fuente entre modelos distintos; verificar con el escaneo de `source` compartido (las 19 fuentes compartidas son variantes de un mismo modelo).
 - Pase 2026: 131 fotos añadidas desde Commons (API, ancho 1000px, metadata real). ~15 son de la misma generación de plataforma comercial (best-effort documentado en SUMMARY.md); curaduría por modelo.
 - Lote 18: **67 fotos** de Commons con curaduría por modelo (56 siluetas cerradas + 11 ids de otra variante repuestos por la auditoría; ver SUMMARY.md). Scripts: `picks-lote18.cjs` (elecciones), `check-commons.cjs` (categorías/licencia/duplicados) y `download-picks.cjs` (descarga + manifiesto).

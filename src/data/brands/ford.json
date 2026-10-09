@@ -96,7 +96,7 @@
       "type": "pickup",
       "fuel": "diesel",
       "seats": 5,
-      "price": 33665100,
+      "price": 27800000,
       "transmission": "automatica",
       "traction": "4x4",
       "image_url": "",
@@ -105,13 +105,13 @@
       "versions": [
         {
           "version": "XLS 2.0L MT 4x2",
-          "price": 27834100,
+          "price": 27800000,
           "transmission": "manual",
           "traction": "4x2"
         },
         {
           "version": "XL 2.0L MT 4x4",
-          "price": 32594100,
+          "price": 32600000,
           "transmission": "manual",
           "traction": "4x4"
         },
@@ -164,7 +164,7 @@
       "type": "pickup",
       "fuel": "gasolina",
       "seats": 5,
-      "price": 60440100,
+      "price": 60400000,
       "transmission": "automatica",
       "traction": "4x4",
       "image_url": "",
@@ -173,7 +173,7 @@
       "versions": [
         {
           "version": "3.0L V6 Bi-Turbo 4x4",
-          "price": 60440100,
+          "price": 60400000,
           "transmission": "automatica",
           "traction": "4x4"
         }
@@ -312,7 +312,7 @@
       "type": "pickup",
       "fuel": "gasolina",
       "seats": 5,
-      "price": 29143100,
+      "price": 29100000,
       "transmission": "automatica",
       "traction": "4x4",
       "image_url": "",
@@ -321,7 +321,7 @@
       "versions": [
         {
           "version": "XLT 2.0L EcoBoost 4x4 AT",
-          "price": 29143100,
+          "price": 29100000,
           "transmission": "automatica",
           "traction": "4x4"
         },
@@ -413,7 +413,7 @@
       "type": "pickup",
       "fuel": "gasolina",
       "seats": 5,
-      "price": 52348100,
+      "price": 52300000,
       "transmission": "automatica",
       "traction": "4x4",
       "image_url": "",
@@ -422,7 +422,7 @@
       "versions": [
         {
           "version": "XLT CC 4x4 5.0L V8 AT",
-          "price": 52348100,
+          "price": 52300000,
           "transmission": "automatica",
           "traction": "4x4"
         },
@@ -464,7 +464,7 @@
       "type": "suv",
       "fuel": "gasolina",
       "seats": 5,
-      "price": 58990000,
+      "price": 52990000,
       "transmission": "automatica",
       "traction": "4x4",
       "image_url": "",
@@ -515,7 +515,7 @@
       "type": "suv",
       "fuel": "gasolina",
       "seats": 8,
-      "price": 70990000,
+      "price": 61990000,
       "transmission": "automatica",
       "traction": "4x4",
       "image_url": "",
@@ -616,7 +616,7 @@
       "type": "pickup",
       "fuel": "hibrido",
       "seats": 5,
-      "price": 37473100,
+      "price": 37500000,
       "transmission": "automatica",
       "traction": "4x4",
       "image_url": "",
@@ -625,7 +625,7 @@
       "versions": [
         {
           "version": "Lariat FHEV 2.5 AT 4x4",
-          "price": 37473100,
+          "price": 37500000,
           "transmission": "automatica",
           "traction": "4x4"
         }
@@ -660,7 +660,7 @@
       "type": "minivan",
       "fuel": "diesel",
       "seats": 3,
-      "price": 32118100,
+      "price": 32100000,
       "transmission": "manual",
       "traction": "4x2",
       "image_url": "",
@@ -669,19 +669,19 @@
       "versions": [
         {
           "version": "Custom V710 Van L1H1 2.0L MT",
-          "price": 32118100,
+          "price": 32100000,
           "transmission": "manual",
           "traction": "4x2"
         },
         {
           "version": "Furgón Techo Alto L3H3 AT Plus",
-          "price": 38068100,
+          "price": 38100000,
           "transmission": "automatica",
           "traction": "4x2"
         },
         {
           "version": "Bus 14+1 2.0L MT L3H3",
-          "price": 49932400,
+          "price": 49900000,
           "transmission": "manual",
           "traction": "4x2"
         }

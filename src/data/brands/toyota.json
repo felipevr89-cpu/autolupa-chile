@@ -232,11 +232,11 @@
       "id": 568,
       "brand": "Toyota",
       "model": "Corolla",
-      "year": 2025,
+      "year": 2026,
       "type": "sedan",
-      "fuel": "gasolina",
+      "fuel": "hibrido",
       "seats": 5,
-      "price": 17990000,
+      "price": 24790000,
       "transmission": "automatica",
       "traction": "4x2",
       "image_url": "",
@@ -245,20 +245,20 @@
       "origin_country": "Japón",
       "versions": [
         {
-          "version": "SE",
-          "price": 17990000,
+          "version": "XLI 1.8 eCVT",
+          "price": 24790000,
           "transmission": "automatica",
           "traction": "4x2"
         },
         {
-          "version": "XEL",
-          "price": 20990000,
+          "version": "XEI 1.8 eCVT",
+          "price": 25990000,
           "transmission": "automatica",
           "traction": "4x2"
         },
         {
-          "version": "Híbrido",
-          "price": 22990000,
+          "version": "SEG 1.8 eCVT",
+          "price": 28490000,
           "transmission": "automatica",
           "traction": "4x2"
         }
@@ -273,7 +273,7 @@
       "wheelbase_mm": 2700,
       "ground_clearance_mm": 135,
       "trunk_liters": 470,
-      "airbags": 8,
+      "airbags": 7,
       "isofix": true,
       "infotainment": [
         "Pantalla 8\"",
@@ -412,7 +412,7 @@
       "type": "suv",
       "fuel": "diesel",
       "seats": 7,
-      "price": 32990000,
+      "price": 30990000,
       "transmission": "automatica",
       "traction": "4x4",
       "image_url": "",
@@ -521,12 +521,12 @@
       "id": 573,
       "brand": "Toyota",
       "model": "Hilux",
-      "year": 2025,
+      "year": 2026,
       "type": "pickup",
       "fuel": "diesel",
       "seats": 5,
-      "price": 26990000,
-      "transmission": "automatica",
+      "price": 32490000,
+      "transmission": "manual",
       "traction": "4x2",
       "image_url": "",
       "description": "Pickup legendaria por su durabilidad y capacidad",
@@ -535,25 +535,19 @@
       "versions": [
         {
           "version": "DX 4x2",
-          "price": 26990000,
+          "price": 32490000,
           "transmission": "manual",
           "traction": "4x2"
         },
         {
-          "version": "SRV 4x2",
-          "price": 30990000,
-          "transmission": "automatica",
+          "version": "SR 4x2",
+          "price": 34490000,
+          "transmission": "manual",
           "traction": "4x2"
         },
         {
           "version": "SRV 4x4",
-          "price": 34990000,
-          "transmission": "automatica",
-          "traction": "4x4"
-        },
-        {
-          "version": "Conquest 4x4",
-          "price": 37990000,
+          "price": 46090000,
           "transmission": "automatica",
           "traction": "4x4"
         }
@@ -586,7 +580,7 @@
       "type": "minivan",
       "fuel": "diesel",
       "seats": 7,
-      "price": 28990000,
+      "price": 25990000,
       "transmission": "automatica",
       "traction": "4x2",
       "image_url": "",
@@ -809,8 +803,8 @@
       "type": "suv",
       "fuel": "gasolina",
       "seats": 5,
-      "price": 15990000,
-      "transmission": "automatica",
+      "price": 13990000,
+      "transmission": "manual",
       "traction": "4x2",
       "image_url": "",
       "description": "SUV urbano compacto con diseño moderno y eficiencia sobresaliente.",
@@ -843,15 +837,21 @@
       "origin_country": "Japón",
       "versions": [
         {
+          "version": "i MT",
+          "price": 13990000,
+          "transmission": "manual",
+          "traction": "4x2"
+        },
+        {
           "version": "1.0T AT",
           "price": 15990000,
-          "transmission": "automática",
+          "transmission": "automatica",
           "traction": "4x2"
         },
         {
           "version": "1.0T AT Limited",
           "price": 17990000,
-          "transmission": "automática",
+          "transmission": "automatica",
           "traction": "4x2"
         }
       ]
@@ -860,11 +860,11 @@
       "id": 579,
       "brand": "Toyota",
       "model": "RAV4",
-      "year": 2025,
+      "year": 2026,
       "type": "suv",
       "fuel": "gasolina",
       "seats": 5,
-      "price": 26990000,
+      "price": 28990000,
       "transmission": "automatica",
       "traction": "4x2",
       "image_url": "",
@@ -873,31 +873,25 @@
       "origin_country": "Japón",
       "versions": [
         {
-          "version": "XE",
-          "price": 26990000,
+          "version": "LE 2.0 4x2 CVT",
+          "price": 28990000,
           "transmission": "automatica",
           "traction": "4x2"
         },
         {
-          "version": "XEL",
+          "version": "LE 2.0 AWD CVT",
           "price": 29990000,
           "transmission": "automatica",
-          "traction": "4x2"
-        },
-        {
-          "version": "Adventure",
-          "price": 33990000,
-          "transmission": "automatica",
-          "traction": "4x4"
-        },
-        {
-          "version": "Híbrido",
-          "price": 31990000,
-          "transmission": "automatica",
           "traction": "awd"
+        },
+        {
+          "version": "HEV 2.0",
+          "price": 33490000,
+          "transmission": "automatica",
+          "traction": "4x2"
         }
       ],
-      "hp": 203,
+      "hp": 169,
       "torque_nm": 243,
       "fuel_consumption_mixed_km_l": 15,
       "fuel_tank_liters": 55,

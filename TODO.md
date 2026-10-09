@@ -184,7 +184,7 @@ Chat en tiempo real · reputación/estrellas de vendedores · integración Autof
 - [ ] Toyota C-HR/Corolla/RAV4, Kia Sportage: versiones híbridas bajo tipo base (inconsistente)
 - [ ] Kia Niro (319): 3 tipos en una entrada → considerar separar
 - [ ] Hyundai Porter (254): ¿gasolina o diésel en Chile 2026?
-- [ ] MG Cyberster duplicado (416, 423): diferenciar nombre
+- [x] MG Cyberster duplicado (416, 423) → **resuelto 09-10-2026**: eran 2 versiones del mismo modelo (77kWh 2WD $59,99M / AWD $67,99M, fuentes mgmotor.cl + Pompeyo/Difor); entrada única id 423 con batería 77 kWh, id 416 eliminado con su foto duplicada (bytes idénticos)
 - [ ] Redundancia `origin`/`origin_country` → unificar a uno solo
 - [ ] Favicon: crear logo 🔍 de AutoLupa
 

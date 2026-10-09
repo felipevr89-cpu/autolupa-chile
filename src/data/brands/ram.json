@@ -63,7 +63,7 @@
       "type": "pickup",
       "fuel": "gasolina",
       "seats": 5,
-      "price": 76148100,
+      "price": 76100000,
       "transmission": "automatica",
       "traction": "4x4",
       "image_url": "",
@@ -72,7 +72,7 @@
       "versions": [
         {
           "version": "5.7L HEMI V8 4x4",
-          "price": 76148100,
+          "price": 76100000,
           "transmission": "automatica",
           "traction": "4x4"
         }
@@ -199,7 +199,7 @@
       "type": "pickup",
       "fuel": "gasolina",
       "seats": 2,
-      "price": 16053100,
+      "price": 16100000,
       "transmission": "manual",
       "traction": "4x2",
       "image_url": "",
@@ -208,7 +208,7 @@
       "versions": [
         {
           "version": "1.4L SLT MT",
-          "price": 16053100,
+          "price": 16100000,
           "transmission": "manual",
           "traction": "4x2"
         }
@@ -292,7 +292,7 @@
       "type": "pickup",
       "fuel": "diesel",
       "seats": 5,
-      "price": 39258100,
+      "price": 39300000,
       "transmission": "automatica",
       "traction": "4x4",
       "image_url": "",
@@ -301,7 +301,7 @@
       "versions": [
         {
           "version": "2.2L Bighorn AT9 4x4",
-          "price": 39258100,
+          "price": 39300000,
           "transmission": "automatica",
           "traction": "4x4"
         },

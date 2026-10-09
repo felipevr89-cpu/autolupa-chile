@@ -111,7 +111,7 @@
       "type": "suv",
       "fuel": "gasolina",
       "seats": 7,
-      "price": 37990000,
+      "price": 35990000,
       "transmission": "automatica",
       "traction": "4x2",
       "image_url": "",
@@ -173,7 +173,7 @@
       "type": "suv",
       "fuel": "gasolina",
       "seats": 5,
-      "price": 27890000,
+      "price": 27490000,
       "transmission": "automatica",
       "traction": "4x4",
       "image_url": "",
@@ -273,7 +273,7 @@
       "type": "pickup",
       "fuel": "gasolina",
       "seats": 5,
-      "price": 72578100,
+      "price": 72600000,
       "transmission": "automatica",
       "traction": "4x4",
       "image_url": "",
@@ -282,7 +282,7 @@
       "versions": [
         {
           "version": "3.6L Rubicon 4x4",
-          "price": 72578100,
+          "price": 72600000,
           "transmission": "automatica",
           "traction": "4x4"
         }

@@ -10,7 +10,7 @@
       "type": "pickup",
       "fuel": "electrico",
       "seats": 5,
-      "price": 51597900,
+      "price": 51600000,
       "transmission": "automatica",
       "traction": "4x2",
       "image_url": "",
@@ -40,25 +40,25 @@
       "versions": [
         {
           "version": "4x2 Air 63kWh",
-          "price": 51597900,
+          "price": 51600000,
           "transmission": "Automática",
           "traction": "4x2"
         },
         {
           "version": "4x2 Ultra 86kWh",
-          "price": 57539000,
+          "price": 57500000,
           "transmission": "Automática",
           "traction": "4x2"
         },
         {
           "version": "4x4 Pro 86kWh",
-          "price": 57647900,
+          "price": 57600000,
           "transmission": "Automática",
           "traction": "4x4"
         },
         {
           "version": "4x4 Ultra 100kWh",
-          "price": 64799000,
+          "price": 64800000,
           "transmission": "Automática",
           "traction": "4x4"
         }

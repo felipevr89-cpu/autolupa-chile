@@ -37,7 +37,7 @@ function renderHome() {
             element={
               <Home
                 cars={[]}
-                allCarsCount={626}
+                allCarsCount={625}
                 totalPages={1}
                 currentPage={1}
                 setCurrentPage={noop}
@@ -86,13 +86,13 @@ describe('buscador dual de la portada', () => {
   it('muestra 6 destacados antes de abrir el catálogo completo', () => {
     renderHome();
     expect(screen.getByRole('heading', { name: /autos destacados/i })).toBeInTheDocument();
-    expect(screen.getByRole('button', { name: /ver catálogo completo \(626 vehículos\)/i })).toBeInTheDocument();
-    expect(screen.queryByText(/mostrando 1-15 de 626 vehículos/i)).not.toBeInTheDocument();
+    expect(screen.getByRole('button', { name: /ver catálogo completo \(625 vehículos\)/i })).toBeInTheDocument();
+    expect(screen.queryByText(/mostrando 1-15 de 625 vehículos/i)).not.toBeInTheDocument();
 
     fireEvent.click(screen.getByRole('button', { name: /ver catálogo completo/i }));
 
     expect(screen.getByRole('heading', { name: /explorar todo el catálogo/i })).toBeInTheDocument();
-    expect(screen.getByText(/mostrando 1-15 de 626 vehículos/i)).toBeInTheDocument();
+    expect(screen.getByText(/mostrando 1-15 de 625 vehículos/i)).toBeInTheDocument();
     expect(screen.queryByRole('button', { name: /ver catálogo completo/i })).not.toBeInTheDocument();
   });
 

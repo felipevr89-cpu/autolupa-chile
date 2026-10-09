@@ -10,7 +10,7 @@
       "type": "sedan",
       "fuel": "gasolina",
       "seats": 5,
-      "price": 13990000,
+      "price": 12990000,
       "transmission": "automatica",
       "traction": "4x2",
       "image_url": "",
@@ -119,7 +119,7 @@
       "type": "pickup",
       "fuel": "gasolina",
       "seats": 5,
-      "price": 19338000,
+      "price": 19300000,
       "transmission": "manual",
       "traction": "4x2",
       "image_url": "",
@@ -128,19 +128,19 @@
       "versions": [
         {
           "version": "2.3T MT 4x2",
-          "price": 19338000,
+          "price": 19300000,
           "transmission": "manual",
           "traction": "4x2"
         },
         {
           "version": "2.3T MT 4x4",
-          "price": 21718000,
+          "price": 21700000,
           "transmission": "manual",
           "traction": "4x4"
         },
         {
           "version": "2.3T AT 4x4",
-          "price": 25288000,
+          "price": 25300000,
           "transmission": "automatica",
           "traction": "4x4"
         }

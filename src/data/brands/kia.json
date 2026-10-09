@@ -358,7 +358,7 @@
       "type": "suv",
       "fuel": "electrico",
       "seats": 7,
-      "price": 54990000,
+      "price": 49990000,
       "transmission": "automatica",
       "traction": "awd",
       "image_url": "",
@@ -414,7 +414,7 @@
       "type": "sedan",
       "fuel": "gasolina",
       "seats": 5,
-      "price": 12990000,
+      "price": 11990000,
       "transmission": "automatica",
       "traction": "4x2",
       "image_url": "",
@@ -787,14 +787,20 @@
       "origin_country": "Corea del Sur",
       "versions": [
         {
-          "version": "1.4L MT",
+          "version": "LX 1.4L MT",
           "price": 9990000,
           "transmission": "manual",
           "traction": "4x2"
         },
         {
-          "version": "1.4L AT",
+          "version": "LX 1.4L 4AT HIGH",
           "price": 11490000,
+          "transmission": "automatica",
+          "traction": "4x2"
+        },
+        {
+          "version": "EX 1.4L 4AT FULL",
+          "price": 12490000,
           "transmission": "automatica",
           "traction": "4x2"
         }
@@ -1165,7 +1171,7 @@
       "type": "pickup",
       "fuel": "diesel",
       "seats": 5,
-      "price": 29990000,
+      "price": 26990000,
       "transmission": "automatica",
       "traction": "4x4",
       "image_url": "",

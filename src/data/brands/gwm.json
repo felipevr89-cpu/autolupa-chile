@@ -617,7 +617,7 @@
       "type": "pickup",
       "fuel": "diesel",
       "seats": 5,
-      "price": 24026000,
+      "price": 22000000,
       "transmission": "automatica",
       "traction": "4x4",
       "image_url": "",
@@ -632,7 +632,7 @@
         },
         {
           "version": "2.0T 4x4 AT",
-          "price": 24026000,
+          "price": 24000000,
           "transmission": "automatica",
           "traction": "4x4"
         }
@@ -718,7 +718,7 @@
       "type": "pickup",
       "fuel": "diesel",
       "seats": 5,
-      "price": 28905000,
+      "price": 28900000,
       "transmission": "automatica",
       "traction": "4x4",
       "image_url": "",
@@ -727,7 +727,7 @@
       "versions": [
         {
           "version": "2.0T Premium 4x4 AT",
-          "price": 28905000,
+          "price": 28900000,
           "transmission": "automatica",
           "traction": "4x4"
         }
@@ -926,7 +926,7 @@
       "type": "pickup",
       "fuel": "diesel",
       "seats": 5,
-      "price": 17243000,
+      "price": 15200000,
       "transmission": "manual",
       "traction": "4x4",
       "image_url": "",
@@ -935,13 +935,13 @@
       "versions": [
         {
           "version": "2.0T 4x2 MT",
-          "price": 15243000,
+          "price": 15200000,
           "transmission": "manual",
           "traction": "4x2"
         },
         {
           "version": "2.0T 4x4 MT",
-          "price": 17243000,
+          "price": 17200000,
           "transmission": "manual",
           "traction": "4x4"
         }

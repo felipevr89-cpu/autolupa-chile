@@ -112,12 +112,12 @@
       "id": 546,
       "brand": "Suzuki",
       "model": "Baleno",
-      "year": 2025,
+      "year": 2026,
       "type": "hatchback",
       "fuel": "gasolina",
       "seats": 5,
       "price": 12990000,
-      "transmission": "automatica",
+      "transmission": "manual",
       "traction": "4x2",
       "image_url": "",
       "description": "Hatchback compacto con excelente rendimiento de combustible",
@@ -125,15 +125,15 @@
       "origin_country": "Japón",
       "versions": [
         {
-          "version": "GA",
+          "version": "GLS MT",
           "price": 12990000,
-          "transmission": "automatica",
+          "transmission": "manual",
           "traction": "4x2"
         },
         {
-          "version": "GL",
-          "price": 14990000,
-          "transmission": "automatica",
+          "version": "GLX MT",
+          "price": 15790000,
+          "transmission": "manual",
           "traction": "4x2"
         }
       ],
@@ -147,7 +147,7 @@
       "wheelbase_mm": 2520,
       "ground_clearance_mm": 160,
       "trunk_liters": 355,
-      "airbags": 2,
+      "airbags": 6,
       "isofix": true,
       "infotainment": [
         "Pantalla 9\"",
@@ -268,7 +268,7 @@
       "type": "minivan",
       "fuel": "gasolina",
       "seats": 7,
-      "price": 15990000,
+      "price": 14990000,
       "transmission": "automatica",
       "traction": "4x2",
       "image_url": "",
@@ -313,28 +313,34 @@
       "id": 550,
       "brand": "Suzuki",
       "model": "Fronx",
-      "year": 2025,
+      "year": 2026,
       "type": "suv",
-      "fuel": "gasolina",
+      "fuel": "hibrido",
       "seats": 5,
-      "price": 15990000,
-      "transmission": "automatica",
+      "price": 17590000,
+      "transmission": "manual",
       "traction": "4x2",
       "image_url": "",
-      "description": "Crossover subcompacto con motor turbo y diseño moderno",
+      "description": "Crossover subcompacto híbrido 1.5L con diseño moderno y bajo consumo.",
       "origin": "India",
       "origin_country": "Japón",
       "versions": [
         {
-          "version": "GL",
-          "price": 15990000,
+          "version": "GL MT",
+          "price": 17590000,
+          "transmission": "manual",
+          "traction": "4x2"
+        },
+        {
+          "version": "GL AT",
+          "price": 18990000,
           "transmission": "automatica",
           "traction": "4x2"
         },
         {
-          "version": "GLX",
-          "price": 18990000,
-          "transmission": "automatica",
+          "version": "GLX MT",
+          "price": 19090000,
+          "transmission": "manual",
           "traction": "4x2"
         }
       ],

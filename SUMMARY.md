@@ -185,6 +185,26 @@ El rol anónimo (sin sesión) sigue sin poder insertar: no se tocó ninguna pol�
 
 
 
+## Verificación contra fichas oficiales — Corrección de datos del catálogo (09-10-2026)
+
+- **Metodología**: muestra de 12 modelos top ventas Chile (ANAC 2025–2026) contrastada con toyota.cl, mgmotor.cl, suzuki.cl, hyundai.cl, kia.cl, chevrolet.cl, mitsubishi-motors.cl, Latin NCAP y dealers (Portillo, Bruno Fritsch, Kovacs, Derco, auto.cl, autocosmos, autofact, chileautos, autenzy). Tabla completa en el hilo del 09-10. Criterio de precio adoptado: **"desde" (mejor precio publicado, normalmente con bono)**; cuando el "desde" oficial es con bono no se etiqueta aún como tal (pendiente: campo `precio lista` separado).
+- **Toyota Corolla (568)**: era gasolina SE/XEL con 8AB → ahora **híbrido XLI/XEI/SEG 1.8 eCVT** (lista $24,79M/$25,99M/$28,49M, fuentes autenzy + chileautos + kovacs), 7AB (toyota.cl), año 2026. HP/consumo heredados, pendientes de ficha HEV.
+- **Toyota Hilux (573)**: All New Hilux — año 2026, versiones DX 4x2 $32,49M / SR 4x2 $34,49M (lista, Kovacs) / SRV 4x4 2.8 AT $46,09M (toyota.cl); se elimina Conquest (generación anterior). Transmisión base pasa a manual.
+- **Toyota RAV4 (579)**: All New RAV4 6ª gen — año 2026, versiones LE 2.0 4x2 CVT $28,99M / LE AWD $29,99M (lista, autocosmos) / HEV $33,49M (Portillo Sur), hp 169 (2.0 gas).
+- **Toyota Raize (578)**: se suma versión i MT $13,99M (toyota.cl + rango lista autenzy); base 15,99M → 13,99M.
+- **Suzuki Baleno (546)**: new Baleno GLS/GLX (suzuki.cl), **6AB** (Global Suzuki + Latin NCAP 2 estrellas dic-2025), transmisión base manual, año 2026. Precio base $12,99M coincide con lista de entrada.
+- **Suzuki Fronx (550)**: era gasolina 1.4T → ahora **Fronx Hybrid 1.5** (suzuki.cl, Derco, autofact): GL MT $17,59M / GL AT $18,99M / GLX MT $19,09M (lista), año 2026. HP/consumo heredados, pendientes de ficha HEV.
+- **Hyundai Grand i10 (245)**: base 9,99M → **$8,99M** (desde GO FL, hyundai.cl), **6AB de serie** (Bruno Fritsch).
+- **Kia Soluto (323)**: versiones renombradas LX MT / LX 4AT HIGH $11,49M / EX 4AT FULL $12,49M (kia.cl + theclinic); base $9,99M ≈ con bono, sin cambios.
+- **Chevrolet Sail HB (119)**: base 9,99M → **$9,49M** con versión LT MT (Coseche/chevrolet.cl); HB y Sedán (120) pasan a año 2026.
+- **Mitsubishi L200 (445)**: año 2026, base 26,99M → 23,99M (= versión mínima; rango lista oficial $29,74–50,56M en autenzy sugiere revisión fina pendiente), transmisión base manual.
+- **MG ZS (427)**: verificado sin cambios (base $10,39M = desde con bono oficial).
+- **MG Cyberster duplicado resuelto**: 416+423 eran el mismo modelo en dos años → entrada única 2026 (id 423) con 77kWh 2WD $59,99M / AWD $67,99M (mgmotor.cl, autenzy, Difor) + `battery_kwh: 77`; id 416 eliminado con su foto (bytes idénticos a 423.jpg). Catálogo: **625 modelos**; fotos: **625 claves / 616 con foto / 9 siluetas**.
+- **Regla base = versión mínima** aplicada a 39 modelos (ej. Rexton $36,19M→$29,99M, Fortuner, Innova, K3, Tasman); **89 precios con decimales de conversión FX redondeados a 100 mil** (ej. Ranger $33.665.100→$33.700.000).
+- Tests: `homeSearch.test.tsx` 626→625. `LINT=0 · TEST=217/217 · BUILD=0`.
+- **Pendiente de esta auditoría**: specs heredadas sin fuente (hp/consumo de Corolla HEV y Fronx HEV, airbags Hilux/RAV4 nueva gen, gama fina L200/Sail), campo `precio lista` separado, Tucson/Sportage (híbrido como versión), y los 245 sin rating de seguridad.
+
+
 ## Lote 23 — PWA y compartir: instalable en iOS, Web Share y skeletons (07-10-2026)
 
 - **Instalable correcto en iOS** (Apple no dispara `beforeinstallprompt`, todo lo demás lo exige la ficha de la app):

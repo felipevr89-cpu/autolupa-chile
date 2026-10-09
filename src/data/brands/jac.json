@@ -59,7 +59,7 @@
       "type": "suv",
       "fuel": "gasolina",
       "seats": 5,
-      "price": 14790000,
+      "price": 13790000,
       "transmission": "automatica",
       "traction": "4x2",
       "image_url": "",
@@ -106,7 +106,7 @@
       "type": "suv",
       "fuel": "gasolina",
       "seats": 5,
-      "price": 15990000,
+      "price": 14990000,
       "transmission": "automatica",
       "traction": "4x2",
       "image_url": "",
@@ -153,7 +153,7 @@
       "type": "minivan",
       "fuel": "diesel",
       "seats": 17,
-      "price": 32356100,
+      "price": 32400000,
       "transmission": "manual",
       "traction": "4x2",
       "image_url": "",
@@ -178,7 +178,7 @@
       "versions": [
         {
           "version": "Pasajeros 2.0T MT",
-          "price": 32356100,
+          "price": 32400000,
           "transmission": "Manual 6V",
           "traction": "4x2"
         }
@@ -239,7 +239,7 @@
       "type": "pickup",
       "fuel": "diesel",
       "seats": 5,
-      "price": 28786100,
+      "price": 28800000,
       "transmission": "automatica",
       "traction": "4x4",
       "image_url": "",
@@ -267,7 +267,7 @@
       "versions": [
         {
           "version": "2.0T 4x4 Automática",
-          "price": 28786100,
+          "price": 28800000,
           "transmission": "Automática 8V",
           "traction": "4x4"
         }

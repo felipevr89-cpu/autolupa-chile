@@ -10,7 +10,7 @@
       "type": "suv",
       "fuel": "gasolina",
       "seats": 7,
-      "price": 93137850,
+      "price": 93100000,
       "transmission": "automatica",
       "traction": "awd",
       "image_url": "",
@@ -19,13 +19,13 @@
       "versions": [
         {
           "version": "Luxury V8 4WD",
-          "price": 93137850,
+          "price": 93100000,
           "transmission": "automatica",
           "traction": "4x4"
         },
         {
           "version": "Premium Luxury V8 4WD",
-          "price": 107766570,
+          "price": 107800000,
           "transmission": "automatica",
           "traction": "4x4"
         }

@@ -245,7 +245,7 @@
       "type": "hatchback",
       "fuel": "gasolina",
       "seats": 5,
-      "price": 9990000,
+      "price": 8990000,
       "transmission": "manual",
       "traction": "4x2",
       "image_url": "",
@@ -260,7 +260,7 @@
       "fuel_tank_liters": 38,
       "ground_clearance_mm": 160,
       "trunk_liters": 260,
-      "airbags": 4,
+      "airbags": 6,
       "isofix": true,
       "adas": [
         "Cámara de retroceso",
@@ -278,8 +278,8 @@
       "origin_country": "India",
       "versions": [
         {
-          "version": "1.2L MT",
-          "price": 9990000,
+          "version": "1.2L MT GO",
+          "price": 8990000,
           "transmission": "manual",
           "traction": "4x2"
         },
@@ -462,7 +462,7 @@
       "type": "hatchback",
       "fuel": "electrico",
       "seats": 5,
-      "price": 21990000,
+      "price": 19990000,
       "transmission": "automatica",
       "traction": "4x2",
       "image_url": "",
@@ -684,7 +684,7 @@
       "type": "suv",
       "fuel": "gasolina",
       "seats": 7,
-      "price": 44990000,
+      "price": 41990000,
       "transmission": "automatica",
       "traction": "4x4",
       "image_url": "",
@@ -742,7 +742,7 @@
       "type": "pickup",
       "fuel": "gasolina",
       "seats": 5,
-      "price": 23193100,
+      "price": 23200000,
       "transmission": "manual",
       "traction": "4x2",
       "image_url": "",
@@ -774,13 +774,13 @@
       "versions": [
         {
           "version": "Cabina Simple",
-          "price": 23193100,
+          "price": 23200000,
           "transmission": "manual",
           "traction": "4x2"
         },
         {
           "version": "Cabina Doble",
-          "price": 25193100,
+          "price": 25200000,
           "transmission": "manual",
           "traction": "4x2"
         }
@@ -1037,7 +1037,7 @@
       "type": "suv",
       "fuel": "gasolina",
       "seats": 5,
-      "price": 14990000,
+      "price": 13490000,
       "transmission": "automatica",
       "traction": "4x2",
       "image_url": "",

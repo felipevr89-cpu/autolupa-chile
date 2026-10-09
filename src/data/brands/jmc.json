@@ -10,7 +10,7 @@
       "type": "pickup",
       "fuel": "diesel",
       "seats": 5,
-      "price": 22028100,
+      "price": 22000000,
       "transmission": "manual",
       "traction": "4x2",
       "image_url": "",
@@ -40,25 +40,25 @@
       "versions": [
         {
           "version": "2.3L 4x2 MT",
-          "price": 22028100,
+          "price": 22000000,
           "transmission": "Manual 6V",
           "traction": "4x2"
         },
         {
           "version": "2.3L 4x4 MT",
-          "price": 22813100,
+          "price": 22800000,
           "transmission": "Manual 6V",
           "traction": "4x4"
         },
         {
           "version": "2.3L 4x2 AT",
-          "price": 24003100,
+          "price": 24000000,
           "transmission": "Automática 8V",
           "traction": "4x2"
         },
         {
           "version": "2.3L 4x4 AT",
-          "price": 24788100,
+          "price": 24800000,
           "transmission": "Automática 8V",
           "traction": "4x4"
         }
@@ -148,7 +148,7 @@
       "type": "pickup",
       "fuel": "diesel",
       "seats": 5,
-      "price": 22598100,
+      "price": 20800000,
       "transmission": "automatica",
       "traction": "4x2",
       "image_url": "",
@@ -175,19 +175,19 @@
       "versions": [
         {
           "version": "2.4L 4x2 MT",
-          "price": 20838100,
+          "price": 20800000,
           "transmission": "Manual 5V",
           "traction": "4x2"
         },
         {
           "version": "2.4L 4x2 AT",
-          "price": 22598100,
+          "price": 22600000,
           "transmission": "Automática 5V",
           "traction": "4x2"
         },
         {
           "version": "2.4L 4x4 AT",
-          "price": 23788100,
+          "price": 23800000,
           "transmission": "Automática 5V",
           "traction": "4x4"
         }

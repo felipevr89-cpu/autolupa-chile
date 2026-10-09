@@ -389,7 +389,7 @@
       "type": "pickup",
       "fuel": "gasolina",
       "seats": 5,
-      "price": 21990000,
+      "price": 19990000,
       "transmission": "automatica",
       "traction": "4x4",
       "image_url": "",
@@ -550,7 +550,7 @@
       "type": "pickup",
       "fuel": "gasolina",
       "seats": 5,
-      "price": 8794100,
+      "price": 8800000,
       "transmission": "manual",
       "traction": "4x2",
       "image_url": "",
@@ -581,7 +581,7 @@
       "versions": [
         {
           "version": "1.5L MT",
-          "price": 8794100,
+          "price": 8800000,
           "transmission": "manual",
           "traction": "4x2"
         },
@@ -601,7 +601,7 @@
       "type": "pickup",
       "fuel": "gasolina",
       "seats": 5,
-      "price": 13197100,
+      "price": 13200000,
       "transmission": "manual",
       "traction": "4x2",
       "image_url": "",
@@ -632,7 +632,7 @@
       "versions": [
         {
           "version": "1.8L MT",
-          "price": 13197100,
+          "price": 13200000,
           "transmission": "manual",
           "traction": "4x2"
         },

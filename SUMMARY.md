@@ -181,6 +181,7 @@ El rol anónimo (sin sesión) sigue sin poder insertar: no se tocó ninguna pol�
 - **Smoke de producción (07-10-2026)**: 20 rutas raíz y de secciones responden 200 (incluida la ruta 404 del cliente) y `/sitemap.xml` (140 URLs, con `/faq`), `/robots.txt`, `/manifest.json` y `/sw.js` responden 200; el sitemap sigue con 0 URLs de `/usados/:slug` porque aún no hay avisos activos (siembra pendiente en Fase 0.5).
 - **URL del sitio centralizada en el JS**: el JSON-LD del glosario (`/glosario`) y las URLs de compartir por WhatsApp de `CarCard` y `CarDetail` usaban `https://autolupa.pages.dev` literal; ahora usan `import.meta.env.VITE_SITE_URL || 'https://autolupa.pages.dev'`, igual que `SEO`, `BlogArticle`, `Usados`, `UsadosRegion` y `UsedListingDetail`. El cambio de dominio queda sólo en: `VITE_SITE_URL` de `.github/workflows/deploy.yml`, `index.html` (canonical/og/twitter + `data-domain` de Plausible), `public/robots.txt`, `public/.well-known/security.txt` y `scripts/generate-sitemap.mjs`.
 - Tests: **217** (3 nuevos: `src/test/analytics.test.tsx` — contacto desde ficha de auto, contacto + reporte desde ficha de aviso, guardar/quitar búsqueda — y 4 aserciones nuevas en `share.test.tsx` para `Share`/`Install`). `LINT=0 · TEST=217/217 · BUILD=0`.
+- 09-10-2026: se corrige la sigla **TCU → TCO** en `src/data/articles.ts` (15 menciones; el blog nombraba "TCU" a la calculadora que en la ficha se llama TCO). Commit `3a328df`, CI success.
 
 
 

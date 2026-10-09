@@ -227,12 +227,12 @@ export const articles: Article[] = [
         heading: 'Empieza por el costo total, no por el precio',
         paragraphs: [
           'El precio de la etiqueta es solo la puerta de entrada. El costo real de un auto incluye la cuota del crédito, el seguro obligatorio (SOA) y el complementario, el permiso de circulación, la mantención, la energía (bencina o carga) y cuánto pierde de valor cada año.',
-          'Por eso en AutoLupa calculamos el TCU (Costo Total de Propiedad) de cada ficha: con un crédito francés a 48 meses y una tasa de mercado 2026 de 1% mensual (CAE ref. 12,7%), SOAP por tramos, seguro estimado en 1,5% del valor del vehículo, permiso de circulación con la fórmula del SII y depreciación según antigüedad.',
+          'Por eso en AutoLupa calculamos el TCO (Costo Total de Propiedad) de cada ficha: con un crédito francés a 48 meses y una tasa de mercado 2026 de 1% mensual (CAE ref. 12,7%), SOAP por tramos, seguro estimado en 1,5% del valor del vehículo, permiso de circulación con la fórmula del SII y depreciación según antigüedad.',
         ],
         bullets: [
           'Compara siempre autos de rango de precio parecido: la cuota es lo que más pesa en el mes a mes.',
           'Un auto un 15% más caro puede salir más barato al año si consume mucho menos y deprecia menos.',
-          'Revisa el TCU en la ficha de cualquier modelo antes de negociar.',
+          'Revisa el TCO en la ficha de cualquier modelo antes de negociar.',
         ],
       },
       {
@@ -256,7 +256,7 @@ export const articles: Article[] = [
           'Reduce a tres candidatos y añádelos a la comparación.',
           'Compara ficha por ficha: potencia, consumo mixto, airbags, ISOFIX, baúl y garantía.',
           'Revisa las versiones de cada modelo: el nivel de equipamiento cambia el precio y la seguridad.',
-          'Abre el TCU y ajusta los kilómetros al mes a tu caso real.',
+          'Abre el TCO y ajusta los kilómetros al mes a tu caso real.',
         ],
       },
       {
@@ -457,7 +457,7 @@ export const articles: Article[] = [
         bullets: [
           'Filtra por "Eléctrico" o "Híbrido enchufable" y ordena por precio.',
           'Añade hasta tres autos a la comparación y mira batería, autonomía y consumo lado a lado.',
-          'Abre el TCU para ver cuánto cuesta cada mes con tus kilómetros reales.',
+          'Abre el TCO para ver cuánto cuesta cada mes con tus kilómetros reales.',
         ],
       },
     ],
@@ -470,7 +470,7 @@ export const articles: Article[] = [
       { label: 'Servicio de Impuestos Internos', url: 'https://www.sii.cl/' },
       { label: 'Ley Chile (BCN)', url: 'https://www.bcn.cl/leychile/' },
     ],
-    title: 'TCU: ¿Cuánto Realmente Cuesta tu Auto al Año?',
+    title: 'TCO: ¿Cuánto Realmente Cuesta tu Auto al Año?',
     excerpt: 'El Costo Total de Propiedad desglosado: crédito, SOAP, seguro, permiso de circulación, mantención, energía y depreciación, con la metodología que usamos.',
     category: 'Finanzas',
     date: '18 Sep 2026',
@@ -479,9 +479,9 @@ export const articles: Article[] = [
     icon: '💰',
     sections: [
       {
-        heading: 'Qué es el TCU',
+        heading: 'Qué es el TCO',
         paragraphs: [
-          'El TCU (Total Cost of Ownership, o Costo Total de Propiedad) mantiene lo que cuesta tener un auto durante un año, no solo cuánto se paga por él. Incluye todo lo que sale del bolsillo y también lo que el auto pierde de valor.',
+          'El TCO (Total Cost of Ownership, o Costo Total de Propiedad) mantiene lo que cuesta tener un auto durante un año, no solo cuánto se paga por él. Incluye todo lo que sale del bolsillo y también lo que el auto pierde de valor.',
           'La depreciación es el rubro más invisible: un auto puede costar $20.000.000 hoy y $17.000.000 al año siguiente, y ese "gasto" no aparece en ningún extracto, pero es real cuando decides revenderlo.',
         ],
         bullets: [
@@ -493,7 +493,7 @@ export const articles: Article[] = [
       {
         heading: 'Cómo lo calcula AutoLupa',
         paragraphs: [
-          'Nuestra calculadora de TCU es transparente y usa parámetros claros que puedes revisar en cada ficha.',
+          'Nuestra calculadora de TCO es transparente y usa parámetros claros que puedes revisar en cada ficha.',
         ],
         bullets: [
           'Crédito francés con tasa de mercado 2026 (1% mensual, CAE ref. 12,7%) y 48 meses por defecto (ajustable).',
@@ -512,7 +512,7 @@ export const articles: Article[] = [
           'Al mismo tiempo, un eléctrico con mantención de $200.000 anuales y permiso con 25% de descuento puede compensar una cuota inicial mayor.',
         ],
         bullets: [
-          'Ordena los candidatos por TCU, no por precio de lista.',
+          'Ordena los candidatos por TCO, no por precio de lista.',
           'Ajusta los kilómetros al mes a tu caso: el resultado cambia bastante.',
           'Si no financias, desactiva la cuota y compara costos puros de uso.',
         ],
@@ -520,17 +520,17 @@ export const articles: Article[] = [
       {
         heading: 'Dónde verlo',
         paragraphs: [
-          'En cualquier ficha de detalle aparece la calculadora de TCU con el desglose mes a mes: cuota, SOAP, seguro, permiso, mantención, energía y depreciación, más el costo total anual. En usados, el mismo análisis se ajusta al kilometraje del aviso.',
+          'En cualquier ficha de detalle aparece la calculadora de TCO con el desglose mes a mes: cuota, SOAP, seguro, permiso, mantención, energía y depreciación, más el costo total anual. En usados, el mismo análisis se ajusta al kilometraje del aviso.',
         ],
         bullets: [
-          'Ficha del auto → sección TCU → cambia plazo y kilómetros al mes.',
+          'Ficha del auto → sección TCO → cambia plazo y kilómetros al mes.',
           'Compara tres autos abriendo sus fichas en pestañas distintas.',
         ],
       },
       {
         heading: 'Límites de la estimación',
         paragraphs: [
-          'El TCU es una herramienta de decisión, no una cotización. Los valores de SOAP, permiso de circulación y seguro se actualizan cada año y pueden variar según tu perfil y comuna.',
+          'El TCO es una herramienta de decisión, no una cotización. Los valores de SOAP, permiso de circulación y seguro se actualizan cada año y pueden variar según tu perfil y comuna.',
         ],
         bullets: [
           'Confirma el permiso de circulación en tu municipalidad y el SOAP vigente.',
@@ -726,7 +726,7 @@ export const articles: Article[] = [
         heading: 'Costo de energía comparado',
         paragraphs: [
           'Usamos bencina a $1.300 por litro, diésel a $1.150, carga en casa a $150 por kWh y red rápida a $350 por kWh. Con esos precios, cargar en casa es consistentemente más barato que cualquier equivalente a bencina.',
-          'En las cuentas del TCU consideramos un uso 100% eléctrico para BEV y PHEV, y un esquema 50% eléctrico / 50% combustión para los híbridos, porque en la práctica rara vez el PHEV se mantiene solo eléctrico.',
+          'En las cuentas del TCO consideramos un uso 100% eléctrico para BEV y PHEV, y un esquema 50% eléctrico / 50% combustión para los híbridos, porque en la práctica rara vez el PHEV se mantiene solo eléctrico.',
         ],
         bullets: [
           'Carga en casa 80% + red 20% ≈ $190 por kWh.',
@@ -830,10 +830,10 @@ export const articles: Article[] = [
       {
         heading: 'Cómo estimarlo en AutoLupa',
         paragraphs: [
-          'Cada ficha de detalle incluye el cálculo del permiso dentro del TCU, con la fórmula anterior aplicada al precio y año del modelo, y el ahorro desglosado si el auto aplica al beneficio eléctrico.',
+          'Cada ficha de detalle incluye el cálculo del permiso dentro del TCO, con la fórmula anterior aplicada al precio y año del modelo, y el ahorro desglosado si el auto aplica al beneficio eléctrico.',
         ],
         bullets: [
-          'Abre cualquier ficha y revisa la línea "Permiso circulación" del TCU.',
+          'Abre cualquier ficha y revisa la línea "Permiso circulación" del TCO.',
           'Compara cuánto cambia el pago anual entre un gasolina y un eléctrico equivalente.',
           'Para el monto exacto, confirma en tu municipalidad o en el sitio del SII: la UTM y las tasas se actualizan cada año.',
         ],

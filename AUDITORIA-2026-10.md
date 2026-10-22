@@ -378,3 +378,14 @@ Los precios oficiales son los publicados el 22-10-2026 y pueden incluir bonos o 
 - **GWM**: 14 actualizados y 7 nuevos (H6 GT, H7 Híbrido, H7 Max, H7 Max PHEV, Jolion Max, Jolion Híbrido, ORA 5); duplicados Haval H6 HEV/Haval Jolion y Dargo/Wingle 5 marcados fuera de parrilla. Pickups conservan `+ IVA`.
 - **Resultado**: **653 modelos / 1.403 versiones / 0 errores**; sitemap **792 URLs**; `LINT=0`, `TEST=229/229`, `BUILD=0`.
 - **Deuda**: 338 `latin_ncap_stars` legacy sin uso, 112 EV/PHEV sin batería/autonomía en JSON (varios en `enrichment.ts`), fotos de ids nuevos como silueta y precios históricos de modelos fuera de parrilla.
+
+---
+
+## 12. Cierre del Lote 24.3 — Chevrolet, Ford y Renault (22-10-2026)
+
+- **Chevrolet**: las fichas de `chevrolet.cl` publican versión, precio con bono, precio de lista y bono. Se reconstruyeron las 19 fichas vigentes con esa tabla; se agregó **Spark EUV** (id 678) y se renombraron **Captiva Híbrida** (ex Captiva PHEV) y **Traverse** (ex Traverse Z71). Camaro, Spark, Spin, Equinox bencina y Colorado Z71 quedan fuera de parrilla.
+- **Ford**: `ford.cl` publica el precio de lista por versión y, aparte, un precio con financiamiento Forum. El catálogo usa el **precio de lista** (sin condicionar a crédito), actualiza 14 modelos y agrega 6 variantes comerciales (Transit Custom, Minibús, Bus, Chasis, E-Transit Furgón y Chasis).
+- **Renault**: la parrilla oficial 2026 solo mantiene Arkana MHEV, Koleos, Koleos Híbrido y Master. Se agregó **Koleos Híbrido** (id 685) y 11 modelos quedaron marcados `lineup_2026:false` sin eliminar datos.
+- **Regla de precios comerciales**: pickups y vans conservan el precio publicado **+ IVA** (Chevrolet Colorado/Silverado/Montana/N400, Renault Master) y se documenta en la descripción; no se inventa el precio lista con IVA cuando el bono oficial no cuadra.
+- **Gate**: **661 modelos / 1.421 versiones / 0 errores**; sitemap **800 URLs**; `LINT=0`, `TEST=229/229`, `BUILD=0`.
+- **Siguiente lote de datos**: Peugeot, Citroën, Volkswagen, Honda, Subaru, Mitsubishi, BYD, Chery, Changan, Jetour, Geely, Fiat, Jeep y marcas premium. Las marcas Stellantis (Peugeot/Citroën) no publican precios por versión en su web: requieren lista oficial de concesionario o cotizador para poder contrastar.

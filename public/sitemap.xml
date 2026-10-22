@@ -1096,17 +1096,17 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://autolupa.pages.dev/auto/108-chevrolet-captiva-phev-2026</loc>
+    <loc>https://autolupa.pages.dev/auto/108-chevrolet-captiva-hibrida-2026</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://autolupa.pages.dev/auto/109-chevrolet-captiva-xl-2025</loc>
+    <loc>https://autolupa.pages.dev/auto/109-chevrolet-captiva-xl-2026</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://autolupa.pages.dev/auto/110-chevrolet-colorado-2025</loc>
+    <loc>https://autolupa.pages.dev/auto/110-chevrolet-colorado-2026</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -1121,12 +1121,12 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://autolupa.pages.dev/auto/113-chevrolet-equinox-ev-2025</loc>
+    <loc>https://autolupa.pages.dev/auto/113-chevrolet-equinox-ev-2026</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://autolupa.pages.dev/auto/114-chevrolet-groove-2025</loc>
+    <loc>https://autolupa.pages.dev/auto/114-chevrolet-groove-2026</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -1136,7 +1136,7 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://autolupa.pages.dev/auto/116-chevrolet-montana-2025</loc>
+    <loc>https://autolupa.pages.dev/auto/116-chevrolet-montana-2026</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -1146,7 +1146,7 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://autolupa.pages.dev/auto/118-chevrolet-onix-2025</loc>
+    <loc>https://autolupa.pages.dev/auto/118-chevrolet-onix-2026</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -1161,7 +1161,7 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://autolupa.pages.dev/auto/121-chevrolet-silverado-2025</loc>
+    <loc>https://autolupa.pages.dev/auto/121-chevrolet-silverado-2026</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -1181,17 +1181,22 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://autolupa.pages.dev/auto/125-chevrolet-tracker-2025</loc>
+    <loc>https://autolupa.pages.dev/auto/125-chevrolet-tracker-2026</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://autolupa.pages.dev/auto/126-chevrolet-traverse-z71-2025</loc>
+    <loc>https://autolupa.pages.dev/auto/126-chevrolet-traverse-2025</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://autolupa.pages.dev/auto/619-chevrolet-onix-sedan-2025</loc>
+    <loc>https://autolupa.pages.dev/auto/619-chevrolet-onix-sedan-2026</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://autolupa.pages.dev/auto/678-chevrolet-spark-euv-2026</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -1446,72 +1451,102 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://autolupa.pages.dev/auto/184-ford-mustang-2025</loc>
+    <loc>https://autolupa.pages.dev/auto/184-ford-mustang-2026</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://autolupa.pages.dev/auto/185-ford-mustang-dark-horse-2025</loc>
+    <loc>https://autolupa.pages.dev/auto/185-ford-mustang-dark-horse-2026</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://autolupa.pages.dev/auto/186-ford-ranger-2025</loc>
+    <loc>https://autolupa.pages.dev/auto/186-ford-ranger-2026</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://autolupa.pages.dev/auto/187-ford-ranger-raptor-2025</loc>
+    <loc>https://autolupa.pages.dev/auto/187-ford-ranger-raptor-2026</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://autolupa.pages.dev/auto/188-ford-territory-2025</loc>
+    <loc>https://autolupa.pages.dev/auto/188-ford-territory-2026</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://autolupa.pages.dev/auto/620-ford-bronco-sport-2025</loc>
+    <loc>https://autolupa.pages.dev/auto/620-ford-bronco-sport-2026</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://autolupa.pages.dev/auto/621-ford-maverick-2025</loc>
+    <loc>https://autolupa.pages.dev/auto/621-ford-maverick-2026</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://autolupa.pages.dev/auto/622-ford-explorer-2025</loc>
+    <loc>https://autolupa.pages.dev/auto/622-ford-explorer-2026</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://autolupa.pages.dev/auto/623-ford-f-150-2025</loc>
+    <loc>https://autolupa.pages.dev/auto/623-ford-f-150-2026</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://autolupa.pages.dev/auto/624-ford-bronco-2025</loc>
+    <loc>https://autolupa.pages.dev/auto/624-ford-bronco-2026</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://autolupa.pages.dev/auto/625-ford-expedition-2025</loc>
+    <loc>https://autolupa.pages.dev/auto/625-ford-expedition-2026</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://autolupa.pages.dev/auto/626-ford-territory-fhev-2025</loc>
+    <loc>https://autolupa.pages.dev/auto/626-ford-territory-hibrida-2026</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://autolupa.pages.dev/auto/627-ford-maverick-fhev-2025</loc>
+    <loc>https://autolupa.pages.dev/auto/627-ford-maverick-fhev-2026</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://autolupa.pages.dev/auto/628-ford-transit-2025</loc>
+    <loc>https://autolupa.pages.dev/auto/628-ford-transit-furgon-2026</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://autolupa.pages.dev/auto/679-ford-transit-custom-2026</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://autolupa.pages.dev/auto/680-ford-transit-custom-minibus-2026</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://autolupa.pages.dev/auto/681-ford-transit-bus-2026</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://autolupa.pages.dev/auto/682-ford-transit-chasis-2026</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://autolupa.pages.dev/auto/683-ford-e-transit-furgon-2026</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://autolupa.pages.dev/auto/684-ford-e-transit-chasis-2026</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -3231,7 +3266,7 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://autolupa.pages.dev/auto/508-renault-koleos-2025</loc>
+    <loc>https://autolupa.pages.dev/auto/508-renault-koleos-2026</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -3267,6 +3302,11 @@
   </url>
   <url>
     <loc>https://autolupa.pages.dev/auto/515-renault-stepway-2025</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://autolupa.pages.dev/auto/685-renault-koleos-hibrido-2026</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>

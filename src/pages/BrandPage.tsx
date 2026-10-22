@@ -11,9 +11,20 @@ export function BrandPage() {
   const brandName = brands.find(b => b.toLowerCase().replace(/\s+/g, '-') === brandSlug);
 
   const brandCars = useMemo(
-    () => brandName ? carsData.filter(c => c.brand === brandName).sort((a, b) => b.year - a.year) : [],
+    () => brandName
+      ? carsData
+        .filter(c => c.brand === brandName)
+        .sort((a, b) => {
+          const lineupDiff = Number(a.lineup_2026 === false) - Number(b.lineup_2026 === false);
+          if (lineupDiff !== 0) return lineupDiff;
+          if (b.year !== a.year) return b.year - a.year;
+          return a.model.localeCompare(b.model, 'es');
+        })
+      : [],
     [brandName]
   );
+
+  const outOfLineup = brandCars.filter(c => c.lineup_2026 === false).length;
 
   if (!brandName) {
     return (
@@ -37,8 +48,13 @@ export function BrandPage() {
       <div className="flex items-center gap-4 mb-8">
         <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white">{brandName}</h1>
         <span className="px-3 py-1 bg-blue-100 dark:bg-blue-900/40 text-blue-800 dark:text-blue-300 rounded-full text-sm font-medium">
-          {brandCars.length} modelo{brandCars.length !== 1 ? 's' : ''}
+          {brandCars.length - outOfLineup} modelo{brandCars.length - outOfLineup !== 1 ? 's' : ''} en parrilla
         </span>
+        {outOfLineup > 0 && (
+          <span className="px-3 py-1 bg-amber-100 dark:bg-amber-900/40 text-amber-800 dark:text-amber-300 rounded-full text-sm font-medium">
+            {outOfLineup} fuera de parrilla
+          </span>
+        )}
       </div>
 
       <a
@@ -72,6 +88,11 @@ export function BrandPage() {
                 <h2 className="text-lg font-bold text-gray-900 dark:text-white">{car.model}</h2>
                 <span className="text-xs font-medium text-gray-400 bg-gray-100 dark:bg-gray-700 px-2 py-1 rounded">{car.year}</span>
               </div>
+              {car.lineup_2026 === false && (
+                <p className="mb-2 inline-flex items-center gap-1 text-[11px] font-semibold text-amber-700 dark:text-amber-300 bg-amber-100 dark:bg-amber-900/40 px-2 py-1 rounded">
+                  No aparece en la parrilla 2026
+                </p>
+              )}
               <div className="flex flex-wrap gap-1.5 mb-3">
                 <span className="text-xs px-2 py-0.5 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded">{getTypeLabel(car.type)}</span>
                 <span className="text-xs px-2 py-0.5 bg-blue-100 dark:bg-blue-900/40 text-blue-800 dark:text-blue-300 rounded">{getFuelLabel(car.fuel)}</span>

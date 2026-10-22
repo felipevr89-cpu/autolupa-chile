@@ -55,7 +55,8 @@
           "transmission": "automatica",
           "traction": "4x4"
         }
-      ]
+      ],
+      "lineup_2026": false
     },
     {
       "id": 503,
@@ -69,10 +70,10 @@
       "transmission": "automatica",
       "traction": "4x2",
       "image_url": "",
-      "description": "SUV coupé híbrido con sistema microhíbrido y diseño deportivo.",
+      "description": "SUV mild hybrid 1.3L turbo de 140 HP con caja automática EDC.",
       "origin": "Francia",
       "hp": 140,
-      "torque_nm": 240,
+      "torque_nm": 260,
       "length_mm": 4568,
       "width_mm": 1821,
       "height_mm": 1571,
@@ -101,18 +102,34 @@
       "origin_country": "Francia",
       "versions": [
         {
-          "version": "Zen MHEV",
+          "version": "1.3 4x2 AT Intens MHEV",
           "price": 21990000,
           "transmission": "automatica",
-          "traction": "4x2"
+          "traction": "4x2",
+          "price_list": 25990000,
+          "price_bonus": 4000000
         },
         {
-          "version": "Intens MHEV",
-          "price": 25990000,
+          "version": "Intens Turbo",
+          "price": 24490000,
           "transmission": "automatica",
-          "traction": "4x2"
+          "traction": "4x2",
+          "price_list": 25990000,
+          "price_bonus": 1500000
+        },
+        {
+          "version": "Esprit Alpine Turbo",
+          "price": 26990000,
+          "transmission": "automatica",
+          "traction": "4x2",
+          "price_list": 28490000,
+          "price_bonus": 1500000
         }
-      ]
+      ],
+      "price_source": "https://www.renault.cl/cotizar/arkana",
+      "price_checked_at": "2026-10-22",
+      "price_list": 25990000,
+      "price_bonus": 4000000
     },
     {
       "id": 504,
@@ -181,7 +198,8 @@
       ],
       "warranty_years": 3,
       "warranty_km": 100000,
-      "origin_country": "Francia"
+      "origin_country": "Francia",
+      "lineup_2026": false
     },
     {
       "id": 505,
@@ -248,7 +266,8 @@
       ],
       "warranty_years": 3,
       "warranty_km": 100000,
-      "origin_country": "España"
+      "origin_country": "España",
+      "lineup_2026": false
     },
     {
       "id": 506,
@@ -313,7 +332,8 @@
       ],
       "warranty_years": 4,
       "warranty_km": 100000,
-      "origin_country": "Rumania"
+      "origin_country": "Rumania",
+      "lineup_2026": false
     },
     {
       "id": 507,
@@ -367,38 +387,35 @@
           "transmission": "manual",
           "traction": "4x2"
         }
-      ]
+      ],
+      "lineup_2026": false
     },
     {
       "id": 508,
       "brand": "Renault",
       "model": "Koleos",
-      "year": 2025,
+      "year": 2026,
       "type": "suv",
       "fuel": "gasolina",
       "seats": 5,
       "price": 28990000,
       "transmission": "automatica",
-      "traction": "4x4",
+      "traction": "4x2",
       "image_url": "",
-      "description": "SUV mediano de lujo con amplio equipamiento.",
+      "description": "SUV con motor 2.0 turbo de 235 HP y caja automática.",
       "origin": "Corea del Sur",
       "versions": [
         {
-          "version": "Zen",
+          "version": "Techno 2.0T",
           "price": 28990000,
           "transmission": "automatica",
-          "traction": "4x2"
-        },
-        {
-          "version": "Intens",
-          "price": 32990000,
-          "transmission": "automatica",
-          "traction": "4x4"
+          "traction": "4x2",
+          "price_list": 30490000,
+          "price_bonus": 1500000
         }
       ],
-      "hp": 184,
-      "torque_nm": 300,
+      "hp": 235,
+      "torque_nm": 325,
       "top_speed_kmh": 190,
       "fuel_consumption_city_km_l": 11,
       "fuel_consumption_highway_km_l": 16,
@@ -428,7 +445,11 @@
       ],
       "warranty_years": 3,
       "warranty_km": 100000,
-      "origin_country": "Corea del Sur"
+      "origin_country": "Corea del Sur",
+      "price_source": "https://www.renault.cl/cotizar/koleos",
+      "price_checked_at": "2026-10-22",
+      "price_list": 30490000,
+      "price_bonus": 1500000
     },
     {
       "id": 509,
@@ -489,7 +510,8 @@
       ],
       "warranty_years": 3,
       "warranty_km": 100000,
-      "origin_country": "Brasil"
+      "origin_country": "Brasil",
+      "lineup_2026": false
     },
     {
       "id": 510,
@@ -542,7 +564,8 @@
           "transmission": "manual",
           "traction": "4x2"
         }
-      ]
+      ],
+      "lineup_2026": false
     },
     {
       "id": 511,
@@ -551,15 +574,15 @@
       "year": 2026,
       "type": "minivan",
       "fuel": "diesel",
-      "seats": 5,
-      "price": 24990000,
+      "seats": 3,
+      "price": 29990000,
       "transmission": "manual",
       "traction": "4x2",
       "image_url": "",
-      "description": "Furgón grande para transporte de carga y pasajeros.",
+      "description": "Van diésel 2.3L de 136 HP en versiones furgón y minibús. Precios + IVA.",
       "origin": "Francia",
-      "hp": 130,
-      "torque_nm": 300,
+      "hp": 136,
+      "torque_nm": 360,
       "length_mm": 5048,
       "width_mm": 2070,
       "height_mm": 2300,
@@ -585,18 +608,26 @@
       "origin_country": "Francia",
       "versions": [
         {
-          "version": "2.3L dCi Zen MT",
-          "price": 24990000,
+          "version": "Furgón L2H2",
+          "price": 29990000,
           "transmission": "manual",
           "traction": "4x2"
         },
         {
-          "version": "2.3L dCi Intens MT",
-          "price": 27990000,
+          "version": "Furgón L3H2",
+          "price": 31990000,
+          "transmission": "manual",
+          "traction": "4x2"
+        },
+        {
+          "version": "Minibús",
+          "price": 38990000,
           "transmission": "manual",
           "traction": "4x2"
         }
-      ]
+      ],
+      "price_source": "https://www.renault.cl/cotizar/master",
+      "price_checked_at": "2026-10-22"
     },
     {
       "id": 512,
@@ -651,7 +682,8 @@
           "transmission": "automatica",
           "traction": "4x2"
         }
-      ]
+      ],
+      "lineup_2026": false
     },
     {
       "id": 513,
@@ -702,7 +734,8 @@
           "transmission": "manual",
           "traction": "4x2"
         }
-      ]
+      ],
+      "lineup_2026": false
     },
     {
       "id": 514,
@@ -755,7 +788,8 @@
           "transmission": "manual",
           "traction": "4x2"
         }
-      ]
+      ],
+      "lineup_2026": false
     },
     {
       "id": 515,
@@ -810,7 +844,40 @@
       ],
       "warranty_years": 3,
       "warranty_km": 100000,
-      "origin_country": "Brasil"
+      "origin_country": "Brasil",
+      "lineup_2026": false
+    },
+    {
+      "id": 685,
+      "brand": "Renault",
+      "model": "Koleos Híbrido",
+      "year": 2026,
+      "type": "suv",
+      "fuel": "hibrido",
+      "seats": 5,
+      "transmission": "automatica",
+      "traction": "4x2",
+      "image_url": "",
+      "description": "SUV full hybrid E-Tech de 241 HP con caja automática.",
+      "origin": "Corea del Sur",
+      "origin_country": "Corea del Sur",
+      "hp": 241,
+      "torque_nm": 350,
+      "price_source": "https://www.renault.cl/cotizar/koleos",
+      "price_checked_at": "2026-10-22",
+      "versions": [
+        {
+          "version": "Full Hybrid E-Tech Esprit Alpine",
+          "price": 35990000,
+          "transmission": "automatica",
+          "traction": "4x2",
+          "price_list": 37490000,
+          "price_bonus": 1500000
+        }
+      ],
+      "price": 35990000,
+      "price_list": 37490000,
+      "price_bonus": 1500000
     }
   ]
 }

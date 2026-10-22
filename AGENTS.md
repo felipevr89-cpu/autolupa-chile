@@ -51,7 +51,7 @@ src/
 ├── data/
 │   ├── brands/                  # Un JSON por marca (allBrands vía import.meta.glob)
 │   │   └── index.ts             # carsData, brandUrls, BRANDS_NOT_SOLD_NEW_IN_CHILE
-│   ├── carImages.json           # Mapeo id → { file, source, license } o null (653 claves)
+│   ├── carImages.json           # Mapeo id → { file, source, license } o null (653 claves; ids nuevos sin clave usan silueta)
 │   ├── credit.ts                # Tasas de crédito mercado 2026 + simulateCredit + monthlyPayment
 │   ├── energyCosts.ts           # HOME_KWH 150 / FAST_KWH 350 / gasolina 1300 / diesel 1150
 │   ├── enrichment.ts            # Completa rango/batería/seguridad por marca|modelo
@@ -79,7 +79,7 @@ src/
 ## Funcionalidades Implementadas
 
 ### Core
-- **Catálogo**: 653 vehículos y 1.403 versiones, 100+ marcas en `src/data/brands/*.json`
+- **Catálogo**: 661 vehículos y 1.421 versiones, 100+ marcas en `src/data/brands/*.json`
 - **Búsqueda y filtros**: Marca, modelo, tipo, combustible, precio, años (rango dinámico), tracción, asientos
 - **Comparación**: Hasta 3 vehículos lado a lado (CompareTable)
 - **Favoritos**: Sync con Supabase para usuarios autenticados + localStorage como respaldo
@@ -105,7 +105,7 @@ src/
 - Resultados con fotos reales (CarImage), no gradientes de marca.
 
 ### Recomendador semántico local (`SmartAsk.tsx` + `data/recommender.ts`)
-- **Motor 100% local/offline, sin API**: `parseQuery` interpreta lenguaje natural en español (presupuesto en CLP "millones/palos/$ con puntos", uso, combustible con sinónimos, transmisión, plazas, tracción, formato, prioridades, marca del catálogo, año) y `recommend` puntúa los 653 autos con pesos por dimensión (presupuesto 20, uso 20, combustible 15, prioridad 15, plazas 10, transmisión 8, tracción 7, formato 5).
+- **Motor 100% local/offline, sin API**: `parseQuery` interpreta lenguaje natural en español (presupuesto en CLP "millones/palos/$ con puntos", uso, combustible con sinónimos, transmisión, plazas, tracción, formato, prioridades, marca del catálogo, año) y `recommend` puntúa los 661 autos con pesos por dimensión (presupuesto 20, uso 20, combustible 15, prioridad 15, plazas 10, transmisión 8, tracción 7, formato 5).
 - **Filtros duros** solo para lo explícito: marca, formato, año mínimo y ≥6 plazas; el resto es scoring suave (nunca vacía resultados sin motivo).
 - **Explicaciones**: cada recomendación incluye `reasons` en español ("Precio $16.490.000 bajo tu tope de $25.000.000", "Motor híbrido", "Calificación 5 estrellas Euro NCAP"…); chips "Entendí:" muestran la intención detectada.
 - UI en Home (botón "Pregunta con tus palabras"): modal con input libre, ejemplos clicables, top 10 con afinidad y motivos, comparar y ver detalle; Escape vuelve al modal tras abrir un resultado.
@@ -118,7 +118,7 @@ src/
 
 ## Imágenes (`src/data/carImages.json` + `public/car-images/`)
 - Mapeo id → `{ file, source, license, attribution }` o `null` (silueta).
-- Estado auditado (22-10-2026): **653 claves / 619 con foto / 34 siluetas**; 0 archivos faltantes en disco, 0 archivos huérfanos. Las 34 siluetas son las 9 históricas (146, 223, 364, 528, 529, 616, 629, 630, 632), el id 419 (MG 3 Hybrid, foto movida a MG HS Hybrid) y 24 ids nuevos del Lote 24.2 (Hyundai 650–654, Toyota 655–659, Suzuki 660/661, MG 663, Mazda 664–666, Nissan 667/668, Kia 669 y GWM 671/674–677).
+- Estado auditado (22-10-2026): **653 claves / 619 con foto / 34 siluetas**; 0 archivos faltantes en disco, 0 archivos huérfanos. Las 34 siluetas son las 9 históricas (146, 223, 364, 528, 529, 616, 629, 630, 632), el id 419 (MG 3 Hybrid, foto movida a MG HS Hybrid), 24 ids del Lote 24.2 (Hyundai 650–654, Toyota 655–659, Suzuki 660/661, MG 663, Mazda 664–666, Nissan 667/668, Kia 669 y GWM 671/674–677) y 8 ids del Lote 24.3 sin clave en el manifiesto (Chevrolet 678; Ford 679–684; Renault 685), que caen a silueta por defecto.
 - Regla: no duplicar fuente entre modelos distintos; verificar con el escaneo de `source` compartido (las 19 fuentes compartidas son variantes de un mismo modelo).
 - Pase 2026: 131 fotos añadidas desde Commons (API, ancho 1000px, metadata real). ~15 son de la misma generación de plataforma comercial (best-effort documentado en SUMMARY.md); curaduría por modelo.
 - Lote 18: **67 fotos** de Commons con curaduría por modelo (56 siluetas cerradas + 11 ids de otra variante repuestos por la auditoría; ver SUMMARY.md). Scripts: `picks-lote18.cjs` (elecciones), `check-commons.cjs` (categorías/licencia/duplicados) y `download-picks.cjs` (descarga + manifiesto).

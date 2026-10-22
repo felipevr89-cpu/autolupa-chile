@@ -197,8 +197,8 @@ export const enrichment: Record<string, Enrichment> = {
   'Subaru|Solterra': { electric_range_km: 466, battery_kwh: 71 },
   'Lexus|RZ': { electric_range_km: 440, battery_kwh: 71 },
 
-  'Chevrolet|Equinox EV': { electric_range_km: 513, battery_kwh: 85 },
-  'Chevrolet|Blazer EV': { electric_range_km: 534, battery_kwh: 85 },
+  'Chevrolet|Equinox EV': { electric_range_km: 488, battery_kwh: 85 },
+  'Chevrolet|Blazer EV': { electric_range_km: 520, battery_kwh: 102 },
 
   'Volvo|EX30': {
     electric_range_km: 476,
@@ -226,7 +226,10 @@ export const enrichment: Record<string, Enrichment> = {
   'Chery|Tiggo 7 Pro Max PHEV': { electric_range_km: 90, battery_kwh: 18.3 },
   'Chery|Tiggo 9 PHEV': { electric_range_km: 90, battery_kwh: 19.25 },
   'Chevrolet|Captiva EV': { electric_range_km: 415, battery_kwh: 60 },
-  'Chevrolet|Captiva PHEV': { electric_range_km: 90, battery_kwh: 20.5 },
+  'Chevrolet|Captiva Híbrida': { electric_range_km: 90, battery_kwh: 20.5 },
+  'Chevrolet|Spark EUV': { electric_range_km: 360, battery_kwh: 41.9 },
+  'Ford|E-Transit Furgón': { electric_range_km: 317, battery_kwh: 68 },
+  'Ford|E-Transit Chasis': { electric_range_km: 317, battery_kwh: 68 },
   'Deepal|G318': { electric_range_km: 143, battery_kwh: 35.1 },
   'Deepal|S07': { electric_range_km: 170, battery_kwh: 31.74 },
   'GAC|Aion UT': { electric_range_km: 400, battery_kwh: 44.12 },

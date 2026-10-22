@@ -6,20 +6,20 @@
       "id": 184,
       "brand": "Ford",
       "model": "Mustang",
-      "year": 2025,
+      "year": 2026,
       "type": "coupe",
       "fuel": "gasolina",
       "seats": 4,
-      "price": 54990000,
+      "price": 55990000,
       "transmission": "automatica",
       "traction": "4x2",
       "image_url": "",
-      "description": "Muscle car icónica con motor V8 5.0L Coyote de 486 hp y tracción trasera.",
+      "description": "Muscle car con V8 5.0L Coyote de 486 HP y caja automática de 10 velocidades.",
       "origin": "Estados Unidos",
       "versions": [
         {
-          "version": "GT 5.0L V8 10AT",
-          "price": 54990000,
+          "version": "GT Premium 5.0L AT",
+          "price": 55990000,
           "transmission": "automatica",
           "traction": "4x2"
         }
@@ -43,26 +43,28 @@
       ],
       "warranty_years": 3,
       "warranty_km": 60000,
-      "origin_country": "Estados Unidos"
+      "origin_country": "Estados Unidos",
+      "price_source": "https://www.ford.cl/performance/nuevo-mustang/",
+      "price_checked_at": "2026-10-22"
     },
     {
       "id": 185,
       "brand": "Ford",
       "model": "Mustang Dark Horse",
-      "year": 2025,
+      "year": 2026,
       "type": "coupe",
       "fuel": "gasolina",
       "seats": 4,
-      "price": 60490000,
+      "price": 61990000,
       "transmission": "automatica",
       "traction": "4x2",
       "image_url": "",
-      "description": "Versión de alto rendimiento de la Mustang con motor V8 5.0L de 500 hp y componentes de pista.",
+      "description": "Versión de alto rendimiento de la Mustang con V8 5.0L de 500 HP.",
       "origin": "Estados Unidos",
       "versions": [
         {
-          "version": "Dark Horse Premium 5.0L V8",
-          "price": 60490000,
+          "version": "Dark Horse Premium 5.0L AT",
+          "price": 61990000,
           "transmission": "automatica",
           "traction": "4x2"
         }
@@ -86,50 +88,70 @@
       ],
       "warranty_years": 3,
       "warranty_km": 60000,
-      "origin_country": "Estados Unidos"
+      "origin_country": "Estados Unidos",
+      "price_source": "https://www.ford.cl/performance/nuevo-mustang/",
+      "price_checked_at": "2026-10-22"
     },
     {
       "id": 186,
       "brand": "Ford",
       "model": "Ranger",
-      "year": 2025,
+      "year": 2026,
       "type": "pickup",
       "fuel": "diesel",
       "seats": 5,
-      "price": 27800000,
-      "transmission": "automatica",
-      "traction": "4x4",
+      "price": 33665100,
+      "transmission": "manual",
+      "traction": "4x2",
       "image_url": "",
-      "description": "Pick-up mediana con motor Bi-Turbo 2.0L de 213 hp, caja automática de 10 velocidades.",
+      "description": "Pickup mediana diésel 2.0L Bi-Turbo de 213 HP, en versiones 4x2 y 4x4.",
       "origin": "Argentina",
       "versions": [
         {
-          "version": "XLS 2.0L MT 4x2",
-          "price": 27800000,
+          "version": "XL MT 2.0L Diésel Cabina Doble 4x2",
+          "price": 33665100,
           "transmission": "manual",
           "traction": "4x2"
         },
         {
-          "version": "XL 2.0L MT 4x4",
-          "price": 32600000,
+          "version": "XL MT 2.0L Diésel Cabina Doble 4x4",
+          "price": 38306100,
           "transmission": "manual",
           "traction": "4x4"
         },
         {
-          "version": "XLS 2.0L AT 4x4",
-          "price": 35490000,
+          "version": "XLS MT 2.0L Diésel Cabina Doble 4x2",
+          "price": 35926100,
+          "transmission": "manual",
+          "traction": "4x2"
+        },
+        {
+          "version": "XLS MT 2.0L Diésel Cabina Doble 4x4",
+          "price": 39377100,
+          "transmission": "manual",
+          "traction": "4x4"
+        },
+        {
+          "version": "XLT AT 2.0L Diésel Cabina Doble 4x2",
+          "price": 39876900,
+          "transmission": "automatica",
+          "traction": "4x2"
+        },
+        {
+          "version": "XLT MT 2.0L Diésel Cabina Doble 4x4",
+          "price": 42732900,
+          "transmission": "manual",
+          "traction": "4x4"
+        },
+        {
+          "version": "XLT AT 2.0L Diésel Cabina Doble 4x4",
+          "price": 45469900,
           "transmission": "automatica",
           "traction": "4x4"
         },
         {
-          "version": "XLT 2.0L AT 4x4",
-          "price": 40290000,
-          "transmission": "automatica",
-          "traction": "4x4"
-        },
-        {
-          "version": "Limited 2.0L AT 4x4",
-          "price": 47990000,
+          "version": "Limited AT 3.0L Diésel Cabina Doble 4x4",
+          "price": 50705900,
           "transmission": "automatica",
           "traction": "4x4"
         }
@@ -154,26 +176,28 @@
       ],
       "warranty_years": 5,
       "warranty_km": 100000,
-      "origin_country": "Argentina"
+      "origin_country": "Argentina",
+      "price_source": "https://www.ford.cl/pickups/ranger/",
+      "price_checked_at": "2026-10-22"
     },
     {
       "id": 187,
       "brand": "Ford",
       "model": "Ranger Raptor",
-      "year": 2025,
+      "year": 2026,
       "type": "pickup",
       "fuel": "gasolina",
       "seats": 5,
-      "price": 60400000,
+      "price": 60440100,
       "transmission": "automatica",
       "traction": "4x4",
       "image_url": "",
-      "description": "Pick-up de alto rendimiento off-road con motor EcoBoost 3.0L V6 Bi-Turbo de 288 hp.",
+      "description": "Pickup de alto rendimiento off-road con V6 3.0L EcoBoost de 288 HP.",
       "origin": "Tailandia",
       "versions": [
         {
-          "version": "3.0L V6 Bi-Turbo 4x4",
-          "price": 60400000,
+          "version": "Next-Gen Ranger Raptor",
+          "price": 60440100,
           "transmission": "automatica",
           "traction": "4x4"
         }
@@ -197,44 +221,40 @@
       ],
       "warranty_years": 5,
       "warranty_km": 100000,
-      "origin_country": "Tailandia"
+      "origin_country": "Tailandia",
+      "price_source": "https://www.ford.cl/performance/ranger-raptor/",
+      "price_checked_at": "2026-10-22"
     },
     {
       "id": 188,
       "brand": "Ford",
       "model": "Territory",
-      "year": 2025,
+      "year": 2026,
       "type": "suv",
       "fuel": "gasolina",
       "seats": 5,
-      "price": 22290000,
+      "price": 21290000,
       "transmission": "automatica",
       "traction": "4x2",
       "image_url": "",
-      "description": "SUV compacta de Ford, equipada con motor EcoBoost 1.5L turbo de 170 hp, ideal para la ciudad y viajes familiares.",
+      "description": "SUV compacta con motor EcoBoost 1.5L turbo de 158 HP.",
       "origin": "China",
       "versions": [
         {
-          "version": "Trend 1.5T EcoBoost AT",
-          "price": 22290000,
+          "version": "Trend",
+          "price": 21290000,
           "transmission": "automatica",
           "traction": "4x2"
         },
         {
-          "version": "Titanium 1.5T EcoBoost AT",
-          "price": 25490000,
-          "transmission": "automatica",
-          "traction": "4x2"
-        },
-        {
-          "version": "Titanium Hybrid",
-          "price": 32590000,
+          "version": "Titanium",
+          "price": 25690000,
           "transmission": "automatica",
           "traction": "4x2"
         }
       ],
-      "hp": 170,
-      "torque_nm": 258,
+      "hp": 158,
+      "torque_nm": 248,
       "fuel_consumption_mixed_km_l": 14.5,
       "fuel_tank_liters": 52,
       "length_mm": 4630,
@@ -252,32 +272,40 @@
       ],
       "warranty_years": 5,
       "warranty_km": 100000,
-      "origin_country": "China"
+      "origin_country": "China",
+      "price_source": "https://www.ford.cl/suvs-crossovers/territory/",
+      "price_checked_at": "2026-10-22"
     },
     {
       "id": 620,
       "brand": "Ford",
       "model": "Bronco Sport",
-      "year": 2025,
+      "year": 2026,
       "type": "suv",
       "fuel": "gasolina",
       "seats": 5,
-      "price": 27490000,
+      "price": 31490000,
       "transmission": "automatica",
       "traction": "4x4",
       "image_url": "",
-      "description": "SUV compacta con capacidad off-road, motor EcoBoost 1.5L turbo de 181 hp y tracción integral.",
+      "description": "SUV compacta off-road con motor EcoBoost 1.5L turbo de 181 HP.",
       "origin": "Estados Unidos",
       "versions": [
         {
-          "version": "Big Bend 1.5L EcoBoost 4x4",
-          "price": 27490000,
+          "version": "Big Bend",
+          "price": 31490000,
           "transmission": "automatica",
           "traction": "4x4"
         },
         {
-          "version": "Outer Banks 2.0L EcoBoost 4x4",
-          "price": 32990000,
+          "version": "Outer Banks",
+          "price": 34290000,
+          "transmission": "automatica",
+          "traction": "4x4"
+        },
+        {
+          "version": "Badlands",
+          "price": 37790000,
           "transmission": "automatica",
           "traction": "4x4"
         }
@@ -302,34 +330,42 @@
       ],
       "warranty_years": 5,
       "warranty_km": 100000,
-      "origin_country": "Estados Unidos"
+      "origin_country": "Estados Unidos",
+      "price_source": "https://www.ford.cl/suvs-crossovers/bronco-sport/",
+      "price_checked_at": "2026-10-22"
     },
     {
       "id": 621,
       "brand": "Ford",
       "model": "Maverick",
-      "year": 2025,
+      "year": 2026,
       "type": "pickup",
       "fuel": "gasolina",
       "seats": 5,
-      "price": 29100000,
+      "price": 31285100,
       "transmission": "automatica",
       "traction": "4x4",
       "image_url": "",
-      "description": "Pick-up compacta unibody con motor EcoBoost 2.0L turbo de 250 hp y capacidad de carga útil.",
+      "description": "Pickup compacta con motor EcoBoost 2.0L turbo de 250 HP y caja automática.",
       "origin": "Estados Unidos",
       "versions": [
         {
-          "version": "XLT 2.0L EcoBoost 4x4 AT",
-          "price": 29100000,
+          "version": "XLT 2.0L AT AWD",
+          "price": 31285100,
           "transmission": "automatica",
-          "traction": "4x4"
+          "traction": "awd"
         },
         {
-          "version": "Lariat 2.0L EcoBoost 4x4 AT",
-          "price": 35800000,
+          "version": "Lariat Black 2.0L AT AWD",
+          "price": 37235100,
           "transmission": "automatica",
-          "traction": "4x4"
+          "traction": "awd"
+        },
+        {
+          "version": "Tremor 2.0L AT AWD",
+          "price": 40210100,
+          "transmission": "automatica",
+          "traction": "awd"
         }
       ],
       "hp": 250,
@@ -352,32 +388,40 @@
       ],
       "warranty_years": 5,
       "warranty_km": 100000,
-      "origin_country": "Estados Unidos"
+      "origin_country": "Estados Unidos",
+      "price_source": "https://www.ford.cl/pickups/maverick/",
+      "price_checked_at": "2026-10-22"
     },
     {
       "id": 622,
       "brand": "Ford",
       "model": "Explorer",
-      "year": 2025,
+      "year": 2026,
       "type": "suv",
       "fuel": "gasolina",
       "seats": 7,
-      "price": 35990000,
+      "price": 39490000,
       "transmission": "automatica",
       "traction": "4x2",
       "image_url": "",
-      "description": "SUV mediana con espacio para 7 pasajeros, motor EcoBoost 2.3L turbo de 300 hp.",
+      "description": "SUV de 7 plazas con motor EcoBoost 2.3L turbo de 300 HP.",
       "origin": "Estados Unidos",
       "versions": [
         {
-          "version": "Active 2.3L EcoBoost 4x2 AT",
-          "price": 35990000,
+          "version": "Active 2.3L RWD",
+          "price": 39490000,
           "transmission": "automatica",
           "traction": "4x2"
         },
         {
-          "version": "Limited 2.3L EcoBoost 4x4 AT",
-          "price": 45990000,
+          "version": "Active 2.3L 4WD",
+          "price": 47390000,
+          "transmission": "automatica",
+          "traction": "4x4"
+        },
+        {
+          "version": "Platinum 2.3L 4WD",
+          "price": 51190000,
           "transmission": "automatica",
           "traction": "4x4"
         }
@@ -403,32 +447,58 @@
       ],
       "warranty_years": 5,
       "warranty_km": 100000,
-      "origin_country": "Estados Unidos"
+      "origin_country": "Estados Unidos",
+      "price_source": "https://www.ford.cl/suvs-crossovers/all-new-explorer/",
+      "price_checked_at": "2026-10-22"
     },
     {
       "id": 623,
       "brand": "Ford",
       "model": "F-150",
-      "year": 2025,
+      "year": 2026,
       "type": "pickup",
       "fuel": "gasolina",
       "seats": 5,
-      "price": 52300000,
+      "price": 56513100,
       "transmission": "automatica",
       "traction": "4x4",
       "image_url": "",
-      "description": "Pick-up full-size con motor V8 5.0L Coyote de 400 hp, la más vendida de Estados Unidos.",
+      "description": "Pickup full size con V8 5.0L de 400 HP y versiones V6 EcoBoost.",
       "origin": "Estados Unidos",
       "versions": [
         {
-          "version": "XLT CC 4x4 5.0L V8 AT",
-          "price": 52300000,
+          "version": "XLT CC 5.0L 4x4",
+          "price": 56513100,
           "transmission": "automatica",
           "traction": "4x4"
         },
         {
-          "version": "Lariat 4x4 3.5L V6 EcoBoost AT",
-          "price": 68990000,
+          "version": "Lariat Black CC 5.0L 4x4",
+          "price": 64962100,
+          "transmission": "automatica",
+          "traction": "4x4"
+        },
+        {
+          "version": "Lariat Luxury CC 5.0L 4x4",
+          "price": 69603100,
+          "transmission": "automatica",
+          "traction": "4x4"
+        },
+        {
+          "version": "Platinum CC 3.5L GTDI 4x4",
+          "price": 74125100,
+          "transmission": "automatica",
+          "traction": "4x4"
+        },
+        {
+          "version": "Platinum CC 3.5L FHEV 4x4",
+          "price": 81622100,
+          "transmission": "automatica",
+          "traction": "4x4"
+        },
+        {
+          "version": "Raptor",
+          "price": 106017100,
           "transmission": "automatica",
           "traction": "4x4"
         }
@@ -454,38 +524,34 @@
       ],
       "warranty_years": 3,
       "warranty_km": 60000,
-      "origin_country": "Estados Unidos"
+      "origin_country": "Estados Unidos",
+      "price_source": "https://www.ford.cl/pickups/f-150/",
+      "price_checked_at": "2026-10-22"
     },
     {
       "id": 624,
       "brand": "Ford",
       "model": "Bronco",
-      "year": 2025,
+      "year": 2026,
       "type": "suv",
       "fuel": "gasolina",
       "seats": 5,
-      "price": 52990000,
+      "price": 62140000,
       "transmission": "automatica",
       "traction": "4x4",
       "image_url": "",
-      "description": "SUV off-road clásica con techo desmontable, motor 2.7L V6 EcoBoost de 330 hp y tracción 4x4.",
+      "description": "SUV off-road con techo desmontable y motor 2.7L V6 EcoBoost de 334 CV.",
       "origin": "Estados Unidos",
       "versions": [
         {
           "version": "Badlands 2.7L V6 4x4 AT",
-          "price": 58990000,
-          "transmission": "automatica",
-          "traction": "4x4"
-        },
-        {
-          "version": "Outer Banks 2.3L 4x4 AT",
-          "price": 52990000,
+          "price": 62140000,
           "transmission": "automatica",
           "traction": "4x4"
         }
       ],
-      "hp": 330,
-      "torque_nm": 563,
+      "hp": 334,
+      "torque_nm": 562,
       "fuel_consumption_mixed_km_l": 8.5,
       "fuel_tank_liters": 79,
       "length_mm": 4811,
@@ -505,32 +571,28 @@
       ],
       "warranty_years": 3,
       "warranty_km": 60000,
-      "origin_country": "Estados Unidos"
+      "origin_country": "Estados Unidos",
+      "price_source": "https://www.ford.cl/suvs-crossovers/nuevo-bronco/",
+      "price_checked_at": "2026-10-22"
     },
     {
       "id": 625,
       "brand": "Ford",
       "model": "Expedition",
-      "year": 2025,
+      "year": 2026,
       "type": "suv",
       "fuel": "gasolina",
       "seats": 8,
-      "price": 61990000,
+      "price": 74690000,
       "transmission": "automatica",
       "traction": "4x4",
       "image_url": "",
-      "description": "SUV full-size con capacidad para 8 pasajeros, motor EcoBoost 3.5L V6 de 400 hp y lujo superior.",
+      "description": "SUV full size de 8 plazas con EcoBoost 3.5L V6 de 400 HP.",
       "origin": "Estados Unidos",
       "versions": [
         {
           "version": "Platinum 3.5L V6 EcoBoost 4x4 AT",
-          "price": 70990000,
-          "transmission": "automatica",
-          "traction": "4x4"
-        },
-        {
-          "version": "Limited 3.5L V6 EcoBoost 4x4 AT",
-          "price": 61990000,
+          "price": 74690000,
           "transmission": "automatica",
           "traction": "4x4"
         }
@@ -556,38 +618,40 @@
       ],
       "warranty_years": 3,
       "warranty_km": 60000,
-      "origin_country": "Estados Unidos"
+      "origin_country": "Estados Unidos",
+      "price_source": "https://www.ford.cl/suvs-crossovers/expedition/",
+      "price_checked_at": "2026-10-22"
     },
     {
       "id": 626,
       "brand": "Ford",
-      "model": "Territory FHEV",
-      "year": 2025,
+      "model": "Territory Híbrida",
+      "year": 2026,
       "type": "suv",
       "fuel": "hibrido",
       "seats": 5,
-      "price": 26990000,
+      "price": 30590000,
       "transmission": "automatica",
       "traction": "4x2",
       "image_url": "",
-      "description": "SUV híbrida (FHEV) con motor 1.5L turbo y sistema eléctrico que reduce el consumo de combustible.",
+      "description": "SUV híbrida con 242 HP combinados y motor 1.5L turbo.",
       "origin": "China",
       "versions": [
         {
-          "version": "Titanium 1.5 FHEV AT",
-          "price": 26990000,
+          "version": "Titanium Híbrida",
+          "price": 30590000,
           "transmission": "automatica",
           "traction": "4x2"
         },
         {
-          "version": "Titanium+ 1.5 FHEV AT",
-          "price": 31500000,
+          "version": "Platinum Híbrida",
+          "price": 32190000,
           "transmission": "automatica",
           "traction": "4x2"
         }
       ],
-      "hp": 170,
-      "torque_nm": 258,
+      "hp": 242,
+      "torque_nm": 300,
       "fuel_consumption_mixed_km_l": 18,
       "fuel_tank_liters": 52,
       "length_mm": 4630,
@@ -606,28 +670,30 @@
       ],
       "warranty_years": 5,
       "warranty_km": 100000,
-      "origin_country": "China"
+      "origin_country": "China",
+      "price_source": "https://www.ford.cl/hibridos/territory-hibrida/",
+      "price_checked_at": "2026-10-22"
     },
     {
       "id": 627,
       "brand": "Ford",
       "model": "Maverick FHEV",
-      "year": 2025,
+      "year": 2026,
       "type": "pickup",
       "fuel": "hibrido",
       "seats": 5,
-      "price": 37500000,
+      "price": 39615100,
       "transmission": "automatica",
-      "traction": "4x4",
+      "traction": "awd",
       "image_url": "",
-      "description": "Pick-up híbrida (FHEV) con motor 2.5L Atkinson y sistema eléctrico, ideal para ciudad y carga ligera.",
+      "description": "Pickup híbrida con motor 2.5L Atkinson y tracción AWD.",
       "origin": "Estados Unidos",
       "versions": [
         {
-          "version": "Lariat FHEV 2.5 AT 4x4",
-          "price": 37500000,
+          "version": "Lariat FHEV 2.5L AT AWD",
+          "price": 39615100,
           "transmission": "automatica",
-          "traction": "4x4"
+          "traction": "awd"
         }
       ],
       "hp": 191,
@@ -650,44 +716,40 @@
       ],
       "warranty_years": 5,
       "warranty_km": 100000,
-      "origin_country": "Estados Unidos"
+      "origin_country": "Estados Unidos",
+      "price_source": "https://www.ford.cl/hibridos/maverick-hibrida/",
+      "price_checked_at": "2026-10-22"
     },
     {
       "id": 628,
       "brand": "Ford",
-      "model": "Transit",
-      "year": 2025,
+      "model": "Transit Furgón",
+      "year": 2026,
       "type": "minivan",
       "fuel": "diesel",
       "seats": 3,
-      "price": 32100000,
+      "price": 40924100,
       "transmission": "manual",
       "traction": "4x2",
       "image_url": "",
-      "description": "Furgón comercial con motor 2.0L diesel, ideal para carga y transporte de pasajeros.",
+      "description": "Furgón comercial diésel 2.0L, techo alto L3H3.",
       "origin": "Turquía",
       "versions": [
         {
-          "version": "Custom V710 Van L1H1 2.0L MT",
-          "price": 32100000,
+          "version": "Furgón Techo Alto MT (L3H3)",
+          "price": 40924100,
           "transmission": "manual",
           "traction": "4x2"
         },
         {
-          "version": "Furgón Techo Alto L3H3 AT Plus",
-          "price": 38100000,
+          "version": "Furgón Techo Alto AT (L3H3)",
+          "price": 42078400,
           "transmission": "automatica",
-          "traction": "4x2"
-        },
-        {
-          "version": "Bus 14+1 2.0L MT L3H3",
-          "price": 49900000,
-          "transmission": "manual",
           "traction": "4x2"
         }
       ],
-      "hp": 130,
-      "torque_nm": 385,
+      "hp": 170,
+      "torque_nm": 405,
       "fuel_consumption_mixed_km_l": 12,
       "fuel_tank_liters": 80,
       "length_mm": 5530,
@@ -703,7 +765,195 @@
       ],
       "warranty_years": 3,
       "warranty_km": 100000,
-      "origin_country": "Turquía"
+      "origin_country": "Turquía",
+      "price_source": "https://www.ford.cl/comercial/transit-furgon/",
+      "price_checked_at": "2026-10-22"
+    },
+    {
+      "id": 679,
+      "brand": "Ford",
+      "model": "Transit Custom",
+      "year": 2026,
+      "type": "minivan",
+      "fuel": "diesel",
+      "seats": 3,
+      "transmission": "manual",
+      "traction": "4x2",
+      "image_url": "",
+      "description": "Furgón mediano diésel 2.0L con versiones manual y automática.",
+      "origin": "Turquía",
+      "origin_country": "Turquía",
+      "hp": 170,
+      "torque_nm": 405,
+      "price_source": "https://www.ford.cl/comercial/transit-custom/",
+      "price_checked_at": "2026-10-22",
+      "versions": [
+        {
+          "version": "Transit Custom Furgón MT",
+          "price": 35093100,
+          "transmission": "manual",
+          "traction": "4x2"
+        },
+        {
+          "version": "Transit Custom Furgón AT",
+          "price": 39496100,
+          "transmission": "automatica",
+          "traction": "4x2"
+        }
+      ],
+      "price": 35093100
+    },
+    {
+      "id": 680,
+      "brand": "Ford",
+      "model": "Transit Custom Minibús",
+      "year": 2026,
+      "type": "minivan",
+      "fuel": "diesel",
+      "seats": 9,
+      "transmission": "automatica",
+      "traction": "4x2",
+      "image_url": "",
+      "description": "Minibús diésel 2.0L para transporte de pasajeros.",
+      "origin": "Turquía",
+      "origin_country": "Turquía",
+      "hp": 170,
+      "torque_nm": 405,
+      "price_source": "https://www.ford.cl/comercial/transit-custom-minibus/",
+      "price_checked_at": "2026-10-22",
+      "versions": [
+        {
+          "version": "Nueva Transit Custom Minibús",
+          "price": 40924100,
+          "transmission": "automatica",
+          "traction": "4x2"
+        }
+      ],
+      "price": 40924100
+    },
+    {
+      "id": 681,
+      "brand": "Ford",
+      "model": "Transit Bus",
+      "year": 2026,
+      "type": "minivan",
+      "fuel": "diesel",
+      "seats": 18,
+      "transmission": "manual",
+      "traction": "4x2",
+      "image_url": "",
+      "description": "Bus de transporte de pasajeros con motor diésel 2.0L.",
+      "origin": "Turquía",
+      "origin_country": "Turquía",
+      "hp": 170,
+      "torque_nm": 405,
+      "price_source": "https://www.ford.cl/comercial/nueva-transit-bus/",
+      "price_checked_at": "2026-10-22",
+      "versions": [
+        {
+          "version": "Transit Bus 14+1 MT",
+          "price": 52907400,
+          "transmission": "manual",
+          "traction": "4x2"
+        },
+        {
+          "version": "Transit Bus 17+1 MT",
+          "price": 55799100,
+          "transmission": "manual",
+          "traction": "4x2"
+        },
+        {
+          "version": "Transit Bus 17+1 AT",
+          "price": 57667400,
+          "transmission": "automatica",
+          "traction": "4x2"
+        }
+      ],
+      "price": 52907400
+    },
+    {
+      "id": 682,
+      "brand": "Ford",
+      "model": "Transit Chasis",
+      "year": 2026,
+      "type": "pickup",
+      "fuel": "diesel",
+      "seats": 3,
+      "transmission": "manual",
+      "traction": "4x2",
+      "image_url": "",
+      "description": "Chasis cabina diésel 2.0L L3H1 para carrozar.",
+      "origin": "Turquía",
+      "origin_country": "Turquía",
+      "hp": 170,
+      "torque_nm": 405,
+      "price_source": "https://www.ford.cl/comercial/nueva-transit-chasis/",
+      "price_checked_at": "2026-10-22",
+      "versions": [
+        {
+          "version": "L3H1 MT",
+          "price": 35093100,
+          "transmission": "manual",
+          "traction": "4x2"
+        }
+      ],
+      "price": 35093100
+    },
+    {
+      "id": 683,
+      "brand": "Ford",
+      "model": "E-Transit Furgón",
+      "year": 2026,
+      "type": "minivan",
+      "fuel": "electrico",
+      "seats": 3,
+      "transmission": "automatica",
+      "traction": "4x2",
+      "image_url": "",
+      "description": "Furgón eléctrico con batería de 68 kWh y carga rápida DC.",
+      "origin": "Turquía",
+      "origin_country": "Turquía",
+      "hp": 269,
+      "torque_nm": 430,
+      "price_source": "https://www.ford.cl/comercial/e-transit-van/",
+      "price_checked_at": "2026-10-22",
+      "versions": [
+        {
+          "version": "E-Transit Furgón L3H3 AT",
+          "price": 68900000,
+          "transmission": "automatica",
+          "traction": "4x2"
+        }
+      ],
+      "price": 68900000
+    },
+    {
+      "id": 684,
+      "brand": "Ford",
+      "model": "E-Transit Chasis",
+      "year": 2026,
+      "type": "pickup",
+      "fuel": "electrico",
+      "seats": 3,
+      "transmission": "automatica",
+      "traction": "4x2",
+      "image_url": "",
+      "description": "Chasis cabina eléctrico para carrozar, con batería de 68 kWh.",
+      "origin": "Turquía",
+      "origin_country": "Turquía",
+      "hp": 269,
+      "torque_nm": 430,
+      "price_source": "https://www.ford.cl/comercial/e-transit-chasis/",
+      "price_checked_at": "2026-10-22",
+      "versions": [
+        {
+          "version": "E-Transit Chasis L3H1 AT",
+          "price": 65900000,
+          "transmission": "automatica",
+          "traction": "4x2"
+        }
+      ],
+      "price": 65900000
     }
   ]
 }

@@ -10,11 +10,11 @@
       "type": "suv",
       "fuel": "electrico",
       "seats": 5,
-      "price": 64990000,
+      "price": 59990000,
       "transmission": "automatica",
-      "traction": "awd",
+      "traction": "4x2",
       "image_url": "",
-      "description": "SUV eléctrico con diseño audaz y tecnología avanzada de la plataforma Ultium.",
+      "description": "SUV eléctrica con batería Ultium de 102 kWh y 520 km de autonomía EPA.",
       "origin": "USA",
       "hp": 340,
       "torque_nm": 650,
@@ -45,18 +45,18 @@
       "origin_country": "USA",
       "versions": [
         {
-          "version": "RS AWD",
-          "price": 64990000,
+          "version": "RWD RS",
+          "price": 59990000,
           "transmission": "automatica",
-          "traction": "awd"
-        },
-        {
-          "version": "SS AWD",
-          "price": 74990000,
-          "transmission": "automatica",
-          "traction": "awd"
+          "traction": "4x2",
+          "price_list": 65190000,
+          "price_bonus": 5200000
         }
-      ]
+      ],
+      "price_source": "https://www.chevrolet.cl/autos-electricos/blazer-rs-ev",
+      "price_checked_at": "2026-10-22",
+      "price_list": 65190000,
+      "price_bonus": 5200000
     },
     {
       "id": 106,
@@ -112,7 +112,8 @@
           "transmission": "automatica",
           "traction": "4x2"
         }
-      ]
+      ],
+      "lineup_2026": false
     },
     {
       "id": 107,
@@ -122,14 +123,14 @@
       "type": "suv",
       "fuel": "electrico",
       "seats": 5,
-      "price": 27990000,
+      "price": 28990000,
       "transmission": "automatica",
-      "traction": "awd",
+      "traction": "4x2",
       "image_url": "",
-      "description": "SUV eléctrico con diseño moderno y autonomía para el día a día.",
+      "description": "SUV eléctrica de 60 kWh y hasta 415 km NEDC, con carga rápida DC.",
       "origin": "USA",
-      "hp": 210,
-      "torque_nm": 320,
+      "hp": 201,
+      "torque_nm": 310,
       "length_mm": 4650,
       "width_mm": 1850,
       "height_mm": 1680,
@@ -156,35 +157,35 @@
       "origin_country": "USA",
       "versions": [
         {
-          "version": "EV LT",
-          "price": 27990000,
-          "transmission": "automática",
-          "traction": "awd"
-        },
-        {
-          "version": "EV Premier",
-          "price": 32990000,
-          "transmission": "automática",
-          "traction": "awd"
+          "version": "Premier FWD",
+          "price": 28990000,
+          "transmission": "automatica",
+          "traction": "4x2",
+          "price_list": 31290000,
+          "price_bonus": 2300000
         }
-      ]
+      ],
+      "price_source": "https://www.chevrolet.cl/autos-electricos/captiva-ev",
+      "price_checked_at": "2026-10-22",
+      "price_list": 31290000,
+      "price_bonus": 2300000
     },
     {
       "id": 108,
       "brand": "Chevrolet",
-      "model": "Captiva PHEV",
+      "model": "Captiva Híbrida",
       "year": 2026,
       "type": "suv",
       "fuel": "hibrido_enchufable",
       "seats": 5,
-      "price": 27990000,
+      "price": 25990000,
       "transmission": "automatica",
       "traction": "4x2",
       "image_url": "",
-      "description": "SUV híbrido enchufable con eficiencia y versatilidad.",
+      "description": "SUV híbrida enchufable 1.5L con batería de 20,5 kWh y hasta 1.040 km NEDC.",
       "origin": "USA",
-      "hp": 190,
-      "torque_nm": 300,
+      "hp": 201,
+      "torque_nm": 310,
       "length_mm": 4650,
       "width_mm": 1850,
       "height_mm": 1680,
@@ -213,43 +214,53 @@
       "origin_country": "USA",
       "versions": [
         {
-          "version": "PHEV LT",
-          "price": 27990000,
-          "transmission": "automática",
-          "traction": "4x2"
-        },
-        {
-          "version": "PHEV Premier",
-          "price": 32990000,
-          "transmission": "automática",
-          "traction": "4x2"
+          "version": "1.5L Premier FWD",
+          "price": 25990000,
+          "transmission": "automatica",
+          "traction": "4x2",
+          "price_list": 28290000,
+          "price_bonus": 2300000
         }
-      ]
+      ],
+      "price_source": "https://www.chevrolet.cl/autos-hibridos/captiva-phev",
+      "price_checked_at": "2026-10-22",
+      "price_list": 28290000,
+      "price_bonus": 2300000
     },
     {
       "id": 109,
       "brand": "Chevrolet",
       "model": "Captiva XL",
-      "year": 2025,
+      "year": 2026,
       "type": "suv",
       "fuel": "gasolina",
       "seats": 7,
-      "price": 16990000,
+      "price": 19990000,
       "transmission": "automatica",
       "traction": "4x2",
       "image_url": "",
-      "description": "SUV familiar con 7 plazas, motor 1.5L turbo de 147 hp y transmisión CVT.",
+      "description": "SUV familiar de 7 plazas con motor 1.5L turbo de 148 HP y CVT.",
       "origin": "China",
       "versions": [
         {
-          "version": "1.5T CVT",
-          "price": 16990000,
+          "version": "1.5T LTZ CVT",
+          "price": 19990000,
           "transmission": "automatica",
-          "traction": "4x2"
+          "traction": "4x2",
+          "price_list": 21390000,
+          "price_bonus": 1400000
+        },
+        {
+          "version": "1.5T Premier CVT",
+          "price": 21990000,
+          "transmission": "automatica",
+          "traction": "4x2",
+          "price_list": 23390000,
+          "price_bonus": 1400000
         }
       ],
-      "hp": 147,
-      "torque_nm": 230,
+      "hp": 148,
+      "torque_nm": 250,
       "fuel_consumption_mixed_km_l": 13.8,
       "fuel_tank_liters": 52,
       "length_mm": 4655,
@@ -268,38 +279,54 @@
       ],
       "warranty_years": 6,
       "warranty_km": 150000,
-      "origin_country": "China"
+      "origin_country": "China",
+      "price_source": "https://www.chevrolet.cl/suvs/captiva-camioneta-suv",
+      "price_checked_at": "2026-10-22",
+      "price_list": 21390000,
+      "price_bonus": 1400000
     },
     {
       "id": 110,
       "brand": "Chevrolet",
       "model": "Colorado",
-      "year": 2025,
+      "year": 2026,
       "type": "pickup",
       "fuel": "diesel",
       "seats": 5,
-      "price": 27800000,
+      "price": 24990000,
       "transmission": "manual",
-      "traction": "4x4",
+      "traction": "4x2",
       "image_url": "",
-      "description": "Pick-up mediana con motor Duramax 2.8L turbo diésel de 200 hp.",
+      "description": "Pickup diésel 2.8L de 200 HP, en versiones 4x2 y 4x4. Precios + IVA.",
       "origin": "Tailandia",
       "versions": [
         {
-          "version": "2.8L Worktruck MT 4x4",
-          "price": 27800000,
+          "version": "2.8TD WT MT 2WD",
+          "price": 24990000,
+          "transmission": "manual",
+          "traction": "4x2"
+        },
+        {
+          "version": "2.8TD WT MT 4WD",
+          "price": 27490000,
           "transmission": "manual",
           "traction": "4x4"
         },
         {
-          "version": "2.8L Worktruck AT 4x4",
-          "price": 38000000,
+          "version": "2.8TD WT AT 4WD",
+          "price": 29490000,
           "transmission": "automatica",
           "traction": "4x4"
         },
         {
-          "version": "2.8L LTZ AT 4x4",
-          "price": 45400000,
+          "version": "2.8TD Z71 AT 4WD",
+          "price": 30490000,
+          "transmission": "automatica",
+          "traction": "4x4"
+        },
+        {
+          "version": "2.8TD HC AT 4WD",
+          "price": 34990000,
           "transmission": "automatica",
           "traction": "4x4"
         }
@@ -324,7 +351,9 @@
       ],
       "warranty_years": 5,
       "warranty_km": 100000,
-      "origin_country": "Tailandia"
+      "origin_country": "Tailandia",
+      "price_source": "https://www.chevrolet.cl/pickups/colorado-camioneta-pickup",
+      "price_checked_at": "2026-10-22"
     },
     {
       "id": 111,
@@ -368,7 +397,8 @@
       ],
       "warranty_years": 5,
       "warranty_km": 100000,
-      "origin_country": "Tailandia"
+      "origin_country": "Tailandia",
+      "lineup_2026": false
     },
     {
       "id": 112,
@@ -418,31 +448,34 @@
       ],
       "warranty_years": 6,
       "warranty_km": 150000,
-      "origin_country": "México"
+      "origin_country": "México",
+      "lineup_2026": false
     },
     {
       "id": 113,
       "brand": "Chevrolet",
       "model": "Equinox EV",
-      "year": 2025,
+      "year": 2026,
       "type": "suv",
       "fuel": "electrico",
       "seats": 5,
-      "price": 45990000,
+      "price": 39990000,
       "transmission": "automatica",
       "traction": "awd",
       "image_url": "",
-      "description": "SUV 100% eléctrica con autonomía de hasta 490 km y carga rápida.",
+      "description": "SUV eléctrica con batería Ultium de 85 kWh y 488 km de autonomía EPA.",
       "origin": "Estados Unidos",
       "versions": [
         {
-          "version": "RS AWD",
-          "price": 45990000,
+          "version": "eAWD LTZ",
+          "price": 39990000,
           "transmission": "automatica",
-          "traction": "awd"
+          "traction": "awd",
+          "price_list": 45190000,
+          "price_bonus": 5200000
         }
       ],
-      "hp": 290,
+      "hp": 286,
       "torque_nm": 460,
       "length_mm": 4666,
       "width_mm": 1863,
@@ -459,34 +492,50 @@
       ],
       "warranty_years": 5,
       "warranty_km": 100000,
-      "origin_country": "Estados Unidos"
+      "origin_country": "Estados Unidos",
+      "price_source": "https://www.chevrolet.cl/autos-electricos/equinox-ev",
+      "price_checked_at": "2026-10-22",
+      "price_list": 45190000,
+      "price_bonus": 5200000
     },
     {
       "id": 114,
       "brand": "Chevrolet",
       "model": "Groove",
-      "year": 2025,
+      "year": 2026,
       "type": "suv",
       "fuel": "gasolina",
       "seats": 5,
-      "price": 11490000,
+      "price": 12490000,
       "transmission": "manual",
       "traction": "4x2",
       "image_url": "",
-      "description": "SUV urbana accesible con motor 1.5L de 110 hp, ideal para la ciudad.",
+      "description": "SUV compacta con motor 1.5L de 110 HP o 1.5T de 154 HP.",
       "origin": "China",
       "versions": [
         {
-          "version": "1.5L MT",
-          "price": 11490000,
+          "version": "1.5L LTZ MT",
+          "price": 12490000,
           "transmission": "manual",
-          "traction": "4x2"
+          "traction": "4x2",
+          "price_list": 14690000,
+          "price_bonus": 2200000
         },
         {
-          "version": "1.5L CVT",
-          "price": 12490000,
+          "version": "1.5L RS MT",
+          "price": 13990000,
+          "transmission": "manual",
+          "traction": "4x2",
+          "price_list": 15690000,
+          "price_bonus": 1700000
+        },
+        {
+          "version": "1.5T RS CVT",
+          "price": 15990000,
           "transmission": "automatica",
-          "traction": "4x2"
+          "traction": "4x2",
+          "price_list": 17690000,
+          "price_bonus": 1700000
         }
       ],
       "hp": 110,
@@ -508,7 +557,11 @@
       ],
       "warranty_years": 5,
       "warranty_km": 100000,
-      "origin_country": "China"
+      "origin_country": "China",
+      "price_source": "https://www.chevrolet.cl/suvs/groove-suv-deportivo",
+      "price_checked_at": "2026-10-22",
+      "price_list": 14690000,
+      "price_bonus": 2200000
     },
     {
       "id": 115,
@@ -558,38 +611,39 @@
           "transmission": "manual",
           "traction": "4x2"
         }
-      ]
+      ],
+      "lineup_2026": false
     },
     {
       "id": 116,
       "brand": "Chevrolet",
       "model": "Montana",
-      "year": 2025,
+      "year": 2026,
       "type": "pickup",
       "fuel": "gasolina",
       "seats": 5,
-      "price": 17900000,
+      "price": 16790000,
       "transmission": "automatica",
       "traction": "4x2",
       "image_url": "",
-      "description": "Pick-up compacta con motor 1.2L turbo de 130 hp, caja CVT y caja Multi-Flex.",
+      "description": "Pickup compacta 1.2T de 130 HP con caja automática. Precios + IVA.",
       "origin": "Brasil",
       "versions": [
         {
-          "version": "1.2T LT S MT",
-          "price": 17900000,
-          "transmission": "manual",
-          "traction": "4x2"
-        },
-        {
-          "version": "1.2T LTZ S CVT",
-          "price": 21100000,
+          "version": "1.2T LT AT",
+          "price": 16790000,
           "transmission": "automatica",
           "traction": "4x2"
         },
         {
-          "version": "1.2T Premier S CVT",
-          "price": 22600000,
+          "version": "1.2T LTZ AT",
+          "price": 18190000,
+          "transmission": "automatica",
+          "traction": "4x2"
+        },
+        {
+          "version": "1.2T Premier AT",
+          "price": 19190000,
           "transmission": "automatica",
           "traction": "4x2"
         }
@@ -614,7 +668,9 @@
       ],
       "warranty_years": 6,
       "warranty_km": 150000,
-      "origin_country": "Brasil"
+      "origin_country": "Brasil",
+      "price_source": "https://www.chevrolet.cl/pickups/pickup-montana",
+      "price_checked_at": "2026-10-22"
     },
     {
       "id": 117,
@@ -624,13 +680,13 @@
       "type": "minivan",
       "fuel": "gasolina",
       "seats": 5,
-      "price": 14990000,
+      "price": 10290000,
       "transmission": "manual",
       "traction": "4x2",
       "image_url": "",
-      "description": "Furgón compacto para carga con gran capacidad y rendimiento.",
+      "description": "Van de carga 1.5L de 103 HP, 3,1 m³ y hasta 720 kg de carga útil. Precio + IVA.",
       "origin": "China",
-      "hp": 100,
+      "hp": 103,
       "torque_nm": 132,
       "length_mm": 4500,
       "width_mm": 1700,
@@ -653,55 +709,41 @@
       "origin_country": "China",
       "versions": [
         {
-          "version": "LS MT",
-          "price": 14990000,
-          "transmission": "manual",
-          "traction": "4x2"
-        },
-        {
-          "version": "LT MT",
-          "price": 16990000,
+          "version": "1.5L MT AC",
+          "price": 10290000,
           "transmission": "manual",
           "traction": "4x2"
         }
-      ]
+      ],
+      "price_source": "https://www.chevrolet.cl/vans/n400-van",
+      "price_checked_at": "2026-10-22"
     },
     {
       "id": 118,
       "brand": "Chevrolet",
       "model": "Onix",
-      "year": 2025,
-      "type": "sedan",
+      "year": 2026,
+      "type": "hatchback",
       "fuel": "gasolina",
       "seats": 5,
-      "price": 14990000,
+      "price": 16190000,
       "transmission": "automatica",
       "traction": "4x2",
       "image_url": "",
-      "description": "Sedán compacto con motor Turbo 1.0L de 116 hp y caja CVT, tecnología avanzada.",
+      "description": "Hatchback 1.0T de 116 HP con caja automática, en versión Premier.",
       "origin": "Brasil",
       "versions": [
         {
-          "version": "1.0T Turbo LT CVT",
-          "price": 14990000,
+          "version": "1.0T Premier AT",
+          "price": 16190000,
           "transmission": "automatica",
-          "traction": "4x2"
-        },
-        {
-          "version": "1.0T Turbo LTZ CVT",
-          "price": 16090000,
-          "transmission": "automatica",
-          "traction": "4x2"
-        },
-        {
-          "version": "1.0T Turbo Premier CVT",
-          "price": 18190000,
-          "transmission": "automatica",
-          "traction": "4x2"
+          "traction": "4x2",
+          "price_list": 17690000,
+          "price_bonus": 1500000
         }
       ],
       "hp": 116,
-      "torque_nm": 168,
+      "torque_nm": 160,
       "fuel_consumption_mixed_km_l": 14.8,
       "fuel_tank_liters": 44,
       "length_mm": 4475,
@@ -720,7 +762,11 @@
       ],
       "warranty_years": 6,
       "warranty_km": 150000,
-      "origin_country": "Brasil"
+      "origin_country": "Brasil",
+      "price_source": "https://www.chevrolet.cl/autos/onix-premier-hatchback",
+      "price_checked_at": "2026-10-22",
+      "price_list": 17690000,
+      "price_bonus": 1500000
     },
     {
       "id": 119,
@@ -734,20 +780,32 @@
       "transmission": "manual",
       "traction": "4x2",
       "image_url": "",
-      "description": "Hatchback compacto con motor 1.5L de 113 hp, ideal para primera compra.",
+      "description": "Hatchback 1.5L de 113 HP con caja manual o CVT.",
       "origin": "China",
       "versions": [
         {
           "version": "1.5L LT MT",
           "price": 9490000,
           "transmission": "manual",
-          "traction": "4x2"
+          "traction": "4x2",
+          "price_list": 12390000,
+          "price_bonus": 2900000
         },
         {
           "version": "1.5L LTZ MT",
-          "price": 9990000,
+          "price": 10990000,
           "transmission": "manual",
-          "traction": "4x2"
+          "traction": "4x2",
+          "price_list": 12590000,
+          "price_bonus": 1600000
+        },
+        {
+          "version": "1.5L LTZ CVT",
+          "price": 11990000,
+          "transmission": "automatica",
+          "traction": "4x2",
+          "price_list": 13590000,
+          "price_bonus": 1600000
         }
       ],
       "hp": 113,
@@ -769,7 +827,11 @@
       ],
       "warranty_years": 5,
       "warranty_km": 100000,
-      "origin_country": "China"
+      "origin_country": "China",
+      "price_source": "https://www.chevrolet.cl/autos/sail-hatchback",
+      "price_checked_at": "2026-10-22",
+      "price_list": 12390000,
+      "price_bonus": 2900000
     },
     {
       "id": 120,
@@ -779,18 +841,36 @@
       "type": "sedan",
       "fuel": "gasolina",
       "seats": 5,
-      "price": 9790000,
-      "transmission": "automatica",
+      "price": 9990000,
+      "transmission": "manual",
       "traction": "4x2",
       "image_url": "",
-      "description": "Sedán compacto con motor 1.5L de 113 hp y caja CVT, excelente eficiencia.",
+      "description": "Sedán 1.5L de 113 HP con caja manual o CVT.",
       "origin": "China",
       "versions": [
         {
+          "version": "1.5L LT MT",
+          "price": 9990000,
+          "transmission": "manual",
+          "traction": "4x2",
+          "price_list": 12490000,
+          "price_bonus": 2500000
+        },
+        {
+          "version": "1.5L LTZ MT",
+          "price": 10990000,
+          "transmission": "manual",
+          "traction": "4x2",
+          "price_list": 12590000,
+          "price_bonus": 1600000
+        },
+        {
           "version": "1.5L LTZ CVT",
-          "price": 9790000,
+          "price": 11990000,
           "transmission": "automatica",
-          "traction": "4x2"
+          "traction": "4x2",
+          "price_list": 13590000,
+          "price_bonus": 1600000
         }
       ],
       "hp": 113,
@@ -812,38 +892,42 @@
       ],
       "warranty_years": 5,
       "warranty_km": 100000,
-      "origin_country": "China"
+      "origin_country": "China",
+      "price_source": "https://www.chevrolet.cl/autos/sail-sedan",
+      "price_checked_at": "2026-10-22",
+      "price_list": 12490000,
+      "price_bonus": 2500000
     },
     {
       "id": 121,
       "brand": "Chevrolet",
       "model": "Silverado",
-      "year": 2025,
+      "year": 2026,
       "type": "pickup",
       "fuel": "gasolina",
       "seats": 5,
-      "price": 50800000,
+      "price": 41990000,
       "transmission": "automatica",
       "traction": "4x4",
       "image_url": "",
-      "description": "Pick-up full-size con motor V8 5.3L Ecotec de 355 hp, caja automática y tracción 4x4.",
+      "description": "Pickup full size con motores 5.3L V8, 6.2L V8 y 3.0L diésel. Precios + IVA.",
       "origin": "Estados Unidos",
       "versions": [
         {
-          "version": "5.3L LT Trailboss 4x4",
-          "price": 50800000,
+          "version": "5.3L LT Trail Boss AT 4WD",
+          "price": 41990000,
           "transmission": "automatica",
           "traction": "4x4"
         },
         {
-          "version": "6.2L ZR2 4x4 S",
-          "price": 66500000,
+          "version": "6.2L ZR2 AT 4WD",
+          "price": 52990000,
           "transmission": "automatica",
           "traction": "4x4"
         },
         {
-          "version": "3.0L High Country 4x4",
-          "price": 73600000,
+          "version": "3.0TD High Country AT 4WD",
+          "price": 58890000,
           "transmission": "automatica",
           "traction": "4x4"
         }
@@ -869,7 +953,9 @@
       ],
       "warranty_years": 5,
       "warranty_km": 100000,
-      "origin_country": "Estados Unidos"
+      "origin_country": "Estados Unidos",
+      "price_source": "https://www.chevrolet.cl/pickups/silverado-camioneta",
+      "price_checked_at": "2026-10-22"
     },
     {
       "id": 122,
@@ -923,7 +1009,8 @@
           "transmission": "automática",
           "traction": "4x2"
         }
-      ]
+      ],
+      "lineup_2026": false
     },
     {
       "id": 123,
@@ -933,18 +1020,20 @@
       "type": "suv",
       "fuel": "gasolina",
       "seats": 7,
-      "price": 64700000,
+      "price": 78990000,
       "transmission": "automatica",
-      "traction": "awd",
+      "traction": "4x4",
       "image_url": "",
-      "description": "SUV full-size premium con motor V8 5.3L de 355 hp, tres filas de asientos y gran capacidad.",
+      "description": "SUV full size 5.3L V8 de 355 HP con tracción 4WD.",
       "origin": "Estados Unidos",
       "versions": [
         {
-          "version": "5.3L V8 4x4",
-          "price": 64700000,
+          "version": "5.3L Z71 AT 4WD",
+          "price": 78990000,
           "transmission": "automatica",
-          "traction": "4x4"
+          "traction": "4x4",
+          "price_list": 81690000,
+          "price_bonus": 2700000
         }
       ],
       "hp": 355,
@@ -967,7 +1056,11 @@
       ],
       "warranty_years": 5,
       "warranty_km": 100000,
-      "origin_country": "Estados Unidos"
+      "origin_country": "Estados Unidos",
+      "price_source": "https://www.chevrolet.cl/suvs/suburban-suv",
+      "price_checked_at": "2026-10-22",
+      "price_list": 81690000,
+      "price_bonus": 2700000
     },
     {
       "id": 124,
@@ -977,18 +1070,20 @@
       "type": "suv",
       "fuel": "gasolina",
       "seats": 7,
-      "price": 61400000,
+      "price": 74990000,
       "transmission": "automatica",
-      "traction": "awd",
+      "traction": "4x4",
       "image_url": "",
-      "description": "SUV full-size con motor V8 5.3L de 355 hp, tres filas y equipamiento premium.",
+      "description": "SUV full size 5.3L V8 de 355 HP con tracción 4WD.",
       "origin": "Estados Unidos",
       "versions": [
         {
-          "version": "5.3L V8 4x4",
-          "price": 61400000,
+          "version": "5.3L Z71 AT 4WD",
+          "price": 74990000,
           "transmission": "automatica",
-          "traction": "4x4"
+          "traction": "4x4",
+          "price_list": 77690000,
+          "price_bonus": 2700000
         }
       ],
       "hp": 355,
@@ -1011,13 +1106,17 @@
       ],
       "warranty_years": 5,
       "warranty_km": 100000,
-      "origin_country": "Estados Unidos"
+      "origin_country": "Estados Unidos",
+      "price_source": "https://www.chevrolet.cl/suvs/tahoe-camioneta-suv",
+      "price_checked_at": "2026-10-22",
+      "price_list": 77690000,
+      "price_bonus": 2700000
     },
     {
       "id": 125,
       "brand": "Chevrolet",
       "model": "Tracker",
-      "year": 2025,
+      "year": 2026,
       "type": "suv",
       "fuel": "gasolina",
       "seats": 5,
@@ -1025,30 +1124,28 @@
       "transmission": "automatica",
       "traction": "4x2",
       "image_url": "",
-      "description": "SUV compacta con motor Turbo 1.0L de 130 hp, transmisión automática de 6 velocidades.",
+      "description": "SUV compacta 1.2T de 130 HP con caja automática de 6 velocidades.",
       "origin": "China",
       "versions": [
         {
-          "version": "1.0T LT 6AT",
+          "version": "1.2T LTZ AT",
           "price": 18490000,
           "transmission": "automatica",
-          "traction": "4x2"
+          "traction": "4x2",
+          "price_list": 19490000,
+          "price_bonus": 1000000
         },
         {
-          "version": "1.0T LTZ 6AT",
-          "price": 20990000,
+          "version": "1.2T Premier AT",
+          "price": 19990000,
           "transmission": "automatica",
-          "traction": "4x2"
-        },
-        {
-          "version": "1.0T Premier 6AT",
-          "price": 23490000,
-          "transmission": "automatica",
-          "traction": "4x2"
+          "traction": "4x2",
+          "price_list": 20990000,
+          "price_bonus": 1000000
         }
       ],
       "hp": 130,
-      "torque_nm": 180,
+      "torque_nm": 190,
       "fuel_consumption_mixed_km_l": 14.5,
       "fuel_tank_liters": 50,
       "length_mm": 4270,
@@ -1067,28 +1164,42 @@
       ],
       "warranty_years": 6,
       "warranty_km": 150000,
-      "origin_country": "China"
+      "origin_country": "China",
+      "price_source": "https://www.chevrolet.cl/suvs/tracker-camioneta-suv",
+      "price_checked_at": "2026-10-22",
+      "price_list": 19490000,
+      "price_bonus": 1000000
     },
     {
       "id": 126,
       "brand": "Chevrolet",
-      "model": "Traverse Z71",
+      "model": "Traverse",
       "year": 2025,
       "type": "suv",
       "fuel": "gasolina",
       "seats": 7,
-      "price": 48990000,
+      "price": 49990000,
       "transmission": "automatica",
       "traction": "awd",
       "image_url": "",
-      "description": "SUV full-size con 7 plazas, motor 3.6L V6 de 315 hp y tracción AWD.",
+      "description": "SUV de 7 plazas con motor 2.5T de 315 HP y tracción AWD.",
       "origin": "Estados Unidos",
       "versions": [
         {
-          "version": "Z71 3.6L V6 AWD",
-          "price": 48990000,
+          "version": "2.5T LT Midnight AWD AT",
+          "price": 49990000,
           "transmission": "automatica",
-          "traction": "awd"
+          "traction": "awd",
+          "price_list": 51990000,
+          "price_bonus": 2000000
+        },
+        {
+          "version": "2.5T Z71 AT",
+          "price": 53990000,
+          "transmission": "automatica",
+          "traction": "awd",
+          "price_list": 55990000,
+          "price_bonus": 2000000
         }
       ],
       "hp": 315,
@@ -1111,38 +1222,38 @@
       ],
       "warranty_years": 5,
       "warranty_km": 100000,
-      "origin_country": "Estados Unidos"
+      "origin_country": "Estados Unidos",
+      "price_source": "https://www.chevrolet.cl/suvs/traverse",
+      "price_checked_at": "2026-10-22",
+      "price_list": 51990000,
+      "price_bonus": 2000000
     },
     {
       "id": 619,
       "brand": "Chevrolet",
       "model": "Onix Sedán",
-      "year": 2025,
+      "year": 2026,
       "type": "sedan",
       "fuel": "gasolina",
       "seats": 5,
       "price": 9990000,
-      "transmission": "automatica",
+      "transmission": "manual",
       "traction": "4x2",
       "image_url": "",
-      "description": "Sedán compacto con excelente relación precio-equipamiento.",
+      "description": "Sedán 1.0T de 116 HP con caja manual de 6 velocidades.",
       "origin": "Brasil",
       "versions": [
         {
-          "version": "1.4L MT",
+          "version": "1.0T LTZ MT",
           "price": 9990000,
           "transmission": "manual",
-          "traction": "4x2"
-        },
-        {
-          "version": "1.4L AT",
-          "price": 11590000,
-          "transmission": "automatica",
-          "traction": "4x2"
+          "traction": "4x2",
+          "price_list": 15990000,
+          "price_bonus": 6000000
         }
       ],
-      "hp": 105,
-      "torque_nm": 142,
+      "hp": 116,
+      "torque_nm": 160,
       "fuel_consumption_mixed_km_l": 14.5,
       "fuel_tank_liters": 44,
       "length_mm": 4475,
@@ -1161,7 +1272,46 @@
       ],
       "warranty_years": 6,
       "warranty_km": 150000,
-      "origin_country": "Brasil"
+      "origin_country": "Brasil",
+      "price_source": "https://www.chevrolet.cl/autos/onix-sedan",
+      "price_checked_at": "2026-10-22",
+      "price_list": 15990000,
+      "price_bonus": 6000000
+    },
+    {
+      "id": 678,
+      "brand": "Chevrolet",
+      "model": "Spark EUV",
+      "year": 2026,
+      "type": "suv",
+      "fuel": "electrico",
+      "seats": 5,
+      "transmission": "automatica",
+      "traction": "4x2",
+      "image_url": "",
+      "description": "SUV eléctrica de 41,9 kWh y hasta 360 km NEDC, con carga DC de 50 kW.",
+      "origin": "China",
+      "origin_country": "China",
+      "hp": 101,
+      "torque_nm": 180,
+      "wheelbase_mm": 2560,
+      "ground_clearance_mm": 140,
+      "trunk_liters": 549,
+      "price_source": "https://www.chevrolet.cl/autos-electricos/spark-euv",
+      "price_checked_at": "2026-10-22",
+      "versions": [
+        {
+          "version": "Activ",
+          "price": 19790000,
+          "price_list": 22190000,
+          "price_bonus": 2400000,
+          "transmission": "automatica",
+          "traction": "4x2"
+        }
+      ],
+      "price": 19790000,
+      "price_list": 22190000,
+      "price_bonus": 2400000
     }
   ]
 }

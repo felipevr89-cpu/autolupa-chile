@@ -30,6 +30,11 @@ export function Navbar({ user, signInWithGoogle, signOut, isCloudAuthAvailable }
   }, [location]);
 
   useEffect(() => {
+    document.body.classList.toggle('menu-open', mobileOpen);
+    return () => document.body.classList.remove('menu-open');
+  }, [mobileOpen]);
+
+  useEffect(() => {
     if (darkMode) {
       document.documentElement.classList.add('dark');
     } else {
@@ -197,6 +202,9 @@ export function Navbar({ user, signInWithGoogle, signOut, isCloudAuthAvailable }
           {/* Mobile hamburger */}
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
+            aria-label={mobileOpen ? 'Cerrar menú' : 'Abrir menú'}
+            aria-expanded={mobileOpen}
+            aria-controls="mobile-menu"
             className="md:hidden w-10 h-10 flex items-center justify-center rounded-lg hover:bg-white/10"
           >
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -212,7 +220,7 @@ export function Navbar({ user, signInWithGoogle, signOut, isCloudAuthAvailable }
 
       {/* Mobile menu */}
       {mobileOpen && (
-        <div className="md:hidden border-t border-gray-800 dark:border-gray-700">
+        <div id="mobile-menu" className="md:hidden border-t border-gray-800 dark:border-gray-700">
           <div className="px-4 py-3 space-y-1">
             <Link
               to="/publicar-auto"
@@ -316,15 +324,6 @@ export function Navbar({ user, signInWithGoogle, signOut, isCloudAuthAvailable }
             )}
           </div>
         </div>
-      )}
-
-      {!mobileOpen && (
-        <Link
-          to="/publicar-auto"
-          className="md:hidden fixed bottom-5 right-5 z-40 flex items-center gap-2 px-5 py-4 rounded-full bg-green-600 text-white font-bold shadow-xl hover:bg-green-500 transition-colors"
-        >
-          Publicar gratis
-        </Link>
       )}
     </nav>
   );

@@ -1,6 +1,8 @@
 import { memo } from 'react';
+import { Link } from 'react-router-dom';
 import { Car } from '../../types';
 import { formatPrice, getTypeLabel, getFuelLabel, isBrandSoldNewInChile } from '../../data/brands';
+import { carPath } from '../../lib/carSlug';
 import { CarImage } from './CarImage';
 import { TermTip } from '../Glossary/TermTip';
 
@@ -48,10 +50,13 @@ export const CarCard = memo(function CarCard({
         />
         
         <button
+          type="button"
           onClick={(e) => {
             e.stopPropagation();
             onToggleFavorite(car.id);
           }}
+          aria-label={isFavorite ? `Quitar ${car.brand} ${car.model} de favoritos` : `Guardar ${car.brand} ${car.model} en favoritos`}
+          aria-pressed={isFavorite}
           className="absolute top-3 right-3 w-9 h-9 rounded-full bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm flex items-center justify-center transition-all hover:bg-white hover:scale-110 shadow-md"
         >
           <svg
@@ -65,6 +70,7 @@ export const CarCard = memo(function CarCard({
           </svg>
         </button>
         <button
+          type="button"
           onClick={(e) => {
             e.stopPropagation();
             if (isComparing) {
@@ -73,6 +79,7 @@ export const CarCard = memo(function CarCard({
               onAddToCompare(car);
             }
           }}
+          aria-pressed={isComparing}
           className={`absolute top-3 left-3 px-3 py-1.5 rounded-full text-xs font-medium backdrop-blur-sm transition-all shadow-md ${
             isComparing
               ? 'bg-blue-600 text-white'
@@ -97,7 +104,15 @@ export const CarCard = memo(function CarCard({
                 </span>
               )}
             </p>
-            <h3 className="text-lg font-bold text-gray-900 dark:text-gray-100 mt-0.5">{car.model}</h3>
+            <h3 className="text-lg font-bold text-gray-900 dark:text-gray-100 mt-0.5">
+              <Link
+                to={carPath(car)}
+                onClick={(e) => e.stopPropagation()}
+                className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+              >
+                {car.model}
+              </Link>
+            </h3>
           </div>
           <span className="text-xs font-medium text-gray-400 dark:text-gray-500 bg-gray-100 dark:bg-gray-600 px-2 py-1 rounded">{car.year}</span>
         </div>
@@ -129,7 +144,7 @@ export const CarCard = memo(function CarCard({
           <div className="flex items-center gap-2">
             <span className="text-xs font-medium text-gray-400 dark:text-gray-500">{car.origin}</span>
             <a
-              href={`https://wa.me/?text=${encodeURIComponent(`Mira el ${car.brand} ${car.model} ${car.year} (${formatPrice(car.price)}) en AutoLupa — ${siteUrl}`)}`}
+              href={`https://wa.me/?text=${encodeURIComponent(`Mira el ${car.brand} ${car.model} ${car.year} (${formatPrice(car.price)}) en AutoLupa — ${siteUrl}${carPath(car)}`)}`}
               target="_blank"
               rel="noopener noreferrer"
               onClick={(e) => e.stopPropagation()}

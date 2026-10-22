@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback, useMemo, useRef } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useSearchParams } from 'react-router-dom';
 import { CpuChipIcon, SparklesIcon } from '@heroicons/react/24/solid';
 import { ClockIcon } from '@heroicons/react/24/outline';
 import { Car } from '../types';
@@ -12,6 +12,7 @@ import { AutoWizard } from '../components/Wizard/AutoWizard';
 import { SmartAsk } from '../components/Wizard/SmartAsk';
 import { RecentUsedListings } from '../components/Used/RecentUsedListings';
 import { carsData } from '../data/brands';
+import { carPath } from '../lib/carSlug';
 import { defaultYearRange } from '../hooks/useCars';
 import { Filters } from '../types';
 
@@ -93,9 +94,22 @@ export function Home({
   const [askCars, setAskCars] = useState<Car[] | null>(null);
   const catalogRef = useRef<HTMLDivElement>(null);
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
+  const legacyId = searchParams.get('id');
   const [searchTab, setSearchTab] = useState<'nuevos' | 'usados'>('nuevos');
   const [showCatalog, setShowCatalog] = useState(false);
   const [usedQuery, setUsedQuery] = useState('');
+
+  useEffect(() => {
+    if (!legacyId) return;
+    const car = carsData.find(c => c.id === Number(legacyId));
+    if (car) navigate(carPath(car), { replace: true });
+  }, [legacyId, navigate]);
+
+  const handleSearchChange = useCallback((query: string) => {
+    setSearchQuery(query);
+    setCurrentPage(1);
+  }, [setSearchQuery, setCurrentPage]);
 
   const submitSearch = (event: React.FormEvent) => {
     event.preventDefault();
@@ -215,7 +229,7 @@ export function Home({
           <div className="flex gap-2">
             <input
               value={searchTab === 'nuevos' ? searchQuery : usedQuery}
-              onChange={(event) => (searchTab === 'nuevos' ? setSearchQuery(event.target.value) : setUsedQuery(event.target.value))}
+              onChange={(event) => (searchTab === 'nuevos' ? handleSearchChange(event.target.value) : setUsedQuery(event.target.value))}
               aria-label={searchTab === 'nuevos' ? 'Buscar autos nuevos' : 'Buscar autos usados'}
               placeholder={searchTab === 'nuevos' ? 'Marca, modelo o tipo — Ej: Toyota Corolla' : 'Entre los avisos publicados — Ej: Corolla 2019'}
               className="flex-1 px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-xl bg-white dark:bg-gray-800 text-gray-900 dark:text-white text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
@@ -353,13 +367,13 @@ export function Home({
             resetFilters={resetFilters}
             resultCount={allCarsCount}
             searchQuery={searchQuery}
-            onSearchChange={setSearchQuery}
+            onSearchChange={handleSearchChange}
             sortBy={sortBy}
             onSortChange={setSortBy}
           />
         </aside>
 
-        <main className="flex-1">
+        <div className="flex-1">
           <div className="flex items-center justify-between mb-4">
             <p className="text-sm text-gray-500 dark:text-gray-400">
               Mostrando {visibleRange} de {allCarsCount} vehículos
@@ -373,7 +387,7 @@ export function Home({
             onToggleFavorite={onToggleFavorite}
             onAddToCompare={handleAddToCompare}
             onRemoveFromCompare={onRemoveFromCompare}
-            onCarClick={(car) => { setSelectedCar(car); setWizardCars(null); setAskCars(null); }}
+            onCarClick={openCar}
           />
 
           {totalPages > 1 && (
@@ -419,7 +433,7 @@ export function Home({
               </button>
             </div>
           )}
-        </main>
+        </div>
       </div>
       )}
 
@@ -439,12 +453,18 @@ export function Home({
           onPrevCar={() => {
             const list = wizardCars ?? cars;
             const idx = list.findIndex(c => c.id === selectedCar.id);
-            if (idx > 0) setSelectedCar(list[idx - 1]);
+            if (idx > 0) {
+              setSelectedCar(list[idx - 1]);
+              onAddRecent?.(list[idx - 1].id);
+            }
           }}
           onNextCar={() => {
             const list = wizardCars ?? cars;
             const idx = list.findIndex(c => c.id === selectedCar.id);
-            if (idx < list.length - 1) setSelectedCar(list[idx + 1]);
+            if (idx < list.length - 1) {
+              setSelectedCar(list[idx + 1]);
+              onAddRecent?.(list[idx + 1].id);
+            }
           }}
         >
           <CreditCalc car={selectedCar} />

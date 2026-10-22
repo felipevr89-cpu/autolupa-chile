@@ -17,6 +17,7 @@ const Estadisticas = lazy(() => import('./pages/Estadisticas').then(m => ({ defa
 const Top10 = lazy(() => import('./pages/Top10').then(m => ({ default: m.Top10 })));
 const LegalDocs = lazy(() => import('./pages/LegalDocs').then(m => ({ default: m.LegalDocs })));
 const BrandPage = lazy(() => import('./pages/BrandPage').then(m => ({ default: m.BrandPage })));
+const CarPage = lazy(() => import('./pages/CarPage').then(m => ({ default: m.CarPage })));
 const Usados = lazy(() => import('./pages/Usados').then(m => ({ default: m.Usados })));
 const UsedListingDetail = lazy(() => import('./pages/UsedListingDetail').then(m => ({ default: m.UsedListingDetail })));
 const UsadosRegion = lazy(() => import('./pages/UsadosRegion').then(m => ({ default: m.UsadosRegion })));
@@ -144,6 +145,18 @@ function AppContent() {
               onAddRecent={addRecent}
             />
             </>
+          }
+        />
+        <Route
+          path="/auto/:carSlug"
+          element={
+            <Suspense fallback={<PageSkeleton />}>
+              <CarPage
+                favorites={favorites}
+                onToggleFavorite={toggleFavorite}
+                onAddRecent={addRecent}
+              />
+            </Suspense>
           }
         />
         <Route

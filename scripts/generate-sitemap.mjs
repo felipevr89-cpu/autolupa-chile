@@ -26,7 +26,6 @@ const staticRoutes = [
   ['/usados', 'hourly', 1.0],
   ['/publicar-auto', 'monthly', 0.8],
   ['/compare', 'weekly', 0.8],
-  ['/favorites', 'weekly', 0.6],
   ['/estadisticas', 'weekly', 0.7],
   ['/top10', 'weekly', 0.5],
   ['/tasar-auto', 'weekly', 0.9],
@@ -46,6 +45,30 @@ function brandSlugs() {
     .map((file) => JSON.parse(readFileSync(join(folder, file), 'utf8')).brand)
     .filter((brand) => typeof brand === 'string' && brand.length > 0)
     .map((brand) => brand.toLowerCase().replace(/\s+/g, '-'));
+}
+
+function slugify(value) {
+  return value
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/&/g, ' y ')
+    .replace(/[^a-zA-Z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '')
+    .toLowerCase();
+}
+
+function carRoutes() {
+  const folder = join(root, 'src', 'data', 'brands');
+  return readdirSync(folder)
+    .filter((file) => file.endsWith('.json'))
+    .flatMap((file) => {
+      const data = JSON.parse(readFileSync(join(folder, file), 'utf8'));
+      return (data.models || []).map((car) => ({
+        loc: `${siteUrl}/auto/${car.id}-${slugify(car.brand)}-${slugify(car.model)}-${car.year}`,
+        changefreq: 'weekly',
+        priority: 0.6,
+      }));
+    });
 }
 
 function articleSlugs() {
@@ -92,6 +115,7 @@ function escapeXml(value) {
 const routes = [
   ...staticRoutes.map(([path, changefreq, priority]) => ({ loc: `${siteUrl}${path}`, changefreq, priority })),
   ...brandSlugs().map((slug) => ({ loc: `${siteUrl}/marca/${slug}`, changefreq: 'weekly', priority: 0.7 })),
+  ...carRoutes(),
   ...regionSlugs().map((slug) => ({ loc: `${siteUrl}/autos-usados-en/${slug}`, changefreq: 'daily', priority: 0.8 })),
   ...articleSlugs().map((slug) => ({ loc: `${siteUrl}/blog/${slug}`, changefreq: 'monthly', priority: 0.7 })),
   ...(await activeListingSlugs()).map((slug) => ({ loc: `${siteUrl}/usados/${slug}`, changefreq: 'daily', priority: 0.6 })),

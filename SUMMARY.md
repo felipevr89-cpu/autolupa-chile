@@ -242,6 +242,17 @@ El rol anónimo (sin sesión) sigue sin poder insertar: no se tocó ninguna pol�
 - **Fuentes usadas** (verificadas hoy): KMcheck guía 2026 (tasas, pie y plazo), ComparaOnline (pie mínimo 20%, 6–60 meses), rolav 2026 (pie 20% en las financieras), finclaro (rangos de CAE 2026) y ComparaBancaperu (0,49%–1,2% mensual). Los datos se documentan aquí: en el código no se agregan comentarios.
 - Tests: **189** (`src/test/credit.test.tsx`, **13 nuevos**: escenarios dentro del rango, CAE efectivo anual, cuota francesa y lineal, clamps de pie (10–50%) y plazo (12–60), monotonía de pie/tasa, TCO con la tasa típica y UI con CTA WhatsApp). `LINT=0 TEST=0 BUILD=0`.
 
+## Lote 25 — Fichas de auto con URL propia y P0 de accesibilidad (22-10-2026)
+
+- **Ruta `/auto/:slug`** (`src/pages/CarPage.tsx` + `src/lib/carSlug.ts`): slug estable `{id}-{marca}-{modelo}-{año}` con normalización ASCII (`Citroën` → `citroen`, `Lynk & Co` → `lynk-y-co`). Si el slug no coincide con el canónico, redirige; si el id no existe, muestra "Auto no encontrado" con `noIndex`. La ficha usa `Vehicle` + `Offer` en JSON-LD y un único `<h1>`.
+- **Enlaces internos**: BrandPage, el título de `CarCard` y el comparador enlazan a la ficha; los enlaces antiguos `/?id=` redirigen a `/auto/...`. Compartir (ShareButton y WhatsApp) usa la URL de la ficha, no la portada.
+- **Modal accesible** (`CarDetail`): `role="dialog"`, `aria-modal`, `aria-labelledby`, foco inicial, trampa de Tab, cierre con Escape y restauración del foco. El modal reutiliza el mismo contenido en modo `inline` para la página.
+- **CTA móvil único**: se eliminó el botón flotante duplicado de la Navbar; `PublishFloat` se oculta cuando hay un modal abierto o el menú móvil está desplegado (clases `modal-open` / `menu-open`). El menú móvil mantiene su enlace "Publicar mi auto gratis".
+- **Filtros**: etiquetas ARIA en búsqueda, orden, años, airbags y sliders; el panel arranca colapsado en móvil (`<1024px`); el slider de precio declara `aria-valuetext`, alterna `z-index` para agarrar ambos pulgares y tiene estilos Firefox.
+- **Búsqueda y recientes**: escribir en el buscador resetea la página; `addRecent` se registra al abrir una tarjeta, al navegar anterior/siguiente y al entrar a `/auto/:slug`. Se eliminó el `<main>` anidado de Home.
+- **Canonical**: se quitó el canonical estático de `index.html` (apuntaba siempre a la portada); ahora lo gestiona `SEO` por ruta. El sitemap pasa a **764 URLs** con las 625 fichas de auto y deja fuera `/favorites` (ruta personal).
+- Tests: **227** (`carRoutes.test.tsx` con 5 nuevos; `CompareTable.test.tsx` actualizado al Router). `LINT=0`, `BUILD=0`, `TEST=227/227`.
+
 ## Lote 18 — Fotos del catálogo: siluetas cerradas + curaduría de la auditoría (06-10-2026)
 
 - **Alcance**: los **65 modelos sin foto** (55 con `null` en `carImages.json` + 10 ids ausentes del manifiesto: 619, 626, 627, 629, 630, 632, 637, 639, 644, 645) +, por decisión del usuario, **los 11 ids abiertos de `IMAGE_AUDIT_REPORT.md`** (foto de otra variante/generación, no siluetas).

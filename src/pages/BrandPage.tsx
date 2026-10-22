@@ -1,6 +1,7 @@
 import { useMemo } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { carsData, brands, formatPrice, getTypeLabel, getFuelLabel, getBrandUrl } from '../data/brands';
+import { carPath } from '../lib/carSlug';
 import { CarImage } from '../components/Cars/CarImage';
 import { SEO } from '../components/SEO';
 import { Breadcrumbs } from '../components/Breadcrumbs';
@@ -53,7 +54,7 @@ export function BrandPage() {
         {brandCars.map(car => (
           <Link
             key={car.id}
-            to={`/?id=${car.id}`}
+            to={carPath(car)}
             className="bg-white dark:bg-gray-800 rounded-2xl overflow-hidden card-shadow hover:shadow-xl transition-all group"
           >
             <div className="h-48 overflow-hidden">

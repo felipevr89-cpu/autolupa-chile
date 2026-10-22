@@ -16,7 +16,7 @@ interface Props {
 }
 
 export function FilterPanel({ filters, updateFilter, resetFilters, resultCount, searchQuery, onSearchChange, sortBy, onSortChange }: Props) {
-  const [isExpanded, setIsExpanded] = useState(true);
+  const [isExpanded, setIsExpanded] = useState(() => typeof window === 'undefined' || window.innerWidth >= 1024);
 
   const currentYear = new Date().getFullYear();
   const minYear = currentYear - 16;
@@ -86,7 +86,11 @@ export function FilterPanel({ filters, updateFilter, resetFilters, resultCount, 
               </button>
             )}
             <button
+              type="button"
               onClick={() => setIsExpanded(!isExpanded)}
+              aria-expanded={isExpanded}
+              aria-controls="filter-panel-content"
+              aria-label={isExpanded ? 'Ocultar filtros' : 'Mostrar filtros'}
               className="w-8 h-8 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 flex items-center justify-center transition-colors"
             >
               <svg
@@ -103,7 +107,7 @@ export function FilterPanel({ filters, updateFilter, resetFilters, resultCount, 
       </div>
 
       {isExpanded && (
-        <div className="p-4 space-y-4">
+        <div id="filter-panel-content" className="p-4 space-y-4">
           <div>
             <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5">Buscar</label>
             <div className="relative">
@@ -115,6 +119,7 @@ export function FilterPanel({ filters, updateFilter, resetFilters, resultCount, 
                 value={searchQuery}
                 onChange={(e) => onSearchChange(e.target.value)}
                 placeholder="Marca, modelo..."
+                aria-label="Buscar por marca o modelo"
                 className="w-full pl-10 pr-4 py-2.5 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl text-sm focus:outline-none focus:border-blue-500 dark:focus:border-blue-400 focus:ring-2 focus:ring-blue-500/20 dark:focus:ring-blue-400/20"
               />
             </div>
@@ -125,6 +130,7 @@ export function FilterPanel({ filters, updateFilter, resetFilters, resultCount, 
             <select
               value={sortBy}
               onChange={(e) => onSortChange(e.target.value)}
+              aria-label="Ordenar resultados"
               className="w-full px-4 py-2.5 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl text-sm focus:outline-none focus:border-blue-500 dark:focus:border-blue-400 focus:ring-2 focus:ring-blue-500/20 dark:focus:ring-blue-400/20"
             >
               <option value="price-asc">Menor precio</option>
@@ -187,6 +193,7 @@ export function FilterPanel({ filters, updateFilter, resetFilters, resultCount, 
               <select
                 value={filters.yearRange[0]}
                 onChange={e => updateFilter('yearRange', [Number(e.target.value), filters.yearRange[1]])}
+                aria-label="Año mínimo"
                 className="flex-1 px-3 py-2 text-sm border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300"
               >
                 {yearOptions.map(y => (
@@ -197,6 +204,7 @@ export function FilterPanel({ filters, updateFilter, resetFilters, resultCount, 
               <select
                 value={filters.yearRange[1]}
                 onChange={e => updateFilter('yearRange', [filters.yearRange[0], Number(e.target.value)])}
+                aria-label="Año máximo"
                 className="flex-1 px-3 py-2 text-sm border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300"
               >
                 {yearOptions.map(y => (
@@ -235,6 +243,7 @@ export function FilterPanel({ filters, updateFilter, resetFilters, resultCount, 
             <select
               value={filters.minAirbags}
               onChange={(e) => updateFilter('minAirbags', Number(e.target.value))}
+              aria-label="Mínimo de airbags"
               className="w-full px-4 py-2.5 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl text-sm focus:outline-none focus:border-blue-500 dark:focus:border-blue-400 focus:ring-2 focus:ring-blue-500/20 dark:focus:ring-blue-400/20"
             >
               <option value={0}>Cualquier cantidad</option>

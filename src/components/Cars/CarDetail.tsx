@@ -1,6 +1,7 @@
-import { ReactNode, useState } from 'react';
+import { ReactNode, useEffect, useRef, useState } from 'react';
 import { Car } from '../../types';
 import { formatPrice, getTypeLabel, getFuelLabel, getBrandUrl, isBrandSoldNewInChile } from '../../data/brands';
+import { carPath } from '../../lib/carSlug';
 import { getChargingCost, getCombustionCostPer100, HOME_KWH_CLP, FAST_KWH_CLP } from '../../data/energyCosts';
 import { getCarImage } from '../../data/carImages';
 import { CarImage } from './CarImage';
@@ -22,28 +23,29 @@ const siteUrl = import.meta.env.VITE_SITE_URL || 'https://autolupa.pages.dev';
 
 interface Props {
   car: Car;
-  onClose: () => void;
+  onClose?: () => void;
   isFavorite: boolean;
   onToggleFavorite: (id: number) => void;
   onPrevCar?: () => void;
   onNextCar?: () => void;
   children?: ReactNode;
+  inline?: boolean;
 }
 
-function CarImageSection({ car }: { car: Car }) {
+function CarImageSection({ car, inline = false }: { car: Car; inline?: boolean }) {
   const img = getCarImage(car.id);
   return (
-    <div className="-mx-8 -mt-8 mb-6 overflow-hidden">
+    <div className={inline ? 'mb-6 overflow-hidden rounded-2xl' : '-mx-8 -mt-8 mb-6 overflow-hidden'}>
       <CarImage
         carId={car.id}
         brand={car.brand}
         model={car.model}
         type={car.type}
-        className="w-full h-56"
+        className={inline ? 'w-full h-64 sm:h-80' : 'w-full h-56'}
         eager
       />
       {img?.file && img.attribution && (
-        <p className="text-[10px] text-gray-400 dark:text-gray-500 px-8 pt-1 text-right">
+        <p className={`text-[10px] text-gray-400 dark:text-gray-500 pt-1 text-right ${inline ? 'px-1' : 'px-8'}`}>
           Foto: {img.attribution}
           {img.license ? ` · ${img.license}` : ''}
           {img.source && (
@@ -66,7 +68,8 @@ function NextSteps({ car }: { car: Car }) {
   const usadosUrl = `https://www.google.com/search?q=${encodeURIComponent(car.brand + ' ' + car.model + ' usado Chile')}`;
   const preciosUrl = `https://www.google.com/search?q=${q}+precio`;
   const shareText = `Mira el ${car.brand} ${car.model} ${car.year} (${formatPrice(car.price)}) en AutoLupa`;
-  const shareUrl = `https://wa.me/?text=${encodeURIComponent(shareText + ` — ${siteUrl}`)}`;
+  const carUrl = `${siteUrl}${carPath(car)}`;
+  const shareUrl = `https://wa.me/?text=${encodeURIComponent(`${shareText} — ${carUrl}`)}`;
 
   return (
     <div className="mt-8 mb-2 p-5 bg-blue-50 dark:bg-blue-900/20 rounded-2xl">
@@ -122,7 +125,7 @@ function NextSteps({ car }: { car: Car }) {
       <ShareButton
         title="AutoLupa"
         text={shareText}
-        url={`${siteUrl}/`}
+        url={carUrl}
         label="Compartir este auto"
         origen="auto"
         className="mt-2 w-full"
@@ -131,10 +134,56 @@ function NextSteps({ car }: { car: Car }) {
   );
 }
 
-export function CarDetail({ car, onClose, isFavorite, onToggleFavorite, onPrevCar, onNextCar, children }: Props) {
+export function CarDetail({ car, onClose, isFavorite, onToggleFavorite, onPrevCar, onNextCar, children, inline = false }: Props) {
   const charging = getChargingCost(car);
   const combustionPer100 = getCombustionCostPer100(car);
   const [activeTab, setActiveTab] = useState<'specs' | 'tco' | 'ev' | 'credit' | 'guide'>('specs');
+  const dialogRef = useRef<HTMLDivElement>(null);
+  const onCloseRef = useRef(onClose);
+  onCloseRef.current = onClose;
+
+  useEffect(() => {
+    if (inline) return;
+    document.body.classList.add('modal-open');
+    return () => document.body.classList.remove('modal-open');
+  }, [inline]);
+
+  useEffect(() => {
+    if (inline || !onCloseRef.current) return;
+    const previous = document.activeElement as HTMLElement | null;
+    const node = dialogRef.current;
+    node?.focus();
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        event.preventDefault();
+        onCloseRef.current?.();
+        return;
+      }
+      if (event.key !== 'Tab' || !node) return;
+      const focusables = Array.from(
+        node.querySelectorAll<HTMLElement>(
+          'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])'
+        )
+      ).filter((element) => element.offsetParent !== null || element === document.activeElement);
+      if (focusables.length === 0) return;
+      const first = focusables[0];
+      const last = focusables[focusables.length - 1];
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    };
+
+    document.addEventListener('keydown', handleKeyDown);
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown);
+      previous?.focus?.();
+    };
+  }, [inline]);
 
   const isElectrified = car.fuel === 'electrico' || car.fuel === 'hibrido_enchufable';
   const tabs = [
@@ -157,18 +206,20 @@ export function CarDetail({ car, onClose, isFavorite, onToggleFavorite, onPrevCa
       {label}
     </button>
   );
-  return (
+  const content = (
     <>
-      <div className="modal-overlay" onClick={onClose}>
-        <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-          <button
-            onClick={onClose}
-            className="absolute top-4 right-4 w-8 h-8 rounded-full bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 flex items-center justify-center text-gray-500 dark:text-gray-400 z-10"
-          >
-            ×
-          </button>
+      {!inline && onClose && (
+        <button
+          type="button"
+          onClick={onClose}
+          aria-label="Cerrar detalle del auto"
+          className="absolute top-4 right-4 w-8 h-8 rounded-full bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 flex items-center justify-center text-gray-500 dark:text-gray-400 z-10"
+        >
+          ×
+        </button>
+      )}
 
-          <CarImageSection car={car} />
+          <CarImageSection car={car} inline={inline} />
 
           {(onPrevCar || onNextCar) && (
             <div className="flex justify-between items-center -mt-3 mb-4 px-2">
@@ -191,7 +242,11 @@ export function CarDetail({ car, onClose, isFavorite, onToggleFavorite, onPrevCa
 
           <div className="mb-4">
             <p className="text-sm font-semibold text-gray-700 dark:text-gray-300">{car.brand}</p>
-            <h2 className="text-2xl font-bold text-gray-900 dark:text-white">{car.model}</h2>
+            {inline ? (
+              <h1 id="car-detail-title" className="text-3xl font-bold text-gray-900 dark:text-white">{car.model}</h1>
+            ) : (
+              <h2 id="car-detail-title" className="text-2xl font-bold text-gray-900 dark:text-white">{car.model}</h2>
+            )}
             <p className="text-base font-medium text-gray-800 dark:text-gray-200">{car.year} · {getTypeLabel(car.type)} · <TermTip term={car.fuel}>{getFuelLabel(car.fuel)}</TermTip></p>
           </div>
 
@@ -528,8 +583,30 @@ export function CarDetail({ car, onClose, isFavorite, onToggleFavorite, onPrevCa
               <div className="mt-4"><BuyingGuide /></div>
             )}
           </div>
-        </div>
-      </div>
     </>
+  );
+
+  if (inline) {
+    return (
+      <div className="bg-white dark:bg-gray-800 rounded-2xl card-shadow p-5 sm:p-8">
+        {content}
+      </div>
+    );
+  }
+
+  return (
+    <div className="modal-overlay" onClick={onClose} role="presentation">
+      <div
+        ref={dialogRef}
+        className="modal-content"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="car-detail-title"
+        tabIndex={-1}
+        onClick={(e) => e.stopPropagation()}
+      >
+        {content}
+      </div>
+    </div>
   );
 }

@@ -1,7 +1,9 @@
 import { useState, useRef } from 'react';
+import { Link } from 'react-router-dom';
 import html2canvas from 'html2canvas';
 import { Car } from '../../types';
 import { formatPrice, getTypeLabel, getFuelLabel } from '../../data/brands';
+import { carPath } from '../../lib/carSlug';
 import { getChargingCost, getCombustionCostPer100 } from '../../data/energyCosts';
 import { TermTip } from '../Glossary/TermTip';
 
@@ -250,6 +252,12 @@ export function CompareTable({ cars, onRemove }: Props) {
                 </button>
                 <div className="text-lg font-bold text-gray-900 dark:text-gray-100">{car.brand}</div>
                 <div className="text-sm text-gray-600 dark:text-gray-400">{car.model}</div>
+                <Link
+                  to={carPath(car)}
+                  className="mt-1 inline-block text-xs font-medium text-blue-600 dark:text-blue-400 hover:underline"
+                >
+                  Ver ficha
+                </Link>
               </th>
             ))}
           </tr>

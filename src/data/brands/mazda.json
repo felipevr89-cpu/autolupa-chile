@@ -6,38 +6,52 @@
       "id": 384,
       "brand": "Mazda",
       "model": "BT-50",
-      "year": 2025,
+      "year": 2027,
       "type": "pickup",
       "fuel": "diesel",
       "seats": 5,
-      "price": 25990000,
-      "transmission": "automatica",
+      "price": 33790000,
+      "transmission": "manual",
       "traction": "4x4",
       "image_url": "",
-      "description": "Pickup robusta con plataforma compartida con Isuzu",
+      "description": "Pickup diésel 2.2 de 160 HP, con versiones 4x4 MT y AT.",
       "origin": "Tailandia",
       "origin_country": "Japón",
       "versions": [
         {
-          "version": "XTR 4x2",
-          "price": 25990000,
-          "transmission": "automatica",
-          "traction": "4x2"
+          "version": "BT-50 CORE 2.2 4X4 6MT",
+          "price": 33790000,
+          "price_list": 35790000,
+          "price_bonus": 2000000,
+          "transmission": "manual",
+          "traction": "4x4"
         },
         {
-          "version": "XTR 4x4",
-          "price": 29990000,
+          "version": "BT-50 CORE 2.2 4X4 8AT",
+          "price": 35490000,
+          "price_list": 37490000,
+          "price_bonus": 2000000,
           "transmission": "automatica",
           "traction": "4x4"
         },
         {
-          "version": "Thunder 4x4",
-          "price": 33990000,
+          "version": "BT-50 HIGH 2.2 4X4 8AT",
+          "price": 38990000,
+          "price_list": 40990000,
+          "price_bonus": 2000000,
+          "transmission": "automatica",
+          "traction": "4x4"
+        },
+        {
+          "version": "BT-50 HIGH PLUS 2.2 4X4 8AT",
+          "price": 40890000,
+          "price_list": 42490000,
+          "price_bonus": 1600000,
           "transmission": "automatica",
           "traction": "4x4"
         }
       ],
-      "hp": 190,
+      "hp": 160,
       "torque_nm": 450,
       "fuel_consumption_mixed_km_l": 12.5,
       "fuel_tank_liters": 76,
@@ -55,44 +69,70 @@
         "Android Auto"
       ],
       "warranty_years": 3,
-      "warranty_km": 100000
+      "warranty_km": 100000,
+      "price_source": "https://www.mazda.cl/vehiculo/mazda-bt-50/",
+      "price_checked_at": "2026-10-22",
+      "price_list": 35790000,
+      "price_bonus": 2000000
     },
     {
       "id": 385,
       "brand": "Mazda",
       "model": "CX-30",
-      "year": 2025,
+      "year": 2027,
       "type": "suv",
       "fuel": "gasolina",
       "seats": 5,
-      "price": 19990000,
+      "price": 20990000,
       "transmission": "automatica",
       "traction": "4x2",
       "image_url": "",
-      "description": "SUV crossover compacto con diseño premium",
+      "description": "SUV 2.0/2.5 de 153/186 HP, con versiones 2WD y AWD.",
       "origin": "México",
       "origin_country": "Japón",
       "versions": [
         {
-          "version": "Base",
-          "price": 19990000,
+          "version": "ENTRY 2.0 2WD AT 7G",
+          "price": 20990000,
+          "price_list": 22990000,
+          "price_bonus": 2000000,
           "transmission": "automatica",
           "traction": "4x2"
         },
         {
-          "version": "E-EVOLVE",
-          "price": 22990000,
+          "version": "CORE 2.0 2WD 6MT 7G",
+          "price": 21290000,
+          "price_list": 23390000,
+          "price_bonus": 2100000,
+          "transmission": "manual",
+          "traction": "4x2"
+        },
+        {
+          "version": "CORE 2.0 2WD 6AT 7G",
+          "price": 21690000,
+          "price_list": 24090000,
+          "price_bonus": 2400000,
           "transmission": "automatica",
           "traction": "4x2"
         },
         {
-          "version": "Exclusive AWD",
-          "price": 26990000,
+          "version": "CORE PLUS 2.0 2WD 6AT 7G",
+          "price": 24690000,
+          "price_list": 25890000,
+          "price_bonus": 1200000,
+          "transmission": "automatica",
+          "traction": "4x2"
+        },
+        {
+          "version": "HIGH 2.5 AWD 6AT 7G",
+          "price": 28490000,
+          "price_list": 29690000,
+          "price_bonus": 1200000,
           "transmission": "automatica",
           "traction": "awd"
         }
       ],
-      "hp": 187,
+      "hp": 153,
       "torque_nm": 252,
       "fuel_consumption_mixed_km_l": 16,
       "fuel_tank_liters": 51,
@@ -116,50 +156,70 @@
         "Lane Keep Assist"
       ],
       "warranty_years": 3,
-      "warranty_km": 100000
+      "warranty_km": 100000,
+      "price_source": "https://www.mazda.cl/vehiculo/mazda-cx-30/",
+      "price_checked_at": "2026-10-22",
+      "price_list": 22990000,
+      "price_bonus": 2000000
     },
     {
       "id": 386,
       "brand": "Mazda",
       "model": "CX-5",
-      "year": 2025,
+      "year": 2027,
       "type": "suv",
       "fuel": "gasolina",
       "seats": 5,
-      "price": 24990000,
+      "price": 22290000,
       "transmission": "automatica",
       "traction": "4x2",
       "image_url": "",
-      "description": "SUV mediano con equilibrio entre lujo y funcionalidad",
+      "description": "SUV 2.0/2.5 de 154/188/227 HP, con versiones 2WD y AWD.",
       "origin": "Japón",
       "origin_country": "Japón",
       "versions": [
         {
-          "version": "Base",
-          "price": 24990000,
+          "version": "CORE 2.0 2WD 6AT",
+          "price": 22290000,
+          "price_list": 24990000,
+          "price_bonus": 2700000,
           "transmission": "automatica",
           "traction": "4x2"
         },
         {
-          "version": "E-EVOLVE",
-          "price": 27990000,
-          "transmission": "automatica",
-          "traction": "4x2"
-        },
-        {
-          "version": "Exclusive AWD",
-          "price": 31990000,
+          "version": "CORE 2.0 AWD 6AT",
+          "price": 25190000,
+          "price_list": 27490000,
+          "price_bonus": 2300000,
           "transmission": "automatica",
           "traction": "awd"
         },
         {
-          "version": "Signature AWD",
-          "price": 34990000,
+          "version": "CORE PLUS 2.0 AWD 6AT",
+          "price": 27590000,
+          "price_list": 29290000,
+          "price_bonus": 1700000,
+          "transmission": "automatica",
+          "traction": "awd"
+        },
+        {
+          "version": "SPORT 2.5 AWD 6AT",
+          "price": 32590000,
+          "price_list": 33290000,
+          "price_bonus": 700000,
+          "transmission": "automatica",
+          "traction": "awd"
+        },
+        {
+          "version": "SIGNATURE 2.5T AWD 6AT",
+          "price": 34490000,
+          "price_list": 35190000,
+          "price_bonus": 700000,
           "transmission": "automatica",
           "traction": "awd"
         }
       ],
-      "hp": 194,
+      "hp": 154,
       "torque_nm": 258,
       "fuel_consumption_mixed_km_l": 14.5,
       "fuel_tank_liters": 56,
@@ -184,7 +244,11 @@
         "Control crucero adaptativo"
       ],
       "warranty_years": 3,
-      "warranty_km": 100000
+      "warranty_km": 100000,
+      "price_source": "https://www.mazda.cl/vehiculo/mazda-cx-5/",
+      "price_checked_at": "2026-10-22",
+      "price_list": 24990000,
+      "price_bonus": 2700000
     },
     {
       "id": 387,
@@ -246,44 +310,51 @@
         "Control crucero adaptativo"
       ],
       "warranty_years": 3,
-      "warranty_km": 100000
+      "warranty_km": 100000,
+      "lineup_2026": false
     },
     {
       "id": 388,
       "brand": "Mazda",
       "model": "CX-60",
-      "year": 2025,
+      "year": 2027,
       "type": "suv",
       "fuel": "gasolina",
       "seats": 5,
-      "price": 32990000,
+      "price": 39990000,
       "transmission": "automatica",
       "traction": "awd",
       "image_url": "",
-      "description": "SUV premium con motor inline-6 y arquitectura de lujo",
+      "description": "SUV con versiones 2.5 gasolina, 3.3 mild hybrid y 2.5 PHEV.",
       "origin": "Japón",
       "origin_country": "Japón",
       "versions": [
         {
-          "version": "Elegant",
-          "price": 32990000,
+          "version": "PRIME 2.5 GASOLINA",
+          "price": 39990000,
+          "price_list": 40990000,
+          "price_bonus": 1000000,
           "transmission": "automatica",
           "traction": "awd"
         },
         {
-          "version": "Exclusive",
-          "price": 36990000,
+          "version": "PREMIUM SPORT 3.3 MILD HYBRID",
+          "price": 47990000,
+          "price_list": 48990000,
+          "price_bonus": 1000000,
           "transmission": "automatica",
           "traction": "awd"
         },
         {
-          "version": "Signature",
-          "price": 40990000,
+          "version": "SIGNATURE 2.5 HÍBRIDO ENCHUFABLE",
+          "price": 50990000,
+          "price_list": 52990000,
+          "price_bonus": 2000000,
           "transmission": "automatica",
           "traction": "awd"
         }
       ],
-      "hp": 286,
+      "hp": 185,
       "torque_nm": 450,
       "fuel_consumption_mixed_km_l": 13,
       "fuel_tank_liters": 58,
@@ -308,23 +379,27 @@
         "Control crucero adaptativo"
       ],
       "warranty_years": 3,
-      "warranty_km": 100000
+      "warranty_km": 100000,
+      "price_source": "https://www.mazda.cl/vehiculo/mazda-cx-60/",
+      "price_checked_at": "2026-10-22",
+      "price_list": 40990000,
+      "price_bonus": 1000000
     },
     {
       "id": 389,
       "brand": "Mazda",
       "model": "CX-90",
-      "year": 2026,
+      "year": 2027,
       "type": "suv",
-      "fuel": "gasolina",
+      "fuel": "hibrido",
       "seats": 7,
-      "price": 44990000,
+      "price": 52990000,
       "transmission": "automatica",
-      "traction": "4x4",
+      "traction": "awd",
       "image_url": "",
-      "description": "SUV de 3 filas con motor turbo, lujo japonés y conducción deportiva.",
+      "description": "SUV 3.3 mild hybrid de 340 HP, con 7 plazas.",
       "origin": "Japón",
-      "hp": 280,
+      "hp": 340,
       "torque_nm": 430,
       "length_mm": 5100,
       "width_mm": 1971,
@@ -354,18 +429,26 @@
       "origin_country": "Japón",
       "versions": [
         {
-          "version": "3.3T AT AWD",
-          "price": 44990000,
-          "transmission": "automática",
-          "traction": "4x4"
+          "version": "PREMIUM 3.3 MILD HYBRID",
+          "price": 52990000,
+          "price_list": 56490000,
+          "price_bonus": 3500000,
+          "transmission": "automatica",
+          "traction": "awd"
         },
         {
-          "version": "3.3T AT AWD Signature",
-          "price": 52990000,
-          "transmission": "automática",
-          "traction": "4x4"
+          "version": "SIGNATURE 3.3 MILD HYBRID",
+          "price": 57490000,
+          "price_list": 60490000,
+          "price_bonus": 3000000,
+          "transmission": "automatica",
+          "traction": "awd"
         }
-      ]
+      ],
+      "price_source": "https://www.mazda.cl/vehiculo/mazda-cx-90/",
+      "price_checked_at": "2026-10-22",
+      "price_list": 56490000,
+      "price_bonus": 3500000
     },
     {
       "id": 390,
@@ -414,44 +497,51 @@
         "USB"
       ],
       "warranty_years": 3,
-      "warranty_km": 100000
+      "warranty_km": 100000,
+      "lineup_2026": false
     },
     {
       "id": 391,
       "brand": "Mazda",
       "model": "Mazda 3",
-      "year": 2025,
+      "year": 2027,
       "type": "sedan",
       "fuel": "gasolina",
       "seats": 5,
-      "price": 18990000,
-      "transmission": "automatica",
+      "price": 18890000,
+      "transmission": "manual",
       "traction": "4x2",
       "image_url": "",
-      "description": "Sedán compacto premium con acabados de lujo",
+      "description": "Sedán 2.0 de 153 HP, con versiones MT y AT.",
       "origin": "México",
       "origin_country": "Japón",
       "versions": [
         {
-          "version": "Base",
-          "price": 18990000,
-          "transmission": "automatica",
+          "version": "ENTRY 2.0 7G 6MT",
+          "price": 18890000,
+          "price_list": 20490000,
+          "price_bonus": 1600000,
+          "transmission": "manual",
           "traction": "4x2"
         },
         {
-          "version": "E-EVOLVE",
-          "price": 21990000,
-          "transmission": "automatica",
+          "version": "CORE 2.0 7G 6MT",
+          "price": 20990000,
+          "price_list": 21990000,
+          "price_bonus": 1000000,
+          "transmission": "manual",
           "traction": "4x2"
         },
         {
-          "version": "Exclusive",
-          "price": 24990000,
+          "version": "CORE 2.0 7G 6AT",
+          "price": 22990000,
+          "price_list": 23990000,
+          "price_bonus": 1000000,
           "transmission": "automatica",
-          "traction": "awd"
+          "traction": "4x2"
         }
       ],
-      "hp": 187,
+      "hp": 153,
       "torque_nm": 252,
       "fuel_consumption_mixed_km_l": 16,
       "fuel_tank_liters": 51,
@@ -475,7 +565,11 @@
         "Lane Keep Assist"
       ],
       "warranty_years": 3,
-      "warranty_km": 100000
+      "warranty_km": 100000,
+      "price_source": "https://www.mazda.cl/vehiculo/mazda3-sedan/",
+      "price_checked_at": "2026-10-22",
+      "price_list": 20490000,
+      "price_bonus": 1600000
     },
     {
       "id": 392,
@@ -531,21 +625,22 @@
           "transmission": "automatica",
           "traction": "4x2"
         }
-      ]
+      ],
+      "lineup_2026": false
     },
     {
       "id": 393,
       "brand": "Mazda",
       "model": "MX-5",
-      "year": 2026,
+      "year": 2027,
       "type": "convertible",
       "fuel": "gasolina",
       "seats": 2,
-      "price": 24990000,
+      "price": 30990000,
       "transmission": "manual",
       "traction": "4x2",
       "image_url": "",
-      "description": "Roadster biplaza icónico, el auto deportivo más vendido del mundo con conducción pura.",
+      "description": "Roadster 2.0 de 181 HP, con versiones MT y RF AT.",
       "origin": "Japón",
       "hp": 181,
       "torque_nm": 205,
@@ -575,18 +670,183 @@
       "origin_country": "Japón",
       "versions": [
         {
-          "version": "2.0L MT",
-          "price": 24990000,
+          "version": "2.0 6MT T.LONA",
+          "price": 30990000,
+          "price_list": 30990000,
+          "price_bonus": 0,
           "transmission": "manual",
           "traction": "4x2"
         },
         {
-          "version": "2.0L RF AT",
-          "price": 29990000,
-          "transmission": "automática",
+          "version": "2.0 6AT RF",
+          "price": 34590000,
+          "price_list": 34590000,
+          "price_bonus": 0,
+          "transmission": "automatica",
           "traction": "4x2"
         }
-      ]
+      ],
+      "price_source": "https://www.mazda.cl/vehiculo/mazda-mx-5/",
+      "price_checked_at": "2026-10-22",
+      "price_list": 30990000,
+      "price_bonus": 0
+    },
+    {
+      "id": 664,
+      "brand": "Mazda",
+      "model": "ALL NEW CX-5",
+      "year": 2027,
+      "type": "suv",
+      "fuel": "gasolina",
+      "seats": 5,
+      "hp": 185,
+      "description": "SUV 2.5 AWD de 185 HP, nueva generación.",
+      "origin": "Japón",
+      "origin_country": "Japón",
+      "image_url": "",
+      "price_source": "https://www.mazda.cl/vehiculo/all-new-mazda-cx-5/",
+      "price_checked_at": "2026-10-22",
+      "versions": [
+        {
+          "version": "CORE 2.5 AWD 6AT",
+          "price": 25990000,
+          "price_list": 27790000,
+          "price_bonus": 1800000,
+          "transmission": "automatica",
+          "traction": "awd"
+        },
+        {
+          "version": "HIGH 2.5 AWD 6AT",
+          "price": 29290000,
+          "price_list": 30290000,
+          "price_bonus": 1000000,
+          "transmission": "automatica",
+          "traction": "awd"
+        },
+        {
+          "version": "HIGH PLUS 2.5 AWD 6AT",
+          "price": 30190000,
+          "price_list": 31190000,
+          "price_bonus": 1000000,
+          "transmission": "automatica",
+          "traction": "awd"
+        },
+        {
+          "version": "PREMIUM 2.5 AWD 6AT",
+          "price": 32590000,
+          "price_list": 33590000,
+          "price_bonus": 1000000,
+          "transmission": "automatica",
+          "traction": "awd"
+        },
+        {
+          "version": "SIGNATURE 2.5 AWD 6AT",
+          "price": 33990000,
+          "price_list": 34990000,
+          "price_bonus": 1000000,
+          "transmission": "automatica",
+          "traction": "awd"
+        }
+      ],
+      "price": 25990000,
+      "price_list": 27790000,
+      "price_bonus": 1800000,
+      "transmission": "automatica",
+      "traction": "awd"
+    },
+    {
+      "id": 665,
+      "brand": "Mazda",
+      "model": "CX-3",
+      "year": 2027,
+      "type": "suv",
+      "fuel": "gasolina",
+      "seats": 5,
+      "hp": 148,
+      "description": "SUV 2.0 de 148 HP, con versiones MT y AT.",
+      "origin": "Japón",
+      "origin_country": "Japón",
+      "image_url": "",
+      "price_source": "https://www.mazda.cl/vehiculo/mazda-cx-3/",
+      "price_checked_at": "2026-10-22",
+      "versions": [
+        {
+          "version": "CORE 2.0 MT",
+          "price": 18990000,
+          "price_list": 19790000,
+          "price_bonus": 800000,
+          "transmission": "manual",
+          "traction": "4x2"
+        },
+        {
+          "version": "CORE 2.0 6AT",
+          "price": 19290000,
+          "price_list": 20590000,
+          "price_bonus": 1300000,
+          "transmission": "automatica",
+          "traction": "4x2"
+        }
+      ],
+      "price": 18990000,
+      "price_list": 19790000,
+      "price_bonus": 800000,
+      "transmission": "manual",
+      "traction": "4x2"
+    },
+    {
+      "id": 666,
+      "brand": "Mazda",
+      "model": "Mazda 3 Sport",
+      "year": 2027,
+      "type": "hatchback",
+      "fuel": "gasolina",
+      "seats": 5,
+      "hp": 153,
+      "description": "Hatchback 2.0/2.5 de 153/186 HP, con versiones MT y AT.",
+      "origin": "Japón",
+      "origin_country": "Japón",
+      "image_url": "",
+      "price_source": "https://www.mazda.cl/vehiculo/mazda3-sport/",
+      "price_checked_at": "2026-10-22",
+      "versions": [
+        {
+          "version": "ENTRY 2.0 7G 6MT",
+          "price": 19090000,
+          "price_list": 20890000,
+          "price_bonus": 1800000,
+          "transmission": "manual",
+          "traction": "4x2"
+        },
+        {
+          "version": "CORE 2.0 7G 6MT",
+          "price": 21590000,
+          "price_list": 22590000,
+          "price_bonus": 1000000,
+          "transmission": "manual",
+          "traction": "4x2"
+        },
+        {
+          "version": "CORE 2.0 7G 6AT",
+          "price": 23090000,
+          "price_list": 24690000,
+          "price_bonus": 1600000,
+          "transmission": "automatica",
+          "traction": "4x2"
+        },
+        {
+          "version": "HIGH 2.5 7G 6AT",
+          "price": 25990000,
+          "price_list": 27490000,
+          "price_bonus": 1500000,
+          "transmission": "automatica",
+          "traction": "4x2"
+        }
+      ],
+      "price": 19090000,
+      "price_list": 20890000,
+      "price_bonus": 1800000,
+      "transmission": "manual",
+      "traction": "4x2"
     }
   ]
 }

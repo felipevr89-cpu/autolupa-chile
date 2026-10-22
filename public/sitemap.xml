@@ -1711,6 +1711,41 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://autolupa.pages.dev/auto/671-gwm-jolion-max-2026</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://autolupa.pages.dev/auto/672-gwm-jolion-hibrido-2026</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://autolupa.pages.dev/auto/673-gwm-h7-hibrido-2026</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://autolupa.pages.dev/auto/674-gwm-h7-max-2026</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://autolupa.pages.dev/auto/675-gwm-h6-gt-2026</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://autolupa.pages.dev/auto/676-gwm-ora-5-2026</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://autolupa.pages.dev/auto/677-gwm-h7-max-phev-2026</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://autolupa.pages.dev/auto/229-honda-accord-2025</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
@@ -2181,7 +2216,7 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://autolupa.pages.dev/auto/312-kia-carnival-2025</loc>
+    <loc>https://autolupa.pages.dev/auto/312-kia-carnival-2026</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -2191,12 +2226,12 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://autolupa.pages.dev/auto/314-kia-ev5-2025</loc>
+    <loc>https://autolupa.pages.dev/auto/314-kia-ev5-2026</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://autolupa.pages.dev/auto/315-kia-ev6-2025</loc>
+    <loc>https://autolupa.pages.dev/auto/315-kia-ev6-2026</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -2211,12 +2246,12 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://autolupa.pages.dev/auto/318-kia-morning-2025</loc>
+    <loc>https://autolupa.pages.dev/auto/318-kia-morning-2026</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://autolupa.pages.dev/auto/319-kia-niro-2025</loc>
+    <loc>https://autolupa.pages.dev/auto/319-kia-niro-2026</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -2231,7 +2266,7 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://autolupa.pages.dev/auto/322-kia-seltos-2025</loc>
+    <loc>https://autolupa.pages.dev/auto/322-kia-seltos-2026</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -2241,27 +2276,27 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://autolupa.pages.dev/auto/324-kia-sonet-2025</loc>
+    <loc>https://autolupa.pages.dev/auto/324-kia-sonet-2026</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://autolupa.pages.dev/auto/325-kia-sorento-2025</loc>
+    <loc>https://autolupa.pages.dev/auto/325-kia-sorento-2026</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://autolupa.pages.dev/auto/326-kia-sorento-hibrido-2025</loc>
+    <loc>https://autolupa.pages.dev/auto/326-kia-sorento-hibrido-2026</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://autolupa.pages.dev/auto/327-kia-sportage-2025</loc>
+    <loc>https://autolupa.pages.dev/auto/327-kia-sportage-2026</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://autolupa.pages.dev/auto/328-kia-sportage-hibrido-2025</loc>
+    <loc>https://autolupa.pages.dev/auto/328-kia-sportage-hibrido-2026</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -2277,6 +2312,16 @@
   </url>
   <url>
     <loc>https://autolupa.pages.dev/auto/331-kia-k3-cross-2026</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://autolupa.pages.dev/auto/669-kia-frontier-2026</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://autolupa.pages.dev/auto/670-kia-carnival-hibrido-2026</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -2516,17 +2561,17 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://autolupa.pages.dev/auto/384-mazda-bt-50-2025</loc>
+    <loc>https://autolupa.pages.dev/auto/384-mazda-bt-50-2027</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://autolupa.pages.dev/auto/385-mazda-cx-30-2025</loc>
+    <loc>https://autolupa.pages.dev/auto/385-mazda-cx-30-2027</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://autolupa.pages.dev/auto/386-mazda-cx-5-2025</loc>
+    <loc>https://autolupa.pages.dev/auto/386-mazda-cx-5-2027</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -2536,12 +2581,12 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://autolupa.pages.dev/auto/388-mazda-cx-60-2025</loc>
+    <loc>https://autolupa.pages.dev/auto/388-mazda-cx-60-2027</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://autolupa.pages.dev/auto/389-mazda-cx-90-2026</loc>
+    <loc>https://autolupa.pages.dev/auto/389-mazda-cx-90-2027</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -2551,7 +2596,7 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://autolupa.pages.dev/auto/391-mazda-mazda-3-2025</loc>
+    <loc>https://autolupa.pages.dev/auto/391-mazda-mazda-3-2027</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -2561,7 +2606,22 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://autolupa.pages.dev/auto/393-mazda-mx-5-2026</loc>
+    <loc>https://autolupa.pages.dev/auto/393-mazda-mx-5-2027</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://autolupa.pages.dev/auto/664-mazda-all-new-cx-5-2027</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://autolupa.pages.dev/auto/665-mazda-cx-3-2027</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://autolupa.pages.dev/auto/666-mazda-mazda-3-sport-2027</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -2676,12 +2736,12 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://autolupa.pages.dev/auto/417-mg-marvel-r-2025</loc>
+    <loc>https://autolupa.pages.dev/auto/417-mg-marvel-r-2026</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://autolupa.pages.dev/auto/418-mg-mg-3-2025</loc>
+    <loc>https://autolupa.pages.dev/auto/418-mg-mg-3-2026</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -2766,7 +2826,17 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://autolupa.pages.dev/auto/435-mg-s5-ev-2026</loc>
+    <loc>https://autolupa.pages.dev/auto/435-mg-mgs5-ev-2026</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://autolupa.pages.dev/auto/662-mg-mg-hs-hybrid-2026</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://autolupa.pages.dev/auto/663-mg-mg-4-urban-ev-2026</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -2896,7 +2966,7 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://autolupa.pages.dev/auto/461-nissan-sentra-2025</loc>
+    <loc>https://autolupa.pages.dev/auto/461-nissan-sentra-2026</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -2906,17 +2976,27 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://autolupa.pages.dev/auto/463-nissan-versa-2025</loc>
+    <loc>https://autolupa.pages.dev/auto/463-nissan-versa-2027</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://autolupa.pages.dev/auto/464-nissan-x-trail-2025</loc>
+    <loc>https://autolupa.pages.dev/auto/464-nissan-x-trail-2027</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://autolupa.pages.dev/auto/465-nissan-z-2026</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://autolupa.pages.dev/auto/667-nissan-kait-2026</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://autolupa.pages.dev/auto/668-nissan-x-trail-e-power-2026</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -3411,7 +3491,7 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://autolupa.pages.dev/auto/551-suzuki-jimny-2025</loc>
+    <loc>https://autolupa.pages.dev/auto/551-suzuki-jimny-2026</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -3421,12 +3501,22 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://autolupa.pages.dev/auto/553-suzuki-swift-2025</loc>
+    <loc>https://autolupa.pages.dev/auto/553-suzuki-swift-2026</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://autolupa.pages.dev/auto/554-suzuki-vitara-2025</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://autolupa.pages.dev/auto/660-suzuki-e-vitara-2026</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://autolupa.pages.dev/auto/661-suzuki-celerio-2026</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -3562,6 +3652,31 @@
   </url>
   <url>
     <loc>https://autolupa.pages.dev/auto/586-toyota-yaris-sedan-2025</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://autolupa.pages.dev/auto/655-toyota-yaris-hibrido-2026</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://autolupa.pages.dev/auto/656-toyota-yaris-cross-hibrido-2026</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://autolupa.pages.dev/auto/657-toyota-rav4-hibrido-2026</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://autolupa.pages.dev/auto/658-toyota-rav4-phev-2026</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://autolupa.pages.dev/auto/659-toyota-hilux-bev-2026</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>

@@ -10,34 +10,32 @@
       "type": "suv",
       "fuel": "gasolina",
       "seats": 5,
-      "price": 17990000,
+      "price": 21990000,
       "transmission": "automatica",
       "traction": "4x2",
       "image_url": "",
-      "description": "SUV crossover urbana con estilo personalizado",
+      "description": "SUV 2.0L de 142 HP, con versiones Sense y Exclusive.",
       "origin": "México",
       "origin_country": "Japón",
       "versions": [
         {
-          "version": "Sense",
-          "price": 17990000,
+          "version": "New Kicks Sense Automático",
+          "price": 21990000,
+          "price_list": 24790000,
+          "price_bonus": 2800000,
           "transmission": "automatica",
           "traction": "4x2"
         },
         {
-          "version": "Advance",
-          "price": 20990000,
-          "transmission": "automatica",
-          "traction": "4x2"
-        },
-        {
-          "version": "Exclusive",
-          "price": 23490000,
+          "version": "New Kicks Exclusive Automático",
+          "price": 28090000,
+          "price_list": 28590000,
+          "price_bonus": 500000,
           "transmission": "automatica",
           "traction": "4x2"
         }
       ],
-      "hp": 118,
+      "hp": 142,
       "torque_nm": 149,
       "fuel_consumption_mixed_km_l": 17.5,
       "fuel_tank_liters": 46,
@@ -59,7 +57,11 @@
         "Frenado automático"
       ],
       "warranty_years": 3,
-      "warranty_km": 100000
+      "warranty_km": 100000,
+      "price_source": "https://www.nissan.cl/vehiculos/nuevos/nuevo-kicks.html",
+      "price_checked_at": "2026-10-22",
+      "price_list": 24790000,
+      "price_bonus": 2800000
     },
     {
       "id": 455,
@@ -113,7 +115,8 @@
           "transmission": "automatica",
           "traction": "4x2"
         }
-      ]
+      ],
+      "lineup_2026": false
     },
     {
       "id": 456,
@@ -162,7 +165,8 @@
         "USB"
       ],
       "warranty_years": 3,
-      "warranty_km": 100000
+      "warranty_km": 100000,
+      "lineup_2026": false
     },
     {
       "id": 457,
@@ -221,7 +225,8 @@
         "Alerta de punto ciego"
       ],
       "warranty_years": 3,
-      "warranty_km": 100000
+      "warranty_km": 100000,
+      "lineup_2026": false
     },
     {
       "id": 458,
@@ -231,13 +236,13 @@
       "type": "suv",
       "fuel": "gasolina",
       "seats": 7,
-      "price": 37990000,
+      "price": 46990000,
       "transmission": "automatica",
       "traction": "4x4",
       "image_url": "",
-      "description": "SUV de 7 plazas con capacidad todoterreno y tecnología Nissan Safety Shield.",
+      "description": "SUV 3.5 V6 de 270 HP, con versiones Advance y Exclusive 4WD.",
       "origin": "USA",
-      "hp": 284,
+      "hp": 270,
       "torque_nm": 351,
       "length_mm": 5022,
       "width_mm": 1979,
@@ -267,18 +272,26 @@
       "origin_country": "USA",
       "versions": [
         {
-          "version": "3.5L V6 AT 4x4",
-          "price": 37990000,
-          "transmission": "automática",
+          "version": "Pathfinder Advance 3.5 4WD",
+          "price": 46990000,
+          "price_list": 50668593,
+          "price_bonus": 3678593,
+          "transmission": "automatica",
           "traction": "4x4"
         },
         {
-          "version": "3.5L V6 AT 4x4 Platinum",
-          "price": 45990000,
-          "transmission": "automática",
+          "version": "Pathfinder Exclusive 3.5 4WD",
+          "price": 49990000,
+          "price_list": 55668593,
+          "price_bonus": 5678593,
+          "transmission": "automatica",
           "traction": "4x4"
         }
-      ]
+      ],
+      "price_source": "https://www.nissan.cl/vehiculos/nuevos/nueva-nissan-pathfinder.html",
+      "price_checked_at": "2026-10-22",
+      "price_list": 50668593,
+      "price_bonus": 3678593
     },
     {
       "id": 459,
@@ -334,7 +347,8 @@
         "Control crucero adaptativo"
       ],
       "warranty_years": 3,
-      "warranty_km": 100000
+      "warranty_km": 100000,
+      "lineup_2026": false
     },
     {
       "id": 460,
@@ -396,39 +410,30 @@
         "Lane Keep Assist"
       ],
       "warranty_years": 3,
-      "warranty_km": 100000
+      "warranty_km": 100000,
+      "lineup_2026": false
     },
     {
       "id": 461,
       "brand": "Nissan",
       "model": "Sentra",
-      "year": 2025,
+      "year": 2026,
       "type": "sedan",
       "fuel": "gasolina",
       "seats": 5,
-      "price": 18990000,
+      "price": 25990000,
       "transmission": "automatica",
       "traction": "4x2",
       "image_url": "",
-      "description": "Sedán compacto con diseño elegante y tecnología",
+      "description": "Sedán 2.0L de 145 HP, versión SR Platinum CVT.",
       "origin": "México",
       "origin_country": "Japón",
       "versions": [
         {
-          "version": "Sense",
-          "price": 18990000,
-          "transmission": "automatica",
-          "traction": "4x2"
-        },
-        {
-          "version": "Advance",
-          "price": 21990000,
-          "transmission": "automatica",
-          "traction": "4x2"
-        },
-        {
-          "version": "Exclusive",
-          "price": 24990000,
+          "version": "Sentra SR Platinum CVT",
+          "price": 25990000,
+          "price_list": 28990000,
+          "price_bonus": 3000000,
           "transmission": "automatica",
           "traction": "4x2"
         }
@@ -457,7 +462,11 @@
         "Lane Keep Assist"
       ],
       "warranty_years": 3,
-      "warranty_km": 100000
+      "warranty_km": 100000,
+      "price_source": "https://www.nissan.cl/vehiculos/nuevos/sentra.html",
+      "price_checked_at": "2026-10-22",
+      "price_list": 28990000,
+      "price_bonus": 3000000
     },
     {
       "id": 462,
@@ -509,44 +518,43 @@
           "transmission": "automatica",
           "traction": "4x2"
         }
-      ]
+      ],
+      "lineup_2026": false
     },
     {
       "id": 463,
       "brand": "Nissan",
       "model": "Versa",
-      "year": 2025,
+      "year": 2027,
       "type": "sedan",
       "fuel": "gasolina",
       "seats": 5,
-      "price": 13990000,
-      "transmission": "automatica",
+      "price": 12990000,
+      "transmission": "manual",
       "traction": "4x2",
       "image_url": "",
-      "description": "Sedán subcompacto con excelente relación precio-calidad",
+      "description": "Sedán 1.6L de 122 HP, con versiones MT y CVT.",
       "origin": "México",
       "origin_country": "Japón",
       "versions": [
         {
-          "version": "Sense",
-          "price": 13990000,
-          "transmission": "automatica",
+          "version": "Sense Mecánico",
+          "price": 12990000,
+          "price_list": 16990000,
+          "price_bonus": 4000000,
+          "transmission": "manual",
           "traction": "4x2"
         },
         {
-          "version": "Advance",
-          "price": 15990000,
-          "transmission": "automatica",
-          "traction": "4x2"
-        },
-        {
-          "version": "Exclusive",
-          "price": 17490000,
+          "version": "Sense Automático",
+          "price": 14990000,
+          "price_list": 17990000,
+          "price_bonus": 3000000,
           "transmission": "automatica",
           "traction": "4x2"
         }
       ],
-      "hp": 118,
+      "hp": 122,
       "torque_nm": 149,
       "fuel_consumption_mixed_km_l": 18.5,
       "fuel_tank_liters": 41,
@@ -568,39 +576,49 @@
         "Alerta de punto ciego"
       ],
       "warranty_years": 3,
-      "warranty_km": 100000
+      "warranty_km": 100000,
+      "price_source": "https://www.nissan.cl/vehiculos/nuevos/versa.html",
+      "price_checked_at": "2026-10-22",
+      "price_list": 16990000,
+      "price_bonus": 4000000
     },
     {
       "id": 464,
       "brand": "Nissan",
       "model": "X-Trail",
-      "year": 2025,
+      "year": 2027,
       "type": "suv",
       "fuel": "gasolina",
       "seats": 7,
-      "price": 25990000,
+      "price": 23990000,
       "transmission": "automatica",
       "traction": "4x2",
       "image_url": "",
-      "description": "SUV mediano familiar con tercera fila de asientos",
+      "description": "SUV 2.5L de 181 HP, con versiones de 5 y 7 asientos.",
       "origin": "Japón",
       "origin_country": "Japón",
       "versions": [
         {
-          "version": "Sense",
-          "price": 25990000,
+          "version": "Sense 2R",
+          "price": 23990000,
+          "price_list": 26990000,
+          "price_bonus": 3000000,
           "transmission": "automatica",
           "traction": "4x2"
         },
         {
-          "version": "Advance",
-          "price": 28990000,
+          "version": "Sense 3R",
+          "price": 24990000,
+          "price_list": 27990000,
+          "price_bonus": 3000000,
           "transmission": "automatica",
           "traction": "4x2"
         },
         {
-          "version": "Exclusive 4WD",
-          "price": 32990000,
+          "version": "Exclusive 3R AWD",
+          "price": 32490000,
+          "price_list": 35490000,
+          "price_bonus": 3000000,
           "transmission": "automatica",
           "traction": "awd"
         }
@@ -630,7 +648,11 @@
         "Lane Keep Assist"
       ],
       "warranty_years": 3,
-      "warranty_km": 100000
+      "warranty_km": 100000,
+      "price_source": "https://www.nissan.cl/vehiculos/nuevos/x-trail.html",
+      "price_checked_at": "2026-10-22",
+      "price_list": 26990000,
+      "price_bonus": 3000000
     },
     {
       "id": 465,
@@ -685,7 +707,85 @@
           "transmission": "automática",
           "traction": "4x2"
         }
-      ]
+      ],
+      "lineup_2026": false
+    },
+    {
+      "id": 667,
+      "brand": "Nissan",
+      "model": "Kait",
+      "year": 2026,
+      "type": "suv",
+      "fuel": "gasolina",
+      "seats": 5,
+      "description": "SUV urbano 1.6L con transmisión CVT.",
+      "origin": "Brasil",
+      "origin_country": "Brasil",
+      "image_url": "",
+      "price_source": "https://www.nissan.cl/vehiculos/nuevos/kait.html",
+      "price_checked_at": "2026-10-22",
+      "versions": [
+        {
+          "version": "Sense Automático",
+          "price": 17990000,
+          "price_list": 20990000,
+          "price_bonus": 3000000,
+          "transmission": "automatica",
+          "traction": "4x2"
+        },
+        {
+          "version": "Advance",
+          "price": 18990000,
+          "price_list": 22490000,
+          "price_bonus": 3500000,
+          "transmission": "automatica",
+          "traction": "4x2"
+        },
+        {
+          "version": "Exclusive Automático",
+          "price": 20490000,
+          "price_list": 23990000,
+          "price_bonus": 3500000,
+          "transmission": "automatica",
+          "traction": "4x2"
+        }
+      ],
+      "price": 17990000,
+      "price_list": 20990000,
+      "price_bonus": 3000000,
+      "transmission": "automatica",
+      "traction": "4x2"
+    },
+    {
+      "id": 668,
+      "brand": "Nissan",
+      "model": "X-Trail e-Power",
+      "year": 2026,
+      "type": "suv",
+      "fuel": "hibrido",
+      "seats": 5,
+      "hp": 211,
+      "description": "SUV híbrido e-POWER de 211 HP y tracción e-4ORCE.",
+      "origin": "Japón",
+      "origin_country": "Japón",
+      "image_url": "",
+      "price_source": "https://www.nissan.cl/vehiculos/nuevos/x-trail-e-power.html",
+      "price_checked_at": "2026-10-22",
+      "versions": [
+        {
+          "version": "Exclusive e-POWER",
+          "price": 39990000,
+          "price_list": 42990000,
+          "price_bonus": 3000000,
+          "transmission": "automatica",
+          "traction": "awd"
+        }
+      ],
+      "price": 39990000,
+      "price_list": 42990000,
+      "price_bonus": 3000000,
+      "transmission": "automatica",
+      "traction": "awd"
     }
   ]
 }

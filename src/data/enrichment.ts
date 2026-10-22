@@ -81,19 +81,19 @@ export const enrichment: Record<string, Enrichment> = {
   'Hyundai|Kona Eléctrico': { electric_range_km: 370, battery_kwh: 48.6 },
 
   'Kia|EV6': {
-    electric_range_km: 528,
-    battery_kwh: 77,
+    electric_range_km: 522,
+    battery_kwh: 84,
     safety_ratings: [
       { program: 'Euro NCAP', stars: 5, year: 2021, source: EURO },
       { program: 'ANCAP', stars: 5, year: 2022, source: ANCAP },
     ],
   },
   'Kia|EV9': {
-    electric_range_km: 563,
-    battery_kwh: 100,
+    electric_range_km: 589,
+    battery_kwh: 99.8,
     safety_ratings: [{ program: 'Euro NCAP', stars: 5, year: 2023, source: EURO }],
   },
-  'Kia|EV5': { electric_range_km: 500, battery_kwh: 88 },
+  'Kia|EV5': { electric_range_km: 437, battery_kwh: 64.2 },
   'Kia|Niro EV': { electric_range_km: 460, battery_kwh: 65 },
 
   'Volkswagen|ID.4': {
@@ -111,8 +111,8 @@ export const enrichment: Record<string, Enrichment> = {
   },
 
   'MG|MG 4 EV': {
-    electric_range_km: 450,
-    battery_kwh: 64,
+    electric_range_km: 350,
+    battery_kwh: 51,
     safety_ratings: [
       { program: 'Euro NCAP', stars: 5, year: 2022, source: EURO },
       { program: 'ANCAP', stars: 5, year: 2022, source: ANCAP },
@@ -121,9 +121,10 @@ export const enrichment: Record<string, Enrichment> = {
   'MG|MG 4 XPOWER': { electric_range_km: 385, battery_kwh: 64 },
   'MG|MG ZS EV': { electric_range_km: 440, battery_kwh: 72 },
   'MG|Marvel R': { electric_range_km: 402, battery_kwh: 70 },
-  'MG|Cyberster': { electric_range_km: 519, battery_kwh: 77 },
-  'MG|MG Cyberster': { electric_range_km: 519, battery_kwh: 77 },
-  'MG|S5 EV': { electric_range_km: 480, battery_kwh: 64 },
+  'MG|Cyberster': { electric_range_km: 490, battery_kwh: 77 },
+  'MG|MG Cyberster': { electric_range_km: 490, battery_kwh: 77 },
+  'MG|MGS5 EV': { electric_range_km: 340, battery_kwh: 49 },
+  'MG|MG 4 Urban EV': { electric_range_km: 350, battery_kwh: 43 },
 
   'Nissan|Leaf': {
     electric_range_km: 270,
@@ -189,8 +190,8 @@ export const enrichment: Record<string, Enrichment> = {
   },
 
   'Toyota|bZ4X': {
-    electric_range_km: 516,
-    battery_kwh: 71,
+    electric_range_km: 478,
+    battery_kwh: 73.1,
     safety_ratings: [{ program: 'Euro NCAP', stars: 5, year: 2022, source: EURO }],
   },
   'Subaru|Solterra': { electric_range_km: 466, battery_kwh: 71 },
@@ -213,7 +214,8 @@ export const enrichment: Record<string, Enrichment> = {
 
   'MG|MG4 EV': { electric_range_km: 450, battery_kwh: 64 },
   'Omoda|E5': { electric_range_km: 430, battery_kwh: 61 },
-  'GWM|ORA 03': { electric_range_km: 420, battery_kwh: 63 },
+  'GWM|ORA 03': { electric_range_km: 374, battery_kwh: 48 },
+  'GWM|ORA 5': { electric_range_km: 435, battery_kwh: 58.3 },
   'Leapmotor|C10': { electric_range_km: 420, battery_kwh: 70 },
   'Peugeot|e-2008': { electric_range_km: 406, battery_kwh: 51 },
 
@@ -269,6 +271,8 @@ export const enrichment: Record<string, Enrichment> = {
       { program: 'Euro NCAP', stars: 5, year: 2020, source: EURO },
     ],
   },
+  'Toyota|RAV4 PHEV': { electric_range_km: 157 },
+  'Toyota|Hilux BEV': { electric_range_km: 240, battery_kwh: 59.2 },
   'Volkswagen|T-Cross': {
     safety_ratings: [{ program: 'Latin NCAP', stars: 5, year: 2019, source: LATIN }],
   },
@@ -287,6 +291,7 @@ export const enrichment: Record<string, Enrichment> = {
   'Suzuki|Swift': {
     safety_ratings: [{ program: 'Global NCAP', stars: 4, year: 2023, source: GLOBAL }],
   },
+  'Suzuki|e Vitara': { electric_range_km: 412, battery_kwh: 61 },
   'Chery|Tiggo 7 Pro': {
     safety_ratings: [{ program: 'Latin NCAP', stars: 5, year: 2022, source: LATIN }],
   },

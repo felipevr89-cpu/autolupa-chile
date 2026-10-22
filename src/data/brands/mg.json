@@ -6,17 +6,17 @@
       "id": 417,
       "brand": "MG",
       "model": "Marvel R",
-      "year": 2025,
+      "year": 2026,
       "type": "suv",
       "fuel": "electrico",
       "seats": 5,
-      "price": 34990000,
+      "price": 29990000,
       "transmission": "automatica",
-      "traction": "awd",
+      "traction": "4x2",
       "image_url": "",
-      "description": "SUV eléctrico con doble motor, tracción integral y autonomía de hasta 400 km.",
+      "description": "SUV eléctrico de 70 kWh y 402 km de autonomía.",
       "origin": "China",
-      "hp": 288,
+      "hp": 177,
       "torque_nm": 665,
       "length_mm": 4674,
       "width_mm": 1919,
@@ -43,48 +43,68 @@
       "origin_country": "China",
       "versions": [
         {
-          "version": "AWD",
-          "price": 34990000,
+          "version": "DLX",
+          "price": 29990000,
+          "price_list": 40990000,
+          "price_bonus": 11000000,
           "transmission": "automatica",
-          "traction": "awd"
-        },
-        {
-          "version": "AWD Luxury",
-          "price": 39990000,
-          "transmission": "automatica",
-          "traction": "awd"
+          "traction": "4x2"
         }
-      ]
+      ],
+      "price_source": "https://mgmotors-prod-s3.s3.us-east-2.amazonaws.com/CL/menu/2026/10/cl_20261008_154809_menu_lista-de-precios_menu.pdf",
+      "price_checked_at": "2026-10-22",
+      "price_list": 40990000,
+      "price_bonus": 11000000
     },
     {
       "id": 418,
       "brand": "MG",
       "model": "MG 3",
-      "year": 2025,
+      "year": 2026,
       "type": "hatchback",
       "fuel": "gasolina",
       "seats": 5,
       "price": 8490000,
-      "transmission": "automatica",
+      "transmission": "manual",
       "traction": "4x2",
       "image_url": "",
-      "description": "Hatchback compacto económico con motor 1.5 litros y transmisión CVT.",
+      "description": "Hatchback 1.5L de 108 HP, con versiones MT y CVT.",
       "origin": "China",
       "versions": [
         {
-          "version": "1.5 STD CVT",
+          "version": "1.5L MT STD",
           "price": 8490000,
+          "price_list": 10990000,
+          "price_bonus": 2500000,
+          "transmission": "manual",
+          "traction": "4x2"
+        },
+        {
+          "version": "1.5L MT COM",
+          "price": 9490000,
+          "price_list": 12090000,
+          "price_bonus": 2600000,
+          "transmission": "manual",
+          "traction": "4x2"
+        },
+        {
+          "version": "1.5L CVT COM",
+          "price": 11290000,
+          "price_list": 13290000,
+          "price_bonus": 2000000,
           "transmission": "automatica",
           "traction": "4x2"
         },
         {
-          "version": "1.5 Com CVT",
-          "price": 9490000,
+          "version": "1.5L CVT DLX",
+          "price": 12290000,
+          "price_list": 14290000,
+          "price_bonus": 2000000,
           "transmission": "automatica",
           "traction": "4x2"
         }
       ],
-      "hp": 106,
+      "hp": 108,
       "torque_nm": 142,
       "fuel_consumption_city_km_l": 13.5,
       "fuel_consumption_highway_km_l": 19,
@@ -105,7 +125,11 @@
       ],
       "warranty_years": 7,
       "warranty_km": 105000,
-      "origin_country": "China"
+      "origin_country": "China",
+      "price_source": "https://www.mgmotor.cl/model/NEW-MG-3/2025",
+      "price_checked_at": "2026-10-22",
+      "price_list": 10990000,
+      "price_bonus": 2500000
     },
     {
       "id": 419,
@@ -119,17 +143,19 @@
       "transmission": "automatica",
       "traction": "4x2",
       "image_url": "",
-      "description": "Hatchback híbrido autorrecargable con sistema híbrido de nueva generación.",
+      "description": "Hatchback híbrido 1.5L de 191 HP.",
       "origin": "China",
       "versions": [
         {
-          "version": "1.5 Hybrid Com",
+          "version": "1.5L HEV COM",
           "price": 14490000,
+          "price_list": 16990000,
+          "price_bonus": 2500000,
           "transmission": "automatica",
           "traction": "4x2"
         }
       ],
-      "hp": 190,
+      "hp": 191,
       "torque_nm": 250,
       "fuel_consumption_city_km_l": 22,
       "fuel_consumption_highway_km_l": 26,
@@ -150,7 +176,11 @@
       ],
       "warranty_years": 7,
       "warranty_km": 105000,
-      "origin_country": "China"
+      "origin_country": "China",
+      "price_source": "https://www.mgmotor.cl/model/MG-3-HEV",
+      "price_checked_at": "2026-10-22",
+      "price_list": 16990000,
+      "price_bonus": 2500000
     },
     {
       "id": 420,
@@ -164,23 +194,35 @@
       "transmission": "automatica",
       "traction": "4x2",
       "image_url": "",
-      "description": "Hatchback eléctrico 100% con plataforma modular de nueva generación.",
+      "description": "Hatchback eléctrico de 51/64/77 kWh, hasta 520 km de autonomía.",
       "origin": "China",
       "versions": [
         {
-          "version": "Standard Range",
+          "version": "51 kWh STD",
           "price": 20990000,
+          "price_list": 26990000,
+          "price_bonus": 6000000,
           "transmission": "automatica",
           "traction": "4x2"
         },
         {
-          "version": "Long Range",
+          "version": "64 kWh DLX",
+          "price": 26990000,
+          "price_list": 29990000,
+          "price_bonus": 3000000,
+          "transmission": "automatica",
+          "traction": "4x2"
+        },
+        {
+          "version": "77 kWh DLX",
           "price": 24990000,
+          "price_list": 31990000,
+          "price_bonus": 7000000,
           "transmission": "automatica",
           "traction": "4x2"
         }
       ],
-      "hp": 170,
+      "hp": 168,
       "torque_nm": 250,
       "top_speed_kmh": 160,
       "length_mm": 4287,
@@ -198,7 +240,11 @@
       ],
       "warranty_years": 7,
       "warranty_km": 105000,
-      "origin_country": "China"
+      "origin_country": "China",
+      "price_source": "https://www.mgmotor.cl/model/MG-4",
+      "price_checked_at": "2026-10-22",
+      "price_list": 26990000,
+      "price_bonus": 6000000
     },
     {
       "id": 421,
@@ -208,21 +254,23 @@
       "type": "hatchback",
       "fuel": "electrico",
       "seats": 5,
-      "price": 32990000,
+      "price": 31990000,
       "transmission": "automatica",
       "traction": "awd",
       "image_url": "",
-      "description": "Hatchback eléctrico deportivo con tracción total y 0 a 100 km/h en 3,8 segundos.",
+      "description": "Hatchback eléctrico AWD de 402 HP y 385 km de autonomía.",
       "origin": "China",
       "versions": [
         {
-          "version": "XPOWER AWD",
-          "price": 32990000,
+          "version": "64 kWh AWD XPOWER",
+          "price": 31990000,
+          "price_list": 34990000,
+          "price_bonus": 3000000,
           "transmission": "automatica",
           "traction": "awd"
         }
       ],
-      "hp": 435,
+      "hp": 402,
       "torque_nm": 600,
       "top_speed_kmh": 200,
       "length_mm": 4287,
@@ -240,7 +288,11 @@
       ],
       "warranty_years": 7,
       "warranty_km": 105000,
-      "origin_country": "China"
+      "origin_country": "China",
+      "price_source": "https://www.mgmotor.cl/model/MG-4-XPOWER",
+      "price_checked_at": "2026-10-22",
+      "price_list": 34990000,
+      "price_bonus": 3000000
     },
     {
       "id": 422,
@@ -291,7 +343,8 @@
       ],
       "warranty_years": 7,
       "warranty_km": 105000,
-      "origin_country": "China"
+      "origin_country": "China",
+      "lineup_2026": false
     },
     {
       "id": 423,
@@ -305,23 +358,27 @@
       "transmission": "automatica",
       "traction": "4x2",
       "image_url": "",
-      "description": "Deportivo eléctrico convertible con diseño clásico y prestaciones de superdeportivo.",
+      "description": "Roadster eléctrico de 77 kWh, con versiones 2WD y AWD.",
       "origin": "China",
       "versions": [
         {
-          "version": "77kWh 2WD",
+          "version": "77 kWh 2WD",
           "price": 59990000,
+          "price_list": 59990000,
+          "price_bonus": 0,
           "transmission": "automatica",
           "traction": "4x2"
         },
         {
-          "version": "77kWh AWD",
+          "version": "77 kWh AWD",
           "price": 67990000,
+          "price_list": 67990000,
+          "price_bonus": 0,
           "transmission": "automatica",
           "traction": "awd"
         }
       ],
-      "hp": 544,
+      "hp": 340,
       "torque_nm": 725,
       "top_speed_kmh": 200,
       "length_mm": 4535,
@@ -340,7 +397,11 @@
       "warranty_years": 7,
       "warranty_km": 105000,
       "origin_country": "China",
-      "battery_kwh": 77
+      "battery_kwh": 77,
+      "price_source": "https://www.mgmotor.cl/model/MG-CYBERSTER",
+      "price_checked_at": "2026-10-22",
+      "price_list": 59990000,
+      "price_bonus": 0
     },
     {
       "id": 424,
@@ -391,7 +452,8 @@
       ],
       "warranty_years": 7,
       "warranty_km": 105000,
-      "origin_country": "China"
+      "origin_country": "China",
+      "lineup_2026": false
     },
     {
       "id": 425,
@@ -454,7 +516,8 @@
       ],
       "warranty_years": 7,
       "warranty_km": 105000,
-      "origin_country": "China"
+      "origin_country": "China",
+      "lineup_2026": false
     },
     {
       "id": 426,
@@ -468,23 +531,27 @@
       "transmission": "automatica",
       "traction": "4x2",
       "image_url": "",
-      "description": "SUV con diseño futurista y tecnología de última generación.",
+      "description": "SUV 1.5T de 168 HP, con versiones COM y DLX.",
       "origin": "China",
       "versions": [
         {
-          "version": "1.5T STD CVT",
+          "version": "1.5T CVT COM",
           "price": 12490000,
+          "price_list": 17990000,
+          "price_bonus": 5500000,
           "transmission": "automatica",
           "traction": "4x2"
         },
         {
-          "version": "1.5T Luxury CVT",
+          "version": "1.5T CVT DLX",
           "price": 14490000,
+          "price_list": 19790000,
+          "price_bonus": 5300000,
           "transmission": "automatica",
           "traction": "4x2"
         }
       ],
-      "hp": 181,
+      "hp": 168,
       "torque_nm": 285,
       "fuel_consumption_city_km_l": 11,
       "fuel_consumption_highway_km_l": 16,
@@ -510,7 +577,11 @@
       ],
       "warranty_years": 7,
       "warranty_km": 105000,
-      "origin_country": "China"
+      "origin_country": "China",
+      "price_source": "https://www.mgmotor.cl/model/MG-ONE",
+      "price_checked_at": "2026-10-22",
+      "price_list": 17990000,
+      "price_bonus": 5500000
     },
     {
       "id": 427,
@@ -521,32 +592,54 @@
       "fuel": "gasolina",
       "seats": 5,
       "price": 10390000,
-      "transmission": "automatica",
+      "transmission": "manual",
       "traction": "4x2",
       "image_url": "",
-      "description": "SUV compacto con motor 1.5 turbo de 168 hp y sistema ADAS MG Pilot.",
+      "description": "SUV 1.5L/1.5T de 114/168 HP, con versiones MT y CVT.",
       "origin": "China",
       "versions": [
         {
-          "version": "1.5T STD CVT",
+          "version": "1.5L MT STD",
           "price": 10390000,
+          "price_list": 15890000,
+          "price_bonus": 5500000,
+          "transmission": "manual",
+          "traction": "4x2"
+        },
+        {
+          "version": "1.5L MT COM",
+          "price": 11390000,
+          "price_list": 16890000,
+          "price_bonus": 5500000,
+          "transmission": "manual",
+          "traction": "4x2"
+        },
+        {
+          "version": "1.5L CVT STD",
+          "price": 10990000,
+          "price_list": 16490000,
+          "price_bonus": 5500000,
           "transmission": "automatica",
           "traction": "4x2"
         },
         {
-          "version": "1.5T Com CVT",
-          "price": 11890000,
+          "version": "1.5L CVT COM",
+          "price": 12290000,
+          "price_list": 17790000,
+          "price_bonus": 5500000,
           "transmission": "automatica",
           "traction": "4x2"
         },
         {
-          "version": "1.5T Luxury CVT",
-          "price": 13290000,
+          "version": "1.5T CVT DLX",
+          "price": 14990000,
+          "price_list": 20490000,
+          "price_bonus": 5500000,
           "transmission": "automatica",
           "traction": "4x2"
         }
       ],
-      "hp": 168,
+      "hp": 114,
       "torque_nm": 265,
       "fuel_consumption_city_km_l": 12.5,
       "fuel_consumption_highway_km_l": 17.6,
@@ -573,7 +666,11 @@
       ],
       "warranty_years": 7,
       "warranty_km": 105000,
-      "origin_country": "China"
+      "origin_country": "China",
+      "price_source": "https://www.mgmotor.cl/model/NEW-MG-ZS/2025",
+      "price_checked_at": "2026-10-22",
+      "price_list": 15890000,
+      "price_bonus": 5500000
     },
     {
       "id": 428,
@@ -587,23 +684,19 @@
       "transmission": "automatica",
       "traction": "4x2",
       "image_url": "",
-      "description": "SUV eléctrico con autonomía de hasta 440 km y carga rápida.",
+      "description": "SUV eléctrico de 72 kWh y 440 km de autonomía.",
       "origin": "China",
       "versions": [
         {
-          "version": "Standard Range",
+          "version": "72 kWh DLX",
           "price": 26990000,
-          "transmission": "automatica",
-          "traction": "4x2"
-        },
-        {
-          "version": "Long Range",
-          "price": 29990000,
+          "price_list": 33990000,
+          "price_bonus": 7000000,
           "transmission": "automatica",
           "traction": "4x2"
         }
       ],
-      "hp": 177,
+      "hp": 154,
       "torque_nm": 280,
       "top_speed_kmh": 140,
       "length_mm": 4323,
@@ -626,7 +719,11 @@
       ],
       "warranty_years": 7,
       "warranty_km": 105000,
-      "origin_country": "China"
+      "origin_country": "China",
+      "price_source": "https://www.mgmotor.cl/model/MG-ZS-EV",
+      "price_checked_at": "2026-10-22",
+      "price_list": 33990000,
+      "price_bonus": 7000000
     },
     {
       "id": 429,
@@ -636,27 +733,31 @@
       "type": "suv",
       "fuel": "hibrido",
       "seats": 5,
-      "price": 16490000,
+      "price": 15990000,
       "transmission": "automatica",
       "traction": "4x2",
       "image_url": "",
-      "description": "SUV compacto híbrido autorrecargable con menor consumo y emisiones.",
+      "description": "SUV híbrido 1.5L de 191 HP, con versiones COM y LUX.",
       "origin": "China",
       "versions": [
         {
-          "version": "1.5 Hybrid Com",
-          "price": 16490000,
+          "version": "1.5L HEV COM",
+          "price": 15990000,
+          "price_list": 20990000,
+          "price_bonus": 5000000,
           "transmission": "automatica",
           "traction": "4x2"
         },
         {
-          "version": "1.5 Hybrid Luxury",
-          "price": 17990000,
+          "version": "1.5L HEV LUX",
+          "price": 17490000,
+          "price_list": 21990000,
+          "price_bonus": 4500000,
           "transmission": "automatica",
           "traction": "4x2"
         }
       ],
-      "hp": 190,
+      "hp": 191,
       "torque_nm": 250,
       "fuel_consumption_city_km_l": 20,
       "fuel_consumption_highway_km_l": 24,
@@ -683,43 +784,53 @@
       ],
       "warranty_years": 7,
       "warranty_km": 105000,
-      "origin_country": "China"
+      "origin_country": "China",
+      "price_source": "https://www.mgmotor.cl/model/MG-ZS-HEV",
+      "price_checked_at": "2026-10-22",
+      "price_list": 20990000,
+      "price_bonus": 5000000
     },
     {
       "id": 430,
       "brand": "MG",
       "model": "MG ZX",
       "year": 2026,
-      "type": "hatchback",
+      "type": "suv",
       "fuel": "gasolina",
       "seats": 5,
-      "price": 8490000,
-      "transmission": "automatica",
+      "price": 7990000,
+      "transmission": "manual",
       "traction": "4x2",
       "image_url": "",
-      "description": "Crossover hatchback con motor 1.3 turbo y diseño deportivo.",
+      "description": "SUV urbano 1.5L de 112 HP, con versiones MT y CVT.",
       "origin": "China",
       "versions": [
         {
-          "version": "1.3T STD CVT",
-          "price": 8490000,
-          "transmission": "automatica",
+          "version": "1.5L MT COM",
+          "price": 7990000,
+          "price_list": 14290000,
+          "price_bonus": 6300000,
+          "transmission": "manual",
           "traction": "4x2"
         },
         {
-          "version": "1.3T DLX CVT",
+          "version": "1.5L MT DLX",
           "price": 9990000,
-          "transmission": "automatica",
+          "price_list": 14990000,
+          "price_bonus": 5000000,
+          "transmission": "manual",
           "traction": "4x2"
         },
         {
-          "version": "1.3T Trophy CVT",
-          "price": 11490000,
+          "version": "1.5L CVT COM",
+          "price": 12490000,
+          "price_list": 14990000,
+          "price_bonus": 2500000,
           "transmission": "automatica",
           "traction": "4x2"
         }
       ],
-      "hp": 163,
+      "hp": 112,
       "torque_nm": 230,
       "fuel_consumption_city_km_l": 12,
       "fuel_consumption_highway_km_l": 17.5,
@@ -740,7 +851,11 @@
       ],
       "warranty_years": 7,
       "warranty_km": 105000,
-      "origin_country": "China"
+      "origin_country": "China",
+      "price_source": "https://www.mgmotor.cl/model/MG-ZX",
+      "price_checked_at": "2026-10-22",
+      "price_list": 14290000,
+      "price_bonus": 6300000
     },
     {
       "id": 431,
@@ -793,7 +908,8 @@
           "transmission": "automatica",
           "traction": "4x2"
         }
-      ]
+      ],
+      "lineup_2026": false
     },
     {
       "id": 432,
@@ -848,7 +964,8 @@
           "transmission": "automatica",
           "traction": "4x2"
         }
-      ]
+      ],
+      "lineup_2026": false
     },
     {
       "id": 433,
@@ -903,7 +1020,8 @@
           "transmission": "automatica",
           "traction": "4x4"
         }
-      ]
+      ],
+      "lineup_2026": false
     },
     {
       "id": 434,
@@ -960,23 +1078,24 @@
           "transmission": "automatica",
           "traction": "4x4"
         }
-      ]
+      ],
+      "lineup_2026": false
     },
     {
       "id": 435,
       "brand": "MG",
-      "model": "S5 EV",
+      "model": "MGS5 EV",
       "year": 2026,
       "type": "suv",
       "fuel": "electrico",
       "seats": 5,
-      "price": 25990000,
+      "price": 21490000,
       "transmission": "automatica",
-      "traction": "awd",
+      "traction": "4x2",
       "image_url": "",
-      "description": "SUV eléctrico con doble motor y tracción integral para máxima eficiencia.",
+      "description": "SUV eléctrico de 49/62 kWh, con hasta 430 km de autonomía.",
       "origin": "China",
-      "hp": 214,
+      "hp": 168,
       "torque_nm": 350,
       "length_mm": 4670,
       "width_mm": 1920,
@@ -1003,18 +1122,104 @@
       "origin_country": "China",
       "versions": [
         {
-          "version": "AWD",
-          "price": 25990000,
+          "version": "49 kWh COM",
+          "price": 21490000,
+          "price_list": 25490000,
+          "price_bonus": 4000000,
           "transmission": "automatica",
-          "traction": "awd"
+          "traction": "4x2"
         },
         {
-          "version": "AWD Luxury",
-          "price": 29990000,
+          "version": "49 kWh LUX",
+          "price": 22490000,
+          "price_list": 26490000,
+          "price_bonus": 4000000,
           "transmission": "automatica",
-          "traction": "awd"
+          "traction": "4x2"
+        },
+        {
+          "version": "62 kWh LUX",
+          "price": 23990000,
+          "price_list": 28490000,
+          "price_bonus": 4500000,
+          "transmission": "automatica",
+          "traction": "4x2"
         }
-      ]
+      ],
+      "price_source": "https://www.mgmotor.cl/model/MGS5-EV",
+      "price_checked_at": "2026-10-22",
+      "price_list": 25490000,
+      "price_bonus": 4000000
+    },
+    {
+      "id": 662,
+      "brand": "MG",
+      "model": "MG HS Hybrid",
+      "year": 2026,
+      "type": "suv",
+      "fuel": "hibrido",
+      "seats": 5,
+      "hp": 168,
+      "description": "SUV híbrido 2.0T de 168 HP, con versión Luxury.",
+      "origin": "China",
+      "origin_country": "China",
+      "image_url": "",
+      "price_source": "https://www.mgmotor.cl/model/MG-HS-HEV",
+      "price_checked_at": "2026-10-22",
+      "versions": [
+        {
+          "version": "2.0T HEV Luxury",
+          "price": 19990000,
+          "price_list": 24990000,
+          "price_bonus": 5000000,
+          "transmission": "automatica",
+          "traction": "4x2"
+        }
+      ],
+      "price": 19990000,
+      "price_list": 24990000,
+      "price_bonus": 5000000,
+      "transmission": "automatica",
+      "traction": "4x2"
+    },
+    {
+      "id": 663,
+      "brand": "MG",
+      "model": "MG 4 Urban EV",
+      "year": 2026,
+      "type": "hatchback",
+      "fuel": "electrico",
+      "seats": 5,
+      "hp": 148,
+      "description": "Hatchback eléctrico de 43 kWh y 350 km de autonomía.",
+      "origin": "China",
+      "origin_country": "China",
+      "image_url": "",
+      "price_source": "https://www.mgmotor.cl/model/MG-4-URBAN-EV",
+      "price_checked_at": "2026-10-22",
+      "versions": [
+        {
+          "version": "43 kWh COM",
+          "price": 15990000,
+          "price_list": 18490000,
+          "price_bonus": 2500000,
+          "transmission": "automatica",
+          "traction": "4x2"
+        },
+        {
+          "version": "43 kWh LUX",
+          "price": 16990000,
+          "price_list": 19490000,
+          "price_bonus": 2500000,
+          "transmission": "automatica",
+          "traction": "4x2"
+        }
+      ],
+      "price": 15990000,
+      "price_list": 18490000,
+      "price_bonus": 2500000,
+      "transmission": "automatica",
+      "traction": "4x2"
     }
   ]
 }

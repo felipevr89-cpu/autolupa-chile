@@ -14,7 +14,7 @@
       "transmission": "automatica",
       "traction": "4x4",
       "image_url": "",
-      "description": "SUV todoterreno con capacidad off-road y durabilidad legendaria.",
+      "description": "SUV 2.4T de 278 HP, con versiones SR5 y Limited.",
       "origin": "Japón",
       "hp": 278,
       "torque_nm": 450,
@@ -46,18 +46,26 @@
       "origin_country": "Japón",
       "versions": [
         {
-          "version": "SR5 4x4",
+          "version": "ALL NEW 4Runner SR5",
           "price": 49990000,
-          "transmission": "automática",
+          "price_list": 53990000,
+          "price_bonus": 4000000,
+          "transmission": "automatica",
           "traction": "4x4"
         },
         {
-          "version": "TRD Pro 4x4",
-          "price": 59990000,
-          "transmission": "automática",
+          "version": "ALL NEW 4Runner Limited",
+          "price": 55990000,
+          "price_list": 59990000,
+          "price_bonus": 4000000,
+          "transmission": "automatica",
           "traction": "4x4"
         }
-      ]
+      ],
+      "price_source": "https://toyota.cl/modelos/suv/4runner/",
+      "price_list": 53990000,
+      "price_bonus": 4000000,
+      "price_checked_at": "2026-10-22"
     },
     {
       "id": 565,
@@ -67,13 +75,13 @@
       "type": "suv",
       "fuel": "electrico",
       "seats": 5,
-      "price": 41990000,
+      "price": 41490000,
       "transmission": "automatica",
-      "traction": "awd",
+      "traction": "4x2",
       "image_url": "",
-      "description": "SUV eléctrico con diseño vanguardista y autonomía superior.",
+      "description": "SUV eléctrico con 478 km de autonomía y 221 HP.",
       "origin": "Japón",
-      "hp": 218,
+      "hp": 221,
       "torque_nm": 336,
       "length_mm": 4690,
       "width_mm": 1860,
@@ -101,18 +109,26 @@
       "origin_country": "Japón",
       "versions": [
         {
-          "version": "XLE AWD",
-          "price": 41990000,
-          "transmission": "automática",
-          "traction": "awd"
+          "version": "BZ4X LIMITED 4X2",
+          "price": 41490000,
+          "price_list": 44990000,
+          "price_bonus": 3500000,
+          "transmission": "automatica",
+          "traction": "4x2"
         },
         {
-          "version": "Limited AWD",
-          "price": 47990000,
-          "transmission": "automática",
+          "version": "BZ4X LIMITED AWD",
+          "price": 44990000,
+          "price_list": 49990000,
+          "price_bonus": 5000000,
+          "transmission": "automatica",
           "traction": "awd"
         }
-      ]
+      ],
+      "price_source": "https://toyota.cl/modelos/suv/auto-electrico-toyota-bz4x/",
+      "price_list": 44990000,
+      "price_bonus": 3500000,
+      "price_checked_at": "2026-10-22"
     },
     {
       "id": 566,
@@ -141,12 +157,6 @@
           "price": 24990000,
           "transmission": "automatica",
           "traction": "4x2"
-        },
-        {
-          "version": "Híbrido",
-          "price": 26990000,
-          "transmission": "automatica",
-          "traction": "4x2"
         }
       ],
       "hp": 172,
@@ -171,7 +181,8 @@
         "Frenado automático"
       ],
       "warranty_years": 3,
-      "warranty_km": 100000
+      "warranty_km": 100000,
+      "lineup_2026": false
     },
     {
       "id": 567,
@@ -226,7 +237,8 @@
         "Lane Tracing Assist"
       ],
       "warranty_years": 3,
-      "warranty_km": 100000
+      "warranty_km": 100000,
+      "lineup_2026": false
     },
     {
       "id": 568,
@@ -236,34 +248,40 @@
       "type": "sedan",
       "fuel": "hibrido",
       "seats": 5,
-      "price": 24790000,
+      "price": 21990000,
       "transmission": "automatica",
       "traction": "4x2",
       "image_url": "",
-      "description": "Sedán compacto confiable y moderno",
+      "description": "Sedán híbrido 1.8 con 140 HP y transmisión eCVT.",
       "origin": "Japón",
       "origin_country": "Japón",
       "versions": [
         {
-          "version": "XLI 1.8 eCVT",
-          "price": 24790000,
+          "version": "Corolla XLI 1.8 eCVT Híbrido",
+          "price": 21990000,
+          "price_list": 24990000,
+          "price_bonus": 3000000,
           "transmission": "automatica",
           "traction": "4x2"
         },
         {
-          "version": "XEI 1.8 eCVT",
+          "version": "Corolla XEI 1.8 eCVT Híbrido",
+          "price": 23490000,
+          "price_list": 25990000,
+          "price_bonus": 2500000,
+          "transmission": "automatica",
+          "traction": "4x2"
+        },
+        {
+          "version": "Corolla SEG 1.8 eCVT Híbrido",
           "price": 25990000,
-          "transmission": "automatica",
-          "traction": "4x2"
-        },
-        {
-          "version": "SEG 1.8 eCVT",
-          "price": 28490000,
+          "price_list": 28490000,
+          "price_bonus": 2500000,
           "transmission": "automatica",
           "traction": "4x2"
         }
       ],
-      "hp": 169,
+      "hp": 140,
       "torque_nm": 210,
       "fuel_consumption_mixed_km_l": 16.8,
       "fuel_tank_liters": 50,
@@ -286,7 +304,11 @@
         "Control crucero adaptativo"
       ],
       "warranty_years": 3,
-      "warranty_km": 100000
+      "warranty_km": 100000,
+      "price_source": "https://toyota.cl/modelos/sedan/corolla-sedan/",
+      "price_list": 24990000,
+      "price_bonus": 3000000,
+      "price_checked_at": "2026-10-22"
     },
     {
       "id": 569,
@@ -346,7 +368,8 @@
         "Control crucero adaptativo"
       ],
       "warranty_years": 3,
-      "warranty_km": 100000
+      "warranty_km": 100000,
+      "lineup_2026": false
     },
     {
       "id": 570,
@@ -356,28 +379,32 @@
       "type": "suv",
       "fuel": "hibrido",
       "seats": 5,
-      "price": 24990000,
+      "price": 25990000,
       "transmission": "automatica",
-      "traction": "awd",
+      "traction": "4x2",
       "image_url": "",
-      "description": "SUV compacto híbrido con eficiencia excepcional",
+      "description": "SUV híbrido 1.8 con 140 HP y transmisión eCVT.",
       "origin": "Tailandia",
       "origin_country": "Japón",
       "versions": [
         {
-          "version": "XLE Híbrido",
-          "price": 24990000,
+          "version": "Corolla Cross Híbrido 1.8 XEI CVT HV",
+          "price": 25990000,
+          "price_list": 27990000,
+          "price_bonus": 2000000,
           "transmission": "automatica",
-          "traction": "awd"
+          "traction": "4x2"
         },
         {
-          "version": "XLE Híbrido Premium",
-          "price": 27990000,
+          "version": "Corolla Cross Híbrido 1.8 SEG CVT HV",
+          "price": 28990000,
+          "price_list": 29990000,
+          "price_bonus": 1000000,
           "transmission": "automatica",
-          "traction": "awd"
+          "traction": "4x2"
         }
       ],
-      "hp": 196,
+      "hp": 140,
       "torque_nm": 230,
       "fuel_consumption_mixed_km_l": 23,
       "fuel_tank_liters": 50,
@@ -402,7 +429,11 @@
         "Control crucero adaptativo"
       ],
       "warranty_years": 3,
-      "warranty_km": 100000
+      "warranty_km": 100000,
+      "price_source": "https://toyota.cl/modelos/suv/corolla-cross-hybrid/",
+      "price_list": 27990000,
+      "price_bonus": 2000000,
+      "price_checked_at": "2026-10-22"
     },
     {
       "id": 571,
@@ -412,34 +443,40 @@
       "type": "suv",
       "fuel": "diesel",
       "seats": 7,
-      "price": 30990000,
-      "transmission": "automatica",
+      "price": 37490000,
+      "transmission": "manual",
       "traction": "4x4",
       "image_url": "",
-      "description": "SUV body-on-frame robusto y versátil",
+      "description": "SUV diésel 2.8L de 201 HP, con versiones 4x4 MT y AT.",
       "origin": "Tailandia",
       "origin_country": "Japón",
       "versions": [
         {
-          "version": "SRV 4x2",
-          "price": 30990000,
-          "transmission": "automatica",
-          "traction": "4x2"
+          "version": "Fortuner SR5 4x4 MT TDI 2.8L Diesel",
+          "price": 37490000,
+          "price_list": 42890000,
+          "price_bonus": 5400000,
+          "transmission": "manual",
+          "traction": "4x4"
         },
         {
-          "version": "SRV 4x4",
-          "price": 34990000,
+          "version": "Fortuner SR5 4x4 AT 2.8L Diesel",
+          "price": 38990000,
+          "price_list": 44390000,
+          "price_bonus": 5400000,
           "transmission": "automatica",
           "traction": "4x4"
         },
         {
-          "version": "Legender 4x4",
-          "price": 38990000,
+          "version": "Fortuner NEW SRX 4x4 AT 2.8L Diesel",
+          "price": 46990000,
+          "price_list": 51090000,
+          "price_bonus": 4100000,
           "transmission": "automatica",
           "traction": "4x4"
         }
       ],
-      "hp": 204,
+      "hp": 201,
       "torque_nm": 500,
       "fuel_consumption_mixed_km_l": 11,
       "fuel_tank_liters": 80,
@@ -461,7 +498,11 @@
         "Frenado automático"
       ],
       "warranty_years": 3,
-      "warranty_km": 100000
+      "warranty_km": 100000,
+      "price_source": "https://toyota.cl/modelos/suv/fortuner/",
+      "price_list": 42890000,
+      "price_bonus": 5400000,
+      "price_checked_at": "2026-10-22"
     },
     {
       "id": 572,
@@ -515,7 +556,8 @@
           "transmission": "manual",
           "traction": "4x2"
         }
-      ]
+      ],
+      "lineup_2026": false
     },
     {
       "id": 573,
@@ -529,30 +571,60 @@
       "transmission": "manual",
       "traction": "4x2",
       "image_url": "",
-      "description": "Pickup legendaria por su durabilidad y capacidad",
+      "description": "Pickup diésel 2.4/2.8 con versiones 4x2 y 4x4.",
       "origin": "Tailandia",
       "origin_country": "Japón",
       "versions": [
         {
-          "version": "DX 4x2",
+          "version": "Hilux 4x2 2.4 MT SR Diesel",
           "price": 32490000,
+          "price_list": 35290000,
+          "price_bonus": 2800000,
           "transmission": "manual",
           "traction": "4x2"
         },
         {
-          "version": "SR 4x2",
-          "price": 34490000,
+          "version": "Hilux 4x2 2.4 MT DX Diesel",
+          "price": 32490000,
+          "price_list": 34490000,
+          "price_bonus": 2000000,
           "transmission": "manual",
           "traction": "4x2"
         },
         {
-          "version": "SRV 4x4",
+          "version": "Hilux 4x4 2.4 MT DX Diesel",
+          "price": 36990000,
+          "price_list": 39290000,
+          "price_bonus": 2300000,
+          "transmission": "manual",
+          "traction": "4x4"
+        },
+        {
+          "version": "Hilux 4x4 2.4 MT SR Diesel",
+          "price": 39890000,
+          "price_list": 41790000,
+          "price_bonus": 1900000,
+          "transmission": "manual",
+          "traction": "4x4"
+        },
+        {
+          "version": "Hilux 4x4 2.8 MT SR Diesel",
+          "price": 45290000,
+          "price_list": 45890000,
+          "price_bonus": 600000,
+          "transmission": "manual",
+          "traction": "4x4"
+        },
+        {
+          "version": "Hilux 4x4 2.8 AT SRV Diesel",
           "price": 46090000,
+          "price_list": 48990000,
+          "price_bonus": 2900000,
           "transmission": "automatica",
           "traction": "4x4"
         }
       ],
-      "hp": 204,
+      "hp": 148,
       "torque_nm": 500,
       "fuel_consumption_mixed_km_l": 12,
       "fuel_tank_liters": 80,
@@ -570,7 +642,11 @@
         "Android Auto"
       ],
       "warranty_years": 3,
-      "warranty_km": 100000
+      "warranty_km": 100000,
+      "price_source": "https://toyota.cl/modelos/pickup/hilux/",
+      "price_list": 35290000,
+      "price_bonus": 2800000,
+      "price_checked_at": "2026-10-22"
     },
     {
       "id": 574,
@@ -625,7 +701,8 @@
         "Android Auto"
       ],
       "warranty_years": 3,
-      "warranty_km": 100000
+      "warranty_km": 100000,
+      "lineup_2026": false
     },
     {
       "id": 575,
@@ -681,7 +758,8 @@
         "Control crucero adaptativo"
       ],
       "warranty_years": 3,
-      "warranty_km": 100000
+      "warranty_km": 100000,
+      "lineup_2026": false
     },
     {
       "id": 576,
@@ -691,28 +769,32 @@
       "type": "suv",
       "fuel": "diesel",
       "seats": 7,
-      "price": 49990000,
+      "price": 59990000,
       "transmission": "automatica",
       "traction": "4x4",
       "image_url": "",
-      "description": "SUV premium de off-road con lujo y capacidad",
+      "description": "SUV 4x4 con versiones diésel 2.8 y gasolina 2.4T.",
       "origin": "Japón",
       "origin_country": "Japón",
       "versions": [
         {
-          "version": "TX",
-          "price": 49990000,
+          "version": "Land Cruiser Prado WX Adventure",
+          "price": 59990000,
+          "price_list": 64990000,
+          "price_bonus": 5000000,
           "transmission": "automatica",
           "traction": "4x4"
         },
         {
-          "version": "VX",
-          "price": 56990000,
+          "version": "Land Cruiser Prado VX-L 2026",
+          "price": 69990000,
+          "price_list": 73990000,
+          "price_bonus": 4000000,
           "transmission": "automatica",
           "traction": "4x4"
         }
       ],
-      "hp": 204,
+      "hp": 201,
       "torque_nm": 500,
       "fuel_consumption_mixed_km_l": 10.5,
       "fuel_tank_liters": 110,
@@ -737,7 +819,11 @@
         "Control crucero adaptativo"
       ],
       "warranty_years": 3,
-      "warranty_km": 100000
+      "warranty_km": 100000,
+      "price_source": "https://toyota.cl/modelos/suv/land-crusier-prado/",
+      "price_list": 64990000,
+      "price_bonus": 5000000,
+      "price_checked_at": "2026-10-22"
     },
     {
       "id": 577,
@@ -793,7 +879,8 @@
         "Control crucero adaptativo"
       ],
       "warranty_years": 3,
-      "warranty_km": 100000
+      "warranty_km": 100000,
+      "lineup_2026": false
     },
     {
       "id": 578,
@@ -803,13 +890,13 @@
       "type": "suv",
       "fuel": "gasolina",
       "seats": 5,
-      "price": 13990000,
+      "price": 11990000,
       "transmission": "manual",
       "traction": "4x2",
       "image_url": "",
-      "description": "SUV urbano compacto con diseño moderno y eficiencia sobresaliente.",
+      "description": "SUV urbano 1.0T de 87 HP, con versiones MT y CVT.",
       "origin": "Japón",
-      "hp": 98,
+      "hp": 87,
       "torque_nm": 140,
       "length_mm": 3995,
       "width_mm": 1695,
@@ -837,24 +924,42 @@
       "origin_country": "Japón",
       "versions": [
         {
-          "version": "i MT",
-          "price": 13990000,
+          "version": "Raize i MT",
+          "price": 11990000,
+          "price_list": 13990000,
+          "price_bonus": 2000000,
           "transmission": "manual",
           "traction": "4x2"
         },
         {
-          "version": "1.0T AT",
-          "price": 15990000,
+          "version": "Raize E MT",
+          "price": 13490000,
+          "price_list": 15990000,
+          "price_bonus": 2500000,
+          "transmission": "manual",
+          "traction": "4x2"
+        },
+        {
+          "version": "Raize E CVT",
+          "price": 13990000,
+          "price_list": 16990000,
+          "price_bonus": 3000000,
           "transmission": "automatica",
           "traction": "4x2"
         },
         {
-          "version": "1.0T AT Limited",
-          "price": 17990000,
+          "version": "Raize G CVT",
+          "price": 17490000,
+          "price_list": 18490000,
+          "price_bonus": 1000000,
           "transmission": "automatica",
           "traction": "4x2"
         }
-      ]
+      ],
+      "price_source": "https://toyota.cl/modelos/suv/Raize/",
+      "price_list": 13990000,
+      "price_bonus": 2000000,
+      "price_checked_at": "2026-10-22"
     },
     {
       "id": 579,
@@ -864,29 +969,35 @@
       "type": "suv",
       "fuel": "gasolina",
       "seats": 5,
-      "price": 28990000,
+      "price": 24990000,
       "transmission": "automatica",
       "traction": "4x2",
       "image_url": "",
-      "description": "SUV mediano robusto y versátil",
+      "description": "SUV con motor 2.0L de 169 HP, en versiones 4x2 y AWD.",
       "origin": "Japón",
       "origin_country": "Japón",
       "versions": [
         {
-          "version": "LE 2.0 4x2 CVT",
-          "price": 28990000,
+          "version": "All New Rav4 LE 2.0 4x2 CVT",
+          "price": 24990000,
+          "price_list": 28990000,
+          "price_bonus": 4000000,
           "transmission": "automatica",
           "traction": "4x2"
         },
         {
-          "version": "LE 2.0 AWD CVT",
-          "price": 29990000,
+          "version": "All New Rav4 LE 2.0 AWD CVT",
+          "price": 26490000,
+          "price_list": 29990000,
+          "price_bonus": 3500000,
           "transmission": "automatica",
           "traction": "awd"
         },
         {
-          "version": "HEV 2.0",
-          "price": 33490000,
+          "version": "All New Rav4 XLE 2.0 4x2 CVT",
+          "price": 28990000,
+          "price_list": 32490000,
+          "price_bonus": 3500000,
           "transmission": "automatica",
           "traction": "4x2"
         }
@@ -916,7 +1027,11 @@
         "Control crucero adaptativo"
       ],
       "warranty_years": 3,
-      "warranty_km": 100000
+      "warranty_km": 100000,
+      "price_source": "https://toyota.cl/modelos/suv/all-new-rav4/",
+      "price_list": 28990000,
+      "price_bonus": 4000000,
+      "price_checked_at": "2026-10-22"
     },
     {
       "id": 580,
@@ -969,7 +1084,8 @@
           "transmission": "automática",
           "traction": "4x2"
         }
-      ]
+      ],
+      "lineup_2026": false
     },
     {
       "id": 581,
@@ -1024,7 +1140,8 @@
           "transmission": "manual",
           "traction": "4x2"
         }
-      ]
+      ],
+      "lineup_2026": false
     },
     {
       "id": 582,
@@ -1079,7 +1196,8 @@
         "Control crucero adaptativo"
       ],
       "warranty_years": 3,
-      "warranty_km": 100000
+      "warranty_km": 100000,
+      "lineup_2026": false
     },
     {
       "id": 583,
@@ -1136,7 +1254,8 @@
           "transmission": "automática",
           "traction": "4x4"
         }
-      ]
+      ],
+      "lineup_2026": false
     },
     {
       "id": 584,
@@ -1185,7 +1304,8 @@
         "USB"
       ],
       "warranty_years": 3,
-      "warranty_km": 100000
+      "warranty_km": 100000,
+      "lineup_2026": false
     },
     {
       "id": 585,
@@ -1238,7 +1358,8 @@
         "Frenado automático"
       ],
       "warranty_years": 3,
-      "warranty_km": 100000
+      "warranty_km": 100000,
+      "lineup_2026": false
     },
     {
       "id": 586,
@@ -1248,28 +1369,40 @@
       "type": "sedan",
       "fuel": "gasolina",
       "seats": 5,
-      "price": 14290000,
-      "transmission": "automatica",
+      "price": 12990000,
+      "transmission": "manual",
       "traction": "4x2",
       "image_url": "",
-      "description": "Sedán subcompacto con espacio interior generoso",
+      "description": "Sedán 1.5L de 105 HP, con versiones MT y CVT.",
       "origin": "Japón",
       "origin_country": "Japón",
       "versions": [
         {
-          "version": "CE",
-          "price": 14290000,
-          "transmission": "automatica",
+          "version": "Yaris i MT",
+          "price": 12990000,
+          "price_list": 14990000,
+          "price_bonus": 2000000,
+          "transmission": "manual",
           "traction": "4x2"
         },
         {
-          "version": "XLE",
-          "price": 16290000,
+          "version": "Yaris E MT",
+          "price": 14990000,
+          "price_list": 16490000,
+          "price_bonus": 1500000,
+          "transmission": "manual",
+          "traction": "4x2"
+        },
+        {
+          "version": "Yaris E CVT",
+          "price": 16990000,
+          "price_list": 17490000,
+          "price_bonus": 500000,
           "transmission": "automatica",
           "traction": "4x2"
         }
       ],
-      "hp": 110,
+      "hp": 105,
       "torque_nm": 140,
       "fuel_consumption_mixed_km_l": 18,
       "fuel_tank_liters": 42,
@@ -1287,7 +1420,187 @@
         "USB"
       ],
       "warranty_years": 3,
-      "warranty_km": 100000
+      "warranty_km": 100000,
+      "price_source": "https://toyota.cl/modelos/sedan/new-yaris-sedan/",
+      "price_list": 14990000,
+      "price_bonus": 2000000,
+      "price_checked_at": "2026-10-22"
+    },
+    {
+      "id": 655,
+      "brand": "Toyota",
+      "model": "Yaris Híbrido",
+      "year": 2026,
+      "type": "sedan",
+      "fuel": "hibrido",
+      "seats": 5,
+      "transmission": "automatica",
+      "traction": "4x2",
+      "image_url": "",
+      "description": "Sedán híbrido 1.5L de 90 HP, con transmisión eCVT.",
+      "origin": "Japón",
+      "origin_country": "Japón",
+      "hp": 90,
+      "price_source": "https://toyota.cl/modelos/sedan/new-yaris-sedan-hybrid/",
+      "price_checked_at": "2026-10-22",
+      "versions": [
+        {
+          "version": "Yaris Híbrido G Híbrido",
+          "price": 21490000,
+          "price_list": 21990000,
+          "price_bonus": 500000,
+          "transmission": "automatica",
+          "traction": "4x2"
+        }
+      ],
+      "price": 21490000,
+      "price_list": 21990000,
+      "price_bonus": 500000
+    },
+    {
+      "id": 656,
+      "brand": "Toyota",
+      "model": "Yaris Cross Híbrido",
+      "year": 2026,
+      "type": "suv",
+      "fuel": "hibrido",
+      "seats": 5,
+      "transmission": "automatica",
+      "traction": "4x2",
+      "image_url": "",
+      "description": "SUV urbano híbrido 1.5L con transmisión eCVT.",
+      "origin": "Japón",
+      "origin_country": "Japón",
+      "price_source": "https://toyota.cl/modelos/suv/yaris-cross-hybrid/",
+      "price_checked_at": "2026-10-22",
+      "versions": [
+        {
+          "version": "Yaris Cross Híbrido XI 1.5 HÍBRIDO CVT",
+          "price": 22990000,
+          "price_list": 24790000,
+          "price_bonus": 1800000,
+          "transmission": "automatica",
+          "traction": "4x2"
+        },
+        {
+          "version": "Yaris Cross Híbrido XG HÍBRIDO CVT",
+          "price": 25490000,
+          "price_list": 25790000,
+          "price_bonus": 300000,
+          "transmission": "automatica",
+          "traction": "4x2"
+        }
+      ],
+      "price": 22990000,
+      "price_list": 24790000,
+      "price_bonus": 1800000
+    },
+    {
+      "id": 657,
+      "brand": "Toyota",
+      "model": "RAV4 Híbrido",
+      "year": 2026,
+      "type": "suv",
+      "fuel": "hibrido",
+      "seats": 5,
+      "transmission": "automatica",
+      "traction": "4x2",
+      "image_url": "",
+      "description": "SUV híbrido 2.5L de 226 HP, en versiones 4x2 y AWD.",
+      "origin": "Japón",
+      "origin_country": "Japón",
+      "hp": 226,
+      "price_source": "https://toyota.cl/modelos/suv/all-new-rav4-hibrido/",
+      "price_checked_at": "2026-10-22",
+      "versions": [
+        {
+          "version": "All New Rav4 Híbrido LE 2.5 4x2 CVT",
+          "price": 31490000,
+          "price_list": 33490000,
+          "price_bonus": 2000000,
+          "transmission": "automatica",
+          "traction": "4x2"
+        },
+        {
+          "version": "All New Rav4 Híbrido XLE 2.5 4x2 CVT",
+          "price": 34990000,
+          "price_list": 36990000,
+          "price_bonus": 2000000,
+          "transmission": "automatica",
+          "traction": "4x2"
+        },
+        {
+          "version": "All New Rav4 Híbrido XSE 2.5 AWD CVT",
+          "price": 43990000,
+          "price_list": 43990000,
+          "price_bonus": 0,
+          "transmission": "automatica",
+          "traction": "awd"
+        }
+      ],
+      "price": 31490000,
+      "price_list": 33490000,
+      "price_bonus": 2000000
+    },
+    {
+      "id": 658,
+      "brand": "Toyota",
+      "model": "RAV4 PHEV",
+      "year": 2026,
+      "type": "suv",
+      "fuel": "hibrido_enchufable",
+      "seats": 5,
+      "transmission": "automatica",
+      "traction": "awd",
+      "image_url": "",
+      "description": "SUV híbrido enchufable con 157 km de autonomía eléctrica.",
+      "origin": "Japón",
+      "origin_country": "Japón",
+      "price_source": "https://toyota.cl/modelos/suv/all-new-rav4-phev/",
+      "price_checked_at": "2026-10-22",
+      "versions": [
+        {
+          "version": "All New Rav4 PHEV XSE 2.5 AWD eCVT",
+          "price": 48790000,
+          "price_list": 48990000,
+          "price_bonus": 200000,
+          "transmission": "automatica",
+          "traction": "awd"
+        }
+      ],
+      "price": 48790000,
+      "price_list": 48990000,
+      "price_bonus": 200000
+    },
+    {
+      "id": 659,
+      "brand": "Toyota",
+      "model": "Hilux BEV",
+      "year": 2026,
+      "type": "pickup",
+      "fuel": "electrico",
+      "seats": 5,
+      "transmission": "automatica",
+      "traction": "awd",
+      "image_url": "",
+      "description": "Pickup eléctrica 4x4 de la gama Hilux.",
+      "origin": "Tailandia",
+      "origin_country": "Tailandia",
+      "price_source": "https://toyota.cl/modelos/pickup/Hilux_BEV/",
+      "price_checked_at": "2026-10-22",
+      "versions": [
+        {
+          "version": "Hilux BEV AWD",
+          "price": 68990000,
+          "price_list": 68990000,
+          "price_bonus": 0,
+          "transmission": "automatica",
+          "traction": "awd"
+        }
+      ],
+      "price": 68990000,
+      "price_list": 68990000,
+      "price_bonus": 0
     }
   ]
 }

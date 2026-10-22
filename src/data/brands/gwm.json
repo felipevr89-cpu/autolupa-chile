@@ -56,7 +56,8 @@
           "transmission": "automatica",
           "traction": "4x4"
         }
-      ]
+      ],
+      "lineup_2026": false
     },
     {
       "id": 212,
@@ -66,28 +67,34 @@
       "type": "suv",
       "fuel": "gasolina",
       "seats": 5,
-      "price": 22490000,
+      "price": 18990000,
       "transmission": "automatica",
       "traction": "4x2",
       "image_url": "",
-      "description": "SUV mediano con motor 2.0 turbo de 235 hp y equipamiento premium.",
+      "description": "SUV 2.0T de 235 HP, con versiones 4x2 y 4x4.",
       "origin": "China",
       "versions": [
         {
-          "version": "2.0T Elite 4x2",
-          "price": 22490000,
+          "version": "ELITE 2WD",
+          "price": 18990000,
+          "price_list": 23190000,
+          "price_bonus": 4200000,
           "transmission": "automatica",
           "traction": "4x2"
         },
         {
-          "version": "2.0T Deluxe 4x2",
-          "price": 24790000,
+          "version": "DELUXE 2WD",
+          "price": 21590000,
+          "price_list": 25290000,
+          "price_bonus": 3700000,
           "transmission": "automatica",
           "traction": "4x2"
         },
         {
-          "version": "2.0T Deluxe 4x4",
-          "price": 25590000,
+          "version": "DELUXE 4WD",
+          "price": 22590000,
+          "price_list": 26190000,
+          "price_bonus": 3600000,
           "transmission": "automatica",
           "traction": "4x4"
         }
@@ -121,7 +128,11 @@
       ],
       "warranty_years": 6,
       "warranty_km": 150000,
-      "origin_country": "China"
+      "origin_country": "China",
+      "price_source": "https://www.gwm.cl/vehiculo/haval/nuevo-h6/",
+      "price_checked_at": "2026-10-22",
+      "price_list": 23190000,
+      "price_bonus": 4200000
     },
     {
       "id": 213,
@@ -131,24 +142,20 @@
       "type": "suv",
       "fuel": "hibrido",
       "seats": 5,
-      "price": 28990000,
+      "price": 23990000,
       "transmission": "automatica",
       "traction": "4x2",
       "image_url": "",
-      "description": "SUV mediano híbrido con sistema DHT y consumo reducido.",
+      "description": "SUV híbrido 1.5T de 243 HP.",
       "origin": "China",
       "versions": [
         {
-          "version": "2.0T DHT Deluxe 4x2",
-          "price": 28990000,
+          "version": "Híbrida Deluxe 2WD",
+          "price": 23990000,
+          "price_list": 27490000,
+          "price_bonus": 3500000,
           "transmission": "automatica",
           "traction": "4x2"
-        },
-        {
-          "version": "2.0T DHT Premium 4x4",
-          "price": 31990000,
-          "transmission": "automatica",
-          "traction": "4x4"
         }
       ],
       "hp": 243,
@@ -178,7 +185,11 @@
       ],
       "warranty_years": 6,
       "warranty_km": 150000,
-      "origin_country": "China"
+      "origin_country": "China",
+      "price_source": "https://www.gwm.cl/vehiculo/haval/nuevo-h6/",
+      "price_checked_at": "2026-10-22",
+      "price_list": 27490000,
+      "price_bonus": 3500000
     },
     {
       "id": 214,
@@ -188,27 +199,31 @@
       "type": "suv",
       "fuel": "hibrido_enchufable",
       "seats": 5,
-      "price": 34990000,
+      "price": 27990000,
       "transmission": "automatica",
-      "traction": "4x4",
+      "traction": "4x2",
       "image_url": "",
-      "description": "SUV híbrido enchufable con más de 1000 km de autonomía total y 100 km en modo eléctrico.",
+      "description": "SUV híbrido enchufable 1.5T de 322/359 HP.",
       "origin": "China",
       "versions": [
         {
-          "version": "2.0T DHT Deluxe 4x2",
-          "price": 34990000,
+          "version": "PHEV DELUXE 2WD",
+          "price": 27990000,
+          "price_list": 31990000,
+          "price_bonus": 4000000,
           "transmission": "automatica",
           "traction": "4x2"
         },
         {
-          "version": "2.0T DHT Premium 4x4",
-          "price": 37990000,
+          "version": "PHEV DELUXE 4WD",
+          "price": 29990000,
+          "price_list": 33990000,
+          "price_bonus": 4000000,
           "transmission": "automatica",
           "traction": "4x4"
         }
       ],
-      "hp": 346,
+      "hp": 322,
       "torque_nm": 570,
       "fuel_consumption_mixed_km_l": 1.2,
       "fuel_tank_liters": 55,
@@ -234,7 +249,11 @@
       ],
       "warranty_years": 6,
       "warranty_km": 150000,
-      "origin_country": "China"
+      "origin_country": "China",
+      "price_source": "https://www.gwm.cl/vehiculo/haval/nuevo-h6/",
+      "price_checked_at": "2026-10-22",
+      "price_list": 31990000,
+      "price_bonus": 4000000
     },
     {
       "id": 215,
@@ -244,27 +263,31 @@
       "type": "suv",
       "fuel": "gasolina",
       "seats": 5,
-      "price": 21990000,
+      "price": 21690000,
       "transmission": "automatica",
       "traction": "4x2",
       "image_url": "",
-      "description": "SUV de diseño moderno con motor 1.5 turbo y tecnología de asistencia avanzada.",
+      "description": "SUV 2.0T de 235 HP, con versiones 4x2 y 4x4.",
       "origin": "China",
       "versions": [
         {
-          "version": "1.5T Elite 4x2",
-          "price": 21990000,
+          "version": "ELITE 2WD",
+          "price": 21690000,
+          "price_list": 25390000,
+          "price_bonus": 3700000,
           "transmission": "automatica",
           "traction": "4x2"
         },
         {
-          "version": "1.5T Deluxe 4x2",
-          "price": 23990000,
+          "version": "DELUXE 4WD",
+          "price": 26090000,
+          "price_list": 29290000,
+          "price_bonus": 3200000,
           "transmission": "automatica",
-          "traction": "4x2"
+          "traction": "4x4"
         }
       ],
-      "hp": 184,
+      "hp": 235,
       "torque_nm": 275,
       "fuel_consumption_city_km_l": 9,
       "fuel_consumption_highway_km_l": 14.5,
@@ -290,7 +313,11 @@
       ],
       "warranty_years": 6,
       "warranty_km": 150000,
-      "origin_country": "China"
+      "origin_country": "China",
+      "price_source": "https://www.gwm.cl/vehiculo/haval/h7/",
+      "price_checked_at": "2026-10-22",
+      "price_list": 25390000,
+      "price_bonus": 3700000
     },
     {
       "id": 216,
@@ -346,7 +373,8 @@
           "transmission": "automatica",
           "traction": "4x2"
         }
-      ]
+      ],
+      "lineup_2026": false
     },
     {
       "id": 217,
@@ -401,7 +429,8 @@
           "transmission": "automatica",
           "traction": "4x2"
         }
-      ]
+      ],
+      "lineup_2026": false
     },
     {
       "id": 218,
@@ -411,39 +440,47 @@
       "type": "suv",
       "fuel": "gasolina",
       "seats": 5,
-      "price": 12490000,
+      "price": 12390000,
       "transmission": "manual",
       "traction": "4x2",
       "image_url": "",
-      "description": "SUV compacto best-seller de GWM con motor 1.5 turbo y excelente relación precio-equipamiento.",
+      "description": "SUV 1.5T de 141 HP, con versiones MT y AT.",
       "origin": "China",
       "versions": [
         {
           "version": "4x2 ACTIVE MT",
-          "price": 12490000,
+          "price": 12390000,
+          "price_list": 17890000,
+          "price_bonus": 5500000,
           "transmission": "manual",
           "traction": "4x2"
         },
         {
           "version": "4x2 ELITE MT",
-          "price": 13990000,
+          "price": 13690000,
+          "price_list": 18790000,
+          "price_bonus": 5100000,
           "transmission": "manual",
           "traction": "4x2"
         },
         {
           "version": "4x2 ELITE AT",
-          "price": 15490000,
+          "price": 14690000,
+          "price_list": 19790000,
+          "price_bonus": 5100000,
           "transmission": "automatica",
           "traction": "4x2"
         },
         {
           "version": "4x2 DELUXE AT",
-          "price": 16990000,
+          "price": 15990000,
+          "price_list": 21090000,
+          "price_bonus": 5100000,
           "transmission": "automatica",
           "traction": "4x2"
         }
       ],
-      "hp": 147,
+      "hp": 141,
       "torque_nm": 220,
       "fuel_consumption_city_km_l": 9.3,
       "fuel_consumption_highway_km_l": 15.9,
@@ -464,7 +501,11 @@
       ],
       "warranty_years": 6,
       "warranty_km": 150000,
-      "origin_country": "China"
+      "origin_country": "China",
+      "price_source": "https://www.gwm.cl/vehiculo/haval/nuevo-jolion/",
+      "price_checked_at": "2026-10-22",
+      "price_list": 17890000,
+      "price_bonus": 5500000
     },
     {
       "id": 219,
@@ -474,21 +515,31 @@
       "type": "suv",
       "fuel": "gasolina",
       "seats": 5,
-      "price": 21790000,
+      "price": 15990000,
       "transmission": "automatica",
       "traction": "4x2",
       "image_url": "",
-      "description": "SUV compacto premium con diseño renovado y mayor equipamiento tecnológico.",
+      "description": "SUV 1.5T de 141 HP, con versiones Elite y Deluxe.",
       "origin": "China",
       "versions": [
         {
+          "version": "4x2 ELITE AT",
+          "price": 15990000,
+          "price_list": 20590000,
+          "price_bonus": 4600000,
+          "transmission": "automatica",
+          "traction": "4x2"
+        },
+        {
           "version": "4x2 DELUXE AT",
-          "price": 21790000,
+          "price": 16590000,
+          "price_list": 21890000,
+          "price_bonus": 5300000,
           "transmission": "automatica",
           "traction": "4x2"
         }
       ],
-      "hp": 147,
+      "hp": 141,
       "torque_nm": 220,
       "fuel_consumption_city_km_l": 9.5,
       "fuel_consumption_highway_km_l": 15.5,
@@ -514,7 +565,11 @@
       ],
       "warranty_years": 6,
       "warranty_km": 150000,
-      "origin_country": "China"
+      "origin_country": "China",
+      "price_source": "https://www.gwm.cl/vehiculo/haval/jolion-pro/",
+      "price_checked_at": "2026-10-22",
+      "price_list": 20590000,
+      "price_bonus": 4600000
     },
     {
       "id": 220,
@@ -524,16 +579,26 @@
       "type": "suv",
       "fuel": "hibrido",
       "seats": 5,
-      "price": 28490000,
+      "price": 20990000,
       "transmission": "automatica",
       "traction": "4x2",
       "image_url": "",
-      "description": "SUV compacto híbrido con tecnología HEV para menor consumo de combustible.",
+      "description": "SUV híbrido 1.5L de 190 HP.",
       "origin": "China",
       "versions": [
         {
-          "version": "4x2 DELUXE HEV",
-          "price": 28490000,
+          "version": "HÍBRIDO 4x2 ELITE AT",
+          "price": 20990000,
+          "price_list": 26490000,
+          "price_bonus": 5500000,
+          "transmission": "automatica",
+          "traction": "4x2"
+        },
+        {
+          "version": "HÍBRIDO 4x2 DELUXE AT",
+          "price": 23190000,
+          "price_list": 28490000,
+          "price_bonus": 5300000,
           "transmission": "automatica",
           "traction": "4x2"
         }
@@ -565,7 +630,11 @@
       ],
       "warranty_years": 6,
       "warranty_km": 150000,
-      "origin_country": "China"
+      "origin_country": "China",
+      "price_source": "https://www.gwm.cl/vehiculo/haval/jolion-pro/",
+      "price_checked_at": "2026-10-22",
+      "price_list": 26490000,
+      "price_bonus": 5500000
     },
     {
       "id": 221,
@@ -575,21 +644,31 @@
       "type": "hatchback",
       "fuel": "electrico",
       "seats": 5,
-      "price": 18490000,
+      "price": 17990000,
       "transmission": "automatica",
       "traction": "4x2",
       "image_url": "",
-      "description": "Auto eléctrico compacto con diseño retro-futurista y autonomía de hasta 401 km.",
+      "description": "Hatchback eléctrico de 169 HP, con 374/500 km de autonomía.",
       "origin": "China",
       "versions": [
         {
-          "version": "Comfort",
-          "price": 18490000,
+          "version": "Ora 03 SR",
+          "price": 17990000,
+          "price_list": 26490000,
+          "price_bonus": 8500000,
+          "transmission": "automatica",
+          "traction": "4x2"
+        },
+        {
+          "version": "ORA 03 GT",
+          "price": 21990000,
+          "price_list": 33490000,
+          "price_bonus": 11500000,
           "transmission": "automatica",
           "traction": "4x2"
         }
       ],
-      "hp": 143,
+      "hp": 169,
       "torque_nm": 210,
       "top_speed_kmh": 150,
       "length_mm": 4235,
@@ -607,7 +686,11 @@
       ],
       "warranty_years": 6,
       "warranty_km": 150000,
-      "origin_country": "China"
+      "origin_country": "China",
+      "price_source": "https://www.gwm.cl/vehiculo/ora/ora-03/",
+      "price_checked_at": "2026-10-22",
+      "price_list": 26490000,
+      "price_bonus": 8500000
     },
     {
       "id": 222,
@@ -617,27 +700,47 @@
       "type": "pickup",
       "fuel": "diesel",
       "seats": 5,
-      "price": 22000000,
-      "transmission": "automatica",
-      "traction": "4x4",
+      "price": 21646100,
+      "transmission": "manual",
+      "traction": "4x2",
       "image_url": "",
-      "description": "Pickup mediana diésel con motor 2.0 turbo y tracción total.",
+      "description": "Pickup diésel 2.0T de 161 HP, 4x2/4x4.",
       "origin": "China",
       "versions": [
         {
-          "version": "2.0T 4x2 AT",
-          "price": 22000000,
-          "transmission": "automatica",
+          "version": "4x2 ELITE",
+          "price": 21646100,
+          "price_list": 24264100,
+          "price_bonus": 2618000,
+          "transmission": "manual",
           "traction": "4x2"
         },
         {
-          "version": "2.0T 4x4 AT",
-          "price": 24000000,
-          "transmission": "automatica",
+          "version": "4x2 DELUXE",
+          "price": 22598100,
+          "price_list": 25097100,
+          "price_bonus": 2499000,
+          "transmission": "manual",
+          "traction": "4x2"
+        },
+        {
+          "version": "4x4 ELITE",
+          "price": 23431100,
+          "price_list": 26049100,
+          "price_bonus": 2618000,
+          "transmission": "manual",
+          "traction": "4x4"
+        },
+        {
+          "version": "4x4 DELUXE",
+          "price": 24383100,
+          "price_list": 26882100,
+          "price_bonus": 2499000,
+          "transmission": "manual",
           "traction": "4x4"
         }
       ],
-      "hp": 163,
+      "hp": 161,
       "torque_nm": 400,
       "fuel_consumption_city_km_l": 8.5,
       "fuel_consumption_highway_km_l": 12,
@@ -658,7 +761,11 @@
       ],
       "warranty_years": 6,
       "warranty_km": 150000,
-      "origin_country": "China"
+      "origin_country": "China",
+      "price_source": "https://www.gwm.cl/vehiculo/poer/nueva-poer-mecanica/",
+      "price_checked_at": "2026-10-22",
+      "price_list": 24264100,
+      "price_bonus": 2618000
     },
     {
       "id": 223,
@@ -666,23 +773,25 @@
       "model": "Poer P500 Híbrido",
       "year": 2026,
       "type": "pickup",
-      "fuel": "hibrido",
+      "fuel": "hibrido_enchufable",
       "seats": 5,
-      "price": 39990000,
+      "price": 46398100,
       "transmission": "automatica",
       "traction": "4x4",
       "image_url": "",
-      "description": "Pickup premium híbrida con motor 2.0 turbo y sistema DHT.",
+      "description": "Pickup híbrida enchufable 4x4 de 402 HP.",
       "origin": "China",
       "versions": [
         {
-          "version": "2.0T DHT 4x4",
-          "price": 39990000,
+          "version": "PHEV 4WD Deluxe",
+          "price": 46398100,
+          "price_list": 57108100,
+          "price_bonus": 10710000,
           "transmission": "automatica",
           "traction": "4x4"
         }
       ],
-      "hp": 350,
+      "hp": 402,
       "torque_nm": 550,
       "fuel_consumption_city_km_l": 12,
       "fuel_consumption_highway_km_l": 15,
@@ -708,7 +817,11 @@
       ],
       "warranty_years": 6,
       "warranty_km": 150000,
-      "origin_country": "China"
+      "origin_country": "China",
+      "price_source": "https://www.gwm.cl/vehiculo/poer/nueva-poer-p500/",
+      "price_checked_at": "2026-10-22",
+      "price_list": 57108100,
+      "price_bonus": 10710000
     },
     {
       "id": 224,
@@ -718,21 +831,55 @@
       "type": "pickup",
       "fuel": "diesel",
       "seats": 5,
-      "price": 28900000,
+      "price": 26644100,
       "transmission": "automatica",
-      "traction": "4x4",
+      "traction": "4x2",
       "image_url": "",
-      "description": "Pickup premium con acabados de lujo y tecnología de punta.",
+      "description": "Pickup diésel 2.0T/2.4T de 161/181 HP.",
       "origin": "China",
       "versions": [
         {
-          "version": "2.0T Premium 4x4 AT",
-          "price": 28900000,
+          "version": "2.0 Diesel 4x2 Elite",
+          "price": 26644100,
+          "price_list": 29143100,
+          "price_bonus": 2499000,
+          "transmission": "automatica",
+          "traction": "4x2"
+        },
+        {
+          "version": "2.0 Diesel 4x4 Elite",
+          "price": 27834100,
+          "price_list": 30333100,
+          "price_bonus": 2499000,
+          "transmission": "automatica",
+          "traction": "4x4"
+        },
+        {
+          "version": "2.0 Diesel 4x4 Deluxe",
+          "price": 30095100,
+          "price_list": 33189100,
+          "price_bonus": 3094000,
+          "transmission": "automatica",
+          "traction": "4x4"
+        },
+        {
+          "version": "2.4 Diesel 4x4 Elite",
+          "price": 29500100,
+          "price_list": 33546100,
+          "price_bonus": 4046000,
+          "transmission": "automatica",
+          "traction": "4x4"
+        },
+        {
+          "version": "2.4 Diesel 4x4 Deluxe",
+          "price": 32356100,
+          "price_list": 36402100,
+          "price_bonus": 4046000,
           "transmission": "automatica",
           "traction": "4x4"
         }
       ],
-      "hp": 204,
+      "hp": 161,
       "torque_nm": 480,
       "fuel_consumption_city_km_l": 8,
       "fuel_consumption_highway_km_l": 11.5,
@@ -758,7 +905,11 @@
       ],
       "warranty_years": 6,
       "warranty_km": 150000,
-      "origin_country": "China"
+      "origin_country": "China",
+      "price_source": "https://www.gwm.cl/vehiculo/poer/nueva-poer-plus-automatica/",
+      "price_checked_at": "2026-10-22",
+      "price_list": 29143100,
+      "price_bonus": 2499000
     },
     {
       "id": 225,
@@ -768,21 +919,23 @@
       "type": "suv",
       "fuel": "gasolina",
       "seats": 5,
-      "price": 29990000,
+      "price": 28990000,
       "transmission": "automatica",
       "traction": "4x4",
       "image_url": "",
-      "description": "Todoterreno robusto con tracción total y diferencial trasero bloqueable.",
+      "description": "SUV 4x4 2.0T de 217 HP.",
       "origin": "China",
       "versions": [
         {
-          "version": "2.0T 4x4 AT",
-          "price": 29990000,
+          "version": "4WD LÍMITED",
+          "price": 28990000,
+          "price_list": 33490000,
+          "price_bonus": 4500000,
           "transmission": "automatica",
           "traction": "4x4"
         }
       ],
-      "hp": 211,
+      "hp": 217,
       "torque_nm": 387,
       "fuel_consumption_city_km_l": 8,
       "fuel_consumption_highway_km_l": 11.5,
@@ -807,7 +960,11 @@
       ],
       "warranty_years": 6,
       "warranty_km": 150000,
-      "origin_country": "China"
+      "origin_country": "China",
+      "price_source": "https://www.gwm.cl/vehiculo/tank/tank-300/",
+      "price_checked_at": "2026-10-22",
+      "price_list": 33490000,
+      "price_bonus": 4500000
     },
     {
       "id": 226,
@@ -817,13 +974,13 @@
       "type": "suv",
       "fuel": "gasolina",
       "seats": 5,
-      "price": 44990000,
+      "price": 45490000,
       "transmission": "automatica",
       "traction": "4x4",
       "image_url": "",
-      "description": "SUV de lujo todoterreno con imponente presencia y motor V6 turbo.",
+      "description": "SUV 4x4 3.0T V6 de 349 HP.",
       "origin": "China",
-      "hp": 354,
+      "hp": 349,
       "torque_nm": 500,
       "length_mm": 4880,
       "width_mm": 1940,
@@ -854,18 +1011,18 @@
       "origin_country": "China",
       "versions": [
         {
-          "version": "3.0T V6 AWD",
-          "price": 44990000,
-          "transmission": "automatica",
-          "traction": "4x4"
-        },
-        {
-          "version": "3.0T V6 AWD Luxury",
-          "price": 54990000,
+          "version": "4WD LÍMITED",
+          "price": 45490000,
+          "price_list": 49990000,
+          "price_bonus": 4500000,
           "transmission": "automatica",
           "traction": "4x4"
         }
-      ]
+      ],
+      "price_source": "https://www.gwm.cl/vehiculo/tank/tank-500/",
+      "price_checked_at": "2026-10-22",
+      "price_list": 49990000,
+      "price_bonus": 4500000
     },
     {
       "id": 227,
@@ -916,7 +1073,8 @@
           "transmission": "manual",
           "traction": "4x4"
         }
-      ]
+      ],
+      "lineup_2026": false
     },
     {
       "id": 228,
@@ -924,29 +1082,49 @@
       "model": "Wingle 7",
       "year": 2026,
       "type": "pickup",
-      "fuel": "diesel",
+      "fuel": "gasolina",
       "seats": 5,
-      "price": 15200000,
+      "price": 14744100,
       "transmission": "manual",
-      "traction": "4x4",
+      "traction": "4x2",
       "image_url": "",
-      "description": "Pickup mediana de doble cabina con motor diésel 2.0 turbo y caja manual.",
+      "description": "Pickup gasolina/diésel, 4x2/4x4.",
       "origin": "China",
       "versions": [
         {
-          "version": "2.0T 4x2 MT",
-          "price": 15200000,
+          "version": "GASOLINA 4x2 DELUXE",
+          "price": 14744100,
+          "price_list": 17600100,
+          "price_bonus": 2856000,
           "transmission": "manual",
           "traction": "4x2"
         },
         {
-          "version": "2.0T 4x4 MT",
-          "price": 17200000,
+          "version": "GASOLINA 4x4 DELUXE",
+          "price": 16767100,
+          "price_list": 19742100,
+          "price_bonus": 2975000,
+          "transmission": "manual",
+          "traction": "4x4"
+        },
+        {
+          "version": "DIESEL 4x2 DELUXE",
+          "price": 17124100,
+          "price_list": 21646100,
+          "price_bonus": 4522000,
+          "transmission": "manual",
+          "traction": "4x2"
+        },
+        {
+          "version": "DIESEL 4x4 DELUXE",
+          "price": 18909100,
+          "price_list": 23431100,
+          "price_bonus": 4522000,
           "transmission": "manual",
           "traction": "4x4"
         }
       ],
-      "hp": 163,
+      "hp": 148,
       "torque_nm": 400,
       "fuel_consumption_city_km_l": 8.5,
       "fuel_consumption_highway_km_l": 12,
@@ -967,7 +1145,268 @@
       ],
       "warranty_years": 6,
       "warranty_km": 150000,
-      "origin_country": "China"
+      "origin_country": "China",
+      "price_source": "https://www.gwm.cl/vehiculo/nueva-wingle-7/",
+      "price_checked_at": "2026-10-22",
+      "price_list": 17600100,
+      "price_bonus": 2856000
+    },
+    {
+      "id": 671,
+      "brand": "GWM",
+      "model": "Jolion Max",
+      "year": 2026,
+      "type": "suv",
+      "fuel": "gasolina",
+      "seats": 5,
+      "hp": 141,
+      "description": "SUV 1.5T de 141/174 HP, con versiones Elite y Deluxe.",
+      "origin": "China",
+      "origin_country": "China",
+      "image_url": "",
+      "price_source": "https://www.gwm.cl/vehiculo/haval/nuevo-jolion-max/",
+      "price_checked_at": "2026-10-22",
+      "versions": [
+        {
+          "version": "ELITE 2WD AT",
+          "price": 15990000,
+          "price_list": 21190000,
+          "price_bonus": 5200000,
+          "transmission": "automatica",
+          "traction": "4x2"
+        },
+        {
+          "version": "HIGH POWER ELITE 2WD AT",
+          "price": 16990000,
+          "price_list": 22190000,
+          "price_bonus": 5200000,
+          "transmission": "automatica",
+          "traction": "4x2"
+        },
+        {
+          "version": "HIGH POWER DELUXE 2WD",
+          "price": 18090000,
+          "price_list": 23190000,
+          "price_bonus": 5100000,
+          "transmission": "automatica",
+          "traction": "4x2"
+        }
+      ],
+      "price": 15990000,
+      "price_list": 21190000,
+      "price_bonus": 5200000,
+      "transmission": "automatica",
+      "traction": "4x2"
+    },
+    {
+      "id": 672,
+      "brand": "GWM",
+      "model": "Jolion Híbrido",
+      "year": 2026,
+      "type": "suv",
+      "fuel": "hibrido",
+      "seats": 5,
+      "hp": 190,
+      "description": "SUV híbrido 1.5L de 190 HP.",
+      "origin": "China",
+      "origin_country": "China",
+      "image_url": "",
+      "price_source": "https://www.gwm.cl/vehiculo/haval/jolion-hev/",
+      "price_checked_at": "2026-10-22",
+      "versions": [
+        {
+          "version": "2WD ELITE AT HÍBRIDO",
+          "price": 19990000,
+          "price_list": 24290000,
+          "price_bonus": 4300000,
+          "transmission": "automatica",
+          "traction": "4x2"
+        },
+        {
+          "version": "2WD DELUXE AT HÍBRIDO",
+          "price": 21690000,
+          "price_list": 26790000,
+          "price_bonus": 5100000,
+          "transmission": "automatica",
+          "traction": "4x2"
+        }
+      ],
+      "price": 19990000,
+      "price_list": 24290000,
+      "price_bonus": 4300000,
+      "transmission": "automatica",
+      "traction": "4x2"
+    },
+    {
+      "id": 673,
+      "brand": "GWM",
+      "model": "H7 Híbrido",
+      "year": 2026,
+      "type": "suv",
+      "fuel": "hibrido",
+      "seats": 5,
+      "hp": 190,
+      "description": "SUV híbrido 1.5T de 190 HP.",
+      "origin": "China",
+      "origin_country": "China",
+      "image_url": "",
+      "price_source": "https://www.gwm.cl/vehiculo/haval/h7/",
+      "price_checked_at": "2026-10-22",
+      "versions": [
+        {
+          "version": "4x2 DELUXE HÍBRIDA",
+          "price": 25990000,
+          "price_list": 31690000,
+          "price_bonus": 5700000,
+          "transmission": "automatica",
+          "traction": "4x2"
+        }
+      ],
+      "price": 25990000,
+      "price_list": 31690000,
+      "price_bonus": 5700000,
+      "transmission": "automatica",
+      "traction": "4x2"
+    },
+    {
+      "id": 674,
+      "brand": "GWM",
+      "model": "H7 Max",
+      "year": 2026,
+      "type": "suv",
+      "fuel": "hibrido",
+      "seats": 5,
+      "hp": 359,
+      "description": "SUV híbrido 1.5T de 359 HP, 4WD.",
+      "origin": "China",
+      "origin_country": "China",
+      "image_url": "",
+      "price_source": "https://www.gwm.cl/vehiculo/haval/nuevo-h7-max/",
+      "price_checked_at": "2026-10-22",
+      "versions": [
+        {
+          "version": "HÍBRIDA 4WD DELUXE",
+          "price": 27490000,
+          "price_list": 30690000,
+          "price_bonus": 3200000,
+          "transmission": "automatica",
+          "traction": "4x4"
+        }
+      ],
+      "price": 27490000,
+      "price_list": 30690000,
+      "price_bonus": 3200000,
+      "transmission": "automatica",
+      "traction": "4x4"
+    },
+    {
+      "id": 675,
+      "brand": "GWM",
+      "model": "H6 GT",
+      "year": 2026,
+      "type": "suv",
+      "fuel": "gasolina",
+      "seats": 5,
+      "hp": 201,
+      "description": "SUV coupé 2.0T de 201 HP.",
+      "origin": "China",
+      "origin_country": "China",
+      "image_url": "",
+      "price_source": "https://www.gwm.cl/vehiculo/haval/h6-gt/",
+      "price_checked_at": "2026-10-22",
+      "versions": [
+        {
+          "version": "4x2 ELITE",
+          "price": 21790000,
+          "price_list": 25790000,
+          "price_bonus": 4000000,
+          "transmission": "automatica",
+          "traction": "4x2"
+        },
+        {
+          "version": "4x4 DELUXE",
+          "price": 24790000,
+          "price_list": 29590000,
+          "price_bonus": 4800000,
+          "transmission": "automatica",
+          "traction": "4x4"
+        }
+      ],
+      "price": 21790000,
+      "price_list": 25790000,
+      "price_bonus": 4000000,
+      "transmission": "automatica",
+      "traction": "4x2"
+    },
+    {
+      "id": 676,
+      "brand": "GWM",
+      "model": "ORA 5",
+      "year": 2026,
+      "type": "suv",
+      "fuel": "electrico",
+      "seats": 5,
+      "hp": 201,
+      "description": "SUV eléctrico de 201 HP y 435 km de autonomía.",
+      "origin": "China",
+      "origin_country": "China",
+      "image_url": "",
+      "price_source": "https://www.gwm.cl/vehiculo/ora/nuevo-ora-5/",
+      "price_checked_at": "2026-10-22",
+      "versions": [
+        {
+          "version": "EV 2WD DELUXE KIT",
+          "price": 22490000,
+          "price_list": 25990000,
+          "price_bonus": 3500000,
+          "transmission": "automatica",
+          "traction": "4x2"
+        },
+        {
+          "version": "EV 2WD DELUXE",
+          "price": 22990000,
+          "price_list": 26490000,
+          "price_bonus": 3500000,
+          "transmission": "automatica",
+          "traction": "4x2"
+        }
+      ],
+      "price": 22490000,
+      "price_list": 25990000,
+      "price_bonus": 3500000,
+      "transmission": "automatica",
+      "traction": "4x2"
+    },
+    {
+      "id": 677,
+      "brand": "GWM",
+      "model": "H7 Max PHEV",
+      "year": 2026,
+      "type": "suv",
+      "fuel": "hibrido_enchufable",
+      "seats": 5,
+      "hp": 359,
+      "description": "SUV híbrido enchufable 1.5T de 359 HP, 4WD.",
+      "origin": "China",
+      "origin_country": "China",
+      "image_url": "",
+      "price_source": "https://www.gwm.cl/vehiculo/haval/nuevo-h7-max/",
+      "price_checked_at": "2026-10-22",
+      "versions": [
+        {
+          "version": "HÍBRIDA ENCHUFABLE 4WD DELUXE",
+          "price": 30990000,
+          "price_list": 34190000,
+          "price_bonus": 3200000,
+          "transmission": "automatica",
+          "traction": "4x4"
+        }
+      ],
+      "price": 30990000,
+      "price_list": 34190000,
+      "price_bonus": 3200000,
+      "transmission": "automatica",
+      "traction": "4x4"
     }
   ]
 }

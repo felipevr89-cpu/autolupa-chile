@@ -59,16 +59,16 @@
       "brand": "Kia",
       "model": "Carens",
       "year": 2026,
-      "type": "suv",
+      "type": "minivan",
       "fuel": "gasolina",
       "seats": 7,
-      "price": 19990000,
-      "transmission": "automatica",
+      "price": 17990000,
+      "transmission": "manual",
       "traction": "4x2",
       "image_url": "",
-      "description": "SUV familiar de 7 plazas con amplio espacio y versatilidad.",
+      "description": "MPV de 7 plazas con motores 1.5 y 1.5 Turbo.",
       "origin": "Corea del Sur",
-      "hp": 140,
+      "hp": 158,
       "torque_nm": 250,
       "length_mm": 4530,
       "width_mm": 1820,
@@ -97,55 +97,85 @@
       "origin_country": "Corea del Sur",
       "versions": [
         {
-          "version": "1.5L AT 7 plazas",
-          "price": 19990000,
-          "transmission": "automática",
+          "version": "LX 1.5L 6MT 7P",
+          "price": 17990000,
+          "price_list": 20990000,
+          "price_bonus": 3000000,
+          "transmission": "manual",
           "traction": "4x2"
         },
         {
-          "version": "1.5L AT Luxury",
-          "price": 22990000,
-          "transmission": "automática",
+          "version": "EX 1.5T 7DCT 7P",
+          "price": 20990000,
+          "price_list": 23990000,
+          "price_bonus": 3000000,
+          "transmission": "automatica",
+          "traction": "4x2"
+        },
+        {
+          "version": "EX 1.5T 7DCT FULL 7P",
+          "price": 24990000,
+          "price_list": 25990000,
+          "price_bonus": 1000000,
+          "transmission": "automatica",
           "traction": "4x2"
         }
-      ]
+      ],
+      "price_source": "https://www.kia.cl/promociones/kia-nueva-carens.html",
+      "price_checked_at": "2026-10-22",
+      "price_list": 20990000,
+      "price_bonus": 3000000
     },
     {
       "id": 312,
       "brand": "Kia",
       "model": "Carnival",
-      "year": 2025,
+      "year": 2026,
       "type": "minivan",
-      "fuel": "gasolina",
+      "fuel": "diesel",
       "seats": 7,
-      "price": 36990000,
+      "price": 39990000,
       "transmission": "automatica",
       "traction": "4x2",
       "image_url": "",
-      "description": "Minivan premium con diseño SUV y lujo interior",
+      "description": "Minivan diésel 2.2 de 199 HP, con versiones EX.",
       "origin": "Corea del Sur",
       "origin_country": "Corea del Sur",
       "versions": [
         {
-          "version": "EX",
-          "price": 36990000,
+          "version": "EX 2.2L DSL 8AT",
+          "price": 39990000,
+          "price_list": 42990000,
+          "price_bonus": 3000000,
           "transmission": "automatica",
           "traction": "4x2"
         },
         {
-          "version": "SX",
-          "price": 41990000,
+          "version": "EX 2.2L DSL 8AT HIGH",
+          "price": 43990000,
+          "price_list": 47990000,
+          "price_bonus": 4000000,
           "transmission": "automatica",
           "traction": "4x2"
         },
         {
-          "version": "SX Prestige",
-          "price": 46990000,
+          "version": "EX 3.5L GSL 8AT LTD",
+          "price": 44990000,
+          "price_list": 48990000,
+          "price_bonus": 4000000,
+          "transmission": "automatica",
+          "traction": "4x2"
+        },
+        {
+          "version": "EX 2.2L DSL 8AT LTD",
+          "price": 50990000,
+          "price_list": 55990000,
+          "price_bonus": 5000000,
           "transmission": "automatica",
           "traction": "4x2"
         }
       ],
-      "hp": 290,
+      "hp": 199,
       "torque_nm": 355,
       "fuel_consumption_mixed_km_l": 12,
       "fuel_tank_liters": 72,
@@ -171,7 +201,11 @@
         "Parking Assist"
       ],
       "warranty_years": 5,
-      "warranty_km": 100000
+      "warranty_km": 100000,
+      "price_source": "https://www.kia.cl/promociones/kia-carnival.html",
+      "price_checked_at": "2026-10-22",
+      "price_list": 42990000,
+      "price_bonus": 3000000
     },
     {
       "id": 313,
@@ -233,33 +267,38 @@
         "Control crucero adaptativo"
       ],
       "warranty_years": 5,
-      "warranty_km": 100000
+      "warranty_km": 100000,
+      "lineup_2026": false
     },
     {
       "id": 314,
       "brand": "Kia",
       "model": "EV5",
-      "year": 2025,
+      "year": 2026,
       "type": "suv",
       "fuel": "electrico",
       "seats": 5,
-      "price": 34990000,
+      "price": 29990000,
       "transmission": "automatica",
-      "traction": "awd",
+      "traction": "4x2",
       "image_url": "",
-      "description": "SUV 100% eléctrico con autonomía extendida",
+      "description": "SUV eléctrico de 64,2/88,1 kWh, hasta 537 km.",
       "origin": "Corea del Sur",
       "origin_country": "Corea del Sur",
       "versions": [
         {
-          "version": "Standard",
-          "price": 34990000,
+          "version": "EV LIGHT 64.2KWH",
+          "price": 29990000,
+          "price_list": 31990000,
+          "price_bonus": 2000000,
           "transmission": "automatica",
-          "traction": "awd"
+          "traction": "4x2"
         },
         {
-          "version": "Long Range",
+          "version": "EV WAVE 88.1KWH AWD",
           "price": 39990000,
+          "price_list": 41990000,
+          "price_bonus": 2000000,
           "transmission": "automatica",
           "traction": "awd"
         }
@@ -287,44 +326,38 @@
         "Control crucero adaptativo"
       ],
       "warranty_years": 5,
-      "warranty_km": 100000
+      "warranty_km": 100000,
+      "price_source": "https://www.kia.cl/promociones/kia-ev5.html",
+      "price_checked_at": "2026-10-22",
+      "price_list": 31990000,
+      "price_bonus": 2000000
     },
     {
       "id": 315,
       "brand": "Kia",
       "model": "EV6",
-      "year": 2025,
+      "year": 2026,
       "type": "suv",
       "fuel": "electrico",
       "seats": 5,
-      "price": 42990000,
+      "price": 49990000,
       "transmission": "automatica",
       "traction": "awd",
       "image_url": "",
-      "description": "SUV eléctrico de alto rendimiento con carga ultra-rápida",
+      "description": "SUV eléctrico GT-Line AWD de 321 HP y 522 km.",
       "origin": "Corea del Sur",
       "origin_country": "Corea del Sur",
       "versions": [
         {
-          "version": "Air",
-          "price": 42990000,
-          "transmission": "automatica",
-          "traction": "awd"
-        },
-        {
-          "version": "GT-Line",
-          "price": 48990000,
-          "transmission": "automatica",
-          "traction": "awd"
-        },
-        {
-          "version": "GT",
-          "price": 58990000,
+          "version": "EV GT-LINE 84.0KWH AWD",
+          "price": 49990000,
+          "price_list": 49990000,
+          "price_bonus": 0,
           "transmission": "automatica",
           "traction": "awd"
         }
       ],
-      "hp": 325,
+      "hp": 321,
       "torque_nm": 605,
       "length_mm": 4695,
       "width_mm": 1890,
@@ -348,7 +381,11 @@
         "Parking Assist"
       ],
       "warranty_years": 5,
-      "warranty_km": 100000
+      "warranty_km": 100000,
+      "price_source": "https://www.kia.cl/promociones/kia-ev6.html",
+      "price_checked_at": "2026-10-22",
+      "price_list": 49990000,
+      "price_bonus": 0
     },
     {
       "id": 316,
@@ -358,11 +395,11 @@
       "type": "suv",
       "fuel": "electrico",
       "seats": 7,
-      "price": 49990000,
+      "price": 99990000,
       "transmission": "automatica",
       "traction": "awd",
       "image_url": "",
-      "description": "SUV eléctrico de gran tamaño con 7 plazas, diseño vanguardista y autonomía excepcional.",
+      "description": "SUV eléctrico GT-Line AWD de 380 HP, 7 plazas y 589 km.",
       "origin": "Corea del Sur",
       "hp": 380,
       "torque_nm": 700,
@@ -393,18 +430,18 @@
       "origin_country": "Corea del Sur",
       "versions": [
         {
-          "version": "RWD Standard",
-          "price": 49990000,
-          "transmission": "automatica",
-          "traction": "4x2"
-        },
-        {
-          "version": "AWD Long Range",
-          "price": 54990000,
+          "version": "GT-LINE 99.8KWH AWD 7P",
+          "price": 99990000,
+          "price_list": 99990000,
+          "price_bonus": 0,
           "transmission": "automatica",
           "traction": "awd"
         }
-      ]
+      ],
+      "price_source": "https://www.kia.cl/promociones/kia-ev9.html",
+      "price_checked_at": "2026-10-22",
+      "price_list": 99990000,
+      "price_bonus": 0
     },
     {
       "id": 317,
@@ -414,13 +451,13 @@
       "type": "sedan",
       "fuel": "gasolina",
       "seats": 5,
-      "price": 11990000,
-      "transmission": "automatica",
+      "price": 15490000,
+      "transmission": "manual",
       "traction": "4x2",
       "image_url": "",
-      "description": "Sedán compacto con diseño deportivo y alta eficiencia.",
+      "description": "Sedán 1.4L de 98 HP, con versiones MT y AT.",
       "origin": "Corea del Sur",
-      "hp": 120,
+      "hp": 98,
       "torque_nm": 160,
       "length_mm": 4550,
       "width_mm": 1780,
@@ -448,49 +485,85 @@
       "origin_country": "Corea del Sur",
       "versions": [
         {
-          "version": "1.6L MT",
-          "price": 11990000,
+          "version": "LX 1.4L 6MT",
+          "price": 15490000,
+          "price_list": 16990000,
+          "price_bonus": 1500000,
           "transmission": "manual",
           "traction": "4x2"
         },
         {
-          "version": "1.6L AT",
-          "price": 12990000,
-          "transmission": "automática",
+          "version": "LX 1.4L 6AT",
+          "price": 16490000,
+          "price_list": 18490000,
+          "price_bonus": 2000000,
+          "transmission": "automatica",
           "traction": "4x2"
         }
-      ]
+      ],
+      "price_source": "https://www.kia.cl/promociones/kia-k3.html",
+      "price_checked_at": "2026-10-22",
+      "price_list": 16990000,
+      "price_bonus": 1500000
     },
     {
       "id": 318,
       "brand": "Kia",
       "model": "Morning",
-      "year": 2025,
+      "year": 2026,
       "type": "hatchback",
       "fuel": "gasolina",
       "seats": 5,
-      "price": 12990000,
-      "transmission": "automatica",
+      "price": 9990000,
+      "transmission": "manual",
       "traction": "4x2",
       "image_url": "",
-      "description": "City car económica y confiable para la ciudad",
+      "description": "Hatchback 1.0/1.2L de 66/83 HP, con versiones MT y AMT.",
       "origin": "Corea del Sur",
       "origin_country": "Corea del Sur",
       "versions": [
         {
-          "version": "LX",
-          "price": 12990000,
+          "version": "LX 1.0L 5MT",
+          "price": 9990000,
+          "price_list": 10990000,
+          "price_bonus": 1000000,
+          "transmission": "manual",
+          "traction": "4x2"
+        },
+        {
+          "version": "LX 1.2L 5MT",
+          "price": 10990000,
+          "price_list": 11990000,
+          "price_bonus": 1000000,
+          "transmission": "manual",
+          "traction": "4x2"
+        },
+        {
+          "version": "EX 1.2L 5MT FULL",
+          "price": 12490000,
+          "price_list": 13490000,
+          "price_bonus": 1000000,
+          "transmission": "manual",
+          "traction": "4x2"
+        },
+        {
+          "version": "LX 1.2L 5AMT",
+          "price": 12490000,
+          "price_list": 13490000,
+          "price_bonus": 1000000,
           "transmission": "automatica",
           "traction": "4x2"
         },
         {
-          "version": "EX",
-          "price": 14990000,
+          "version": "EX 1.2L 5AMT FULL",
+          "price": 13490000,
+          "price_list": 14990000,
+          "price_bonus": 1500000,
           "transmission": "automatica",
           "traction": "4x2"
         }
       ],
-      "hp": 79,
+      "hp": 66,
       "torque_nm": 114,
       "fuel_consumption_mixed_km_l": 20,
       "fuel_tank_liters": 43,
@@ -508,33 +581,33 @@
         "USB"
       ],
       "warranty_years": 5,
-      "warranty_km": 100000
+      "warranty_km": 100000,
+      "price_source": "https://www.kia.cl/promociones/kia-morning.html",
+      "price_checked_at": "2026-10-22",
+      "price_list": 10990000,
+      "price_bonus": 1000000
     },
     {
       "id": 319,
       "brand": "Kia",
       "model": "Niro",
-      "year": 2025,
+      "year": 2026,
       "type": "suv",
       "fuel": "hibrido",
       "seats": 5,
-      "price": 26990000,
+      "price": 31990000,
       "transmission": "automatica",
       "traction": "4x2",
       "image_url": "",
-      "description": "SUV híbrido eficiente con diseño aerodinámico",
+      "description": "SUV híbrido 1.6L de 141 HP.",
       "origin": "Corea del Sur",
       "origin_country": "Corea del Sur",
       "versions": [
         {
-          "version": "HEV",
-          "price": 26990000,
-          "transmission": "automatica",
-          "traction": "4x2"
-        },
-        {
-          "version": "PHEV",
+          "version": "HEV EX 1.6L 6DCT FULL",
           "price": 31990000,
+          "price_list": 35490000,
+          "price_bonus": 3500000,
           "transmission": "automatica",
           "traction": "4x2"
         }
@@ -564,7 +637,11 @@
         "Control crucero adaptativo"
       ],
       "warranty_years": 5,
-      "warranty_km": 100000
+      "warranty_km": 100000,
+      "price_source": "https://www.kia.cl/promociones/kia-niro.html",
+      "price_checked_at": "2026-10-22",
+      "price_list": 35490000,
+      "price_bonus": 3500000
     },
     {
       "id": 320,
@@ -618,7 +695,8 @@
         "Control crucero adaptativo"
       ],
       "warranty_years": 5,
-      "warranty_km": 100000
+      "warranty_km": 100000,
+      "lineup_2026": false
     },
     {
       "id": 321,
@@ -677,44 +755,59 @@
         "Alerta de punto ciego"
       ],
       "warranty_years": 5,
-      "warranty_km": 100000
+      "warranty_km": 100000,
+      "lineup_2026": false
     },
     {
       "id": 322,
       "brand": "Kia",
       "model": "Seltos",
-      "year": 2025,
+      "year": 2026,
       "type": "suv",
       "fuel": "gasolina",
       "seats": 5,
-      "price": 19990000,
-      "transmission": "automatica",
+      "price": 17490000,
+      "transmission": "manual",
       "traction": "4x2",
       "image_url": "",
-      "description": "SUV compacto con diseño bold y tecnología avanzada",
+      "description": "SUV 1.5L de 115 HP, con versiones MT e IVT.",
       "origin": "Corea del Sur",
       "origin_country": "Corea del Sur",
       "versions": [
         {
-          "version": "LX",
-          "price": 19990000,
+          "version": "LX 1.5L 6MT",
+          "price": 17490000,
+          "price_list": 18490000,
+          "price_bonus": 1000000,
+          "transmission": "manual",
+          "traction": "4x2"
+        },
+        {
+          "version": "EX 1.5L 6MT PLUS",
+          "price": 18490000,
+          "price_list": 19490000,
+          "price_bonus": 1000000,
+          "transmission": "manual",
+          "traction": "4x2"
+        },
+        {
+          "version": "LX 1.5L IVT",
+          "price": 19490000,
+          "price_list": 21490000,
+          "price_bonus": 2000000,
           "transmission": "automatica",
           "traction": "4x2"
         },
         {
-          "version": "EX",
-          "price": 22990000,
+          "version": "EX 1.5L IVT HIGH",
+          "price": 21490000,
+          "price_list": 23490000,
+          "price_bonus": 2000000,
           "transmission": "automatica",
           "traction": "4x2"
-        },
-        {
-          "version": "SX",
-          "price": 26990000,
-          "transmission": "automatica",
-          "traction": "4x4"
         }
       ],
-      "hp": 149,
+      "hp": 115,
       "torque_nm": 179,
       "fuel_consumption_mixed_km_l": 16.5,
       "fuel_tank_liters": 50,
@@ -739,7 +832,11 @@
         "Control crucero adaptativo"
       ],
       "warranty_years": 5,
-      "warranty_km": 100000
+      "warranty_km": 100000,
+      "price_source": "https://www.kia.cl/promociones/kia-seltos.html",
+      "price_checked_at": "2026-10-22",
+      "price_list": 18490000,
+      "price_bonus": 1000000
     },
     {
       "id": 323,
@@ -749,11 +846,11 @@
       "type": "sedan",
       "fuel": "gasolina",
       "seats": 5,
-      "price": 9990000,
+      "price": 9690000,
       "transmission": "manual",
       "traction": "4x2",
       "image_url": "",
-      "description": "Sedán compacto accesible con excelente eficiencia de combustible para la ciudad.",
+      "description": "Sedán 1.4L de 95 HP, con versiones MT y AT.",
       "origin": "Corea del Sur",
       "hp": 95,
       "torque_nm": 135,
@@ -781,55 +878,117 @@
       "origin_country": "Corea del Sur",
       "versions": [
         {
-          "version": "LX 1.4L MT",
-          "price": 9990000,
+          "version": "LX 1.4L 5MT",
+          "price": 9690000,
+          "price_list": 10990000,
+          "price_bonus": 1300000,
+          "transmission": "manual",
+          "traction": "4x2"
+        },
+        {
+          "version": "LX 1.4L 5MT HIGH",
+          "price": 10490000,
+          "price_list": 11490000,
+          "price_bonus": 1000000,
+          "transmission": "manual",
+          "traction": "4x2"
+        },
+        {
+          "version": "EX 1.4L 5MT FULL",
+          "price": 10990000,
+          "price_list": 12490000,
+          "price_bonus": 1500000,
           "transmission": "manual",
           "traction": "4x2"
         },
         {
           "version": "LX 1.4L 4AT HIGH",
           "price": 11490000,
+          "price_list": 12490000,
+          "price_bonus": 1000000,
           "transmission": "automatica",
           "traction": "4x2"
         },
         {
           "version": "EX 1.4L 4AT FULL",
-          "price": 12490000,
+          "price": 11990000,
+          "price_list": 13490000,
+          "price_bonus": 1500000,
           "transmission": "automatica",
           "traction": "4x2"
         }
-      ]
+      ],
+      "price_source": "https://www.kia.cl/promociones/kia-soluto.html",
+      "price_checked_at": "2026-10-22",
+      "price_list": 10990000,
+      "price_bonus": 1300000
     },
     {
       "id": 324,
       "brand": "Kia",
       "model": "Sonet",
-      "year": 2025,
+      "year": 2026,
       "type": "suv",
       "fuel": "gasolina",
       "seats": 5,
-      "price": 15990000,
-      "transmission": "automatica",
+      "price": 13690000,
+      "transmission": "manual",
       "traction": "4x2",
       "image_url": "",
-      "description": "SUV subcompacto con diseño atrevido",
+      "description": "SUV 1.5L de 114 HP, con versiones MT e IVT.",
       "origin": "India",
       "origin_country": "Corea del Sur",
       "versions": [
         {
-          "version": "LX",
-          "price": 15990000,
+          "version": "LX 1.5L 6MT",
+          "price": 13690000,
+          "price_list": 15990000,
+          "price_bonus": 2300000,
+          "transmission": "manual",
+          "traction": "4x2"
+        },
+        {
+          "version": "EX 1.5L 6MT HIGH",
+          "price": 13990000,
+          "price_list": 16490000,
+          "price_bonus": 2500000,
+          "transmission": "manual",
+          "traction": "4x2"
+        },
+        {
+          "version": "LX 1.5L IVT",
+          "price": 15490000,
+          "price_list": 17490000,
+          "price_bonus": 2000000,
           "transmission": "automatica",
           "traction": "4x2"
         },
         {
-          "version": "EX",
-          "price": 18490000,
+          "version": "EX 1.5L 6MT FULL",
+          "price": 15490000,
+          "price_list": 18490000,
+          "price_bonus": 3000000,
+          "transmission": "manual",
+          "traction": "4x2"
+        },
+        {
+          "version": "EX 1.5L IVT HIGH",
+          "price": 16490000,
+          "price_list": 17990000,
+          "price_bonus": 1500000,
+          "transmission": "automatica",
+          "traction": "4x2"
+        },
+        {
+          "version": "EX 1.5L IVT FULL",
+          "price": 16990000,
+          "price_list": 19490000,
+          "price_bonus": 2500000,
           "transmission": "automatica",
           "traction": "4x2"
         }
       ],
-      "hp": 120,
+      "hp": 114,
       "torque_nm": 172,
       "fuel_consumption_mixed_km_l": 18,
       "fuel_tank_liters": 45,
@@ -851,44 +1010,70 @@
         "Frenado automático"
       ],
       "warranty_years": 5,
-      "warranty_km": 100000
+      "warranty_km": 100000,
+      "price_source": "https://www.kia.cl/promociones/kia-sonet.html",
+      "price_checked_at": "2026-10-22",
+      "price_list": 15990000,
+      "price_bonus": 2300000
     },
     {
       "id": 325,
       "brand": "Kia",
       "model": "Sorento",
-      "year": 2025,
+      "year": 2026,
       "type": "suv",
-      "fuel": "gasolina",
+      "fuel": "diesel",
       "seats": 7,
-      "price": 32990000,
+      "price": 37990000,
       "transmission": "automatica",
-      "traction": "4x4",
+      "traction": "awd",
       "image_url": "",
-      "description": "SUV grande familiar con tercera fila de asientos",
+      "description": "SUV diésel 2.2 de 199 HP, con versiones 2WD/AWD.",
       "origin": "Corea del Sur",
       "origin_country": "Corea del Sur",
       "versions": [
         {
-          "version": "EX",
-          "price": 32990000,
-          "transmission": "automatica",
-          "traction": "4x4"
-        },
-        {
-          "version": "SX",
+          "version": "EX 2.2L DSL 8DCT AWD PLUS",
           "price": 37990000,
+          "price_list": 40990000,
+          "price_bonus": 3000000,
           "transmission": "automatica",
-          "traction": "4x4"
+          "traction": "awd"
         },
         {
-          "version": "SX Prestige",
-          "price": 42990000,
+          "version": "EX 2.2L DSL 8DCT 2WD",
+          "price": 38990000,
+          "price_list": 41990000,
+          "price_bonus": 3000000,
           "transmission": "automatica",
-          "traction": "4x4"
+          "traction": "4x2"
+        },
+        {
+          "version": "EX 3.5L GSL 8AT AWD FULL",
+          "price": 39990000,
+          "price_list": 46990000,
+          "price_bonus": 7000000,
+          "transmission": "automatica",
+          "traction": "awd"
+        },
+        {
+          "version": "EX 2.2L DSL 8DCT AWD",
+          "price": 42990000,
+          "price_list": 45990000,
+          "price_bonus": 3000000,
+          "transmission": "automatica",
+          "traction": "awd"
+        },
+        {
+          "version": "EX 2.2L DSL 8DCT AWD FULL",
+          "price": 49990000,
+          "price_list": 52990000,
+          "price_bonus": 3000000,
+          "transmission": "automatica",
+          "traction": "awd"
         }
       ],
-      "hp": 249,
+      "hp": 199,
       "torque_nm": 353,
       "fuel_consumption_mixed_km_l": 13.5,
       "fuel_tank_liters": 67,
@@ -914,38 +1099,54 @@
         "Parking Assist"
       ],
       "warranty_years": 5,
-      "warranty_km": 100000
+      "warranty_km": 100000,
+      "price_source": "https://www.kia.cl/promociones/kia-sorento.html",
+      "price_checked_at": "2026-10-22",
+      "price_list": 40990000,
+      "price_bonus": 3000000
     },
     {
       "id": 326,
       "brand": "Kia",
       "model": "Sorento Híbrido",
-      "year": 2025,
+      "year": 2026,
       "type": "suv",
       "fuel": "hibrido",
       "seats": 7,
-      "price": 38990000,
+      "price": 42990000,
       "transmission": "automatica",
-      "traction": "awd",
+      "traction": "4x2",
       "image_url": "",
-      "description": "SUV grande familiar híbrido con tercera fila",
+      "description": "SUV híbrido 1.6T de 238 HP.",
       "origin": "Corea del Sur",
       "origin_country": "Corea del Sur",
       "versions": [
         {
-          "version": "HEV EX",
-          "price": 38990000,
+          "version": "EX 1.6T HEV 6AT 2WD",
+          "price": 42990000,
+          "price_list": 45990000,
+          "price_bonus": 3000000,
+          "transmission": "automatica",
+          "traction": "4x2"
+        },
+        {
+          "version": "EX 1.6T HEV 6AT AWD HIGH",
+          "price": 45990000,
+          "price_list": 48990000,
+          "price_bonus": 3000000,
           "transmission": "automatica",
           "traction": "awd"
         },
         {
-          "version": "HEV SX Prestige",
-          "price": 44990000,
+          "version": "EX 1.6T HEV 6AT AWD FULL",
+          "price": 50990000,
+          "price_list": 53990000,
+          "price_bonus": 3000000,
           "transmission": "automatica",
           "traction": "awd"
         }
       ],
-      "hp": 227,
+      "hp": 238,
       "torque_nm": 357,
       "fuel_consumption_mixed_km_l": 18,
       "fuel_tank_liters": 67,
@@ -971,44 +1172,86 @@
         "Parking Assist"
       ],
       "warranty_years": 5,
-      "warranty_km": 100000
+      "warranty_km": 100000,
+      "price_source": "https://www.kia.cl/promociones/kia-sorento-hibrido.html",
+      "price_checked_at": "2026-10-22",
+      "price_list": 45990000,
+      "price_bonus": 3000000
     },
     {
       "id": 327,
       "brand": "Kia",
       "model": "Sportage",
-      "year": 2025,
+      "year": 2026,
       "type": "suv",
       "fuel": "gasolina",
       "seats": 5,
-      "price": 25990000,
-      "transmission": "automatica",
+      "price": 21990000,
+      "transmission": "manual",
       "traction": "4x2",
       "image_url": "",
-      "description": "SUV mediano con diseño revolucionario y tecnología de vanguardia",
+      "description": "SUV 2.0L/2.0T/1.6T, con versiones MT, AT y AWD.",
       "origin": "Corea del Sur",
       "origin_country": "Corea del Sur",
       "versions": [
         {
-          "version": "LX",
+          "version": "LX 2.0L 6MT GSL",
+          "price": 21990000,
+          "price_list": 24990000,
+          "price_bonus": 3000000,
+          "transmission": "manual",
+          "traction": "4x2"
+        },
+        {
+          "version": "LX 2.0L 6AT GSL",
+          "price": 23990000,
+          "price_list": 26990000,
+          "price_bonus": 3000000,
+          "transmission": "automatica",
+          "traction": "4x2"
+        },
+        {
+          "version": "EX 2.0L 6AT GSL HIGH",
           "price": 25990000,
+          "price_list": 28990000,
+          "price_bonus": 3000000,
           "transmission": "automatica",
           "traction": "4x2"
         },
         {
-          "version": "EX",
-          "price": 29990000,
+          "version": "LX 2.0T 8AT DSL",
+          "price": 25990000,
+          "price_list": 28990000,
+          "price_bonus": 3000000,
           "transmission": "automatica",
           "traction": "4x2"
         },
         {
-          "version": "SX",
-          "price": 33990000,
+          "version": "EX 2.0T 8AT DSL HIGH",
+          "price": 27990000,
+          "price_list": 30990000,
+          "price_bonus": 3000000,
           "transmission": "automatica",
-          "traction": "4x4"
+          "traction": "4x2"
+        },
+        {
+          "version": "X-LINE 1.6T 8AT GSL AWD FULL",
+          "price": 36990000,
+          "price_list": 38990000,
+          "price_bonus": 2000000,
+          "transmission": "automatica",
+          "traction": "awd"
+        },
+        {
+          "version": "X-LINE 2.0T 8AT DSL AWD FULL",
+          "price": 38490000,
+          "price_list": 40990000,
+          "price_bonus": 2500000,
+          "transmission": "automatica",
+          "traction": "awd"
         }
       ],
-      "hp": 187,
+      "hp": 183,
       "torque_nm": 265,
       "fuel_consumption_mixed_km_l": 15,
       "fuel_tank_liters": 54,
@@ -1034,38 +1277,54 @@
         "Monitor 360°"
       ],
       "warranty_years": 5,
-      "warranty_km": 100000
+      "warranty_km": 100000,
+      "price_source": "https://www.kia.cl/promociones/kia-sportage.html",
+      "price_checked_at": "2026-10-22",
+      "price_list": 24990000,
+      "price_bonus": 3000000
     },
     {
       "id": 328,
       "brand": "Kia",
       "model": "Sportage Híbrido",
-      "year": 2025,
+      "year": 2026,
       "type": "suv",
       "fuel": "hibrido",
       "seats": 5,
-      "price": 31990000,
+      "price": 28990000,
       "transmission": "automatica",
-      "traction": "awd",
+      "traction": "4x2",
       "image_url": "",
-      "description": "SUV mediano híbrido con eficiencia extendida",
+      "description": "SUV híbrido 1.6T de 232 HP.",
       "origin": "Corea del Sur",
       "origin_country": "Corea del Sur",
       "versions": [
         {
-          "version": "HEV EX",
-          "price": 31990000,
+          "version": "LX 1.6T HEV 6AT",
+          "price": 28990000,
+          "price_list": 31990000,
+          "price_bonus": 3000000,
           "transmission": "automatica",
-          "traction": "awd"
+          "traction": "4x2"
         },
         {
-          "version": "HEV SX",
-          "price": 35990000,
+          "version": "EX 1.6T HEV 6AT HIGH",
+          "price": 31990000,
+          "price_list": 34990000,
+          "price_bonus": 3000000,
+          "transmission": "automatica",
+          "traction": "4x2"
+        },
+        {
+          "version": "X-LINE 1.6T HEV 6AT AWD FULL",
+          "price": 39990000,
+          "price_list": 42990000,
+          "price_bonus": 3000000,
           "transmission": "automatica",
           "traction": "awd"
         }
       ],
-      "hp": 230,
+      "hp": 232,
       "torque_nm": 357,
       "fuel_consumption_mixed_km_l": 20,
       "fuel_tank_liters": 54,
@@ -1090,7 +1349,11 @@
         "Control crucero adaptativo"
       ],
       "warranty_years": 5,
-      "warranty_km": 100000
+      "warranty_km": 100000,
+      "price_source": "https://www.kia.cl/promociones/kia-sportage-hibrido.html",
+      "price_checked_at": "2026-10-22",
+      "price_list": 31990000,
+      "price_bonus": 3000000
     },
     {
       "id": 329,
@@ -1149,7 +1412,8 @@
         "Frenado automático"
       ],
       "warranty_years": 5,
-      "warranty_km": 100000
+      "warranty_km": 100000,
+      "lineup_2026": false
     },
     {
       "id": 330,
@@ -1159,13 +1423,13 @@
       "type": "pickup",
       "fuel": "diesel",
       "seats": 5,
-      "price": 26990000,
-      "transmission": "automatica",
-      "traction": "4x4",
+      "price": 24990000,
+      "transmission": "manual",
+      "traction": "4x2",
       "image_url": "",
-      "description": "Pick-up mediana con capacidad todoterreno y motor diésel de alto torque.",
+      "description": "Pickup diésel 2.2T de 207 HP, 4x2/4x4.",
       "origin": "Corea del Sur",
-      "hp": 210,
+      "hp": 207,
       "torque_nm": 440,
       "length_mm": 5370,
       "width_mm": 1950,
@@ -1195,18 +1459,58 @@
       "origin_country": "Corea del Sur",
       "versions": [
         {
-          "version": "2.2 CRDi AT 4x2",
-          "price": 26990000,
-          "transmission": "automatica",
+          "version": "LX 2.2T DSL 6MT 4X2 LL",
+          "price": 24990000,
+          "price_list": 28990000,
+          "price_bonus": 4000000,
+          "transmission": "manual",
           "traction": "4x2"
         },
         {
-          "version": "2.2 CRDi AT 4x4",
-          "price": 29990000,
+          "version": "LX 2.2T DSL 6MT 4X4 LL",
+          "price": 28990000,
+          "price_list": 32990000,
+          "price_bonus": 4000000,
+          "transmission": "manual",
+          "traction": "4x4"
+        },
+        {
+          "version": "LX 2.2T DSL 8AT 4X4 LL",
+          "price": 30990000,
+          "price_list": 33990000,
+          "price_bonus": 3000000,
+          "transmission": "automatica",
+          "traction": "4x4"
+        },
+        {
+          "version": "EX 2.2T DSL 6MT 4X4 FULL",
+          "price": 32990000,
+          "price_list": 35990000,
+          "price_bonus": 3000000,
+          "transmission": "manual",
+          "traction": "4x4"
+        },
+        {
+          "version": "EX 2.2T DSL 8AT 4X4 FULL",
+          "price": 37990000,
+          "price_list": 39990000,
+          "price_bonus": 2000000,
+          "transmission": "automatica",
+          "traction": "4x4"
+        },
+        {
+          "version": "X-PRO 2.2T DSL 8AT 4X4 FULL",
+          "price": 49990000,
+          "price_list": 50990000,
+          "price_bonus": 1000000,
           "transmission": "automatica",
           "traction": "4x4"
         }
-      ]
+      ],
+      "price_source": "https://www.kia.cl/promociones/kia-tasman.html",
+      "price_checked_at": "2026-10-22",
+      "price_list": 28990000,
+      "price_bonus": 4000000
     },
     {
       "id": 331,
@@ -1216,13 +1520,13 @@
       "type": "hatchback",
       "fuel": "gasolina",
       "seats": 5,
-      "price": 14990000,
-      "transmission": "automatica",
+      "price": 15990000,
+      "transmission": "manual",
       "traction": "4x2",
       "image_url": "",
-      "description": "Hatchback compacto con espíritu aventurero, elevación adicional y diseño crossover.",
+      "description": "Crossover 1.4/1.6L de 98/121 HP.",
       "origin": "Corea del Sur",
-      "hp": 120,
+      "hp": 98,
       "torque_nm": 160,
       "length_mm": 4550,
       "width_mm": 1780,
@@ -1250,12 +1554,128 @@
       "origin_country": "Corea del Sur",
       "versions": [
         {
-          "version": "1.6L AT",
-          "price": 14990000,
-          "transmission": "automática",
+          "version": "LX 1.4L 6MT",
+          "price": 15990000,
+          "price_list": 16990000,
+          "price_bonus": 1000000,
+          "transmission": "manual",
+          "traction": "4x2"
+        },
+        {
+          "version": "LX 1.4L 6AT",
+          "price": 16990000,
+          "price_list": 18490000,
+          "price_bonus": 1500000,
+          "transmission": "automatica",
+          "traction": "4x2"
+        },
+        {
+          "version": "EX 1.6L 6MT HIGH",
+          "price": 17990000,
+          "price_list": 18990000,
+          "price_bonus": 1000000,
+          "transmission": "manual",
+          "traction": "4x2"
+        },
+        {
+          "version": "EX 1.6L 6AT HIGH",
+          "price": 18990000,
+          "price_list": 19990000,
+          "price_bonus": 1000000,
+          "transmission": "automatica",
+          "traction": "4x2"
+        },
+        {
+          "version": "EX 1.6L 6AT FULL",
+          "price": 20990000,
+          "price_list": 22490000,
+          "price_bonus": 1500000,
+          "transmission": "automatica",
           "traction": "4x2"
         }
-      ]
+      ],
+      "price_source": "https://www.kia.cl/promociones/kia-k3-cross.html",
+      "price_checked_at": "2026-10-22",
+      "price_list": 16990000,
+      "price_bonus": 1000000
+    },
+    {
+      "id": 669,
+      "brand": "Kia",
+      "model": "Frontier",
+      "year": 2026,
+      "type": "pickup",
+      "fuel": "diesel",
+      "seats": 5,
+      "hp": 129,
+      "description": "Pickup diésel 2.5L de 129 HP.",
+      "origin": "Tailandia",
+      "origin_country": "Tailandia",
+      "image_url": "",
+      "price_source": "https://www.kia.cl/promociones/kia-frontier.html",
+      "price_checked_at": "2026-10-22",
+      "versions": [
+        {
+          "version": "FRONTIER C/C LX 2.5L 6MT AV AB",
+          "price": 20580000,
+          "price_list": 21840000,
+          "price_bonus": 1260000,
+          "transmission": "manual",
+          "traction": "4x2"
+        },
+        {
+          "version": "FRONTIER P/UP LX 2.5L 6MT AV AB",
+          "price": 22681000,
+          "price_list": 23521000,
+          "price_bonus": 840000,
+          "transmission": "manual",
+          "traction": "4x2"
+        }
+      ],
+      "price": 20580000,
+      "price_list": 21840000,
+      "price_bonus": 1260000,
+      "transmission": "manual",
+      "traction": "4x2"
+    },
+    {
+      "id": 670,
+      "brand": "Kia",
+      "model": "Carnival Híbrido",
+      "year": 2026,
+      "type": "minivan",
+      "fuel": "hibrido",
+      "seats": 7,
+      "hp": 242,
+      "description": "Minivan híbrida 1.6T de 242 HP.",
+      "origin": "Corea del Sur",
+      "origin_country": "Corea del Sur",
+      "image_url": "",
+      "price_source": "https://www.kia.cl/promociones/kia-carnival-hibrido.html",
+      "price_checked_at": "2026-10-22",
+      "versions": [
+        {
+          "version": "EX 1.6T HEV 6AT HIGH",
+          "price": 45990000,
+          "price_list": 48990000,
+          "price_bonus": 3000000,
+          "transmission": "automatica",
+          "traction": "4x2"
+        },
+        {
+          "version": "EX 1.6T HEV 6AT LTD",
+          "price": 52990000,
+          "price_list": 55990000,
+          "price_bonus": 3000000,
+          "transmission": "automatica",
+          "traction": "4x2"
+        }
+      ],
+      "price": 45990000,
+      "price_list": 48990000,
+      "price_bonus": 3000000,
+      "transmission": "automatica",
+      "traction": "4x2"
     }
   ]
 }

@@ -10,13 +10,13 @@
       "type": "suv",
       "fuel": "hibrido",
       "seats": 5,
-      "price": 34990000,
-      "transmission": "automatica",
-      "traction": "awd",
+      "price": 17190000,
+      "transmission": "manual",
+      "traction": "4x2",
       "image_url": "",
-      "description": "SUV híbrido ligero (MHEV) con asistencia eléctrica en arranque y aceleración.",
+      "description": "SUV compacto 1.5 mild hybrid de 103 HP, con versiones MT y AT.",
       "origin": "Japón",
-      "hp": 306,
+      "hp": 103,
       "torque_nm": 350,
       "length_mm": 4635,
       "width_mm": 1855,
@@ -45,18 +45,42 @@
       "origin_country": "Japón",
       "versions": [
         {
-          "version": "GLX",
-          "price": 34990000,
-          "transmission": "automatica",
-          "traction": "awd"
+          "version": "GL MT",
+          "price": 17190000,
+          "price_list": 19890000,
+          "price_bonus": 2700000,
+          "transmission": "manual",
+          "traction": "4x2"
         },
         {
-          "version": "GLX Plus",
-          "price": 39990000,
+          "version": "GL AT",
+          "price": 18690000,
+          "price_list": 21390000,
+          "price_bonus": 2700000,
           "transmission": "automatica",
-          "traction": "awd"
+          "traction": "4x2"
+        },
+        {
+          "version": "GLX MT",
+          "price": 18490000,
+          "price_list": 21190000,
+          "price_bonus": 2700000,
+          "transmission": "manual",
+          "traction": "4x2"
+        },
+        {
+          "version": "GLX AT",
+          "price": 20590000,
+          "price_list": 23290000,
+          "price_bonus": 2700000,
+          "transmission": "automatica",
+          "traction": "4x2"
         }
-      ]
+      ],
+      "price_source": "https://www.suzuki.cl/vehiculo/across-hybrid/",
+      "price_checked_at": "2026-10-22",
+      "price_list": 19890000,
+      "price_bonus": 2700000
     },
     {
       "id": 545,
@@ -66,13 +90,13 @@
       "type": "hatchback",
       "fuel": "gasolina",
       "seats": 5,
-      "price": 6990000,
+      "price": 7590000,
       "transmission": "manual",
       "traction": "4x2",
       "image_url": "",
-      "description": "City car ultraeconómico ideal para ciudad.",
+      "description": "Hatchback 1.0L de 67 HP, con versión GL PLUS manual.",
       "origin": "India",
-      "hp": 66,
+      "hp": 67,
       "torque_nm": 90,
       "length_mm": 3600,
       "width_mm": 1695,
@@ -95,18 +119,18 @@
       "origin_country": "India",
       "versions": [
         {
-          "version": "GA",
-          "price": 6990000,
-          "transmission": "manual",
-          "traction": "4x2"
-        },
-        {
-          "version": "GL",
-          "price": 7990000,
+          "version": "GL PLUS",
+          "price": 7590000,
+          "price_list": 8990000,
+          "price_bonus": 1400000,
           "transmission": "manual",
           "traction": "4x2"
         }
-      ]
+      ],
+      "price_source": "https://www.suzuki.cl/vehiculo/alto/",
+      "price_checked_at": "2026-10-22",
+      "price_list": 8990000,
+      "price_bonus": 1400000
     },
     {
       "id": 546,
@@ -155,7 +179,8 @@
         "Android Auto"
       ],
       "warranty_years": 3,
-      "warranty_km": 100000
+      "warranty_km": 100000,
+      "lineup_2026": false
     },
     {
       "id": 547,
@@ -205,7 +230,8 @@
           "transmission": "manual",
           "traction": "4x2"
         }
-      ]
+      ],
+      "lineup_2026": false
     },
     {
       "id": 548,
@@ -215,13 +241,13 @@
       "type": "sedan",
       "fuel": "hibrido",
       "seats": 5,
-      "price": 12990000,
+      "price": 11690000,
       "transmission": "manual",
       "traction": "4x2",
       "image_url": "",
-      "description": "Sedán compacto híbrido con bajo consumo y etiqueta ecológica.",
+      "description": "Sedán 1.2 mild hybrid de 82 HP, con versiones MT y CVT.",
       "origin": "India",
-      "hp": 89,
+      "hp": 82,
       "torque_nm": 113,
       "length_mm": 3990,
       "width_mm": 1745,
@@ -247,18 +273,42 @@
       "origin_country": "Japón",
       "versions": [
         {
-          "version": "GL",
-          "price": 12990000,
+          "version": "GL MT",
+          "price": 11690000,
+          "price_list": 13490000,
+          "price_bonus": 1800000,
           "transmission": "manual",
           "traction": "4x2"
         },
         {
-          "version": "GLX",
-          "price": 14990000,
+          "version": "GL CVT",
+          "price": 12890000,
+          "price_list": 14690000,
+          "price_bonus": 1800000,
+          "transmission": "automatica",
+          "traction": "4x2"
+        },
+        {
+          "version": "GLX MT",
+          "price": 13090000,
+          "price_list": 14890000,
+          "price_bonus": 1800000,
           "transmission": "manual",
           "traction": "4x2"
+        },
+        {
+          "version": "GLX CVT",
+          "price": 13890000,
+          "price_list": 15690000,
+          "price_bonus": 1800000,
+          "transmission": "automatica",
+          "traction": "4x2"
         }
-      ]
+      ],
+      "price_source": "https://www.suzuki.cl/vehiculo/dzire-hybrid/",
+      "price_checked_at": "2026-10-22",
+      "price_list": 13490000,
+      "price_bonus": 1800000
     },
     {
       "id": 549,
@@ -307,7 +357,8 @@
         "Android Auto"
       ],
       "warranty_years": 3,
-      "warranty_km": 100000
+      "warranty_km": 100000,
+      "lineup_2026": false
     },
     {
       "id": 550,
@@ -317,34 +368,48 @@
       "type": "suv",
       "fuel": "hibrido",
       "seats": 5,
-      "price": 17590000,
+      "price": 14590000,
       "transmission": "manual",
       "traction": "4x2",
       "image_url": "",
-      "description": "Crossover subcompacto híbrido 1.5L con diseño moderno y bajo consumo.",
+      "description": "SUV compacto 1.5 mild hybrid de 103 HP, con versiones MT y AT.",
       "origin": "India",
       "origin_country": "Japón",
       "versions": [
         {
-          "version": "GL MT",
-          "price": 17590000,
+          "version": "1.5 GL",
+          "price": 14590000,
+          "price_list": 16990000,
+          "price_bonus": 2400000,
           "transmission": "manual",
           "traction": "4x2"
         },
         {
-          "version": "GL AT",
-          "price": 18990000,
+          "version": "1.5 GL AT",
+          "price": 16190000,
+          "price_list": 18590000,
+          "price_bonus": 2400000,
           "transmission": "automatica",
           "traction": "4x2"
         },
         {
-          "version": "GLX MT",
-          "price": 19090000,
+          "version": "1.5 GLX",
+          "price": 16290000,
+          "price_list": 18690000,
+          "price_bonus": 2400000,
           "transmission": "manual",
+          "traction": "4x2"
+        },
+        {
+          "version": "1.5 GLX AT",
+          "price": 17890000,
+          "price_list": 20290000,
+          "price_bonus": 2400000,
+          "transmission": "automatica",
           "traction": "4x2"
         }
       ],
-      "hp": 109,
+      "hp": 103,
       "torque_nm": 150,
       "fuel_consumption_mixed_km_l": 18,
       "fuel_tank_liters": 37,
@@ -362,33 +427,49 @@
         "Android Auto"
       ],
       "warranty_years": 3,
-      "warranty_km": 100000
+      "warranty_km": 100000,
+      "price_source": "https://www.suzuki.cl/vehiculo/fronx/",
+      "price_checked_at": "2026-10-22",
+      "price_list": 16990000,
+      "price_bonus": 2400000
     },
     {
       "id": 551,
       "brand": "Suzuki",
       "model": "Jimny",
-      "year": 2025,
+      "year": 2026,
       "type": "suv",
       "fuel": "gasolina",
       "seats": 4,
-      "price": 19990000,
-      "transmission": "automatica",
+      "price": 15990000,
+      "transmission": "manual",
       "traction": "4x4",
       "image_url": "",
-      "description": "Off-roader compacto legendario con capacidad todoterreno",
+      "description": "SUV 4x4 1.5L de 102 HP, con versiones manuales y automática.",
       "origin": "Japón",
       "origin_country": "Japón",
       "versions": [
         {
-          "version": "GL",
-          "price": 19990000,
+          "version": "1.5 GL 3P",
+          "price": 15990000,
+          "price_list": 17490000,
+          "price_bonus": 1500000,
           "transmission": "manual",
           "traction": "4x4"
         },
         {
-          "version": "GLX",
-          "price": 22990000,
+          "version": "1.5 GL 3P WINCHE",
+          "price": 17633100,
+          "price_list": 19028100,
+          "price_bonus": 1395000,
+          "transmission": "manual",
+          "traction": "4x4"
+        },
+        {
+          "version": "1.5 AT GLX 3P",
+          "price": 17990000,
+          "price_list": 19490000,
+          "price_bonus": 1500000,
           "transmission": "automatica",
           "traction": "4x4"
         }
@@ -411,7 +492,11 @@
         "Android Auto"
       ],
       "warranty_years": 3,
-      "warranty_km": 100000
+      "warranty_km": 100000,
+      "price_source": "https://www.suzuki.cl/vehiculo/jimny/",
+      "price_checked_at": "2026-10-22",
+      "price_list": 17490000,
+      "price_bonus": 1500000
     },
     {
       "id": 552,
@@ -470,44 +555,59 @@
         "Lane Departure Warning"
       ],
       "warranty_years": 3,
-      "warranty_km": 100000
+      "warranty_km": 100000,
+      "lineup_2026": false
     },
     {
       "id": 553,
       "brand": "Suzuki",
       "model": "Swift",
-      "year": 2025,
+      "year": 2026,
       "type": "hatchback",
-      "fuel": "gasolina",
+      "fuel": "hibrido",
       "seats": 5,
-      "price": 13990000,
-      "transmission": "automatica",
+      "price": 11990000,
+      "transmission": "manual",
       "traction": "4x2",
       "image_url": "",
-      "description": "Subcompacto ligero y divertido de conducir",
+      "description": "Hatchback 1.2 mild hybrid de 82 HP, con versiones MT y CVT.",
       "origin": "India",
       "origin_country": "Japón",
       "versions": [
         {
-          "version": "GA",
-          "price": 13990000,
+          "version": "1.2 GL",
+          "price": 11990000,
+          "price_list": 14090000,
+          "price_bonus": 2100000,
+          "transmission": "manual",
+          "traction": "4x2"
+        },
+        {
+          "version": "1.2 GLX PLUS",
+          "price": 13790000,
+          "price_list": 15990000,
+          "price_bonus": 2200000,
+          "transmission": "manual",
+          "traction": "4x2"
+        },
+        {
+          "version": "1.2 GL CVT",
+          "price": 13590000,
+          "price_list": 15690000,
+          "price_bonus": 2100000,
           "transmission": "automatica",
           "traction": "4x2"
         },
         {
-          "version": "GL",
-          "price": 15990000,
-          "transmission": "automatica",
-          "traction": "4x2"
-        },
-        {
-          "version": "GLX",
-          "price": 17990000,
+          "version": "1.2 GLX PLUS CVT",
+          "price": 15290000,
+          "price_list": 17490000,
+          "price_bonus": 2200000,
           "transmission": "automatica",
           "traction": "4x2"
         }
       ],
-      "hp": 89,
+      "hp": 82,
       "torque_nm": 113,
       "fuel_consumption_mixed_km_l": 21,
       "fuel_tank_liters": 37,
@@ -525,7 +625,11 @@
         "Android Auto"
       ],
       "warranty_years": 3,
-      "warranty_km": 100000
+      "warranty_km": 100000,
+      "price_source": "https://www.suzuki.cl/vehiculo/swift-hybrid/",
+      "price_checked_at": "2026-10-22",
+      "price_list": 14090000,
+      "price_bonus": 2100000
     },
     {
       "id": 554,
@@ -580,7 +684,86 @@
         "Android Auto"
       ],
       "warranty_years": 3,
-      "warranty_km": 100000
+      "warranty_km": 100000,
+      "lineup_2026": false
+    },
+    {
+      "id": 660,
+      "brand": "Suzuki",
+      "model": "e Vitara",
+      "year": 2026,
+      "type": "suv",
+      "fuel": "electrico",
+      "seats": 5,
+      "hp": 171,
+      "description": "SUV eléctrico con batería de 61 kWh y hasta 412 km de autonomía.",
+      "origin": "India",
+      "origin_country": "India",
+      "image_url": "",
+      "price_source": "https://www.suzuki.cl/vehiculo/e-vitara/",
+      "price_checked_at": "2026-10-22",
+      "versions": [
+        {
+          "version": "GL",
+          "price": 27990000,
+          "price_list": 30990000,
+          "price_bonus": 3000000,
+          "transmission": "automatica",
+          "traction": "4x2"
+        },
+        {
+          "version": "GLX 4WD",
+          "price": 32990000,
+          "price_list": 35990000,
+          "price_bonus": 3000000,
+          "transmission": "automatica",
+          "traction": "awd"
+        }
+      ],
+      "price": 27990000,
+      "price_list": 30990000,
+      "price_bonus": 3000000,
+      "transmission": "automatica",
+      "traction": "4x2"
+    },
+    {
+      "id": 661,
+      "brand": "Suzuki",
+      "model": "Celerio",
+      "year": 2026,
+      "type": "hatchback",
+      "fuel": "gasolina",
+      "seats": 5,
+      "hp": 68,
+      "description": "Hatchback 1.0L de 68 HP, con versiones MT y AMT.",
+      "origin": "India",
+      "origin_country": "India",
+      "image_url": "",
+      "price_source": "https://www.suzuki.cl/vehiculo/celerio/",
+      "price_checked_at": "2026-10-22",
+      "versions": [
+        {
+          "version": "GLX PLUS",
+          "price": 9090000,
+          "price_list": 11090000,
+          "price_bonus": 2000000,
+          "transmission": "manual",
+          "traction": "4x2"
+        },
+        {
+          "version": "GLX PLUS AMT",
+          "price": 9790000,
+          "price_list": 11790000,
+          "price_bonus": 2000000,
+          "transmission": "automatica",
+          "traction": "4x2"
+        }
+      ],
+      "price": 9090000,
+      "price_list": 11090000,
+      "price_bonus": 2000000,
+      "transmission": "manual",
+      "traction": "4x2"
     }
   ]
 }

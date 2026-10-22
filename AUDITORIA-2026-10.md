@@ -11,7 +11,7 @@
 
 **Conclusión:** no abriría el marketplace ni haría el cambio a `.cl` todavía. Primero hay que rehacer la capa de datos 2026 (Lote 24) y cerrar los P0 de código (Lote 25). Es un trabajo de 3 a 5 semanas, no de un fin de semana.
 
-> **Actualización (22-10-2026, cierre del día):** el **Lote 25 (P0 de código) quedó implementado**: ruta `/auto/:slug`, enlaces y share corregidos, un solo CTA móvil, modal con `role="dialog"` + focus trap, sliders con ARIA/Firefox, búsqueda que resetea página, filtros colapsados en móvil, un solo `<main>` y canonical por ruta. Gate: `LINT=0`, `BUILD=0`, `TEST=227/227`. El **Lote 24 (datos)** sigue pendiente y es el bloqueo para abrir.
+> **Actualización (22-10-2026, cierre del día):** el **Lote 25 (P0 de código) quedó implementado**: ruta `/auto/:slug`, enlaces y share corregidos, un solo CTA móvil, modal con `role="dialog"` + focus trap, sliders con ARIA/Firefox, búsqueda que resetea página, filtros colapsados en móvil, un solo `<main>` y canonical por ruta. El **Lote 24.2 (datos)** también quedó cerrado para Toyota, Suzuki, MG, Mazda, Nissan, Kia y GWM: **653 modelos / 1.403 versiones / 0 errores**, sitemap **792 URLs**, `LINT=0`, `TEST=229/229`, `BUILD=0`. Quedan deudas de fotos nuevas, `latin_ncap_stars` legacy y la matriz RLS/SMTP de Fase B.
 
 ---
 
@@ -363,4 +363,18 @@ Los precios oficiales son los publicados el 22-10-2026 y pueden incluir bonos o 
 - **Seguridad**: se retiró Latin NCAP sin fuente de la ficha, el comparador, el Top 10 y el wizard. Solo se muestran `safety_ratings` con fuente. Los 338 `latin_ncap_stars` legacy quedan en los JSON como deuda de limpieza, sin efecto en la interfaz.
 - **Tipos y duplicados**: 8 superdeportivos a `coupe`, MG GT a `sedan`, Niro EV fuera de las versiones del Niro HEV y Sportage híbrido fuera de las versiones bencina.
 - **Gate**: `npm run audit:catalog` (630 modelos / 1.310 versiones / 0 errores), `LINT=0`, `TEST=229/229`, `BUILD=0`; CI ejecuta la auditoría antes del build.
-- **Siguiente**: Toyota, Suzuki, MG, Mazda, Nissan y Kia con el mismo método; después GWM/Haval/Jolion, RAV4/C-HR y fotos dudosas.
+- **Siguiente**: cerrado en el Lote 24.2 (ver sección 11).
+
+---
+
+## 11. Cierre del Lote 24.2 — siete marcas reconstruidas (22-10-2026)
+
+- **Toyota**: API oficial `toyota.cl/api/vehicles/versions_by_model/{id}`. 10 modelos actualizados y 5 nuevos (Yaris Híbrido, Yaris Cross Híbrido, RAV4 Híbrido, RAV4 PHEV, Hilux BEV). 13 modelos fuera de la parrilla oficial, marcados sin borrar.
+- **Suzuki**: 6 actualizados y 2 nuevos (e Vitara, Celerio). Se corrigió el Across Hybrid (1.5 mild hybrid 103 HP, MT5/AT6, 4x2), que estaba como 306 HP AWD.
+- **MG**: lista de precios oficial de octubre 2026. 12 actualizados y 2 nuevos (MG HS Hybrid, MG 4 Urban EV); `S5 EV` renombrado `MGS5 EV`; 7 modelos fuera de parrilla. Se corrigió la foto cruzada de MG 3 Hybrid/HS.
+- **Mazda**: 7 actualizados a año 2027 y 3 nuevos (All New CX-5, CX-3, Mazda 3 Sport); 3 fuera de parrilla.
+- **Nissan**: 5 actualizados y 2 nuevos (Kait, X-Trail e-Power); March, Leaf, Qashqai, Navara, Patrol, Townstar y Z marcados fuera de parrilla porque sus fichas ya no existen en la web oficial.
+- **Kia**: tabla oficial de precios y bonos de `kia.cl/promociones`. 17 actualizados y 2 nuevos (Frontier, Carnival Híbrido); Niro queda solo HEV, EV6/EV9 en GT-Line; 4 fuera de parrilla.
+- **GWM**: 14 actualizados y 7 nuevos (H6 GT, H7 Híbrido, H7 Max, H7 Max PHEV, Jolion Max, Jolion Híbrido, ORA 5); duplicados Haval H6 HEV/Haval Jolion y Dargo/Wingle 5 marcados fuera de parrilla. Pickups conservan `+ IVA`.
+- **Resultado**: **653 modelos / 1.403 versiones / 0 errores**; sitemap **792 URLs**; `LINT=0`, `TEST=229/229`, `BUILD=0`.
+- **Deuda**: 338 `latin_ncap_stars` legacy sin uso, 112 EV/PHEV sin batería/autonomía en JSON (varios en `enrichment.ts`), fotos de ids nuevos como silueta y precios históricos de modelos fuera de parrilla.

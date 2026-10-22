@@ -117,6 +117,12 @@ export const CarCard = memo(function CarCard({
           <span className="text-xs font-medium text-gray-400 dark:text-gray-500 bg-gray-100 dark:bg-gray-600 px-2 py-1 rounded">{car.year}</span>
         </div>
 
+        {car.lineup_2026 === false && (
+          <p className="mb-3 inline-flex items-center gap-1 text-[11px] font-semibold text-amber-700 dark:text-amber-300 bg-amber-100 dark:bg-amber-900/40 px-2 py-1 rounded">
+            No aparece en la parrilla 2026
+          </p>
+        )}
+
         <div className="flex flex-wrap gap-2 mb-4">
           <span className="px-2.5 py-1 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-lg text-xs font-medium">
             {getTypeLabel(car.type)}
@@ -140,6 +146,11 @@ export const CarCard = memo(function CarCard({
           <div>
             <p className="text-xs text-gray-500 dark:text-gray-400 mb-0.5">Precio desde</p>
             <p className="text-xl font-bold text-blue-600 dark:text-blue-400">{formatPrice(car.price)}</p>
+            {car.price_list != null && car.price_list > car.price && (
+              <p className="text-[11px] text-gray-500 dark:text-gray-400">
+                Lista {formatPrice(car.price_list)} · bono {formatPrice(car.price_bonus ?? (car.price_list - car.price))}
+              </p>
+            )}
           </div>
           <div className="flex items-center gap-2">
             <span className="text-xs font-medium text-gray-400 dark:text-gray-500">{car.origin}</span>

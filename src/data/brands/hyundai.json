@@ -10,34 +10,40 @@
       "type": "sedan",
       "fuel": "gasolina",
       "seats": 5,
-      "price": 13990000,
-      "transmission": "automatica",
+      "price": 13190000,
+      "transmission": "manual",
       "traction": "4x2",
       "image_url": "",
-      "description": "Sedán subcompacto con diseño sensuous sportiness",
+      "description": "Sedán subcompacto con motor 1.5L de 115 HP.",
       "origin": "Corea del Sur",
       "origin_country": "Corea del Sur",
       "versions": [
         {
-          "version": "Concept",
+          "version": "1.5 MT BLACK",
+          "price": 13190000,
+          "price_list": 15690000,
+          "price_bonus": 2500000,
+          "transmission": "manual",
+          "traction": "4x2"
+        },
+        {
+          "version": "1.5 MT PLUS",
           "price": 13990000,
-          "transmission": "automatica",
+          "price_list": 15890000,
+          "price_bonus": 1900000,
+          "transmission": "manual",
           "traction": "4x2"
         },
         {
-          "version": "Premiere",
-          "price": 15990000,
-          "transmission": "automatica",
-          "traction": "4x2"
-        },
-        {
-          "version": "Style",
-          "price": 17490000,
+          "version": "1.5 AT PLUS",
+          "price": 15890000,
+          "price_list": 17290000,
+          "price_bonus": 1400000,
           "transmission": "automatica",
           "traction": "4x2"
         }
       ],
-      "hp": 123,
+      "hp": 115,
       "torque_nm": 151,
       "fuel_consumption_mixed_km_l": 18.5,
       "fuel_tank_liters": 43,
@@ -59,7 +65,11 @@
         "Alerta de punto ciego"
       ],
       "warranty_years": 5,
-      "warranty_km": 100000
+      "warranty_km": 100000,
+      "price_list": 15690000,
+      "price_bonus": 2500000,
+      "price_source": "https://www.hyundai.cl/nuestros-modelos/sedan/all-new-accent/",
+      "price_checked_at": "2026-10-22"
     },
     {
       "id": 242,
@@ -112,7 +122,8 @@
         "Frenado automático"
       ],
       "warranty_years": 5,
-      "warranty_km": 100000
+      "warranty_km": 100000,
+      "lineup_2026": false
     },
     {
       "id": 243,
@@ -122,34 +133,48 @@
       "type": "suv",
       "fuel": "gasolina",
       "seats": 5,
-      "price": 19990000,
-      "transmission": "automatica",
+      "price": 15990000,
+      "transmission": "manual",
       "traction": "4x2",
       "image_url": "",
-      "description": "SUV crossover con diseño paramétrico y tecnología",
+      "description": "SUV compacto con motor 1.5L de 113 HP.",
       "origin": "Brasil",
       "origin_country": "Corea del Sur",
       "versions": [
         {
-          "version": "Sense",
-          "price": 19990000,
+          "version": "1.5 MT GO FL",
+          "price": 15990000,
+          "price_list": 18290000,
+          "price_bonus": 2300000,
+          "transmission": "manual",
+          "traction": "4x2"
+        },
+        {
+          "version": "1.5 MT PLUS FL",
+          "price": 16690000,
+          "price_list": 19090000,
+          "price_bonus": 2400000,
+          "transmission": "manual",
+          "traction": "4x2"
+        },
+        {
+          "version": "1.5 CVT PLUS FL",
+          "price": 18190000,
+          "price_list": 20590000,
+          "price_bonus": 2400000,
           "transmission": "automatica",
           "traction": "4x2"
         },
         {
-          "version": "Comfort",
-          "price": 22990000,
-          "transmission": "automatica",
-          "traction": "4x2"
-        },
-        {
-          "version": "Premium",
-          "price": 25990000,
+          "version": "1.5 CVT DESIGN FL",
+          "price": 20690000,
+          "price_list": 22790000,
+          "price_bonus": 2100000,
           "transmission": "automatica",
           "traction": "4x2"
         }
       ],
-      "hp": 120,
+      "hp": 113,
       "torque_nm": 151,
       "fuel_consumption_mixed_km_l": 16.5,
       "fuel_tank_liters": 50,
@@ -173,7 +198,11 @@
         "Lane Keep Assist"
       ],
       "warranty_years": 5,
-      "warranty_km": 100000
+      "warranty_km": 100000,
+      "price_list": 18290000,
+      "price_bonus": 2300000,
+      "price_source": "https://www.hyundai.cl/nuestros-modelos/suv/new-creta/",
+      "price_checked_at": "2026-10-22"
     },
     {
       "id": 244,
@@ -235,7 +264,8 @@
         "Control crucero adaptativo"
       ],
       "warranty_years": 5,
-      "warranty_km": 100000
+      "warranty_km": 100000,
+      "lineup_2026": false
     },
     {
       "id": 245,
@@ -249,9 +279,9 @@
       "transmission": "manual",
       "traction": "4x2",
       "image_url": "",
-      "description": "Hatchback urbano compacto con eficiente motor 1.2L, ideal para la conducción diaria en la ciudad.",
+      "description": "Hatchback urbano con motor 1.2L de 82 HP.",
       "origin": "India",
-      "hp": 83,
+      "hp": 82,
       "torque_nm": 118,
       "length_mm": 3815,
       "width_mm": 1680,
@@ -278,18 +308,42 @@
       "origin_country": "India",
       "versions": [
         {
-          "version": "1.2L MT GO",
+          "version": "GRAND I-10 AI3 HB 1.2 MT GO FL",
           "price": 8990000,
+          "price_list": 10690000,
+          "price_bonus": 1700000,
           "transmission": "manual",
           "traction": "4x2"
         },
         {
-          "version": "1.2L AT",
-          "price": 11490000,
+          "version": "GRAND I-10 AI3 HB 1.2 MT PLUS FL",
+          "price": 9990000,
+          "price_list": 11790000,
+          "price_bonus": 1800000,
+          "transmission": "manual",
+          "traction": "4x2"
+        },
+        {
+          "version": "GRAND I-10 AI3 HB 1.2 MT DESIGN FL",
+          "price": 11190000,
+          "price_list": 12990000,
+          "price_bonus": 1800000,
+          "transmission": "manual",
+          "traction": "4x2"
+        },
+        {
+          "version": "GRAND I-10 AI3 HB 1.2 AT PLUS FL",
+          "price": 11990000,
+          "price_list": 13290000,
+          "price_bonus": 1300000,
           "transmission": "automatica",
           "traction": "4x2"
         }
-      ]
+      ],
+      "price_list": 10690000,
+      "price_bonus": 1700000,
+      "price_source": "https://www.hyundai.cl/nuestros-modelos/hatchback-y-citycar/new-grand-i10-hatchback/",
+      "price_checked_at": "2026-10-22"
     },
     {
       "id": 246,
@@ -344,7 +398,8 @@
         "USB"
       ],
       "warranty_years": 5,
-      "warranty_km": 100000
+      "warranty_km": 100000,
+      "lineup_2026": false
     },
     {
       "id": 247,
@@ -393,7 +448,8 @@
         "USB"
       ],
       "warranty_years": 5,
-      "warranty_km": 100000
+      "warranty_km": 100000,
+      "lineup_2026": false
     },
     {
       "id": 248,
@@ -403,34 +459,48 @@
       "type": "hatchback",
       "fuel": "gasolina",
       "seats": 5,
-      "price": 15990000,
-      "transmission": "automatica",
+      "price": 13490000,
+      "transmission": "manual",
       "traction": "4x2",
       "image_url": "",
-      "description": "Hatchback premium con diseño deportivo",
+      "description": "Hatchback con motor 1.4L de 99 HP.",
       "origin": "India",
       "origin_country": "Corea del Sur",
       "versions": [
         {
-          "version": "Sense",
+          "version": "I20 BI3 1.4 MT GO FL",
+          "price": 13490000,
+          "price_list": 14990000,
+          "price_bonus": 1500000,
+          "transmission": "manual",
+          "traction": "4x2"
+        },
+        {
+          "version": "I20 BI3 1.4 MT PLUS FL",
+          "price": 15190000,
+          "price_list": 16390000,
+          "price_bonus": 1200000,
+          "transmission": "manual",
+          "traction": "4x2"
+        },
+        {
+          "version": "I20 BI3 1.4 AT PLUS FL",
           "price": 15990000,
+          "price_list": 17190000,
+          "price_bonus": 1200000,
           "transmission": "automatica",
           "traction": "4x2"
         },
         {
-          "version": "Comfort",
-          "price": 17990000,
-          "transmission": "automatica",
-          "traction": "4x2"
-        },
-        {
-          "version": "N Line",
-          "price": 20990000,
+          "version": "I20 BI3 1.0T AT DESIGN FL",
+          "price": 18390000,
+          "price_list": 19690000,
+          "price_bonus": 1300000,
           "transmission": "automatica",
           "traction": "4x2"
         }
       ],
-      "hp": 120,
+      "hp": 99,
       "torque_nm": 172,
       "fuel_consumption_mixed_km_l": 17.5,
       "fuel_tank_liters": 40,
@@ -452,7 +522,11 @@
         "Frenado automático"
       ],
       "warranty_years": 5,
-      "warranty_km": 100000
+      "warranty_km": 100000,
+      "price_list": 14990000,
+      "price_bonus": 1500000,
+      "price_source": "https://www.hyundai.cl/nuestros-modelos/hatchback-y-citycar/new-i20/",
+      "price_checked_at": "2026-10-22"
     },
     {
       "id": 249,
@@ -462,13 +536,13 @@
       "type": "hatchback",
       "fuel": "electrico",
       "seats": 5,
-      "price": 19990000,
+      "price": 16990000,
       "transmission": "automatica",
       "traction": "4x2",
       "image_url": "",
-      "description": "Hatchback 100% eléctrico con diseño moderno y autonomía ideal para la ciudad.",
+      "description": "Hatchback eléctrico de 96 HP, con versiones de 355 km de autonomía.",
       "origin": "Corea del Sur",
-      "hp": 115,
+      "hp": 96,
       "torque_nm": 255,
       "length_mm": 3825,
       "width_mm": 1710,
@@ -494,18 +568,26 @@
       "origin_country": "Corea del Sur",
       "versions": [
         {
-          "version": "Standard Range",
-          "price": 19990000,
+          "version": "INSTER AX EV PLUS",
+          "price": 16990000,
+          "price_list": 21990000,
+          "price_bonus": 5000000,
           "transmission": "automatica",
           "traction": "4x2"
         },
         {
-          "version": "Long Range",
-          "price": 21990000,
+          "version": "INSTER AX EV DESIGN LR",
+          "price": 20490000,
+          "price_list": 24490000,
+          "price_bonus": 4000000,
           "transmission": "automatica",
           "traction": "4x2"
         }
-      ]
+      ],
+      "price_list": 21990000,
+      "price_bonus": 5000000,
+      "price_source": "https://www.hyundai.cl/nuestros-modelos/ecologicos/all-new-inster/",
+      "price_checked_at": "2026-10-22"
     },
     {
       "id": 250,
@@ -559,7 +641,8 @@
         "Control crucero adaptativo"
       ],
       "warranty_years": 5,
-      "warranty_km": 100000
+      "warranty_km": 100000,
+      "lineup_2026": false
     },
     {
       "id": 251,
@@ -613,7 +696,8 @@
         "Control crucero adaptativo"
       ],
       "warranty_years": 5,
-      "warranty_km": 100000
+      "warranty_km": 100000,
+      "lineup_2026": false
     },
     {
       "id": 252,
@@ -623,34 +707,24 @@
       "type": "suv",
       "fuel": "gasolina",
       "seats": 5,
-      "price": 19990000,
+      "price": 29990000,
       "transmission": "automatica",
-      "traction": "4x2",
+      "traction": "awd",
       "image_url": "",
-      "description": "SUV crossover urbano con diseño futurista",
+      "description": "SUV crossover con motor 1.6T de 195 HP y tracción 4WD.",
       "origin": "Corea del Sur",
       "origin_country": "Corea del Sur",
       "versions": [
         {
-          "version": "Sense",
-          "price": 19990000,
+          "version": "KONA SX2 1.6T AT 4WD N-LINE",
+          "price": 29990000,
+          "price_list": 35790000,
+          "price_bonus": 5800000,
           "transmission": "automatica",
-          "traction": "4x2"
-        },
-        {
-          "version": "Comfort",
-          "price": 22990000,
-          "transmission": "automatica",
-          "traction": "4x2"
-        },
-        {
-          "version": "N Line",
-          "price": 25990000,
-          "transmission": "automatica",
-          "traction": "4x4"
+          "traction": "awd"
         }
       ],
-      "hp": 149,
+      "hp": 195,
       "torque_nm": 179,
       "fuel_consumption_mixed_km_l": 16.5,
       "fuel_tank_liters": 50,
@@ -674,7 +748,11 @@
         "Lane Keep Assist"
       ],
       "warranty_years": 5,
-      "warranty_km": 100000
+      "warranty_km": 100000,
+      "price_list": 35790000,
+      "price_bonus": 5800000,
+      "price_source": "https://www.hyundai.cl/nuestros-modelos/suv/all-new-kona/",
+      "price_checked_at": "2026-10-22"
     },
     {
       "id": 253,
@@ -682,15 +760,15 @@
       "model": "Palisade",
       "year": 2026,
       "type": "suv",
-      "fuel": "gasolina",
+      "fuel": "hibrido",
       "seats": 7,
-      "price": 41990000,
+      "price": 57990000,
       "transmission": "automatica",
-      "traction": "4x4",
+      "traction": "awd",
       "image_url": "",
-      "description": "SUV familiar premium con capacidad para 7 pasajeros y motor V6 de alto rendimiento.",
+      "description": "SUV premium híbrido de 330 HP, con versiones de 7 y 8 plazas.",
       "origin": "Corea del Sur",
-      "hp": 295,
+      "hp": 330,
       "torque_nm": 355,
       "length_mm": 4980,
       "width_mm": 1975,
@@ -721,18 +799,34 @@
       "origin_country": "Corea del Sur",
       "versions": [
         {
-          "version": "3.8 V6 AT 4x2",
-          "price": 41990000,
+          "version": "PALISADE LX3 2.5T HEV AT AWD LIMITED",
+          "price": 57990000,
+          "price_list": 59990000,
+          "price_bonus": 2000000,
           "transmission": "automatica",
-          "traction": "4x2"
+          "traction": "awd"
         },
         {
-          "version": "3.8 V6 AT 4x4",
-          "price": 44990000,
+          "version": "PALISADE LX3 2.5T HEV AT AWD CALLIGRAPHY",
+          "price": 63990000,
+          "price_list": 65990000,
+          "price_bonus": 2000000,
           "transmission": "automatica",
-          "traction": "4x4"
+          "traction": "awd"
+        },
+        {
+          "version": "PALISADE LX3 2.5T HEV AT AWD 7P CALLIGRAPHY",
+          "price": 64990000,
+          "price_list": 66990000,
+          "price_bonus": 2000000,
+          "transmission": "automatica",
+          "traction": "awd"
         }
-      ]
+      ],
+      "price_list": 59990000,
+      "price_bonus": 2000000,
+      "price_source": "https://www.hyundai.cl/nuestros-modelos/hibridos/all-new-palisade-hibrido/",
+      "price_checked_at": "2026-10-22"
     },
     {
       "id": 254,
@@ -740,15 +834,15 @@
       "model": "Porter",
       "year": 2026,
       "type": "pickup",
-      "fuel": "gasolina",
-      "seats": 5,
-      "price": 23200000,
+      "fuel": "diesel",
+      "seats": 3,
+      "price": 23788100,
       "transmission": "manual",
       "traction": "4x2",
       "image_url": "",
-      "description": "Pickup de trabajo con capacidad de carga y eficiencia.",
+      "description": "Pickup de trabajo diésel con versiones chasis y camioneta, 128 HP.",
       "origin": "Corea del Sur",
-      "hp": 100,
+      "hp": 128,
       "torque_nm": 132,
       "length_mm": 4740,
       "width_mm": 1690,
@@ -773,18 +867,26 @@
       "origin_country": "Corea del Sur",
       "versions": [
         {
-          "version": "Cabina Simple",
-          "price": 23200000,
+          "version": "PORTER 2.5 CRDI 6M/T GLS CHASSIS 2AB AC E6D",
+          "price": 23788100,
+          "price_list": 26168100,
+          "price_bonus": 2380000,
           "transmission": "manual",
           "traction": "4x2"
         },
         {
-          "version": "Cabina Doble",
-          "price": 25200000,
+          "version": "PORTER 2.5 CRDI 6M/T GLS CAMIONETA 2AB AC E6D",
+          "price": 26168100,
+          "price_list": 27715100,
+          "price_bonus": 1547000,
           "transmission": "manual",
           "traction": "4x2"
         }
-      ]
+      ],
+      "price_list": 26168100,
+      "price_bonus": 2380000,
+      "price_source": "https://www.hyundai.cl/nuestros-modelos/comerciales/porter/",
+      "price_checked_at": "2026-10-22"
     },
     {
       "id": 255,
@@ -794,34 +896,40 @@
       "type": "suv",
       "fuel": "hibrido",
       "seats": 7,
-      "price": 35990000,
+      "price": 38990000,
       "transmission": "automatica",
-      "traction": "awd",
+      "traction": "4x2",
       "image_url": "",
-      "description": "SUV grande familiar con tercera fila y tecnología híbrida",
+      "description": "SUV familiar híbrido de 215 HP, con tres filas de asientos.",
       "origin": "Corea del Sur",
       "origin_country": "Corea del Sur",
       "versions": [
         {
-          "version": "Comfort",
-          "price": 35990000,
+          "version": "SANTA FE MX5 1.6T HEV AT DESIGN",
+          "price": 38990000,
+          "price_list": 41590000,
+          "price_bonus": 2600000,
+          "transmission": "automatica",
+          "traction": "4x2"
+        },
+        {
+          "version": "SANTA FE MX5 1.6T HEV AT 4WD PREMIUM",
+          "price": 42990000,
+          "price_list": 46990000,
+          "price_bonus": 4000000,
           "transmission": "automatica",
           "traction": "awd"
         },
         {
-          "version": "Premium",
-          "price": 39990000,
-          "transmission": "automatica",
-          "traction": "awd"
-        },
-        {
-          "version": "Calligraphy",
-          "price": 44990000,
+          "version": "SANTA FE MX5 1.6T HEV AT 4WD LIMITED",
+          "price": 47990000,
+          "price_list": 50590000,
+          "price_bonus": 2600000,
           "transmission": "automatica",
           "traction": "awd"
         }
       ],
-      "hp": 227,
+      "hp": 215,
       "torque_nm": 357,
       "fuel_consumption_mixed_km_l": 17,
       "fuel_tank_liters": 54,
@@ -847,7 +955,11 @@
         "Parking Assist"
       ],
       "warranty_years": 5,
-      "warranty_km": 100000
+      "warranty_km": 100000,
+      "price_list": 41590000,
+      "price_bonus": 2600000,
+      "price_source": "https://www.hyundai.cl/nuestros-modelos/ecologicos/all-new-santa-fe-hibrido/",
+      "price_checked_at": "2026-10-22"
     },
     {
       "id": 256,
@@ -856,29 +968,41 @@
       "year": 2025,
       "type": "minivan",
       "fuel": "diesel",
-      "seats": 7,
-      "price": 34990000,
-      "transmission": "automatica",
+      "seats": 9,
+      "price": 34855100,
+      "transmission": "manual",
       "traction": "4x2",
       "image_url": "",
-      "description": "Minivan futurista con diseño único y espacio generoso",
+      "description": "Minivan diésel para 9 u 11 pasajeros, con 174 HP.",
       "origin": "Corea del Sur",
       "origin_country": "Corea del Sur",
       "versions": [
         {
-          "version": "Comfort",
-          "price": 34990000,
-          "transmission": "automatica",
+          "version": "STARIA US4 MB 2.2 CRDI MT 9P FL",
+          "price": 34855100,
+          "price_list": 37235100,
+          "price_bonus": 2380000,
+          "transmission": "manual",
           "traction": "4x2"
         },
         {
-          "version": "Premium",
-          "price": 39990000,
+          "version": "STARIA US4 MB 2.2 CRDI MT 11P FL",
+          "price": 35331100,
+          "price_list": 37711100,
+          "price_bonus": 2380000,
+          "transmission": "manual",
+          "traction": "4x2"
+        },
+        {
+          "version": "STARIA US4 MB 2.2 CRDI AT 9P FL",
+          "price": 36164100,
+          "price_list": 38544100,
+          "price_bonus": 2380000,
           "transmission": "automatica",
           "traction": "4x2"
         }
       ],
-      "hp": 177,
+      "hp": 174,
       "torque_nm": 431,
       "fuel_consumption_mixed_km_l": 13,
       "fuel_tank_liters": 75,
@@ -902,7 +1026,11 @@
         "Lane Keep Assist"
       ],
       "warranty_years": 5,
-      "warranty_km": 100000
+      "warranty_km": 100000,
+      "price_list": 37235100,
+      "price_bonus": 2380000,
+      "price_source": "https://www.hyundai.cl/nuestros-modelos/comerciales/new-staria/",
+      "price_checked_at": "2026-10-22"
     },
     {
       "id": 257,
@@ -912,40 +1040,48 @@
       "type": "suv",
       "fuel": "gasolina",
       "seats": 5,
-      "price": 24990000,
-      "transmission": "automatica",
+      "price": 20790000,
+      "transmission": "manual",
       "traction": "4x2",
       "image_url": "",
-      "description": "SUV mediano con diseño sensuous sportiness",
+      "description": "SUV mediano con motor 2.0L de 154 HP.",
       "origin": "Corea del Sur",
       "origin_country": "Corea del Sur",
       "versions": [
         {
-          "version": "Sense",
-          "price": 24990000,
+          "version": "2.0 MT GO FL",
+          "price": 20790000,
+          "price_list": 24390000,
+          "price_bonus": 3600000,
+          "transmission": "manual",
+          "traction": "4x2"
+        },
+        {
+          "version": "2.0 AT PLUS FL",
+          "price": 22490000,
+          "price_list": 25990000,
+          "price_bonus": 3500000,
           "transmission": "automatica",
           "traction": "4x2"
         },
         {
-          "version": "Comfort",
-          "price": 27990000,
-          "transmission": "automatica",
-          "traction": "4x2"
-        },
-        {
-          "version": "Premium",
-          "price": 31990000,
-          "transmission": "automatica",
-          "traction": "4x2"
-        },
-        {
-          "version": "Híbrido",
-          "price": 33990000,
+          "version": "1.5T AT 4WD PLUS FL",
+          "price": 26590000,
+          "price_list": 30190000,
+          "price_bonus": 3600000,
           "transmission": "automatica",
           "traction": "awd"
+        },
+        {
+          "version": "2.0 AT BLACKLINE FL",
+          "price": 26590000,
+          "price_list": 30190000,
+          "price_bonus": 3600000,
+          "transmission": "automatica",
+          "traction": "4x2"
         }
       ],
-      "hp": 186,
+      "hp": 154,
       "torque_nm": 265,
       "fuel_consumption_mixed_km_l": 15,
       "fuel_tank_liters": 54,
@@ -971,7 +1107,11 @@
         "Monitor 360°"
       ],
       "warranty_years": 5,
-      "warranty_km": 100000
+      "warranty_km": 100000,
+      "price_list": 24390000,
+      "price_bonus": 3600000,
+      "price_source": "https://www.hyundai.cl/nuestros-modelos/suv/the-new-tucson/",
+      "price_checked_at": "2026-10-22"
     },
     {
       "id": 258,
@@ -981,28 +1121,40 @@
       "type": "suv",
       "fuel": "hibrido",
       "seats": 5,
-      "price": 30990000,
+      "price": 29190000,
       "transmission": "automatica",
-      "traction": "awd",
+      "traction": "4x2",
       "image_url": "",
-      "description": "SUV mediano híbrido convencional con 60 km de autonomía en modo eléctrico a baja velocidad.",
+      "description": "SUV mediano híbrido (HEV) de 154 HP, con versiones 4x2 y 4x4.",
       "origin": "Corea del Sur",
       "origin_country": "Corea del Sur",
       "versions": [
         {
-          "version": "Comfort PHEV",
-          "price": 30990000,
+          "version": "NX4 1.6T HEV AT PLUS FL",
+          "price": 29190000,
+          "price_list": 31890000,
+          "price_bonus": 2700000,
           "transmission": "automatica",
-          "traction": "awd"
+          "traction": "4x2"
         },
         {
-          "version": "Premium PHEV",
-          "price": 34990000,
+          "version": "2 TFT TUCSON NX4 1.6T HEV AT DESIGN FL",
+          "price": 33990000,
+          "price_list": 37590000,
+          "price_bonus": 3600000,
+          "transmission": "automatica",
+          "traction": "4x2"
+        },
+        {
+          "version": "TUCSON NX4 1.6T HEV AT 4WD LIMITED FL",
+          "price": 37990000,
+          "price_list": 42390000,
+          "price_bonus": 4400000,
           "transmission": "automatica",
           "traction": "awd"
         }
       ],
-      "hp": 265,
+      "hp": 154,
       "torque_nm": 357,
       "fuel_consumption_mixed_km_l": 17,
       "fuel_tank_liters": 54,
@@ -1027,7 +1179,11 @@
         "Control crucero adaptativo"
       ],
       "warranty_years": 5,
-      "warranty_km": 100000
+      "warranty_km": 100000,
+      "price_list": 31890000,
+      "price_bonus": 2700000,
+      "price_source": "https://www.hyundai.cl/nuestros-modelos/ecologicos/the-new-tucson-hibrido/",
+      "price_checked_at": "2026-10-22"
     },
     {
       "id": 259,
@@ -1037,13 +1193,13 @@
       "type": "suv",
       "fuel": "gasolina",
       "seats": 5,
-      "price": 13490000,
-      "transmission": "automatica",
+      "price": 14290000,
+      "transmission": "manual",
       "traction": "4x2",
       "image_url": "",
-      "description": "SUV subcompacta con estilo moderno y gran conectividad para la vida urbana.",
+      "description": "SUV subcompacto con motor 1.0T de 118 HP.",
       "origin": "India",
-      "hp": 120,
+      "hp": 118,
       "torque_nm": 175,
       "length_mm": 3995,
       "width_mm": 1770,
@@ -1072,15 +1228,226 @@
       "origin_country": "India",
       "versions": [
         {
-          "version": "1.0T MT",
-          "price": 13490000,
+          "version": "1.0T MT GO",
+          "price": 14290000,
+          "price_list": 16490000,
+          "price_bonus": 2200000,
           "transmission": "manual",
           "traction": "4x2"
         },
         {
-          "version": "1.0T AT",
+          "version": "1.0T MT PLUS",
           "price": 14990000,
+          "price_list": 17190000,
+          "price_bonus": 2200000,
+          "transmission": "manual",
+          "traction": "4x2"
+        },
+        {
+          "version": "1.0T AT PLUS",
+          "price": 16790000,
+          "price_list": 18990000,
+          "price_bonus": 2200000,
           "transmission": "automatica",
+          "traction": "4x2"
+        },
+        {
+          "version": "1.0T AT DESIGN",
+          "price": 18390000,
+          "price_list": 20490000,
+          "price_bonus": 2100000,
+          "transmission": "automatica",
+          "traction": "4x2"
+        }
+      ],
+      "price_list": 16490000,
+      "price_bonus": 2200000,
+      "price_source": "https://www.hyundai.cl/nuestros-modelos/suv/all-new-venue/",
+      "price_checked_at": "2026-10-22"
+    },
+    {
+      "id": 650,
+      "brand": "Hyundai",
+      "model": "Grand i10 Sedán",
+      "year": 2026,
+      "type": "sedan",
+      "fuel": "gasolina",
+      "seats": 5,
+      "price": 11190000,
+      "price_list": 12490000,
+      "price_bonus": 1300000,
+      "transmission": "manual",
+      "traction": "4x2",
+      "image_url": "",
+      "description": "Sedán urbano de la familia Grand i10, con maletero y equipamiento de confort.",
+      "origin": "India",
+      "origin_country": "India",
+      "hp": 82,
+      "price_source": "https://www.hyundai.cl/nuestros-modelos/sedan/new-grand-i10-sedan/",
+      "price_checked_at": "2026-10-22",
+      "versions": [
+        {
+          "version": "GRAND I-10 AI3 SEDAN 1.2 MT PLUS FL",
+          "price": 11190000,
+          "price_list": 12490000,
+          "price_bonus": 1300000,
+          "transmission": "manual",
+          "traction": "4x2"
+        },
+        {
+          "version": "GRAND I-10 AI3 SEDAN 1.2 MT DESIGN FL",
+          "price": 11990000,
+          "price_list": 13590000,
+          "price_bonus": 1600000,
+          "transmission": "manual",
+          "traction": "4x2"
+        },
+        {
+          "version": "GRAND I-10 AI3 SEDAN 1.2 AT PLUS FL",
+          "price": 12690000,
+          "price_list": 14190000,
+          "price_bonus": 1500000,
+          "transmission": "automatica",
+          "traction": "4x2"
+        }
+      ]
+    },
+    {
+      "id": 651,
+      "brand": "Hyundai",
+      "model": "Creta Grand",
+      "year": 2026,
+      "type": "suv",
+      "fuel": "gasolina",
+      "seats": 7,
+      "price": 20390000,
+      "price_list": 21790000,
+      "price_bonus": 1400000,
+      "transmission": "manual",
+      "traction": "4x2",
+      "image_url": "",
+      "description": "SUV familiar de 7 asientos en tres filas, con motor 2.0L y 157 HP.",
+      "origin": "India",
+      "origin_country": "India",
+      "hp": 157,
+      "price_source": "https://www.hyundai.cl/nuestros-modelos/suv/the-new-creta-grand/",
+      "price_checked_at": "2026-10-22",
+      "versions": [
+        {
+          "version": "2.0 MT GO FL",
+          "price": 20390000,
+          "price_list": 21790000,
+          "price_bonus": 1400000,
+          "transmission": "manual",
+          "traction": "4x2"
+        },
+        {
+          "version": "2.0 AT PLUS FL",
+          "price": 22290000,
+          "price_list": 24290000,
+          "price_bonus": 2000000,
+          "transmission": "automatica",
+          "traction": "4x2"
+        }
+      ]
+    },
+    {
+      "id": 652,
+      "brand": "Hyundai",
+      "model": "Kona Híbrido",
+      "year": 2026,
+      "type": "suv",
+      "fuel": "hibrido",
+      "seats": 5,
+      "price": 24390000,
+      "price_list": 27590000,
+      "price_bonus": 3200000,
+      "transmission": "automatica",
+      "traction": "4x2",
+      "image_url": "",
+      "description": "SUV urbano híbrido de 139 HP, con la tecnología HEV de Hyundai.",
+      "origin": "Corea del Sur",
+      "origin_country": "Corea del Sur",
+      "hp": 139,
+      "price_source": "https://www.hyundai.cl/nuestros-modelos/ecologicos/all-new-kona-hibrido/",
+      "price_checked_at": "2026-10-22",
+      "versions": [
+        {
+          "version": "KONA SX2 1.6 AT HEV PLUS",
+          "price": 24390000,
+          "price_list": 27590000,
+          "price_bonus": 3200000,
+          "transmission": "automatica",
+          "traction": "4x2"
+        },
+        {
+          "version": "KONA SX2 1.6 AT HEV DESIGN",
+          "price": 27590000,
+          "price_list": 30190000,
+          "price_bonus": 2600000,
+          "transmission": "automatica",
+          "traction": "4x2"
+        }
+      ]
+    },
+    {
+      "id": 653,
+      "brand": "Hyundai",
+      "model": "Kona Eléctrico",
+      "year": 2026,
+      "type": "suv",
+      "fuel": "electrico",
+      "seats": 5,
+      "price": 36990000,
+      "price_list": 40090000,
+      "price_bonus": 3100000,
+      "transmission": "automatica",
+      "traction": "4x2",
+      "image_url": "",
+      "description": "SUV eléctrico con batería de 48,6 kWh y 370 km de autonomía WLTP.",
+      "origin": "Corea del Sur",
+      "origin_country": "Corea del Sur",
+      "hp": 133,
+      "price_source": "https://www.hyundai.cl/nuestros-modelos/ecologicos/all-new-kona-electrico/",
+      "price_checked_at": "2026-10-22",
+      "versions": [
+        {
+          "version": "KONA SX2 EV GO LR",
+          "price": 36990000,
+          "price_list": 40090000,
+          "price_bonus": 3100000,
+          "transmission": "automatica",
+          "traction": "4x2"
+        }
+      ]
+    },
+    {
+      "id": 654,
+      "brand": "Hyundai",
+      "model": "Staria Furgón",
+      "year": 2026,
+      "type": "minivan",
+      "fuel": "diesel",
+      "seats": 3,
+      "price": 33546100,
+      "price_list": 34141100,
+      "price_bonus": 595000,
+      "transmission": "manual",
+      "traction": "4x2",
+      "image_url": "",
+      "description": "Furgón de carga de 3 plazas y 1.164 kg de capacidad.",
+      "origin": "Corea del Sur",
+      "origin_country": "Corea del Sur",
+      "hp": 174,
+      "price_source": "https://www.hyundai.cl/nuestros-modelos/comerciales/new-staria-furgon/",
+      "price_checked_at": "2026-10-22",
+      "versions": [
+        {
+          "version": "STARIA US4 FG 2.2 CRDI MT Doble Puerta FL",
+          "price": 33546100,
+          "price_list": 34141100,
+          "price_bonus": 595000,
+          "transmission": "manual",
           "traction": "4x2"
         }
       ]

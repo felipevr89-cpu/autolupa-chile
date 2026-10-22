@@ -537,12 +537,6 @@
           "price": 31990000,
           "transmission": "automatica",
           "traction": "4x2"
-        },
-        {
-          "version": "EV",
-          "price": 35990000,
-          "transmission": "automatica",
-          "traction": "4x2"
         }
       ],
       "hp": 141,
@@ -1012,12 +1006,6 @@
           "price": 33990000,
           "transmission": "automatica",
           "traction": "4x4"
-        },
-        {
-          "version": "Híbrido",
-          "price": 35990000,
-          "transmission": "automatica",
-          "traction": "awd"
         }
       ],
       "hp": 187,

@@ -8,7 +8,8 @@ Marketplace chileno de autos usados con comparador integrado de vehículos nuevo
 - **Persistencia**: listings, fotos, favoritos, perfiles, preferencias y firmas en Supabase; RLS y moderación obligatorias antes de publicar
 - **Seguridad de datos**: máquina de estados en base de datos, proyección pública de columnas, fotos no enumerables, `_headers` con cabeceras de seguridad, `_redirects` para el fallback SPA, CI con lint + tests + build
 - **Core**: Home, CarDetail, Favorites, Compare, FilterPanel, CarGrid funcionando
-- **Catálogo**: 98 marcas / 626 modelos con id único (IDs duplicados corregidos: 310/352/331 renumerados a 647/648/649; marca "Tank" duplicada eliminada)
+- **Catálogo**: 98 marcas / 630 modelos con id único (IDs duplicados corregidos: 310/352/331 renumerados a 647/648/649; marca "Tank" duplicada eliminada)
+- **Datos 2026**: precios, precios lista, bonos y versiones de Hyundai reconstruidos desde las fichas oficiales; seguridad mostrada solo con `safety_ratings` que tengan fuente (Latin NCAP sin fuente ya no se muestra)
 - **Top 10** (`/top10`): Rankings por categoría (seguridad, espacio, consumo, potencia, económico, autonomía EV, nuevos). Sincronizado con el parámetro `?cat=` del dropdown de la Navbar
 - **EV Hub** (`EVHub`): Catálogo electrificados, calculadora de carga, ranking autonomía, impacto ambiental
 - **TCO Calculator**: Costo total de propiedad (permiso de circulación según fórmula SII, mantenciones, seguro, combustible/energía, cuota crédito), gráficos, comparación
@@ -18,7 +19,7 @@ Marketplace chileno de autos usados con comparador integrado de vehículos nuevo
 - **Páginas legales**: `/privacidad`, `/terminos`, `/responsabilidad` (LegalDocs) — enlaces funcionales en el Footer, incluidas en el sitemap
 - **Dark/light**: tailwind `dark:` en todos los componentes
 - **PWA**: favicon e ícono propios (`favicon.svg`), manifiesto actualizado (antes `vite.svg`)
-- **Tests**: 65 tests pasando (incluye smoke test de las páginas del marketplace)
+- **Tests**: 229 tests pasando (incluye smoke test de las páginas del marketplace y la integridad del catálogo)
 - **Lint**: 0 errores / 0 warnings
 - **Build**: compila sin errores (el aviso de chunk >500 KB se debe a los datos de catálogo embebidos en el bundle principal)
 
@@ -252,6 +253,18 @@ El rol anónimo (sin sesión) sigue sin poder insertar: no se tocó ninguna pol�
 - **Búsqueda y recientes**: escribir en el buscador resetea la página; `addRecent` se registra al abrir una tarjeta, al navegar anterior/siguiente y al entrar a `/auto/:slug`. Se eliminó el `<main>` anidado de Home.
 - **Canonical**: se quitó el canonical estático de `index.html` (apuntaba siempre a la portada); ahora lo gestiona `SEO` por ruta. El sitemap pasa a **764 URLs** con las 625 fichas de auto y deja fuera `/favorites` (ruta personal).
 - Tests: **227** (`carRoutes.test.tsx` con 5 nuevos; `CompareTable.test.tsx` actualizado al Router). `LINT=0`, `BUILD=0`, `TEST=227/227`.
+
+## Lote 24 — Datos 2026: seguridad con fuente, tipos y Hyundai oficial (22-10-2026)
+
+- **Seguridad sin datos inventados**: se eliminó `latin_ncap_stars` de la interfaz (ficha, comparador, Top 10 y wizard) y el campo salió de `Car`. Ahora solo se muestran `safety_ratings` con programa, año y fuente; el comparador rotula «Crash tests» y, si no hay evaluación, dice «Sin evaluación independiente». Los 338 valores legacy siguen en los JSON pero ya no se leen.
+- **Tipos corregidos**: Aston Martin Vantage, Ferrari 812 Superfast y SF90, Jaguar F-Type, Lamborghini Huracán y Revuelto y McLaren 720S y Artura pasan de `sedan` a `coupe`; MG GT pasa de `coupe` a `sedan`.
+- **Duplicados de híbridos**: se quitó la versión «Híbrido» del Kia Sportage bencina y la versión «EV» del Kia Niro (el Niro EV ya existe como modelo propio). En Hyundai, Tucson bencina ya no incluye la versión híbrida y Tucson Híbrido deja de declarar versiones PHEV: es HEV.
+- **Hyundai reconstruido desde `hyundai.cl`** (consulta 22-10-2026): 18 modelos vigentes con versiones, precio desde, precio lista, bono y fuente por modelo. Se agregaron **Grand i10 Sedán**, **Creta Grand**, **Kona Híbrido**, **Kona Eléctrico** y **Staria Furgón** (ids 650–654); se actualizaron potencias oficiales (Kona 195 HP, Tucson 154, Tucson HEV 154, Santa Fe 215, Palisade 330, Porter 128, Staria/Furgón 174, Inster 96, Kona EV 133, Creta 113, i20 99, Accent 115, Venue 118, Grand i10 82, Creta Grand 157) y el Kona EV suma 48,6 kWh / 370 km WLTP en `enrichment.ts`.
+- **Fuera de parrilla marcados, no borrados**: Bayon, Elantra, HB20, i10, Ioniq 5 e Ioniq 6 llevan `lineup_2026: false` y un aviso «No aparece en la parrilla 2026» en tarjeta y ficha, sin romper URLs ni favoritos.
+- **Modelo de datos**: `Car` y `CarVersion` suman `price_list`, `price_bonus`, `price_source`, `price_checked_at` y `lineup_2026`; la tarjeta y la ficha muestran el precio lista y el bono cuando existen. La invariante `price = min(versions.price)` se mantiene y ahora se testea.
+- **Auditoría reproducible**: `npm run audit:catalog` (`scripts/audit-catalog.mjs`) revisa ids únicos, campos obligatorios, precios, versiones, bonos, duplicados marca+modelo+año+combustible y fuentes de seguridad; corre en CI antes del build. Estado actual: **630 modelos / 1.310 versiones / 0 errores**.
+- **Sitemap**: 769 URLs (630 fichas de auto + rutas estáticas, marcas, regiones, blog y usados). `LINT=0`, `TEST=229/229`, `BUILD=0`.
+- **Pendiente de Lote 24**: Toyota, Suzuki, MG, Mazda, Nissan y Kia (precios/versiones oficiales), duplicados GWM/Haval y Jolion, RAV4/C-HR híbridos, fotos de generación dudosa y modelos fuera de gama de las demás marcas.
 
 ## Lote 18 — Fotos del catálogo: siluetas cerradas + curaduría de la auditoría (06-10-2026)
 

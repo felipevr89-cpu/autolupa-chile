@@ -48,6 +48,29 @@ describe('catalog integrity', () => {
     expect(new Set(ids).size).toBe(ids.length);
   });
 
+  it('keeps the base price equal to the cheapest published version', () => {
+    for (const c of carsData) {
+      expect(c.versions.length).toBeGreaterThan(0);
+      const cheapest = Math.min(...c.versions.map((v) => v.price));
+      expect(c.price).toBe(cheapest);
+    }
+  });
+
+  it('keeps list prices and bonuses consistent when present', () => {
+    for (const c of carsData) {
+      if (c.price_list != null) expect(c.price_list).toBeGreaterThanOrEqual(c.price);
+      if (c.price_list != null && c.price_bonus != null) {
+        expect(c.price_bonus).toBe(c.price_list - c.price);
+      }
+      for (const v of c.versions) {
+        if (v.price_list != null) expect(v.price_list).toBeGreaterThanOrEqual(v.price);
+        if (v.price_list != null && v.price_bonus != null) {
+          expect(v.price_bonus).toBe(v.price_list - v.price);
+        }
+      }
+    }
+  });
+
   it('applies enrichment: some EVs have range/battery and models have sourced safety ratings', () => {
     const modelY = carsData.find((c) => c.brand === 'Tesla' && c.model === 'Model Y');
     expect(modelY?.electric_range_km).toBeGreaterThan(0);

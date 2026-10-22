@@ -70,8 +70,6 @@ export function CompareTable({ cars, onRemove }: Props) {
   const maxTrunk = Math.max(...trunkValues);
   const seatsValues = cars.map((c) => c.seats ?? 0);
   const maxSeats = Math.max(...seatsValues);
-  const ncapValues = cars.map((c) => c.latin_ncap_stars ?? 0);
-  const maxNcap = Math.max(...ncapValues);
 
   const isWinner = (car: Car, field: string) => {
     if (field === 'price') return car.price === minPrice;
@@ -80,7 +78,6 @@ export function CompareTable({ cars, onRemove }: Props) {
     if (field === 'airbags') return (car.airbags ?? 0) === maxAirbags && maxAirbags > 0;
     if (field === 'trunk') return (car.trunk_liters ?? 0) === maxTrunk && maxTrunk > 0;
     if (field === 'seats') return (car.seats ?? 0) === maxSeats && maxSeats > 0;
-    if (field === 'ncap') return (car.latin_ncap_stars ?? 0) === maxNcap && maxNcap > 0;
     return false;
   };
 
@@ -96,7 +93,6 @@ export function CompareTable({ cars, onRemove }: Props) {
     if (isWinner(car, 'airbags')) score++;
     if (isWinner(car, 'trunk')) score++;
     if (isWinner(car, 'seats')) score++;
-    if (isWinner(car, 'ncap')) score++;
     return score;
   });
 
@@ -138,8 +134,7 @@ export function CompareTable({ cars, onRemove }: Props) {
   const safetySpecs: SpecRow[] = [
     { label: 'Airbags', key: 'airbags', format: (v: number) => `${v}`, highlight: 'high' },
     { label: 'ISOFIX', key: 'isofix', format: (v: boolean) => v ? '✓' : '✗' },
-    { label: 'Latin NCAP', key: 'latin_ncap_stars', format: (v: number) => v > 0 ? '⭐'.repeat(Math.min(v, 5)) : 'Sin evaluar' },
-    { label: 'Crash tests', format: (_, c) => (c.safety_ratings ?? []).length > 0 ? (c.safety_ratings ?? []).map(r => `${r.program}: ${r.stars}★ (${r.year})`).join(' · ') : '—' },
+    { label: 'Crash tests', format: (_, c) => (c.safety_ratings ?? []).length > 0 ? (c.safety_ratings ?? []).map(r => `${r.program}: ${r.stars}★ (${r.year})`).join(' · ') : 'Sin evaluación independiente' },
     { label: 'ADAS', format: (_, c) => (c.adas ?? []).length > 0 ? (c.adas ?? []).join(', ') : 'Sin ADAS' },
   ];
 

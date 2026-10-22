@@ -62,9 +62,9 @@ const categories = [
 ];
 
 function safetyScore(c: Car): number {
-  const stars = c.latin_ncap_stars ?? c.safety_ratings?.find(r => r.program === 'Latin NCAP')?.stars ?? 0;
+  const bestSourced = Math.max(0, ...(c.safety_ratings ?? []).map(r => r.stars));
   const adasCount = c.adas?.length ?? 0;
-  return (c.airbags ?? 0) + stars * 3 + adasCount;
+  return (c.airbags ?? 0) + bestSourced * 3 + adasCount;
 }
 
 function espacioScore(c: Car): number {
@@ -116,7 +116,10 @@ function getTopCars(category: string): Car[] {
 }
 
 const categoryStats: Record<string, (car: Car) => string> = {
-  seguridad: c => (c.latin_ncap_stars ? `${'★'.repeat(c.latin_ncap_stars)}` : `${c.airbags ?? 0} airbags`),
+  seguridad: c => {
+    const best = (c.safety_ratings ?? []).reduce<{ stars: number; program: string } | null>((acc, r) => (!acc || r.stars > acc.stars ? { stars: r.stars, program: r.program } : acc), null);
+    return best ? `${'★'.repeat(best.stars)} ${best.program}` : `${c.airbags ?? 0} airbags`;
+  },
   espacio: c => `${c.trunk_liters ?? '-'} L`,
   consumo: c => `${c.fuel_consumption_mixed_km_l ?? '-'} km/L`,
   potencia: c => `${c.hp ?? '-'} HP`,

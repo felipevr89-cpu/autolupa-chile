@@ -77,7 +77,8 @@ export const enrichment: Record<string, Enrichment> = {
     battery_kwh: 77,
     safety_ratings: [{ program: 'Euro NCAP', stars: 5, year: 2022, source: EURO }],
   },
-  'Hyundai|Inster': { electric_range_km: 355, battery_kwh: 49 },
+  'Hyundai|Inster': { electric_range_km: 360, battery_kwh: 49 },
+  'Hyundai|Kona Eléctrico': { electric_range_km: 370, battery_kwh: 48.6 },
 
   'Kia|EV6': {
     electric_range_km: 528,

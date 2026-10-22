@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite",
     "prebuild": "node scripts/generate-sitemap.mjs",
+    "audit:catalog": "node scripts/audit-catalog.mjs",
     "build": "tsc -b && vite build",
     "test": "vitest run",
     "lint": "eslint .",

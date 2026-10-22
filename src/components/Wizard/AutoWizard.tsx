@@ -198,7 +198,8 @@ function scoreCar(car: Car, answers: Record<string, string>): Score {
       if (car.traction === '4x4' || car.traction === 'awd') score += 5;
     } else if (priority === 'safety') {
       score += ((car.airbags ?? 0) / 8) * 15;
-      score += ((car.latin_ncap_stars ?? 0) / 5) * 10;
+      const bestSourced = Math.max(0, ...(car.safety_ratings ?? []).map(r => r.stars));
+      score += (bestSourced / 5) * 10;
       if (car.adas && car.adas.length > 0) score += Math.min(car.adas.length * 3, 15);
       if (car.isofix) score += 5;
     } else if (priority === 'space') {

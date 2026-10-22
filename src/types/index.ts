@@ -1,6 +1,8 @@
 export interface CarVersion {
   version: string;
   price: number;
+  price_list?: number;
+  price_bonus?: number;
   transmission: string;
   traction: string;
 }
@@ -35,6 +37,11 @@ export interface Car {
   fuel: 'gasolina' | 'diesel' | 'electrico' | 'hibrido' | 'hibrido_enchufable';
   seats: number;
   price: number;
+  price_list?: number;
+  price_bonus?: number;
+  price_source?: string;
+  price_checked_at?: string;
+  lineup_2026?: boolean;
   transmission: 'manual' | 'automatica';
   traction: '4x2' | '4x4' | 'awd';
   image_url: string;
@@ -65,7 +72,6 @@ export interface Car {
   // Safety
   airbags?: number;
   adas?: string[];
-  latin_ncap_stars?: number;
   safety_ratings?: SafetyRating[];
   isofix?: boolean;
   // Technology

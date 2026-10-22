@@ -26,6 +26,9 @@ jobs:
       - name: Test
         run: npm test
 
+      - name: Audit catalog
+        run: npm run audit:catalog
+
       - name: Build
         run: npm run build
         env:

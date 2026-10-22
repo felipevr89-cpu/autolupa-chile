@@ -15,7 +15,7 @@ import { track } from '../../lib/analytics';
 import {
   BoltIcon, WrenchIcon, Battery100Icon, PowerIcon, FireIcon,
   ShieldCheckIcon, CubeIcon, ArrowsRightLeftIcon,
-  ArrowUpIcon, CircleStackIcon, StarIcon, ClockIcon,
+  ArrowUpIcon, CircleStackIcon, ClockIcon,
   GlobeAltIcon,
 } from '@heroicons/react/24/outline';
 
@@ -256,6 +256,12 @@ export function CarDetail({ car, onClose, isFavorite, onToggleFavorite, onPrevCa
             </div>
           )}
 
+          {car.lineup_2026 === false && (
+            <div className="mb-4 px-3 py-2 bg-amber-100 dark:bg-amber-900/40 border border-amber-300 dark:border-amber-700 rounded-xl text-sm text-amber-800 dark:text-amber-300">
+              Este modelo no aparece en la parrilla 2026 publicada por {car.brand} Chile. El precio y la ficha son referenciales.
+            </div>
+          )}
+
           <div className="mb-4 flex flex-wrap gap-2">
             {car.safety_ratings?.some(r => r.stars === 5) && (
               <span className="px-3 py-1 bg-green-200 dark:bg-green-800/60 text-green-900 dark:text-green-200 rounded-full text-sm font-semibold flex items-center gap-1">
@@ -437,13 +443,6 @@ export function CarDetail({ car, onClose, isFavorite, onToggleFavorite, onPrevCa
                 <p className="text-sm font-bold text-gray-900 dark:text-white">{car.fuel_tank_liters} L</p>
               </div>
             )}
-            {(car.latin_ncap_stars ?? 0) > 0 && (
-              <div className="p-3 bg-gray-50 dark:bg-gray-800 rounded-xl text-center shadow-sm border border-gray-200 dark:border-gray-600">
-                <StarIcon className="w-5 h-5 mx-auto text-yellow-500 dark:text-yellow-400" />
-                <p className="text-[11px] text-gray-600 dark:text-gray-300 font-semibold mt-1">Latin NCAP</p>
-                <p className="text-sm font-bold text-gray-900 dark:text-white">{car.latin_ncap_stars}/5</p>
-              </div>
-            )}
             {car.warranty_years != null && (
               <div className="p-3 bg-gray-50 dark:bg-gray-800 rounded-xl text-center shadow-sm border border-gray-200 dark:border-gray-600">
                 <ClockIcon className="w-5 h-5 mx-auto text-sky-500 dark:text-sky-400" />
@@ -523,6 +522,9 @@ export function CarDetail({ car, onClose, isFavorite, onToggleFavorite, onPrevCa
                     <div>
                       <p className="text-sm font-medium text-gray-900 dark:text-white">{v.version}</p>
                       <p className="text-xs text-gray-600 dark:text-gray-400">{v.transmission} · {v.traction}</p>
+                      {v.price_list != null && v.price_list > v.price && (
+                        <p className="text-[11px] text-gray-500 dark:text-gray-400">Lista {formatPrice(v.price_list)} · bono {formatPrice(v.price_bonus ?? (v.price_list - v.price))}</p>
+                      )}
                     </div>
                     <p className="text-sm font-bold text-blue-700 dark:text-blue-300">{formatPrice(v.price)}</p>
                   </div>
@@ -535,6 +537,11 @@ export function CarDetail({ car, onClose, isFavorite, onToggleFavorite, onPrevCa
             <div>
               <p className="text-sm font-semibold text-gray-700 dark:text-gray-300">Precio desde</p>
               <p className="text-3xl font-bold text-blue-700 dark:text-blue-300">{formatPrice(car.price)}</p>
+              {car.price_list != null && car.price_list > car.price && (
+                <p className="text-xs text-gray-600 dark:text-gray-300 mt-0.5">
+                  Precio lista {formatPrice(car.price_list)} · bono {formatPrice(car.price_bonus ?? (car.price_list - car.price))}
+                </p>
+              )}
               <p className="text-[11px] text-gray-500 dark:text-gray-400 mt-1">Precio referencial. Confirmar en el sitio oficial.</p>
             </div>
             <div className="flex gap-2">

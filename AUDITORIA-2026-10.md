@@ -353,3 +353,14 @@ src/data/ads.ts
 - Kia Chile (promoción Morning): https://www.kia.cl/promociones/kia-morning.html
 
 Los precios oficiales son los publicados el 22-10-2026 y pueden incluir bonos o condiciones de financiamiento; por eso el catálogo debe separar `precio_lista` y `precio_bono`, y guardar la fecha de consulta.
+
+---
+
+## 10. Estado de ejecución (22-10-2026)
+
+- **Lote 24 iniciado por Hyundai**, no por la tabla de 53 precios: se reconstruyeron las 18 fichas vigentes desde las páginas de modelo de `hyundai.cl` (versión, precio desde, precio lista, bono y fuente). Se agregaron Grand i10 Sedán, Creta Grand, Kona Híbrido, Kona Eléctrico y Staria Furgón; Bayon, Elantra, HB20, i10, Ioniq 5 e Ioniq 6 quedaron marcados `lineup_2026: false`.
+- **La tabla 2.1 se usó como detección, no como valor final**: las páginas de modelo publican un precio base más bajo que el botón «Desde» de la portada en varios casos (i20, Accent, Tucson Híbrido, Santa Fe, Staria, Porter). El catálogo guarda ahora el precio de la versión mínima publicada en la ficha y el precio lista/bono asociado.
+- **Seguridad**: se retiró Latin NCAP sin fuente de la ficha, el comparador, el Top 10 y el wizard. Solo se muestran `safety_ratings` con fuente. Los 338 `latin_ncap_stars` legacy quedan en los JSON como deuda de limpieza, sin efecto en la interfaz.
+- **Tipos y duplicados**: 8 superdeportivos a `coupe`, MG GT a `sedan`, Niro EV fuera de las versiones del Niro HEV y Sportage híbrido fuera de las versiones bencina.
+- **Gate**: `npm run audit:catalog` (630 modelos / 1.310 versiones / 0 errores), `LINT=0`, `TEST=229/229`, `BUILD=0`; CI ejecuta la auditoría antes del build.
+- **Siguiente**: Toyota, Suzuki, MG, Mazda, Nissan y Kia con el mismo método; después GWM/Haval/Jolion, RAV4/C-HR y fotos dudosas.

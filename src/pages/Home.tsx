@@ -480,6 +480,7 @@ export function Home({
             setWizardAnswers(answers);
             setAskCars(null);
             setShowWizard(false);
+            onAddRecent?.(car.id);
           }}
           onAddToCompare={handleAddToCompare}
           compareList={compareList}
@@ -495,6 +496,7 @@ export function Home({
             setSelectedCar(car);
             setAskCars(resultCars);
             setShowAsk(false);
+            onAddRecent?.(car.id);
           }}
           onAddToCompare={handleAddToCompare}
           compareList={compareList}

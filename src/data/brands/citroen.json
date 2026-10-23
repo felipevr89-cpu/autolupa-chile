@@ -47,38 +47,51 @@
           "transmission": "automática",
           "traction": "4x2"
         }
-      ]
+      ],
+      "lineup_2026": false
     },
     {
       "id": 129,
       "brand": "Citroën",
-      "model": "Berlingo",
-      "year": 2025,
+      "model": "Berlingo Multispace",
+      "year": 2026,
       "type": "minivan",
-      "fuel": "gasolina",
+      "fuel": "diesel",
       "seats": 7,
-      "price": 19990000,
-      "transmission": "automatica",
+      "price": 20490000,
+      "transmission": "manual",
       "traction": "4x2",
       "image_url": "",
-      "description": "Monovolumen familiar con máximo espacio.",
+      "description": "Monovolumen familiar diésel de 100 o 130 hp, con 5 o 7 plazas según versión.",
       "origin": "Francia",
       "versions": [
         {
-          "version": "Feel M 7 plazas",
-          "price": 19990000,
-          "transmission": "automatica",
+          "version": "Berlingo Multispace MCA XL5 Plus Diesel 100HP MT",
+          "price": 20490000,
+          "price_list": 22590000,
+          "price_bonus": 2100000,
+          "transmission": "manual",
           "traction": "4x2"
         },
         {
-          "version": "Shine M 7 plazas",
-          "price": 23990000,
+          "version": "Berlingo Multispace MCA Plus XL Diesel 100HP MT",
+          "price": 20990000,
+          "price_list": 23090000,
+          "price_bonus": 2100000,
+          "transmission": "manual",
+          "traction": "4x2"
+        },
+        {
+          "version": "Berlingo Multispace MCA Plus XL Diesel 130HP AT",
+          "price": 22990000,
+          "price_list": 25090000,
+          "price_bonus": 2100000,
           "transmission": "automatica",
           "traction": "4x2"
         }
       ],
-      "hp": 130,
-      "torque_nm": 230,
+      "hp": 100,
+      "torque_nm": 250,
       "top_speed_kmh": 180,
       "fuel_consumption_city_km_l": 12,
       "fuel_consumption_highway_km_l": 17,
@@ -106,38 +119,54 @@
       ],
       "warranty_years": 3,
       "warranty_km": 100000,
-      "origin_country": "Francia"
+      "origin_country": "Francia",
+      "price_source": "https://www.rosselot.cl/nuevos/citroen/berlingo-multispace",
+      "price_list": 22590000,
+      "price_bonus": 2100000,
+      "price_checked_at": "2026-10-23"
     },
     {
       "id": 130,
       "brand": "Citroën",
       "model": "C3",
-      "year": 2025,
+      "year": 2026,
       "type": "hatchback",
       "fuel": "gasolina",
       "seats": 5,
-      "price": 13490000,
-      "transmission": "automatica",
+      "price": 11590000,
+      "transmission": "manual",
       "traction": "4x2",
       "image_url": "",
-      "description": "Hatchback subcompacto con diseño alegre.",
+      "description": "Hatchback urbano de 96 o 125 hp, con caja manual o automática.",
       "origin": "Brasil",
       "versions": [
         {
-          "version": "Live",
-          "price": 13490000,
-          "transmission": "automatica",
+          "version": "C3 Live Pack Gasolina 96HP MT",
+          "price": 11590000,
+          "price_list": 12890000,
+          "price_bonus": 1300000,
+          "transmission": "manual",
           "traction": "4x2"
         },
         {
-          "version": "Feel",
-          "price": 15490000,
+          "version": "C3 Feel Gasolina 96HP MT",
+          "price": 12390000,
+          "price_list": 13690000,
+          "price_bonus": 1300000,
+          "transmission": "manual",
+          "traction": "4x2"
+        },
+        {
+          "version": "C3 YOU Turbo 125HP AT",
+          "price": 15590000,
+          "price_list": 16590000,
+          "price_bonus": 1000000,
           "transmission": "automatica",
           "traction": "4x2"
         }
       ],
-      "hp": 82,
-      "torque_nm": 120,
+      "hp": 96,
+      "torque_nm": 115,
       "top_speed_kmh": 170,
       "fuel_consumption_city_km_l": 15,
       "fuel_consumption_highway_km_l": 20,
@@ -161,38 +190,54 @@
       ],
       "warranty_years": 3,
       "warranty_km": 100000,
-      "origin_country": "Brasil"
+      "origin_country": "Brasil",
+      "price_source": "https://www.rosselot.cl/nuevos/citroen/c3",
+      "price_list": 12890000,
+      "price_bonus": 1300000,
+      "price_checked_at": "2026-10-23"
     },
     {
       "id": 131,
       "brand": "Citroën",
       "model": "C3 Aircross",
-      "year": 2025,
+      "year": 2026,
       "type": "suv",
       "fuel": "gasolina",
-      "seats": 5,
-      "price": 15490000,
-      "transmission": "automatica",
+      "seats": 7,
+      "price": 15590000,
+      "transmission": "manual",
       "traction": "4x2",
       "image_url": "",
-      "description": "SUV subcompacto con suspensión confortable.",
+      "description": "SUV subcompacto de 96 o 125 hp, con versiones de 5 y 7 plazas.",
       "origin": "Brasil",
       "versions": [
         {
-          "version": "Live",
-          "price": 15490000,
-          "transmission": "automatica",
+          "version": "C3 Aircross Feel Pack 5P Gasolina 96HP MT",
+          "price": 15590000,
+          "price_list": 16390000,
+          "price_bonus": 800000,
+          "transmission": "manual",
           "traction": "4x2"
         },
         {
-          "version": "Feel",
-          "price": 17990000,
+          "version": "C3 Aircross Shine 5P Gasolina 96HP MT",
+          "price": 15990000,
+          "price_list": 16990000,
+          "price_bonus": 1000000,
+          "transmission": "manual",
+          "traction": "4x2"
+        },
+        {
+          "version": "C3 Aircross Shine 7P Turbo 125HP AT",
+          "price": 17790000,
+          "price_list": 20490000,
+          "price_bonus": 2700000,
           "transmission": "automatica",
           "traction": "4x2"
         }
       ],
-      "hp": 110,
-      "torque_nm": 150,
+      "hp": 96,
+      "torque_nm": 115,
       "top_speed_kmh": 180,
       "fuel_consumption_city_km_l": 14,
       "fuel_consumption_highway_km_l": 19,
@@ -218,42 +263,47 @@
       ],
       "warranty_years": 3,
       "warranty_km": 100000,
-      "origin_country": "Brasil"
+      "origin_country": "Brasil",
+      "price_source": "https://www.rosselot.cl/nuevos/citroen/c3-aircross",
+      "price_list": 16390000,
+      "price_bonus": 800000,
+      "price_checked_at": "2026-10-23"
     },
     {
       "id": 132,
       "brand": "Citroën",
       "model": "Nuevo C4",
-      "year": 2025,
+      "year": 2026,
       "type": "hatchback",
-      "fuel": "gasolina",
+      "fuel": "hibrido",
       "seats": 5,
-      "price": 18990000,
+      "price": 23290000,
       "transmission": "automatica",
       "traction": "4x2",
       "image_url": "",
-      "description": "Coupé crossover con diseño único.",
+      "description": "Crossover híbrido (MHEV) 1.2T de 136 hp con caja automática de 6 velocidades.",
       "origin": "Francia",
       "versions": [
         {
-          "version": "Feel",
-          "price": 18990000,
+          "version": "C4 Plus Hybrid 136HP AT",
+          "price": 23290000,
+          "price_list": 24590000,
+          "price_bonus": 1300000,
           "transmission": "automatica",
           "traction": "4x2"
         },
         {
-          "version": "Shine",
-          "price": 22990000,
+          "version": "C4 Max Hybrid 136HP AT",
+          "price": 25290000,
+          "price_list": 26590000,
+          "price_bonus": 1300000,
           "transmission": "automatica",
           "traction": "4x2"
         }
       ],
-      "hp": 130,
+      "hp": 136,
       "torque_nm": 230,
       "top_speed_kmh": 200,
-      "fuel_consumption_city_km_l": 13,
-      "fuel_consumption_highway_km_l": 18,
-      "fuel_consumption_mixed_km_l": 15,
       "fuel_tank_liters": 50,
       "length_mm": 4360,
       "width_mm": 1834,
@@ -277,40 +327,42 @@
       ],
       "warranty_years": 3,
       "warranty_km": 100000,
-      "origin_country": "Francia"
+      "origin_country": "Francia",
+      "price_source": "https://www.rosselot.cl/nuevos/citroen/nuevo-c4",
+      "price_list": 24590000,
+      "price_bonus": 1300000,
+      "price_checked_at": "2026-10-23"
     },
     {
       "id": 133,
       "brand": "Citroën",
       "model": "C5 Aircross",
-      "year": 2025,
+      "year": 2026,
       "type": "suv",
       "fuel": "gasolina",
       "seats": 5,
-      "price": 25990000,
+      "price": 27990000,
       "transmission": "automatica",
-      "traction": "4x4",
+      "traction": "4x2",
       "image_url": "",
-      "description": "SUV mediano con suspensión Advanced Comfort.",
+      "description": "SUV mediano 1.6 turbo de 180 hp con caja automática de 6 velocidades.",
       "origin": "Francia",
       "versions": [
         {
-          "version": "Feel",
-          "price": 25990000,
+          "version": "C5 Aircross Plus Turbo 180HP AT",
+          "price": 27990000,
+          "price_list": 29490000,
+          "price_bonus": 1500000,
           "transmission": "automatica",
           "traction": "4x2"
         },
         {
-          "version": "Shine",
-          "price": 29990000,
+          "version": "C5 Aircross Max Turbo 180HP AT",
+          "price": 31990000,
+          "price_list": 33490000,
+          "price_bonus": 1500000,
           "transmission": "automatica",
           "traction": "4x2"
-        },
-        {
-          "version": "Shine Pack 4x4",
-          "price": 34990000,
-          "transmission": "automatica",
-          "traction": "4x4"
         }
       ],
       "hp": 180,
@@ -320,7 +372,7 @@
       "fuel_consumption_highway_km_l": 16,
       "fuel_consumption_mixed_km_l": 13,
       "fuel_tank_liters": 53,
-      "length_mm": 4500,
+      "length_mm": 4650,
       "width_mm": 1858,
       "height_mm": 1669,
       "wheelbase_mm": 2730,
@@ -343,7 +395,11 @@
       ],
       "warranty_years": 3,
       "warranty_km": 100000,
-      "origin_country": "Francia"
+      "origin_country": "Francia",
+      "price_source": "https://www.rosselot.cl/nuevos/citroen/new-c5-aircross",
+      "price_list": 29490000,
+      "price_bonus": 1500000,
+      "price_checked_at": "2026-10-23"
     },
     {
       "id": 134,
@@ -352,15 +408,15 @@
       "year": 2026,
       "type": "minivan",
       "fuel": "diesel",
-      "seats": 5,
-      "price": 28990000,
+      "seats": 3,
+      "price": 27477100,
       "transmission": "manual",
       "traction": "4x2",
       "image_url": "",
-      "description": "Furgón mediano con gran capacidad de carga y motor diésel eficiente.",
+      "description": "Furgón mediano diésel 2.0 de 145 hp con caja manual de 6 velocidades. Precio publicado incluye IVA.",
       "origin": "Francia",
-      "hp": 110,
-      "torque_nm": 220,
+      "hp": 145,
+      "torque_nm": 340,
       "length_mm": 4600,
       "width_mm": 1920,
       "height_mm": 1900,
@@ -385,18 +441,18 @@
       "origin_country": "Francia",
       "versions": [
         {
-          "version": "MT",
-          "price": 28990000,
-          "transmission": "manual",
-          "traction": "4x2"
-        },
-        {
-          "version": "MT Largo",
-          "price": 30990000,
+          "version": "Jumpy MCA XL Diesel 145HP MT",
+          "price": 27477100,
+          "price_list": 31404100,
+          "price_bonus": 3927000,
           "transmission": "manual",
           "traction": "4x2"
         }
-      ]
+      ],
+      "price_source": "https://www.rosselot.cl/nuevos/citroen/jumpy",
+      "price_list": 31404100,
+      "price_bonus": 3927000,
+      "price_checked_at": "2026-10-23"
     },
     {
       "id": 643,
@@ -410,25 +466,19 @@
       "transmission": "automatica",
       "traction": "4x2",
       "image_url": "",
-      "description": "SUV coupé con diseño audaz y motor turbo eficiente.",
+      "description": "SUV coupé 1.2 turbo de 120 hp con caja automática de 7 velocidades.",
       "origin": "Brasil",
       "versions": [
         {
-          "version": "1.0T AT",
+          "version": "Shine Turbo AT",
           "price": 13990000,
-          "transmission": "automatica",
-          "traction": "4x2"
-        },
-        {
-          "version": "1.0T AT First Edition",
-          "price": 15990000,
           "transmission": "automatica",
           "traction": "4x2"
         }
       ],
-      "hp": 130,
-      "torque_nm": 200,
-      "length_mm": 4200,
+      "hp": 120,
+      "torque_nm": 205,
+      "length_mm": 4344,
       "width_mm": 1750,
       "height_mm": 1570,
       "wheelbase_mm": 2550,
@@ -445,7 +495,9 @@
       "fuel_consumption_mixed_km_l": 14,
       "warranty_years": 3,
       "warranty_km": 100000,
-      "origin_country": "Brasil"
+      "origin_country": "Brasil",
+      "price_source": "https://www.citroen.cl/modelos/pasajeros/basalt.html",
+      "price_checked_at": "2026-10-23"
     },
     {
       "id": 644,
@@ -454,23 +506,33 @@
       "year": 2026,
       "type": "minivan",
       "fuel": "diesel",
-      "seats": 9,
-      "price": 26090000,
-      "transmission": "manual",
+      "seats": 8,
+      "price": 31880100,
+      "transmission": "automatica",
       "traction": "4x2",
       "image_url": "",
-      "description": "Furgón grande de pasajeros con capacidad para 9 plazas.",
+      "description": "Monovolumen diésel de 180 hp para 8 o 9 pasajeros. Precio publicado incluye IVA.",
       "origin": "Francia",
       "versions": [
         {
-          "version": "BlueHDi 2.0 MT 9 plazas",
-          "price": 26090000,
-          "transmission": "manual",
+          "version": "Spacetourer MCA 8P Diesel 180HP AT",
+          "price": 31880100,
+          "price_list": 36640100,
+          "price_bonus": 4760000,
+          "transmission": "automatica",
+          "traction": "4x2"
+        },
+        {
+          "version": "Spacetourer MCA 9P Diesel 180HP AT",
+          "price": 31999100,
+          "price_list": 36759100,
+          "price_bonus": 4760000,
+          "transmission": "automatica",
           "traction": "4x2"
         }
       ],
-      "hp": 150,
-      "torque_nm": 370,
+      "hp": 180,
+      "torque_nm": 400,
       "length_mm": 5300,
       "width_mm": 1920,
       "height_mm": 1940,
@@ -487,7 +549,11 @@
       "fuel_consumption_mixed_km_l": 11,
       "warranty_years": 3,
       "warranty_km": 100000,
-      "origin_country": "Francia"
+      "origin_country": "Francia",
+      "price_source": "https://www.rosselot.cl/nuevos/citroen/spacetourer",
+      "price_list": 36640100,
+      "price_bonus": 4760000,
+      "price_checked_at": "2026-10-23"
     },
     {
       "id": 645,
@@ -497,22 +563,40 @@
       "type": "minivan",
       "fuel": "diesel",
       "seats": 3,
-      "price": 25590000,
+      "price": 31999100,
       "transmission": "manual",
       "traction": "4x2",
       "image_url": "",
-      "description": "Furgón grande de carga con máxima capacidad y motor diésel.",
+      "description": "Furgón grande diésel 2.2 de 140 hp, en versiones L2H2 a L4H2. Precio publicado incluye IVA.",
       "origin": "Francia",
       "versions": [
         {
-          "version": "BlueHDi 2.0 MT",
-          "price": 25590000,
+          "version": "Jumper MCA L2H2 Diesel 140HP MT",
+          "price": 31999100,
+          "price_list": 36640100,
+          "price_bonus": 4641000,
+          "transmission": "manual",
+          "traction": "4x2"
+        },
+        {
+          "version": "Jumper MCA L3H2 Diesel 140HP MT",
+          "price": 33665100,
+          "price_list": 37949100,
+          "price_bonus": 4284000,
+          "transmission": "manual",
+          "traction": "4x2"
+        },
+        {
+          "version": "Jumper MCA L4H2 Diesel 140HP MT",
+          "price": 35569100,
+          "price_list": 39139100,
+          "price_bonus": 3570000,
           "transmission": "manual",
           "traction": "4x2"
         }
       ],
-      "hp": 110,
-      "torque_nm": 220,
+      "hp": 140,
+      "torque_nm": 350,
       "length_mm": 5400,
       "width_mm": 2050,
       "height_mm": 2250,
@@ -526,7 +610,77 @@
       "fuel_consumption_mixed_km_l": 10,
       "warranty_years": 3,
       "warranty_km": 100000,
-      "origin_country": "Francia"
+      "origin_country": "Francia",
+      "price_source": "https://www.rosselot.cl/nuevos/citroen/jumper",
+      "price_list": 36640100,
+      "price_bonus": 4641000,
+      "price_checked_at": "2026-10-23"
+    },
+    {
+      "id": 689,
+      "brand": "Citroën",
+      "model": "Berlingo",
+      "year": 2026,
+      "type": "minivan",
+      "fuel": "diesel",
+      "seats": 3,
+      "price": 20337100,
+      "transmission": "manual",
+      "traction": "4x2",
+      "image_url": "",
+      "description": "Furgón diésel de 100 hp, disponible en versiones M y XL. Precio publicado incluye IVA.",
+      "origin": "Francia",
+      "versions": [
+        {
+          "version": "Berlingo MCA M Diesel 100HP MT",
+          "price": 20337100,
+          "price_list": 23074100,
+          "price_bonus": 2737000,
+          "transmission": "manual",
+          "traction": "4x2"
+        },
+        {
+          "version": "Berlingo MCA XL Diesel 100HP MT",
+          "price": 21289100,
+          "price_list": 24026100,
+          "price_bonus": 2737000,
+          "transmission": "manual",
+          "traction": "4x2"
+        }
+      ],
+      "hp": 100,
+      "torque_nm": 250,
+      "top_speed_kmh": 180,
+      "fuel_consumption_city_km_l": 12,
+      "fuel_consumption_highway_km_l": 17,
+      "fuel_consumption_mixed_km_l": 14,
+      "fuel_tank_liters": 53,
+      "length_mm": 4753,
+      "width_mm": 1810,
+      "height_mm": 1818,
+      "wheelbase_mm": 2785,
+      "ground_clearance_mm": 160,
+      "airbags": 6,
+      "adas": [
+        "control de crucero adaptativo",
+        "asistente de carril",
+        "frenado automático de emergencia",
+        "cámara 360°"
+      ],
+      "latin_ncap_stars": 5,
+      "isofix": true,
+      "infotainment": [
+        "pantalla 8\"",
+        "Apple CarPlay",
+        "Android Auto"
+      ],
+      "warranty_years": 3,
+      "warranty_km": 100000,
+      "origin_country": "Francia",
+      "price_source": "https://www.rosselot.cl/nuevos/citroen/berlingo",
+      "price_list": 23074100,
+      "price_bonus": 2737000,
+      "price_checked_at": "2026-10-23"
     }
   ]
 }

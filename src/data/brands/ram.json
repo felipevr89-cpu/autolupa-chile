@@ -53,32 +53,67 @@
           "transmission": "manual",
           "traction": "4x4"
         }
-      ]
+      ],
+      "lineup_2026": false
     },
     {
       "id": 496,
       "brand": "RAM",
       "model": "1500",
-      "year": 2025,
+      "year": 2026,
       "type": "pickup",
       "fuel": "gasolina",
       "seats": 5,
-      "price": 76100000,
+      "price": 50563100,
       "transmission": "automatica",
       "traction": "4x4",
       "image_url": "",
-      "description": "Pick-up full-size con motor V8 HEMI 5.7L de 395 hp, lujo y capacidad.",
+      "description": "Pick-up full-size con Hurricane 3.0L de 420 hp o V6 3.6L mild hybrid de 305 hp. Precio publicado incluye IVA.",
       "origin": "Estados Unidos",
       "versions": [
         {
-          "version": "5.7L HEMI V8 4x4",
-          "price": 76100000,
+          "version": "RAM 1500 BIGHORN NIGHT EDITION 3.6 V6 MILD HYBRID 305 hp 4X4 AT",
+          "price": 50563100,
+          "price_list": 57703100,
+          "price_bonus": 7140000,
+          "transmission": "automatica",
+          "traction": "4x4"
+        },
+        {
+          "version": "RAM 1500 BIGHORN 3.0 SO 420 hp 4X4 AT",
+          "price": 54728100,
+          "price_list": 67818100,
+          "price_bonus": 13090000,
+          "transmission": "automatica",
+          "traction": "4x4"
+        },
+        {
+          "version": "RAM 1500 BIGHORN BACKCOUNTRY 3.0 SO 426 hp 4X4 AT",
+          "price": 55918100,
+          "price_list": 58298100,
+          "price_bonus": 2380000,
+          "transmission": "automatica",
+          "traction": "4x4"
+        },
+        {
+          "version": "RAM 1500 REBEL 3.0 SO 420 hp 4X4 AT",
+          "price": 69603100,
+          "price_list": 77338100,
+          "price_bonus": 7735000,
+          "transmission": "automatica",
+          "traction": "4x4"
+        },
+        {
+          "version": "RAM 1500 LARAMIE 3.0 SO 420 hp 4X4 AT",
+          "price": 73173100,
+          "price_list": 79718100,
+          "price_bonus": 6545000,
           "transmission": "automatica",
           "traction": "4x4"
         }
       ],
-      "hp": 395,
-      "torque_nm": 556,
+      "hp": 305,
+      "torque_nm": 365,
       "fuel_consumption_mixed_km_l": 8,
       "fuel_tank_liters": 98,
       "length_mm": 5916,
@@ -97,26 +132,32 @@
       ],
       "warranty_years": 5,
       "warranty_km": 100000,
-      "origin_country": "Estados Unidos"
+      "origin_country": "Estados Unidos",
+      "price_source": "https://www.rosselot.cl/nuevos/ram/new-ram-1500",
+      "price_list": 57703100,
+      "price_bonus": 7140000,
+      "price_checked_at": "2026-10-23"
     },
     {
       "id": 497,
       "brand": "RAM",
       "model": "1500 RHO",
-      "year": 2025,
+      "year": 2026,
       "type": "pickup",
       "fuel": "gasolina",
       "seats": 5,
-      "price": 89990000,
+      "price": 104113100,
       "transmission": "automatica",
       "traction": "4x4",
       "image_url": "",
-      "description": "Pick-up de alto rendimiento off-road con motor Hurricane 3.0L twin-turbo de 540 hp.",
+      "description": "Pick-up de alto rendimiento con Hurricane 3.0L HO de 540 hp y tracción 4x4. Precio publicado incluye IVA.",
       "origin": "Estados Unidos",
       "versions": [
         {
-          "version": "Hurricane 3.0L TT 4x4",
-          "price": 89990000,
+          "version": "RAM 1500 RHO 3.0 HO 540 hp 4x4 AT",
+          "price": 104113100,
+          "price_list": 111848100,
+          "price_bonus": 7735000,
           "transmission": "automatica",
           "traction": "4x4"
         }
@@ -140,38 +181,46 @@
       ],
       "warranty_years": 5,
       "warranty_km": 100000,
-      "origin_country": "Estados Unidos"
+      "origin_country": "Estados Unidos",
+      "price_source": "https://www.rosselot.cl/nuevos/ram/ram-1500-rho",
+      "price_list": 111848100,
+      "price_bonus": 7735000,
+      "price_checked_at": "2026-10-23"
     },
     {
       "id": 498,
       "brand": "RAM",
       "model": "2500",
-      "year": 2025,
+      "year": 2026,
       "type": "pickup",
       "fuel": "diesel",
       "seats": 5,
-      "price": 71990000,
+      "price": 78528100,
       "transmission": "automatica",
       "traction": "4x4",
       "image_url": "",
-      "description": "Pick-up Heavy Duty con motor Cummins 6.7L turbo diésel de 370 hp, para trabajo pesado.",
+      "description": "Pick-up Heavy Duty con Cummins 6.7L diésel de 430 hp y tracción 4x4. Precio publicado incluye IVA.",
       "origin": "Estados Unidos",
       "versions": [
         {
-          "version": "6.7L Cummins Bighorn 4x4",
-          "price": 71990000,
+          "version": "RAM 2500 BIGHORN SPORT 6.7 HO DIESEL 430 hp 4X4 AT",
+          "price": 78528100,
+          "price_list": 85668100,
+          "price_bonus": 7140000,
           "transmission": "automatica",
           "traction": "4x4"
         },
         {
-          "version": "6.7L Cummins Rebel 4x4",
-          "price": 82990000,
+          "version": "RAM 2500 REBEL 6.7 HO DIESEL 430 hp 4X4 AT",
+          "price": 90428100,
+          "price_list": 98758100,
+          "price_bonus": 8330000,
           "transmission": "automatica",
           "traction": "4x4"
         }
       ],
-      "hp": 370,
-      "torque_nm": 1152,
+      "hp": 430,
+      "torque_nm": 1075,
       "fuel_consumption_mixed_km_l": 6.8,
       "fuel_tank_liters": 136,
       "length_mm": 6604,
@@ -189,32 +238,70 @@
       ],
       "warranty_years": 5,
       "warranty_km": 100000,
-      "origin_country": "Estados Unidos"
+      "origin_country": "Estados Unidos",
+      "price_source": "https://www.rosselot.cl/nuevos/ram/ram2500",
+      "price_list": 85668100,
+      "price_bonus": 7140000,
+      "price_checked_at": "2026-10-23"
     },
     {
       "id": 499,
       "brand": "RAM",
       "model": "700",
-      "year": 2025,
+      "year": 2026,
       "type": "pickup",
       "fuel": "gasolina",
-      "seats": 2,
-      "price": 16100000,
+      "seats": 5,
+      "price": 14625100,
       "transmission": "manual",
       "traction": "4x2",
       "image_url": "",
-      "description": "Pick-up compacta de trabajo con motor 1.4L de 85 hp, caja manual de 5 velocidades.",
+      "description": "Pick-up compacta con motor 1.3 de 99 hp o 1.0 turbo de 118 hp. Precio publicado incluye IVA.",
       "origin": "Brasil",
       "versions": [
         {
-          "version": "1.4L SLT MT",
-          "price": 16100000,
+          "version": "RAM 700 SLT SINGLE CAB 1.3 MT",
+          "price": 14625100,
+          "price_list": 16529100,
+          "price_bonus": 1904000,
           "transmission": "manual",
+          "traction": "4x2"
+        },
+        {
+          "version": "RAM 700 SLT CREW CAB 1.3 MT",
+          "price": 15458100,
+          "price_list": 17600100,
+          "price_bonus": 2142000,
+          "transmission": "manual",
+          "traction": "4x2"
+        },
+        {
+          "version": "RAM 700 BIGHORN CREW CAB 1.3 MT",
+          "price": 17005100,
+          "price_list": 19147100,
+          "price_bonus": 2142000,
+          "transmission": "manual",
+          "traction": "4x2"
+        },
+        {
+          "version": "RAM 700 BIGHORN CREW CAB 1.3 CVT",
+          "price": 19385100,
+          "price_list": 21765100,
+          "price_bonus": 2380000,
+          "transmission": "automatica",
+          "traction": "4x2"
+        },
+        {
+          "version": "RAM 700 LARAMIE CREW CAB 1.0T CVT",
+          "price": 21051100,
+          "price_list": 23669100,
+          "price_bonus": 2618000,
+          "transmission": "automatica",
           "traction": "4x2"
         }
       ],
-      "hp": 85,
-      "torque_nm": 122,
+      "hp": 99,
+      "torque_nm": 127,
       "fuel_consumption_mixed_km_l": 13.5,
       "fuel_tank_liters": 55,
       "length_mm": 4474,
@@ -232,7 +319,11 @@
       ],
       "warranty_years": 3,
       "warranty_km": 100000,
-      "origin_country": "Brasil"
+      "origin_country": "Brasil",
+      "price_source": "https://www.rosselot.cl/nuevos/ram/ram700",
+      "price_list": 16529100,
+      "price_bonus": 1904000,
+      "price_checked_at": "2026-10-23"
     },
     {
       "id": 500,
@@ -282,50 +373,75 @@
           "transmission": "manual",
           "traction": "4x2"
         }
-      ]
+      ],
+      "lineup_2026": false
     },
     {
       "id": 501,
       "brand": "RAM",
       "model": "Rampage",
-      "year": 2025,
+      "year": 2026,
       "type": "pickup",
       "fuel": "diesel",
       "seats": 5,
-      "price": 39300000,
+      "price": 30333100,
       "transmission": "automatica",
       "traction": "4x4",
       "image_url": "",
-      "description": "Pick-up compacta premium con motor 2.2L diésel de 200 hp o 2.0L gasolina de 275 hp.",
+      "description": "Pick-up compacta con motores diésel 2.0/2.2 de 170/200 hp o bencina 2.0 turbo de 272 hp. Precio publicado incluye IVA.",
       "origin": "Brasil",
       "versions": [
         {
-          "version": "2.2L Bighorn AT9 4x4",
-          "price": 39300000,
+          "version": "RAM RAMPAGE BIGHORN 2.0 DIESEL 170 hp 4X4 AT",
+          "price": 30333100,
+          "price_list": 38068100,
+          "price_bonus": 7735000,
           "transmission": "automatica",
           "traction": "4x4"
         },
         {
-          "version": "2.0L Rebel AT9 4x4",
-          "price": 43990000,
+          "version": "RAM RAMPAGE LARAMIE 2.0 DIESEL 170 hp 4X4 AT",
+          "price": 33308100,
+          "price_list": 42114100,
+          "price_bonus": 8806000,
           "transmission": "automatica",
           "traction": "4x4"
         },
         {
-          "version": "2.0L Laramie AT9 4x4",
-          "price": 46990000,
+          "version": "RAM RAMPAGE BIGHORN 2.2 DIESEL 200 hp 4X4 AT",
+          "price": 37116100,
+          "price_list": 39258100,
+          "price_bonus": 2142000,
           "transmission": "automatica",
           "traction": "4x4"
         },
         {
-          "version": "2.0L R/T AT9 4x4",
-          "price": 52990000,
+          "version": "RAMPAGE REBEL IGNITION 2.2 DIESEL 200 hp 4X4 AT",
+          "price": 38306100,
+          "price_list": 42114100,
+          "price_bonus": 3808000,
+          "transmission": "automatica",
+          "traction": "4x4"
+        },
+        {
+          "version": "RAM RAMPAGE LARAMIE 2.2 DIESEL 200 hp 4X4 AT",
+          "price": 39496100,
+          "price_list": 43304100,
+          "price_bonus": 3808000,
+          "transmission": "automatica",
+          "traction": "4x4"
+        },
+        {
+          "version": "RAM RAMPAGE R/T 2.0 GASOLINA 272 hp 4X4 AT",
+          "price": 41876100,
+          "price_list": 45922100,
+          "price_bonus": 4046000,
           "transmission": "automatica",
           "traction": "4x4"
         }
       ],
-      "hp": 275,
-      "torque_nm": 400,
+      "hp": 170,
+      "torque_nm": 350,
       "fuel_consumption_mixed_km_l": 11.7,
       "fuel_tank_liters": 55,
       "length_mm": 5028,
@@ -344,7 +460,61 @@
       ],
       "warranty_years": 3,
       "warranty_km": 100000,
-      "origin_country": "Brasil"
+      "origin_country": "Brasil",
+      "price_source": "https://www.rosselot.cl/nuevos/ram/ram-rampage",
+      "price_list": 38068100,
+      "price_bonus": 7735000,
+      "price_checked_at": "2026-10-23"
+    },
+    {
+      "id": 693,
+      "brand": "RAM",
+      "model": "Dakota",
+      "year": 2026,
+      "type": "pickup",
+      "fuel": "diesel",
+      "seats": 5,
+      "price": 39615100,
+      "transmission": "automatica",
+      "traction": "4x4",
+      "image_url": "",
+      "description": "Pick-up mediana diésel 2.2 de 200 hp, tracción 4x4 y caja automática de 8 velocidades. Precio publicado incluye IVA.",
+      "origin": "Brasil",
+      "versions": [
+        {
+          "version": "RAM DAKOTA WARLOCK 2.2 DIESEL 200 hp 4X4 AT",
+          "price": 39615100,
+          "price_list": 44970100,
+          "price_bonus": 5355000,
+          "transmission": "automatica",
+          "traction": "4x4"
+        },
+        {
+          "version": "RAM DAKOTA LARAMIE 2.2 DIESEL 200 hp 4X4 AT",
+          "price": 41400100,
+          "price_list": 47588100,
+          "price_bonus": 6188000,
+          "transmission": "automatica",
+          "traction": "4x4"
+        }
+      ],
+      "hp": 200,
+      "torque_nm": 450,
+      "airbags": 7,
+      "isofix": true,
+      "infotainment": [
+        "Pantalla 12.3\"",
+        "U-Connect 5",
+        "Android Auto",
+        "Apple CarPlay"
+      ],
+      "warranty_years": 3,
+      "warranty_km": 100000,
+      "origin_country": "Brasil",
+      "price_source": "https://www.rosselot.cl/nuevos/ram/ram-dakota",
+      "price_list": 44970100,
+      "price_bonus": 5355000,
+      "price_checked_at": "2026-10-23"
     }
   ]
 }

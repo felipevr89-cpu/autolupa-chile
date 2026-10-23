@@ -55,7 +55,8 @@
         "Android Auto"
       ],
       "warranty_years": 3,
-      "warranty_km": 100000
+      "warranty_km": 100000,
+      "lineup_2026": false
     },
     {
       "id": 443,
@@ -104,44 +105,51 @@
         "USB"
       ],
       "warranty_years": 3,
-      "warranty_km": 100000
+      "warranty_km": 100000,
+      "lineup_2026": false
     },
     {
       "id": 444,
       "brand": "Mitsubishi",
       "model": "Eclipse Cross",
-      "year": 2025,
+      "year": 2026,
       "type": "suv",
       "fuel": "gasolina",
       "seats": 5,
-      "price": 21990000,
+      "price": 20990000,
       "transmission": "automatica",
-      "traction": "4x4",
+      "traction": "4x2",
       "image_url": "",
-      "description": "SUV crossover deportivo con motor turbo",
+      "description": "SUV crossover con motor 1.5 turbo de 147 hp y caja CVT.",
       "origin": "Japón",
       "origin_country": "Japón",
       "versions": [
         {
-          "version": "GLX",
-          "price": 21990000,
+          "version": "RX 1.5 4X2 AT",
+          "price": 20990000,
+          "price_list": 22990000,
+          "price_bonus": 2000000,
           "transmission": "automatica",
-          "traction": "4x4"
+          "traction": "4x2"
         },
         {
-          "version": "GLS",
-          "price": 24990000,
+          "version": "RT 1.5 4X2 AT",
+          "price": 23490000,
+          "price_list": 24490000,
+          "price_bonus": 1000000,
           "transmission": "automatica",
-          "traction": "4x4"
+          "traction": "4x2"
         },
         {
-          "version": "Ultimate",
-          "price": 27990000,
+          "version": "RS 1.5 4X2 AT",
+          "price": 26490000,
+          "price_list": 26990000,
+          "price_bonus": 500000,
           "transmission": "automatica",
-          "traction": "4x4"
+          "traction": "4x2"
         }
       ],
-      "hp": 150,
+      "hp": 147,
       "torque_nm": 250,
       "fuel_consumption_mixed_km_l": 14.5,
       "fuel_tank_liters": 63,
@@ -164,7 +172,11 @@
         "Adaptive Cruise Control"
       ],
       "warranty_years": 3,
-      "warranty_km": 100000
+      "warranty_km": 100000,
+      "price_source": "https://www.rosselot.cl/nuevos/mitsubishi/nuevo-eclipse-cross",
+      "price_list": 22990000,
+      "price_bonus": 2000000,
+      "price_checked_at": "2026-10-23"
     },
     {
       "id": 445,
@@ -174,35 +186,81 @@
       "type": "pickup",
       "fuel": "diesel",
       "seats": 5,
-      "price": 23990000,
+      "price": 26168100,
       "transmission": "manual",
-      "traction": "4x4",
+      "traction": "4x2",
       "image_url": "",
-      "description": "Pickup robusta con sistema Super Select 4WD",
+      "description": "Pick-up diésel 2.4 biturbo de 201 hp y 470 Nm, con versiones 4x2 y 4x4. Precio publicado incluye IVA.",
       "origin": "Tailandia",
       "origin_country": "Japón",
       "versions": [
         {
-          "version": "GLX 4x2",
-          "price": 23990000,
+          "version": "KATANA XM",
+          "price": 26168100,
+          "price_list": 29738100,
+          "price_bonus": 3570000,
           "transmission": "manual",
           "traction": "4x2"
         },
         {
-          "version": "GLS 4x4",
-          "price": 28990000,
+          "version": "KATANA XR",
+          "price": 30333100,
+          "price_list": 33308100,
+          "price_bonus": 2975000,
+          "transmission": "manual",
+          "traction": "4x2"
+        },
+        {
+          "version": "KATANA XRM",
+          "price": 33903100,
+          "price_list": 38068100,
+          "price_bonus": 4165000,
+          "transmission": "manual",
+          "traction": "4x4"
+        },
+        {
+          "version": "KATANA XRT",
+          "price": 36283100,
+          "price_list": 39258100,
+          "price_bonus": 2975000,
+          "transmission": "manual",
+          "traction": "4x4"
+        },
+        {
+          "version": "DAKAR XR MT",
+          "price": 39258100,
+          "price_list": 42233100,
+          "price_bonus": 2975000,
+          "transmission": "manual",
+          "traction": "4x4"
+        },
+        {
+          "version": "DAKAR XRL AT",
+          "price": 40448100,
+          "price_list": 42828100,
+          "price_bonus": 2380000,
           "transmission": "automatica",
           "traction": "4x4"
         },
         {
-          "version": "Rockskipper 4x4",
-          "price": 32990000,
+          "version": "DAKAR XR AT",
+          "price": 42828100,
+          "price_list": 45208100,
+          "price_bonus": 2380000,
+          "transmission": "automatica",
+          "traction": "4x4"
+        },
+        {
+          "version": "DAKAR XR AT GLS PLUS",
+          "price": 48183100,
+          "price_list": 50563100,
+          "price_bonus": 2380000,
           "transmission": "automatica",
           "traction": "4x4"
         }
       ],
-      "hp": 181,
-      "torque_nm": 430,
+      "hp": 201,
+      "torque_nm": 470,
       "fuel_consumption_mixed_km_l": 12,
       "fuel_tank_liters": 75,
       "length_mm": 5280,
@@ -219,7 +277,11 @@
         "USB"
       ],
       "warranty_years": 3,
-      "warranty_km": 100000
+      "warranty_km": 100000,
+      "price_source": "https://www.rosselot.cl/nuevos/mitsubishi/new-l200-4x2",
+      "price_list": 29738100,
+      "price_bonus": 3570000,
+      "price_checked_at": "2026-10-23"
     },
     {
       "id": 446,
@@ -268,7 +330,8 @@
         "USB"
       ],
       "warranty_years": 3,
-      "warranty_km": 100000
+      "warranty_km": 100000,
+      "lineup_2026": false
     },
     {
       "id": 447,
@@ -328,45 +391,60 @@
         "Lane Departure Warning"
       ],
       "warranty_years": 3,
-      "warranty_km": 100000
+      "warranty_km": 100000,
+      "lineup_2026": false
     },
     {
       "id": 448,
       "brand": "Mitsubishi",
       "model": "Outlander",
-      "year": 2025,
+      "year": 2026,
       "type": "suv",
       "fuel": "gasolina",
       "seats": 7,
-      "price": 29990000,
+      "price": 24990000,
       "transmission": "automatica",
-      "traction": "4x4",
+      "traction": "4x2",
       "image_url": "",
-      "description": "SUV mediano premium con tercera fila y Super All-Wheel Control",
+      "description": "SUV de 7 plazas con motor 2.5 de 181 hp y versiones 4x2 y 4x4.",
       "origin": "Japón",
       "origin_country": "Japón",
       "versions": [
         {
-          "version": "GLS",
-          "price": 29990000,
+          "version": "4X2 AT GL",
+          "price": 24990000,
+          "price_list": 28990000,
+          "price_bonus": 4000000,
+          "transmission": "automatica",
+          "traction": "4x2"
+        },
+        {
+          "version": "4X2 AT GLX",
+          "price": 27490000,
+          "price_list": 31990000,
+          "price_bonus": 4500000,
+          "transmission": "automatica",
+          "traction": "4x2"
+        },
+        {
+          "version": "4X4 AT GLS",
+          "price": 31990000,
+          "price_list": 35490000,
+          "price_bonus": 3500000,
           "transmission": "automatica",
           "traction": "4x4"
         },
         {
-          "version": "Ultimate",
-          "price": 34990000,
+          "version": "4X4 AT GLS LIMITED",
+          "price": 39490000,
+          "price_list": 39990000,
+          "price_bonus": 500000,
           "transmission": "automatica",
           "traction": "4x4"
-        },
-        {
-          "version": "PHEV",
-          "price": 42990000,
-          "transmission": "automatica",
-          "traction": "awd"
         }
       ],
-      "hp": 245,
-      "torque_nm": 450,
+      "hp": 181,
+      "torque_nm": 244,
       "fuel_consumption_mixed_km_l": 12,
       "fuel_tank_liters": 56,
       "length_mm": 4710,
@@ -390,7 +468,11 @@
         "Control crucero adaptativo"
       ],
       "warranty_years": 3,
-      "warranty_km": 100000
+      "warranty_km": 100000,
+      "price_source": "https://www.rosselot.cl/nuevos/mitsubishi/outlander",
+      "price_list": 28990000,
+      "price_bonus": 4000000,
+      "price_checked_at": "2026-10-23"
     },
     {
       "id": 449,
@@ -439,7 +521,197 @@
         "Android Auto"
       ],
       "warranty_years": 3,
-      "warranty_km": 100000
+      "warranty_km": 100000,
+      "lineup_2026": false
+    },
+    {
+      "id": 694,
+      "brand": "Mitsubishi",
+      "model": "Destinator",
+      "year": 2026,
+      "type": "suv",
+      "fuel": "gasolina",
+      "seats": 7,
+      "price": 21490000,
+      "transmission": "automatica",
+      "traction": "4x2",
+      "image_url": "",
+      "description": "SUV de 7 plazas con motor 1.5 turbo de 160 hp, caja CVT y 12,8 km/l mixto.",
+      "origin": "Japón",
+      "origin_country": "Japón",
+      "versions": [
+        {
+          "version": "GL",
+          "price": 21490000,
+          "price_list": 23990000,
+          "price_bonus": 2500000,
+          "transmission": "automatica",
+          "traction": "4x2"
+        },
+        {
+          "version": "GLX",
+          "price": 24490000,
+          "price_list": 25990000,
+          "price_bonus": 1500000,
+          "transmission": "automatica",
+          "traction": "4x2"
+        },
+        {
+          "version": "GLS",
+          "price": 29490000,
+          "price_list": 31490000,
+          "price_bonus": 2000000,
+          "transmission": "automatica",
+          "traction": "4x2"
+        }
+      ],
+      "hp": 160,
+      "torque_nm": 250,
+      "fuel_consumption_mixed_km_l": 12.8,
+      "airbags": 7,
+      "isofix": true,
+      "infotainment": [
+        "Pantalla 12.3\"",
+        "Rockford Fosgate",
+        "Apple CarPlay",
+        "Android Auto"
+      ],
+      "adas": [
+        "MI-PILOT",
+        "Frenado automático",
+        "Lane Keep Assist",
+        "Control crucero adaptativo"
+      ],
+      "warranty_years": 3,
+      "warranty_km": 100000,
+      "price_source": "https://www.rosselot.cl/nuevos/mitsubishi/destinator",
+      "price_list": 23990000,
+      "price_bonus": 2500000,
+      "price_checked_at": "2026-10-23",
+      "fuel_consumption_city_km_l": 10.2,
+      "fuel_consumption_highway_km_l": 15.1
+    },
+    {
+      "id": 695,
+      "brand": "Mitsubishi",
+      "model": "Outlander PHEV",
+      "year": 2026,
+      "type": "suv",
+      "fuel": "hibrido_enchufable",
+      "seats": 7,
+      "price": 40490000,
+      "transmission": "automatica",
+      "traction": "awd",
+      "image_url": "",
+      "description": "SUV híbrido enchufable 4x4 con 20 kWh de batería, 83 km de autonomía eléctrica y 306 hp combinados.",
+      "origin": "Japón",
+      "origin_country": "Japón",
+      "versions": [
+        {
+          "version": "4X4 AT GLS",
+          "price": 40490000,
+          "price_list": 42990000,
+          "price_bonus": 2500000,
+          "transmission": "automatica",
+          "traction": "awd"
+        }
+      ],
+      "hp": 306,
+      "torque_nm": 450,
+      "length_mm": 4710,
+      "width_mm": 1860,
+      "height_mm": 1745,
+      "wheelbase_mm": 2705,
+      "ground_clearance_mm": 210,
+      "trunk_liters": 560,
+      "airbags": 7,
+      "isofix": true,
+      "infotainment": [
+        "Pantalla 12.3\"",
+        "Rockford Fosgate",
+        "Apple CarPlay",
+        "Android Auto"
+      ],
+      "adas": [
+        "MI-PILOT",
+        "Frenado automático",
+        "Lane Keep Assist",
+        "Control crucero adaptativo"
+      ],
+      "warranty_years": 3,
+      "warranty_km": 100000,
+      "price_source": "https://www.rosselot.cl/nuevos/mitsubishi/new-outlander-phev",
+      "price_list": 42990000,
+      "price_bonus": 2500000,
+      "price_checked_at": "2026-10-23",
+      "battery_kwh": 20,
+      "electric_range_km": 83
+    },
+    {
+      "id": 696,
+      "brand": "Mitsubishi",
+      "model": "Outlander Sport",
+      "year": 2026,
+      "type": "suv",
+      "fuel": "gasolina",
+      "seats": 5,
+      "price": 18490000,
+      "transmission": "automatica",
+      "traction": "4x2",
+      "image_url": "",
+      "description": "SUV compacto 1.5 de 103 hp con caja CVT y 15,7 km/l mixto.",
+      "origin": "Tailandia",
+      "origin_country": "Japón",
+      "versions": [
+        {
+          "version": "GL",
+          "price": 18490000,
+          "price_list": 21490000,
+          "price_bonus": 3000000,
+          "transmission": "automatica",
+          "traction": "4x2"
+        },
+        {
+          "version": "GLX",
+          "price": 21490000,
+          "price_list": 23490000,
+          "price_bonus": 2000000,
+          "transmission": "automatica",
+          "traction": "4x2"
+        },
+        {
+          "version": "GLS",
+          "price": 22490000,
+          "price_list": 24990000,
+          "price_bonus": 2500000,
+          "transmission": "automatica",
+          "traction": "4x2"
+        }
+      ],
+      "hp": 103,
+      "torque_nm": 141,
+      "fuel_consumption_mixed_km_l": 15.7,
+      "length_mm": 4390,
+      "width_mm": 1810,
+      "height_mm": 1640,
+      "wheelbase_mm": 2650,
+      "ground_clearance_mm": 222,
+      "trunk_liters": 395,
+      "airbags": 7,
+      "isofix": true,
+      "infotainment": [
+        "Pantalla 8\"",
+        "Apple CarPlay",
+        "Android Auto"
+      ],
+      "warranty_years": 3,
+      "warranty_km": 100000,
+      "fuel_consumption_city_km_l": 13,
+      "fuel_consumption_highway_km_l": 17.8,
+      "price_source": "https://www.rosselot.cl/nuevos/mitsubishi/outlander-sport",
+      "price_list": 21490000,
+      "price_bonus": 3000000,
+      "price_checked_at": "2026-10-23"
     }
   ]
 }

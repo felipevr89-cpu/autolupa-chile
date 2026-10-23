@@ -6,21 +6,23 @@
       "id": 279,
       "brand": "Jeep",
       "model": "Avenger",
-      "year": 2025,
+      "year": 2026,
       "type": "suv",
       "fuel": "gasolina",
       "seats": 5,
-      "price": 19990000,
-      "transmission": "automatica",
+      "price": 17590000,
+      "transmission": "manual",
       "traction": "4x2",
       "image_url": "",
-      "description": "SUV compacta con ADN Jeep, motor 1.2L turbo de 100 hp, diseño atrevido y tecnología.",
+      "description": "SUV compacto 1.2 turbo de 100 hp con caja manual de 6 velocidades.",
       "origin": "Francia",
       "versions": [
         {
-          "version": "1.2T Altitude DCT",
-          "price": 19990000,
-          "transmission": "automatica",
+          "version": "AVENGER ALTITUDE 1.2T MT6 FWD",
+          "price": 17590000,
+          "price_list": 19990000,
+          "price_bonus": 2400000,
+          "transmission": "manual",
           "traction": "4x2"
         }
       ],
@@ -44,7 +46,11 @@
       ],
       "warranty_years": 3,
       "warranty_km": 60000,
-      "origin_country": "Francia"
+      "origin_country": "Francia",
+      "price_source": "https://www.rosselot.cl/nuevos/jeep/new-avenger",
+      "price_list": 19990000,
+      "price_bonus": 2400000,
+      "price_checked_at": "2026-10-23"
     },
     {
       "id": 280,
@@ -101,44 +107,45 @@
           "transmission": "automatica",
           "traction": "4x4"
         }
-      ]
+      ],
+      "lineup_2026": false
     },
     {
       "id": 281,
       "brand": "Jeep",
       "model": "Commander",
-      "year": 2025,
+      "year": 2026,
       "type": "suv",
       "fuel": "gasolina",
       "seats": 7,
-      "price": 35990000,
+      "price": 33990000,
       "transmission": "automatica",
       "traction": "4x2",
       "image_url": "",
-      "description": "SUV de 7 plazas con motor 1.3L turbo de 175 hp y transmisión automática de 6 velocidades.",
+      "description": "SUV de 7 plazas con motor 1.3T de 175 hp o 2.0T de 272 hp.",
       "origin": "Estados Unidos",
       "versions": [
         {
-          "version": "1.3T Limited 4x2",
+          "version": "COMMANDER MCA LIMITED 1.3T AT6 FWD",
+          "price": 33990000,
+          "price_list": 35990000,
+          "price_bonus": 2000000,
+          "transmission": "automatica",
+          "traction": "4x2"
+        },
+        {
+          "version": "COMMANDER MCA OVERLAND 1.3T AT6 FWD",
           "price": 35990000,
+          "price_list": 37990000,
+          "price_bonus": 2000000,
           "transmission": "automatica",
           "traction": "4x2"
         },
         {
-          "version": "1.3T Overland 4x2",
-          "price": 37990000,
-          "transmission": "automatica",
-          "traction": "4x2"
-        },
-        {
-          "version": "2.0T Blackhawk 4x4",
-          "price": 42990000,
-          "transmission": "automatica",
-          "traction": "4x4"
-        },
-        {
-          "version": "2.0T Limited TD 4x4",
-          "price": 42990000,
+          "version": "COMMANDER MCA BLACKHAWK 2.0T AT9 4X4",
+          "price": 40990000,
+          "price_list": 42990000,
+          "price_bonus": 2000000,
           "transmission": "automatica",
           "traction": "4x4"
         }
@@ -163,44 +170,62 @@
       ],
       "warranty_years": 3,
       "warranty_km": 100000,
-      "origin_country": "Estados Unidos"
+      "origin_country": "Estados Unidos",
+      "price_source": "https://www.rosselot.cl/nuevos/jeep/commander",
+      "price_list": 35990000,
+      "price_bonus": 2000000,
+      "price_checked_at": "2026-10-23"
     },
     {
       "id": 282,
       "brand": "Jeep",
       "model": "Compass",
-      "year": 2025,
+      "year": 2026,
       "type": "suv",
       "fuel": "gasolina",
       "seats": 5,
-      "price": 27490000,
+      "price": 24190000,
       "transmission": "automatica",
-      "traction": "4x4",
+      "traction": "4x2",
       "image_url": "",
-      "description": "SUV mediana con motor 1.3L turbo de 180 hp, caja automática de 9 marchas y tracción 4x4.",
+      "description": "SUV mediano 1.3T de 175 hp; la versión Blackhawk 2.0T suma 272 hp y tracción 4x4.",
       "origin": "Brasil",
       "versions": [
         {
-          "version": "1.3L Sport AT 4x4",
-          "price": 27490000,
+          "version": "COMPASS SPORT 1.3T AT6 FWD",
+          "price": 24190000,
+          "price_list": 25990000,
+          "price_bonus": 1800000,
           "transmission": "automatica",
-          "traction": "4x4"
+          "traction": "4x2"
         },
         {
-          "version": "1.3L Longitude AT 4x4",
-          "price": 29490000,
+          "version": "COMPASS LONGITUDE 1.3T AT6 FWD",
+          "price": 26190000,
+          "price_list": 27990000,
+          "price_bonus": 1800000,
           "transmission": "automatica",
-          "traction": "4x4"
+          "traction": "4x2"
         },
         {
-          "version": "1.3L Limited AT 4x4",
-          "price": 33490000,
+          "version": "COMPASS LIMITED 1.3T AT6 FWD",
+          "price": 29190000,
+          "price_list": 30990000,
+          "price_bonus": 1800000,
+          "transmission": "automatica",
+          "traction": "4x2"
+        },
+        {
+          "version": "COMPASS BLACKHAWK 2.0T AT9 4X4",
+          "price": 37190000,
+          "price_list": 37990000,
+          "price_bonus": 800000,
           "transmission": "automatica",
           "traction": "4x4"
         }
       ],
-      "hp": 180,
-      "torque_nm": 231,
+      "hp": 175,
+      "torque_nm": 270,
       "fuel_consumption_mixed_km_l": 12.8,
       "fuel_tank_liters": 60,
       "length_mm": 4404,
@@ -219,26 +244,32 @@
       ],
       "warranty_years": 3,
       "warranty_km": 100000,
-      "origin_country": "Brasil"
+      "origin_country": "Brasil",
+      "price_source": "https://www.rosselot.cl/nuevos/jeep/compass",
+      "price_list": 25990000,
+      "price_bonus": 1800000,
+      "price_checked_at": "2026-10-23"
     },
     {
       "id": 283,
       "brand": "Jeep",
       "model": "Compass 4xe",
-      "year": 2025,
+      "year": 2026,
       "type": "suv",
       "fuel": "hibrido_enchufable",
       "seats": 5,
-      "price": 42990000,
+      "price": 37090000,
       "transmission": "automatica",
       "traction": "4x4",
       "image_url": "",
-      "description": "SUV híbrida enchufable con motor 1.3L turbo y motor eléctrico, 240 hp combinados.",
+      "description": "SUV híbrido enchufable 1.3T con 240 hp combinados y tracción 4x4.",
       "origin": "Italia",
       "versions": [
         {
-          "version": "1.3L Altitude PHEV 4x4",
-          "price": 42990000,
+          "version": "COMPASS SERIE S 4XE PHEV",
+          "price": 37090000,
+          "price_list": 38990000,
+          "price_bonus": 1900000,
           "transmission": "automatica",
           "traction": "4x4"
         }
@@ -263,31 +294,37 @@
       ],
       "warranty_years": 3,
       "warranty_km": 100000,
-      "origin_country": "Italia"
+      "origin_country": "Italia",
+      "price_source": "https://www.rosselot.cl/nuevos/jeep/compass",
+      "price_list": 38990000,
+      "price_bonus": 1900000,
+      "price_checked_at": "2026-10-23"
     },
     {
       "id": 284,
       "brand": "Jeep",
       "model": "Gladiator",
-      "year": 2025,
+      "year": 2026,
       "type": "pickup",
       "fuel": "gasolina",
       "seats": 5,
-      "price": 72600000,
+      "price": 57703100,
       "transmission": "automatica",
       "traction": "4x4",
       "image_url": "",
-      "description": "Pick-up todoterreno con motor V6 3.6L de 284 hp, hermana del Wrangler.",
+      "description": "Pick-up todoterreno con V6 3.6L de 285 hp y caja automática de 8 velocidades. Precio publicado incluye IVA.",
       "origin": "Estados Unidos",
       "versions": [
         {
-          "version": "3.6L Rubicon 4x4",
-          "price": 72600000,
+          "version": "GLADIATOR RUBICON 3.6L AT8 4x4",
+          "price": 57703100,
+          "price_list": 63058100,
+          "price_bonus": 5355000,
           "transmission": "automatica",
           "traction": "4x4"
         }
       ],
-      "hp": 284,
+      "hp": 285,
       "torque_nm": 353,
       "fuel_consumption_mixed_km_l": 8.8,
       "fuel_tank_liters": 76,
@@ -307,37 +344,53 @@
       ],
       "warranty_years": 3,
       "warranty_km": 100000,
-      "origin_country": "Estados Unidos"
+      "origin_country": "Estados Unidos",
+      "price_source": "https://www.rosselot.cl/nuevos/jeep/gladiator",
+      "price_list": 63058100,
+      "price_bonus": 5355000,
+      "price_checked_at": "2026-10-23"
     },
     {
       "id": 285,
       "brand": "Jeep",
       "model": "Grand Cherokee",
-      "year": 2025,
+      "year": 2026,
       "type": "suv",
       "fuel": "gasolina",
-      "seats": 5,
-      "price": 55990000,
+      "seats": 7,
+      "price": 55490000,
       "transmission": "automatica",
       "traction": "4x4",
       "image_url": "",
-      "description": "SUV premium con motor V6 3.6L de 296 hp, tracción 4x4 y equipamiento lujoso.",
+      "description": "SUV premium con V6 3.6L de 293 hp, caja automática de 8 velocidades y tracción 4x4.",
       "origin": "Estados Unidos",
       "versions": [
         {
-          "version": "3.6L Altitude 4x4",
-          "price": 55990000,
+          "version": "GRAND CHEROKEE ALTITUDE 3.6L AT8 4X4",
+          "price": 55490000,
+          "price_list": 56990000,
+          "price_bonus": 1500000,
           "transmission": "automatica",
           "traction": "4x4"
         },
         {
-          "version": "3.6L Limited 4x4",
-          "price": 60990000,
+          "version": "GRAND CHEROKEE LIMITED 3.6L AT8 4X4",
+          "price": 58490000,
+          "price_list": 59990000,
+          "price_bonus": 1500000,
+          "transmission": "automatica",
+          "traction": "4x4"
+        },
+        {
+          "version": "GRAND CHEROKEE LIMITED L 3.6L AT8 4X4",
+          "price": 61490000,
+          "price_list": 62990000,
+          "price_bonus": 1500000,
           "transmission": "automatica",
           "traction": "4x4"
         }
       ],
-      "hp": 296,
+      "hp": 293,
       "torque_nm": 353,
       "fuel_consumption_mixed_km_l": 8.8,
       "fuel_tank_liters": 87,
@@ -357,38 +410,46 @@
       ],
       "warranty_years": 3,
       "warranty_km": 100000,
-      "origin_country": "Estados Unidos"
+      "origin_country": "Estados Unidos",
+      "price_source": "https://www.rosselot.cl/nuevos/jeep/grand-cherokee-mca",
+      "price_list": 56990000,
+      "price_bonus": 1500000,
+      "price_checked_at": "2026-10-23"
     },
     {
       "id": 286,
       "brand": "Jeep",
       "model": "Renegade",
-      "year": 2025,
+      "year": 2026,
       "type": "suv",
       "fuel": "gasolina",
       "seats": 5,
-      "price": 22990000,
-      "transmission": "manual",
+      "price": 24190000,
+      "transmission": "automatica",
       "traction": "4x2",
       "image_url": "",
-      "description": "SUV compacta con motor 1.3L turbo de 180 hp, disponible en versión 4x4.",
+      "description": "SUV compacto 1.3T de 175 hp con caja automática de 6 velocidades.",
       "origin": "Brasil",
       "versions": [
         {
-          "version": "1.3L Sport MT 4x2",
-          "price": 22990000,
-          "transmission": "manual",
+          "version": "RENEGADE MCA ALTITUDE 1.3T AT6 FWD",
+          "price": 24190000,
+          "price_list": 25190000,
+          "price_bonus": 1000000,
+          "transmission": "automatica",
           "traction": "4x2"
         },
         {
-          "version": "1.3L Longitude AT 4x2",
-          "price": 27490000,
+          "version": "RENEGADE MCA SAHARA 1.3T AT6 FWD",
+          "price": 26190000,
+          "price_list": 27190000,
+          "price_bonus": 1000000,
           "transmission": "automatica",
           "traction": "4x2"
         }
       ],
-      "hp": 180,
-      "torque_nm": 231,
+      "hp": 175,
+      "torque_nm": 270,
       "fuel_consumption_mixed_km_l": 13.5,
       "fuel_tank_liters": 48,
       "length_mm": 4232,
@@ -407,38 +468,54 @@
       ],
       "warranty_years": 3,
       "warranty_km": 100000,
-      "origin_country": "Brasil"
+      "origin_country": "Brasil",
+      "price_source": "https://www.rosselot.cl/nuevos/jeep/new-renegade",
+      "price_list": 25190000,
+      "price_bonus": 1000000,
+      "price_checked_at": "2026-10-23"
     },
     {
       "id": 287,
       "brand": "Jeep",
       "model": "Wrangler",
-      "year": 2025,
+      "year": 2026,
       "type": "suv",
       "fuel": "gasolina",
       "seats": 5,
-      "price": 56990000,
+      "price": 54490000,
       "transmission": "automatica",
       "traction": "4x4",
       "image_url": "",
-      "description": "Todoterreno icónico con motor V6 3.6L de 284 hp, capacidad off-road extrema.",
+      "description": "Todoterreno con motor 2.0T de 272 hp, caja automática de 8 velocidades y tracción 4x4.",
       "origin": "Estados Unidos",
       "versions": [
         {
-          "version": "2.0T Sport S 4x4",
-          "price": 56990000,
+          "version": "WRANGLER SPORT 2.0T AT8 4x4",
+          "price": 54490000,
+          "price_list": 57990000,
+          "price_bonus": 3500000,
           "transmission": "automatica",
           "traction": "4x4"
         },
         {
-          "version": "3.6L Rubicon 4x4",
-          "price": 62990000,
+          "version": "WRANGLER SAHARA 2.0T AT8 4x4",
+          "price": 58490000,
+          "price_list": 61990000,
+          "price_bonus": 3500000,
+          "transmission": "automatica",
+          "traction": "4x4"
+        },
+        {
+          "version": "WRANGLER RUBICON 2.0T AT8 4x4",
+          "price": 62490000,
+          "price_list": 65990000,
+          "price_bonus": 3500000,
           "transmission": "automatica",
           "traction": "4x4"
         }
       ],
-      "hp": 284,
-      "torque_nm": 353,
+      "hp": 272,
+      "torque_nm": 400,
       "fuel_consumption_mixed_km_l": 9.5,
       "fuel_tank_liters": 71,
       "length_mm": 4882,
@@ -457,7 +534,11 @@
       ],
       "warranty_years": 3,
       "warranty_km": 100000,
-      "origin_country": "Estados Unidos"
+      "origin_country": "Estados Unidos",
+      "price_source": "https://www.rosselot.cl/nuevos/jeep/wrangler",
+      "price_list": 57990000,
+      "price_bonus": 3500000,
+      "price_checked_at": "2026-10-23"
     },
     {
       "id": 288,
@@ -513,7 +594,115 @@
           "transmission": "automatica",
           "traction": "4x4"
         }
-      ]
+      ],
+      "lineup_2026": false
+    },
+    {
+      "id": 691,
+      "brand": "Jeep",
+      "model": "Avenger Hybrid",
+      "year": 2026,
+      "type": "suv",
+      "fuel": "hibrido",
+      "seats": 5,
+      "price": 20590000,
+      "transmission": "automatica",
+      "traction": "4x2",
+      "image_url": "",
+      "description": "SUV compacto híbrido (MHEV) 1.2T de 100 hp con caja automática de doble embrague.",
+      "origin": "Francia",
+      "versions": [
+        {
+          "version": "AVENGER ALTITUDE 1.2T H DDCT6 FWD",
+          "price": 20590000,
+          "price_list": 24990000,
+          "price_bonus": 4400000,
+          "transmission": "automatica",
+          "traction": "4x2"
+        },
+        {
+          "version": "AVENGER SUMMIT 1.2T H DDCT6 FWD",
+          "price": 23590000,
+          "price_list": 27490000,
+          "price_bonus": 3900000,
+          "transmission": "automatica",
+          "traction": "4x2"
+        }
+      ],
+      "hp": 100,
+      "torque_nm": 205,
+      "fuel_tank_liters": 44,
+      "length_mm": 4084,
+      "width_mm": 1786,
+      "height_mm": 1534,
+      "wheelbase_mm": 2565,
+      "ground_clearance_mm": 200,
+      "trunk_liters": 360,
+      "airbags": 6,
+      "isofix": true,
+      "infotainment": [
+        "Pantalla 10.25\"",
+        "U-Connect",
+        "Android Auto",
+        "Apple CarPlay"
+      ],
+      "warranty_years": 3,
+      "warranty_km": 60000,
+      "origin_country": "Francia",
+      "price_source": "https://www.rosselot.cl/nuevos/jeep/new-avenger",
+      "price_list": 24990000,
+      "price_bonus": 4400000,
+      "price_checked_at": "2026-10-23"
+    },
+    {
+      "id": 692,
+      "brand": "Jeep",
+      "model": "Avenger Electric",
+      "year": 2026,
+      "type": "suv",
+      "fuel": "electrico",
+      "seats": 5,
+      "price": 27990000,
+      "transmission": "automatica",
+      "traction": "4x2",
+      "image_url": "",
+      "description": "SUV compacto eléctrico con batería de 54 kWh, 400 km de autonomía y 156 hp.",
+      "origin": "Francia",
+      "versions": [
+        {
+          "version": "AVENGER SUMMIT BEV",
+          "price": 27990000,
+          "price_list": 31590000,
+          "price_bonus": 3600000,
+          "transmission": "automatica",
+          "traction": "4x2"
+        }
+      ],
+      "hp": 156,
+      "torque_nm": 260,
+      "length_mm": 4084,
+      "width_mm": 1786,
+      "height_mm": 1534,
+      "wheelbase_mm": 2565,
+      "ground_clearance_mm": 200,
+      "trunk_liters": 360,
+      "airbags": 6,
+      "isofix": true,
+      "infotainment": [
+        "Pantalla 10.25\"",
+        "U-Connect",
+        "Android Auto",
+        "Apple CarPlay"
+      ],
+      "warranty_years": 3,
+      "warranty_km": 60000,
+      "origin_country": "Francia",
+      "price_source": "https://www.rosselot.cl/nuevos/jeep/new-avenger",
+      "price_list": 31590000,
+      "price_bonus": 3600000,
+      "price_checked_at": "2026-10-23",
+      "battery_kwh": 54,
+      "electric_range_km": 400
     }
   ]
 }

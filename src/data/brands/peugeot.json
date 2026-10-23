@@ -6,36 +6,48 @@
       "id": 475,
       "brand": "Peugeot",
       "model": "2008",
-      "year": 2025,
+      "year": 2026,
       "type": "suv",
-      "fuel": "gasolina",
+      "fuel": "hibrido",
       "seats": 5,
-      "price": 17490000,
+      "price": 19590000,
       "transmission": "automatica",
       "traction": "4x2",
       "image_url": "",
-      "description": "SUV subcompacto con diseño atrevido.",
+      "description": "SUV compacto híbrido (MHEV) 1.2T de 136 hp, caja automática de 6 velocidades y 5 plazas.",
       "origin": "Francia",
       "versions": [
         {
-          "version": "Allure",
-          "price": 17490000,
+          "version": "2008 MCA Style Hybrid 136hp AT",
+          "price": 19590000,
+          "price_list": 23190000,
+          "price_bonus": 3600000,
           "transmission": "automatica",
           "traction": "4x2"
         },
         {
-          "version": "GT Line",
-          "price": 20990000,
+          "version": "2008 MCA Allure Hybrid 136hp AT",
+          "price": 21590000,
+          "price_list": 25290000,
+          "price_bonus": 3700000,
+          "transmission": "automatica",
+          "traction": "4x2"
+        },
+        {
+          "version": "2008 MCA GT Hybrid 136hp AT",
+          "price": 24290000,
+          "price_list": 28590000,
+          "price_bonus": 4300000,
           "transmission": "automatica",
           "traction": "4x2"
         }
       ],
-      "hp": 130,
+      "hp": 136,
       "torque_nm": 230,
       "top_speed_kmh": 200,
-      "fuel_consumption_city_km_l": 13,
-      "fuel_consumption_highway_km_l": 18,
-      "fuel_consumption_mixed_km_l": 15,
+      "fuel_consumption_city_km_l": 19.5,
+      "fuel_consumption_highway_km_l": 27.3,
+      "fuel_consumption_mixed_km_l": 22.9,
       "fuel_tank_liters": 44,
       "length_mm": 4300,
       "width_mm": 1770,
@@ -61,38 +73,38 @@
       ],
       "warranty_years": 3,
       "warranty_km": 100000,
-      "origin_country": "Francia"
+      "origin_country": "Francia",
+      "price_source": "https://www.rosselot.cl/nuevos/peugeot/new-2008",
+      "price_list": 23190000,
+      "price_bonus": 3600000,
+      "price_checked_at": "2026-10-23"
     },
     {
       "id": 476,
       "brand": "Peugeot",
       "model": "208",
-      "year": 2025,
+      "year": 2026,
       "type": "hatchback",
       "fuel": "gasolina",
       "seats": 5,
-      "price": 14490000,
-      "transmission": "automatica",
+      "price": 15290000,
+      "transmission": "manual",
       "traction": "4x2",
       "image_url": "",
-      "description": "Hatchback subcompacto con diseño francés elegante.",
+      "description": "Hatchback urbano 1.2 de 100 hp con caja manual de 6 velocidades.",
       "origin": "Francia",
       "versions": [
         {
-          "version": "Allure",
-          "price": 14490000,
-          "transmission": "automatica",
-          "traction": "4x2"
-        },
-        {
-          "version": "GT Line",
-          "price": 17490000,
-          "transmission": "automatica",
+          "version": "208 MCA Style Gasolina 100hp MT",
+          "price": 15290000,
+          "price_list": 18490000,
+          "price_bonus": 3200000,
+          "transmission": "manual",
           "traction": "4x2"
         }
       ],
-      "hp": 110,
-      "torque_nm": 150,
+      "hp": 100,
+      "torque_nm": 205,
       "top_speed_kmh": 190,
       "fuel_consumption_city_km_l": 15,
       "fuel_consumption_highway_km_l": 20,
@@ -121,7 +133,11 @@
       ],
       "warranty_years": 3,
       "warranty_km": 100000,
-      "origin_country": "Francia"
+      "origin_country": "Francia",
+      "price_source": "https://www.rosselot.cl/nuevos/peugeot/new-208-mca",
+      "price_list": 18490000,
+      "price_bonus": 3200000,
+      "price_checked_at": "2026-10-23"
     },
     {
       "id": 477,
@@ -190,48 +206,45 @@
       ],
       "warranty_years": 3,
       "warranty_km": 100000,
-      "origin_country": "Francia"
+      "origin_country": "Francia",
+      "lineup_2026": false
     },
     {
       "id": 478,
       "brand": "Peugeot",
       "model": "308",
-      "year": 2025,
+      "year": 2026,
       "type": "hatchback",
-      "fuel": "gasolina",
+      "fuel": "hibrido",
       "seats": 5,
-      "price": 21990000,
+      "price": 24990000,
       "transmission": "automatica",
       "traction": "4x2",
       "image_url": "",
-      "description": "Hatchback compacto premium con diseño sofisticado.",
+      "description": "Hatchback compacto híbrido (MHEV) 1.2T de 136 hp con caja automática de 6 velocidades.",
       "origin": "Francia",
       "versions": [
         {
-          "version": "Active Pack",
-          "price": 21990000,
+          "version": "308 Allure Hybrid 136hp AT",
+          "price": 24990000,
+          "price_list": 28290000,
+          "price_bonus": 3300000,
           "transmission": "automatica",
           "traction": "4x2"
         },
         {
-          "version": "Allure",
-          "price": 25990000,
+          "version": "308 GT Hybrid 136hp AT",
+          "price": 28490000,
+          "price_list": 31790000,
+          "price_bonus": 3300000,
           "transmission": "automatica",
           "traction": "4x2"
-        },
-        {
-          "version": "GT",
-          "price": 30990000,
-          "transmission": "automatica",
-          "traction": "4x4"
         }
       ],
-      "hp": 155,
-      "torque_nm": 270,
+      "hp": 136,
+      "torque_nm": 230,
       "top_speed_kmh": 220,
-      "fuel_consumption_city_km_l": 12,
-      "fuel_consumption_highway_km_l": 17,
-      "fuel_consumption_mixed_km_l": 14,
+      "fuel_consumption_mixed_km_l": 26,
       "fuel_tank_liters": 52,
       "length_mm": 4367,
       "width_mm": 1852,
@@ -258,7 +271,11 @@
       ],
       "warranty_years": 3,
       "warranty_km": 100000,
-      "origin_country": "Francia"
+      "origin_country": "Francia",
+      "price_source": "https://www.rosselot.cl/nuevos/peugeot/nuevo-308",
+      "price_list": 28290000,
+      "price_bonus": 3300000,
+      "price_checked_at": "2026-10-23"
     },
     {
       "id": 479,
@@ -321,44 +338,47 @@
       ],
       "warranty_years": 3,
       "warranty_km": 100000,
-      "origin_country": "Francia"
+      "origin_country": "Francia",
+      "lineup_2026": false
     },
     {
       "id": 480,
       "brand": "Peugeot",
       "model": "5008",
-      "year": 2025,
-      "type": "minivan",
-      "fuel": "gasolina",
+      "year": 2026,
+      "type": "suv",
+      "fuel": "hibrido",
       "seats": 7,
-      "price": 32990000,
+      "price": 28690000,
       "transmission": "automatica",
-      "traction": "4x4",
+      "traction": "4x2",
       "image_url": "",
-      "description": "SUV/Minivan de 7 plazas con espacio generoso.",
+      "description": "SUV de 7 plazas híbrido (MHEV) 1.2T de 136 hp con caja automática de 6 velocidades.",
       "origin": "Francia",
       "versions": [
         {
-          "version": "Allure",
-          "price": 32990000,
+          "version": "New 5008 Allure Hybrid 136hp AT",
+          "price": 28690000,
+          "price_list": 33290000,
+          "price_bonus": 4600000,
           "transmission": "automatica",
           "traction": "4x2"
         },
         {
-          "version": "GT",
-          "price": 38990000,
+          "version": "New 5008 GT Hybrid 136hp AT",
+          "price": 34190000,
+          "price_list": 39790000,
+          "price_bonus": 5600000,
           "transmission": "automatica",
-          "traction": "4x4"
+          "traction": "4x2"
         }
       ],
-      "hp": 180,
-      "torque_nm": 250,
+      "hp": 136,
+      "torque_nm": 230,
       "top_speed_kmh": 200,
-      "fuel_consumption_city_km_l": 10,
-      "fuel_consumption_highway_km_l": 15,
-      "fuel_consumption_mixed_km_l": 12,
+      "fuel_consumption_mixed_km_l": 19.6,
       "fuel_tank_liters": 56,
-      "length_mm": 4670,
+      "length_mm": 4791,
       "width_mm": 1846,
       "height_mm": 1646,
       "wheelbase_mm": 2840,
@@ -382,7 +402,11 @@
       ],
       "warranty_years": 3,
       "warranty_km": 100000,
-      "origin_country": "Francia"
+      "origin_country": "Francia",
+      "price_source": "https://www.rosselot.cl/nuevos/peugeot/new-5008",
+      "price_list": 33290000,
+      "price_bonus": 4600000,
+      "price_checked_at": "2026-10-23"
     },
     {
       "id": 481,
@@ -391,15 +415,15 @@
       "year": 2026,
       "type": "minivan",
       "fuel": "diesel",
-      "seats": 5,
-      "price": 24990000,
+      "seats": 3,
+      "price": 30452100,
       "transmission": "manual",
       "traction": "4x2",
       "image_url": "",
-      "description": "Furgón grande con gran capacidad de carga y motor diésel robusto.",
+      "description": "Furgón grande diésel 2.2 de 140 hp, disponible en versiones furgón L2H2 a L4H2 y cabina L3. Precio publicado incluye IVA.",
       "origin": "Francia",
-      "hp": 130,
-      "torque_nm": 300,
+      "hp": 140,
+      "torque_nm": 350,
       "length_mm": 5080,
       "width_mm": 2050,
       "height_mm": 2260,
@@ -425,18 +449,42 @@
       "origin_country": "Francia",
       "versions": [
         {
-          "version": "2.2L dCi MT",
-          "price": 24990000,
+          "version": "Boxer MCA Cabina L3 Diesel 140hp MT",
+          "price": 30452100,
+          "price_list": 35212100,
+          "price_bonus": 4760000,
           "transmission": "manual",
           "traction": "4x2"
         },
         {
-          "version": "2.2L dCi MT Largo",
-          "price": 27990000,
+          "version": "Boxer MCA Furgón L2H2 Diesel 140hp MT",
+          "price": 33189100,
+          "price_list": 37354100,
+          "price_bonus": 4165000,
+          "transmission": "manual",
+          "traction": "4x2"
+        },
+        {
+          "version": "Boxer MCA Furgón L3H2 Diesel 140hp MT",
+          "price": 34855100,
+          "price_list": 38663100,
+          "price_bonus": 3808000,
+          "transmission": "manual",
+          "traction": "4x2"
+        },
+        {
+          "version": "Boxer MCA Furgón L4H2 Diesel 140hp MT",
+          "price": 36759100,
+          "price_list": 39853100,
+          "price_bonus": 3094000,
           "transmission": "manual",
           "traction": "4x2"
         }
-      ]
+      ],
+      "price_source": "https://www.rosselot.cl/nuevos/peugeot/boxer-mca",
+      "price_list": 35212100,
+      "price_bonus": 4760000,
+      "price_checked_at": "2026-10-23"
     },
     {
       "id": 482,
@@ -445,15 +493,15 @@
       "year": 2026,
       "type": "minivan",
       "fuel": "diesel",
-      "seats": 5,
-      "price": 21990000,
+      "seats": 3,
+      "price": 28310100,
       "transmission": "manual",
       "traction": "4x2",
       "image_url": "",
-      "description": "Furgón mediano para carga con motor diésel de bajo consumo.",
+      "description": "Furgón mediano diésel 2.0 de 145 hp con caja manual de 6 velocidades. Precio publicado incluye IVA.",
       "origin": "Francia",
-      "hp": 95,
-      "torque_nm": 210,
+      "hp": 145,
+      "torque_nm": 340,
       "length_mm": 4600,
       "width_mm": 1920,
       "height_mm": 1940,
@@ -478,18 +526,18 @@
       "origin_country": "Francia",
       "versions": [
         {
-          "version": "1.5L dCi MT",
-          "price": 21990000,
-          "transmission": "manual",
-          "traction": "4x2"
-        },
-        {
-          "version": "1.5L dCi MT Largo",
-          "price": 23990000,
+          "version": "Expert MCA L3 Diesel 145hp MT",
+          "price": 28310100,
+          "price_list": 32118100,
+          "price_bonus": 3808000,
           "transmission": "manual",
           "traction": "4x2"
         }
-      ]
+      ],
+      "price_source": "https://www.rosselot.cl/nuevos/peugeot/expert",
+      "price_list": 32118100,
+      "price_bonus": 3808000,
+      "price_checked_at": "2026-10-23"
     },
     {
       "id": 483,
@@ -499,14 +547,14 @@
       "type": "pickup",
       "fuel": "diesel",
       "seats": 5,
-      "price": 27990000,
+      "price": 29500100,
       "transmission": "automatica",
       "traction": "4x4",
       "image_url": "",
-      "description": "Pick-up mediana con capacidad off-road y motor diésel eficiente.",
+      "description": "Pick-up mediana diésel 2.2 de 200 hp, tracción 4x4 y caja automática. Precio publicado incluye IVA.",
       "origin": "Francia",
-      "hp": 160,
-      "torque_nm": 350,
+      "hp": 200,
+      "torque_nm": 370,
       "length_mm": 5330,
       "width_mm": 1930,
       "height_mm": 1820,
@@ -533,18 +581,18 @@
       "origin_country": "Francia",
       "versions": [
         {
-          "version": "2.2L dCi 4x4 AT",
-          "price": 27990000,
-          "transmission": "automatica",
-          "traction": "4x4"
-        },
-        {
-          "version": "2.2L dCi 4x4 AT Adventure",
-          "price": 31990000,
+          "version": "Landtrek MCA Action4 Diesel 200hp 4x4 AT",
+          "price": 29500100,
+          "price_list": 37830100,
+          "price_bonus": 8330000,
           "transmission": "automatica",
           "traction": "4x4"
         }
-      ]
+      ],
+      "price_source": "https://www.rosselot.cl/nuevos/peugeot/landtrek",
+      "price_list": 37830100,
+      "price_bonus": 8330000,
+      "price_checked_at": "2026-10-23"
     },
     {
       "id": 484,
@@ -553,15 +601,15 @@
       "year": 2026,
       "type": "minivan",
       "fuel": "diesel",
-      "seats": 5,
-      "price": 28690000,
+      "seats": 3,
+      "price": 21170100,
       "transmission": "manual",
       "traction": "4x2",
       "image_url": "",
-      "description": "Furgón multiuso con motor diésel eficiente para trabajo y carga.",
+      "description": "Furgón compacto diésel 1.5 de 100 hp, disponible en versiones L1 y L2. Precio publicado incluye IVA.",
       "origin": "Francia",
       "hp": 100,
-      "torque_nm": 210,
+      "torque_nm": 250,
       "length_mm": 4400,
       "width_mm": 1860,
       "height_mm": 1850,
@@ -586,18 +634,26 @@
       "origin_country": "Francia",
       "versions": [
         {
-          "version": "MT",
-          "price": 28690000,
+          "version": "Partner MCA L1 Diesel 100hp MT",
+          "price": 21170100,
+          "price_list": 23312100,
+          "price_bonus": 2142000,
           "transmission": "manual",
           "traction": "4x2"
         },
         {
-          "version": "MT Largo",
-          "price": 30690000,
+          "version": "Partner MCA L2 Diesel 100hp MT",
+          "price": 22122100,
+          "price_list": 24264100,
+          "price_bonus": 2142000,
           "transmission": "manual",
           "traction": "4x2"
         }
-      ]
+      ],
+      "price_source": "https://www.rosselot.cl/nuevos/peugeot/partner-mca",
+      "price_list": 23312100,
+      "price_bonus": 2142000,
+      "price_checked_at": "2026-10-23"
     },
     {
       "id": 485,
@@ -606,12 +662,12 @@
       "year": 2026,
       "type": "minivan",
       "fuel": "gasolina",
-      "seats": 5,
-      "price": 21690000,
-      "transmission": "manual",
+      "seats": 7,
+      "price": 20890000,
+      "transmission": "automatica",
       "traction": "4x2",
       "image_url": "",
-      "description": "Minivan versátil con espacio interior modular y diseño moderno.",
+      "description": "Monovolumen de 7 plazas con versiones bencina y diésel de hasta 130 hp.",
       "origin": "Francia",
       "hp": 130,
       "torque_nm": 230,
@@ -641,18 +697,42 @@
       "origin_country": "Francia",
       "versions": [
         {
-          "version": "MT 5 plazas",
-          "price": 21690000,
+          "version": "Rifter MCA Allure Gasolina 130hp AT",
+          "price": 20890000,
+          "price_list": 22090000,
+          "price_bonus": 1200000,
+          "transmission": "automatica",
+          "traction": "4x2"
+        },
+        {
+          "version": "Rifter MCA Allure Diesel 100hp MT",
+          "price": 23490000,
+          "price_list": 24590000,
+          "price_bonus": 1100000,
           "transmission": "manual",
           "traction": "4x2"
         },
         {
-          "version": "AT 5 plazas",
-          "price": 24690000,
-          "transmission": "automática",
+          "version": "Rifter MCA Allure Diesel 130hp AT",
+          "price": 24990000,
+          "price_list": 26390000,
+          "price_bonus": 1400000,
+          "transmission": "automatica",
+          "traction": "4x2"
+        },
+        {
+          "version": "Rifter MCA GT Diesel 130hp AT",
+          "price": 27490000,
+          "price_list": 29790000,
+          "price_bonus": 2300000,
+          "transmission": "automatica",
           "traction": "4x2"
         }
-      ]
+      ],
+      "price_source": "https://www.rosselot.cl/nuevos/peugeot/new-rifter",
+      "price_list": 22090000,
+      "price_bonus": 1200000,
+      "price_checked_at": "2026-10-23"
     },
     {
       "id": 486,
@@ -661,15 +741,15 @@
       "year": 2026,
       "type": "minivan",
       "fuel": "diesel",
-      "seats": 5,
-      "price": 25490000,
-      "transmission": "manual",
+      "seats": 8,
+      "price": 32356100,
+      "transmission": "automatica",
       "traction": "4x2",
       "image_url": "",
-      "description": "Minivan ejecutiva para transporte de pasajeros con amplitud y confort.",
+      "description": "Monovolumen diésel de 180 hp para 8 o 9 pasajeros. Precio publicado incluye IVA.",
       "origin": "Francia",
-      "hp": 150,
-      "torque_nm": 350,
+      "hp": 180,
+      "torque_nm": 400,
       "length_mm": 4950,
       "width_mm": 1900,
       "height_mm": 1900,
@@ -697,43 +777,55 @@
       "origin_country": "Francia",
       "versions": [
         {
-          "version": "MT 5 plazas",
-          "price": 25490000,
-          "transmission": "manual",
-          "traction": "4x2"
-        },
-        {
-          "version": "MT 8 plazas",
-          "price": 28490000,
-          "transmission": "manual",
-          "traction": "4x2"
-        }
-      ]
-    },
-    {
-      "id": 646,
-      "brand": "Peugeot",
-      "model": "New 3008 Hybrid",
-      "year": 2026,
-      "type": "suv",
-      "fuel": "hibrido",
-      "seats": 5,
-      "price": 24990000,
-      "transmission": "automatica",
-      "traction": "4x2",
-      "image_url": "",
-      "description": "SUV coupé híbrido (MHEV) con eficiencia superior y diseño renovado.",
-      "origin": "Francia",
-      "versions": [
-        {
-          "version": "1.2T MHEV AT",
-          "price": 24990000,
+          "version": "New Traveller MCA L3 8P Diesel 180hp AT",
+          "price": 32356100,
+          "price_list": 36997100,
+          "price_bonus": 4641000,
           "transmission": "automatica",
           "traction": "4x2"
         },
         {
-          "version": "1.2T MHEV GT AT",
-          "price": 28990000,
+          "version": "New Traveller MCA L3 9P Diesel 180hp AT",
+          "price": 33070100,
+          "price_list": 37711100,
+          "price_bonus": 4641000,
+          "transmission": "automatica",
+          "traction": "4x2"
+        }
+      ],
+      "price_source": "https://www.rosselot.cl/nuevos/peugeot/traveller",
+      "price_list": 36997100,
+      "price_bonus": 4641000,
+      "price_checked_at": "2026-10-23"
+    },
+    {
+      "id": 646,
+      "brand": "Peugeot",
+      "model": "3008 Hybrid",
+      "year": 2026,
+      "type": "suv",
+      "fuel": "hibrido",
+      "seats": 5,
+      "price": 27190000,
+      "transmission": "automatica",
+      "traction": "4x2",
+      "image_url": "",
+      "description": "SUV mediano híbrido (MHEV) 1.2T de 136 hp con caja automática de 6 velocidades.",
+      "origin": "Francia",
+      "versions": [
+        {
+          "version": "New 3008 Allure Hybrid 136hp AT",
+          "price": 27190000,
+          "price_list": 30790000,
+          "price_bonus": 3600000,
+          "transmission": "automatica",
+          "traction": "4x2"
+        },
+        {
+          "version": "New 3008 GT Hybrid 136hp AT",
+          "price": 32190000,
+          "price_list": 37290000,
+          "price_bonus": 5100000,
           "transmission": "automatica",
           "traction": "4x2"
         }
@@ -755,10 +847,188 @@
         "Apple CarPlay",
         "Android Auto"
       ],
-      "fuel_consumption_mixed_km_l": 18,
+      "fuel_consumption_mixed_km_l": 20.4,
       "warranty_years": 3,
       "warranty_km": 100000,
-      "origin_country": "Francia"
+      "origin_country": "Francia",
+      "price_source": "https://www.rosselot.cl/nuevos/peugeot/new-3008-hybrid",
+      "price_list": 30790000,
+      "price_bonus": 3600000,
+      "price_checked_at": "2026-10-23",
+      "fuel_consumption_city_km_l": 23.5
+    },
+    {
+      "id": 686,
+      "brand": "Peugeot",
+      "model": "2008 Electric",
+      "year": 2026,
+      "type": "suv",
+      "fuel": "electrico",
+      "seats": 5,
+      "price": 27590000,
+      "transmission": "automatica",
+      "traction": "4x2",
+      "image_url": "",
+      "description": "SUV compacto eléctrico con batería de 50 kWh, 313 km de autonomía homologada y 156 hp.",
+      "origin": "Francia",
+      "versions": [
+        {
+          "version": "2008 MCA GT Electric",
+          "price": 27590000,
+          "price_list": 29590000,
+          "price_bonus": 2000000,
+          "transmission": "automatica",
+          "traction": "4x2"
+        }
+      ],
+      "hp": 156,
+      "torque_nm": 260,
+      "length_mm": 4300,
+      "width_mm": 1770,
+      "height_mm": 1550,
+      "wheelbase_mm": 2612,
+      "ground_clearance_mm": 175,
+      "trunk_liters": 434,
+      "airbags": 6,
+      "adas": [
+        "frenado automático de emergencia",
+        "asistente de carril",
+        "control de crucero adaptativo",
+        "cámara 360°"
+      ],
+      "latin_ncap_stars": 5,
+      "isofix": true,
+      "infotainment": [
+        "i-Cockpit",
+        "pantalla 7\"",
+        "Apple CarPlay",
+        "Android Auto",
+        "Bluetooth"
+      ],
+      "warranty_years": 3,
+      "warranty_km": 100000,
+      "origin_country": "Francia",
+      "price_source": "https://www.rosselot.cl/nuevos/peugeot/new-2008",
+      "price_list": 29590000,
+      "price_bonus": 2000000,
+      "price_checked_at": "2026-10-23",
+      "battery_kwh": 50,
+      "electric_range_km": 313
+    },
+    {
+      "id": 687,
+      "brand": "Peugeot",
+      "model": "208 Hybrid",
+      "year": 2026,
+      "type": "hatchback",
+      "fuel": "hibrido",
+      "seats": 5,
+      "price": 21290000,
+      "transmission": "automatica",
+      "traction": "4x2",
+      "image_url": "",
+      "description": "Hatchback híbrido (MHEV) 1.2T de 136 hp con caja automática de 6 velocidades.",
+      "origin": "Francia",
+      "versions": [
+        {
+          "version": "208 MCA Allure Hybrid 136hp AT",
+          "price": 21290000,
+          "price_list": 23990000,
+          "price_bonus": 2700000,
+          "transmission": "automatica",
+          "traction": "4x2"
+        }
+      ],
+      "hp": 136,
+      "torque_nm": 230,
+      "top_speed_kmh": 190,
+      "fuel_consumption_mixed_km_l": 22,
+      "fuel_tank_liters": 40,
+      "length_mm": 4055,
+      "width_mm": 1745,
+      "height_mm": 1429,
+      "wheelbase_mm": 2538,
+      "ground_clearance_mm": 150,
+      "trunk_liters": 309,
+      "airbags": 6,
+      "adas": [
+        "frenado automático de emergencia",
+        "asistente de carril",
+        "control de crucero adaptativo"
+      ],
+      "latin_ncap_stars": 5,
+      "isofix": true,
+      "infotainment": [
+        "i-Cockpit",
+        "pantalla 7\"",
+        "Apple CarPlay",
+        "Android Auto",
+        "Bluetooth"
+      ],
+      "warranty_years": 3,
+      "warranty_km": 100000,
+      "origin_country": "Francia",
+      "price_source": "https://www.rosselot.cl/nuevos/peugeot/new-208-mca",
+      "price_list": 23990000,
+      "price_bonus": 2700000,
+      "price_checked_at": "2026-10-23"
+    },
+    {
+      "id": 688,
+      "brand": "Peugeot",
+      "model": "208 Electric",
+      "year": 2026,
+      "type": "hatchback",
+      "fuel": "electrico",
+      "seats": 5,
+      "price": 24090000,
+      "transmission": "automatica",
+      "traction": "4x2",
+      "image_url": "",
+      "description": "Hatchback eléctrico con batería de 51 kWh, 410 km de autonomía WLTP y 156 hp.",
+      "origin": "Francia",
+      "versions": [
+        {
+          "version": "208 MCA GT Electric",
+          "price": 24090000,
+          "price_list": 26590000,
+          "price_bonus": 2500000,
+          "transmission": "automatica",
+          "traction": "4x2"
+        }
+      ],
+      "hp": 156,
+      "torque_nm": 260,
+      "length_mm": 4055,
+      "width_mm": 1745,
+      "height_mm": 1429,
+      "wheelbase_mm": 2538,
+      "ground_clearance_mm": 150,
+      "trunk_liters": 309,
+      "airbags": 6,
+      "adas": [
+        "frenado automático de emergencia",
+        "asistente de carril",
+        "control de crucero adaptativo"
+      ],
+      "latin_ncap_stars": 5,
+      "isofix": true,
+      "infotainment": [
+        "i-Cockpit",
+        "pantalla 7\"",
+        "Apple CarPlay",
+        "Android Auto",
+        "Bluetooth"
+      ],
+      "warranty_years": 3,
+      "warranty_km": 100000,
+      "origin_country": "Francia",
+      "price_source": "https://www.rosselot.cl/nuevos/peugeot/new-208-mca",
+      "price_list": 26590000,
+      "price_bonus": 2500000,
+      "price_checked_at": "2026-10-23",
+      "battery_kwh": 51,
+      "electric_range_km": 410
     }
   ]
 }

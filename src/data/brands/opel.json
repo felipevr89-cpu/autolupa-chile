@@ -6,32 +6,44 @@
       "id": 470,
       "brand": "Opel",
       "model": "Corsa",
-      "year": 2025,
+      "year": 2026,
       "type": "hatchback",
       "fuel": "gasolina",
       "seats": 5,
-      "price": 14490000,
-      "transmission": "automatica",
+      "price": 16290000,
+      "transmission": "manual",
       "traction": "4x2",
       "image_url": "",
-      "description": "Hatchback subcompacto con diseño moderno.",
+      "description": "Hatchback urbano 1.2 de 100 hp, con caja manual o automática.",
       "origin": "España",
       "versions": [
         {
-          "version": "Edition",
-          "price": 14490000,
+          "version": "Corsa Edition Gasolina 100HP MT",
+          "price": 16290000,
+          "price_list": 17390000,
+          "price_bonus": 1100000,
+          "transmission": "manual",
+          "traction": "4x2"
+        },
+        {
+          "version": "Corsa Edition Gasolina 100HP AT",
+          "price": 17690000,
+          "price_list": 18690000,
+          "price_bonus": 1000000,
           "transmission": "automatica",
           "traction": "4x2"
         },
         {
-          "version": "Elegance",
-          "price": 16490000,
+          "version": "Corsa GS Gasolina 100HP AT",
+          "price": 19190000,
+          "price_list": 20490000,
+          "price_bonus": 1300000,
           "transmission": "automatica",
           "traction": "4x2"
         }
       ],
-      "hp": 110,
-      "torque_nm": 150,
+      "hp": 100,
+      "torque_nm": 205,
       "top_speed_kmh": 190,
       "fuel_consumption_city_km_l": 15,
       "fuel_consumption_highway_km_l": 20,
@@ -58,42 +70,47 @@
       ],
       "warranty_years": 3,
       "warranty_km": 100000,
-      "origin_country": "España"
+      "origin_country": "España",
+      "price_source": "https://www.rosselot.cl/nuevos/opel/corsa",
+      "price_list": 17390000,
+      "price_bonus": 1100000,
+      "price_checked_at": "2026-10-23"
     },
     {
       "id": 471,
       "brand": "Opel",
       "model": "New Crossland",
-      "year": 2025,
+      "year": 2026,
       "type": "suv",
-      "fuel": "gasolina",
-      "seats": 5,
-      "price": 17490000,
+      "fuel": "hibrido",
+      "seats": 7,
+      "price": 21790000,
       "transmission": "automatica",
       "traction": "4x2",
       "image_url": "",
-      "description": "SUV compacto con diseño robusto.",
+      "description": "SUV compacto híbrido (MHEV) 1.2T de 136 hp, con 5 o 7 plazas.",
       "origin": "Francia",
       "versions": [
         {
-          "version": "Edition",
-          "price": 17490000,
+          "version": "New Crossland GS 5P Hybrid 136 hp AT",
+          "price": 21790000,
+          "price_list": 22690000,
+          "price_bonus": 900000,
           "transmission": "automatica",
           "traction": "4x2"
         },
         {
-          "version": "Elegance",
-          "price": 20490000,
+          "version": "New Crossland GS 7P Hybrid 136 hp AT",
+          "price": 22790000,
+          "price_list": 23690000,
+          "price_bonus": 900000,
           "transmission": "automatica",
           "traction": "4x2"
         }
       ],
-      "hp": 130,
+      "hp": 136,
       "torque_nm": 230,
       "top_speed_kmh": 190,
-      "fuel_consumption_city_km_l": 13,
-      "fuel_consumption_highway_km_l": 18,
-      "fuel_consumption_mixed_km_l": 15,
       "fuel_tank_liters": 45,
       "length_mm": 4212,
       "width_mm": 1765,
@@ -117,7 +134,11 @@
       ],
       "warranty_years": 3,
       "warranty_km": 100000,
-      "origin_country": "Francia"
+      "origin_country": "Francia",
+      "price_source": "https://www.rosselot.cl/nuevos/opel/new-crossland",
+      "price_list": 22690000,
+      "price_bonus": 900000,
+      "price_checked_at": "2026-10-23"
     },
     {
       "id": 472,
@@ -178,7 +199,8 @@
       ],
       "warranty_years": 3,
       "warranty_km": 100000,
-      "origin_country": "Francia"
+      "origin_country": "Francia",
+      "lineup_2026": false
     },
     {
       "id": 640,
@@ -188,22 +210,42 @@
       "type": "suv",
       "fuel": "gasolina",
       "seats": 5,
-      "price": 16590000,
-      "transmission": "automatica",
+      "price": 18590000,
+      "transmission": "manual",
       "traction": "4x2",
       "image_url": "",
-      "description": "SUV subcompacto con diseño vanguardista y motor eficiente.",
+      "description": "SUV subcompacto 1.2 turbo de 130 hp con caja manual o automática.",
       "origin": "Francia",
       "versions": [
         {
-          "version": "1.2T AT",
-          "price": 16590000,
+          "version": "Mokka MCA Edition Plus Gasolina 130HP MT",
+          "price": 18590000,
+          "price_list": 21690000,
+          "price_bonus": 3100000,
+          "transmission": "manual",
+          "traction": "4x2"
+        },
+        {
+          "version": "Mokka MCA Edition Gasolina 130HP AT",
+          "price": 19090000,
+          "price_list": 21690000,
+          "price_bonus": 2600000,
           "transmission": "automatica",
           "traction": "4x2"
         },
         {
-          "version": "1.2T GS AT",
-          "price": 19590000,
+          "version": "Mokka MCA Edition Plus Gasolina 130HP AT",
+          "price": 19690000,
+          "price_list": 23190000,
+          "price_bonus": 3500000,
+          "transmission": "automatica",
+          "traction": "4x2"
+        },
+        {
+          "version": "Mokka MCA GS Plus Gasolina 130HP AT",
+          "price": 22090000,
+          "price_list": 24790000,
+          "price_bonus": 2700000,
           "transmission": "automatica",
           "traction": "4x2"
         }
@@ -227,7 +269,11 @@
       "fuel_consumption_mixed_km_l": 16,
       "warranty_years": 3,
       "warranty_km": 100000,
-      "origin_country": "Francia"
+      "origin_country": "Francia",
+      "price_source": "https://www.rosselot.cl/nuevos/opel/new-mokka",
+      "price_list": 21690000,
+      "price_bonus": 3100000,
+      "price_checked_at": "2026-10-23"
     },
     {
       "id": 641,
@@ -235,24 +281,28 @@
       "model": "New Grandland",
       "year": 2026,
       "type": "suv",
-      "fuel": "gasolina",
+      "fuel": "hibrido",
       "seats": 5,
-      "price": 26990000,
+      "price": 29690000,
       "transmission": "automatica",
       "traction": "4x2",
       "image_url": "",
-      "description": "SUV mediano de nueva generación con tecnología híbrida ligera.",
+      "description": "SUV mediano híbrido (MHEV) 1.2T de 136 hp con caja automática de 6 velocidades.",
       "origin": "Francia",
       "versions": [
         {
-          "version": "1.2T MHEV AT",
-          "price": 26990000,
+          "version": "New Grandland GS Hybrid 136HP AT",
+          "price": 29690000,
+          "price_list": 32690000,
+          "price_bonus": 3000000,
           "transmission": "automatica",
           "traction": "4x2"
         },
         {
-          "version": "1.2T MHEV GS AT",
-          "price": 30990000,
+          "version": "New Grandland GS Plus Hybrid 136HP AT",
+          "price": 33690000,
+          "price_list": 36690000,
+          "price_bonus": 3000000,
           "transmission": "automatica",
           "traction": "4x2"
         }
@@ -276,7 +326,11 @@
       "fuel_consumption_mixed_km_l": 18,
       "warranty_years": 5,
       "warranty_km": 100000,
-      "origin_country": "Francia"
+      "origin_country": "Francia",
+      "price_source": "https://www.rosselot.cl/nuevos/opel/new-grandland",
+      "price_list": 32690000,
+      "price_bonus": 3000000,
+      "price_checked_at": "2026-10-23"
     },
     {
       "id": 642,
@@ -284,30 +338,26 @@
       "model": "Combo",
       "year": 2026,
       "type": "minivan",
-      "fuel": "gasolina",
-      "seats": 5,
-      "price": 15790000,
+      "fuel": "diesel",
+      "seats": 2,
+      "price": 19623100,
       "transmission": "manual",
       "traction": "4x2",
       "image_url": "",
-      "description": "Furgón compacto versátil para carga y pasajeros.",
+      "description": "Furgón compacto diésel 1.5 de 100 hp con caja manual de 6 velocidades. Precio publicado incluye IVA.",
       "origin": "Francia",
       "versions": [
         {
-          "version": "1.2T MT",
-          "price": 15790000,
-          "transmission": "manual",
-          "traction": "4x2"
-        },
-        {
-          "version": "1.2T MT Largo",
-          "price": 17790000,
+          "version": "Combo Lite Diesel 100HP MT",
+          "price": 19623100,
+          "price_list": 22598100,
+          "price_bonus": 2975000,
           "transmission": "manual",
           "traction": "4x2"
         }
       ],
-      "hp": 110,
-      "torque_nm": 150,
+      "hp": 100,
+      "torque_nm": 250,
       "length_mm": 4400,
       "width_mm": 1840,
       "height_mm": 1820,
@@ -324,7 +374,67 @@
       "fuel_consumption_mixed_km_l": 15,
       "warranty_years": 3,
       "warranty_km": 100000,
-      "origin_country": "Francia"
+      "origin_country": "Francia",
+      "price_source": "https://www.rosselot.cl/nuevos/opel/combo",
+      "price_list": 22598100,
+      "price_bonus": 2975000,
+      "price_checked_at": "2026-10-23"
+    },
+    {
+      "id": 690,
+      "brand": "Opel",
+      "model": "Crossland Electric",
+      "year": 2026,
+      "type": "suv",
+      "fuel": "electrico",
+      "seats": 5,
+      "price": 22990000,
+      "transmission": "automatica",
+      "traction": "4x2",
+      "image_url": "",
+      "description": "SUV compacto eléctrico con batería de 44 kWh, 305 km de autonomía y 113 hp.",
+      "origin": "Francia",
+      "versions": [
+        {
+          "version": "New Crossland GS Electric",
+          "price": 22990000,
+          "price_list": 27090000,
+          "price_bonus": 4100000,
+          "transmission": "automatica",
+          "traction": "4x2"
+        }
+      ],
+      "hp": 113,
+      "torque_nm": 125,
+      "length_mm": 4212,
+      "width_mm": 1765,
+      "height_mm": 1597,
+      "wheelbase_mm": 2604,
+      "ground_clearance_mm": 175,
+      "trunk_liters": 410,
+      "airbags": 6,
+      "adas": [
+        "frenado automático de emergencia",
+        "asistente de carril",
+        "asistente de estacionamiento"
+      ],
+      "latin_ncap_stars": 5,
+      "isofix": true,
+      "infotainment": [
+        "pantalla 7\"",
+        "Apple CarPlay",
+        "Android Auto",
+        "Bluetooth"
+      ],
+      "warranty_years": 3,
+      "warranty_km": 100000,
+      "origin_country": "Francia",
+      "price_source": "https://www.rosselot.cl/nuevos/opel/new-crossland",
+      "price_list": 27090000,
+      "price_bonus": 4100000,
+      "price_checked_at": "2026-10-23",
+      "battery_kwh": 44,
+      "electric_range_km": 305
     }
   ]
 }

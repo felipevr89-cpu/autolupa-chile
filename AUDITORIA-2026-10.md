@@ -389,3 +389,16 @@ Los precios oficiales son los publicados el 22-10-2026 y pueden incluir bonos o 
 - **Regla de precios comerciales**: pickups y vans conservan el precio publicado **+ IVA** (Chevrolet Colorado/Silverado/Montana/N400, Renault Master) y se documenta en la descripción; no se inventa el precio lista con IVA cuando el bono oficial no cuadra.
 - **Gate**: **661 modelos / 1.421 versiones / 0 errores**; sitemap **800 URLs**; `LINT=0`, `TEST=229/229`, `BUILD=0`.
 - **Siguiente lote de datos**: Peugeot, Citroën, Volkswagen, Honda, Subaru, Mitsubishi, BYD, Chery, Changan, Jetour, Geely, Fiat, Jeep y marcas premium. Las marcas Stellantis (Peugeot/Citroën) no publican precios por versión en su web: requieren lista oficial de concesionario o cotizador para poder contrastar.
+
+---
+
+## 13. Cierre del Lote 24.4 — Stellantis, RAM y Mitsubishi (23-10-2026)
+
+- **Fuente**: Rosselot publica por versión `Precio de Lista`, bonos de marca/Rosselot/online, `Precio Contado` y precio final con financiamiento. Se usó el **Precio Contado** (sin bono de financiamiento) y se guardaron `price_list`, `price_bonus`, `price_source` y `price_checked_at`; precios válidos hasta el 31-10-2026.
+- **Marcas cerradas**: Peugeot (16 modelos), Citroën (11), Opel (7), Fiat (10), Jeep (12), RAM (8) y Mitsubishi (11).
+- **Nuevos modelos**: 2008 Electric, 208 Hybrid, 208 Electric, Berlingo furgón, Crossland Electric, Avenger Hybrid, Avenger Electric, Dakota, Destinator, Outlander PHEV y Outlander Sport (ids 686–696).
+- **Parrilla**: Peugeot deja fuera 3008 anterior y 408; Citroën deja fuera Ami; Opel deja fuera Grandland anterior; Jeep deja fuera Cherokee y Wrangler 4xe; RAM deja fuera 1200 y Promaster Rapid; Mitsubishi deja fuera ASX, Attrage, Mirage, Montero Sport y Xpander. Fiat no marca fuera a Mobi/Argo/Cronos/Strada/Toro/Fiorino/Ducato porque siguen apareciendo en planes y concesionarios, aunque `fiat.cl` solo publique tres modelos.
+- **Precios comerciales**: pickups y vans conservan el precio publicado **+ IVA** (Landtrek, Partner, Expert, Traveller, Boxer, Berlingo furgón, Jumpy, Spacetourer, Jumper, Combo, Gladiator, RAM 700/Rampage/Dakota/1500/1500 RHO/2500 y L200), anotado en la descripción.
+- **Electrificados**: 2008 Electric 50 kWh/313 km; 208 Electric 51/410; Crossland Electric 44/305; Avenger Electric 54/400; 500e 42/330; Outlander PHEV 20/83. Se eliminaron consumos/estanque heredados de los EV/PHEV y dimensiones heredadas de Dakota/Destinator.
+- **Gate**: **672 modelos / 1.462 versiones / 0 errores**; sitemap **811 URLs**; `LINT=0`, `TEST=229/229`, `BUILD=0`.
+- **Deuda**: 19 ids sin foto (678–696; 8 del Lote 24.3 y 11 del 24.4), 338 `latin_ncap_stars` legacy, 115 EV/PHEV sin batería/autonomía en JSON y marcas chinas/premium pendientes de contraste oficial.

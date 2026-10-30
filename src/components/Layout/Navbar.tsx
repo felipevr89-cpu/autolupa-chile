@@ -45,7 +45,12 @@ export function Navbar({ user, signInWithGoogle, signOut, isCloudAuthAvailable }
 
   const toggleDark = () => setDarkMode(prev => !prev);
 
-  const isActive = (path: string) => location.pathname === path;
+  const isActive = (to: string) => {
+    const [path, query] = to.split('?');
+    if (location.pathname !== path) return false;
+    if (!query) return location.search === '';
+    return location.search.includes(query);
+  };
 
   const [top10Open, setTop10Open] = useState(false);
 
@@ -61,7 +66,9 @@ export function Navbar({ user, signInWithGoogle, signOut, isCloudAuthAvailable }
 
   const navLinks = [
     { to: '/', label: 'Inicio' },
+    { to: '/?combustible=electrico', label: 'Eléctricos' },
     { to: '/usados', label: 'Usados' },
+    { to: '/top10?cat=nuevos', label: 'Nuevos' },
     { to: '/compare', label: 'Comparar' },
     { to: '/tasar-auto', label: 'Tasar' },
     { to: '/favorites', label: 'Favoritos' },
@@ -173,7 +180,7 @@ export function Navbar({ user, signInWithGoogle, signOut, isCloudAuthAvailable }
                   <span className="text-sm text-gray-300">{user.displayName ?? 'Invitado'}</span>
                 </div>
                 <Link to="/mis-anuncios" className="px-3 py-2 text-sm text-gray-300 hover:text-white transition-colors">
-                  Mis avisos
+                  Mi cuenta
                 </Link>
                 <button
                   onClick={signOut}
@@ -305,7 +312,7 @@ export function Navbar({ user, signInWithGoogle, signOut, isCloudAuthAvailable }
                   )}
                   <span className="text-sm text-gray-300">{user.displayName ?? 'Invitado'}</span>
                 </div>
-                <Link to="/mis-anuncios" onClick={() => setMobileOpen(false)} className="block px-4 py-2 text-sm text-gray-300 hover:bg-white/10 rounded-lg">Mis avisos</Link>
+                <Link to="/mis-anuncios" onClick={() => setMobileOpen(false)} className="block px-4 py-2 text-sm text-gray-300 hover:bg-white/10 rounded-lg">Mi cuenta</Link>
                 <button
                   onClick={() => { signOut(); setMobileOpen(false); }}
                   className="w-full text-left px-4 py-2 text-sm text-gray-300 hover:bg-white/10 rounded-lg"

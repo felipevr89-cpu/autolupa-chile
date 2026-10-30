@@ -36,6 +36,11 @@ const staticRoutes = [
   ['/glosario', 'weekly', 0.8],
   ['/reclamos', 'weekly', 0.6],
   ['/faq', 'weekly', 0.8],
+  ['/quienes-somos', 'monthly', 0.5],
+  ['/contacto', 'monthly', 0.5],
+  ['/como-funciona', 'monthly', 0.6],
+  ['/compra-segura', 'monthly', 0.7],
+  ['/tus-datos', 'monthly', 0.3],
 ];
 
 function brandSlugs() {

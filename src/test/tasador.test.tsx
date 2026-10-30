@@ -4,7 +4,7 @@ import { userEvent } from '@testing-library/user-event';
 import { HelmetProvider } from 'react-helmet-async';
 import { MemoryRouter } from 'react-router-dom';
 import { TasarAuto } from '../pages/TasarAuto';
-import { carsData } from '../data/brands';
+import { carsData, getModelsByBrand } from '../data/brands';
 import {
   estimarValor,
   getDepreciacionAcumulada,
@@ -88,6 +88,24 @@ function renderTasar() {
     </HelmetProvider>,
   );
 }
+
+describe('cobertura del catálogo en el tasador', () => {
+  it('incluye los Tiggo 8 y la familia Pro Max sin deduplicar por substring', () => {
+    const cheryModels = getModelsByBrand('Chery');
+    expect(cheryModels).toContain('Tiggo 8');
+    expect(cheryModels).toContain('Tiggo 8 Pro Max');
+    expect(cheryModels.some(model => model.startsWith('Tiggo 8 Pro'))).toBe(true);
+    expect(cheryModels.filter(model => model.startsWith('Tiggo 8'))).toHaveLength(3);
+  });
+
+  it('el catálogo del tasador cubre todos los modelos del catálogo general', () => {
+    const brands = [...new Set(carsData.map(car => car.brand))];
+    for (const brand of brands) {
+      const catalogModels = [...new Set(carsData.filter(car => car.brand === brand).map(car => car.model))].sort();
+      expect(getModelsByBrand(brand).slice().sort()).toEqual(catalogModels);
+    }
+  });
+});
 
 describe('página /tasar-auto', () => {
   it('calcula el valor y ofrece publicar a ese precio', async () => {

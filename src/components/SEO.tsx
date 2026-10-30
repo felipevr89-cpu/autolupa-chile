@@ -22,15 +22,25 @@ export function SEO({ title, description, jsonLd, noIndex = false }: Props) {
   const structuredData = jsonLd || (pathname === '/'
     ? {
         '@context': 'https://schema.org',
-        '@type': 'WebSite',
-        name: siteName,
-        url: siteUrl,
-        description: desc,
-        potentialAction: {
-          '@type': 'SearchAction',
-          target: `${siteUrl}/?q={search_term_string}`,
-          'query-input': 'required name=search_term_string',
-        },
+        '@graph': [
+          {
+            '@type': 'WebSite',
+            name: siteName,
+            url: siteUrl,
+            description: desc,
+            potentialAction: {
+              '@type': 'SearchAction',
+              target: `${siteUrl}/?q={search_term_string}`,
+              'query-input': 'required name=search_term_string',
+            },
+          },
+          {
+            '@type': 'Organization',
+            name: siteName,
+            url: siteUrl,
+            logo: `${siteUrl}/icon-512.png`,
+          },
+        ],
       }
     : {
         '@context': 'https://schema.org',

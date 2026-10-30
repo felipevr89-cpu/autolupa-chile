@@ -7,6 +7,8 @@
     "dev": "vite",
     "prebuild": "node scripts/generate-sitemap.mjs",
     "audit:catalog": "node scripts/audit-catalog.mjs",
+    "audit:assets": "node scripts/audit-model-assets.mjs",
+    "audit:tasar": "node scripts/audit-tasar.mjs",
     "build": "tsc -b && vite build",
     "test": "vitest run",
     "lint": "eslint .",

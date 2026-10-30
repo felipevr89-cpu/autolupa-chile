@@ -102,6 +102,41 @@ interface UsedListingReportRow {
   listing: Pick<UsedListingRow, 'id' | 'brand' | 'model' | 'year' | 'slug'> | Pick<UsedListingRow, 'id' | 'brand' | 'model' | 'year' | 'slug'>[] | null;
 }
 
+export interface UsedListingLead {
+  listingId: string;
+  listingTitle: string;
+  sellerName: string;
+  name: string;
+  email: string;
+  phone: string;
+  message: string;
+}
+
+export async function submitUsedListingLead(lead: UsedListingLead): Promise<void> {
+  const payload = {
+    listing_id: lead.listingId,
+    name: lead.name,
+    email: lead.email,
+    phone: lead.phone || null,
+    message: lead.message,
+  };
+
+  if (!supabase) {
+    console.info('[used-listing-lead]', { ...payload, listingTitle: lead.listingTitle, sellerName: lead.sellerName });
+    return;
+  }
+
+  const { error } = await supabase.from('used_listing_leads').insert(payload);
+  if (error) {
+    console.info('[used-listing-lead:fallback]', {
+      ...payload,
+      listingTitle: lead.listingTitle,
+      sellerName: lead.sellerName,
+      error: error.message,
+    });
+  }
+}
+
 export class MarketplaceUnavailableError extends Error {
   constructor() {
     super('El mercado de usados aún no está disponible.');
@@ -149,8 +184,7 @@ function mapListing(row: UsedListingRow): UsedListing {
   };
 }
 
-async function selectSellers(ids: string[], withVerification: boolean): Promise<SellerProfileRow[] | null> {
-  const columns = withVerification ? `${SELLER_COLUMNS},email_verified` : SELLER_COLUMNS;
+async function selectSellers(ids: string[], columns: string): Promise<SellerProfileRow[] | null> {
   const { data, error } = await client().from('profiles').select(columns).in('id', ids);
   if (error || !data) return null;
   return data as unknown as SellerProfileRow[];
@@ -160,8 +194,11 @@ async function attachSellers(listings: UsedListing[], withVerification = false):
   const sellerIds = [...new Set(listings.map((listing) => listing.sellerId).filter(Boolean))];
   if (sellerIds.length === 0) return;
 
-  let profiles = await selectSellers(sellerIds, withVerification);
-  if (!profiles && withVerification) profiles = await selectSellers(sellerIds, false);
+  let profiles = withVerification
+    ? await selectSellers(sellerIds, `${SELLER_COLUMNS},email_verified,verification_level`)
+    : null;
+  if (!profiles && withVerification) profiles = await selectSellers(sellerIds, `${SELLER_COLUMNS},email_verified`);
+  if (!profiles) profiles = await selectSellers(sellerIds, SELLER_COLUMNS);
   if (!profiles) return;
 
   const byId = new Map(profiles.map((profile) => [profile.id, profile]));

@@ -71,6 +71,31 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://autolupa.pages.dev/quienes-somos</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://autolupa.pages.dev/contacto</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://autolupa.pages.dev/como-funciona</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://autolupa.pages.dev/compra-segura</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://autolupa.pages.dev/tus-datos</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
     <loc>https://autolupa.pages.dev/marca/abarth</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
@@ -1077,6 +1102,11 @@
   </url>
   <url>
     <loc>https://autolupa.pages.dev/auto/104-chery-tiggo-9-phev-2026</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://autolupa.pages.dev/auto/697-chery-tiggo-8-2026</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>

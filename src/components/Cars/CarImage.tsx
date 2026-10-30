@@ -82,6 +82,8 @@ export function CarImage({
           src={imageUrl}
           alt={`${brand} ${model}`}
           loading={eager ? 'eager' : 'lazy'}
+          fetchPriority={eager ? 'high' : 'auto'}
+          decoding="async"
           onLoad={() => setLoaded(true)}
           onError={() => setFailed(true)}
           className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${

@@ -32,6 +32,10 @@ const Reclamos = lazy(() => import('./pages/Reclamos').then(m => ({ default: m.R
 const Faq = lazy(() => import('./pages/Faq').then(m => ({ default: m.Faq })));
 const Analytics = lazy(() => import('./pages/Analytics').then(m => ({ default: m.Analytics })));
 const TasarAuto = lazy(() => import('./pages/TasarAuto').then(m => ({ default: m.TasarAuto })));
+const AboutPage = lazy(() => import('./pages/CompanyPages').then(m => ({ default: m.AboutPage })));
+const ContactPage = lazy(() => import('./pages/CompanyPages').then(m => ({ default: m.ContactPage })));
+const HowItWorksPage = lazy(() => import('./pages/CompanyPages').then(m => ({ default: m.HowItWorksPage })));
+const SafePurchasePage = lazy(() => import('./pages/CompanyPages').then(m => ({ default: m.SafePurchasePage })));
 
 function PageSkeleton() {
   return (
@@ -210,6 +214,38 @@ function AppContent() {
           element={
             <Suspense fallback={<PageSkeleton />}>
               <LegalDocs />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/quienes-somos"
+          element={
+            <Suspense fallback={<PageSkeleton />}>
+              <AboutPage />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/contacto"
+          element={
+            <Suspense fallback={<PageSkeleton />}>
+              <ContactPage />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/como-funciona"
+          element={
+            <Suspense fallback={<PageSkeleton />}>
+              <HowItWorksPage />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/compra-segura"
+          element={
+            <Suspense fallback={<PageSkeleton />}>
+              <SafePurchasePage />
             </Suspense>
           }
         />

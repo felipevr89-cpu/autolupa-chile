@@ -103,6 +103,7 @@ export interface UsedListingSeller {
   avatar_url: string | null;
   created_at: string;
   email_verified?: boolean;
+  verification_level?: 'none' | 'verified' | 'history_checked' | 'featured';
 }
 
 export interface UsedListing {
@@ -132,6 +133,11 @@ export interface UsedListing {
   featuredUntil: string | null;
   moderationNote: string | null;
   seller: UsedListingSeller | null;
+  vin?: string;
+  ownersCount?: number;
+  maintenanceHistory?: string;
+  finesStatus?: string;
+  liensStatus?: string;
 }
 
 export interface UsedListingPage {

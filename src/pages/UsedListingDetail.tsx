@@ -6,6 +6,7 @@ import { SafetyBanner } from '../components/Trust/SafetyBanner';
 import { AutoLupaSeal } from '../components/Trust/AutoLupaSeal';
 import { DocumentLinks } from '../components/Trust/DocumentLinks';
 import { SaveListingButton } from '../components/Used/SaveListingButton';
+import { LeadForm } from '../components/Used/LeadForm';
 import { ShareButton } from '../components/Share/ShareButton';
 import { formatPrice } from '../data/brands';
 import { USED_FUEL_OPTIONS, USED_TRANSMISSION_OPTIONS, type UsedListing, usedListingWhatsappUrl } from '../data/usedListings';
@@ -40,6 +41,7 @@ export function UsedListingDetail({ user, isCloudAuthAvailable, onSignIn }: Prop
   const [reportReason, setReportReason] = useState('');
   const [reportState, setReportState] = useState<'idle' | 'sending' | 'sent'>('idle');
   const [reportError, setReportError] = useState('');
+  const [leadOpen, setLeadOpen] = useState(false);
 
   useEffect(() => {
     let cancelled = false;
@@ -181,6 +183,20 @@ export function UsedListingDetail({ user, isCloudAuthAvailable, onSignIn }: Prop
               <Detail label="Transmisión" value={transmissionLabel(listing.transmission)} />
             </dl>
           </div>
+
+          <div className="mt-6 rounded-2xl bg-white dark:bg-gray-800 p-6 card-shadow">
+            <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-4">Historial y documentación</h2>
+            <dl className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <Detail label="VIN" value={listing.vin || 'No informado'} />
+              <Detail label="N° de dueños" value={listing.ownersCount != null ? String(listing.ownersCount) : 'No informado'} />
+              <Detail label="Mantenciones" value={listing.maintenanceHistory || 'No informado'} />
+              <Detail label="Multas" value={listing.finesStatus || 'No informado'} />
+              <Detail label="Prendas y prohibiciones" value={listing.liensStatus || 'No informado'} />
+            </dl>
+            <p className="mt-4 text-xs text-gray-500 dark:text-gray-400">
+              [PENDIENTE-INTEGRACION] La verificación automática con Registro Civil, multas y prendas aún no está conectada. Pide los documentos originales antes de pagar.
+            </p>
+          </div>
         </section>
 
         <aside className="lg:sticky lg:top-24 h-fit space-y-4">
@@ -203,9 +219,19 @@ export function UsedListingDetail({ user, isCloudAuthAvailable, onSignIn }: Prop
                 className="w-full"
               />
             </div>
-            <a href={usedListingWhatsappUrl(listing)} target="_blank" rel="noopener noreferrer" onClick={() => track('ContactSeller', { origen: 'aviso', region: listing.region })} className="mt-4 flex items-center justify-center gap-2 w-full px-5 py-3 bg-green-500 hover:bg-green-600 text-white rounded-xl font-bold">Contactar por WhatsApp</a>
-            {listing.contactEmail && <a href={`mailto:${listing.contactEmail}`} className="mt-3 block text-center text-sm text-blue-600 dark:text-blue-400 hover:underline">Enviar correo</a>}
-            <p className="text-xs text-gray-500 dark:text-gray-400 mt-4">La publicación es gratuita. AutoLupa no cobra comisión por este aviso.</p>
+            {user ? (
+              <>
+                <a href={usedListingWhatsappUrl(listing)} target="_blank" rel="noopener noreferrer" onClick={() => track('ContactSeller', { origen: 'aviso', region: listing.region })} className="mt-4 flex items-center justify-center gap-2 w-full px-5 py-3 bg-green-500 hover:bg-green-600 text-white rounded-xl font-bold">Contactar por WhatsApp</a>
+                {listing.contactEmail && <a href={`mailto:${listing.contactEmail}`} className="mt-3 block text-center text-sm text-blue-600 dark:text-blue-400 hover:underline">Enviar correo</a>}
+              </>
+            ) : (
+              <button type="button" onClick={() => setLeadOpen(true)} className="mt-4 flex items-center justify-center gap-2 w-full px-5 py-3 bg-green-600 hover:bg-green-500 text-white rounded-xl font-bold">
+                Contactar vendedor
+              </button>
+            )}
+            <p className="text-xs text-gray-500 dark:text-gray-400 mt-4">
+              {user ? 'La publicación es gratuita. AutoLupa no cobra comisión por este aviso.' : 'El teléfono y correo del vendedor se muestran solo a usuarios con sesión iniciada. Usa el formulario para enviar tu consulta.'}
+            </p>
           </div>
 
           <div className="rounded-2xl bg-white dark:bg-gray-800 p-5 card-shadow">
@@ -214,11 +240,23 @@ export function UsedListingDetail({ user, isCloudAuthAvailable, onSignIn }: Prop
               {listing.seller?.avatar_url ? <img src={listing.seller.avatar_url} alt="" className="w-10 h-10 rounded-full" /> : <div className="w-10 h-10 rounded-full bg-blue-100 dark:bg-blue-950 text-blue-700 dark:text-blue-300 flex items-center justify-center font-bold">{displayName.charAt(0).toUpperCase()}</div>}
               <div><p className="font-semibold text-gray-900 dark:text-white">{displayName}</p><p className="text-xs text-gray-500 dark:text-gray-400">Perfil de AutoLupa</p></div>
             </div>
-            {listing.seller?.email_verified && (
-              <span className="mt-3 inline-flex items-center gap-1 text-xs font-semibold text-green-700 dark:text-green-300 bg-green-100 dark:bg-green-900/50 px-2.5 py-1 rounded-full">
-                ✓ Correo verificado
-              </span>
-            )}
+            <div className="mt-3 flex flex-wrap gap-2">
+              {listing.seller?.email_verified && (
+                <span className="inline-flex items-center gap-1 text-xs font-semibold text-green-700 dark:text-green-300 bg-green-100 dark:bg-green-900/50 px-2.5 py-1 rounded-full">
+                  ✓ Verificado
+                </span>
+              )}
+              {listing.seller?.verification_level === 'history_checked' && (
+                <span className="inline-flex items-center gap-1 text-xs font-semibold text-blue-700 dark:text-blue-300 bg-blue-100 dark:bg-blue-900/50 px-2.5 py-1 rounded-full">
+                  Historial revisado
+                </span>
+              )}
+              {listing.featuredUntil && new Date(listing.featuredUntil).getTime() > Date.now() && (
+                <span className="inline-flex items-center gap-1 text-xs font-semibold text-amber-700 dark:text-amber-300 bg-amber-100 dark:bg-amber-900/50 px-2.5 py-1 rounded-full">
+                  Destacado
+                </span>
+              )}
+            </div>
           </div>
 
           <AutoLupaSeal emailVerified={!!listing.seller?.email_verified} />
@@ -243,6 +281,15 @@ export function UsedListingDetail({ user, isCloudAuthAvailable, onSignIn }: Prop
           </details>
         </aside>
       </div>
+
+      {leadOpen && (
+        <LeadForm
+          listingId={listing.id}
+          listingTitle={`${listing.brand} ${listing.model} ${listing.year}`}
+          sellerName={displayName}
+          onClose={() => setLeadOpen(false)}
+        />
+      )}
     </div>
   );
 }

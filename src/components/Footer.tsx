@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { carsData, brands } from '../data/brands';
 import { InstallHint } from './Layout/InstallHint';
+import { SUPPORT_EMAIL } from '../config/support';
 
 export function Footer() {
   const year = new Date().getFullYear();
@@ -9,7 +10,7 @@ export function Footer() {
     <footer className="bg-gray-900 dark:bg-gray-950 text-gray-400 mt-16 pb-24 md:pb-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <InstallHint />
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
           <div>
             <h3 className="text-white font-bold text-lg mb-4">AutoLupa</h3>
             <p className="text-sm font-semibold text-green-400 mb-2">El auto que buscas, sin letra chica</p>
@@ -31,14 +32,24 @@ export function Footer() {
             </ul>
           </div>
           <div>
+            <h4 className="text-white font-semibold mb-4">AutoLupa</h4>
+            <ul className="space-y-2 text-sm">
+              <li><Link to="/quienes-somos" className="hover:text-white transition-colors">Quiénes somos</Link></li>
+              <li><Link to="/como-funciona" className="hover:text-white transition-colors">Cómo funciona</Link></li>
+              <li><Link to="/compra-segura" className="hover:text-white transition-colors">Compra segura</Link></li>
+              <li><Link to="/contacto" className="hover:text-white transition-colors">Contacto y soporte</Link></li>
+              <li><Link to="/faq" className="hover:text-white transition-colors">Preguntas frecuentes y seguridad</Link></li>
+              <li><a href={`mailto:${SUPPORT_EMAIL}`} className="hover:text-white transition-colors">{SUPPORT_EMAIL}</a></li>
+            </ul>
+          </div>
+          <div>
             <h4 className="text-white font-semibold mb-4">Legal</h4>
             <ul className="space-y-2 text-sm">
               <li><Link to="/terminos" className="hover:text-white transition-colors">Términos y condiciones</Link></li>
               <li><Link to="/privacidad" className="hover:text-white transition-colors">Política de privacidad</Link></li>
               <li><Link to="/tus-datos" className="hover:text-white transition-colors">Tus datos (derechos Ley 21.719)</Link></li>
               <li><Link to="/reclamos" className="hover:text-white transition-colors">Reclamos y sugerencias</Link></li>
-              <li><Link to="/faq" className="hover:text-white transition-colors">Preguntas frecuentes y seguridad</Link></li>
-              <li><a href="mailto:info@autolupa.cl" className="hover:text-white transition-colors">Contacto: info@autolupa.cl</a></li>
+              <li><Link to="/publicar-auto" className="hover:text-white transition-colors">Publicar gratis</Link></li>
             </ul>
           </div>
           <div>

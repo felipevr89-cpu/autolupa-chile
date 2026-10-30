@@ -167,9 +167,11 @@ describe('badge de correo verificado en el detalle', () => {
     expect(listing?.seller?.email_verified).toBeUndefined();
 
     const profileSelects = state.calls.filter((call) => call.table === 'profiles');
-    expect(profileSelects).toHaveLength(2);
-    expect(profileSelects[0].select).toContain('email_verified');
-    expect(profileSelects[1].select).not.toContain('email_verified');
+    expect(profileSelects).toHaveLength(3);
+    expect(profileSelects[0].select).toContain('verification_level');
+    expect(profileSelects[1].select).toContain('email_verified');
+    expect(profileSelects[1].select).not.toContain('verification_level');
+    expect(profileSelects[2].select).not.toContain('email_verified');
   });
 
   it('entrega email_verified en una sola consulta cuando la columna existe', async () => {

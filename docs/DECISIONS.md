@@ -49,3 +49,8 @@
 - Contexto: no hay proveedor KYC ni pagos en esta fase.
 - Decisión: KYC mockeado (`verification_level`), mensajería vía leads, escrow fuera de alcance.
 - Consecuencia: las integraciones reales quedan marcadas `[PENDIENTE-INTEGRACION]`.
+
+## ADR-011 — Analítica sin cookies
+- Contexto: el brief pide GA4 + Consent Mode v2; el repositorio ya usa Plausible, cookieless.
+- Decisión: mantener Plausible y sus eventos (`ContactSeller`, `ContactSupport`, etc.) en vez de introducir GA4.
+- Consecuencia: no se requiere banner de consentimiento para analítica; si se migra a GA4, habrá que implementar Consent Mode v2.

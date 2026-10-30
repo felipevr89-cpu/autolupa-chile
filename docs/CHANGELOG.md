@@ -9,4 +9,4 @@
 - 2026-10-30: Badges de verificación (correo, historial, destacado) y sección de historial/documentación.
 - 2026-10-30: Migraciones de leads, verificación e historial agregadas (pendientes de aplicar).
 - 2026-10-30: Script `npm run audit:assets` y reporte `docs/AUDIT-ASSETS.md`.
-- 2026-10-30: Test de cobertura del tasador para Tiggo 8 / Pro Max.
+- 2026-10-30: Test de cobertura del tasador para Tiggo 8 / Pro Max.\n- 2026-10-30: Prioridad alta y decodificación async en la imagen LCP; ADR de analítica cookieless.

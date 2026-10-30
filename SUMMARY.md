@@ -8,7 +8,7 @@ Marketplace chileno de autos usados con comparador integrado de vehículos nuevo
 - **Persistencia**: listings, fotos, favoritos, perfiles, preferencias y firmas en Supabase; RLS y moderación obligatorias antes de publicar
 - **Seguridad de datos**: máquina de estados en base de datos, proyección pública de columnas, fotos no enumerables, `_headers` con cabeceras de seguridad, `_redirects` para el fallback SPA, CI con lint + tests + build
 - **Core**: Home, CarDetail, Favorites, Compare, FilterPanel, CarGrid funcionando
-- **Catálogo**: 98 marcas / 672 modelos con id único (IDs duplicados corregidos: 310/352/331 renumerados a 647/648/649; marca "Tank" duplicada eliminada)
+- **Catálogo**: 98 marcas / 673 modelos con id único (IDs duplicados corregidos: 310/352/331 renumerados a 647/648/649; marca "Tank" duplicada eliminada)
 - **Datos 2026**: precios, precios lista, bonos y versiones de 18 marcas reconstruidos desde fichas oficiales y la lista de concesionario Rosselot; seguridad mostrada solo con `safety_ratings` que tengan fuente (Latin NCAP sin fuente ya no se muestra)
 - **Top 10** (`/top10`): Rankings por categoría (seguridad, espacio, consumo, potencia, económico, autonomía EV, nuevos). Sincronizado con el parámetro `?cat=` del dropdown de la Navbar
 - **EV Hub** (`EVHub`): Catálogo electrificados, calculadora de carga, ranking autonomía, impacto ambiental
@@ -206,6 +206,20 @@ El rol anónimo (sin sesión) sigue sin poder insertar: no se tocó ninguna pol�
 - **Pendiente de esta auditoría**: specs heredadas sin fuente (hp/consumo de Corolla HEV y Fronx HEV, airbags Hilux/RAV4 nueva gen, gama fina L200/Sail), campo `precio lista` separado, Tucson/Sportage (híbrido como versión), y los 245 sin rating de seguridad.
 - **Fotos top ventas recambiadas (09-10-2026, `scripts/picks-top12.cjs`)**: verificación visual de las 12 confirmó 6 con generación/variante incorrecta — Corolla E210 pre-facelift, RAV4 XA50, Baleno 2015-2022, Sail II (HB y sedán) y el i10 europeo en vez del Grand i10. Nuevas fotos curadas en Commons (categoría + licencia + sin duplicados, revisadas una por una): Corolla Altis HEV GR Sport (568), RAV4 Hybrid Z 2025 CC0 (579), Baleno 1.5 GLS 2023 (546), Grand i10 Nios (245), Sail sedán 4ª gen fotografiado en Chile (120) y Aveo 310C HB mexicano como gemelo del Sail HB (119, CC BY 3.0, única opción disponible). Se mantienen Hilux Travo (= nueva Hilux), Triton (= nuevo L200), Raize, Fronx, Soluto/Pegas y ZS 2ª gen por ser generación correcta.
 
+
+## Lote 26 — Hardening P0/P1: confianza, contacto y bugs de catálogo (30-10-2026)
+
+- **Bug Ford Territory**: el id 188 usaba una foto del Territory EV de generación anterior; se reemplazó por una foto de la generación 2023+ de Commons (CC BY-SA 4.0, `LuvsMG481`) y se actualizó `carImages.json`.
+- **Bug Tasar Chery**: se agregó **Tiggo 8** (id 697, 1.5T MT/DCT Limited, $13.990.000/$14.990.000) y se actualizó **Tiggo 8 Pro Max** a 1.6T DCT GLS/GLX ($18.990.000/$20.990.000), con `price_list`, `price_bonus`, `price_source` y `price_checked_at`. La parrilla chilena no tiene un “Tiggo 8 Pro” separado: el nombre comercial es Pro Max (ver `docs/DECISIONS.md`).
+- **Páginas de confianza**: `/quienes-somos`, `/contacto`, `/como-funciona` y `/compra-segura` con contenido base, monetización freemium y placeholders `[PENDIENTE-LEGAL]`.
+- **Footer/nav**: enlaces a las páginas nuevas, soporte (`soporte@autolupa.cl`), “Eléctricos”, “Nuevos” y “Mi cuenta”.
+- **Filtros compartibles**: `useCars` sincroniza marca, modelo, tipo, combustible, precio, año, búsqueda, orden y página con query params (`marca`, `modelo`, `tipo`, `combustible`, `precio`, `anio`, `q`, `orden`, `pagina`).
+- **Contacto del vendedor**: teléfono/correo visibles solo con sesión iniciada; para anónimos, formulario de lead (`used_listing_leads` o log estructurado si la migración no está aplicada).
+- **Verificación**: badges “Verificado”, “Historial revisado” y “Destacado”; `verification_level` en `profiles` con consulta degradable.
+- **Historial y documentación**: sección en la ficha con VIN, N° de dueños, mantenciones, multas y prendas; integración real marcada `[PENDIENTE-INTEGRACION]`.
+- **Migraciones nuevas** (pendientes de aplicar): `202610300001_used_listing_leads.sql`, `202610300002_seller_verification_level.sql`, `202610300003_listing_history_fields.sql`.
+- **Auditorías**: `npm run audit:assets` genera `docs/AUDIT-ASSETS.md`; `npm run audit:tasar` genera `docs/AUDIT-TASAR.md`.
+- **Gate**: `LINT=0`, `TEST=231/231`, `BUILD=0`, `audit:catalog` → **673 modelos / 1.464 versiones / 0 errores**.
 
 ## Lote 23 — PWA y compartir: instalable en iOS, Web Share y skeletons (07-10-2026)
 

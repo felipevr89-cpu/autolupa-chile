@@ -1,3 +1,5 @@
+> **Estado al 11-11-2026.** Cerrados: P0 de código (Lote 25), datos de 7+3+7 marcas (Lotes 24.x), 6 marcas más con fuente oficial (Lote 27, `docs/AUDIT-CATALOGO-2026-11.md`), slugs ASCII + 301, sitemap sin rutas personales, soft-404 y prerender (Lote 28), TCO sin doble conteo y TIE en vez de CAE pendiente de revisar. Pendiente: matriz RLS/SMTP (Fase B) y `latin_ncap_stars` legacy en JSON.
+
 # Auditoría AutoLupa — 22 de octubre de 2026
 
 ## 0. Veredicto

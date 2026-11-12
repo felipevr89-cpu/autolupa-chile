@@ -4,7 +4,7 @@
 - **Nombre:** AutoLupa
 - **URL:** https://autolupa.pages.dev
 - **Descripción:** Marketplace de autos usados y comparador de vehículos del mercado chileno
-- **Tecnologías:** React 18 + Vite + TypeScript + Tailwind CSS 3 + Supabase
+- **Tecnologías:** React 18 + Vite + TypeScript + Tailwind CSS 3 (plugin `@tailwindcss/vite` instalado pero la configuración vigente es v3) + Supabase
 - **Hosting:** Cloudflare Pages
 - **API Token Cloudflare:** NO almacenado en el repo. Usar GitHub Secret `CLOUDFLARE_API_TOKEN` (ver `.github/workflows/deploy.yml`).
 
@@ -19,7 +19,7 @@ npm test
 # Lint
 npm run lint
 
-# Build (tsc -b + vite, verifica tipos)
+# Build (tsc -b + vite + prerender de 836 rutas y 404.html)
 npm run build
 
 # Deploy Cloudflare (token vía GitHub Secret, no en el repo)
@@ -47,7 +47,7 @@ src/
 │   ├── Trust/                   # SafetyBanner, AutoLupaSeal, DocumentLinks
 │   └── Wizard/AutoWizard.tsx    # 8 pasos + afinidad absoluta + fotos
 │   ├── Wizard/SmartAsk.tsx      # Buscador por lenguaje natural (recomendador semántico)
-│   └── Used/                    # Tarjetas y últimos avisos publicados
+│   └── Used/                    # Tarjetas, últimos avisos, DemoListings y ServiceNotice (caída del backend)
 ├── data/
 │   ├── brands/                  # Un JSON por marca (allBrands vía import.meta.glob)
 │   │   └── index.ts             # carsData, brandUrls, BRANDS_NOT_SOLD_NEW_IN_CHILE
@@ -62,7 +62,7 @@ src/
 │   └── useCars.ts               # Filtros con persistencia y favoritos en Supabase
 ├── pages/
 │   ├── Home.tsx                 # NOVEDADES_2026 curadas, Recientes, isFiltering dinámico
-│   ├── Usados.tsx               # Marketplace, filtros y CTA de publicação
+│   ├── Usados.tsx               # Marketplace, filtros y CTA de publicación
 │   ├── PublicarAuto.tsx         # Formulario de publicación en 4 pasos
 │   ├── UsedListingDetail.tsx    # Detalle SEO de cada aviso
 │   ├── MisAnuncios.tsx          # Gestión del vendedor
@@ -70,6 +70,7 @@ src/
 │   ├── Faq.tsx                  # FAQ antiestafas /faq (FAQPage JSON-LD)
 │   ├── Top10.tsx                # 7 categorías con ?cat=
 │   ├── Favorites.tsx / Compare.tsx / Estadisticas.tsx / NotFound.tsx
+├── lib/                         # supabase, backendStatus, brandSlug (ASCII), carSlug, usedListings, gaps…
 ├── test/                        # vitest: brands, tco, credit, energyCosts, CompareTable, listingSeller, trust, share, pwaAssets, moderationLoad, reclamosLoad, analytics, multiSelectDropdown
 ├── types/index.ts               # Car, Filters (yearRange), User
 ├── App.tsx                      # Rutas, PageSkeleton, useCars
@@ -79,13 +80,17 @@ src/
 ## Funcionalidades Implementadas
 
 ### Core
-- **Catálogo**: 673 vehículos y 1.464 versiones, 98 marcas en `src/data/brands/*.json`
+- **Catálogo**: 688 vehículos y 1.488 versiones, 98 marcas en `src/data/brands/*.json`
 - **Búsqueda y filtros**: Marca, modelo, tipo, combustible, precio, años (rango dinámico), tracción, asientos
 - **Comparación**: Hasta 3 vehículos lado a lado (CompareTable)
 - **Favoritos**: Sync con Supabase para usuarios autenticados + localStorage como respaldo
 - **Detalle completo**: Modal con specs, versiones, seguridad, `?cat=` directo
 
 ### Marca y catálogo
+- **Buscador primario en home**: input grande, filtros rápidos (marca, precio, año, tipo, región) y CTA «Buscar»; redirige a `/autos` con `marca`, `precio_min`, `precio_max`, `year`, `tipo`, `region` y `q`.
+- **Grid de marcas**: 98 marcas ordenadas por top ANAC y luego alfabéticamente; enlazan a `/marcas/{slug}` con `Brand` + `BreadcrumbList`. `/marca/{slug}` queda como alias.
+- **Cobertura**: `npm run audit:coverage` + `src/test/coverage.test.ts` validan top 24 ANAC, modelos obligatorios y paridad tasador/catálogo.
+- **Usados sin inventario**: `/usados` muestra 24 ejemplos locales marcados «Ejemplo» (no persistidos) hasta que haya avisos reales.
 - **Marca no vendida nueva en Chile** (`BRANDS_NOT_SOLD_NEW_IN_CHILE`): Acura, Buick, Chrysler, GMC, Infiniti, Lincoln → badge en card, aviso en detalle, sufijo en filtros. Decisión del usuario: no eliminar, marcar.
 - **Novedades curadas**: `NOVEDADES_2026` (12 lanzamientos) por brand+model, priorizando año 2026.
 
@@ -93,7 +98,8 @@ src/
 - Crédito francés con tasa típica de mercado 2026 (1% mensual ≈ CAE ref. 12,68%), plazo 48 (default), SOAP por tramo, seguro 1,5%, mantención por combustible.
 - **Permiso de circulación SII** (FAQ 001.170.5079.007): escala progresiva 1–4,5%, mín. 0,5 UTM ($34.876); UTM 2026 = $69.751; EV/PHEV año ≥2021 → 25% (Ley 21.505); tasación ≈ precio × 0,9^antiguedad.
 - **Depreciación** anual según antigüedad (18/12/9/7%).
-- **Carga mixta** EV/PHEV: 80% hogar ($150) + 20% rápida ($350) ≈ $190/kWh; híbrido 50/50; aviso UI si falta batería/autonomía.
+- **Carga mixta** EV/PHEV: 80% hogar ($150) + 20% rápida ($350) ≈ $190/kWh; los híbridos no enchufables pagan solo combustible; aviso UI si falta batería/autonomía.
+- **Costo mensual** = intereses promedio del crédito + SOAP + permiso + seguro + mantención + depreciación + energía. La cuota completa se muestra aparte como referencia (incluye capital, que no es costo; sumarla junto a la depreciación era doble conteo). `total5Years` = intereses totales + 60 meses de costos corrientes.
 
 ### Crédito (`src/data/credit.ts`) + `CreditCalc`
 - Tasas de mercado Chile 2026: **0,7% / 1,0% / 1,5% mensual** (escenarios) → CAE de sólo interés 8,7% / 12,7% / 19,6%. **Pie mínimo 10%** (bancos piden 20–25%) y plazos **12–60 meses**.
@@ -105,11 +111,12 @@ src/
 - Resultados con fotos reales (CarImage), no gradientes de marca.
 
 ### Recomendador semántico local (`SmartAsk.tsx` + `data/recommender.ts`)
-- **Motor 100% local/offline, sin API**: `parseQuery` interpreta lenguaje natural en español (presupuesto en CLP "millones/palos/$ con puntos", uso, combustible con sinónimos, transmisión, plazas, tracción, formato, prioridades, marca del catálogo, año) y `recommend` puntúa los 673 autos con pesos por dimensión (presupuesto 20, uso 20, combustible 15, prioridad 15, plazas 10, transmisión 8, tracción 7, formato 5).
+- **Motor 100% local/offline, sin API**: `parseQuery` interpreta lenguaje natural en español (presupuesto en CLP "millones/palos/$ con puntos", uso, combustible con sinónimos, transmisión, plazas, tracción, formato, prioridades, marca del catálogo, año) y `recommend` puntúa los 688 autos con pesos por dimensión (presupuesto 20, uso 20, combustible 15, prioridad 15, plazas 10, transmisión 8, tracción 7, formato 5).
 - **Filtros duros** solo para lo explícito: marca, formato, año mínimo y ≥6 plazas; el resto es scoring suave (nunca vacía resultados sin motivo).
 - **Explicaciones**: cada recomendación incluye `reasons` en español ("Precio $16.490.000 bajo tu tope de $25.000.000", "Motor híbrido", "Calificación 5 estrellas Euro NCAP"…); chips "Entendí:" muestran la intención detectada.
 - UI en Home (botón "Pregunta con tus palabras"): modal con input libre, ejemplos clicables, top 10 con afinidad y motivos, comparar y ver detalle; Escape vuelve al modal tras abrir un resultado.
-- Tests: `recommender.test.ts` (21 tests: parser, scoring, límites y edge cases).
+- Tests: `recommender.test.ts` (35 tests: parser, scoring, unidades, modelos, negaciones, parrilla y consultas reales).
+- Contraste de catálogo 11-11-2026 y marcas pendientes: `docs/AUDIT-CATALOGO-2026-11.md`.
 
 ### Visual / PWA
 - Dark mode real, modal y tags con contraste mejorado, skeleton loading en todas las rutas (Suspense + estados de carga por página), debounce 300 ms, PWA (manifest+sw).
@@ -118,7 +125,7 @@ src/
 
 ## Imágenes (`src/data/carImages.json` + `public/car-images/`)
 - Mapeo id → `{ file, source, license, attribution }` o `null` (silueta).
-- Estado auditado (23-10-2026): **653 claves / 619 con foto / 34 con clave `null`**; 0 archivos faltantes en disco, 0 archivos huérfanos. Las 34 claves `null` son las 9 históricas (146, 223, 364, 528, 529, 616, 629, 630, 632), el id 419 (MG 3 Hybrid, foto movida a MG HS Hybrid) y 24 ids del Lote 24.2 (Hyundai 650–654, Toyota 655–659, Suzuki 660/661, MG 663, Mazda 664–666, Nissan 667/668, Kia 669 y GWM 671/674–677). Además, 20 modelos no tienen clave en el manifiesto (Chevrolet 678; Ford 679–684; Renault 685; Peugeot 686–688; Citroën 689; Opel 690; Jeep 691/692; RAM 693; Mitsubishi 694–696; Chery 697), así que **54 modelos** caen a silueta por defecto.
+- Estado auditado (11-11-2026, `npm run audit:assets`): **688 modelos, 35 sin clave en el manifiesto, 35 claves `null`, 0 faltantes, 0 huérfanos** → 70 modelos caen a silueta. Sin clave: Chevrolet 678; Ford 679–684; Renault 685; Peugeot 686–688; Citroën 689; Opel 690; Jeep 691/692; RAM 693; Mitsubishi 694–696; Chery 697 y los nuevos 699–712 del Lote 27. El id 537 (Crosstrek Híbrido) quedó `null` al retirar la foto del XV de otra generación.
 - Regla: no duplicar fuente entre modelos distintos; verificar con el escaneo de `source` compartido (las 19 fuentes compartidas son variantes de un mismo modelo).
 - Pase 2026: 131 fotos añadidas desde Commons (API, ancho 1000px, metadata real). ~15 son de la misma generación de plataforma comercial (best-effort documentado en SUMMARY.md); curaduría por modelo.
 - Lote 18: **67 fotos** de Commons con curaduría por modelo (56 siluetas cerradas + 11 ids de otra variante repuestos por la auditoría; ver SUMMARY.md). Scripts: `picks-lote18.cjs` (elecciones), `check-commons.cjs` (categorías/licencia/duplicados) y `download-picks.cjs` (descarga + manifiesto).
@@ -151,3 +158,11 @@ src/
 - `npm run build`, `npm run lint` y `npm test` deben pasar (verificados al finalizar cambios). El workflow de deploy ejecuta lint, tests y build antes de publicar.
 - La matriz de verificación de RLS con roles reales está en `supabase/README.md`; hay que ejecutarla antes de recibir vendedores.
 - No agregar comentarios al código; documentar cambios de datos en SUMMARY.md.
+- SEO: `scripts/prerender.mjs` genera un `.html` por ruta tras `vite build`. En Cloudflare Pages las reglas de `_redirects` ganan a los archivos estáticos: no agregar comodines `200` sobre rutas prerenderizadas (ver ADR-021).
+- Si Supabase no responde, `src/lib/backendStatus.ts` + `ServiceNotice` degradan usados y publicación (ADR-022).
+## Continuidad (OpenCode)
+- Antes de trabajar, leer `.opencode/continuity/STATE.md`, `PLAN.md`, `WORKLOG.md`, `DECISIONS.md` y `TESTS.md`.
+- Actualizar `STATE.md`, `WORKLOG.md` y `TESTS.md` después de cada lote pequeño; no esperar al final de la fase.
+- No desplegar, hacer push ni modificar servicios externos sin autorización explícita del usuario.
+- Si el árbol Git está sucio, no resetear, no hacer stash ni mezclar commits; documentar el estado y preservar el trabajo.
+- Al reanudar, escribir `RETOMAR AUTOLUPA` y continuar desde el “Próximo paso exacto” de `STATE.md`.

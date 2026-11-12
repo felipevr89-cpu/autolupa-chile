@@ -8,7 +8,7 @@ Marketplace chileno de autos usados con comparador integrado de vehículos nuevo
 - **Persistencia**: listings, fotos, favoritos, perfiles, preferencias y firmas en Supabase; RLS y moderación obligatorias antes de publicar
 - **Seguridad de datos**: máquina de estados en base de datos, proyección pública de columnas, fotos no enumerables, `_headers` con cabeceras de seguridad, `_redirects` para el fallback SPA, CI con lint + tests + build
 - **Core**: Home, CarDetail, Favorites, Compare, FilterPanel, CarGrid funcionando
-- **Catálogo**: 98 marcas / 673 modelos con id único (IDs duplicados corregidos: 310/352/331 renumerados a 647/648/649; marca "Tank" duplicada eliminada)
+- **Catálogo**: 98 marcas / 674 modelos con id único (IDs duplicados corregidos: 310/352/331 renumerados a 647/648/649; marca "Tank" duplicada eliminada)
 - **Datos 2026**: precios, precios lista, bonos y versiones de 18 marcas reconstruidos desde fichas oficiales y la lista de concesionario Rosselot; seguridad mostrada solo con `safety_ratings` que tengan fuente (Latin NCAP sin fuente ya no se muestra)
 - **Top 10** (`/top10`): Rankings por categoría (seguridad, espacio, consumo, potencia, económico, autonomía EV, nuevos). Sincronizado con el parámetro `?cat=` del dropdown de la Navbar
 - **EV Hub** (`EVHub`): Catálogo electrificados, calculadora de carga, ranking autonomía, impacto ambiental
@@ -210,7 +210,7 @@ El rol anónimo (sin sesión) sigue sin poder insertar: no se tocó ninguna pol�
 ## Lote 26 — Hardening P0/P1: confianza, contacto y bugs de catálogo (30-10-2026)
 
 - **Bug Ford Territory**: el id 188 usaba una foto del Territory EV de generación anterior; se reemplazó por una foto de la generación 2023+ de Commons (CC BY-SA 4.0, `LuvsMG481`) y se actualizó `carImages.json`.
-- **Bug Tasar Chery**: se agregó **Tiggo 8** (id 697, 1.5T MT/DCT Limited, $13.990.000/$14.990.000) y se actualizó **Tiggo 8 Pro Max** a 1.6T DCT GLS/GLX ($18.990.000/$20.990.000), con `price_list`, `price_bonus`, `price_source` y `price_checked_at`. La parrilla chilena no tiene un “Tiggo 8 Pro” separado: el nombre comercial es Pro Max (ver `docs/DECISIONS.md`).
+- **Bug Tasar Chery**: se agregó **Tiggo 8** (id 697, 1.5T MT/DCT Limited, $13.990.000/$14.990.000) y se actualizó **Tiggo 8 Pro Max** a 1.6T DCT GLS/GLX ($18.990.000/$20.990.000), con `price_list`, `price_bonus`, `price_source` y `price_checked_at`. La parrilla chilena no tiene un “Tiggo 8 Pro” separado: el nombre comercial es Pro Max; el id 698 es un alias legacy `lineup_2026:false` para búsqueda/tasación (ver `docs/DECISIONS.md`, ADR-012).
 - **Páginas de confianza**: `/quienes-somos`, `/contacto`, `/como-funciona` y `/compra-segura` con contenido base, monetización freemium y placeholders `[PENDIENTE-LEGAL]`.
 - **Footer/nav**: enlaces a las páginas nuevas, soporte (`soporte@autolupa.cl`), “Eléctricos”, “Nuevos” y “Mi cuenta”.
 - **Filtros compartibles**: `useCars` sincroniza marca, modelo, tipo, combustible, precio, año, búsqueda, orden y página con query params (`marca`, `modelo`, `tipo`, `combustible`, `precio`, `anio`, `q`, `orden`, `pagina`).
@@ -519,3 +519,39 @@ El rol anónimo (sin sesión) sigue sin poder insertar: no se tocó ninguna pol�
 ## Datos electrificados completados (fichas oficiales 2026)
 - Se cerró la brecha de **21 modelos EV/PHEV** sin batería/autonomía con fichas oficiales (BYD, Changan, Chery, Chevrolet, Deepal, GAC, Geely, Jetour, JMC, Neta, Soueast). Quedan **2** sin dato fiable: Lynk & Co 09 (consumo MHEV) y DFSK Glory iX5 (batería kWh)
 - **Omoda C5 SHS reclasificado** a `hibrido`: ficha chilena confirma bat. auxiliar de 1,83 kWh sin autonomía EV (no era enchufable)
+## Lote 25 — Buscador primario, marcas y cobertura (31-10-2026)
+
+- **Hero**: el buscador pasa a ser el primer elemento interactivo, con placeholder dinámico, filtros rápidos (marca, precio mín./máx., año, tipo y región) y CTA «Buscar». «Ver catálogo completo» queda como enlace secundario.
+- **Rutas**: `/autos` reutiliza el catálogo con filtros en URL (`marca`, `precio_min`, `precio_max`, `year`, `tipo`, `region`, `q`). `/marcas/{slug}` es la URL canónica de marca; `/marca/{slug}` sigue como alias.
+- **Home**: grid con las **98 marcas** del catálogo, ordenadas por top ANAC y luego alfabéticamente, con conteo de modelos y enlace a su página.
+- **Cobertura**: `scripts/audit-coverage.mjs` + `src/test/coverage.test.ts` validan 24 marcas top, 31 modelos obligatorios y paridad tasador/catálogo. Reporte en `docs/AUDIT-COVERAGE.md`.
+- **Chery**: id 698 `Tiggo 8 Pro` como alias legacy `lineup_2026:false`; la parrilla 2026 sigue siendo Tiggo 8 + Tiggo 8 Pro Max.
+- **Usados**: 24 ejemplos locales con badge «Ejemplo» en `/usados` mientras no haya avisos reales; no se persisten ni simulan como inventario.
+- **Buscador NLU**: fallback con sugerencias y evento `brand_search_miss` (localStorage + Plausible, formato en `docs/GAPS-LOG.md`).
+- **Assets**: check de `year_start` vs. `mtime` de la foto; test de regresión para el Ford Territory id 188.
+- **Gate**: `audit:catalog` → **674 modelos / 1.466 versiones / 0 errores**; `audit:coverage` → 0 gaps; `audit:assets` → 20 sin clave / 35 siluetas / 0 faltantes; `LINT=0`, `BUILD=0`.
+
+## Lote 27 — Recomendador IA y contraste de catálogo (11-11-2026)
+
+- **Recomendador** (`src/data/recommender.ts`): las cifras con unidad ya no se leen como presupuesto (km de autonomía, HP, kWh, litros de maletero, km/L pasan a filtros mínimos); reconoce modelos del catálogo con o sin guion (`cx5`, `rav4`, `yaris cross`) y sus variantes electrificadas; modos «X vs Y» (comparación), «parecido a X / más barato que X» (alternativas por tamaño, precio y formato) y búsqueda directa de modelo con alternativas; negaciones («que no sea chino», «sin diésel», «no Toyota») y origen positivo («japonés»); plazas hasta 9; intención de usado; vocabulario chileno (familiar, Uber, campo, sur, estacionar). Los modelos fuera de parrilla 2026 o de marcas sin venta de nuevos se penalizan y se marcan; el desempate usa calidad (seguridad con fuente, airbags, ADAS, garantía) en vez del precio más bajo.
+- **SmartAsk**: chips de la nueva intención, aviso de usados con enlace a `/usados`, botón «Compararlos lado a lado», sección «Alternativas similares» y etiqueta «Fuera de parrilla 2026».
+- **Datos** (detalle en `docs/AUDIT-CATALOGO-2026-11.md`): Subaru, Volkswagen, Changan (parcial), Deepal S05, Omoda/Jaecoo y Geely (parcial) contrastados con sus sitios oficiales; 14 modelos nuevos (ids 699–712) y 10 fuera de parrilla. Foto del id 537 retirada (era el XV e-Boxer 2019, otra generación).
+- **Gate**: `audit:catalog` 688 modelos / 1.488 versiones / 0 errores; `audit:assets` 35 sin clave / 35 null / 0 faltantes / 0 huérfanos; `npm test` 261/261.
+
+## Lote 28 — SEO indexable y degradación del marketplace (11-11-2026)
+
+- **Prerender** (`scripts/prerender.mjs`, parte de `npm run build`): 836 páginas `.html` + `404.html` + `spa.html`. Cada ruta tiene título, descripción, canonical, Open Graph, JSON-LD y contenido real (H1, ficha técnica, versiones, enlaces). `_redirects`: 301 de `/marca/*` y de slugs Unicode a ASCII, y `/usados/* → /spa 200`; sin comodín global. Verificado con `wrangler pages dev` + Chrome headless: 200/404 correctos, sin etiquetas duplicadas tras montar React y redirección cliente de slugs antiguos.
+- **Degradación**: `backendStatus.ts` + `ServiceNotice` en `/usados`, `/publicar-auto` y `/usados/:slug`.
+- **Gate**: `npm test` 269/269, `lint` 0, `build` 0.
+
+## Lote 29 — Revisión de escritorio y documentación (11-11-2026)
+
+- **Escritorio 1440×1000**: TCO y crédito en dos columnas sin desbordes. Corregidos: doble conteo del TCO (ADR-023), híbridos con carga eléctrica, etiqueta «CAE» engañosa, rango de años 2020–2026 con modelos 2027 en el catálogo (ahora `catalogYears` 2025–2027 y migración de filtros guardados), contador «Filtra entre 0 vehículos» y «Mostrando 1-0 de 0», comparador con precios viejos en `localStorage` (se recarga por id).
+- **Docs**: históricos marcados; `BLOCKERS.md` con Supabase NXDOMAIN, `autolupa.cl` inexistente y producción atrasada; `ROADMAP.md` con P1 nuevo; `AGENTS.md` al día.
+- **Gate**: `npm test` 274/274, `lint` 0.
+
+## Lote 30 — Rediseño de interfaz (11-11-2026)
+
+- Ver ADR-024. Archivos: `Navbar.tsx`, `BrandGrid.tsx`, `Home.tsx`, `SmartAsk.tsx`, `CarDetail.tsx`, `Footer.tsx`, `RecentUsedListings.tsx`, `recommender.ts` (`isNaturalLanguageQuery`).
+- Verificado con capturas CDP (1440×900 y 390×844, claro y oscuro) sobre el build servido con `wrangler pages dev`: sin desbordes horizontales.
+- **Gate**: `npm test` 277/277, `lint` 0, `build` 0 (836 páginas prerenderizadas).

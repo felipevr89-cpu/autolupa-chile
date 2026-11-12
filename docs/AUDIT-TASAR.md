@@ -1,14 +1,14 @@
 # Auditoría de cobertura del tasador
 
-Generado: 2026-10-30
+Generado: 2026-11-11
 
 ## Resumen
 
 - Marcas: **98**
-- Modelos en catálogo: **673**
+- Modelos en catálogo: **688**
 - Faltantes en tasador: **0**
 - Sobrantes en tasador: **0**
-- Colisiones por prefijo detectadas: **78**
+- Colisiones por prefijo detectadas: **84**
 
 ## Chery
 
@@ -22,6 +22,7 @@ Generado: 2026-10-30
 - Tiggo 7 Pro Max
 - Tiggo 7 Pro Max PHEV
 - Tiggo 8
+- Tiggo 8 Pro
 - Tiggo 8 Pro Max
 - Tiggo 8 Pro Max PHEV
 - Tiggo 9
@@ -46,7 +47,8 @@ Generado: 2026-10-30
 - Chery · Tiggo 7 Pro Max ⊂ Tiggo 7 Pro Max PHEV
 - Chery · Tiggo 8 Pro Max ⊂ Tiggo 8 Pro Max PHEV
 - Chery · Tiggo 9 ⊂ Tiggo 9 PHEV
-- Chery · Tiggo 8 ⊂ Tiggo 8 Pro Max, Tiggo 8 Pro Max PHEV
+- Chery · Tiggo 8 ⊂ Tiggo 8 Pro Max, Tiggo 8 Pro Max PHEV, Tiggo 8 Pro
+- Chery · Tiggo 8 Pro ⊂ Tiggo 8 Pro Max, Tiggo 8 Pro Max PHEV
 - Chevrolet · Colorado ⊂ Colorado Z71
 - Chevrolet · Equinox ⊂ Equinox EV
 - Chevrolet · Spark ⊂ Spark EUV
@@ -59,6 +61,7 @@ Generado: 2026-10-30
 - Ford · Maverick ⊂ Maverick FHEV
 - Ford · Bronco ⊂ Bronco Sport
 - Ford · Transit Custom ⊂ Transit Custom Minibús
+- Geely · EX5 ⊂ EX5 EM-i
 - GWM · H6 ⊂ H6 Híbrido, H6 PHEV, H6 GT
 - GWM · H7 ⊂ H7 Híbrido, H7 Max, H7 Max PHEV
 - GWM · Jolion ⊂ Jolion Pro, Jolion Pro Híbrido, Jolion Max, Jolion Híbrido
@@ -108,10 +111,14 @@ Generado: 2026-10-30
 - RAM · 1500 ⊂ 1500 RHO
 - Renault · Koleos ⊂ Koleos Híbrido
 - Soueast · S06 ⊂ S06 PHEV
-- Subaru · XV ⊂ XV e-Boxer
+- Subaru · Crosstrek ⊂ Crosstrek Híbrido
+- Subaru · Forester ⊂ Forester Híbrido
 - Toyota · Corolla ⊂ Corolla Cross, Corolla Cross Híbrido
 - Toyota · Corolla Cross ⊂ Corolla Cross Híbrido
 - Toyota · Hilux ⊂ Hilux BEV
 - Toyota · RAV4 ⊂ RAV4 Híbrido, RAV4 PHEV
 - Toyota · Yaris ⊂ Yaris Cross, Yaris Sedán, Yaris Híbrido, Yaris Cross Híbrido
 - Toyota · Yaris Cross ⊂ Yaris Cross Híbrido
+- Volkswagen · Jetta ⊂ Jetta GLI
+- Volkswagen · Polo ⊂ Polo Track
+- Volkswagen · Tiguan ⊂ Tiguan MHEV

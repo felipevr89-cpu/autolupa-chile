@@ -138,7 +138,7 @@ export function Usados() {
 
       <Breadcrumbs items={[{ label: 'Autos usados' }]} />
 
-      <section className="bg-gradient-to-br from-blue-700 via-blue-600 to-purple-700 rounded-3xl px-6 py-10 sm:px-10 sm:py-14 text-white mb-8">
+      <section className="bg-gradient-to-br from-slate-900 via-blue-950 to-blue-800 rounded-3xl px-6 py-10 sm:px-10 sm:py-14 text-white mb-8">
         <div className="max-w-3xl">
           <p className="text-blue-100 font-medium mb-3">Marketplace de usados</p>
           <h1 className="text-3xl sm:text-5xl font-bold mb-4">Encuentra tu próximo auto usado</h1>

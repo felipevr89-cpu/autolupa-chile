@@ -132,24 +132,24 @@
       "type": "suv",
       "fuel": "gasolina",
       "seats": 5,
-      "price": 32990000,
+      "price": 38990000,
       "transmission": "automatica",
-      "traction": "4x4",
+      "traction": "4x2",
       "image_url": "",
       "description": "SUV premium de lujo con acabados refinados.",
       "origin": "Francia",
       "versions": [
         {
-          "version": "Performance Line",
-          "price": 32990000,
+          "version": "Bastille 1.6 THP Performance Line",
+          "price": 38990000,
           "transmission": "automatica",
           "traction": "4x2"
         },
         {
-          "version": "Rivoli",
-          "price": 39990000,
+          "version": "Rivoli 1.6 THP",
+          "price": 42990000,
           "transmission": "automatica",
-          "traction": "4x4"
+          "traction": "4x2"
         }
       ],
       "hp": 225,
@@ -185,7 +185,9 @@
       ],
       "warranty_years": 3,
       "warranty_km": 100000,
-      "origin_country": "Francia"
+      "origin_country": "Francia",
+      "price_source": "https://www.autocosmos.cl/catalogo/vigente/ds/7",
+      "price_checked_at": "2026-11-12"
     }
   ]
 }

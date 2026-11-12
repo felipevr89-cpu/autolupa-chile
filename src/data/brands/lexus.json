@@ -131,25 +131,19 @@
       "type": "sedan",
       "fuel": "gasolina",
       "seats": 5,
-      "price": 42990000,
+      "price": 56360100,
       "transmission": "automatica",
-      "traction": "awd",
+      "traction": "4x2",
       "image_url": "",
       "description": "Sedán deportivo de lujo con motor turbo",
       "origin": "Japón",
       "origin_country": "Japón",
       "versions": [
         {
-          "version": "300",
-          "price": 42990000,
+          "version": "300 F Sport",
+          "price": 56360100,
           "transmission": "automatica",
-          "traction": "awd"
-        },
-        {
-          "version": "350 F-Sport",
-          "price": 48990000,
-          "transmission": "automatica",
-          "traction": "awd"
+          "traction": "4x2"
         }
       ],
       "hp": 245,
@@ -176,7 +170,9 @@
         "Lane Keep Assist"
       ],
       "warranty_years": 4,
-      "warranty_km": 100000
+      "warranty_km": 100000,
+      "price_source": "https://www.autocosmos.cl/catalogo/vigente/lexus/is",
+      "price_checked_at": "2026-11-12"
     },
     {
       "id": 355,
@@ -360,7 +356,7 @@
       "type": "suv",
       "fuel": "gasolina",
       "seats": 5,
-      "price": 45990000,
+      "price": 48021700,
       "transmission": "automatica",
       "traction": "awd",
       "image_url": "",
@@ -369,20 +365,26 @@
       "origin_country": "Japón",
       "versions": [
         {
-          "version": "250",
-          "price": 45990000,
-          "transmission": "automatica",
-          "traction": "4x2"
-        },
-        {
-          "version": "350h",
-          "price": 52990000,
+          "version": "350h 4x2 Premium",
+          "price": 48021700,
           "transmission": "automatica",
           "traction": "awd"
         },
         {
-          "version": "450h+",
-          "price": 62990000,
+          "version": "350h 4x4 Premium",
+          "price": 61133100,
+          "transmission": "automatica",
+          "traction": "4x2"
+        },
+        {
+          "version": "350h Luxury",
+          "price": 66133100,
+          "transmission": "automatica",
+          "traction": "awd"
+        },
+        {
+          "version": "350h F Sport",
+          "price": 70633100,
           "transmission": "automatica",
           "traction": "awd"
         }
@@ -412,7 +414,9 @@
         "Control crucero adaptativo"
       ],
       "warranty_years": 4,
-      "warranty_km": 100000
+      "warranty_km": 100000,
+      "price_source": "https://www.autocosmos.cl/catalogo/vigente/lexus/nx",
+      "price_checked_at": "2026-11-12"
     },
     {
       "id": 359,

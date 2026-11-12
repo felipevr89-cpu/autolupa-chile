@@ -10,7 +10,7 @@
       "type": "pickup",
       "fuel": "diesel",
       "seats": 5,
-      "price": 22000000,
+      "price": 22028100,
       "transmission": "manual",
       "traction": "4x2",
       "image_url": "",
@@ -39,30 +39,32 @@
       "origin_country": "China",
       "versions": [
         {
-          "version": "2.3L 4x2 MT",
-          "price": 22000000,
-          "transmission": "Manual 6V",
+          "version": "2.3L 4x2",
+          "price": 22028100,
+          "transmission": "manual",
           "traction": "4x2"
         },
         {
-          "version": "2.3L 4x4 MT",
-          "price": 22800000,
-          "transmission": "Manual 6V",
+          "version": "2.3L 4x4",
+          "price": 22813100,
+          "transmission": "manual",
           "traction": "4x4"
         },
         {
-          "version": "2.3L 4x2 AT",
-          "price": 24000000,
-          "transmission": "Automática 8V",
+          "version": "2.3L 4x2 Aut",
+          "price": 24003100,
+          "transmission": "automatica",
           "traction": "4x2"
         },
         {
-          "version": "2.3L 4x4 AT",
-          "price": 24800000,
-          "transmission": "Automática 8V",
+          "version": "2.3L 4x4 Aut",
+          "price": 24788100,
+          "transmission": "automatica",
           "traction": "4x4"
         }
-      ]
+      ],
+      "price_source": "https://www.autocosmos.cl/catalogo/vigente/jmc/grand-avenue",
+      "price_checked_at": "2026-11-12"
     },
     {
       "id": 296,
@@ -111,7 +113,7 @@
       "type": "pickup",
       "fuel": "electrico",
       "seats": 5,
-      "price": 33990000,
+      "price": 51158100,
       "transmission": "automatica",
       "traction": "4x2",
       "image_url": "",
@@ -133,12 +135,14 @@
       "origin_country": "China",
       "versions": [
         {
-          "version": "Eléctrica",
-          "price": 33990000,
-          "transmission": "Automática",
+          "version": "Vigus EV",
+          "price": 51158100,
+          "transmission": "automatica",
           "traction": "4x2"
         }
-      ]
+      ],
+      "price_source": "https://www.autocosmos.cl/catalogo/vigente/jmc/vigus-ev",
+      "price_checked_at": "2026-11-12"
     },
     {
       "id": 298,
@@ -148,8 +152,8 @@
       "type": "pickup",
       "fuel": "diesel",
       "seats": 5,
-      "price": 20800000,
-      "transmission": "automatica",
+      "price": 22598100,
+      "transmission": "manual",
       "traction": "4x2",
       "image_url": "",
       "description": "Pick-up mediana con motor 2.4L diésel, buena capacidad de carga.",
@@ -174,24 +178,20 @@
       "origin_country": "China",
       "versions": [
         {
-          "version": "2.4L 4x2 MT",
-          "price": 20800000,
-          "transmission": "Manual 5V",
+          "version": "2.4L 4x2",
+          "price": 22598100,
+          "transmission": "manual",
           "traction": "4x2"
         },
         {
-          "version": "2.4L 4x2 AT",
-          "price": 22600000,
-          "transmission": "Automática 5V",
-          "traction": "4x2"
-        },
-        {
-          "version": "2.4L 4x4 AT",
-          "price": 23800000,
-          "transmission": "Automática 5V",
+          "version": "2.4L 4x4",
+          "price": 23788100,
+          "transmission": "manual",
           "traction": "4x4"
         }
-      ]
+      ],
+      "price_source": "https://www.autocosmos.cl/catalogo/vigente/jmc/vigus-plus",
+      "price_checked_at": "2026-11-12"
     },
     {
       "id": 299,
@@ -201,7 +201,7 @@
       "type": "pickup",
       "fuel": "diesel",
       "seats": 5,
-      "price": 13990000,
+      "price": 20838100,
       "transmission": "manual",
       "traction": "4x2",
       "image_url": "",
@@ -226,18 +226,20 @@
       "origin_country": "China",
       "versions": [
         {
-          "version": "2.5L 4x2 MT",
-          "price": 13990000,
-          "transmission": "Manual 5V",
+          "version": "2.5L 4x2",
+          "price": 20838100,
+          "transmission": "manual",
           "traction": "4x2"
         },
         {
-          "version": "2.5L 4x4 MT",
-          "price": 15990000,
-          "transmission": "Manual 5V",
+          "version": "2.5L 4x4",
+          "price": 22003100,
+          "transmission": "manual",
           "traction": "4x4"
         }
-      ]
+      ],
+      "price_source": "https://www.autocosmos.cl/catalogo/vigente/jmc/vigus-work",
+      "price_checked_at": "2026-11-12"
     }
   ]
 }

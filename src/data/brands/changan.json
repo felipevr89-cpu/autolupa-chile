@@ -10,7 +10,7 @@
       "type": "sedan",
       "fuel": "gasolina",
       "seats": 5,
-      "price": 10990000,
+      "price": 10490000,
       "transmission": "manual",
       "traction": "4x2",
       "image_url": "",
@@ -18,14 +18,20 @@
       "origin": "China",
       "versions": [
         {
-          "version": "1.5 MT",
-          "price": 10990000,
+          "version": "Comfort",
+          "price": 10490000,
           "transmission": "manual",
           "traction": "4x2"
         },
         {
-          "version": "1.5 AT",
-          "price": 11990000,
+          "version": "Luxury",
+          "price": 10890000,
+          "transmission": "manual",
+          "traction": "4x2"
+        },
+        {
+          "version": "Elite Aut",
+          "price": 12690000,
           "transmission": "automatica",
           "traction": "4x2"
         }
@@ -51,7 +57,9 @@
       ],
       "warranty_years": 5,
       "warranty_km": 150000,
-      "origin_country": "China"
+      "origin_country": "China",
+      "price_source": "https://www.autocosmos.cl/catalogo/vigente/changan/alsvin",
+      "price_checked_at": "2026-11-12"
     },
     {
       "id": 78,
@@ -61,7 +69,7 @@
       "type": "suv",
       "fuel": "gasolina",
       "seats": 5,
-      "price": 9990000,
+      "price": 11190000,
       "transmission": "manual",
       "traction": "4x2",
       "image_url": "",
@@ -91,18 +99,32 @@
       "origin_country": "China",
       "versions": [
         {
-          "version": "1.4 MT",
-          "price": 9990000,
+          "version": "Comfort",
+          "price": 11190000,
           "transmission": "manual",
           "traction": "4x2"
         },
         {
-          "version": "1.4 MT Comfort",
-          "price": 10990000,
+          "version": "Luxury",
+          "price": 12390000,
           "transmission": "manual",
           "traction": "4x2"
+        },
+        {
+          "version": "Elite",
+          "price": 12890000,
+          "transmission": "manual",
+          "traction": "4x2"
+        },
+        {
+          "version": "Elite Aut",
+          "price": 14340000,
+          "transmission": "automatica",
+          "traction": "4x2"
         }
-      ]
+      ],
+      "price_source": "https://www.autocosmos.cl/catalogo/vigente/changan/cs15",
+      "price_checked_at": "2026-11-12"
     },
     {
       "id": 79,
@@ -159,7 +181,9 @@
       ],
       "warranty_years": 5,
       "warranty_km": 150000,
-      "origin_country": "China"
+      "origin_country": "China",
+      "price_source": "https://www.autocosmos.cl/catalogo/vigente/changan/cs35-max",
+      "price_checked_at": "2026-11-12"
     },
     {
       "id": 80,
@@ -170,7 +194,7 @@
       "fuel": "gasolina",
       "seats": 5,
       "price": 16890000,
-      "transmission": "automatica",
+      "transmission": "manual",
       "traction": "4x2",
       "image_url": "",
       "description": "SUV subcompacto con diseño renovado y motor eficiente.",
@@ -202,18 +226,26 @@
       "origin_country": "China",
       "versions": [
         {
-          "version": "1.6L AT",
+          "version": "1.6L Comfort",
           "price": 16890000,
-          "transmission": "automatica",
+          "transmission": "manual",
           "traction": "4x2"
         },
         {
-          "version": "1.6L AT Luxury",
+          "version": "1.6L Luxury",
+          "price": 17590000,
+          "transmission": "manual",
+          "traction": "4x2"
+        },
+        {
+          "version": "1.4L Elite Aut",
           "price": 18890000,
           "transmission": "automatica",
           "traction": "4x2"
         }
-      ]
+      ],
+      "price_source": "https://www.autocosmos.cl/catalogo/vigente/changan/cs35-plus",
+      "price_checked_at": "2026-11-12"
     },
     {
       "id": 81,
@@ -675,9 +707,9 @@
       "type": "suv",
       "fuel": "gasolina",
       "seats": 5,
-      "price": 21990000,
+      "price": 26990000,
       "transmission": "automatica",
-      "traction": "4x4",
+      "traction": "4x2",
       "image_url": "",
       "description": "SUV mediano con motor 2.0 turbo y tracción 4x4.",
       "origin": "China",
@@ -711,18 +743,20 @@
       "origin_country": "China",
       "versions": [
         {
-          "version": "2.0T AT 4x4",
-          "price": 21990000,
+          "version": "Luxury",
+          "price": 26990000,
           "transmission": "automatica",
-          "traction": "4x4"
+          "traction": "4x2"
         },
         {
-          "version": "2.0T AT Luxury 4x4",
-          "price": 25990000,
+          "version": "Elite",
+          "price": 29990000,
           "transmission": "automatica",
-          "traction": "4x4"
+          "traction": "4x2"
         }
-      ]
+      ],
+      "price_source": "https://www.autocosmos.cl/catalogo/vigente/changan/uni-k",
+      "price_checked_at": "2026-11-12"
     },
     {
       "id": 90,
@@ -732,7 +766,7 @@
       "type": "suv",
       "fuel": "gasolina",
       "seats": 5,
-      "price": 17990000,
+      "price": 22690000,
       "transmission": "automatica",
       "traction": "4x2",
       "image_url": "",
@@ -766,18 +800,20 @@
       "origin_country": "China",
       "versions": [
         {
-          "version": "1.5T AT Elite",
-          "price": 17990000,
+          "version": "Luxury",
+          "price": 22690000,
           "transmission": "automatica",
           "traction": "4x2"
         },
         {
-          "version": "1.5T AT Luxury",
-          "price": 20990000,
+          "version": "Elite",
+          "price": 26290000,
           "transmission": "automatica",
           "traction": "4x2"
         }
-      ]
+      ],
+      "price_source": "https://www.autocosmos.cl/catalogo/vigente/changan/uni-t",
+      "price_checked_at": "2026-11-12"
     },
     {
       "id": 91,
@@ -787,23 +823,35 @@
       "type": "suv",
       "fuel": "gasolina",
       "seats": 7,
-      "price": 18990000,
-      "transmission": "automatica",
+      "price": 17990000,
+      "transmission": "manual",
       "traction": "4x2",
       "image_url": "",
       "description": "SUV de tres filas con motor 2.0 turbo y espacio para siete pasajeros.",
       "origin": "China",
       "versions": [
         {
-          "version": "2.0T COMFORT AT",
+          "version": "Luxury 7 Asientos",
+          "price": 17990000,
+          "transmission": "manual",
+          "traction": "4x2"
+        },
+        {
+          "version": "Elite 7 Asientos",
+          "price": 18490000,
+          "transmission": "manual",
+          "traction": "4x2"
+        },
+        {
+          "version": "Luxury 7 Asientos Aut",
           "price": 18990000,
           "transmission": "automatica",
           "traction": "4x2"
         },
         {
-          "version": "2.0T ELITE AT",
+          "version": "Elite 7 Asientos Aut",
           "price": 19990000,
-          "transmission": "automatica",
+          "transmission": "manual",
           "traction": "4x2"
         }
       ],
@@ -828,6 +876,47 @@
       ],
       "warranty_years": 5,
       "warranty_km": 150000,
+      "origin_country": "China",
+      "price_source": "https://www.autocosmos.cl/catalogo/vigente/changan/x7-plus",
+      "price_checked_at": "2026-11-12"
+    },
+    {
+      "id": 715,
+      "brand": "Changan",
+      "model": "CS55 Plus iDD",
+      "year": 2025,
+      "type": "suv",
+      "fuel": "hibrido_enchufable",
+      "seats": 5,
+      "price": 22990000,
+      "transmission": "automatica",
+      "traction": "4x2",
+      "image_url": "",
+      "description": "SUV híbrido enchufable con caja automática y tracción 4X2. 2 versiones con precio de lista.",
+      "origin": "China",
+      "versions": [
+        {
+          "version": "Luxury",
+          "price": 22990000,
+          "transmission": "automatica",
+          "traction": "4x2"
+        },
+        {
+          "version": "Elite",
+          "price": 25990000,
+          "transmission": "automatica",
+          "traction": "4x2"
+        }
+      ],
+      "length_mm": 4539,
+      "width_mm": 1865,
+      "height_mm": 1680,
+      "wheelbase_mm": 2656,
+      "fuel_tank_liters": 51,
+      "airbags": 4,
+      "year_start": 2025,
+      "price_source": "https://www.autocosmos.cl/catalogo/vigente/changan/cs55-plus-idd",
+      "price_checked_at": "2026-11-12",
       "origin_country": "China"
     }
   ]

@@ -10,7 +10,7 @@
       "type": "suv",
       "fuel": "gasolina",
       "seats": 5,
-      "price": 15990000,
+      "price": 20990000,
       "transmission": "automatica",
       "traction": "4x2",
       "image_url": "",
@@ -41,24 +41,26 @@
       "origin_country": "China",
       "versions": [
         {
-          "version": "Advanced 1.6T DCT",
-          "price": 15990000,
-          "transmission": "DCT 7V",
+          "version": "Advanced",
+          "price": 20990000,
+          "transmission": "automatica",
           "traction": "4x2"
         },
         {
-          "version": "Unlimited 1.6T DCT",
-          "price": 18990000,
-          "transmission": "DCT 7V",
-          "traction": "4x2"
-        },
-        {
-          "version": "Unlimited AWD 1.6T DCT",
+          "version": "Unlimited",
           "price": 21990000,
-          "transmission": "DCT 7V",
+          "transmission": "automatica",
+          "traction": "4x2"
+        },
+        {
+          "version": "Unlimited AWD",
+          "price": 24990000,
+          "transmission": "automatica",
           "traction": "awd"
         }
-      ]
+      ],
+      "price_source": "https://www.autocosmos.cl/catalogo/vigente/exeed/lx",
+      "price_checked_at": "2026-11-12"
     },
     {
       "id": 157,
@@ -68,7 +70,7 @@
       "type": "suv",
       "fuel": "gasolina",
       "seats": 5,
-      "price": 23990000,
+      "price": 34990000,
       "transmission": "automatica",
       "traction": "4x2",
       "image_url": "",
@@ -99,18 +101,20 @@
       "origin_country": "China",
       "versions": [
         {
-          "version": "Prestige 2.0T DCT",
-          "price": 23990000,
-          "transmission": "DCT 7V",
+          "version": "2.0T Unlimited",
+          "price": 34990000,
+          "transmission": "automatica",
           "traction": "4x2"
         },
         {
-          "version": "Ultimate 2.0T AWD",
-          "price": 27990000,
-          "transmission": "DCT 7V",
+          "version": "2.0T Unlimited AWD",
+          "price": 37490000,
+          "transmission": "automatica",
           "traction": "awd"
         }
-      ]
+      ],
+      "price_source": "https://www.autocosmos.cl/catalogo/vigente/exeed/rx",
+      "price_checked_at": "2026-11-12"
     },
     {
       "id": 158,
@@ -120,7 +124,7 @@
       "type": "suv",
       "fuel": "gasolina",
       "seats": 7,
-      "price": 33990000,
+      "price": 42490000,
       "transmission": "automatica",
       "traction": "awd",
       "image_url": "",
@@ -151,12 +155,60 @@
       "origin_country": "China",
       "versions": [
         {
-          "version": "Luxury 2.0T AWD",
-          "price": 33990000,
-          "transmission": "DCT 7V",
+          "version": "2.0L Unlimited AWD",
+          "price": 42490000,
+          "transmission": "automatica",
           "traction": "awd"
         }
-      ]
+      ],
+      "price_source": "https://www.autocosmos.cl/catalogo/vigente/exeed/vx",
+      "price_checked_at": "2026-11-12"
+    },
+    {
+      "id": 723,
+      "brand": "Exeed",
+      "model": "TXL",
+      "year": 2025,
+      "type": "suv",
+      "fuel": "gasolina",
+      "seats": 5,
+      "price": 32490000,
+      "transmission": "automatica",
+      "traction": "4x2",
+      "image_url": "",
+      "description": "SUV bencinero de 245 HP con caja automática y tracción 4X2 o AWD. 2 versiones con precio de lista.",
+      "origin": "China",
+      "versions": [
+        {
+          "version": "2.0L Unlimited",
+          "price": 32490000,
+          "transmission": "automatica",
+          "traction": "4x2"
+        },
+        {
+          "version": "2.0L Unlimited AWD",
+          "price": 34990000,
+          "transmission": "automatica",
+          "traction": "awd"
+        }
+      ],
+      "hp": 245,
+      "torque_nm": 385,
+      "length_mm": 4780,
+      "width_mm": 1885,
+      "height_mm": 1730,
+      "wheelbase_mm": 2800,
+      "ground_clearance_mm": 165,
+      "trunk_liters": 470,
+      "fuel_tank_liters": 55,
+      "fuel_consumption_city_km_l": 8.8,
+      "fuel_consumption_highway_km_l": 15.9,
+      "fuel_consumption_mixed_km_l": 12.2,
+      "airbags": 6,
+      "year_start": 2025,
+      "price_source": "https://www.autocosmos.cl/catalogo/vigente/exeed/txl",
+      "price_checked_at": "2026-11-12",
+      "origin_country": "China"
     }
   ]
 }

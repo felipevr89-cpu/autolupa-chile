@@ -1,11 +1,11 @@
 # Auditoría de cobertura del catálogo
 
-Generado: 2026-11-11
+Generado: 2026-11-12
 
 ## Resumen
 
 - Marcas en catálogo: **98**
-- Modelos en catálogo: **688**
+- Modelos en catálogo: **713**
 - Top brands sin catálogo: **0**
 - Top brands con menos de 3 modelos: **0**
 - Modelos obligatorios faltantes: **0**
@@ -25,7 +25,7 @@ Generado: 2026-11-11
 | Chery | 15 | 0 | OK |
 | Volkswagen | 17 | 0 | OK |
 | Mazda | 13 | 0 | OK |
-| Honda | 10 | 0 | OK |
+| Honda | 11 | 0 | OK |
 | Renault | 15 | 0 | OK |
 | RAM | 8 | 0 | OK |
 | Jeep | 12 | 0 | OK |

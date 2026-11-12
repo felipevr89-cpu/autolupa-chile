@@ -37,18 +37,14 @@
       "origin_country": "China",
       "versions": [
         {
-          "version": "LV3 1.5T 2WD",
+          "version": "1.5T LV3 2WD",
           "price": 25990000,
-          "transmission": "DCT 7V",
-          "traction": "4x2"
-        },
-        {
-          "version": "HEV 1.5T 2WD",
-          "price": 27990000,
-          "transmission": "DHT",
+          "transmission": "automatica",
           "traction": "4x2"
         }
-      ]
+      ],
+      "price_source": "https://www.autocosmos.cl/catalogo/vigente/baic/bj30",
+      "price_checked_at": "2026-11-12"
     },
     {
       "id": 27,
@@ -85,12 +81,14 @@
       "origin_country": "China",
       "versions": [
         {
-          "version": "2.0T 4x4 Automático",
+          "version": "Exclusive 2.0T 8AT 4WD",
           "price": 30490000,
-          "transmission": "Automática 8V",
+          "transmission": "automatica",
           "traction": "4x4"
         }
-      ]
+      ],
+      "price_source": "https://www.autocosmos.cl/catalogo/vigente/baic/bj40",
+      "price_checked_at": "2026-11-12"
     },
     {
       "id": 28,
@@ -147,7 +145,7 @@
       "fuel": "gasolina",
       "seats": 5,
       "price": 12990000,
-      "transmission": "automatica",
+      "transmission": "manual",
       "traction": "4x2",
       "image_url": "",
       "description": "Sedán compacta accesible con motor 1.5L y buena relación precio-equipamiento.",
@@ -170,12 +168,26 @@
       "origin_country": "China",
       "versions": [
         {
-          "version": "1.5L CVT",
+          "version": "1.5 Luxury 5MT",
           "price": 12990000,
-          "transmission": "CVT",
+          "transmission": "manual",
+          "traction": "4x2"
+        },
+        {
+          "version": "1.5 Luxury CVT",
+          "price": 14990000,
+          "transmission": "automatica",
+          "traction": "4x2"
+        },
+        {
+          "version": "1.5 Honor CVT",
+          "price": 15690000,
+          "transmission": "automatica",
           "traction": "4x2"
         }
-      ]
+      ],
+      "price_source": "https://www.autocosmos.cl/catalogo/vigente/baic/u5-plus",
+      "price_checked_at": "2026-11-12"
     },
     {
       "id": 30,
@@ -186,7 +198,7 @@
       "fuel": "gasolina",
       "seats": 5,
       "price": 13090000,
-      "transmission": "automatica",
+      "transmission": "manual",
       "traction": "4x2",
       "image_url": "",
       "description": "SUV subcompacta con diseño moderno y motor 1.5L.",
@@ -209,12 +221,32 @@
       "origin_country": "China",
       "versions": [
         {
-          "version": "1.5L CVT",
+          "version": "1.5T Fashion 6MT",
           "price": 13090000,
-          "transmission": "CVT",
+          "transmission": "manual",
+          "traction": "4x2"
+        },
+        {
+          "version": "1.5T Fashion Plus 6MT",
+          "price": 13590000,
+          "transmission": "manual",
+          "traction": "4x2"
+        },
+        {
+          "version": "1.5T Fashion CVT",
+          "price": 14590000,
+          "transmission": "automatica",
+          "traction": "4x2"
+        },
+        {
+          "version": "1.5T Luxury CVT",
+          "price": 15990000,
+          "transmission": "automatica",
           "traction": "4x2"
         }
-      ]
+      ],
+      "price_source": "https://www.autocosmos.cl/catalogo/vigente/baic/x35",
+      "price_checked_at": "2026-11-12"
     },
     {
       "id": 31,
@@ -250,12 +282,26 @@
       "origin_country": "China",
       "versions": [
         {
-          "version": "1.5T CVT",
+          "version": "1.5T LV2 7DCT",
           "price": 18490000,
-          "transmission": "CVT",
+          "transmission": "automatica",
+          "traction": "4x2"
+        },
+        {
+          "version": "1.5T LV3 7DCT",
+          "price": 19490000,
+          "transmission": "automatica",
+          "traction": "4x2"
+        },
+        {
+          "version": "1.5T LV4 7DCT",
+          "price": 21190000,
+          "transmission": "automatica",
           "traction": "4x2"
         }
-      ]
+      ],
+      "price_source": "https://www.autocosmos.cl/catalogo/vigente/baic/x55",
+      "price_checked_at": "2026-11-12"
     },
     {
       "id": 32,
@@ -295,12 +341,62 @@
       "origin_country": "China",
       "versions": [
         {
-          "version": "1.5T 7DCT",
+          "version": "1.5T Comfort 7DCT",
           "price": 23990000,
-          "transmission": "DCT 7V",
+          "transmission": "automatica",
+          "traction": "4x2"
+        },
+        {
+          "version": "1.5T Luxury 7DCT",
+          "price": 24990000,
+          "transmission": "automatica",
+          "traction": "4x2"
+        },
+        {
+          "version": "1.5T Exclusive 7DCT",
+          "price": 25490000,
+          "transmission": "automatica",
           "traction": "4x2"
         }
-      ]
+      ],
+      "price_source": "https://www.autocosmos.cl/catalogo/vigente/baic/x7",
+      "price_checked_at": "2026-11-12"
+    },
+    {
+      "id": 714,
+      "brand": "BAIC",
+      "model": "EU5",
+      "year": 2026,
+      "type": "sedan",
+      "fuel": "electrico",
+      "seats": 5,
+      "price": 23790000,
+      "transmission": "automatica",
+      "traction": "4x2",
+      "image_url": "",
+      "description": "Sedán 100% eléctrico de 163 HP con caja automática y tracción 4X2. 1 versión con precio de lista.",
+      "origin": "China",
+      "versions": [
+        {
+          "version": "120 kW E-Motor",
+          "price": 23790000,
+          "transmission": "automatica",
+          "traction": "4x2"
+        }
+      ],
+      "hp": 163,
+      "torque_nm": 240,
+      "length_mm": 4650,
+      "width_mm": 1820,
+      "height_mm": 1510,
+      "wheelbase_mm": 2670,
+      "trunk_liters": 430,
+      "top_speed_kmh": 150,
+      "airbags": 4,
+      "year_start": 2026,
+      "price_source": "https://www.autocosmos.cl/catalogo/vigente/baic/eu5",
+      "price_checked_at": "2026-11-12",
+      "origin_country": "China"
     }
   ]
 }

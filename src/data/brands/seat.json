@@ -141,28 +141,22 @@
       "type": "hatchback",
       "fuel": "gasolina",
       "seats": 5,
-      "price": 14990000,
-      "transmission": "automatica",
+      "price": 19490000,
+      "transmission": "manual",
       "traction": "4x2",
       "image_url": "",
       "description": "Hatchback subcompacto deportivo con diseño español.",
       "origin": "España",
       "versions": [
         {
-          "version": "Reference",
-          "price": 14990000,
-          "transmission": "automatica",
+          "version": "1.0L Style",
+          "price": 19490000,
+          "transmission": "manual",
           "traction": "4x2"
         },
         {
-          "version": "Style",
-          "price": 17490000,
-          "transmission": "automatica",
-          "traction": "4x2"
-        },
-        {
-          "version": "FR",
-          "price": 20490000,
+          "version": "1.0L FR Aut",
+          "price": 22490000,
           "transmission": "automatica",
           "traction": "4x2"
         }
@@ -195,7 +189,9 @@
       ],
       "warranty_years": 4,
       "warranty_km": 120000,
-      "origin_country": "España"
+      "origin_country": "España",
+      "price_source": "https://www.autocosmos.cl/catalogo/vigente/seat/ibiza",
+      "price_checked_at": "2026-11-12"
     },
     {
       "id": 524,

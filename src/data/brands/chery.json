@@ -217,7 +217,9 @@
       ],
       "warranty_years": 5,
       "warranty_km": 100000,
-      "origin_country": "China"
+      "origin_country": "China",
+      "price_source": "https://www.autocosmos.cl/catalogo/vigente/chery/tiggo-2-pro",
+      "price_checked_at": "2026-11-12"
     },
     {
       "id": 96,
@@ -235,14 +237,32 @@
       "origin": "China",
       "versions": [
         {
-          "version": "1.5L GLS",
+          "version": "1.5L GL",
           "price": 12990000,
           "transmission": "manual",
           "traction": "4x2"
         },
         {
-          "version": "1.5L CVT Luxury",
+          "version": "1.5L GL CVT",
+          "price": 13990000,
+          "transmission": "automatica",
+          "traction": "4x2"
+        },
+        {
+          "version": "1.5L GLX",
           "price": 14490000,
+          "transmission": "manual",
+          "traction": "4x2"
+        },
+        {
+          "version": "1.5L GLX Bicolor CVT",
+          "price": 14490000,
+          "transmission": "automatica",
+          "traction": "4x2"
+        },
+        {
+          "version": "1.5L GLX CVT",
+          "price": 15490000,
           "transmission": "automatica",
           "traction": "4x2"
         }
@@ -268,7 +288,9 @@
       ],
       "warranty_years": 5,
       "warranty_km": 100000,
-      "origin_country": "China"
+      "origin_country": "China",
+      "price_source": "https://www.autocosmos.cl/catalogo/vigente/chery/tiggo-2-pro-max",
+      "price_checked_at": "2026-11-12"
     },
     {
       "id": 97,
@@ -278,7 +300,7 @@
       "type": "suv",
       "fuel": "gasolina",
       "seats": 5,
-      "price": 11990000,
+      "price": 15490000,
       "transmission": "manual",
       "traction": "4x2",
       "image_url": "",
@@ -308,18 +330,20 @@
       "origin_country": "China",
       "versions": [
         {
-          "version": "1.5L MT",
-          "price": 11990000,
+          "version": "GLX Turbo",
+          "price": 15490000,
           "transmission": "manual",
           "traction": "4x2"
         },
         {
-          "version": "1.5L MT Luxury",
-          "price": 12990000,
-          "transmission": "manual",
+          "version": "GLS CVT",
+          "price": 15990000,
+          "transmission": "automatica",
           "traction": "4x2"
         }
-      ]
+      ],
+      "price_source": "https://www.autocosmos.cl/catalogo/vigente/chery/tiggo-3-pro",
+      "price_checked_at": "2026-11-12"
     },
     {
       "id": 98,
@@ -330,22 +354,16 @@
       "fuel": "gasolina",
       "seats": 5,
       "price": 15490000,
-      "transmission": "automatica",
+      "transmission": "manual",
       "traction": "4x2",
       "image_url": "",
       "description": "SUV compacto con motor 1.5 turbo y caja CVT de variador continuo.",
       "origin": "China",
       "versions": [
         {
-          "version": "1.5T GLS CVT",
+          "version": "1.5L GLS",
           "price": 15490000,
-          "transmission": "automatica",
-          "traction": "4x2"
-        },
-        {
-          "version": "1.5T Luxury CVT",
-          "price": 16990000,
-          "transmission": "automatica",
+          "transmission": "manual",
           "traction": "4x2"
         }
       ],
@@ -370,7 +388,9 @@
       ],
       "warranty_years": 5,
       "warranty_km": 100000,
-      "origin_country": "China"
+      "origin_country": "China",
+      "price_source": "https://www.autocosmos.cl/catalogo/vigente/chery/tiggo-4-pro-max",
+      "price_checked_at": "2026-11-12"
     },
     {
       "id": 99,
@@ -388,14 +408,20 @@
       "origin": "China",
       "versions": [
         {
-          "version": "1.5T GLS CVT",
+          "version": "1.5T GLS",
           "price": 16990000,
           "transmission": "automatica",
           "traction": "4x2"
         },
         {
-          "version": "1.5T Luxury CVT",
-          "price": 18490000,
+          "version": "1.5T GLX",
+          "price": 19990000,
+          "transmission": "automatica",
+          "traction": "4x2"
+        },
+        {
+          "version": "1.5T GLX Bicolor",
+          "price": 21990000,
           "transmission": "automatica",
           "traction": "4x2"
         }
@@ -422,7 +448,9 @@
       ],
       "warranty_years": 5,
       "warranty_km": 100000,
-      "origin_country": "China"
+      "origin_country": "China",
+      "price_source": "https://www.autocosmos.cl/catalogo/vigente/chery/tiggo-7-pro-max",
+      "price_checked_at": "2026-11-12"
     },
     {
       "id": 100,
@@ -440,7 +468,7 @@
       "origin": "China",
       "versions": [
         {
-          "version": "1.5T PHEV GLS",
+          "version": "1.5T DHT",
           "price": 32990000,
           "transmission": "automatica",
           "traction": "4x2"
@@ -470,7 +498,9 @@
       ],
       "warranty_years": 5,
       "warranty_km": 100000,
-      "origin_country": "China"
+      "origin_country": "China",
+      "price_source": "https://www.autocosmos.cl/catalogo/vigente/chery/tiggo-7-pro-max-phev",
+      "price_checked_at": "2026-11-12"
     },
     {
       "id": 101,
@@ -548,7 +578,7 @@
       "origin": "China",
       "versions": [
         {
-          "version": "2.0T PHEV DCT",
+          "version": "1.5L DHT",
           "price": 39990000,
           "transmission": "automatica",
           "traction": "4x2"
@@ -578,7 +608,9 @@
       ],
       "warranty_years": 5,
       "warranty_km": 100000,
-      "origin_country": "China"
+      "origin_country": "China",
+      "price_source": "https://www.autocosmos.cl/catalogo/vigente/chery/tiggo-8-pro-max-phev",
+      "price_checked_at": "2026-11-12"
     },
     {
       "id": 103,

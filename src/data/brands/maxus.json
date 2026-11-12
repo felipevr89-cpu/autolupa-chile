@@ -10,7 +10,7 @@
       "type": "suv",
       "fuel": "gasolina",
       "seats": 7,
-      "price": 22990000,
+      "price": 24978100,
       "transmission": "automatica",
       "traction": "4x2",
       "image_url": "",
@@ -36,12 +36,20 @@
       "origin_country": "China",
       "versions": [
         {
-          "version": "Elite 1.5T AT",
-          "price": 22990000,
-          "transmission": "DCT 7V",
+          "version": "Elite",
+          "price": 24978100,
+          "transmission": "automatica",
+          "traction": "4x2"
+        },
+        {
+          "version": "Luxury",
+          "price": 27358100,
+          "transmission": "automatica",
           "traction": "4x2"
         }
-      ]
+      ],
+      "price_source": "https://www.autocosmos.cl/catalogo/vigente/maxus/d60",
+      "price_checked_at": "2026-11-12"
     },
     {
       "id": 379,
@@ -51,7 +59,7 @@
       "type": "minivan",
       "fuel": "diesel",
       "seats": 7,
-      "price": 34500000,
+      "price": 34498100,
       "transmission": "automatica",
       "traction": "4x2",
       "image_url": "",
@@ -78,17 +86,19 @@
       "versions": [
         {
           "version": "Elite 6+1",
-          "price": 34500000,
-          "transmission": "Automática 8V",
+          "price": 34498100,
+          "transmission": "automatica",
           "traction": "4x2"
         },
         {
           "version": "Luxury 6+1",
-          "price": 41000000,
-          "transmission": "Automática 8V",
+          "price": 41043100,
+          "transmission": "automatica",
           "traction": "4x2"
         }
-      ]
+      ],
+      "price_source": "https://www.autocosmos.cl/catalogo/vigente/maxus/g90",
+      "price_checked_at": "2026-11-12"
     },
     {
       "id": 380,
@@ -98,8 +108,8 @@
       "type": "pickup",
       "fuel": "diesel",
       "seats": 5,
-      "price": 20700000,
-      "transmission": "automatica",
+      "price": 22003100,
+      "transmission": "manual",
       "traction": "4x2",
       "image_url": "",
       "description": "Pick-up mediana popular en Chile, motor 2.0T diésel y buena capacidad de carga.",
@@ -125,24 +135,44 @@
       "origin_country": "China",
       "versions": [
         {
-          "version": "2.0T 4x2 MT",
-          "price": 20700000,
-          "transmission": "Manual 6V",
+          "version": "2.0L GL 4x2",
+          "price": 22003100,
+          "transmission": "manual",
           "traction": "4x2"
         },
         {
-          "version": "2.0T 4x2 AT",
-          "price": 22700000,
-          "transmission": "Automática 6V",
+          "version": "2.0L DX 4x4",
+          "price": 22955100,
+          "transmission": "manual",
+          "traction": "4x4"
+        },
+        {
+          "version": "2.0L 4x4",
+          "price": 23550100,
+          "transmission": "manual",
+          "traction": "4x4"
+        },
+        {
+          "version": "2.0L GL 4x2 Aut",
+          "price": 23907100,
+          "transmission": "automatica",
           "traction": "4x2"
         },
         {
-          "version": "2.0T 4x4 AT",
-          "price": 24700000,
-          "transmission": "Automática 6V",
+          "version": "2.0L GL 4x4",
+          "price": 25216100,
+          "transmission": "manual",
+          "traction": "4x4"
+        },
+        {
+          "version": "2.0L GLX 4x4 Aut",
+          "price": 28786100,
+          "transmission": "automatica",
           "traction": "4x4"
         }
-      ]
+      ],
+      "price_source": "https://www.autocosmos.cl/catalogo/vigente/maxus/t60",
+      "price_checked_at": "2026-11-12"
     },
     {
       "id": 381,
@@ -152,7 +182,7 @@
       "type": "pickup",
       "fuel": "diesel",
       "seats": 5,
-      "price": 30200000,
+      "price": 30237900,
       "transmission": "automatica",
       "traction": "4x4",
       "image_url": "",
@@ -183,12 +213,20 @@
       "origin_country": "China",
       "versions": [
         {
-          "version": "2.0T Biturbo 4x4 AT",
-          "price": 30200000,
-          "transmission": "Automática 8V",
+          "version": "GL",
+          "price": 30237900,
+          "transmission": "automatica",
+          "traction": "4x4"
+        },
+        {
+          "version": "GLX",
+          "price": 32657900,
+          "transmission": "automatica",
           "traction": "4x4"
         }
-      ]
+      ],
+      "price_source": "https://www.autocosmos.cl/catalogo/vigente/maxus/t60-max",
+      "price_checked_at": "2026-11-12"
     },
     {
       "id": 382,
@@ -198,7 +236,7 @@
       "type": "pickup",
       "fuel": "diesel",
       "seats": 5,
-      "price": 37500000,
+      "price": 41127900,
       "transmission": "automatica",
       "traction": "4x4",
       "image_url": "",
@@ -230,18 +268,14 @@
       "origin_country": "China",
       "versions": [
         {
-          "version": "GL 2.0T 4x4 AT",
-          "price": 37500000,
-          "transmission": "Automática 8V",
-          "traction": "4x4"
-        },
-        {
-          "version": "GLX 2.0T 4x4 AT",
-          "price": 41100000,
-          "transmission": "Automática 8V",
+          "version": "GLX",
+          "price": 41127900,
+          "transmission": "automatica",
           "traction": "4x4"
         }
-      ]
+      ],
+      "price_source": "https://www.autocosmos.cl/catalogo/vigente/maxus/t90",
+      "price_checked_at": "2026-11-12"
     },
     {
       "id": 383,
@@ -251,7 +285,7 @@
       "type": "pickup",
       "fuel": "electrico",
       "seats": 5,
-      "price": 65000000,
+      "price": 70167900,
       "transmission": "automatica",
       "traction": "4x4",
       "image_url": "",
@@ -281,12 +315,14 @@
       "origin_country": "China",
       "versions": [
         {
-          "version": "4x4 88kWh",
-          "price": 65000000,
-          "transmission": "Automática",
+          "version": "GLX",
+          "price": 70167900,
+          "transmission": "automatica",
           "traction": "4x4"
         }
-      ]
+      ],
+      "price_source": "https://www.autocosmos.cl/catalogo/vigente/maxus/t90-ev",
+      "price_checked_at": "2026-11-12"
     }
   ]
 }

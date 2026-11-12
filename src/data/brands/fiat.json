@@ -174,7 +174,7 @@
       "type": "minivan",
       "fuel": "diesel",
       "seats": 5,
-      "price": 28990000,
+      "price": 36287900,
       "transmission": "manual",
       "traction": "4x2",
       "image_url": "",
@@ -206,18 +206,26 @@
       "origin_country": "Italia",
       "versions": [
         {
-          "version": "2.2D MT",
-          "price": 28990000,
+          "version": "2.3L Maxi Cargo L2H2",
+          "price": 36287900,
           "transmission": "manual",
           "traction": "4x2"
         },
         {
-          "version": "2.2D MT Largo",
-          "price": 32990000,
+          "version": "2.3L Maxi Cargo L3H2",
+          "price": 38707900,
+          "transmission": "manual",
+          "traction": "4x2"
+        },
+        {
+          "version": "2.3L Maxi Cargo L4H3",
+          "price": 39917900,
           "transmission": "manual",
           "traction": "4x2"
         }
-      ]
+      ],
+      "price_source": "https://www.autocosmos.cl/catalogo/vigente/fiat/ducato",
+      "price_checked_at": "2026-11-12"
     },
     {
       "id": 168,

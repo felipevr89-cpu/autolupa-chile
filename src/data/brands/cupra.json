@@ -118,30 +118,30 @@
       "type": "suv",
       "fuel": "gasolina",
       "seats": 5,
-      "price": 24990000,
+      "price": 34990000,
       "transmission": "automatica",
-      "traction": "4x4",
+      "traction": "4x2",
       "image_url": "",
       "description": "SUV coupé deportivo con diseño agresivo.",
       "origin": "España",
       "versions": [
         {
-          "version": "1.5 TSI",
-          "price": 24990000,
+          "version": "2.0 TSI 204HP",
+          "price": 34990000,
           "transmission": "automatica",
           "traction": "4x2"
         },
         {
-          "version": "2.0 TSI",
-          "price": 29990000,
-          "transmission": "automatica",
-          "traction": "4x4"
-        },
-        {
-          "version": "VZ5",
+          "version": "VZ 2.0 TSi",
           "price": 42990000,
           "transmission": "automatica",
-          "traction": "4x4"
+          "traction": "awd"
+        },
+        {
+          "version": "VZ 2.0 TSi Mate",
+          "price": 45990000,
+          "transmission": "automatica",
+          "traction": "awd"
         }
       ],
       "hp": 150,
@@ -174,7 +174,9 @@
       ],
       "warranty_years": 4,
       "warranty_km": 120000,
-      "origin_country": "España"
+      "origin_country": "España",
+      "price_source": "https://www.autocosmos.cl/catalogo/vigente/cupra/formentor",
+      "price_checked_at": "2026-11-12"
     },
     {
       "id": 138,
@@ -184,9 +186,9 @@
       "type": "hatchback",
       "fuel": "gasolina",
       "seats": 5,
-      "price": 26990000,
+      "price": 29490000,
       "transmission": "automatica",
-      "traction": "4x2",
+      "traction": "awd",
       "image_url": "",
       "description": "Hatchback deportivo con el ADN de Cupra y diseño agresivo.",
       "origin": "España",
@@ -220,18 +222,26 @@
       "origin_country": "España",
       "versions": [
         {
-          "version": "1.5 TSI",
-          "price": 26990000,
+          "version": "1.4 TSi",
+          "price": 29490000,
           "transmission": "automatica",
-          "traction": "4x2"
+          "traction": "awd"
         },
         {
-          "version": "2.0 TSI 4Drive",
-          "price": 34990000,
+          "version": "VZ 2.0 TSi",
+          "price": 38490000,
           "transmission": "automatica",
-          "traction": "4x4"
+          "traction": "awd"
+        },
+        {
+          "version": "VZ 2.0 TSi Mate",
+          "price": 41490000,
+          "transmission": "automatica",
+          "traction": "awd"
         }
-      ]
+      ],
+      "price_source": "https://www.autocosmos.cl/catalogo/vigente/cupra/leon",
+      "price_checked_at": "2026-11-12"
     },
     {
       "id": 139,
@@ -241,9 +251,9 @@
       "type": "suv",
       "fuel": "electrico",
       "seats": 5,
-      "price": 39990000,
+      "price": 48990000,
       "transmission": "automatica",
-      "traction": "awd",
+      "traction": "4x2",
       "image_url": "",
       "description": "SUV coupé 100% eléctrico con diseño vanguardista y alto rendimiento.",
       "origin": "España",
@@ -276,18 +286,60 @@
       "origin_country": "España",
       "versions": [
         {
-          "version": "VZ",
-          "price": 39990000,
+          "version": "Adrenaline",
+          "price": 48990000,
           "transmission": "automatica",
-          "traction": "awd"
+          "traction": "4x2"
+        }
+      ],
+      "price_source": "https://www.autocosmos.cl/catalogo/vigente/cupra/tavascan",
+      "price_checked_at": "2026-11-12"
+    },
+    {
+      "id": 737,
+      "brand": "Cupra",
+      "model": "Terramar",
+      "year": 2025,
+      "type": "suv",
+      "fuel": "gasolina",
+      "seats": 5,
+      "price": 38990000,
+      "transmission": "automatica",
+      "traction": "4x2",
+      "image_url": "",
+      "description": "SUV bencinero de 150 HP con caja automática y tracción 4X2. 2 versiones con precio de lista.",
+      "origin": "España",
+      "versions": [
+        {
+          "version": "1.5 TSI mHEV",
+          "price": 38990000,
+          "transmission": "automatica",
+          "traction": "4x2"
         },
         {
-          "version": "VZ AWD",
-          "price": 44990000,
+          "version": "1.5 TSI mHEV High",
+          "price": 42990000,
           "transmission": "automatica",
-          "traction": "awd"
+          "traction": "4x2"
         }
-      ]
+      ],
+      "hp": 150,
+      "torque_nm": 250,
+      "length_mm": 4519,
+      "width_mm": 1863,
+      "height_mm": 1584,
+      "wheelbase_mm": 2684,
+      "trunk_liters": 540,
+      "fuel_tank_liters": 55,
+      "top_speed_kmh": 205,
+      "fuel_consumption_city_km_l": 14.1,
+      "fuel_consumption_highway_km_l": 19.6,
+      "fuel_consumption_mixed_km_l": 17.1,
+      "airbags": 7,
+      "year_start": 2025,
+      "price_source": "https://www.autocosmos.cl/catalogo/vigente/cupra/terramar",
+      "price_checked_at": "2026-11-12",
+      "origin_country": "España"
     }
   ]
 }

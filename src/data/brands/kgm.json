@@ -151,7 +151,7 @@
       "type": "suv",
       "fuel": "diesel",
       "seats": 7,
-      "price": 29990000,
+      "price": 36190000,
       "transmission": "automatica",
       "traction": "4x2",
       "image_url": "",
@@ -178,36 +178,32 @@
       "origin_country": "Corea del Sur",
       "versions": [
         {
-          "version": "LX 2.2TD 8AT 4x2 2AB",
-          "price": 29990000,
-          "transmission": "Automática 8V",
-          "traction": "4x2"
-        },
-        {
-          "version": "GLX 2.2TD 8AT 4x2 6AB",
+          "version": "2.2TD GLX Aut",
           "price": 36190000,
-          "transmission": "Automática 8V",
+          "transmission": "automatica",
           "traction": "4x2"
         },
         {
-          "version": "GLX 2.2TD 8AT 4x4 6AB",
+          "version": "2.2TD GLX Aut 4x4",
           "price": 38190000,
-          "transmission": "Automática 8V",
+          "transmission": "automatica",
           "traction": "4x4"
         },
         {
-          "version": "Limited 2.2TD 8AT 4x4 6AB",
+          "version": "2.2TD Limited Aut 4x4",
           "price": 42190000,
-          "transmission": "Automática 8V",
+          "transmission": "automatica",
           "traction": "4x4"
         },
         {
-          "version": "Limited Plus 2.2TD 8AT 4x4 9AB",
+          "version": "2.2TD Limited Plus Aut 4x4",
           "price": 48190000,
-          "transmission": "Automática 8V",
+          "transmission": "automatica",
           "traction": "4x4"
         }
-      ]
+      ],
+      "price_source": "https://www.autocosmos.cl/catalogo/vigente/kgm/rexton",
+      "price_checked_at": "2026-11-12"
     },
     {
       "id": 308,
@@ -218,7 +214,7 @@
       "fuel": "gasolina",
       "seats": 5,
       "price": 25990000,
-      "transmission": "automatica",
+      "transmission": "manual",
       "traction": "4x2",
       "image_url": "",
       "description": "SUV mediana de diseño robusto, inspirada en Torres del Paine.",
@@ -244,30 +240,20 @@
       "origin_country": "Corea del Sur",
       "versions": [
         {
-          "version": "Life 1.5T 4x2 MT",
+          "version": "1.5L GLX",
           "price": 25990000,
-          "transmission": "Manual 6V",
+          "transmission": "manual",
           "traction": "4x2"
         },
         {
-          "version": "Style 1.5T 4x2 AT",
-          "price": 28990000,
-          "transmission": "Automática 6V",
+          "version": "1.5L GLX Aut",
+          "price": 27990000,
+          "transmission": "automatica",
           "traction": "4x2"
-        },
-        {
-          "version": "GLX 1.5T 4x4 AT",
-          "price": 31990000,
-          "transmission": "Automática 6V",
-          "traction": "4x4"
-        },
-        {
-          "version": "Adventure 1.5T 4x4 AT",
-          "price": 34990000,
-          "transmission": "Automática 6V",
-          "traction": "4x4"
         }
-      ]
+      ],
+      "price_source": "https://www.autocosmos.cl/catalogo/vigente/kgm/torres",
+      "price_checked_at": "2026-11-12"
     },
     {
       "id": 309,
@@ -279,7 +265,7 @@
       "seats": 5,
       "price": 43490000,
       "transmission": "automatica",
-      "traction": "awd",
+      "traction": "4x2",
       "image_url": "",
       "description": "SUV 100% eléctrica con batería BYD y autonomía superior a 400 km.",
       "origin": "Corea del Sur",
@@ -306,18 +292,20 @@
       "origin_country": "Corea del Sur",
       "versions": [
         {
-          "version": "Standard",
+          "version": "Limited",
           "price": 43490000,
-          "transmission": "Automática",
-          "traction": "awd"
+          "transmission": "automatica",
+          "traction": "4x2"
         },
         {
-          "version": "Limited",
-          "price": 47490000,
-          "transmission": "Automática",
-          "traction": "awd"
+          "version": "Limited Plus",
+          "price": 46490000,
+          "transmission": "automatica",
+          "traction": "4x2"
         }
-      ]
+      ],
+      "price_source": "https://www.autocosmos.cl/catalogo/vigente/kgm/torres-evx",
+      "price_checked_at": "2026-11-12"
     },
     {
       "id": 310,
@@ -327,9 +315,9 @@
       "type": "pickup",
       "fuel": "diesel",
       "seats": 5,
-      "price": 31990000,
-      "transmission": "automatica",
-      "traction": "4x4",
+      "price": 29738100,
+      "transmission": "manual",
+      "traction": "4x2",
       "image_url": "",
       "description": "Nueva generación de la pick-up mediana con diseño renovado y mayor refinamiento.",
       "origin": "Corea del Sur",
@@ -354,12 +342,50 @@
       "origin_country": "Corea del Sur",
       "versions": [
         {
-          "version": "LX 2.2TD 4x4 AT",
-          "price": 31990000,
-          "transmission": "Automática 6V",
+          "version": "2.2TD LX",
+          "price": 29738100,
+          "transmission": "manual",
+          "traction": "4x2"
+        },
+        {
+          "version": "2.2TD GLX",
+          "price": 33308100,
+          "transmission": "manual",
+          "traction": "4x2"
+        },
+        {
+          "version": "2.2TD GLX 4x4",
+          "price": 34498100,
+          "transmission": "manual",
+          "traction": "4x4"
+        },
+        {
+          "version": "2.2TD GLX Aut",
+          "price": 34855100,
+          "transmission": "automatica",
+          "traction": "4x2"
+        },
+        {
+          "version": "2.2TD Limited 4x4 Aut",
+          "price": 37473100,
+          "transmission": "automatica",
+          "traction": "4x4"
+        },
+        {
+          "version": "2.2TD Limited Aut 4x4",
+          "price": 38663100,
+          "transmission": "automatica",
+          "traction": "4x4"
+        },
+        {
+          "version": "2.2TD Limited Plus 4x4 Aut",
+          "price": 41638100,
+          "transmission": "automatica",
           "traction": "4x4"
         }
-      ]
+      ],
+      "price_source": "https://www.autocosmos.cl/catalogo/vigente/kgm/musso",
+      "price_checked_at": "2026-11-12"
     }
   ]
 }

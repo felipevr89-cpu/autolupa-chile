@@ -12,28 +12,28 @@
       "seats": 5,
       "price": 32990000,
       "transmission": "automatica",
-      "traction": "awd",
+      "traction": "4x2",
       "image_url": "",
       "description": "SUV eléctrico compacto con diseño moderno.",
       "origin": "China",
       "versions": [
         {
-          "version": "Pro+",
+          "version": "Pure",
           "price": 32990000,
           "transmission": "automatica",
-          "traction": "awd"
+          "traction": "4x2"
         },
         {
-          "version": "Premium",
-          "price": 37990000,
+          "version": "Pro +",
+          "price": 39990000,
           "transmission": "automatica",
-          "traction": "awd"
+          "traction": "4x2"
         },
         {
           "version": "Brabus",
-          "price": 42990000,
+          "price": 46990000,
           "transmission": "automatica",
-          "traction": "awd"
+          "traction": "4x2"
         }
       ],
       "hp": 272,
@@ -63,7 +63,9 @@
       ],
       "warranty_years": 4,
       "warranty_km": 100000,
-      "origin_country": "China"
+      "origin_country": "China",
+      "price_source": "https://www.autocosmos.cl/catalogo/vigente/smart/1",
+      "price_checked_at": "2026-11-12"
     },
     {
       "id": 531,
@@ -73,24 +75,30 @@
       "type": "suv",
       "fuel": "electrico",
       "seats": 5,
-      "price": 37990000,
+      "price": 34990000,
       "transmission": "automatica",
-      "traction": "awd",
+      "traction": "4x2",
       "image_url": "",
       "description": "SUV coupé eléctrico deportivo.",
       "origin": "China",
       "versions": [
         {
-          "version": "Premium",
-          "price": 37990000,
+          "version": "Pro",
+          "price": 34990000,
           "transmission": "automatica",
-          "traction": "awd"
+          "traction": "4x2"
+        },
+        {
+          "version": "Pro +",
+          "price": 40990000,
+          "transmission": "automatica",
+          "traction": "4x2"
         },
         {
           "version": "Brabus",
-          "price": 44990000,
+          "price": 49990000,
           "transmission": "automatica",
-          "traction": "awd"
+          "traction": "4x2"
         }
       ],
       "hp": 315,
@@ -120,6 +128,57 @@
       ],
       "warranty_years": 4,
       "warranty_km": 100000,
+      "origin_country": "China",
+      "price_source": "https://www.autocosmos.cl/catalogo/vigente/smart/3",
+      "price_checked_at": "2026-11-12"
+    },
+    {
+      "id": 736,
+      "brand": "smart",
+      "model": "#5",
+      "year": 2026,
+      "type": "suv",
+      "fuel": "electrico",
+      "seats": 5,
+      "price": 46990000,
+      "transmission": "automatica",
+      "traction": "4x2",
+      "image_url": "",
+      "description": "SUV 100% eléctrico de 340 HP con caja automática y tracción 4X2 o AWD. 3 versiones con precio de lista.",
+      "origin": "China",
+      "versions": [
+        {
+          "version": "Pro RWD",
+          "price": 46990000,
+          "transmission": "automatica",
+          "traction": "4x2"
+        },
+        {
+          "version": "Pulse AWD",
+          "price": 56990000,
+          "transmission": "automatica",
+          "traction": "awd"
+        },
+        {
+          "version": "BRABUS",
+          "price": 65990000,
+          "transmission": "automatica",
+          "traction": "awd"
+        }
+      ],
+      "hp": 340,
+      "torque_nm": 373,
+      "length_mm": 4695,
+      "width_mm": 1920,
+      "height_mm": 1705,
+      "wheelbase_mm": 2900,
+      "ground_clearance_mm": 190,
+      "trunk_liters": 630,
+      "top_speed_kmh": 200,
+      "airbags": 6,
+      "year_start": 2026,
+      "price_source": "https://www.autocosmos.cl/catalogo/vigente/smart/5",
+      "price_checked_at": "2026-11-12",
       "origin_country": "China"
     }
   ]

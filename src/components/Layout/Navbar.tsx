@@ -11,6 +11,12 @@ import {
   BanknotesIcon,
   Battery100Icon,
   SparklesIcon,
+  ScaleIcon,
+  CalculatorIcon,
+  BookOpenIcon,
+  ChartBarIcon,
+  QuestionMarkCircleIcon,
+  MagnifyingGlassIcon,
 } from '@heroicons/react/24/outline';
 
 interface Props {
@@ -53,7 +59,7 @@ export function Navbar({ user, signInWithGoogle, signOut, isCloudAuthAvailable }
     return location.search.includes(query);
   };
 
-  const [top10Open, setTop10Open] = useState(false);
+  const [openMenu, setOpenMenu] = useState<string | null>(null);
 
   const top10Categories = [
     { id: 'seguridad', label: 'Seguridad', icon: ShieldCheckIcon },
@@ -73,21 +79,31 @@ export function Navbar({ user, signInWithGoogle, signOut, isCloudAuthAvailable }
     { to: '/autos', label: 'Autos nuevos' },
     { to: '/usados', label: 'Usados' },
     { to: '/autos?combustible=electrico', label: 'Eléctricos' },
-    { to: '/compare', label: 'Comparar' },
-    { to: '/tasar-auto', label: 'Tasar' },
-    { to: '/blog', label: 'Guías' },
+  ];
+
+  const tools = [
+    { to: '/compare', label: 'Comparar autos', icon: ScaleIcon },
+    { to: '/tasar-auto', label: '¿Cuánto vale mi auto?', icon: CalculatorIcon },
+    { to: '/blog', label: 'Guías de compra', icon: BookOpenIcon },
+    { to: '/estadisticas-mercado', label: 'Estadísticas del mercado', icon: ChartBarIcon },
+    { to: '/faq', label: 'Compra segura y preguntas', icon: QuestionMarkCircleIcon },
+  ];
+
+  const menus = [
+    { id: 'top10', label: 'Top 10', to: '/top10', items: top10Categories.map(cat => ({ to: `/top10?cat=${cat.id}`, label: cat.label, icon: cat.icon })) },
+    { id: 'tools', label: 'Herramientas', to: '/compare', items: tools },
   ];
 
   return (
-    <nav className="bg-gray-900 dark:bg-gray-950 text-white sticky top-0 z-40 shadow-lg">
+    <nav aria-label="Principal" className="bg-slate-900/95 dark:bg-gray-950/95 backdrop-blur text-white sticky top-0 z-40 shadow-lg">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <Link to="/" className="flex items-center gap-3">
-            <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center font-bold text-lg shadow-lg">
-              🔍
+            <div className="w-10 h-10 bg-blue-600 rounded-xl flex items-center justify-center shadow-lg">
+              <MagnifyingGlassIcon className="w-6 h-6" aria-hidden="true" />
             </div>
             <span className="text-xl font-bold">
-              Auto<span className="text-blue-400">Lupa</span>
+              Auto<span className="text-sky-400">Lupa</span>
             </span>
           </Link>
 
@@ -113,43 +129,47 @@ export function Navbar({ user, signInWithGoogle, signOut, isCloudAuthAvailable }
               </Link>
             ))}
 
-            {/* Top 10 dropdown */}
-            <div
-              className="relative"
-              onMouseEnter={() => setTop10Open(true)}
-              onMouseLeave={() => setTop10Open(false)}
-              onFocus={() => setTop10Open(true)}
-              onBlur={(e) => { if (!e.currentTarget.contains(e.relatedTarget as Node | null)) setTop10Open(false); }}
-              onKeyDown={(e) => { if (e.key === 'Escape') setTop10Open(false); }}
-            >
-              <Link
-                to="/top10"
-                aria-haspopup="true"
-                aria-expanded={top10Open}
-                className={`whitespace-nowrap px-3 py-2 rounded-lg text-sm font-medium transition-all ${
-                  location.pathname === '/top10'
-                    ? 'bg-white/15 text-white'
-                    : 'text-gray-300 hover:bg-white/10 hover:text-white'
-                }`}
+            {menus.map(menu => (
+              <div
+                key={menu.id}
+                className="relative"
+                onMouseEnter={() => setOpenMenu(menu.id)}
+                onMouseLeave={() => setOpenMenu(null)}
+                onBlur={(e) => { if (!e.currentTarget.contains(e.relatedTarget as Node | null)) setOpenMenu(null); }}
+                onKeyDown={(e) => { if (e.key === 'Escape') setOpenMenu(null); }}
               >
-                Top 10 ▾
-              </Link>
-              {top10Open && (
-                <div className="absolute top-full left-0 mt-1 w-56 bg-gray-800 dark:bg-gray-900 rounded-xl shadow-2xl border border-gray-700 dark:border-gray-600 py-2 z-50">
-                  {top10Categories.map(cat => (
-                    <Link
-                      key={cat.id}
-                      to={`/top10?cat=${cat.id}`}
-                      onClick={() => setTop10Open(false)}
-                      className="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-300 hover:bg-white/10 hover:text-white transition-colors"
-                    >
-                      <cat.icon className="w-5 h-5" />
-                      <span>{cat.label}</span>
-                    </Link>
-                  ))}
-                </div>
-              )}
-            </div>
+                <button
+                  type="button"
+                  aria-haspopup="true"
+                  aria-expanded={openMenu === menu.id}
+                  onClick={() => setOpenMenu(openMenu === menu.id ? null : menu.id)}
+                  className={`whitespace-nowrap px-3 py-2 rounded-lg text-sm font-medium transition-all ${
+                    menu.items.some(item => location.pathname === item.to.split('?')[0])
+                      ? 'bg-white/15 text-white'
+                      : 'text-gray-300 hover:bg-white/10 hover:text-white'
+                  }`}
+                >
+                  {menu.label} <span aria-hidden="true">▾</span>
+                </button>
+                {openMenu === menu.id && (
+                  <div className="absolute top-full left-0 pt-1 w-64 z-50">
+                    <div className="bg-gray-800 dark:bg-gray-900 rounded-xl shadow-2xl border border-gray-700 dark:border-gray-600 py-2">
+                      {menu.items.map(item => (
+                        <Link
+                          key={item.to}
+                          to={item.to}
+                          onClick={() => setOpenMenu(null)}
+                          className="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-300 hover:bg-white/10 hover:text-white transition-colors"
+                        >
+                          <item.icon className="w-5 h-5" />
+                          <span>{item.label}</span>
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
+            ))}
 
             <Link
               to="/favorites"
@@ -215,7 +235,7 @@ export function Navbar({ user, signInWithGoogle, signOut, isCloudAuthAvailable }
                 onClick={signInWithGoogle}
                 disabled={loginUnavailable}
                 title={loginTitle}
-                className="whitespace-nowrap px-4 py-2 bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 rounded-lg text-sm font-medium transition-all flex items-center gap-2 shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
+                className="whitespace-nowrap px-4 py-2 bg-white/10 hover:bg-white/20 border border-white/20 rounded-lg text-sm font-medium transition-all flex items-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 <svg className="w-4 h-4" viewBox="0 0 24 24">
                   <path fill="currentColor" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" />
@@ -307,22 +327,20 @@ export function Navbar({ user, signInWithGoogle, signOut, isCloudAuthAvailable }
               </Link>
             ))}
             <div className="border-t border-gray-800 dark:border-gray-700 my-1" />
-            <Link
-              to="/tasar-auto"
-              onClick={() => setMobileOpen(false)}
-              className="flex items-center gap-3 px-4 py-2 text-sm text-gray-300 hover:bg-white/10 rounded-lg"
-            >
-              <span>🧮</span>
-              <span>¿Cuánto vale mi auto?</span>
-            </Link>
-            <Link
-              to="/estadisticas-mercado"
-              onClick={() => setMobileOpen(false)}
-              className="flex items-center gap-3 px-4 py-2 text-sm text-gray-300 hover:bg-white/10 rounded-lg"
-            >
-              <span>📊</span>
-              <span>Estadísticas</span>
-            </Link>
+            <div className="px-4 py-1.5 text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+              Herramientas
+            </div>
+            {tools.map(tool => (
+              <Link
+                key={tool.to}
+                to={tool.to}
+                onClick={() => setMobileOpen(false)}
+                className="flex items-center gap-3 px-4 py-2 text-sm text-gray-300 hover:bg-white/10 rounded-lg"
+              >
+                <tool.icon className="w-5 h-5" />
+                <span>{tool.label}</span>
+              </Link>
+            ))}
             <div className="border-t border-gray-800 dark:border-gray-700 my-1" />
             <button
               onClick={toggleDark}
@@ -361,7 +379,7 @@ export function Navbar({ user, signInWithGoogle, signOut, isCloudAuthAvailable }
                 onClick={() => { if (!loginUnavailable) { signInWithGoogle(); setMobileOpen(false); } }}
                 disabled={loginUnavailable}
                 title={loginTitle}
-                className="w-full text-left px-4 py-2 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg text-sm font-medium disabled:opacity-50 disabled:cursor-not-allowed"
+                className="w-full text-left px-4 py-2 bg-white/10 border border-white/20 rounded-lg text-sm font-medium disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 {backendStatus === 'down' ? 'Ingresar (servicio no disponible)' : 'Ingresar'}
               </button>

@@ -1,18 +1,17 @@
-import { useParams } from 'react-router-dom';
 import ReactMarkdown from 'react-markdown';
 import { PRIVACY_POLICY_CONTENT, RESPONSIBILITY_CONTENT, TERMS_AND_CONDITIONS } from '../lib/documents';
 import { Breadcrumbs } from '../components/Breadcrumbs';
 import { SEO } from '../components/SEO';
+import type { LegalDocType } from '../lib/legalDocTypes';
 
-const DOCS: Record<string, { title: string; content: string }> = {
+const DOCS: Record<LegalDocType, { title: string; content: string }> = {
   'privacidad': { title: 'Política de Privacidad', content: PRIVACY_POLICY_CONTENT },
   'responsabilidad': { title: 'Declaración de Responsabilidad', content: RESPONSIBILITY_CONTENT },
   'terminos': { title: 'Términos y Condiciones', content: TERMS_AND_CONDITIONS },
 };
 
-export function LegalDocs() {
-  const { docType = 'privacidad' } = useParams();
-  const doc = DOCS[docType] ?? DOCS['privacidad'];
+export function LegalDocs({ docType }: { docType: LegalDocType }) {
+  const doc = DOCS[docType];
 
   return (
     <div className="max-w-3xl mx-auto px-4 sm:px-6 py-8">

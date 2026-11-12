@@ -1,0 +1,41 @@
+# Changelog
+
+- 2026-10-30: Corregida foto del Ford Territory 2026 (generación nueva).
+- 2026-10-30: Agregado Chery Tiggo 8 y actualizado Tiggo 8 Pro Max a precios/versiones oficiales 2026.
+- 2026-10-30: Agregadas páginas Quiénes somos, Contacto, Cómo funciona y Compra segura.
+- 2026-10-30: Footer y navegación con enlaces de confianza, soporte y Mi cuenta.
+- 2026-10-30: Filtros de la home sincronizados con query params.
+- 2026-10-30: Contacto del vendedor oculto para anónimos + formulario de lead.
+- 2026-10-30: Badges de verificación (correo, historial, destacado) y sección de historial/documentación.
+- 2026-10-30: Migraciones de leads, verificación e historial agregadas (pendientes de aplicar).
+- 2026-10-30: Script `npm run audit:assets` y reporte `docs/AUDIT-ASSETS.md`.
+- 2026-10-30: Test de cobertura del tasador para Tiggo 8 / Pro Max.
+- 2026-10-30: Prioridad alta y decodificación async en la imagen LCP; ADR de analítica cookieless.
+- 2026-10-31: Buscador del hero como elemento primario, con filtros rápidos y eventos `search_initiated` / `search_submitted`.
+- 2026-10-31: Ruta `/autos` y filtros compartibles con `marca`, `precio_min`, `precio_max`, `year`, `tipo` y `region`.
+- 2026-10-31: Grid de las 98 marcas en la home y rutas `/marcas/{slug}` con Schema.org `Brand`.
+- 2026-10-31: Auditoría `npm run audit:coverage` y test de cobertura del top ANAC.
+- 2026-10-31: Alias legacy `Tiggo 8 Pro` (fuera de parrilla 2026) para búsqueda y tasación.
+- 2026-10-31: Ejemplos de avisos marcados «Ejemplo» en `/usados` mientras no haya inventario real.
+- 2026-10-31: Fallback de sugerencias en el buscador NLU y registro de `brand_search_miss` en `docs/GAPS-LOG.md`.
+- 2026-10-31: Check de `year_start` vs. fecha de foto en `audit:assets` y test de regresión del Ford Territory.
+- 2026-10-31: Atributo HTML `fetchpriority` en minúsculas en `CarImage` para prioridad LCP sin warning de React.
+- 2026-10-31: `robots.txt` bloquea `/tus-datos` y el test de cabeceras lo verifica.
+- 2026-10-31: `/autos` muestra y desplaza al catálogo completo al entrar desde el buscador o «Ver catálogo completo».
+- 2026-10-31: `/marca/:slug` redirige a `/marcas/:slug` y los enlaces internos de marca usan la URL canónica.
+- 2026-11-01: `/autos` es una página de catálogo dedicada con H1, buscador visible y filtros; ya no repite el hero ni los rieles de la home.
+- 2026-11-01: `CarImage` muestra la silueta mientras la foto carga, en vez de dejar solo el gradiente de marca.
+- 2026-11-01: el filtro Región del buscador se muestra y se envía solo para autos usados; la búsqueda de nuevos ya no incluye `region`.
+- 2026-11-01: la ficha del auto muestra «Desde $…» junto al título y el bloque de precio apila sus botones en móvil; el CTA flotante «Publicar gratis» se oculta en fichas de auto y de aviso.
+- 2026-11-01: los controles del TCO ocupan todo el ancho en móvil, muestran la opción completa de «Km/mes» y sus etiquetas están asociadas; el pie del simulador de crédito también quedó asociado.
+- 2026-11-01: las herramientas de la ficha anuncian su estado con `aria-pressed` y conservan el foco al cambiar de pestaña.
+- 2026-11-01: el estado sin resultados del catálogo ofrece «Ver todos los autos» para volver al catálogo completo.
+- 2026-11-11: el recomendador entiende unidades (km, HP, kWh, litros), modelos (`cx5`, `rav4`), comparaciones, alternativas más baratas, negaciones y origen; penaliza modelos fuera de parrilla.
+- 2026-11-11: Subaru, Volkswagen, Changan, Deepal, Omoda/Jaecoo y Geely contrastados con sus sitios oficiales; 14 modelos nuevos (688 en total).
+- 2026-11-11: prerender estático de 836 rutas con título, canonical, JSON-LD y contenido rastreable; `404.html` real con `noindex`; slugs de marca ASCII con 301 (`citroen`, `skoda`, `lynk-y-co`); sitemap sin `/compare` ni `/tus-datos`; H1 de la ficha con marca, modelo y año; JSON-LD `Discontinued` para modelos fuera de parrilla.
+- 2026-11-11: si el marketplace no responde, `/usados`, `/publicar-auto` y la ficha del aviso muestran un aviso único con «Reintentar» en vez de mensajes contradictorios.
+- 2026-11-11: el TCO ya no suma la cuota completa del crédito junto a la depreciación (doble conteo): usa los intereses promedio y muestra la cuota aparte; los híbridos no enchufables pagan solo combustible.
+- 2026-11-11: «CAE» pasa a «tasa efectiva anual (interés)» en el simulador y el TCO, porque no incluye seguros ni gastos como la CAE legal.
+- 2026-11-11: el filtro de año cubre el rango real del catálogo (2025–2027) y migra los filtros guardados con el rango antiguo; el comparador recarga los autos guardados desde el catálogo vigente; el catálogo muestra «Sin resultados» en vez de «Mostrando 1-0 de 0».
+- 2026-11-11: `TODO.md`, `AUDITORIA.md` e `IMAGE_AUDIT_REPORT.md` quedan como históricos; backlog vigente en `docs/ROADMAP.md` y `docs/BLOCKERS.md`.
+- 2026-11-11: rediseño de interfaz: barra de navegación en una línea con enlaces corregidos, grid de marcas compacto por ventas ANAC, buscador principal conectado al recomendador, tarjetas de acción, barra fija de precio en la ficha móvil, pie en dos columnas y modal del recomendador responsivo y accesible por teclado.

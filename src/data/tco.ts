@@ -103,6 +103,8 @@ function getMonthlyChargingCost(car: Car, kmPerMonth: number): number {
 export interface TCOResult {
   price: number;
   monthlyLoan: number;
+  monthlyInterest: number;
+  loanInterestTotal: number;
   loanMonths: number;
   loanRate: number;
   soapAnual: number;
@@ -135,11 +137,6 @@ export function calculateTCO(
   let fuelOrChargeMonthly = 0;
   if (car.fuel === 'electrico' || car.fuel === 'hibrido_enchufable') {
     fuelOrChargeMonthly = getMonthlyChargingCost(car, kmPerMonth);
-  } else if (car.fuel === 'hibrido') {
-    // Hybrid: 50% electric + 50% combustion
-    const electricPart = getMonthlyChargingCost(car, kmPerMonth * 0.5);
-    const combustionPart = getMonthlyFuelCost(car, kmPerMonth * 0.5);
-    fuelOrChargeMonthly = electricPart + combustionPart;
   } else {
     fuelOrChargeMonthly = getMonthlyFuelCost(car, kmPerMonth);
   }
@@ -150,21 +147,24 @@ export function calculateTCO(
   const monthlyMaintenance = Math.round(maintenanceAnual / 12);
   const monthlyDepreciation = Math.round(depreciacionAnual / 12);
 
-  const totalMonthly =
-    monthlyLoan + monthlySoap + monthlyPermiso + monthlyInsurance + monthlyMaintenance + fuelOrChargeMonthly + monthlyDepreciation;
+  const loanInterestTotal = loanMonths > 0 ? Math.max(0, monthlyLoan * loanMonths - price) : 0;
+  const monthlyInterest = loanMonths > 0 ? Math.round(loanInterestTotal / loanMonths) : 0;
+  const runningMonthly = monthlySoap + monthlyPermiso + monthlyInsurance + monthlyMaintenance + fuelOrChargeMonthly + monthlyDepreciation;
+
+  const totalMonthly = monthlyInterest + runningMonthly;
 
   const totalAnnual = totalMonthly * 12;
-  const total5Years = totalAnnual * 5;
+  const total5Years = loanInterestTotal + runningMonthly * 60;
 
   const breakdown = [
-    { label: 'Cuota crédito', monthly: monthlyLoan, icon: '🏦' },
+    { label: 'Intereses del crédito', monthly: monthlyInterest, icon: '🏦' },
     { label: 'SOAP', monthly: monthlySoap, icon: '🛡️' },
     { label: 'Permiso circulación', monthly: monthlyPermiso, icon: '📋' },
     { label: 'Seguro', monthly: monthlyInsurance, icon: '🔒' },
     { label: 'Mantención', monthly: monthlyMaintenance, icon: '🔧' },
     { label: 'Depreciación', monthly: monthlyDepreciation, icon: '📉' },
     {
-      label: car.fuel === 'electrico' || car.fuel === 'hibrido_enchufable' || car.fuel === 'hibrido'
+      label: car.fuel === 'electrico' || car.fuel === 'hibrido_enchufable'
         ? 'Carga eléctrica'
         : 'Combustible',
       monthly: fuelOrChargeMonthly,
@@ -175,6 +175,8 @@ export function calculateTCO(
   return {
     price,
     monthlyLoan,
+    monthlyInterest,
+    loanInterestTotal,
     loanMonths,
     loanRate: LOAN_RATE_ANNUAL,
     soapAnual,

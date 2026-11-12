@@ -1,3 +1,5 @@
+> **Documento histórico.** El backlog vigente está en `docs/ROADMAP.md` (mejoras) y `docs/BLOCKERS.md` (dependencias externas); el estado de trabajo en `.opencode/continuity/STATE.md`. Se conserva como registro; no se actualiza.
+
 # Auditoría Completa AutoLupa — 21/09/2026
 
 ## 🔴 CRÍTICOS — Todos corregidos ✅

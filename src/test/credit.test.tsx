@@ -128,7 +128,7 @@ describe('CreditCalc (UI)', () => {
     expect(screen.getByText('Cuota mensual')).toBeInTheDocument();
     expect(screen.getByText(/Total pagado/)).toBeInTheDocument();
     expect(screen.getByText('Costo del crédito')).toBeInTheDocument();
-    expect(screen.getByText('CAE referencia')).toBeInTheDocument();
+    expect(screen.getByText('Tasa efectiva anual (interés)')).toBeInTheDocument();
     expect(screen.getByText('12,7%')).toBeInTheDocument();
     expect(screen.getByText(/pie mínimo 10%/i)).toBeInTheDocument();
   });

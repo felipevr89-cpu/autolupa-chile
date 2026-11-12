@@ -6,38 +6,44 @@
       "id": 587,
       "brand": "Volkswagen",
       "model": "Amarok",
-      "year": 2025,
+      "year": 2026,
       "type": "pickup",
       "fuel": "diesel",
       "seats": 5,
-      "price": 28990000,
+      "price": 38490000,
       "transmission": "automatica",
       "traction": "4x4",
       "image_url": "",
-      "description": "Pickup de doble cabina con diseño robusto.",
+      "description": "Pickup doble cabina con motor 3.0 V6 TDI, caja automática de 8 marchas y 4x4. Precios publicados + IVA.",
       "origin": "Sudáfrica",
       "versions": [
         {
-          "version": "Comfortline 4x2",
-          "price": 28990000,
+          "version": "Comfortline V6 (+IVA)",
+          "price": 38490000,
           "transmission": "automatica",
-          "traction": "4x2"
+          "traction": "4x4",
+          "price_list": 44490000,
+          "price_bonus": 6000000
         },
         {
-          "version": "Highline 4x4",
-          "price": 34990000,
+          "version": "Highline V6 (+IVA)",
+          "price": 43490000,
           "transmission": "automatica",
-          "traction": "4x4"
+          "traction": "4x4",
+          "price_list": 47490000,
+          "price_bonus": 4000000
         },
         {
-          "version": "Aventura 4x4",
-          "price": 39990000,
+          "version": "Extreme V6 (+IVA)",
+          "price": 45990000,
           "transmission": "automatica",
-          "traction": "4x4"
+          "traction": "4x4",
+          "price_list": 49990000,
+          "price_bonus": 4000000
         }
       ],
-      "hp": 204,
-      "torque_nm": 500,
+      "hp": 258,
+      "torque_nm": 580,
       "top_speed_kmh": 190,
       "fuel_consumption_city_km_l": 10,
       "fuel_consumption_highway_km_l": 14,
@@ -66,38 +72,38 @@
       ],
       "warranty_years": 5,
       "warranty_km": 100000,
-      "origin_country": "Sudáfrica"
+      "origin_country": "Sudáfrica",
+      "price_list": 44490000,
+      "price_bonus": 6000000,
+      "price_source": "https://www.volkswagen.cl/amarok/amarok",
+      "price_checked_at": "2026-11-11"
     },
     {
       "id": 589,
       "brand": "Volkswagen",
       "model": "ID.4",
-      "year": 2025,
+      "year": 2026,
       "type": "suv",
       "fuel": "electrico",
       "seats": 5,
-      "price": 36990000,
+      "price": 47000000,
       "transmission": "automatica",
-      "traction": "awd",
+      "traction": "4x2",
       "image_url": "",
       "description": "SUV eléctrico con autonomía de hasta 500 km.",
       "origin": "Alemania",
       "versions": [
         {
-          "version": "ID.4 Pro",
-          "price": 36990000,
+          "version": "Pro 82 kWh",
+          "price": 47000000,
           "transmission": "automatica",
-          "traction": "awd"
-        },
-        {
-          "version": "ID.4 GTX",
-          "price": 42990000,
-          "transmission": "automatica",
-          "traction": "awd"
+          "traction": "4x2",
+          "price_list": 49900000,
+          "price_bonus": 2900000
         }
       ],
       "hp": 286,
-      "torque_nm": 425,
+      "torque_nm": 545,
       "top_speed_kmh": 180,
       "length_mm": 4584,
       "width_mm": 1852,
@@ -122,7 +128,13 @@
       ],
       "warranty_years": 4,
       "warranty_km": 100000,
-      "origin_country": "Alemania"
+      "origin_country": "Alemania",
+      "battery_kwh": 82,
+      "electric_range_km": 556,
+      "price_list": 49900000,
+      "price_bonus": 2900000,
+      "price_source": "https://www.volkswagen.cl/id4/id4",
+      "price_checked_at": "2026-11-11"
     },
     {
       "id": 591,
@@ -188,7 +200,8 @@
       ],
       "warranty_years": 4,
       "warranty_km": 100000,
-      "origin_country": "México"
+      "origin_country": "México",
+      "lineup_2026": false
     },
     {
       "id": 592,
@@ -198,14 +211,14 @@
       "type": "suv",
       "fuel": "gasolina",
       "seats": 5,
-      "price": 17990000,
+      "price": 16890000,
       "transmission": "automatica",
       "traction": "4x2",
       "image_url": "",
       "description": "SUV coupé subcompacto con diseño deportivo y tecnológico.",
       "origin": "Brasil",
       "hp": 116,
-      "torque_nm": 168,
+      "torque_nm": 200,
       "length_mm": 4218,
       "width_mm": 1756,
       "height_mm": 1575,
@@ -230,55 +243,85 @@
       "origin_country": "Brasil",
       "versions": [
         {
-          "version": "Comfortline",
-          "price": 17990000,
+          "version": "Comfortline 1.0 TSI AT",
+          "price": 16890000,
           "transmission": "automatica",
-          "traction": "4x2"
+          "traction": "4x2",
+          "price_list": 20890000,
+          "price_bonus": 4000000
         },
         {
-          "version": "Highline",
-          "price": 20990000,
+          "version": "Highline 1.0 TSI AT",
+          "price": 18540000,
           "transmission": "automatica",
-          "traction": "4x2"
+          "traction": "4x2",
+          "price_list": 22290000,
+          "price_bonus": 3750000
+        },
+        {
+          "version": "Outfit 1.0 TSI AT",
+          "price": 17640000,
+          "transmission": "automatica",
+          "traction": "4x2",
+          "price_list": 22590000,
+          "price_bonus": 4950000
+        },
+        {
+          "version": "Highline Outfit 1.0 TSI AT",
+          "price": 21240000,
+          "transmission": "automatica",
+          "traction": "4x2",
+          "price_list": 23090000,
+          "price_bonus": 1850000
         }
-      ]
+      ],
+      "price_list": 20890000,
+      "price_bonus": 4000000,
+      "price_source": "https://www.volkswagen.cl/nivus/Nivus",
+      "price_checked_at": "2026-11-11"
     },
     {
       "id": 593,
       "brand": "Volkswagen",
       "model": "Polo",
-      "year": 2025,
+      "year": 2026,
       "type": "hatchback",
       "fuel": "gasolina",
       "seats": 5,
-      "price": 15990000,
-      "transmission": "automatica",
+      "price": 13240000,
+      "transmission": "manual",
       "traction": "4x2",
       "image_url": "",
       "description": "Hatchback subcompacto con diseño moderno.",
       "origin": "Brasil",
       "versions": [
         {
-          "version": "Trendline",
-          "price": 15990000,
-          "transmission": "automatica",
-          "traction": "4x2"
+          "version": "Comfortline 1.6 MSI MT",
+          "price": 13240000,
+          "transmission": "manual",
+          "traction": "4x2",
+          "price_list": 16990000,
+          "price_bonus": 3750000
         },
         {
-          "version": "Comfortline",
-          "price": 18490000,
+          "version": "Comfortline 1.0 TSI AT",
+          "price": 16740000,
           "transmission": "automatica",
-          "traction": "4x2"
+          "traction": "4x2",
+          "price_list": 18590000,
+          "price_bonus": 1850000
         },
         {
-          "version": "Highline",
-          "price": 20990000,
+          "version": "Highline 1.0 TSI AT",
+          "price": 16840000,
           "transmission": "automatica",
-          "traction": "4x2"
+          "traction": "4x2",
+          "price_list": 19690000,
+          "price_bonus": 2850000
         }
       ],
-      "hp": 116,
-      "torque_nm": 168,
+      "hp": 110,
+      "torque_nm": 155,
       "top_speed_kmh": 185,
       "fuel_consumption_city_km_l": 14,
       "fuel_consumption_highway_km_l": 19,
@@ -304,17 +347,21 @@
       ],
       "warranty_years": 3,
       "warranty_km": 100000,
-      "origin_country": "Brasil"
+      "origin_country": "Brasil",
+      "price_list": 16990000,
+      "price_bonus": 3750000,
+      "price_source": "https://www.volkswagen.cl/polo/Polo",
+      "price_checked_at": "2026-11-11"
     },
     {
       "id": 595,
       "brand": "Volkswagen",
       "model": "T-Cross",
-      "year": 2025,
+      "year": 2026,
       "type": "suv",
       "fuel": "gasolina",
       "seats": 5,
-      "price": 17990000,
+      "price": 18890000,
       "transmission": "automatica",
       "traction": "4x2",
       "image_url": "",
@@ -322,26 +369,32 @@
       "origin": "Brasil",
       "versions": [
         {
-          "version": "Trendline",
-          "price": 17990000,
+          "version": "Comfortline 1.0 TSI AT",
+          "price": 18890000,
           "transmission": "automatica",
-          "traction": "4x2"
+          "traction": "4x2",
+          "price_list": 21490000,
+          "price_bonus": 2600000
         },
         {
-          "version": "Comfortline",
-          "price": 20490000,
+          "version": "Highline 1.0 TSI AT",
+          "price": 20340000,
           "transmission": "automatica",
-          "traction": "4x2"
+          "traction": "4x2",
+          "price_list": 22490000,
+          "price_bonus": 2150000
         },
         {
-          "version": "Highline",
-          "price": 23490000,
+          "version": "Highline Sport S 1.0 TSI AT",
+          "price": 22540000,
           "transmission": "automatica",
-          "traction": "4x2"
+          "traction": "4x2",
+          "price_list": 23990000,
+          "price_bonus": 1450000
         }
       ],
       "hp": 116,
-      "torque_nm": 168,
+      "torque_nm": 200,
       "top_speed_kmh": 185,
       "fuel_consumption_city_km_l": 13,
       "fuel_consumption_highway_km_l": 18,
@@ -367,43 +420,37 @@
       ],
       "warranty_years": 3,
       "warranty_km": 100000,
-      "origin_country": "Brasil"
+      "origin_country": "Brasil",
+      "price_list": 21490000,
+      "price_bonus": 2600000,
+      "price_source": "https://www.volkswagen.cl/t-cross/t-cross",
+      "price_checked_at": "2026-11-11"
     },
     {
       "id": 596,
       "brand": "Volkswagen",
       "model": "Taos",
-      "year": 2025,
+      "year": 2026,
       "type": "suv",
       "fuel": "gasolina",
       "seats": 5,
-      "price": 22990000,
+      "price": 29490000,
       "transmission": "automatica",
-      "traction": "4x4",
+      "traction": "4x2",
       "image_url": "",
       "description": "SUV compacto con espacio generoso.",
       "origin": "México",
       "versions": [
         {
-          "version": "Trendline",
-          "price": 22990000,
+          "version": "Comfortline 1.5 TSI AT8",
+          "price": 29490000,
           "transmission": "automatica",
-          "traction": "4x2"
-        },
-        {
-          "version": "Comfortline 4x4",
-          "price": 25990000,
-          "transmission": "automatica",
-          "traction": "4x4"
-        },
-        {
-          "version": "Highline 4x4",
-          "price": 29990000,
-          "transmission": "automatica",
-          "traction": "4x4"
+          "traction": "4x2",
+          "price_list": 30590000,
+          "price_bonus": 1100000
         }
       ],
-      "hp": 150,
+      "hp": 177,
       "torque_nm": 250,
       "top_speed_kmh": 200,
       "fuel_consumption_city_km_l": 13,
@@ -433,44 +480,46 @@
       ],
       "warranty_years": 4,
       "warranty_km": 100000,
-      "origin_country": "México"
+      "origin_country": "México",
+      "price_list": 30590000,
+      "price_bonus": 1100000,
+      "price_source": "https://www.volkswagen.cl/taos/nuevo-taos",
+      "price_checked_at": "2026-11-11"
     },
     {
       "id": 597,
       "brand": "Volkswagen",
       "model": "Tiguan",
-      "year": 2025,
+      "year": 2026,
       "type": "suv",
       "fuel": "gasolina",
       "seats": 5,
-      "price": 26990000,
+      "price": 35490000,
       "transmission": "automatica",
-      "traction": "4x4",
+      "traction": "4x2",
       "image_url": "",
       "description": "SUV compacto premium con amplio equipamiento.",
       "origin": "Alemania",
       "versions": [
         {
-          "version": "Trendline",
-          "price": 26990000,
+          "version": "Comfort 1.4 TSI DSG",
+          "price": 35490000,
           "transmission": "automatica",
-          "traction": "4x2"
+          "traction": "4x2",
+          "price_list": 36490000,
+          "price_bonus": 1000000
         },
         {
-          "version": "Comfortline 4x4",
-          "price": 30990000,
+          "version": "R-Line 1.4 TSI DSG",
+          "price": 38490000,
           "transmission": "automatica",
-          "traction": "4x4"
-        },
-        {
-          "version": "Highline 4x4",
-          "price": 34990000,
-          "transmission": "automatica",
-          "traction": "4x4"
+          "traction": "4x2",
+          "price_list": 39490000,
+          "price_bonus": 1000000
         }
       ],
-      "hp": 186,
-      "torque_nm": 320,
+      "hp": 150,
+      "torque_nm": 250,
       "top_speed_kmh": 210,
       "fuel_consumption_city_km_l": 11,
       "fuel_consumption_highway_km_l": 16,
@@ -500,7 +549,11 @@
       ],
       "warranty_years": 4,
       "warranty_km": 120000,
-      "origin_country": "Alemania"
+      "origin_country": "Alemania",
+      "price_list": 36490000,
+      "price_bonus": 1000000,
+      "price_source": "https://www.volkswagen.cl/tiguan/tiguan-1",
+      "price_checked_at": "2026-11-11"
     },
     {
       "id": 598,
@@ -562,7 +615,8 @@
       ],
       "warranty_years": 4,
       "warranty_km": 120000,
-      "origin_country": "Alemania"
+      "origin_country": "Alemania",
+      "lineup_2026": false
     },
     {
       "id": 599,
@@ -625,7 +679,270 @@
       ],
       "warranty_years": 3,
       "warranty_km": 100000,
-      "origin_country": "Brasil"
+      "origin_country": "Brasil",
+      "lineup_2026": false
+    },
+    {
+      "id": 703,
+      "brand": "Volkswagen",
+      "model": "Polo Track",
+      "year": 2026,
+      "type": "hatchback",
+      "fuel": "gasolina",
+      "seats": 5,
+      "price": 12390000,
+      "transmission": "manual",
+      "traction": "4x2",
+      "image_url": "",
+      "description": "Hatchback de entrada con motor 1.6 MSI de 110 HP y caja manual de 5 marchas.",
+      "origin": "Brasil",
+      "origin_country": "Brasil",
+      "versions": [
+        {
+          "version": "1.6 MSI MT Track",
+          "price": 12390000,
+          "transmission": "manual",
+          "traction": "4x2",
+          "price_list": 14490000,
+          "price_bonus": 2100000
+        }
+      ],
+      "hp": 110,
+      "torque_nm": 155,
+      "price_list": 14490000,
+      "price_bonus": 2100000,
+      "price_source": "https://www.volkswagen.cl/polo/polo-track",
+      "price_checked_at": "2026-11-11"
+    },
+    {
+      "id": 704,
+      "brand": "Volkswagen",
+      "model": "Tera",
+      "year": 2026,
+      "type": "suv",
+      "fuel": "gasolina",
+      "seats": 5,
+      "price": 15540000,
+      "transmission": "manual",
+      "traction": "4x2",
+      "image_url": "",
+      "description": "SUV compacto con motores 1.6 MSI manual o 1.0 TSI automático de 6 marchas.",
+      "origin": "Brasil",
+      "origin_country": "Brasil",
+      "versions": [
+        {
+          "version": "Trend 1.6 MSI MT",
+          "price": 15540000,
+          "transmission": "manual",
+          "traction": "4x2",
+          "price_list": 16590000,
+          "price_bonus": 1050000
+        },
+        {
+          "version": "Comfort 1.6 MSI MT",
+          "price": 16490000,
+          "transmission": "manual",
+          "traction": "4x2",
+          "price_list": 17490000,
+          "price_bonus": 1000000
+        },
+        {
+          "version": "Comfort 1.0 TSI AT",
+          "price": 17590000,
+          "transmission": "automatica",
+          "traction": "4x2",
+          "price_list": 18990000,
+          "price_bonus": 1400000
+        },
+        {
+          "version": "High 1.0 TSI AT",
+          "price": 19840000,
+          "transmission": "automatica",
+          "traction": "4x2",
+          "price_list": 20690000,
+          "price_bonus": 850000
+        },
+        {
+          "version": "Outfit 1.0 TSI AT",
+          "price": 20190000,
+          "transmission": "automatica",
+          "traction": "4x2",
+          "price_list": 21090000,
+          "price_bonus": 900000
+        }
+      ],
+      "hp": 110,
+      "torque_nm": 155,
+      "year_start": 2026,
+      "price_list": 16590000,
+      "price_bonus": 1050000,
+      "price_source": "https://www.volkswagen.cl/tera",
+      "price_checked_at": "2026-11-11"
+    },
+    {
+      "id": 705,
+      "brand": "Volkswagen",
+      "model": "Tiguan MHEV",
+      "year": 2026,
+      "type": "suv",
+      "fuel": "hibrido",
+      "seats": 5,
+      "price": 43090000,
+      "transmission": "automatica",
+      "traction": "4x2",
+      "image_url": "",
+      "description": "Nueva generación del Tiguan con motor 1.5 eTSI mild hybrid y caja DSG de 7 marchas.",
+      "origin": "Alemania",
+      "origin_country": "Alemania",
+      "versions": [
+        {
+          "version": "R-Line 1.5 eTSI MHEV DSG",
+          "price": 43090000,
+          "transmission": "automatica",
+          "traction": "4x2",
+          "price_list": 45590000,
+          "price_bonus": 2500000
+        }
+      ],
+      "hp": 150,
+      "torque_nm": 250,
+      "year_start": 2026,
+      "price_list": 45590000,
+      "price_bonus": 2500000,
+      "price_source": "https://www.volkswagen.cl/tiguan/nuevo-tiguan-MHEV",
+      "price_checked_at": "2026-11-11"
+    },
+    {
+      "id": 706,
+      "brand": "Volkswagen",
+      "model": "Atlas",
+      "year": 2026,
+      "type": "suv",
+      "fuel": "gasolina",
+      "seats": 7,
+      "price": 47190000,
+      "transmission": "automatica",
+      "traction": "awd",
+      "image_url": "",
+      "description": "SUV de tres corridas con motor 2.0 TSI de 273 HP, caja automática de 8 marchas y tracción 4MOTION.",
+      "origin": "Estados Unidos",
+      "origin_country": "Estados Unidos",
+      "versions": [
+        {
+          "version": "Comfortline 4MOTION",
+          "price": 47190000,
+          "transmission": "automatica",
+          "traction": "awd",
+          "price_list": 51990000,
+          "price_bonus": 4800000
+        },
+        {
+          "version": "Limited 4MOTION",
+          "price": 50390000,
+          "transmission": "automatica",
+          "traction": "awd",
+          "price_list": 55390000,
+          "price_bonus": 5000000
+        }
+      ],
+      "hp": 273,
+      "torque_nm": 370,
+      "price_list": 51990000,
+      "price_bonus": 4800000,
+      "price_source": "https://www.volkswagen.cl/atlas/Atlas",
+      "price_checked_at": "2026-11-11"
+    },
+    {
+      "id": 707,
+      "brand": "Volkswagen",
+      "model": "Jetta GLI",
+      "year": 2026,
+      "type": "sedan",
+      "fuel": "gasolina",
+      "seats": 5,
+      "price": 29490000,
+      "transmission": "automatica",
+      "traction": "4x2",
+      "image_url": "",
+      "description": "Sedán deportivo con motor 2.0 TSI de 230 HP y caja DSG de 7 marchas.",
+      "origin": "México",
+      "origin_country": "México",
+      "versions": [
+        {
+          "version": "GLI 2.0 TSI DSG",
+          "price": 29490000,
+          "transmission": "automatica",
+          "traction": "4x2",
+          "price_list": 30990000,
+          "price_bonus": 1500000
+        }
+      ],
+      "hp": 230,
+      "torque_nm": 350,
+      "price_list": 30990000,
+      "price_bonus": 1500000,
+      "price_source": "https://www.volkswagen.cl/jetta/Gli",
+      "price_checked_at": "2026-11-11"
+    },
+    {
+      "id": 708,
+      "brand": "Volkswagen",
+      "model": "Golf GTI",
+      "year": 2026,
+      "type": "hatchback",
+      "fuel": "gasolina",
+      "seats": 5,
+      "price": 45990000,
+      "transmission": "automatica",
+      "traction": "4x2",
+      "image_url": "",
+      "description": "Hatchback deportivo con motor 2.0 turbo de 265 HP y caja DSG de 7 marchas.",
+      "origin": "Alemania",
+      "origin_country": "Alemania",
+      "versions": [
+        {
+          "version": "GTI 2.0 TSI DSG",
+          "price": 45990000,
+          "transmission": "automatica",
+          "traction": "4x2"
+        }
+      ],
+      "hp": 265,
+      "torque_nm": 370,
+      "price_source": "https://www.volkswagen.cl/golf/golf-gti",
+      "price_checked_at": "2026-11-11"
+    },
+    {
+      "id": 709,
+      "brand": "Volkswagen",
+      "model": "Saveiro",
+      "year": 2026,
+      "type": "pickup",
+      "fuel": "gasolina",
+      "seats": 5,
+      "price": 14840000,
+      "transmission": "manual",
+      "traction": "4x2",
+      "image_url": "",
+      "description": "Pickup compacta cabina doble con motor 1.6 de 110 HP y caja manual de 5 marchas. Precio publicado + IVA.",
+      "origin": "Brasil",
+      "origin_country": "Brasil",
+      "versions": [
+        {
+          "version": "Cabina Doble 1.6 MT (+IVA)",
+          "price": 14840000,
+          "transmission": "manual",
+          "traction": "4x2",
+          "price_list": 15340000,
+          "price_bonus": 500000
+        }
+      ],
+      "hp": 110,
+      "torque_nm": 155,
+      "price_list": 15340000,
+      "price_bonus": 500000,
+      "price_source": "https://www.volkswagen.cl/saveiro/saveiro-cabina-doble",
+      "price_checked_at": "2026-11-11"
     }
   ]
 }

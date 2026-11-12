@@ -33,6 +33,7 @@ export interface Car {
   brand: string;
   model: string;
   year: number;
+  year_start?: number;
   type: 'sedan' | 'suv' | 'pickup' | 'hatchback' | 'minivan' | 'wagon' | 'coupe' | 'convertible';
   fuel: 'gasolina' | 'diesel' | 'electrico' | 'hibrido' | 'hibrido_enchufable';
   seats: number;

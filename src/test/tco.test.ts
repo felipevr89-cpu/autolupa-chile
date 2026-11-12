@@ -68,7 +68,7 @@ describe('calculateTCO', () => {
   it('includes all cost components', () => {
     const result = calculateTCO(mockCar, 48, 1000);
     expect(result.breakdown).toHaveLength(7);
-    expect(result.breakdown.map(b => b.label)).toContain('Cuota crédito');
+    expect(result.breakdown.map(b => b.label)).toContain('Intereses del crédito');
     expect(result.breakdown.map(b => b.label)).toContain('SOAP');
     expect(result.breakdown.map(b => b.label)).toContain('Seguro');
     expect(result.breakdown.map(b => b.label)).toContain('Combustible');
@@ -82,10 +82,12 @@ describe('calculateTCO', () => {
     expect(ev.fuelOrChargeMonthly).toBe(Math.round((1000 * (60 / 510)) * 190));
   });
 
-  it('has higher total monthly with shorter loan term', () => {
+  it('a longer loan has a lower installment but costs more interest', () => {
     const result24 = calculateTCO(mockCar, 24, 1000);
     const result60 = calculateTCO(mockCar, 60, 1000);
-    expect(result24.totalMonthly).toBeGreaterThan(result60.totalMonthly);
+    expect(result24.monthlyLoan).toBeGreaterThan(result60.monthlyLoan);
+    expect(result60.loanInterestTotal).toBeGreaterThan(result24.loanInterestTotal);
+    expect(result60.total5Years).toBeGreaterThan(result24.total5Years);
   });
 
   it('calculates EV charging cost instead of fuel', () => {
@@ -111,9 +113,23 @@ describe('calculateTCO', () => {
     expect(result.totalAnnual).toBe(result.totalMonthly * 12);
   });
 
-  it('total 5 years is 5x annual', () => {
+  it('total 5 years counts loan interest once and running costs for 60 months', () => {
     const result = calculateTCO(mockCar, 48, 1000);
-    expect(result.total5Years).toBe(result.totalAnnual * 5);
+    const running = result.totalMonthly - result.monthlyInterest;
+    expect(result.total5Years).toBe(result.loanInterestTotal + running * 60);
+  });
+
+  it('does not double count the loan principal and depreciation', () => {
+    const result = calculateTCO(mockCar, 48, 1000);
+    expect(result.monthlyInterest).toBeLessThan(result.monthlyLoan);
+    expect(result.loanInterestTotal).toBe(result.monthlyLoan * 48 - result.price);
+    expect(result.breakdown.map(b => b.label)).not.toContain('Cuota crédito');
+  });
+
+  it('non plug-in hybrids pay fuel, not grid charging', () => {
+    const hev = calculateTCO({ ...mockCar, fuel: 'hibrido', fuel_consumption_mixed_km_l: 20 }, 48, 1000);
+    expect(hev.breakdown.find(b => b.label === 'Combustible')).toBeDefined();
+    expect(hev.breakdown.find(b => b.label === 'Carga eléctrica')).toBeUndefined();
   });
 
   it('higher km increases fuel cost', () => {

@@ -6,11 +6,11 @@
       "id": 466,
       "brand": "Omoda",
       "model": "C5",
-      "year": 2025,
+      "year": 2026,
       "type": "suv",
       "fuel": "gasolina",
       "seats": 5,
-      "price": 12490000,
+      "price": 13990000,
       "transmission": "automatica",
       "traction": "4x2",
       "image_url": "",
@@ -44,43 +44,45 @@
       "versions": [
         {
           "version": "Urban 1.5L",
-          "price": 12490000,
-          "transmission": "CVT",
+          "price": 13990000,
+          "transmission": "automatica",
           "traction": "4x2"
         },
         {
           "version": "Comfort 1.5T",
-          "price": 14990000,
-          "transmission": "DCT 7V",
+          "price": 15990000,
+          "transmission": "automatica",
           "traction": "4x2"
         },
         {
           "version": "Luxury 1.5T",
-          "price": 16990000,
-          "transmission": "DCT 7V",
+          "price": 17990000,
+          "transmission": "automatica",
           "traction": "4x2"
         },
         {
-          "version": "Prestige 1.6TGDI",
-          "price": 18990000,
-          "transmission": "DCT 7V",
+          "version": "Prestige 1.6 TGDI DCT",
+          "price": 19490000,
+          "transmission": "automatica",
           "traction": "4x2"
         }
-      ]
+      ],
+      "price_source": "https://www.omodajaecoo.cl/modelos/omoda-c5-2/",
+      "price_checked_at": "2026-11-11"
     },
     {
-"id": 467,
-   "brand": "Omoda",
-   "model": "C5 SHS",
-   "year": 2025,
-   "type": "suv",
-   "fuel": "hibrido",
-   "seats": 5,
-   "price": 17990000,
-   "transmission": "automatica",
-   "traction": "4x2",
-   "image_url": "",
-   "description": "Versión híbrida del C5 con sistema DHT, sin enchufe (batería auxiliar 1,83 kWh) y gran eficiencia.",
+      "id": 467,
+      "brand": "Omoda",
+      "model": "C5 SHS",
+      "year": 2026,
+      "type": "suv",
+      "fuel": "hibrido",
+      "seats": 5,
+      "price": 19490000,
+      "transmission": "automatica",
+      "traction": "4x2",
+      "image_url": "",
+      "description": "Versión híbrida del C5 con sistema DHT, sin enchufe (batería auxiliar 1,83 kWh) y gran eficiencia.",
       "origin": "China",
       "hp": 197,
       "torque_nm": 350,
@@ -108,33 +110,35 @@
       "versions": [
         {
           "version": "Comfort 1.5T DHT",
-          "price": 17990000,
-          "transmission": "DHT",
+          "price": 19490000,
+          "transmission": "automatica",
           "traction": "4x2"
         },
         {
           "version": "Luxury 1.5T DHT",
-          "price": 19990000,
-          "transmission": "DHT",
+          "price": 21490000,
+          "transmission": "automatica",
           "traction": "4x2"
         }
-      ]
+      ],
+      "price_source": "https://www.omodajaecoo.cl/modelos/omoda-c5-shs/",
+      "price_checked_at": "2026-11-11"
     },
     {
       "id": 468,
       "brand": "Omoda",
       "model": "C7",
-      "year": 2025,
+      "year": 2026,
       "type": "suv",
       "fuel": "gasolina",
       "seats": 5,
-      "price": 17740000,
+      "price": 20490000,
       "transmission": "automatica",
       "traction": "4x2",
       "image_url": "",
       "description": "SUV coupe con diseño deportivo y motor turbo.",
       "origin": "China",
-      "hp": 197,
+      "hp": 183,
       "torque_nm": 290,
       "length_mm": 4600,
       "width_mm": 1880,
@@ -158,40 +162,42 @@
       "origin_country": "China",
       "versions": [
         {
-          "version": "Comfort",
-          "price": 17740000,
-          "transmission": "DCT 7V",
+          "version": "1.6T DCT Comfort",
+          "price": 20490000,
+          "transmission": "automatica",
           "traction": "4x2"
         },
         {
-          "version": "Luxury",
-          "price": 19740000,
-          "transmission": "DCT 7V",
+          "version": "1.6T DCT Luxury",
+          "price": 22490000,
+          "transmission": "automatica",
           "traction": "4x2"
         },
         {
-          "version": "Prestige",
-          "price": 21740000,
-          "transmission": "DCT 7V",
-          "traction": "4x2"
+          "version": "1.6T DCT AWD Prestige",
+          "price": 24990000,
+          "transmission": "automatica",
+          "traction": "awd"
         }
-      ]
+      ],
+      "price_source": "https://www.omodajaecoo.cl/modelos/omoda-c7/",
+      "price_checked_at": "2026-11-11"
     },
     {
       "id": 469,
       "brand": "Omoda",
       "model": "E5",
-      "year": 2025,
+      "year": 2026,
       "type": "suv",
       "fuel": "electrico",
       "seats": 5,
-      "price": 25990000,
+      "price": 30990000,
       "transmission": "automatica",
       "traction": "4x2",
       "image_url": "",
       "description": "SUV 100% eléctrica con autonomía de hasta 430 km.",
       "origin": "China",
-      "hp": 204,
+      "hp": 201,
       "torque_nm": 340,
       "length_mm": 4368,
       "width_mm": 1848,
@@ -214,12 +220,16 @@
       "origin_country": "China",
       "versions": [
         {
-          "version": "E5 EV 61kWh",
-          "price": 25990000,
-          "transmission": "Automática",
+          "version": "E5 60 kWh",
+          "price": 30990000,
+          "transmission": "automatica",
           "traction": "4x2"
         }
-      ]
+      ],
+      "battery_kwh": 60,
+      "electric_range_km": 430,
+      "price_source": "https://www.omodajaecoo.cl/modelos/omoda-e5/",
+      "price_checked_at": "2026-11-11"
     }
   ]
 }

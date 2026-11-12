@@ -1,14 +1,19 @@
 import { useMemo } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, Navigate, useLocation } from 'react-router-dom';
 import { carsData, brands, formatPrice, getTypeLabel, getFuelLabel, getBrandUrl } from '../data/brands';
 import { carPath } from '../lib/carSlug';
 import { CarImage } from '../components/Cars/CarImage';
 import { SEO } from '../components/SEO';
 import { Breadcrumbs } from '../components/Breadcrumbs';
+import { brandSlug as toBrandSlug, legacyBrandSlug } from '../lib/brandSlug';
 
 export function BrandPage() {
   const { brandSlug } = useParams<{ brandSlug: string }>();
-  const brandName = brands.find(b => b.toLowerCase().replace(/\s+/g, '-') === brandSlug);
+  const location = useLocation();
+
+  const decoded = (() => { try { return decodeURIComponent(brandSlug ?? ''); } catch { return brandSlug ?? ''; } })();
+  const brandName = brands.find(b => toBrandSlug(b) === decoded) ?? brands.find(b => legacyBrandSlug(b) === decoded);
+  const canonicalSlug = brandName ? toBrandSlug(brandName) : decoded;
 
   const brandCars = useMemo(
     () => brandName
@@ -24,11 +29,37 @@ export function BrandPage() {
     [brandName]
   );
 
+  if (location.pathname.startsWith('/marca/') || (brandName && canonicalSlug !== decoded)) {
+    return <Navigate to={`/marcas/${canonicalSlug}`} replace />;
+  }
+
   const outOfLineup = brandCars.filter(c => c.lineup_2026 === false).length;
+  const minPrice = brandCars.reduce((min, car) => Math.min(min, car.price), Number.POSITIVE_INFINITY);
+  const topModels = brandCars.slice(0, 5).map(car => car.model).join(', ');
+  const siteUrl = import.meta.env.VITE_SITE_URL || 'https://autolupa.pages.dev';
+  const brandJsonLd = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'Brand',
+        name: brandName,
+        url: `${siteUrl}/marcas/${canonicalSlug}`,
+        description: `Catálogo ${brandName} en Chile con ${brandCars.length} modelos, precios y fichas técnicas.`,
+      },
+      {
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'Inicio', item: siteUrl },
+          { '@type': 'ListItem', position: 2, name: brandName, item: `${siteUrl}/marcas/${canonicalSlug}` },
+        ],
+      },
+    ],
+  };
 
   if (!brandName) {
     return (
       <div className="max-w-7xl mx-auto px-4 py-24 text-center">
+        <SEO title="Marca no encontrada" noIndex />
         <p className="text-7xl mb-4">🔍</p>
         <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">Marca no encontrada</h1>
         <Link to="/" className="text-blue-600 hover:underline">← Volver al inicio</Link>
@@ -39,8 +70,9 @@ export function BrandPage() {
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
       <SEO
-        title={`${brandName} — Autos nuevos en Chile ${new Date().getFullYear()}`}
-        description={`Catálogo completo de ${brandName} en Chile. ${brandCars.length} modelos con precios, especificaciones y comparación.`}
+        title={`${brandName} en Chile ${new Date().getFullYear()} — Modelos, precios y fichas técnicas`}
+        description={`Catálogo ${brandName} en Chile: ${brandCars.length} modelos desde ${formatPrice(Number.isFinite(minPrice) ? minPrice : 0)}. Compara versiones, precios y especificaciones.`}
+        jsonLd={brandJsonLd}
       />
 
       <Breadcrumbs items={[{ label: brandName }]} />
@@ -65,6 +97,13 @@ export function BrandPage() {
       >
         🌐 Sitio oficial de {brandName}
       </a>
+
+      <p className="max-w-3xl text-sm leading-relaxed text-gray-600 dark:text-gray-300 mb-8">
+        La gama {brandName} en Chile reúne {brandCars.length} modelos con precios desde {formatPrice(Number.isFinite(minPrice) ? minPrice : 0)}.
+        Entre los modelos disponibles destacan {topModels || 'sus versiones de entrada'}. Compara versiones, combustible,
+        transmisión, plazas y equipamiento antes de decidir. Los precios son referenciales y pueden variar según
+        concesionario, bonos y financiamiento. AutoLupa no vende vehículos ni cobra comisión por la compra.
+      </p>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {brandCars.map(car => (

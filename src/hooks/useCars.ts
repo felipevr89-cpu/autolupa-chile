@@ -1,11 +1,11 @@
-import { useState, useMemo, useCallback, useEffect } from 'react';
-import { carsData } from '../data/brands';
+import { useState, useMemo, useCallback, useEffect, useRef } from 'react';
+import { useSearchParams } from 'react-router-dom';
+import { carsData, catalogYears } from '../data/brands';
 import { Car, Filters, User } from '../types';
 import { isSupabaseConfigured, supabase } from '../lib/supabase';
 import { track } from '../lib/analytics';
 
-const currentYear = new Date().getFullYear();
-export const defaultYearRange: [number, number] = [currentYear - 6, currentYear];
+export const defaultYearRange: [number, number] = [catalogYears[0], catalogYears[1]];
 
 const defaultFilters: Filters = {
   brand: [],
@@ -20,6 +20,59 @@ const defaultFilters: Filters = {
   model: [],
   yearRange: defaultYearRange,
 };
+
+function parseFilters(params: URLSearchParams): Filters {
+  const list = (key: string) => (params.get(key) ?? '').split(',').map(value => value.trim()).filter(Boolean);
+  const numbers = (key: string) => list(key).map(Number).filter(Number.isFinite);
+  const pair = (key: string): [number, number] | null => {
+    const [min, max] = (params.get(key) ?? '').split('-').map(Number);
+    return Number.isFinite(min) && Number.isFinite(max) ? [min, max] : null;
+  };
+  const numberOr = (value: string | null, fallback: number) => {
+    const parsed = Number(value);
+    return Number.isFinite(parsed) ? parsed : fallback;
+  };
+  const priceRange = params.has('precio_min') || params.has('precio_max')
+    ? [numberOr(params.get('precio_min'), 0), numberOr(params.get('precio_max'), defaultFilters.priceRange[1])] as [number, number]
+    : pair('precio');
+  const yearRaw = params.get('year');
+  const yearRange = yearRaw
+    ? (yearRaw.includes('-')
+      ? pair('year')
+      : [numberOr(yearRaw, defaultYearRange[0]), numberOr(yearRaw, defaultYearRange[1])] as [number, number])
+    : pair('anio');
+
+  return {
+    ...defaultFilters,
+    brand: list('marca'),
+    model: list('modelo'),
+    type: list('tipo'),
+    fuel: list('combustible'),
+    seats: numbers('asientos'),
+    transmission: list('transmision'),
+    traction: list('traccion'),
+    origin_country: list('origen'),
+    minAirbags: Number(params.get('airbags')) || 0,
+    priceRange: priceRange ?? defaultFilters.priceRange,
+    yearRange: yearRange ?? defaultFilters.yearRange,
+  };
+}
+
+export function normalizeYearRange([lo, hi]: [number, number]): [number, number] {
+  const [min, max] = catalogYears;
+  const calendarYear = new Date().getFullYear();
+  let from = Math.min(Math.max(lo, min), max);
+  let to = hi >= calendarYear ? max : Math.min(Math.max(hi, min), max);
+  if (from > to) [from, to] = [min, max];
+  return [from, to];
+}
+
+function normalizeFilters(f: Filters): Filters {
+  const merged = { ...defaultFilters, ...f };
+  return { ...merged, yearRange: normalizeYearRange(merged.yearRange ?? defaultYearRange) };
+}
+
+const carsById = new Map(carsData.map(c => [c.id, c]));
 
 function loadFromStorage<T>(key: string, fallback: T): T {
   try {
@@ -53,18 +106,98 @@ function favoritesKey(uid?: string): string {
 export function useCars(user?: User | null) {
   const uid = user?.uid;
   const isConfiguredUser = !!uid && isSupabaseConfigured;
-  const [filters, setFilters] = useState<Filters>(() => loadFromStorage('autolupa_filters', defaultFilters));
-  const [compareList, setCompareList] = useState<Car[]>(() => loadFromStorage('autolupa_compare', []));
+  const [searchParams, setSearchParams] = useSearchParams();
+  const hasUrlFilters = searchParams.toString().length > 0;
+  const [filters, setFilters] = useState<Filters>(() =>
+    normalizeFilters(hasUrlFilters ? parseFilters(searchParams) : loadFromStorage('autolupa_filters', defaultFilters)),
+  );
+  const [compareList, setCompareList] = useState<Car[]>(() =>
+    loadFromStorage<Car[]>('autolupa_compare', [])
+      .map(c => carsById.get(c?.id))
+      .filter((c): c is Car => !!c),
+  );
   const [favorites, setFavorites] = useState<number[]>(() => {
     const local = loadFromStorage<number[]>('autolupa_favorites', []);
     return local;
   });
   const [recentIds, setRecentIds] = useState<number[]>(() => loadFromStorage<number[]>('autolupa_recent', []));
-  const [searchQuery, setSearchQuery] = useState('');
+  const [searchQuery, setSearchQueryState] = useState(() => searchParams.get('q') ?? '');
   const [debouncedSearchQuery, setDebouncedSearchQuery] = useState('');
-  const [sortBy, setSortBy] = useState('price-asc');
-  const [currentPage, setCurrentPage] = useState(1);
+  const [sortBy, setSortByState] = useState(() => searchParams.get('orden') ?? 'price-asc');
+  const [currentPage, setCurrentPageState] = useState(() => {
+    const page = Number(searchParams.get('pagina'));
+    return Number.isInteger(page) && page > 0 ? page : 1;
+  });
   const perPage = 15;
+  const skipUrlSync = useRef(true);
+  const lastParams = useRef(searchParams.toString());
+  const searchParamsRef = useRef(searchParams);
+  searchParamsRef.current = searchParams;
+
+  const writeParams = useCallback((nextFilters: Filters, nextSearch: string, nextSort: string, nextPage: number) => {
+    const params = new URLSearchParams(searchParamsRef.current);
+    ['marca', 'modelo', 'tipo', 'combustible', 'asientos', 'transmision', 'traccion', 'origen', 'airbags', 'precio', 'precio_min', 'precio_max', 'anio', 'year', 'q', 'orden', 'pagina'].forEach(key => params.delete(key));
+    const setList = (key: string, values: string[]) => {
+      if (values.length > 0) params.set(key, values.join(','));
+    };
+    setList('marca', nextFilters.brand);
+    setList('modelo', nextFilters.model);
+    setList('tipo', nextFilters.type);
+    setList('combustible', nextFilters.fuel);
+    setList('asientos', nextFilters.seats.map(String));
+    setList('transmision', nextFilters.transmission);
+    setList('traccion', nextFilters.traction);
+    setList('origen', nextFilters.origin_country);
+    if (nextFilters.minAirbags > 0) params.set('airbags', String(nextFilters.minAirbags));
+    if (nextFilters.priceRange[0] !== defaultFilters.priceRange[0] || nextFilters.priceRange[1] !== defaultFilters.priceRange[1]) {
+      params.set('precio_min', String(nextFilters.priceRange[0]));
+      params.set('precio_max', String(nextFilters.priceRange[1]));
+    }
+    if (nextFilters.yearRange[0] !== defaultYearRange[0] || nextFilters.yearRange[1] !== defaultYearRange[1]) {
+      params.set('year', nextFilters.yearRange[0] === nextFilters.yearRange[1]
+        ? String(nextFilters.yearRange[0])
+        : `${nextFilters.yearRange[0]}-${nextFilters.yearRange[1]}`);
+    }
+    if (nextSearch.trim()) params.set('q', nextSearch.trim());
+    if (nextSort !== 'price-asc') params.set('orden', nextSort);
+    if (nextPage > 1) params.set('pagina', String(nextPage));
+    const next = params.toString();
+    if (next === lastParams.current) return;
+    lastParams.current = next;
+    setSearchParams(params, { replace: true });
+  }, [setSearchParams]);
+
+  const setSearchQuery = useCallback((value: string) => {
+    setSearchQueryState(value);
+    setCurrentPageState(1);
+  }, []);
+
+  const setSortBy = useCallback((value: string) => {
+    setSortByState(value);
+    setCurrentPageState(1);
+  }, []);
+
+  const setCurrentPage = useCallback((page: number) => {
+    setCurrentPageState(page);
+  }, []);
+
+  useEffect(() => {
+    if (skipUrlSync.current) {
+      skipUrlSync.current = false;
+      return;
+    }
+    writeParams(filters, searchQuery, sortBy, currentPage);
+  }, [filters, searchQuery, sortBy, currentPage, writeParams]);
+
+  useEffect(() => {
+    const next = searchParams.toString();
+    if (next === lastParams.current) return;
+    lastParams.current = next;
+    setFilters(next ? normalizeFilters(parseFilters(searchParams)) : defaultFilters);
+    setSearchQueryState(searchParams.get('q') ?? '');
+    setSortByState(searchParams.get('orden') ?? 'price-asc');
+    setCurrentPageState(Number(searchParams.get('pagina')) || 1);
+  }, [searchParams]);
 
   useEffect(() => {
     const timer = setTimeout(() => setDebouncedSearchQuery(searchQuery), 300);
@@ -160,14 +293,14 @@ export function useCars(user?: User | null) {
       return next;
     });
     setCurrentPage(1);
-  }, []);
+  }, [setCurrentPage]);
 
   const resetFilters = useCallback(() => {
     setFilters(defaultFilters);
     setSearchQuery('');
     setCurrentPage(1);
     localStorage.removeItem('autolupa_filters');
-  }, []);
+  }, [setCurrentPage, setSearchQuery]);
 
   const addToCompare = useCallback((car: Car) => {
     if (compareList.length < 3 && !compareList.some((c) => c.id === car.id)) {

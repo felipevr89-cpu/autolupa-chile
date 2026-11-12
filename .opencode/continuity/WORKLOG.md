@@ -1,0 +1,30 @@
+# AutoLupa — worklog
+
+- 2026-10-31 15:37 UTC — Fase 0: `pwd`, `git status --short`, rama `feat/catalog-coverage-search`, último commit `90fd8cc`. Árbol sucio con el lote anterior; no se resetea ni se hace stash.
+- 2026-10-31 15:37 UTC — Stack confirmado: React 18 + Vite + TypeScript + Tailwind + Supabase; npm con `package-lock.json`; scripts `dev`, `build`, `test`, `lint`, `audit:*`.
+- 2026-10-31 15:38 UTC — Sitio vivo: HTTP 200. `robots.txt` bloquea `/mis-anuncios` y `/moderacion`, no `/tus-datos`. `/marcas/toyota` devuelve solo el shell SPA (3.133 bytes).
+- 2026-10-31 15:40 UTC — Creados `.opencode/continuity/{STATE,PLAN,WORKLOG,DECISIONS,TESTS}.md`.
+- 2026-10-31 15:42 UTC — Primer cambio aplicado: `CarImage` usa el atributo HTML `fetchpriority` en minúsculas para `eager`; se elimina el warning de React.
+- 2026-10-31 15:44 UTC — Verificación focalizada: `assets`, `carRoutes` y `favoritesAlerts` 15/15; `lint` 0; `build` 0.
+- 2026-10-31 15:46 UTC — Checkpoint actualizado. Próximo: A3 `robots.txt` (`/tus-datos`).
+- 2026-10-31 16:10 UTC — A3 aplicado: `Disallow: /tus-datos`; test de cabeceras actualizado.
+- 2026-10-31 16:12 UTC — Fase 2 iniciada: `/autos` abre el catálogo y hace scroll al listado; test añadido.
+- 2026-10-31 16:15 UTC — Verificación: `homeSearch` + `securityHeaders` 10/10, `lint` 0, `build` 0. Próximo: A7 navegación `/marcas`.
+- 2026-11-01 16:18 UTC — A7 aplicado: `/marca/:slug` redirige a `/marcas/:slug`; enlaces internos de `CarCard`, `CarPage` y `TasarAuto` usan la URL canónica; test de redirección añadido.
+- 2026-11-01 16:45 UTC — Fase 2 cerrada para home/catálogo: `/autos` es una página dedicada con H1, buscador y filtros, sin hero/rieles; `FilterPanel` permite ocultar el buscador duplicado.
+- 2026-11-01 16:50 UTC — `CarImage` muestra la silueta mientras la foto carga; evita el gradiente vacío en carga lenta.
+- 2026-11-01 16:52 UTC — Verificación: `npm test` 239/239, `lint` 0, `build` 0. Próximo: A5 Región solo en usados.
+- 2026-11-01 17:10 UTC — A5 aplicado: Región solo se muestra en la pestaña de usados; el submit de nuevos ya no incluye `region`; grid de filtros ajustado a 5 columnas en nuevos. Pruebas 8/8 y regresión de URL.
+- 2026-11-01 17:10 UTC — Verificación completa: `npm test` 242/242, `lint` 0, `build` 0. Próximo: auditar ficha `/auto/:slug` en móvil.
+- 2026-11-01 17:15 UTC — Ficha móvil: precio «Desde $…» junto al título; bloque de precio con botones apilados; CTA flotante de publicación oculto en `/auto/:slug` y `/usados/:slug`.
+- 2026-11-01 17:18 UTC — Verificación: `carRoutes` 7/7, `publishFloat` 5/5, `npm test` 245/245, `lint` 0, `build` 0. Próximo: TCO/crédito y estado sin resultados.
+- 2026-11-01 17:35 UTC — Auditoría móvil de TCO y crédito con CDP: sin overflow horizontal; el selector «Km/mes» se truncaba y los tabs no anunciaban su estado.
+- 2026-11-01 17:38 UTC — TCO con controles a ancho completo en móvil y etiquetas asociadas; pie del crédito asociado; tabs con `aria-pressed` y render estable.
+- 2026-11-01 17:39 UTC — Estado sin resultados de `/autos?q=zzzz` con CTA «Ver todos los autos»; test de la grilla vacía.
+- 2026-11-01 17:43 UTC — Verificación: `npm test` 247/247, `lint` 0, `build` 0 (tras limpiar `dist` por archivos FUSE abiertos). Próximo: revisión de escritorio.
+- 2026-11-11 17:10 UTC — Auditoría en vivo: Supabase `eeqhqsteeobegaekynse` NXDOMAIN, `autolupa.cl` NXDOMAIN, soft-404 en rutas inexistentes, `/autos` y `/marcas/*` 404 en producción. Recomendador: 14 consultas con fallos (unidades como presupuesto, modelos no reconocidos, parrilla descontinuada). Usuario aprueba L1→L5 + rediseño UI.
+- 2026-11-11 17:35 UTC — L1 cerrado: recomendador (35 tests), contraste oficial de 7 marcas (14 modelos nuevos, 10 fuera de parrilla), `docs/AUDIT-CATALOGO-2026-11.md`. `npm test` 261/261, lint 0, auditorías 0 errores.
+- 2026-11-11 18:05 UTC — L2 cerrado: prerender (836 rutas + 404 + spa), slugs ASCII, sitemap limpio, H1 completo; verificado con wrangler + Chrome. L3 cerrado: `backendStatus` + `ServiceNotice` en usados, publicación y aviso. `npm test` 269/269.
+- 2026-11-11 18:40 UTC — L4: TCO sin doble conteo, CAE → tasa efectiva, años 2025–2027 con migración, contadores del catálogo, comparador por id. L5: docs consolidados. `npm test` 274/274.
+- 2026-11-11 19:40 UTC — Rediseño de interfaz (ADR-024): navbar, grid de marcas, buscador → recomendador, tarjetas de acción, ficha móvil con barra fija, pie, SmartAsk responsivo. `npm test` 277/277, lint 0, build 0.
+- 2026-11-12 17:10 UTC — Trabajo pendiente de los lotes 25–30 dividido en 8 commits locales en `feat/catalog-coverage-search` (sin push). Rutas legales: `/:docType(a|b|c)` no es válido en React Router 7 y `/privacidad`, `/terminos` y `/responsabilidad` caían en la 404 (confirmado en producción con Puppeteer); ahora son tres rutas explícitas. Leads: `submitUsedListingLead` lanza el error y `LeadForm` lo muestra en vez de confirmar un envío fallido; se quitaron los `console.info` con datos personales. `npm test` 282/282, lint 0, tsc 0.

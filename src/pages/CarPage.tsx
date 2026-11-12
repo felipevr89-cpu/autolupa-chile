@@ -1,6 +1,7 @@
+import { brandSlug } from '../lib/brandSlug';
 import { useEffect } from 'react';
 import { Link, Navigate, useParams } from 'react-router-dom';
-import { carsData, formatPrice, getFuelLabel, getTypeLabel } from '../data/brands';
+import { carsData, formatPrice, getFuelLabel, getTypeLabel, isBrandSoldNewInChile } from '../data/brands';
 import { carIdFromSlug, carPath, carSlug } from '../lib/carSlug';
 import { CarDetail } from '../components/Cars/CarDetail';
 import { CreditCalc } from '../components/Calculator/CreditCalc';
@@ -40,7 +41,7 @@ export function CarPage({ favorites, onToggleFavorite, onAddRecent }: Props) {
     return <Navigate to={carPath(car)} replace />;
   }
 
-  const brandHref = `/marca/${car.brand.toLowerCase().replace(/\s+/g, '-')}`;
+  const brandHref = `/marcas/${brandSlug(car.brand)}`;
   const canonical = `${siteUrl}${carPath(car)}`;
   const description = `${car.brand} ${car.model} ${car.year}: precio desde ${formatPrice(car.price)}. Ficha técnica, versiones, consumo, seguridad y costo total de propiedad.`;
 
@@ -60,7 +61,7 @@ export function CarPage({ favorites, onToggleFavorite, onAddRecent }: Props) {
       '@type': 'Offer',
       price: car.price,
       priceCurrency: 'CLP',
-      availability: 'https://schema.org/InStock',
+      availability: car.lineup_2026 === false || !isBrandSoldNewInChile(car.brand) ? 'https://schema.org/Discontinued' : 'https://schema.org/InStock',
       url: canonical,
     },
   };

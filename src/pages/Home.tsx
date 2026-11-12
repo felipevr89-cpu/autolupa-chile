@@ -1,5 +1,5 @@
-import { useState, useEffect, useCallback, useMemo, useRef } from 'react';
-import { Link, useNavigate, useSearchParams } from 'react-router-dom';
+import { useState, useEffect, useCallback, useMemo } from 'react';
+import { Link, useLocation, useNavigate, useSearchParams } from 'react-router-dom';
 import { CpuChipIcon, SparklesIcon } from '@heroicons/react/24/solid';
 import { ClockIcon } from '@heroicons/react/24/outline';
 import { Car } from '../types';
@@ -10,10 +10,14 @@ import { CarDetail } from '../components/Cars/CarDetail';
 import { CreditCalc } from '../components/Calculator/CreditCalc';
 import { AutoWizard } from '../components/Wizard/AutoWizard';
 import { SmartAsk } from '../components/Wizard/SmartAsk';
+import { isNaturalLanguageQuery } from '../data/recommender';
 import { RecentUsedListings } from '../components/Used/RecentUsedListings';
-import { carsData } from '../data/brands';
+import { BrandGrid } from '../components/Brands/BrandGrid';
+import { carsData, brands, formatPrice, catalogYears } from '../data/brands';
+import { CHILE_REGIONS } from '../data/chileRegions';
 import { carPath } from '../lib/carSlug';
 import { defaultYearRange } from '../hooks/useCars';
+import { track } from '../lib/analytics';
 import { Filters } from '../types';
 
 interface Props {
@@ -88,23 +92,55 @@ export function Home({
   const [selectedCar, setSelectedCar] = useState<Car | null>(null);
   const [showWizard, setShowWizard] = useState(false);
   const [showAsk, setShowAsk] = useState(false);
+  const [askQuery, setAskQuery] = useState('');
   const [compareToast, setCompareToast] = useState(false);
   const [wizardCars, setWizardCars] = useState<Car[] | null>(null);
   const [wizardAnswers, setWizardAnswers] = useState<Record<string, string> | null>(null);
   const [askCars, setAskCars] = useState<Car[] | null>(null);
-  const catalogRef = useRef<HTMLDivElement>(null);
+
   const navigate = useNavigate();
+  const location = useLocation();
   const [searchParams] = useSearchParams();
   const legacyId = searchParams.get('id');
   const [searchTab, setSearchTab] = useState<'nuevos' | 'usados'>('nuevos');
-  const [showCatalog, setShowCatalog] = useState(false);
+  const [showCatalog, setShowCatalog] = useState(location.pathname === '/autos');
   const [usedQuery, setUsedQuery] = useState('');
+  const currentYear = new Date().getFullYear();
+  const [heroBrand, setHeroBrand] = useState(filters.brand[0] ?? '');
+  const [heroPriceMin, setHeroPriceMin] = useState(filters.priceRange[0] > 0 ? String(filters.priceRange[0]) : '');
+  const [heroPriceMax, setHeroPriceMax] = useState(filters.priceRange[1] < 500000000 ? String(filters.priceRange[1]) : '');
+  const [heroYear, setHeroYear] = useState(
+    filters.yearRange[0] === filters.yearRange[1] && filters.yearRange[0] !== defaultYearRange[0]
+      ? String(filters.yearRange[0])
+      : '',
+  );
+  const [heroType, setHeroType] = useState(
+    filters.type[0] ?? (filters.fuel.includes('electrico') ? 'electrico' : ''),
+  );
+  const [heroRegion, setHeroRegion] = useState(searchParams.get('region') ?? '');
 
   useEffect(() => {
     if (!legacyId) return;
     const car = carsData.find(c => c.id === Number(legacyId));
     if (car) navigate(carPath(car), { replace: true });
   }, [legacyId, navigate]);
+
+  useEffect(() => {
+    setShowCatalog(location.pathname === '/autos');
+  }, [location.pathname]);
+
+  useEffect(() => {
+    setHeroBrand(filters.brand[0] ?? '');
+    setHeroPriceMin(filters.priceRange[0] > 0 ? String(filters.priceRange[0]) : '');
+    setHeroPriceMax(filters.priceRange[1] < 500000000 ? String(filters.priceRange[1]) : '');
+    setHeroYear(
+      filters.yearRange[0] === filters.yearRange[1] && filters.yearRange[0] !== defaultYearRange[0]
+        ? String(filters.yearRange[0])
+        : '',
+    );
+    setHeroType(filters.type[0] ?? (filters.fuel.includes('electrico') ? 'electrico' : ''));
+    setHeroRegion(searchParams.get('region') ?? '');
+  }, [filters, searchParams]);
 
   const handleSearchChange = useCallback((query: string) => {
     setSearchQuery(query);
@@ -113,13 +149,38 @@ export function Home({
 
   const submitSearch = (event: React.FormEvent) => {
     event.preventDefault();
+    const params = new URLSearchParams();
+
     if (searchTab === 'usados') {
-      const query = usedQuery.trim();
-      navigate(query ? `/usados?q=${encodeURIComponent(query)}` : '/usados');
+      if (usedQuery.trim()) params.set('q', usedQuery.trim());
+      if (heroBrand) params.set('brand', heroBrand);
+      if (heroRegion) params.set('region', heroRegion);
+      track('search_submitted', { tab: 'usados', marca: heroBrand || 'todas', region: heroRegion || 'todas' });
+      navigate(params.toString() ? `/usados?${params.toString()}` : '/usados');
       return;
     }
-    setShowCatalog(true);
-    catalogRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+    const heroFilters = heroBrand || heroPriceMin || heroPriceMax || heroYear || heroType;
+    if (searchQuery.trim() && !heroFilters && isNaturalLanguageQuery(searchQuery)) {
+      track('search_submitted', { tab: 'nuevos', modo: 'lenguaje_natural' });
+      setAskQuery(searchQuery.trim());
+      setShowAsk(true);
+      return;
+    }
+
+    if (searchQuery.trim()) params.set('q', searchQuery.trim());
+    if (heroBrand) params.set('marca', heroBrand);
+    if (heroPriceMin) params.set('precio_min', heroPriceMin);
+    if (heroPriceMax) params.set('precio_max', heroPriceMax);
+    if (heroYear) params.set('year', heroYear);
+    if (heroType === 'electrico') params.set('combustible', 'electrico');
+    else if (heroType) params.set('tipo', heroType);
+    track('search_submitted', {
+      tab: 'nuevos',
+      marca: heroBrand || 'todas',
+      tipo: heroType || 'todos',
+    });
+    navigate(params.toString() ? `/autos?${params.toString()}` : '/autos');
   };
 
   const isFiltering = useMemo(() => (
@@ -148,6 +209,8 @@ export function Home({
     .filter((c): c is Car => !!c), []);
 
   const catalogOpen = showCatalog || isFiltering;
+  const isCatalogPage = location.pathname === '/autos';
+  const CatalogHeading = isCatalogPage ? 'h1' : 'h2';
 
   const openCar = useCallback((car: Car) => {
     setSelectedCar(car);
@@ -199,19 +262,16 @@ export function Home({
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      {!isCatalogPage && (
       <div className="text-center mb-8">
-        <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 dark:text-gray-100 mb-3">
+        <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-gray-900 dark:text-gray-100 mb-3">
           Encuentra tu <span className="text-blue-600 dark:text-blue-400">auto ideal</span>
         </h1>
-        <p className="text-xl font-semibold text-blue-700 dark:text-blue-300 mb-4">
-          El auto que buscas, sin letra chica
-        </p>
-        <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto mb-6">
-          Compara precios, especificaciones y encuentra el vehículo perfecto para ti en el mercado chileno.
-          Publicar es gratis y nunca cobramos comisión por tu venta.
+        <p className="text-base sm:text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto mb-6">
+          Compara {carsData.length} autos nuevos con precios de referencia en Chile, revisa usados y publica el tuyo sin comisión. <span className="font-semibold text-blue-700 dark:text-blue-300">Sin letra chica.</span>
         </p>
 
-        <form onSubmit={submitSearch} className="max-w-2xl mx-auto mb-7 text-left">
+        <form onSubmit={submitSearch} className="max-w-4xl mx-auto mb-5 text-left">
           <div role="tablist" aria-label="Buscar en" className="flex justify-center gap-2 mb-3">
             {([['nuevos', 'Autos nuevos'], ['usados', 'Autos usados']] as const).map(([key, label]) => (
               <button
@@ -226,54 +286,111 @@ export function Home({
               </button>
             ))}
           </div>
-          <div className="flex gap-2">
+          <div className="relative">
             <input
               value={searchTab === 'nuevos' ? searchQuery : usedQuery}
               onChange={(event) => (searchTab === 'nuevos' ? handleSearchChange(event.target.value) : setUsedQuery(event.target.value))}
+              onFocus={() => track('search_initiated', { tab: searchTab })}
               aria-label={searchTab === 'nuevos' ? 'Buscar autos nuevos' : 'Buscar autos usados'}
-              placeholder={searchTab === 'nuevos' ? 'Marca, modelo o tipo — Ej: Toyota Corolla' : 'Entre los avisos publicados — Ej: Corolla 2019'}
-              className="flex-1 px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-xl bg-white dark:bg-gray-800 text-gray-900 dark:text-white text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+              placeholder={searchTab === 'nuevos'
+                ? 'Ej: SUV híbrido 7 plazas bajo $30M o Toyota Corolla 2023'
+                : 'Ej: Toyota Corolla 2019, automático, menos de 80.000 km'}
+              className="w-full px-4 py-4 pr-28 border-2 border-blue-200 dark:border-blue-700 rounded-2xl bg-white dark:bg-gray-800 text-gray-900 dark:text-white text-base focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
-            <button type="submit" className="px-6 py-3 bg-blue-600 text-white rounded-xl font-bold hover:bg-blue-700 transition-colors">
+            <button type="submit" className="absolute right-1.5 top-1.5 bottom-1.5 px-5 bg-blue-600 text-white rounded-xl font-bold hover:bg-blue-700 transition-colors">
               Buscar
             </button>
           </div>
-          <p className="text-xs text-gray-500 dark:text-gray-400 mt-2 text-center">
-            {searchTab === 'nuevos'
-              ? `Compara ${allCarsCount} fichas de catálogo con precios y especificaciones`
-              : 'Avisos de particulares y concesionarios, con contacto directo y sin comisión'}
-          </p>
+
+          <div className={`mt-3 grid grid-cols-2 sm:grid-cols-3 ${searchTab === 'usados' ? 'lg:grid-cols-6' : 'lg:grid-cols-5'} gap-2`}>
+            <select value={heroBrand} onChange={(event) => setHeroBrand(event.target.value)} aria-label="Marca" className="px-3 py-2.5 border border-gray-200 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-sm text-gray-700 dark:text-gray-300">
+              <option value="">Marca</option>
+              {brands.map((brand) => <option key={brand} value={brand}>{brand}</option>)}
+            </select>
+            <input type="number" inputMode="numeric" value={heroPriceMin} onChange={(event) => setHeroPriceMin(event.target.value)} placeholder="Precio mín." aria-label="Precio mínimo" className="px-3 py-2.5 border border-gray-200 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-sm text-gray-700 dark:text-gray-300" />
+            <input type="number" inputMode="numeric" value={heroPriceMax} onChange={(event) => setHeroPriceMax(event.target.value)} placeholder="Precio máx." aria-label="Precio máximo" className="px-3 py-2.5 border border-gray-200 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-sm text-gray-700 dark:text-gray-300" />
+            <select value={heroYear} onChange={(event) => setHeroYear(event.target.value)} aria-label="Año" className="px-3 py-2.5 border border-gray-200 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-sm text-gray-700 dark:text-gray-300">
+              <option value="">Año</option>
+              {(searchTab === 'nuevos'
+                ? Array.from({ length: catalogYears[1] - catalogYears[0] + 1 }, (_, index) => catalogYears[1] - index)
+                : Array.from({ length: 15 }, (_, index) => currentYear - index)
+              ).map((year) => <option key={year} value={year}>{year}</option>)}
+            </select>
+            <select value={heroType} onChange={(event) => setHeroType(event.target.value)} aria-label="Tipo de vehículo" className="px-3 py-2.5 border border-gray-200 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-sm text-gray-700 dark:text-gray-300">
+              <option value="">Tipo</option>
+              <option value="suv">SUV</option>
+              <option value="sedan">Sedán</option>
+              <option value="pickup">Pickup</option>
+              <option value="hatchback">Hatchback</option>
+              <option value="electrico">Eléctrico</option>
+            </select>
+            {searchTab === 'usados' && (
+              <select value={heroRegion} onChange={(event) => setHeroRegion(event.target.value)} aria-label="Región" className="px-3 py-2.5 border border-gray-200 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-sm text-gray-700 dark:text-gray-300">
+                <option value="">Región</option>
+                {CHILE_REGIONS.map((region) => <option key={region.slug} value={region.name}>{region.name}</option>)}
+              </select>
+            )}
+          </div>
+
+          <div className="mt-2 flex flex-col sm:flex-row items-center justify-between gap-2">
+            <Link to="/autos" className="text-sm font-semibold text-blue-600 dark:text-blue-400 hover:underline">
+              Ver catálogo completo ({allCarsCount} vehículos)
+            </Link>
+            <p className="text-xs text-gray-500 dark:text-gray-400">Compara {allCarsCount} fichas de catálogo. Búsqueda local y gratuita.</p>
+          </div>
         </form>
 
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
-          <button
-            onClick={() => setShowWizard(true)}
-            className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-2xl font-bold text-lg hover:from-blue-700 hover:to-purple-700 transition-all shadow-lg hover:shadow-xl transform hover:scale-105"
-          >
-            <CpuChipIcon className="w-6 h-6" />
-            <span>Encuentra tu auto ideal</span>
-          </button>
-          <button
-            onClick={() => setShowAsk(true)}
-            className="inline-flex items-center gap-2 px-6 py-4 bg-white dark:bg-gray-800 text-blue-600 dark:text-blue-400 border-2 border-blue-200 dark:border-blue-700 rounded-2xl font-bold hover:bg-blue-50 dark:hover:bg-gray-700 transition-all"
-          >
-            <SparklesIcon className="w-5 h-5" />
-            <span>Pregunta con tus palabras</span>
-          </button>
-          <Link
-            to="/publicar-auto"
-            className="inline-flex items-center gap-2 px-6 py-4 bg-green-600 text-white rounded-2xl font-bold hover:bg-green-700 transition-all"
-          >
-            <span>Publicar mi auto gratis</span>
-          </Link>
-        </div>
-        <p className="text-sm text-gray-500 dark:text-gray-400 mt-2">Responde preguntas o escribe con tus palabras — recomendación 100% local</p>
-        <Link to="/usados" className="inline-block mt-4 text-sm font-semibold text-blue-600 dark:text-blue-400 hover:underline">
-          ¿Buscas un usado? Compra o publica gratis →
-        </Link>
-      </div>
+        {(heroBrand || heroPriceMin || heroPriceMax || heroYear || heroType || (searchTab === 'usados' && heroRegion)) && (
+          <div className="max-w-4xl mx-auto mb-4 flex flex-wrap items-center justify-center gap-2">
+            <span className="text-xs font-semibold text-gray-500 dark:text-gray-400">Filtros:</span>
+            {heroBrand && <button type="button" onClick={() => setHeroBrand('')} className="px-2.5 py-1 rounded-full bg-blue-50 dark:bg-blue-950/40 text-blue-700 dark:text-blue-300 text-xs font-medium hover:bg-blue-100 dark:hover:bg-blue-900/40">{heroBrand} ×</button>}
+            {(heroPriceMin || heroPriceMax) && (
+              <button type="button" onClick={() => { setHeroPriceMin(''); setHeroPriceMax(''); }} className="px-2.5 py-1 rounded-full bg-blue-50 dark:bg-blue-950/40 text-blue-700 dark:text-blue-300 text-xs font-medium hover:bg-blue-100 dark:hover:bg-blue-900/40">
+                {heroPriceMin ? formatPrice(Number(heroPriceMin)) : 'Desde $0'} – {heroPriceMax ? formatPrice(Number(heroPriceMax)) : 'Sin tope'} ×
+              </button>
+            )}
+            {heroYear && <button type="button" onClick={() => setHeroYear('')} className="px-2.5 py-1 rounded-full bg-blue-50 dark:bg-blue-950/40 text-blue-700 dark:text-blue-300 text-xs font-medium hover:bg-blue-100 dark:hover:bg-blue-900/40">{heroYear} ×</button>}
+            {heroType && <button type="button" onClick={() => setHeroType('')} className="px-2.5 py-1 rounded-full bg-blue-50 dark:bg-blue-950/40 text-blue-700 dark:text-blue-300 text-xs font-medium hover:bg-blue-100 dark:hover:bg-blue-900/40">{heroType === 'electrico' ? 'Eléctrico' : heroType.toUpperCase()} ×</button>}
+            {searchTab === 'usados' && heroRegion && <button type="button" onClick={() => setHeroRegion('')} className="px-2.5 py-1 rounded-full bg-blue-50 dark:bg-blue-950/40 text-blue-700 dark:text-blue-300 text-xs font-medium hover:bg-blue-100 dark:hover:bg-blue-900/40">{heroRegion} ×</button>}
+          </div>
+        )}
 
-      <RecentUsedListings />
+        <div className="max-w-4xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-3 text-left">
+          <button
+            type="button"
+            onClick={() => { setAskQuery(''); setShowAsk(true); }}
+            className="group text-left flex items-start gap-3 p-4 rounded-2xl bg-gradient-to-br from-blue-600 to-purple-600 text-white shadow-lg hover:shadow-xl transition-all"
+          >
+            <SparklesIcon className="w-6 h-6 flex-shrink-0 mt-0.5" />
+            <span>
+              <span className="block font-bold">Pregunta con tus palabras</span>
+              <span className="block text-sm text-white/85">«Algo parecido al RAV4 pero más barato», «eléctrico con 400 km de autonomía»…</span>
+            </span>
+          </button>
+          <button
+            type="button"
+            onClick={() => setShowWizard(true)}
+            className="group text-left flex items-start gap-3 p-4 rounded-2xl bg-white dark:bg-gray-800 border-2 border-blue-100 dark:border-gray-700 hover:border-blue-300 dark:hover:border-blue-600 transition-all"
+          >
+            <CpuChipIcon className="w-6 h-6 flex-shrink-0 mt-0.5 text-blue-600 dark:text-blue-400" />
+            <span>
+              <span className="block font-bold text-gray-900 dark:text-white">Responde 8 preguntas</span>
+              <span className="block text-sm text-gray-500 dark:text-gray-400">Presupuesto, uso, combustible y plazas: te mostramos los autos más afines.</span>
+            </span>
+          </button>
+        </div>
+        <p className="text-xs text-gray-500 dark:text-gray-400 mt-3">Recomendaciones 100% locales: tu consulta no sale del dispositivo.</p>
+        <p className="mt-4 text-sm">
+          <Link to="/usados" className="font-semibold text-blue-600 dark:text-blue-400 hover:underline">¿Buscas un usado?</Link>
+          <span className="text-gray-400 mx-2">·</span>
+          <Link to="/publicar-auto" className="font-semibold text-green-700 dark:text-green-400 hover:underline">Publica tu auto gratis →</Link>
+        </p>
+      </div>
+      )}
+
+      {!isCatalogPage && <BrandGrid />}
+
+      {!isCatalogPage && <RecentUsedListings />}
 
       {compareList.length > 0 && (
         <div className="mb-6 bg-blue-50 dark:bg-blue-900/30 border border-blue-200 dark:border-blue-800 rounded-xl p-4 flex items-center justify-between">
@@ -295,7 +412,7 @@ export function Home({
         </div>
       )}
 
-      {!isFiltering && (
+      {!isCatalogPage && !isFiltering && (
         <div className="mb-10">
           {recentCars && recentCars.length > 0 && (
             <CarRail
@@ -325,16 +442,36 @@ export function Home({
         </div>
       )}
 
-      <div ref={catalogRef} className="scroll-mt-20">
-        <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-1">
-          {catalogOpen ? 'Explorar todo el catálogo' : 'Autos destacados'}
-        </h2>
+      <div id="catalogo" className="scroll-mt-20">
+        <CatalogHeading className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-gray-100 mb-1">
+          {isCatalogPage ? 'Catálogo de autos nuevos' : catalogOpen ? 'Explorar todo el catálogo' : 'Autos destacados'}
+        </CatalogHeading>
         <p className="text-sm text-gray-500 dark:text-gray-400 mb-6">
           {catalogOpen
-            ? `Filtra y ordena entre ${allCarsCount} vehículos`
-            : `Una selección de los ${allCarsCount} vehículos disponibles`}
+            ? `Filtra y ordena entre ${carsData.length} vehículos`
+            : `Una selección de los ${carsData.length} vehículos disponibles`}
         </p>
       </div>
+
+      {isCatalogPage && (
+        <div className="mb-6 max-w-2xl">
+          <label htmlFor="catalog-search" className="sr-only">Buscar autos nuevos</label>
+          <div className="relative">
+            <svg className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400 dark:text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+            </svg>
+            <input
+              id="catalog-search"
+              type="search"
+              value={searchQuery}
+              onChange={(event) => handleSearchChange(event.target.value)}
+              placeholder="Busca por marca, modelo o versión"
+              className="w-full pl-12 pr-4 py-3.5 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-2xl text-base text-gray-900 dark:text-white focus:outline-none focus:border-blue-500 dark:focus:border-blue-400 focus:ring-2 focus:ring-blue-500/20 dark:focus:ring-blue-400/20"
+            />
+          </div>
+          <p className="mt-2 text-xs text-gray-500 dark:text-gray-400">Búsqueda local, sin registro y sin costo.</p>
+        </div>
+      )}
 
       {!catalogOpen && (
         <>
@@ -370,13 +507,14 @@ export function Home({
             onSearchChange={handleSearchChange}
             sortBy={sortBy}
             onSortChange={setSortBy}
+            hideSearch={isCatalogPage}
           />
         </aside>
 
         <div className="flex-1">
           <div className="flex items-center justify-between mb-4">
             <p className="text-sm text-gray-500 dark:text-gray-400">
-              Mostrando {visibleRange} de {allCarsCount} vehículos
+              {allCarsCount === 0 ? 'Sin resultados para estos filtros' : `Mostrando ${visibleRange} de ${allCarsCount} vehículos`}
             </p>
           </div>
 
@@ -491,6 +629,7 @@ export function Home({
 
       {showAsk && (
         <SmartAsk
+          initialQuery={askQuery}
           onClose={() => setShowAsk(false)}
           onSelectCar={(car, resultCars) => {
             setSelectedCar(car);

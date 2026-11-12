@@ -55,17 +55,18 @@
           "transmission": "automática",
           "traction": "4x2"
         }
-      ]
+      ],
+      "lineup_2026": false
     },
     {
       "id": 536,
       "brand": "Subaru",
       "model": "Crosstrek",
-      "year": 2025,
+      "year": 2026,
       "type": "suv",
       "fuel": "gasolina",
       "seats": 5,
-      "price": 22990000,
+      "price": 24990000,
       "transmission": "automatica",
       "traction": "awd",
       "image_url": "",
@@ -74,22 +75,36 @@
       "origin_country": "Japón",
       "versions": [
         {
-          "version": "Base",
-          "price": 22990000,
+          "version": "2.0i AWD CVT",
+          "price": 24990000,
           "transmission": "automatica",
-          "traction": "awd"
+          "traction": "awd",
+          "price_list": 26690000,
+          "price_bonus": 1700000
         },
         {
-          "version": "Premium",
-          "price": 25990000,
+          "version": "2.0i AWD CVT Plus",
+          "price": 26690000,
           "transmission": "automatica",
-          "traction": "awd"
+          "traction": "awd",
+          "price_list": 27690000,
+          "price_bonus": 1000000
         },
         {
-          "version": "Limited",
-          "price": 28990000,
+          "version": "2.0i AWD CVT Dynamic ES",
+          "price": 29390000,
           "transmission": "automatica",
-          "traction": "awd"
+          "traction": "awd",
+          "price_list": 30790000,
+          "price_bonus": 1400000
+        },
+        {
+          "version": "2.0i AWD CVT Touring EyeSight HK 360",
+          "price": 32490000,
+          "transmission": "automatica",
+          "traction": "awd",
+          "price_list": 33290000,
+          "price_bonus": 800000
         }
       ],
       "hp": 152,
@@ -117,24 +132,26 @@
         "Control crucero adaptativo"
       ],
       "warranty_years": 3,
-      "warranty_km": 100000
+      "warranty_km": 100000,
+      "price_list": 26690000,
+      "price_bonus": 1700000,
+      "price_source": "https://www.subaru.cl/vehiculos/all-new-crosstrek/",
+      "price_checked_at": "2026-11-11"
     },
     {
       "id": 537,
       "brand": "Subaru",
-      "model": "XV e-Boxer",
+      "model": "Crosstrek Híbrido",
       "year": 2026,
       "type": "suv",
-      "fuel": "gasolina",
+      "fuel": "hibrido",
       "seats": 5,
-      "price": 27990000,
+      "price": 33790000,
       "transmission": "automatica",
       "traction": "awd",
       "image_url": "",
-      "description": "SUV híbrido enchufable con tracción simétrica AWD y eficiencia excepcional.",
+      "description": "Crosstrek con sistema híbrido e-Boxer 2.0 y tracción AWD simétrica; versión Touring con EyeSight.",
       "origin": "Japón",
-      "hp": 150,
-      "torque_nm": 188,
       "length_mm": 4495,
       "width_mm": 1795,
       "height_mm": 1575,
@@ -150,41 +167,39 @@
         "Frenado automático",
         "Cámara 360°"
       ],
-      "latin_ncap_stars": 5,
       "infotainment": [
         "Pantalla 11.6\"",
         "Apple CarPlay",
         "Android Auto",
         "Sonido Harman Kardon"
       ],
-      "fuel_consumption_mixed_km_l": 18,
       "warranty_years": 3,
       "warranty_km": 100000,
       "origin_country": "Japón",
       "versions": [
         {
-          "version": "2.0L PHEV CVT AWD",
-          "price": 27990000,
-          "transmission": "automática",
-          "traction": "awd"
-        },
-        {
-          "version": "2.0L PHEV CVT AWD Limited",
-          "price": 31990000,
-          "transmission": "automática",
-          "traction": "awd"
+          "version": "2.0i Hybrid AWD CVT Touring ES",
+          "price": 33790000,
+          "transmission": "automatica",
+          "traction": "awd",
+          "price_list": 35190000,
+          "price_bonus": 1400000
         }
-      ]
+      ],
+      "price_list": 35190000,
+      "price_bonus": 1400000,
+      "price_source": "https://www.subaru.cl/vehiculos/all-new-crosstrek-hibrido/",
+      "price_checked_at": "2026-11-11"
     },
     {
       "id": 538,
       "brand": "Subaru",
       "model": "Forester",
-      "year": 2025,
+      "year": 2026,
       "type": "suv",
       "fuel": "gasolina",
       "seats": 5,
-      "price": 24990000,
+      "price": 28990000,
       "transmission": "automatica",
       "traction": "awd",
       "image_url": "",
@@ -193,22 +208,36 @@
       "origin_country": "Japón",
       "versions": [
         {
-          "version": "Base",
-          "price": 24990000,
+          "version": "2.5 AWD CVT XS ES",
+          "price": 28990000,
           "transmission": "automatica",
-          "traction": "awd"
+          "traction": "awd",
+          "price_list": 32490000,
+          "price_bonus": 3500000
         },
         {
-          "version": "Premium",
-          "price": 27990000,
+          "version": "2.5 AWD CVT Dynamic ES",
+          "price": 32990000,
           "transmission": "automatica",
-          "traction": "awd"
+          "traction": "awd",
+          "price_list": 36590000,
+          "price_bonus": 3600000
         },
         {
-          "version": "Touring",
-          "price": 30990000,
+          "version": "2.5 AWD CVT Sport ES",
+          "price": 34590000,
           "transmission": "automatica",
-          "traction": "awd"
+          "traction": "awd",
+          "price_list": 37590000,
+          "price_bonus": 3000000
+        },
+        {
+          "version": "2.5 AWD CVT Touring ES",
+          "price": 36990000,
+          "transmission": "automatica",
+          "traction": "awd",
+          "price_list": 39990000,
+          "price_bonus": 3000000
         }
       ],
       "hp": 156,
@@ -236,17 +265,21 @@
         "Control crucero adaptativo"
       ],
       "warranty_years": 3,
-      "warranty_km": 100000
+      "warranty_km": 100000,
+      "price_list": 32490000,
+      "price_bonus": 3500000,
+      "price_source": "https://www.subaru.cl/vehiculos/all-new-forester/",
+      "price_checked_at": "2026-11-11"
     },
     {
       "id": 539,
       "brand": "Subaru",
       "model": "Impreza",
-      "year": 2025,
+      "year": 2026,
       "type": "hatchback",
       "fuel": "gasolina",
       "seats": 5,
-      "price": 16990000,
+      "price": 22890000,
       "transmission": "automatica",
       "traction": "awd",
       "image_url": "",
@@ -255,16 +288,28 @@
       "origin_country": "Japón",
       "versions": [
         {
-          "version": "Base",
-          "price": 16990000,
+          "version": "2.0i AWD CVT",
+          "price": 22890000,
           "transmission": "automatica",
-          "traction": "awd"
+          "traction": "awd",
+          "price_list": 23890000,
+          "price_bonus": 1000000
         },
         {
-          "version": "Premium",
-          "price": 19990000,
+          "version": "2.0i AWD CVT Dynamic EyeSight",
+          "price": 24790000,
           "transmission": "automatica",
-          "traction": "awd"
+          "traction": "awd",
+          "price_list": 25890000,
+          "price_bonus": 1100000
+        },
+        {
+          "version": "2.0i AWD CVT Touring ES HK",
+          "price": 28290000,
+          "transmission": "automatica",
+          "traction": "awd",
+          "price_list": 28890000,
+          "price_bonus": 600000
         }
       ],
       "hp": 152,
@@ -291,7 +336,11 @@
         "Control crucero adaptativo"
       ],
       "warranty_years": 3,
-      "warranty_km": 100000
+      "warranty_km": 100000,
+      "price_list": 23890000,
+      "price_bonus": 1000000,
+      "price_source": "https://www.subaru.cl/vehiculos/all-new-impreza/",
+      "price_checked_at": "2026-11-11"
     },
     {
       "id": 540,
@@ -348,17 +397,18 @@
           "transmission": "automatica",
           "traction": "awd"
         }
-      ]
+      ],
+      "lineup_2026": false
     },
     {
       "id": 541,
       "brand": "Subaru",
       "model": "Outback",
-      "year": 2025,
+      "year": 2026,
       "type": "wagon",
       "fuel": "gasolina",
       "seats": 5,
-      "price": 32990000,
+      "price": 36990000,
       "transmission": "automatica",
       "traction": "awd",
       "image_url": "",
@@ -367,22 +417,20 @@
       "origin_country": "Japón",
       "versions": [
         {
-          "version": "Base",
-          "price": 32990000,
-          "transmission": "automatica",
-          "traction": "awd"
-        },
-        {
           "version": "Premium",
           "price": 36990000,
           "transmission": "automatica",
-          "traction": "awd"
+          "traction": "awd",
+          "price_list": 38990000,
+          "price_bonus": 2000000
         },
         {
           "version": "Touring",
-          "price": 40990000,
+          "price": 41990000,
           "transmission": "automatica",
-          "traction": "awd"
+          "traction": "awd",
+          "price_list": 42990000,
+          "price_bonus": 1000000
         }
       ],
       "hp": 182,
@@ -410,7 +458,11 @@
         "Control crucero adaptativo"
       ],
       "warranty_years": 3,
-      "warranty_km": 100000
+      "warranty_km": 100000,
+      "price_list": 38990000,
+      "price_bonus": 2000000,
+      "price_source": "https://www.subaru.cl/vehiculos/all-new-outback/",
+      "price_checked_at": "2026-11-11"
     },
     {
       "id": 542,
@@ -466,7 +518,8 @@
           "transmission": "automática",
           "traction": "awd"
         }
-      ]
+      ],
+      "lineup_2026": false
     },
     {
       "id": 543,
@@ -527,7 +580,146 @@
         "Control crucero adaptativo"
       ],
       "warranty_years": 3,
-      "warranty_km": 100000
+      "warranty_km": 100000,
+      "lineup_2026": false
+    },
+    {
+      "id": 699,
+      "brand": "Subaru",
+      "model": "Forester Híbrido",
+      "year": 2026,
+      "type": "suv",
+      "fuel": "hibrido",
+      "seats": 5,
+      "price": 41590000,
+      "transmission": "automatica",
+      "traction": "awd",
+      "image_url": "",
+      "description": "Forester Strong Hybrid con motor e-Boxer 2.5, CVT y AWD simétrico.",
+      "origin": "Japón",
+      "origin_country": "Japón",
+      "versions": [
+        {
+          "version": "2.5 HEV AWD CVT Sport ES",
+          "price": 41590000,
+          "transmission": "automatica",
+          "traction": "awd",
+          "price_list": 43990000,
+          "price_bonus": 2400000
+        },
+        {
+          "version": "2.5 HEV AWD CVT Touring ES",
+          "price": 43590000,
+          "transmission": "automatica",
+          "traction": "awd",
+          "price_list": 45990000,
+          "price_bonus": 2400000
+        }
+      ],
+      "year_start": 2026,
+      "price_list": 43990000,
+      "price_bonus": 2400000,
+      "price_source": "https://www.subaru.cl/vehiculos/all-new-forester-hibrido/",
+      "price_checked_at": "2026-11-11"
+    },
+    {
+      "id": 700,
+      "brand": "Subaru",
+      "model": "WRX",
+      "year": 2026,
+      "type": "sedan",
+      "fuel": "gasolina",
+      "seats": 5,
+      "price": 41990000,
+      "transmission": "automatica",
+      "traction": "awd",
+      "image_url": "",
+      "description": "Sedán deportivo con motor bóxer 2.4 turbo, CVT con modo SPT y AWD simétrico.",
+      "origin": "Japón",
+      "origin_country": "Japón",
+      "versions": [
+        {
+          "version": "2.4T AWD CVT Touring ES TS",
+          "price": 41990000,
+          "transmission": "automatica",
+          "traction": "awd",
+          "price_list": 43990000,
+          "price_bonus": 2000000
+        }
+      ],
+      "year_start": 2026,
+      "price_list": 43990000,
+      "price_bonus": 2000000,
+      "price_source": "https://www.subaru.cl/vehiculos/all-new-wrx-sedan/",
+      "price_checked_at": "2026-11-11"
+    },
+    {
+      "id": 701,
+      "brand": "Subaru",
+      "model": "Evoltis",
+      "year": 2026,
+      "type": "suv",
+      "fuel": "gasolina",
+      "seats": 7,
+      "price": 47990000,
+      "transmission": "automatica",
+      "traction": "awd",
+      "image_url": "",
+      "description": "SUV de tres corridas con motor bóxer 2.4 turbo, CVT de 8 marchas y AWD simétrico.",
+      "origin": "Estados Unidos",
+      "origin_country": "Estados Unidos",
+      "versions": [
+        {
+          "version": "Limited GARDX",
+          "price": 47990000,
+          "transmission": "automatica",
+          "traction": "awd",
+          "price_list": 49990000,
+          "price_bonus": 2000000
+        },
+        {
+          "version": "Touring GARDX",
+          "price": 50490000,
+          "transmission": "automatica",
+          "traction": "awd",
+          "price_list": 52990000,
+          "price_bonus": 2500000
+        }
+      ],
+      "year_start": 2026,
+      "price_list": 49990000,
+      "price_bonus": 2000000,
+      "price_source": "https://www.subaru.cl/vehiculos/subaru-evoltis/",
+      "price_checked_at": "2026-11-11"
+    },
+    {
+      "id": 702,
+      "brand": "Subaru",
+      "model": "Trailseeker",
+      "year": 2026,
+      "type": "suv",
+      "fuel": "electrico",
+      "seats": 5,
+      "price": 53990000,
+      "transmission": "automatica",
+      "traction": "awd",
+      "image_url": "",
+      "description": "SUV 100% eléctrico con dos motores, batería de 74,7 kWh y más de 480 km de autonomía.",
+      "origin": "Japón",
+      "origin_country": "Japón",
+      "versions": [
+        {
+          "version": "Touring",
+          "price": 53990000,
+          "transmission": "automatica",
+          "traction": "awd"
+        }
+      ],
+      "battery_kwh": 74.7,
+      "electric_range_km": 480,
+      "year_start": 2026,
+      "price_source": "https://www.subaru.cl/vehiculos/all-new-trailseeker/",
+      "price_checked_at": "2026-11-11"
     }
   ]
 }

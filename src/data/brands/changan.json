@@ -223,7 +223,7 @@
       "type": "suv",
       "fuel": "gasolina",
       "seats": 5,
-      "price": 18590000,
+      "price": 15890000,
       "transmission": "automatica",
       "traction": "4x2",
       "image_url": "",
@@ -231,22 +231,20 @@
       "origin": "China",
       "versions": [
         {
-          "version": "1.5T COMFORT AT",
-          "price": 18590000,
+          "version": "Luxury AT",
+          "price": 15890000,
           "transmission": "automatica",
-          "traction": "4x2"
+          "traction": "4x2",
+          "price_list": 19190000,
+          "price_bonus": 3300000
         },
         {
-          "version": "1.5T LUXURY AT",
-          "price": 19590000,
+          "version": "Elite AT",
+          "price": 17890000,
           "transmission": "automatica",
-          "traction": "4x2"
-        },
-        {
-          "version": "1.5T ELITE AT",
-          "price": 21590000,
-          "transmission": "automatica",
-          "traction": "4x2"
+          "traction": "4x2",
+          "price_list": 22190000,
+          "price_bonus": 4300000
         }
       ],
       "hp": 188,
@@ -271,7 +269,11 @@
       ],
       "warranty_years": 5,
       "warranty_km": 150000,
-      "origin_country": "China"
+      "origin_country": "China",
+      "price_list": 19190000,
+      "price_bonus": 3300000,
+      "price_source": "https://www.changan.cl/vehiculo/new-cs55-plus/",
+      "price_checked_at": "2026-11-11"
     },
     {
       "id": 82,
@@ -389,30 +391,36 @@
       "type": "pickup",
       "fuel": "gasolina",
       "seats": 5,
-      "price": 19990000,
-      "transmission": "automatica",
-      "traction": "4x4",
+      "price": 19190000,
+      "transmission": "manual",
+      "traction": "4x2",
       "image_url": "",
       "description": "Pickup mediana con motor 2.0 turbo y tracción total, versión REEV disponible.",
       "origin": "China",
       "versions": [
         {
-          "version": "2.0T 4x2 MT",
-          "price": 19990000,
+          "version": "4x2 Comfort MT",
+          "price": 19190000,
           "transmission": "manual",
-          "traction": "4x2"
+          "traction": "4x2",
+          "price_list": 20890000,
+          "price_bonus": 1700000
         },
         {
-          "version": "2.0T 4x4 AT",
-          "price": 21990000,
-          "transmission": "automatica",
-          "traction": "4x4"
+          "version": "4x2 Luxury MT",
+          "price": 19590000,
+          "transmission": "manual",
+          "traction": "4x2",
+          "price_list": 22690000,
+          "price_bonus": 3100000
         },
         {
-          "version": "REEV 4x4 AT",
-          "price": 27990000,
-          "transmission": "automatica",
-          "traction": "4x4"
+          "version": "4x4 Comfort MT",
+          "price": 20690000,
+          "transmission": "manual",
+          "traction": "4x4",
+          "price_list": 23990000,
+          "price_bonus": 3300000
         }
       ],
       "hp": 222,
@@ -436,21 +444,25 @@
       ],
       "warranty_years": 5,
       "warranty_km": 150000,
-      "origin_country": "China"
+      "origin_country": "China",
+      "price_list": 20890000,
+      "price_bonus": 1700000,
+      "price_source": "https://www.changan.cl/vehiculo/new-hunter/",
+      "price_checked_at": "2026-11-11"
     },
     {
       "id": 85,
       "brand": "Changan",
       "model": "Hunter REEV",
-      "year": 2025,
+      "year": 2026,
       "type": "pickup",
-      "fuel": "electrico",
+      "fuel": "hibrido_enchufable",
       "seats": 5,
-      "price": 34990000,
+      "price": 25790000,
       "transmission": "automatica",
-      "traction": "awd",
+      "traction": "4x2",
       "image_url": "",
-      "description": "Pickup eléctrica de autonomía extendida (EREV/REEV): motor eléctrico mueve las ruedas, motor de gasolina actúa como generador.",
+      "description": "Pickup de rango extendido (REEV): motor eléctrico con generador a bencina, hasta 131 km en modo eléctrico.",
       "origin": "China",
       "hp": 272,
       "torque_nm": 420,
@@ -478,18 +490,27 @@
       "origin_country": "China",
       "versions": [
         {
-          "version": "REEV AWD",
-          "price": 34990000,
+          "version": "4x2 Luxury",
+          "price": 25790000,
           "transmission": "automatica",
-          "traction": "awd"
+          "traction": "4x2",
+          "price_list": 32990000,
+          "price_bonus": 7200000
         },
         {
-          "version": "REEV AWD Premium",
-          "price": 39990000,
+          "version": "4x4 Elite",
+          "price": 32118100,
           "transmission": "automatica",
-          "traction": "awd"
+          "traction": "4x4",
+          "price_list": 36990000,
+          "price_bonus": 4871900
         }
-      ]
+      ],
+      "electric_range_km": 131,
+      "price_list": 32990000,
+      "price_bonus": 7200000,
+      "price_source": "https://www.changan.cl/vehiculo/new-hunter-reev/",
+      "price_checked_at": "2026-11-11"
     },
     {
       "id": 86,
@@ -499,7 +520,7 @@
       "type": "hatchback",
       "fuel": "electrico",
       "seats": 5,
-      "price": 13990000,
+      "price": 11790000,
       "transmission": "automatica",
       "traction": "4x2",
       "image_url": "",
@@ -530,17 +551,19 @@
       "versions": [
         {
           "version": "EV",
-          "price": 13990000,
+          "price": 11790000,
           "transmission": "automatica",
-          "traction": "4x2"
-        },
-        {
-          "version": "EV Comfort",
-          "price": 15990000,
-          "transmission": "automatica",
-          "traction": "4x2"
+          "traction": "4x2",
+          "price_list": 13990000,
+          "price_bonus": 2200000
         }
-      ]
+      ],
+      "battery_kwh": 28,
+      "electric_range_km": 301,
+      "price_list": 13990000,
+      "price_bonus": 2200000,
+      "price_source": "https://www.changan.cl/vehiculo/lumin/",
+      "price_checked_at": "2026-11-11"
     },
     {
       "id": 87,

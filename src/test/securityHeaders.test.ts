@@ -57,6 +57,7 @@ describe('cabeceras y archivos de seguridad', () => {
     const robots = readPublicFile('robots.txt');
     expect(robots).toContain('Disallow: /mis-anuncios');
     expect(robots).toContain('Disallow: /moderacion');
+    expect(robots).toContain('Disallow: /tus-datos');
     expect(robots).toMatch(/^Sitemap: https:/m);
   });
 });

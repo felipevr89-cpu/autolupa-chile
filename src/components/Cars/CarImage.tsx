@@ -71,17 +71,19 @@ export function CarImage({
     <div
       className={`relative overflow-hidden bg-gradient-to-br ${gradient} ${className}`}
     >
-      {!imageUrl || failed ? (
+      {(!imageUrl || failed || !loaded) && (
         <div className="absolute inset-0 flex flex-col items-center justify-center text-white/90 select-none">
           <CarSilhouette type={type} className="w-2/5 max-w-[140px] opacity-90 drop-shadow" />
         </div>
-      ) : null}
+      )}
 
       {imageUrl && !failed && (
         <img
           src={imageUrl}
           alt={`${brand} ${model}`}
           loading={eager ? 'eager' : 'lazy'}
+          {...(eager ? { fetchpriority: 'high' } : {})}
+          decoding="async"
           onLoad={() => setLoaded(true)}
           onError={() => setFailed(true)}
           className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${

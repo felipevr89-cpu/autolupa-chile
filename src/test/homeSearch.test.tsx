@@ -4,6 +4,7 @@ import { MemoryRouter, Route, Routes, useLocation } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
 import { Home } from '../pages/Home';
 import type { Filters } from '../types';
+import { defaultYearRange } from '../hooks/useCars';
 
 const noop = () => {};
 const setSearchQuery = vi.fn();
@@ -19,7 +20,7 @@ const filters: Filters = {
   minAirbags: 0,
   origin_country: [],
   model: [],
-  yearRange: [2020, 2026],
+  yearRange: defaultYearRange,
 };
 
 function LocationProbe() {
@@ -27,36 +28,50 @@ function LocationProbe() {
   return <p>ruta={location.pathname}{location.search}</p>;
 }
 
+function HomeMock() {
+  return (
+    <Home
+      cars={[]}
+      allCarsCount={625}
+      totalPages={1}
+      currentPage={1}
+      setCurrentPage={noop}
+      filters={filters}
+      updateFilter={noop}
+      resetFilters={noop}
+      searchQuery=""
+      setSearchQuery={setSearchQuery}
+      sortBy="brand"
+      setSortBy={noop}
+      favorites={[]}
+      compareList={[]}
+      onToggleFavorite={noop}
+      onAddToCompare={noop}
+      onRemoveFromCompare={noop}
+    />
+  );
+}
+
 function renderHome() {
   return render(
     <HelmetProvider>
       <MemoryRouter initialEntries={['/']}>
         <Routes>
-          <Route
-            path="/"
-            element={
-              <Home
-                cars={[]}
-                allCarsCount={625}
-                totalPages={1}
-                currentPage={1}
-                setCurrentPage={noop}
-                filters={filters}
-                updateFilter={noop}
-                resetFilters={noop}
-                searchQuery=""
-                setSearchQuery={setSearchQuery}
-                sortBy="brand"
-                setSortBy={noop}
-                favorites={[]}
-                compareList={[]}
-                onToggleFavorite={noop}
-                onAddToCompare={noop}
-                onRemoveFromCompare={noop}
-              />
-            }
-          />
+          <Route path="/" element={<HomeMock />} />
           <Route path="/usados" element={<LocationProbe />} />
+          <Route path="/autos" element={<LocationProbe />} />
+        </Routes>
+      </MemoryRouter>
+    </HelmetProvider>,
+  );
+}
+
+function renderHomeAtAutos() {
+  return render(
+    <HelmetProvider>
+      <MemoryRouter initialEntries={['/autos']}>
+        <Routes>
+          <Route path="/autos" element={<HomeMock />} />
         </Routes>
       </MemoryRouter>
     </HelmetProvider>,
@@ -80,7 +95,33 @@ describe('buscador dual de la portada', () => {
     fireEvent.click(screen.getByRole('tab', { name: /autos usados/i }));
     fireEvent.change(screen.getByLabelText(/buscar autos usados/i), { target: { value: 'Corolla 2019' } });
     fireEvent.click(screen.getByRole('button', { name: /^buscar$/i }));
-    expect(screen.getByText('ruta=/usados?q=Corolla%202019')).toBeInTheDocument();
+    expect(screen.getByText('ruta=/usados?q=Corolla+2019')).toBeInTheDocument();
+  });
+
+  it('muestra Región solo en la pestaña de usados', () => {
+    renderHome();
+    expect(screen.queryByLabelText(/región/i)).not.toBeInTheDocument();
+
+    fireEvent.click(screen.getByRole('tab', { name: /autos usados/i }));
+    expect(screen.getByLabelText(/región/i)).toBeInTheDocument();
+  });
+
+  it('envía Región al buscar usados', () => {
+    renderHome();
+    fireEvent.click(screen.getByRole('tab', { name: /autos usados/i }));
+    fireEvent.change(screen.getByLabelText(/buscar autos usados/i), { target: { value: 'Corolla' } });
+    fireEvent.change(screen.getByLabelText(/región/i), { target: { value: 'Coquimbo' } });
+    fireEvent.click(screen.getByRole('button', { name: /^buscar$/i }));
+    expect(screen.getByText('ruta=/usados?q=Corolla&region=Coquimbo')).toBeInTheDocument();
+  });
+
+  it('no envía Región al buscar autos nuevos', () => {
+    renderHome();
+    fireEvent.click(screen.getByRole('tab', { name: /autos usados/i }));
+    fireEvent.change(screen.getByLabelText(/región/i), { target: { value: 'Coquimbo' } });
+    fireEvent.click(screen.getByRole('tab', { name: /autos nuevos/i }));
+    fireEvent.click(screen.getByRole('button', { name: /^buscar$/i }));
+    expect(screen.getByText('ruta=/autos')).toBeInTheDocument();
   });
 
   it('muestra 6 destacados antes de abrir el catálogo completo', () => {
@@ -104,6 +145,12 @@ describe('buscador dual de la portada', () => {
     expect(screen.getByText(/fichas de catálogo/i)).toBeInTheDocument();
 
     fireEvent.click(screen.getByRole('button', { name: /^buscar$/i }));
-    expect(screen.getByRole('heading', { name: /explorar todo el catálogo/i })).toBeInTheDocument();
+    expect(screen.getByText('ruta=/autos')).toBeInTheDocument();
+  });
+
+  it('en /autos abre el catálogo completo', () => {
+    renderHomeAtAutos();
+    expect(screen.getByRole('heading', { name: /catálogo de autos nuevos/i })).toBeInTheDocument();
+    expect(screen.getByLabelText(/buscar autos nuevos/i)).toBeInTheDocument();
   });
 });

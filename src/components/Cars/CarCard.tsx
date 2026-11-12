@@ -1,3 +1,4 @@
+import { brandSlug } from '../../lib/brandSlug';
 import { memo } from 'react';
 import { Link } from 'react-router-dom';
 import { Car } from '../../types';
@@ -94,7 +95,7 @@ export const CarCard = memo(function CarCard({
         <div className="flex items-start justify-between mb-3">
           <div>
             <p className="text-xs text-gray-500 dark:text-gray-400 font-medium uppercase tracking-wide flex items-center gap-1.5">
-              <a href={`/marca/${car.brand.toLowerCase().replace(/\s+/g, '-')}`} onClick={(e) => e.stopPropagation()} className="hover:text-blue-600 dark:hover:text-blue-400 hover:underline">{car.brand}</a>
+              <a href={`/marcas/${brandSlug(car.brand)}`} onClick={(e) => e.stopPropagation()} className="hover:text-blue-600 dark:hover:text-blue-400 hover:underline">{car.brand}</a>
               {!isBrandSoldNewInChile(car.brand) && (
                 <span
                   title="No se vende oficialmente como auto nuevo en Chile"

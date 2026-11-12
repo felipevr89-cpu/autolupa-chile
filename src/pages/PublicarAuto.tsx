@@ -8,6 +8,8 @@ import { checkAntiAbuse, recordPublish } from '../lib/antiAbuse';
 import { createUsedListing } from '../lib/usedListings';
 import { supabase } from '../lib/supabase';
 import { track } from '../lib/analytics';
+import { useBackendStatus } from '../lib/backendStatus';
+import { ServiceNotice } from '../components/Used/ServiceNotice';
 import {
   MAX_LISTING_PHOTOS,
   USED_FUEL_OPTIONS,
@@ -64,6 +66,7 @@ function loadPersistedDraft(): { draft?: PersistedDraft; step?: number } {
 }
 
 export function PublicarAuto({ user, isCloudAuthAvailable, onSignIn, onSignInAnonymous }: Props) {
+  const backendStatus = useBackendStatus();
   const persistedRef = useRef<{ draft?: PersistedDraft; step?: number } | null>(null);
   if (persistedRef.current === null) persistedRef.current = loadPersistedDraft();
   const persisted = persistedRef.current;
@@ -387,6 +390,16 @@ export function PublicarAuto({ user, isCloudAuthAvailable, onSignIn, onSignInAno
       setSubmitting(false);
     }
   };
+
+  if (isCloudAuthAvailable && backendStatus === 'down') {
+    return (
+      <div className="max-w-2xl mx-auto px-4 py-16">
+        <SEO title="Publicar Auto Usado Gratis" description="Publica tu auto usado gratis en AutoLupa." />
+        <h1 className="sr-only">Publicar auto usado</h1>
+        <ServiceNotice context="publish" />
+      </div>
+    );
+  }
 
   if (!isCloudAuthAvailable) {
     return (

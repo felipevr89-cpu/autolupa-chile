@@ -10,6 +10,7 @@ import { SEO } from './components/SEO';
 import { SignatureModal } from './components/Documents/SignatureModal';
 import { Home } from './pages/Home';
 import { CarGridSkeleton } from './components/Cars/CarSkeleton';
+import { LEGAL_DOC_TYPES } from './lib/legalDocTypes';
 
 const Compare = lazy(() => import('./pages/Compare').then(m => ({ default: m.Compare })));
 const Favorites = lazy(() => import('./pages/Favorites').then(m => ({ default: m.Favorites })));
@@ -32,6 +33,10 @@ const Reclamos = lazy(() => import('./pages/Reclamos').then(m => ({ default: m.R
 const Faq = lazy(() => import('./pages/Faq').then(m => ({ default: m.Faq })));
 const Analytics = lazy(() => import('./pages/Analytics').then(m => ({ default: m.Analytics })));
 const TasarAuto = lazy(() => import('./pages/TasarAuto').then(m => ({ default: m.TasarAuto })));
+const AboutPage = lazy(() => import('./pages/CompanyPages').then(m => ({ default: m.AboutPage })));
+const ContactPage = lazy(() => import('./pages/CompanyPages').then(m => ({ default: m.ContactPage })));
+const HowItWorksPage = lazy(() => import('./pages/CompanyPages').then(m => ({ default: m.HowItWorksPage })));
+const SafePurchasePage = lazy(() => import('./pages/CompanyPages').then(m => ({ default: m.SafePurchasePage })));
 
 function PageSkeleton() {
   return (
@@ -93,6 +98,33 @@ function AppContent() {
     );
   }
 
+  const homeElement = (title: string, description: string) => (
+    <>
+      <SEO title={title} description={description} />
+      <Home
+        cars={cars}
+        allCarsCount={allCarsCount}
+        totalPages={totalPages}
+        currentPage={currentPage}
+        setCurrentPage={setCurrentPage}
+        filters={filters}
+        updateFilter={updateFilter}
+        resetFilters={resetFilters}
+        searchQuery={searchQuery}
+        setSearchQuery={setSearchQuery}
+        sortBy={sortBy}
+        setSortBy={setSortBy}
+        favorites={favorites}
+        compareList={compareList}
+        onToggleFavorite={toggleFavorite}
+        onAddToCompare={addToCompare}
+        onRemoveFromCompare={removeFromCompare}
+        recentCars={recentCars}
+        onAddRecent={addRecent}
+      />
+    </>
+  );
+
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
       <a href="#main" className="skip-link">Saltar al contenido</a>
@@ -117,35 +149,17 @@ function AppContent() {
       <Routes>
         <Route
           path="/"
-          element={
-            <>
-              <SEO
-                title="Autos Usados y Nuevos en Chile | Publica Gratis"
-                description="Publica tu auto gratis y vende sin comisión. Compara precios, kilometraje y especificaciones de autos usados y nuevos en Chile."
-              />
-              <Home
-              cars={cars}
-              allCarsCount={allCarsCount}
-              totalPages={totalPages}
-              currentPage={currentPage}
-              setCurrentPage={setCurrentPage}
-              filters={filters}
-              updateFilter={updateFilter}
-              resetFilters={resetFilters}
-              searchQuery={searchQuery}
-              setSearchQuery={setSearchQuery}
-              sortBy={sortBy}
-              setSortBy={setSortBy}
-              favorites={favorites}
-              compareList={compareList}
-              onToggleFavorite={toggleFavorite}
-              onAddToCompare={addToCompare}
-              onRemoveFromCompare={removeFromCompare}
-              recentCars={recentCars}
-              onAddRecent={addRecent}
-            />
-            </>
-          }
+          element={homeElement(
+            'Autos Usados y Nuevos en Chile | Publica Gratis',
+            'Publica tu auto gratis y vende sin comisión. Compara precios, kilometraje y especificaciones de autos usados y nuevos en Chile.',
+          )}
+        />
+        <Route
+          path="/autos"
+          element={homeElement(
+            'Catálogo de autos nuevos en Chile',
+            'Explora el catálogo completo de autos nuevos en Chile: filtra por marca, precio, año, tipo y región.',
+          )}
         />
         <Route
           path="/auto/:carSlug"
@@ -205,11 +219,46 @@ function AppContent() {
             </Suspense>
           }
         />
+        {LEGAL_DOC_TYPES.map((docType) => (
+          <Route
+            key={docType}
+            path={`/${docType}`}
+            element={
+              <Suspense fallback={<PageSkeleton />}>
+                <LegalDocs docType={docType} />
+              </Suspense>
+            }
+          />
+        ))}
         <Route
-          path="/:docType(privacidad|responsabilidad|terminos)"
+          path="/quienes-somos"
           element={
             <Suspense fallback={<PageSkeleton />}>
-              <LegalDocs />
+              <AboutPage />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/contacto"
+          element={
+            <Suspense fallback={<PageSkeleton />}>
+              <ContactPage />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/como-funciona"
+          element={
+            <Suspense fallback={<PageSkeleton />}>
+              <HowItWorksPage />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/compra-segura"
+          element={
+            <Suspense fallback={<PageSkeleton />}>
+              <SafePurchasePage />
             </Suspense>
           }
         />
@@ -239,6 +288,14 @@ function AppContent() {
         />
         <Route
           path="/marca/:brandSlug"
+          element={
+            <Suspense fallback={<PageSkeleton />}>
+              <BrandPage />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/marcas/:brandSlug"
           element={
             <Suspense fallback={<PageSkeleton />}>
               <BrandPage />
@@ -337,7 +394,7 @@ function AppContent() {
           path="*"
           element={
             <Suspense fallback={<PageSkeleton />}>
-              <SEO title="Página no encontrada" description="La página que buscas no existe." />
+              <SEO title="Página no encontrada" description="La página que buscas no existe." noIndex />
               <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 text-center">
                 <p className="text-7xl mb-4">🚗</p>
                 <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">Página no encontrada</h1>

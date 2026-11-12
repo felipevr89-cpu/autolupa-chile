@@ -1060,9 +1060,9 @@
   },
   "188": {
     "file": "/car-images/188.jpg",
-    "attribution": "SAIC GM sucks",
+    "attribution": "LuvsMG481",
     "license": "CC BY-SA 4.0",
-    "source": "https://commons.wikimedia.org/wiki/File:Ford_Territory_EV_003.jpg"
+    "source": "https://commons.wikimedia.org/wiki/File:2023_Ford_Territory_KIMLIN88_front.jpg"
   },
   "190": {
     "file": "/car-images/190.jpg",
@@ -3101,12 +3101,7 @@
     "license": "CC BY-SA 3.0 de",
     "source": "https://commons.wikimedia.org/wiki/File:Subaru_Crosstrek_2.0ie_Active_(III)_%E2%80%93_f_31052025.jpg"
   },
-  "537": {
-    "file": "/car-images/537.jpg",
-    "attribution": "Alexander Migl",
-    "license": "CC BY-SA 4.0",
-    "source": "https://commons.wikimedia.org/wiki/File:Subaru%20XV%20e-Boxer%20Genf%202019%201Y7A5392.jpg"
-  },
+  "537": null,
   "538": {
     "file": "/car-images/538.jpg",
     "attribution": "Mr.choppers",
@@ -3813,6 +3808,9 @@
     "file": null
   },
   "677": {
+    "file": null
+  },
+  "698": {
     "file": null
   }
 }

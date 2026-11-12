@@ -148,6 +148,33 @@ describe('buscador dual de la portada', () => {
     expect(screen.getByText('ruta=/autos')).toBeInTheDocument();
   });
 
+  it('filtra por tipo, combustible y presupuesto desde la portada', () => {
+    renderHome();
+    fireEvent.change(screen.getByLabelText(/tipo de vehículo/i), { target: { value: 'suv' } });
+    fireEvent.change(screen.getByLabelText(/combustible/i), { target: { value: 'hibrido' } });
+    fireEvent.change(screen.getByLabelText(/presupuesto máximo/i), { target: { value: '30000000' } });
+    expect(screen.getByText(/coinciden? con tus filtros/i)).toBeInTheDocument();
+    fireEvent.click(screen.getByRole('button', { name: /^buscar$/i }));
+    expect(screen.getByText('ruta=/autos?tipo=suv&combustible=hibrido&precio_min=0&precio_max=30000000')).toBeInTheDocument();
+  });
+
+  it('ofrece accesos rápidos por categoría y el enlace a todos los filtros', () => {
+    renderHome();
+    const quick = screen.getByRole('navigation', { name: /búsquedas rápidas/i });
+    expect(quick.querySelector('a[href="/autos?tipo=suv"]')).toBeTruthy();
+    expect(quick.querySelector('a[href="/autos?combustible=electrico"]')).toBeTruthy();
+    expect(screen.getByRole('link', { name: /todos los filtros/i })).toHaveAttribute('href', '/autos');
+  });
+
+  it('muestra el buscador antes que los autos destacados', () => {
+    renderHome();
+    const search = screen.getByLabelText(/buscar autos nuevos/i);
+    const featured = screen.getByRole('heading', { name: /autos destacados/i });
+    expect(search.compareDocumentPosition(featured) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
+    const brandsHeading = screen.getByRole('heading', { name: /explora por marca/i });
+    expect(featured.compareDocumentPosition(brandsHeading) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
+  });
+
   it('en /autos abre el catálogo completo', () => {
     renderHomeAtAutos();
     expect(screen.getByRole('heading', { name: /catálogo de autos nuevos/i })).toBeInTheDocument();

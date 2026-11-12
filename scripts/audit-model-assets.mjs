@@ -43,8 +43,9 @@ for (const car of models) {
     genericName.push({ car, file: entry.file });
   }
   const mtimeYear = new Date(statSync(diskPath).mtime).getFullYear();
-  if (car.year > currentYear && mtimeYear < car.year) {
-    yearMismatch.push({ car, file: entry.file, mtimeYear });
+  const photoFloor = Number(car.year_start) || car.year;
+  if ((car.year > currentYear && mtimeYear < car.year) || mtimeYear < photoFloor) {
+    yearMismatch.push({ car, file: entry.file, mtimeYear, photoFloor });
   }
 }
 
@@ -89,7 +90,7 @@ const lines = [
   '',
   '## Posible desfase año/foto',
   '',
-  ...(yearMismatch.length ? yearMismatch.map(item => `- ${item.car.id} · ${item.car.brand} ${item.car.model} (${item.car.year}) foto de ${item.mtimeYear}: \`${item.file}\``) : ['- Ninguno']),
+  ...(yearMismatch.length ? yearMismatch.map(item => `- ${item.car.id} · ${item.car.brand} ${item.car.model} (${item.car.year}, desde ${item.photoFloor}) foto de ${item.mtimeYear}: \`${item.file}\``) : ['- Ninguno']),
   '',
   '## Archivos huérfanos',
   '',

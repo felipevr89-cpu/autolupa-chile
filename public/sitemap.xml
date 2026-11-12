@@ -6,6 +6,11 @@
     <priority>1.0</priority>
   </url>
   <url>
+    <loc>https://autolupa.pages.dev/autos</loc>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
     <loc>https://autolupa.pages.dev/usados</loc>
     <changefreq>hourly</changefreq>
     <priority>1.0</priority>
@@ -13,11 +18,6 @@
   <url>
     <loc>https://autolupa.pages.dev/publicar-auto</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://autolupa.pages.dev/compare</loc>
-    <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
@@ -91,497 +91,492 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://autolupa.pages.dev/tus-datos</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.3</priority>
-  </url>
-  <url>
-    <loc>https://autolupa.pages.dev/marca/abarth</loc>
+    <loc>https://autolupa.pages.dev/marcas/abarth</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://autolupa.pages.dev/marca/acura</loc>
+    <loc>https://autolupa.pages.dev/marcas/acura</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://autolupa.pages.dev/marca/alfa-romeo</loc>
+    <loc>https://autolupa.pages.dev/marcas/alfa-romeo</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://autolupa.pages.dev/marca/aston-martin</loc>
+    <loc>https://autolupa.pages.dev/marcas/aston-martin</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://autolupa.pages.dev/marca/audi</loc>
+    <loc>https://autolupa.pages.dev/marcas/audi</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://autolupa.pages.dev/marca/avatr</loc>
+    <loc>https://autolupa.pages.dev/marcas/avatr</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://autolupa.pages.dev/marca/baic</loc>
+    <loc>https://autolupa.pages.dev/marcas/baic</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://autolupa.pages.dev/marca/bentley</loc>
+    <loc>https://autolupa.pages.dev/marcas/bentley</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://autolupa.pages.dev/marca/bestune</loc>
+    <loc>https://autolupa.pages.dev/marcas/bestune</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://autolupa.pages.dev/marca/bmw</loc>
+    <loc>https://autolupa.pages.dev/marcas/bmw</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://autolupa.pages.dev/marca/buick</loc>
+    <loc>https://autolupa.pages.dev/marcas/buick</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://autolupa.pages.dev/marca/byd</loc>
+    <loc>https://autolupa.pages.dev/marcas/byd</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://autolupa.pages.dev/marca/cadillac</loc>
+    <loc>https://autolupa.pages.dev/marcas/cadillac</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://autolupa.pages.dev/marca/changan</loc>
+    <loc>https://autolupa.pages.dev/marcas/changan</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://autolupa.pages.dev/marca/chery</loc>
+    <loc>https://autolupa.pages.dev/marcas/chery</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://autolupa.pages.dev/marca/chevrolet</loc>
+    <loc>https://autolupa.pages.dev/marcas/chevrolet</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://autolupa.pages.dev/marca/chrysler</loc>
+    <loc>https://autolupa.pages.dev/marcas/chrysler</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://autolupa.pages.dev/marca/citroën</loc>
+    <loc>https://autolupa.pages.dev/marcas/citroen</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://autolupa.pages.dev/marca/cupra</loc>
+    <loc>https://autolupa.pages.dev/marcas/cupra</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://autolupa.pages.dev/marca/deepal</loc>
+    <loc>https://autolupa.pages.dev/marcas/deepal</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://autolupa.pages.dev/marca/dfsk</loc>
+    <loc>https://autolupa.pages.dev/marcas/dfsk</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://autolupa.pages.dev/marca/dodge</loc>
+    <loc>https://autolupa.pages.dev/marcas/dodge</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://autolupa.pages.dev/marca/dongfeng</loc>
+    <loc>https://autolupa.pages.dev/marcas/dongfeng</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://autolupa.pages.dev/marca/ds</loc>
+    <loc>https://autolupa.pages.dev/marcas/ds</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://autolupa.pages.dev/marca/exeed</loc>
+    <loc>https://autolupa.pages.dev/marcas/exeed</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://autolupa.pages.dev/marca/farizon</loc>
+    <loc>https://autolupa.pages.dev/marcas/farizon</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://autolupa.pages.dev/marca/ferrari</loc>
+    <loc>https://autolupa.pages.dev/marcas/ferrari</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://autolupa.pages.dev/marca/fiat</loc>
+    <loc>https://autolupa.pages.dev/marcas/fiat</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://autolupa.pages.dev/marca/ford</loc>
+    <loc>https://autolupa.pages.dev/marcas/ford</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://autolupa.pages.dev/marca/foton</loc>
+    <loc>https://autolupa.pages.dev/marcas/foton</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://autolupa.pages.dev/marca/gac</loc>
+    <loc>https://autolupa.pages.dev/marcas/gac</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://autolupa.pages.dev/marca/geely</loc>
+    <loc>https://autolupa.pages.dev/marcas/geely</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://autolupa.pages.dev/marca/gmc</loc>
+    <loc>https://autolupa.pages.dev/marcas/gmc</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://autolupa.pages.dev/marca/gwm</loc>
+    <loc>https://autolupa.pages.dev/marcas/gwm</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://autolupa.pages.dev/marca/honda</loc>
+    <loc>https://autolupa.pages.dev/marcas/honda</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://autolupa.pages.dev/marca/hongqi</loc>
+    <loc>https://autolupa.pages.dev/marcas/hongqi</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://autolupa.pages.dev/marca/hyundai</loc>
+    <loc>https://autolupa.pages.dev/marcas/hyundai</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://autolupa.pages.dev/marca/ineos</loc>
+    <loc>https://autolupa.pages.dev/marcas/ineos</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://autolupa.pages.dev/marca/infiniti</loc>
+    <loc>https://autolupa.pages.dev/marcas/infiniti</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://autolupa.pages.dev/marca/isuzu</loc>
+    <loc>https://autolupa.pages.dev/marcas/isuzu</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://autolupa.pages.dev/marca/jac</loc>
+    <loc>https://autolupa.pages.dev/marcas/jac</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://autolupa.pages.dev/marca/jaecoo</loc>
+    <loc>https://autolupa.pages.dev/marcas/jaecoo</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://autolupa.pages.dev/marca/jaguar</loc>
+    <loc>https://autolupa.pages.dev/marcas/jaguar</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://autolupa.pages.dev/marca/jeep</loc>
+    <loc>https://autolupa.pages.dev/marcas/jeep</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://autolupa.pages.dev/marca/jetour</loc>
+    <loc>https://autolupa.pages.dev/marcas/jetour</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://autolupa.pages.dev/marca/jetta</loc>
+    <loc>https://autolupa.pages.dev/marcas/jetta</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://autolupa.pages.dev/marca/jmc</loc>
+    <loc>https://autolupa.pages.dev/marcas/jmc</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://autolupa.pages.dev/marca/kaiyi</loc>
+    <loc>https://autolupa.pages.dev/marcas/kaiyi</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://autolupa.pages.dev/marca/kgm</loc>
+    <loc>https://autolupa.pages.dev/marcas/kgm</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://autolupa.pages.dev/marca/kia</loc>
+    <loc>https://autolupa.pages.dev/marcas/kia</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://autolupa.pages.dev/marca/kyc</loc>
+    <loc>https://autolupa.pages.dev/marcas/kyc</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://autolupa.pages.dev/marca/lamborghini</loc>
+    <loc>https://autolupa.pages.dev/marcas/lamborghini</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://autolupa.pages.dev/marca/land-rover</loc>
+    <loc>https://autolupa.pages.dev/marcas/land-rover</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://autolupa.pages.dev/marca/leapmotor</loc>
+    <loc>https://autolupa.pages.dev/marcas/leapmotor</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://autolupa.pages.dev/marca/lexus</loc>
+    <loc>https://autolupa.pages.dev/marcas/lexus</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://autolupa.pages.dev/marca/lincoln</loc>
+    <loc>https://autolupa.pages.dev/marcas/lincoln</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://autolupa.pages.dev/marca/livan</loc>
+    <loc>https://autolupa.pages.dev/marcas/livan</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://autolupa.pages.dev/marca/lotus</loc>
+    <loc>https://autolupa.pages.dev/marcas/lotus</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://autolupa.pages.dev/marca/lynk-&amp;-co</loc>
+    <loc>https://autolupa.pages.dev/marcas/lynk-y-co</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://autolupa.pages.dev/marca/mahindra</loc>
+    <loc>https://autolupa.pages.dev/marcas/mahindra</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://autolupa.pages.dev/marca/maserati</loc>
+    <loc>https://autolupa.pages.dev/marcas/maserati</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://autolupa.pages.dev/marca/maxus</loc>
+    <loc>https://autolupa.pages.dev/marcas/maxus</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://autolupa.pages.dev/marca/mazda</loc>
+    <loc>https://autolupa.pages.dev/marcas/mazda</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://autolupa.pages.dev/marca/mclaren</loc>
+    <loc>https://autolupa.pages.dev/marcas/mclaren</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://autolupa.pages.dev/marca/mercedes-benz</loc>
+    <loc>https://autolupa.pages.dev/marcas/mercedes-benz</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://autolupa.pages.dev/marca/mg</loc>
+    <loc>https://autolupa.pages.dev/marcas/mg</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://autolupa.pages.dev/marca/mini</loc>
+    <loc>https://autolupa.pages.dev/marcas/mini</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://autolupa.pages.dev/marca/mitsubishi</loc>
+    <loc>https://autolupa.pages.dev/marcas/mitsubishi</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://autolupa.pages.dev/marca/neta</loc>
+    <loc>https://autolupa.pages.dev/marcas/neta</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://autolupa.pages.dev/marca/nissan</loc>
+    <loc>https://autolupa.pages.dev/marcas/nissan</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://autolupa.pages.dev/marca/omoda</loc>
+    <loc>https://autolupa.pages.dev/marcas/omoda</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://autolupa.pages.dev/marca/opel</loc>
+    <loc>https://autolupa.pages.dev/marcas/opel</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://autolupa.pages.dev/marca/ora</loc>
+    <loc>https://autolupa.pages.dev/marcas/ora</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://autolupa.pages.dev/marca/peugeot</loc>
+    <loc>https://autolupa.pages.dev/marcas/peugeot</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://autolupa.pages.dev/marca/polestar</loc>
+    <loc>https://autolupa.pages.dev/marcas/polestar</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://autolupa.pages.dev/marca/porsche</loc>
+    <loc>https://autolupa.pages.dev/marcas/porsche</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://autolupa.pages.dev/marca/ram</loc>
+    <loc>https://autolupa.pages.dev/marcas/ram</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://autolupa.pages.dev/marca/renault</loc>
+    <loc>https://autolupa.pages.dev/marcas/renault</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://autolupa.pages.dev/marca/riddara</loc>
+    <loc>https://autolupa.pages.dev/marcas/riddara</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://autolupa.pages.dev/marca/rolls-royce</loc>
+    <loc>https://autolupa.pages.dev/marcas/rolls-royce</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://autolupa.pages.dev/marca/seat</loc>
+    <loc>https://autolupa.pages.dev/marcas/seat</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://autolupa.pages.dev/marca/seres</loc>
+    <loc>https://autolupa.pages.dev/marcas/seres</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://autolupa.pages.dev/marca/shineray</loc>
+    <loc>https://autolupa.pages.dev/marcas/shineray</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://autolupa.pages.dev/marca/škoda</loc>
+    <loc>https://autolupa.pages.dev/marcas/skoda</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://autolupa.pages.dev/marca/smart</loc>
+    <loc>https://autolupa.pages.dev/marcas/smart</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://autolupa.pages.dev/marca/soueast</loc>
+    <loc>https://autolupa.pages.dev/marcas/soueast</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://autolupa.pages.dev/marca/subaru</loc>
+    <loc>https://autolupa.pages.dev/marcas/subaru</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://autolupa.pages.dev/marca/suzuki</loc>
+    <loc>https://autolupa.pages.dev/marcas/suzuki</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://autolupa.pages.dev/marca/swm</loc>
+    <loc>https://autolupa.pages.dev/marcas/swm</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://autolupa.pages.dev/marca/tesla</loc>
+    <loc>https://autolupa.pages.dev/marcas/tesla</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://autolupa.pages.dev/marca/toyota</loc>
+    <loc>https://autolupa.pages.dev/marcas/toyota</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://autolupa.pages.dev/marca/volkswagen</loc>
+    <loc>https://autolupa.pages.dev/marcas/volkswagen</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://autolupa.pages.dev/marca/volvo</loc>
+    <loc>https://autolupa.pages.dev/marcas/volvo</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://autolupa.pages.dev/marca/wey</loc>
+    <loc>https://autolupa.pages.dev/marcas/wey</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://autolupa.pages.dev/marca/wuling</loc>
+    <loc>https://autolupa.pages.dev/marcas/wuling</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://autolupa.pages.dev/marca/zeekr</loc>
+    <loc>https://autolupa.pages.dev/marcas/zeekr</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://autolupa.pages.dev/marca/zna</loc>
+    <loc>https://autolupa.pages.dev/marcas/zna</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://autolupa.pages.dev/marca/zx-auto</loc>
+    <loc>https://autolupa.pages.dev/marcas/zx-auto</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -1006,7 +1001,7 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://autolupa.pages.dev/auto/85-changan-hunter-reev-2025</loc>
+    <loc>https://autolupa.pages.dev/auto/85-changan-hunter-reev-2026</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -1107,6 +1102,11 @@
   </url>
   <url>
     <loc>https://autolupa.pages.dev/auto/697-chery-tiggo-8-2026</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://autolupa.pages.dev/auto/698-chery-tiggo-8-pro-2026</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -1321,12 +1321,17 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://autolupa.pages.dev/auto/141-deepal-s05-2025</loc>
+    <loc>https://autolupa.pages.dev/auto/141-deepal-s05-reev-2026</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://autolupa.pages.dev/auto/142-deepal-s07-2025</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://autolupa.pages.dev/auto/710-deepal-s05-ev-2026</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -1672,6 +1677,11 @@
   </url>
   <url>
     <loc>https://autolupa.pages.dev/auto/207-geely-starray-2026</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://autolupa.pages.dev/auto/712-geely-ex5-2026</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -2051,22 +2061,27 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://autolupa.pages.dev/auto/271-jaecoo-j5-2025</loc>
+    <loc>https://autolupa.pages.dev/auto/271-jaecoo-j5-2026</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://autolupa.pages.dev/auto/272-jaecoo-j7-2025</loc>
+    <loc>https://autolupa.pages.dev/auto/272-jaecoo-j7-2026</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://autolupa.pages.dev/auto/273-jaecoo-j7-shs-2025</loc>
+    <loc>https://autolupa.pages.dev/auto/273-jaecoo-j7-shs-2026</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://autolupa.pages.dev/auto/274-jaecoo-j8-2025</loc>
+    <loc>https://autolupa.pages.dev/auto/274-jaecoo-j8-2026</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://autolupa.pages.dev/auto/711-jaecoo-j6-2026</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -3096,22 +3111,22 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://autolupa.pages.dev/auto/466-omoda-c5-2025</loc>
+    <loc>https://autolupa.pages.dev/auto/466-omoda-c5-2026</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://autolupa.pages.dev/auto/467-omoda-c5-shs-2025</loc>
+    <loc>https://autolupa.pages.dev/auto/467-omoda-c5-shs-2026</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://autolupa.pages.dev/auto/468-omoda-c7-2025</loc>
+    <loc>https://autolupa.pages.dev/auto/468-omoda-c7-2026</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://autolupa.pages.dev/auto/469-omoda-e5-2025</loc>
+    <loc>https://autolupa.pages.dev/auto/469-omoda-e5-2026</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -3541,22 +3556,22 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://autolupa.pages.dev/auto/536-subaru-crosstrek-2025</loc>
+    <loc>https://autolupa.pages.dev/auto/536-subaru-crosstrek-2026</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://autolupa.pages.dev/auto/537-subaru-xv-e-boxer-2026</loc>
+    <loc>https://autolupa.pages.dev/auto/537-subaru-crosstrek-hibrido-2026</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://autolupa.pages.dev/auto/538-subaru-forester-2025</loc>
+    <loc>https://autolupa.pages.dev/auto/538-subaru-forester-2026</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://autolupa.pages.dev/auto/539-subaru-impreza-2025</loc>
+    <loc>https://autolupa.pages.dev/auto/539-subaru-impreza-2026</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -3566,7 +3581,7 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://autolupa.pages.dev/auto/541-subaru-outback-2025</loc>
+    <loc>https://autolupa.pages.dev/auto/541-subaru-outback-2026</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -3577,6 +3592,26 @@
   </url>
   <url>
     <loc>https://autolupa.pages.dev/auto/543-subaru-xv-2025</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://autolupa.pages.dev/auto/699-subaru-forester-hibrido-2026</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://autolupa.pages.dev/auto/700-subaru-wrx-2026</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://autolupa.pages.dev/auto/701-subaru-evoltis-2026</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://autolupa.pages.dev/auto/702-subaru-trailseeker-2026</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -3806,12 +3841,12 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://autolupa.pages.dev/auto/587-volkswagen-amarok-2025</loc>
+    <loc>https://autolupa.pages.dev/auto/587-volkswagen-amarok-2026</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://autolupa.pages.dev/auto/589-volkswagen-id-4-2025</loc>
+    <loc>https://autolupa.pages.dev/auto/589-volkswagen-id-4-2026</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -3826,22 +3861,22 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://autolupa.pages.dev/auto/593-volkswagen-polo-2025</loc>
+    <loc>https://autolupa.pages.dev/auto/593-volkswagen-polo-2026</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://autolupa.pages.dev/auto/595-volkswagen-t-cross-2025</loc>
+    <loc>https://autolupa.pages.dev/auto/595-volkswagen-t-cross-2026</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://autolupa.pages.dev/auto/596-volkswagen-taos-2025</loc>
+    <loc>https://autolupa.pages.dev/auto/596-volkswagen-taos-2026</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://autolupa.pages.dev/auto/597-volkswagen-tiguan-2025</loc>
+    <loc>https://autolupa.pages.dev/auto/597-volkswagen-tiguan-2026</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -3852,6 +3887,41 @@
   </url>
   <url>
     <loc>https://autolupa.pages.dev/auto/599-volkswagen-virtus-2025</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://autolupa.pages.dev/auto/703-volkswagen-polo-track-2026</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://autolupa.pages.dev/auto/704-volkswagen-tera-2026</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://autolupa.pages.dev/auto/705-volkswagen-tiguan-mhev-2026</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://autolupa.pages.dev/auto/706-volkswagen-atlas-2026</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://autolupa.pages.dev/auto/707-volkswagen-jetta-gli-2026</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://autolupa.pages.dev/auto/708-volkswagen-golf-gti-2026</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://autolupa.pages.dev/auto/709-volkswagen-saveiro-2026</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>

@@ -23,9 +23,9 @@ const siteUrl = (process.env.VITE_SITE_URL || 'https://autolupa.pages.dev').repl
 
 const staticRoutes = [
   ['/', 'daily', 1.0],
+  ['/autos', 'daily', 1.0],
   ['/usados', 'hourly', 1.0],
   ['/publicar-auto', 'monthly', 0.8],
-  ['/compare', 'weekly', 0.8],
   ['/estadisticas', 'weekly', 0.7],
   ['/top10', 'weekly', 0.5],
   ['/tasar-auto', 'weekly', 0.9],
@@ -40,7 +40,6 @@ const staticRoutes = [
   ['/contacto', 'monthly', 0.5],
   ['/como-funciona', 'monthly', 0.6],
   ['/compra-segura', 'monthly', 0.7],
-  ['/tus-datos', 'monthly', 0.3],
 ];
 
 function brandSlugs() {
@@ -49,7 +48,7 @@ function brandSlugs() {
     .filter((file) => file.endsWith('.json'))
     .map((file) => JSON.parse(readFileSync(join(folder, file), 'utf8')).brand)
     .filter((brand) => typeof brand === 'string' && brand.length > 0)
-    .map((brand) => brand.toLowerCase().replace(/\s+/g, '-'));
+    .map((brand) => slugify(brand));
 }
 
 function slugify(value) {
@@ -119,7 +118,7 @@ function escapeXml(value) {
 
 const routes = [
   ...staticRoutes.map(([path, changefreq, priority]) => ({ loc: `${siteUrl}${path}`, changefreq, priority })),
-  ...brandSlugs().map((slug) => ({ loc: `${siteUrl}/marca/${slug}`, changefreq: 'weekly', priority: 0.7 })),
+  ...brandSlugs().map((slug) => ({ loc: `${siteUrl}/marcas/${slug}`, changefreq: 'weekly', priority: 0.7 })),
   ...carRoutes(),
   ...regionSlugs().map((slug) => ({ loc: `${siteUrl}/autos-usados-en/${slug}`, changefreq: 'daily', priority: 0.8 })),
   ...articleSlugs().map((slug) => ({ loc: `${siteUrl}/blog/${slug}`, changefreq: 'monthly', priority: 0.7 })),

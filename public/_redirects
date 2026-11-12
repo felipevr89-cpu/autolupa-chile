@@ -1,1 +1,2 @@
-/* /index.html 200
+/marca/:slug /marcas/:slug 301
+/usados/* /spa 200

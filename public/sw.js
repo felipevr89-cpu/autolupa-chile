@@ -1,4 +1,4 @@
-const CACHE = 'autolupa-v2';
+const CACHE = 'autolupa-v3';
 const CORE = ['/', '/index.html', '/manifest.json'];
 const CACHEABLE = ['/assets/', '/car-images/'];
 

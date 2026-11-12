@@ -9,7 +9,8 @@
     "audit:catalog": "node scripts/audit-catalog.mjs",
     "audit:assets": "node scripts/audit-model-assets.mjs",
     "audit:tasar": "node scripts/audit-tasar.mjs",
-    "build": "tsc -b && vite build",
+    "audit:coverage": "node scripts/audit-coverage.mjs",
+    "build": "tsc -b && vite build && node scripts/prerender.mjs",
     "test": "vitest run",
     "lint": "eslint .",
     "preview": "vite preview"

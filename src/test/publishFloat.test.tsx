@@ -10,6 +10,8 @@ function renderAt(path: string) {
       <MemoryRouter initialEntries={[path]}>
         <Routes>
           <Route path="/:page" element={<PublishFloat />} />
+          <Route path="/auto/:slug" element={<PublishFloat />} />
+          <Route path="/usados/:slug" element={<PublishFloat />} />
           <Route path="/" element={<PublishFloat />} />
         </Routes>
       </MemoryRouter>
@@ -30,6 +32,16 @@ describe('botón flotante de publicación en móvil', () => {
 
   it('se oculta en la gestión de anuncios', () => {
     renderAt('/mis-anuncios');
+    expect(screen.queryByRole('link', { name: /publicar gratis/i })).not.toBeInTheDocument();
+  });
+
+  it('se oculta en la ficha de un auto', () => {
+    renderAt('/auto/545-suzuki-alto-2026');
+    expect(screen.queryByRole('link', { name: /publicar gratis/i })).not.toBeInTheDocument();
+  });
+
+  it('se oculta en el detalle de un aviso', () => {
+    renderAt('/usados/toyota-corolla-2020');
     expect(screen.queryByRole('link', { name: /publicar gratis/i })).not.toBeInTheDocument();
   });
 });

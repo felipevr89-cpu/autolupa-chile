@@ -13,7 +13,7 @@ interface Props {
 export function Compare({ compareList, onRemoveFromCompare, onClearCompare }: Props) {
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-      <SEO title="Comparar Vehículos" description="Compara hasta 3 vehículos lado a lado con todas sus especificaciones." />
+      <SEO title="Comparar Vehículos" description="Compara hasta 3 vehículos lado a lado con todas sus especificaciones." noIndex />
       <div className="flex items-center justify-between mb-8">
         <div>
           <h1 className="text-3xl font-bold text-gray-900 dark:text-gray-100">Comparar Vehículos</h1>

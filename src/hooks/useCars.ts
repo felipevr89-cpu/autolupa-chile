@@ -1,12 +1,11 @@
 import { useState, useMemo, useCallback, useEffect, useRef } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import { carsData } from '../data/brands';
+import { carsData, catalogYears } from '../data/brands';
 import { Car, Filters, User } from '../types';
 import { isSupabaseConfigured, supabase } from '../lib/supabase';
 import { track } from '../lib/analytics';
 
-const currentYear = new Date().getFullYear();
-export const defaultYearRange: [number, number] = [currentYear - 6, currentYear];
+export const defaultYearRange: [number, number] = [catalogYears[0], catalogYears[1]];
 
 const defaultFilters: Filters = {
   brand: [],
@@ -29,8 +28,19 @@ function parseFilters(params: URLSearchParams): Filters {
     const [min, max] = (params.get(key) ?? '').split('-').map(Number);
     return Number.isFinite(min) && Number.isFinite(max) ? [min, max] : null;
   };
-  const priceRange = pair('precio');
-  const yearRange = pair('anio');
+  const numberOr = (value: string | null, fallback: number) => {
+    const parsed = Number(value);
+    return Number.isFinite(parsed) ? parsed : fallback;
+  };
+  const priceRange = params.has('precio_min') || params.has('precio_max')
+    ? [numberOr(params.get('precio_min'), 0), numberOr(params.get('precio_max'), defaultFilters.priceRange[1])] as [number, number]
+    : pair('precio');
+  const yearRaw = params.get('year');
+  const yearRange = yearRaw
+    ? (yearRaw.includes('-')
+      ? pair('year')
+      : [numberOr(yearRaw, defaultYearRange[0]), numberOr(yearRaw, defaultYearRange[1])] as [number, number])
+    : pair('anio');
 
   return {
     ...defaultFilters,
@@ -47,6 +57,22 @@ function parseFilters(params: URLSearchParams): Filters {
     yearRange: yearRange ?? defaultFilters.yearRange,
   };
 }
+
+export function normalizeYearRange([lo, hi]: [number, number]): [number, number] {
+  const [min, max] = catalogYears;
+  const calendarYear = new Date().getFullYear();
+  let from = Math.min(Math.max(lo, min), max);
+  let to = hi >= calendarYear ? max : Math.min(Math.max(hi, min), max);
+  if (from > to) [from, to] = [min, max];
+  return [from, to];
+}
+
+function normalizeFilters(f: Filters): Filters {
+  const merged = { ...defaultFilters, ...f };
+  return { ...merged, yearRange: normalizeYearRange(merged.yearRange ?? defaultYearRange) };
+}
+
+const carsById = new Map(carsData.map(c => [c.id, c]));
 
 function loadFromStorage<T>(key: string, fallback: T): T {
   try {
@@ -83,9 +109,13 @@ export function useCars(user?: User | null) {
   const [searchParams, setSearchParams] = useSearchParams();
   const hasUrlFilters = searchParams.toString().length > 0;
   const [filters, setFilters] = useState<Filters>(() =>
-    hasUrlFilters ? parseFilters(searchParams) : loadFromStorage('autolupa_filters', defaultFilters),
+    normalizeFilters(hasUrlFilters ? parseFilters(searchParams) : loadFromStorage('autolupa_filters', defaultFilters)),
   );
-  const [compareList, setCompareList] = useState<Car[]>(() => loadFromStorage('autolupa_compare', []));
+  const [compareList, setCompareList] = useState<Car[]>(() =>
+    loadFromStorage<Car[]>('autolupa_compare', [])
+      .map(c => carsById.get(c?.id))
+      .filter((c): c is Car => !!c),
+  );
   const [favorites, setFavorites] = useState<number[]>(() => {
     const local = loadFromStorage<number[]>('autolupa_favorites', []);
     return local;
@@ -101,9 +131,12 @@ export function useCars(user?: User | null) {
   const perPage = 15;
   const skipUrlSync = useRef(true);
   const lastParams = useRef(searchParams.toString());
+  const searchParamsRef = useRef(searchParams);
+  searchParamsRef.current = searchParams;
 
   const writeParams = useCallback((nextFilters: Filters, nextSearch: string, nextSort: string, nextPage: number) => {
-    const params = new URLSearchParams();
+    const params = new URLSearchParams(searchParamsRef.current);
+    ['marca', 'modelo', 'tipo', 'combustible', 'asientos', 'transmision', 'traccion', 'origen', 'airbags', 'precio', 'precio_min', 'precio_max', 'anio', 'year', 'q', 'orden', 'pagina'].forEach(key => params.delete(key));
     const setList = (key: string, values: string[]) => {
       if (values.length > 0) params.set(key, values.join(','));
     };
@@ -117,10 +150,13 @@ export function useCars(user?: User | null) {
     setList('origen', nextFilters.origin_country);
     if (nextFilters.minAirbags > 0) params.set('airbags', String(nextFilters.minAirbags));
     if (nextFilters.priceRange[0] !== defaultFilters.priceRange[0] || nextFilters.priceRange[1] !== defaultFilters.priceRange[1]) {
-      params.set('precio', `${nextFilters.priceRange[0]}-${nextFilters.priceRange[1]}`);
+      params.set('precio_min', String(nextFilters.priceRange[0]));
+      params.set('precio_max', String(nextFilters.priceRange[1]));
     }
     if (nextFilters.yearRange[0] !== defaultYearRange[0] || nextFilters.yearRange[1] !== defaultYearRange[1]) {
-      params.set('anio', `${nextFilters.yearRange[0]}-${nextFilters.yearRange[1]}`);
+      params.set('year', nextFilters.yearRange[0] === nextFilters.yearRange[1]
+        ? String(nextFilters.yearRange[0])
+        : `${nextFilters.yearRange[0]}-${nextFilters.yearRange[1]}`);
     }
     if (nextSearch.trim()) params.set('q', nextSearch.trim());
     if (nextSort !== 'price-asc') params.set('orden', nextSort);
@@ -157,7 +193,7 @@ export function useCars(user?: User | null) {
     const next = searchParams.toString();
     if (next === lastParams.current) return;
     lastParams.current = next;
-    setFilters(next ? parseFilters(searchParams) : defaultFilters);
+    setFilters(next ? normalizeFilters(parseFilters(searchParams)) : defaultFilters);
     setSearchQueryState(searchParams.get('q') ?? '');
     setSortByState(searchParams.get('orden') ?? 'price-asc');
     setCurrentPageState(Number(searchParams.get('pagina')) || 1);

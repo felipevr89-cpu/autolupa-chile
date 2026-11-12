@@ -8,6 +8,8 @@ if (localStorage.getItem('darkMode') === 'true') {
   document.documentElement.classList.add('dark');
 }
 
+document.querySelectorAll('[data-prerender]').forEach((node) => node.remove());
+
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <HelmetProvider>

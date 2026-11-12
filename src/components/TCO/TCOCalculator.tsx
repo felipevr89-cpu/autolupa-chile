@@ -22,10 +22,11 @@ export function TCOCalculator({ car }: Props) {
         <h3 className="text-base font-bold text-gray-900 dark:text-white">Costo Total de Propiedad (TCO)</h3>
       </div>
 
-      <div className="grid grid-cols-2 gap-3 mb-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-4">
         <div>
-          <label className="text-xs text-gray-500 dark:text-gray-400 mb-1 block">Plazo crédito</label>
+          <label htmlFor="tco-loan-months" className="text-xs text-gray-500 dark:text-gray-400 mb-1 block">Plazo crédito</label>
           <select
+            id="tco-loan-months"
             value={loanMonths}
             onChange={(e) => setLoanMonths(Number(e.target.value))}
             className="w-full px-3 py-2 bg-white dark:bg-gray-600 border border-gray-200 dark:border-gray-500 rounded-lg text-sm text-gray-800 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-indigo-300"
@@ -38,8 +39,9 @@ export function TCOCalculator({ car }: Props) {
           </select>
         </div>
         <div>
-          <label className="text-xs text-gray-500 dark:text-gray-400 mb-1 block">Km/mes</label>
+          <label htmlFor="tco-km-per-month" className="text-xs text-gray-500 dark:text-gray-400 mb-1 block">Km/mes</label>
           <select
+            id="tco-km-per-month"
             value={kmPerMonth}
             onChange={(e) => setKmPerMonth(Number(e.target.value))}
             className="w-full px-3 py-2 bg-white dark:bg-gray-600 border border-gray-200 dark:border-gray-500 rounded-lg text-sm text-gray-800 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-indigo-300"
@@ -57,11 +59,16 @@ export function TCOCalculator({ car }: Props) {
         <p className="text-xs text-gray-500 dark:text-gray-400 mb-1">Costo mensual total estimado</p>
         <p className="text-3xl font-extrabold text-indigo-600 dark:text-indigo-400">{formatPrice(result.totalMonthly)}</p>
         <p className="text-[11px] text-gray-400 dark:text-gray-500 mt-1">
-          Incluye cuota + SOAP + permiso + seguro + mantención + depreciación +{' '}
-          {car.fuel === 'electrico' || car.fuel === 'hibrido_enchufable' || car.fuel === 'hibrido'
+          Intereses + SOAP + permiso + seguro + mantención + depreciación +{' '}
+          {car.fuel === 'electrico' || car.fuel === 'hibrido_enchufable'
             ? 'carga eléctrica'
             : 'combustible'}
         </p>
+        {result.monthlyLoan > 0 && (
+          <p className="text-xs text-gray-500 dark:text-gray-400 mt-2">
+            Cuota de referencia del crédito: <strong>{formatPrice(result.monthlyLoan)}</strong>/mes por {result.loanMonths} meses (incluye capital, que no es costo).
+          </p>
+        )}
       </div>
 
       <div className="space-y-2 mb-4">
@@ -94,14 +101,14 @@ export function TCOCalculator({ car }: Props) {
           <p className="text-sm font-bold text-gray-900 dark:text-white">{formatPrice(result.total5Years)}</p>
         </div>
         <div className="p-2.5 bg-white dark:bg-gray-600 rounded-lg text-center">
-          <p className="text-[10px] text-gray-500 dark:text-gray-400">CAE ref.</p>
+          <p className="text-[10px] text-gray-500 dark:text-gray-400">Tasa anual ref.</p>
           <p className="text-sm font-bold text-gray-900 dark:text-white">{formatRatePercent(result.loanRate)}</p>
         </div>
       </div>
 
       <p className="text-[10px] text-gray-400 dark:text-gray-500 mt-3 text-center">
         Estimaciones con tasas de mercado Chile 2026 (crédito automotriz 0,7% a 1,5% mensual según banco y perfil;
-        CAE ref. calculado sólo con el interés, sin seguros ni gastos; carga 80% hogar / 20% rápida;
+        Tasa anual de referencia sólo con el interés (no es la CAE legal), sin seguros ni gastos; carga 80% hogar / 20% rápida;
         depreciación según antigüedad). Valores referenciales, no constituyen oferta de crédito.
       </p>
     </div>

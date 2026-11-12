@@ -10,8 +10,8 @@ export function Footer() {
     <footer className="bg-gray-900 dark:bg-gray-950 text-gray-400 mt-16 pb-24 md:pb-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <InstallHint />
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
-          <div>
+        <div className="grid grid-cols-2 lg:grid-cols-5 gap-x-6 gap-y-8">
+          <div className="col-span-2 lg:col-span-1">
             <h3 className="text-white font-bold text-lg mb-4">AutoLupa</h3>
             <p className="text-sm font-semibold text-green-400 mb-2">El auto que buscas, sin letra chica</p>
             <p className="text-sm leading-relaxed">
@@ -23,7 +23,7 @@ export function Footer() {
             <ul className="space-y-2 text-sm">
               <li><Link to="/usados" className="hover:text-white transition-colors">Autos usados</Link></li>
               <li><Link to="/publicar-auto" className="hover:text-white transition-colors">Publicar auto gratis</Link></li>
-              <li><Link to="/" className="hover:text-white transition-colors">Comparador de autos</Link></li>
+              <li><Link to="/autos" className="hover:text-white transition-colors">Catálogo de autos nuevos</Link></li>
               <li><Link to="/compare" className="hover:text-white transition-colors">Comparar seleccionados</Link></li>
               <li><Link to="/favorites" className="hover:text-white transition-colors">Mis favoritos</Link></li>
               <li><Link to="/top10" className="hover:text-white transition-colors">Top 10</Link></li>

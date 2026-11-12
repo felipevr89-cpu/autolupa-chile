@@ -10,6 +10,11 @@ import { EVHub } from '../EV/EVHub';
 import { BuyingGuide } from '../Guides/BuyingGuide';
 import { TermTip } from '../Glossary/TermTip';
 import { SafetyBanner } from '../Trust/SafetyBanner';
+
+const formatTransmission = (t: string) => {
+  const k = t.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+  return k === 'automatica' ? 'Automática' : k === 'manual' ? 'Manual' : t;
+};
 import { ShareButton } from '../Share/ShareButton';
 import { track } from '../../lib/analytics';
 import {
@@ -193,19 +198,6 @@ export function CarDetail({ car, onClose, isFavorite, onToggleFavorite, onPrevCa
     { id: 'guide', label: 'Guía de compra' },
   ];
 
-  const TabButton = ({ id, label }: { id: string; label: string }) => (
-    <button
-      type="button"
-      onClick={() => setActiveTab(id as typeof activeTab)}
-      className={`px-4 py-2 rounded-xl text-sm font-medium transition-colors ${
-        activeTab === id
-          ? 'bg-blue-600 dark:bg-blue-500 text-white shadow-sm'
-          : 'bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600'
-      }`}
-    >
-      {label}
-    </button>
-  );
   const content = (
     <>
       {!inline && onClose && (
@@ -241,13 +233,24 @@ export function CarDetail({ car, onClose, isFavorite, onToggleFavorite, onPrevCa
           )}
 
           <div className="mb-4">
-            <p className="text-sm font-semibold text-gray-700 dark:text-gray-300">{car.brand}</p>
             {inline ? (
-              <h1 id="car-detail-title" className="text-3xl font-bold text-gray-900 dark:text-white">{car.model}</h1>
+              <h1 id="car-detail-title" className="text-3xl font-bold text-gray-900 dark:text-white">
+                <span className="block text-sm font-semibold text-gray-700 dark:text-gray-300">{car.brand}</span>
+                {car.model} <span className="sr-only">{car.year}</span>
+              </h1>
             ) : (
-              <h2 id="car-detail-title" className="text-2xl font-bold text-gray-900 dark:text-white">{car.model}</h2>
+              <h2 id="car-detail-title" className="text-2xl font-bold text-gray-900 dark:text-white">
+                <span className="block text-sm font-semibold text-gray-700 dark:text-gray-300">{car.brand}</span>
+                {car.model}
+              </h2>
             )}
             <p className="text-base font-medium text-gray-800 dark:text-gray-200">{car.year} · {getTypeLabel(car.type)} · <TermTip term={car.fuel}>{getFuelLabel(car.fuel)}</TermTip></p>
+            <div className="mt-2 flex flex-wrap items-baseline gap-x-2 gap-y-1">
+              <p className="text-2xl font-bold text-blue-700 dark:text-blue-300">Desde {formatPrice(car.price)}</p>
+              {car.price_list != null && car.price_list > car.price && (
+                <p className="text-sm text-gray-500 dark:text-gray-400 line-through">{formatPrice(car.price_list)}</p>
+              )}
+            </div>
           </div>
 
           {!isBrandSoldNewInChile(car.brand) && (
@@ -309,10 +312,6 @@ export function CarDetail({ car, onClose, isFavorite, onToggleFavorite, onPrevCa
           </div>
 
           <p className="text-gray-700 dark:text-gray-300 mb-6 leading-relaxed">{car.description}</p>
-
-          <div className="mb-6">
-            <SafetyBanner context="new" />
-          </div>
 
           {charging && (
             <div className="mb-6 p-4 bg-green-50 dark:bg-green-900/20 rounded-xl">
@@ -521,7 +520,7 @@ export function CarDetail({ car, onClose, isFavorite, onToggleFavorite, onPrevCa
                   <div key={i} className="flex items-center justify-between p-3 bg-gray-50 dark:bg-gray-700 rounded-lg border border-gray-200 dark:border-gray-600">
                     <div>
                       <p className="text-sm font-medium text-gray-900 dark:text-white">{v.version}</p>
-                      <p className="text-xs text-gray-600 dark:text-gray-400">{v.transmission} · {v.traction}</p>
+                      <p className="text-xs text-gray-600 dark:text-gray-400">{formatTransmission(v.transmission)} · {v.traction.toUpperCase()}</p>
                       {v.price_list != null && v.price_list > v.price && (
                         <p className="text-[11px] text-gray-500 dark:text-gray-400">Lista {formatPrice(v.price_list)} · bono {formatPrice(v.price_bonus ?? (v.price_list - v.price))}</p>
                       )}
@@ -533,7 +532,7 @@ export function CarDetail({ car, onClose, isFavorite, onToggleFavorite, onPrevCa
             </div>
           )}
 
-          <div className="flex items-center justify-between mb-6 p-4 bg-gray-50 dark:bg-gray-700 rounded-xl border border-gray-200 dark:border-gray-600">
+          <div className="flex flex-col gap-4 mb-6 p-4 bg-gray-50 dark:bg-gray-700 rounded-xl border border-gray-200 dark:border-gray-600 sm:flex-row sm:items-center sm:justify-between">
             <div>
               <p className="text-sm font-semibold text-gray-700 dark:text-gray-300">Precio desde</p>
               <p className="text-3xl font-bold text-blue-700 dark:text-blue-300">{formatPrice(car.price)}</p>
@@ -544,19 +543,19 @@ export function CarDetail({ car, onClose, isFavorite, onToggleFavorite, onPrevCa
               )}
               <p className="text-[11px] text-gray-500 dark:text-gray-400 mt-1">Precio referencial. Confirmar en el sitio oficial.</p>
             </div>
-            <div className="flex gap-2">
+            <div className="flex flex-col gap-2 sm:flex-row">
               <a
                 href={getBrandUrl(car.brand)}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-4 py-2 bg-blue-100 dark:bg-blue-900/40 text-blue-700 dark:text-blue-300 rounded-lg text-sm font-medium hover:bg-blue-200 dark:hover:bg-blue-800/60 transition-colors"
+                className="w-full px-4 py-2 text-center bg-blue-100 dark:bg-blue-900/40 text-blue-700 dark:text-blue-300 rounded-lg text-sm font-medium hover:bg-blue-200 dark:hover:bg-blue-800/60 transition-colors sm:w-auto"
                 title={`Sitio oficial ${car.brand}`}
               >
                 🌐 Sitio oficial {car.brand}
               </a>
               <button
                 onClick={() => onToggleFavorite(car.id)}
-                className={`px-4 py-2 rounded-lg font-medium transition-colors ${
+                className={`w-full px-4 py-2 rounded-lg font-medium transition-colors sm:w-auto ${
                   isFavorite
                     ? 'bg-red-100 dark:bg-red-900/40 text-red-600 dark:text-red-400 hover:bg-red-200 dark:hover:bg-red-800/60'
                     : 'bg-gray-200 dark:bg-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-500'
@@ -569,11 +568,27 @@ export function CarDetail({ car, onClose, isFavorite, onToggleFavorite, onPrevCa
 
           <NextSteps car={car} />
 
+          <div className="mt-6">
+            <SafetyBanner context="new" />
+          </div>
+
           <div className="mt-6 mb-6">
             <h3 className="text-sm font-bold text-gray-800 dark:text-gray-200 mb-3">Herramientas del vehículo</h3>
-            <div className="flex flex-wrap gap-2">
+            <div className="flex flex-wrap gap-2" role="group" aria-label="Herramientas del vehículo">
               {tabs.map(tab => (
-                <TabButton key={tab.id} id={tab.id} label={tab.label} />
+                <button
+                  key={tab.id}
+                  type="button"
+                  aria-pressed={activeTab === tab.id}
+                  onClick={() => setActiveTab(tab.id as typeof activeTab)}
+                  className={`px-4 py-2 rounded-xl text-sm font-medium transition-colors ${
+                    activeTab === tab.id
+                      ? 'bg-blue-600 dark:bg-blue-500 text-white shadow-sm'
+                      : 'bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600'
+                  }`}
+                >
+                  {tab.label}
+                </button>
               ))}
             </div>
 
@@ -595,9 +610,34 @@ export function CarDetail({ car, onClose, isFavorite, onToggleFavorite, onPrevCa
 
   if (inline) {
     return (
-      <div className="bg-white dark:bg-gray-800 rounded-2xl card-shadow p-5 sm:p-8">
-        {content}
-      </div>
+      <>
+        <div className="bg-white dark:bg-gray-800 rounded-2xl card-shadow p-5 sm:p-8 mb-20 sm:mb-0">
+          {content}
+        </div>
+        <div className="sm:hidden fixed inset-x-0 bottom-0 z-30 border-t border-gray-200 dark:border-gray-700 bg-white/95 dark:bg-gray-900/95 backdrop-blur px-4 py-3 flex items-center gap-3" data-testid="car-sticky-bar">
+          <div className="min-w-0 flex-1">
+            <p className="text-[11px] text-gray-500 dark:text-gray-400 truncate">{car.brand} {car.model} · desde</p>
+            <p className="text-lg font-bold text-blue-700 dark:text-blue-300 leading-tight">{formatPrice(car.price)}</p>
+          </div>
+          <button
+            type="button"
+            onClick={() => onToggleFavorite(car.id)}
+            aria-label={isFavorite ? 'Quitar de favoritos' : 'Guardar en favoritos'}
+            aria-pressed={isFavorite}
+            className="w-11 h-11 flex items-center justify-center rounded-xl border border-gray-200 dark:border-gray-600 text-lg"
+          >
+            {isFavorite ? '❤️' : '🤍'}
+          </button>
+          <a
+            href={getBrandUrl(car.brand)}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-4 py-3 rounded-xl bg-blue-600 text-white text-sm font-bold whitespace-nowrap"
+          >
+            Cotizar
+          </a>
+        </div>
+      </>
     );
   }
 

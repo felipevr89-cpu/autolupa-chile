@@ -97,6 +97,33 @@ function AppContent() {
     );
   }
 
+  const homeElement = (title: string, description: string) => (
+    <>
+      <SEO title={title} description={description} />
+      <Home
+        cars={cars}
+        allCarsCount={allCarsCount}
+        totalPages={totalPages}
+        currentPage={currentPage}
+        setCurrentPage={setCurrentPage}
+        filters={filters}
+        updateFilter={updateFilter}
+        resetFilters={resetFilters}
+        searchQuery={searchQuery}
+        setSearchQuery={setSearchQuery}
+        sortBy={sortBy}
+        setSortBy={setSortBy}
+        favorites={favorites}
+        compareList={compareList}
+        onToggleFavorite={toggleFavorite}
+        onAddToCompare={addToCompare}
+        onRemoveFromCompare={removeFromCompare}
+        recentCars={recentCars}
+        onAddRecent={addRecent}
+      />
+    </>
+  );
+
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
       <a href="#main" className="skip-link">Saltar al contenido</a>
@@ -121,35 +148,17 @@ function AppContent() {
       <Routes>
         <Route
           path="/"
-          element={
-            <>
-              <SEO
-                title="Autos Usados y Nuevos en Chile | Publica Gratis"
-                description="Publica tu auto gratis y vende sin comisión. Compara precios, kilometraje y especificaciones de autos usados y nuevos en Chile."
-              />
-              <Home
-              cars={cars}
-              allCarsCount={allCarsCount}
-              totalPages={totalPages}
-              currentPage={currentPage}
-              setCurrentPage={setCurrentPage}
-              filters={filters}
-              updateFilter={updateFilter}
-              resetFilters={resetFilters}
-              searchQuery={searchQuery}
-              setSearchQuery={setSearchQuery}
-              sortBy={sortBy}
-              setSortBy={setSortBy}
-              favorites={favorites}
-              compareList={compareList}
-              onToggleFavorite={toggleFavorite}
-              onAddToCompare={addToCompare}
-              onRemoveFromCompare={removeFromCompare}
-              recentCars={recentCars}
-              onAddRecent={addRecent}
-            />
-            </>
-          }
+          element={homeElement(
+            'Autos Usados y Nuevos en Chile | Publica Gratis',
+            'Publica tu auto gratis y vende sin comisión. Compara precios, kilometraje y especificaciones de autos usados y nuevos en Chile.',
+          )}
+        />
+        <Route
+          path="/autos"
+          element={homeElement(
+            'Catálogo de autos nuevos en Chile',
+            'Explora el catálogo completo de autos nuevos en Chile: filtra por marca, precio, año, tipo y región.',
+          )}
         />
         <Route
           path="/auto/:carSlug"
@@ -282,6 +291,14 @@ function AppContent() {
           }
         />
         <Route
+          path="/marcas/:brandSlug"
+          element={
+            <Suspense fallback={<PageSkeleton />}>
+              <BrandPage />
+            </Suspense>
+          }
+        />
+        <Route
           path="/usados/:slug"
           element={
             <Suspense fallback={<PageSkeleton />}>
@@ -373,7 +390,7 @@ function AppContent() {
           path="*"
           element={
             <Suspense fallback={<PageSkeleton />}>
-              <SEO title="Página no encontrada" description="La página que buscas no existe." />
+              <SEO title="Página no encontrada" description="La página que buscas no existe." noIndex />
               <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 text-center">
                 <p className="text-7xl mb-4">🚗</p>
                 <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">Página no encontrada</h1>

@@ -1,3 +1,4 @@
+import { brandSlug } from '../lib/brandSlug';
 import { FormEvent, useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { SEO } from '../components/SEO';
@@ -254,7 +255,7 @@ export function TasarAuto() {
                   {resultado.comparables.map(comparable => (
                     <li key={comparable.id}>
                       <Link
-                        to={`/marca/${comparable.brand.toLowerCase().replace(/\s+/g, '-')}`}
+                        to={`/marcas/${brandSlug(comparable.brand)}`}
                         className="flex items-center gap-4 rounded-xl border border-gray-200 dark:border-gray-700 p-3 hover:border-blue-500 transition-colors"
                       >
                         <div className="w-16 h-12 shrink-0 overflow-hidden rounded-lg">

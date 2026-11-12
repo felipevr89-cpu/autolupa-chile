@@ -4,8 +4,9 @@ const HIDDEN_PATHS = ['/publicar-auto', '/mis-anuncios', '/moderacion', '/tus-da
 
 export function PublishFloat() {
   const { pathname } = useLocation();
+  const isDetailPage = pathname.startsWith('/auto/') || pathname.startsWith('/usados/');
 
-  if (HIDDEN_PATHS.includes(pathname)) return null;
+  if (HIDDEN_PATHS.includes(pathname) || isDetailPage) return null;
 
   return (
     <Link

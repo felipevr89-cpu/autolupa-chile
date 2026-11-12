@@ -93,9 +93,10 @@ describe('cobertura del catálogo en el tasador', () => {
   it('incluye los Tiggo 8 y la familia Pro Max sin deduplicar por substring', () => {
     const cheryModels = getModelsByBrand('Chery');
     expect(cheryModels).toContain('Tiggo 8');
+    expect(cheryModels).toContain('Tiggo 8 Pro');
     expect(cheryModels).toContain('Tiggo 8 Pro Max');
     expect(cheryModels.some(model => model.startsWith('Tiggo 8 Pro'))).toBe(true);
-    expect(cheryModels.filter(model => model.startsWith('Tiggo 8'))).toHaveLength(3);
+    expect(cheryModels.filter(model => model.startsWith('Tiggo 8'))).toHaveLength(4);
   });
 
   it('el catálogo del tasador cubre todos los modelos del catálogo general', () => {

@@ -1,6 +1,6 @@
 import { describe, expect, it, vi } from 'vitest';
-import { render, screen } from '@testing-library/react';
-import { MemoryRouter, Route, Routes } from 'react-router-dom';
+import { render, screen, fireEvent } from '@testing-library/react';
+import { MemoryRouter, Route, Routes, useLocation } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
 import { CarPage } from '../pages/CarPage';
 import { BrandPage } from '../pages/BrandPage';
@@ -9,6 +9,11 @@ import { carIdFromSlug, carPath, carSlug } from '../lib/carSlug';
 
 const car = carsData.find(c => c.brand === 'Toyota' && c.model === 'Corolla') ?? carsData[0];
 const noop = () => {};
+
+function LocationProbe() {
+  const location = useLocation();
+  return <p>ruta={location.pathname}</p>;
+}
 
 function renderCarPage(path: string) {
   return render(
@@ -20,6 +25,7 @@ function renderCarPage(path: string) {
             element={<CarPage favorites={[]} onToggleFavorite={noop} onAddRecent={vi.fn()} />}
           />
           <Route path="/marca/:brandSlug" element={<BrandPage />} />
+          <Route path="/marcas/:brandSlug" element={<><BrandPage /><LocationProbe /></>} />
         </Routes>
       </MemoryRouter>
     </HelmetProvider>
@@ -45,15 +51,38 @@ describe('rutas de auto', () => {
     expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent(car.model);
   });
 
+  it('muestra el precio junto al título', () => {
+    renderCarPage(carPath(car));
+    expect(screen.getByText(/^Desde \$/)).toBeInTheDocument();
+  });
+
+  it('asocia las etiquetas del TCO y del simulador de crédito', () => {
+    renderCarPage(carPath(car));
+    const tcoTab = screen.getByRole('button', { name: /costo total/i });
+    expect(tcoTab).toHaveAttribute('aria-pressed', 'false');
+    fireEvent.click(tcoTab);
+    expect(tcoTab).toHaveAttribute('aria-pressed', 'true');
+    expect(screen.getByLabelText(/plazo crédito/i)).toBeInTheDocument();
+    expect(screen.getByLabelText(/km\/mes/i)).toBeInTheDocument();
+
+    fireEvent.click(screen.getByRole('button', { name: /simulador de crédito/i }));
+    expect(screen.getByLabelText(/pie inicial/i)).toBeInTheDocument();
+  });
+
   it('muestra un estado claro cuando el auto no existe', () => {
     renderCarPage('/auto/999999');
     expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent(/Auto no encontrado/i);
   });
 
   it('la página de marca enlaza a la ficha del auto', () => {
-    renderCarPage('/marca/toyota');
+    renderCarPage('/marcas/toyota');
     const firstToyota = carsData.find(c => c.brand === 'Toyota' && c.model === car.model) ?? car;
     const links = screen.getAllByRole('link').map(a => a.getAttribute('href'));
     expect(links).toContain(carPath(firstToyota));
+  });
+
+  it('redirige la URL legacy /marca/:slug a /marcas/:slug', () => {
+    renderCarPage('/marca/toyota');
+    expect(screen.getByText('ruta=/marcas/toyota')).toBeInTheDocument();
   });
 });

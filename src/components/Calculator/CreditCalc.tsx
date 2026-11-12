@@ -31,7 +31,7 @@ export function CreditCalc({ car }: Props) {
         ? 'Rango típico de banco (20–25% de pie)'
         : 'Sobre el mínimo bancario: baja la cuota y el interés total';
 
-  const quoteText = `Hola, quiero cotizar un crédito automotriz para un ${car.brand} ${car.model} ${car.year} (${formatPrice(car.price)}): pie de ${formatPrice(sim.downPayment)} (${sim.downPaymentPercent}%), ${sim.months} meses y cuota de ${formatPrice(sim.monthlyPayment)} al mes. Referencia AutoLupa, CAE ${formatRatePercent(sim.effectiveAnnualRate)}.`;
+  const quoteText = `Hola, quiero cotizar un crédito automotriz para un ${car.brand} ${car.model} ${car.year} (${formatPrice(car.price)}): pie de ${formatPrice(sim.downPayment)} (${sim.downPaymentPercent}%), ${sim.months} meses y cuota de ${formatPrice(sim.monthlyPayment)} al mes. Referencia AutoLupa, tasa efectiva anual de interés ${formatRatePercent(sim.effectiveAnnualRate)}.`;
   const quoteUrl = `https://wa.me/?text=${encodeURIComponent(quoteText)}`;
 
   return (
@@ -63,10 +63,11 @@ export function CreditCalc({ car }: Props) {
 
       <div className="space-y-4 mb-6">
         <div>
-          <label className="text-sm text-gray-600 dark:text-gray-300 mb-2 block">
+          <label htmlFor="credit-down-payment" className="text-sm text-gray-600 dark:text-gray-300 mb-2 block">
             Pie inicial: {sim.downPaymentPercent}% ({formatPrice(sim.downPayment)})
           </label>
           <input
+            id="credit-down-payment"
             type="range"
             min={MIN_DOWN_PAYMENT_PERCENT}
             max={MAX_DOWN_PAYMENT_PERCENT}
@@ -112,7 +113,7 @@ export function CreditCalc({ car }: Props) {
           <p className="text-xl font-bold text-gray-900 dark:text-white">{formatPrice(sim.creditCost)}</p>
         </div>
         <div className="bg-white dark:bg-gray-600 rounded-xl p-4 text-center">
-          <p className="text-xs text-gray-500 dark:text-gray-400 mb-1">CAE referencia</p>
+          <p className="text-xs text-gray-500 dark:text-gray-400 mb-1">Tasa efectiva anual (interés)</p>
           <p className="text-xl font-bold text-gray-900 dark:text-white">{formatRatePercent(sim.effectiveAnnualRate)}</p>
         </div>
       </div>
@@ -128,7 +129,7 @@ export function CreditCalc({ car }: Props) {
 
       <p className="text-xs text-gray-400 dark:text-gray-500 mt-4 text-center">
         Simulación referencial con tasas de mercado 2026 (0,7% a 1,5% mensual según banco y perfil; pie mínimo 10%,
-        plazos de 12 a 60 meses). El CAE se calcula sólo con el interés, sin seguros ni gastos: no constituye oferta de
+        plazos de 12 a 60 meses). La tasa efectiva anual considera sólo el interés, sin seguros ni gastos, por lo que no es la CAE legal (Ley 20.555) que debe informar cada banco: no constituye oferta de
         crédito, la tasa final la define el banco o financiera tras evaluar tu perfil.
       </p>
     </div>

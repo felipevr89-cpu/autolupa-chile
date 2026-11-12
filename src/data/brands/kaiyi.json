@@ -10,7 +10,7 @@
       "type": "sedan",
       "fuel": "gasolina",
       "seats": 5,
-      "price": 9990000,
+      "price": 14990000,
       "transmission": "manual",
       "traction": "4x2",
       "image_url": "",
@@ -34,12 +34,20 @@
       "origin_country": "China",
       "versions": [
         {
-          "version": "1.5L MT",
-          "price": 9990000,
-          "transmission": "Manual 5V",
+          "version": "1.5T Lux",
+          "price": 14990000,
+          "transmission": "manual",
+          "traction": "4x2"
+        },
+        {
+          "version": "1.5T Lux CVT",
+          "price": 15690000,
+          "transmission": "automatica",
           "traction": "4x2"
         }
-      ]
+      ],
+      "price_source": "https://www.autocosmos.cl/catalogo/vigente/kaiyi/e5",
+      "price_checked_at": "2026-11-12"
     },
     {
       "id": 301,
@@ -49,7 +57,7 @@
       "type": "suv",
       "fuel": "gasolina",
       "seats": 5,
-      "price": 8490000,
+      "price": 12990000,
       "transmission": "manual",
       "traction": "4x2",
       "image_url": "",
@@ -73,12 +81,26 @@
       "origin_country": "China",
       "versions": [
         {
-          "version": "1.5L MT",
-          "price": 8490000,
-          "transmission": "Manual 5V",
+          "version": "1.5L STD",
+          "price": 12990000,
+          "transmission": "manual",
+          "traction": "4x2"
+        },
+        {
+          "version": "1.5L Lux",
+          "price": 13990000,
+          "transmission": "manual",
+          "traction": "4x2"
+        },
+        {
+          "version": "1.5L Lux Aut",
+          "price": 14990000,
+          "transmission": "automatica",
           "traction": "4x2"
         }
-      ]
+      ],
+      "price_source": "https://www.autocosmos.cl/catalogo/vigente/kaiyi/kyx3",
+      "price_checked_at": "2026-11-12"
     },
     {
       "id": 302,
@@ -88,8 +110,8 @@
       "type": "suv",
       "fuel": "gasolina",
       "seats": 5,
-      "price": 11990000,
-      "transmission": "automatica",
+      "price": 12990000,
+      "transmission": "manual",
       "traction": "4x2",
       "image_url": "",
       "description": "Versión mejorada del KYX3 con transmisión CVT y equipamiento superior.",
@@ -112,12 +134,14 @@
       "origin_country": "China",
       "versions": [
         {
-          "version": "1.5L CVT",
-          "price": 11990000,
-          "transmission": "CVT",
+          "version": "1.5L",
+          "price": 12990000,
+          "transmission": "manual",
           "traction": "4x2"
         }
-      ]
+      ],
+      "price_source": "https://www.autocosmos.cl/catalogo/vigente/kaiyi/kyx3-pro",
+      "price_checked_at": "2026-11-12"
     },
     {
       "id": 303,
@@ -127,7 +151,7 @@
       "type": "suv",
       "fuel": "gasolina",
       "seats": 7,
-      "price": 14990000,
+      "price": 19990000,
       "transmission": "automatica",
       "traction": "4x2",
       "image_url": "",
@@ -153,12 +177,26 @@
       "origin_country": "China",
       "versions": [
         {
-          "version": "1.5T CVT",
-          "price": 14990000,
-          "transmission": "CVT",
+          "version": "1.5L STD",
+          "price": 19990000,
+          "transmission": "automatica",
+          "traction": "4x2"
+        },
+        {
+          "version": "1.5L Lux Aut",
+          "price": 20990000,
+          "transmission": "automatica",
+          "traction": "4x2"
+        },
+        {
+          "version": "2.0L Lux Aut",
+          "price": 22990000,
+          "transmission": "automatica",
           "traction": "4x2"
         }
-      ]
+      ],
+      "price_source": "https://www.autocosmos.cl/catalogo/vigente/kaiyi/kyx7",
+      "price_checked_at": "2026-11-12"
     }
   ]
 }

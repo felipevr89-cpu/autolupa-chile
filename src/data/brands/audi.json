@@ -726,9 +726,9 @@
       "type": "suv",
       "fuel": "electrico",
       "seats": 5,
-      "price": 54990000,
+      "price": 74990000,
       "transmission": "automatica",
-      "traction": "awd",
+      "traction": "4x2",
       "image_url": "",
       "description": "SUV eléctrico mediano con plataforma PPE y tecnología de punta.",
       "origin": "Alemania",
@@ -762,18 +762,26 @@
       "origin_country": "Alemania",
       "versions": [
         {
-          "version": "55 e-tron",
-          "price": 54990000,
+          "version": "45",
+          "price": 74990000,
           "transmission": "automatica",
-          "traction": "awd"
+          "traction": "4x2"
         },
         {
-          "version": "SQ6 e-tron",
-          "price": 69990000,
+          "version": "50 Sport",
+          "price": 84990000,
+          "transmission": "automatica",
+          "traction": "4x2"
+        },
+        {
+          "version": "50 Sport Quattro",
+          "price": 91990000,
           "transmission": "automatica",
           "traction": "awd"
         }
-      ]
+      ],
+      "price_source": "https://www.autocosmos.cl/catalogo/vigente/audi/q6-e-tron",
+      "price_checked_at": "2026-11-12"
     },
     {
       "id": 23,

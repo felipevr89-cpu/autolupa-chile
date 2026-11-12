@@ -108,7 +108,7 @@
       "type": "suv",
       "fuel": "gasolina",
       "seats": 7,
-      "price": 16990000,
+      "price": 20990000,
       "transmission": "automatica",
       "traction": "4x2",
       "image_url": "",
@@ -141,12 +141,14 @@
       "origin_country": "China",
       "versions": [
         {
-          "version": "1.5L 7 plazas AT",
-          "price": 16990000,
-          "transmission": "automática",
+          "version": "1.5T",
+          "price": 20990000,
+          "transmission": "automatica",
           "traction": "4x2"
         }
-      ]
+      ],
+      "price_source": "https://www.autocosmos.cl/catalogo/vigente/livan/x6-pro-honor",
+      "price_checked_at": "2026-11-12"
     }
   ]
 }

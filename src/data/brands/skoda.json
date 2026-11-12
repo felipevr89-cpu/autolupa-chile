@@ -67,7 +67,7 @@
       "type": "hatchback",
       "fuel": "gasolina",
       "seats": 5,
-      "price": 14490000,
+      "price": 24990000,
       "transmission": "automatica",
       "traction": "4x2",
       "image_url": "",
@@ -75,20 +75,8 @@
       "origin": "República Checa",
       "versions": [
         {
-          "version": "Active",
-          "price": 14490000,
-          "transmission": "automatica",
-          "traction": "4x2"
-        },
-        {
-          "version": "Ambition",
-          "price": 16490000,
-          "transmission": "automatica",
-          "traction": "4x2"
-        },
-        {
-          "version": "Style",
-          "price": 18490000,
+          "version": "1.0L TSI Design",
+          "price": 24990000,
           "transmission": "automatica",
           "traction": "4x2"
         }
@@ -121,7 +109,9 @@
       ],
       "warranty_years": 4,
       "warranty_km": 120000,
-      "origin_country": "República Checa"
+      "origin_country": "República Checa",
+      "price_source": "https://www.autocosmos.cl/catalogo/vigente/skoda/fabia",
+      "price_checked_at": "2026-11-12"
     },
     {
       "id": 333,
@@ -131,7 +121,7 @@
       "type": "suv",
       "fuel": "gasolina",
       "seats": 5,
-      "price": 18990000,
+      "price": 23490000,
       "transmission": "automatica",
       "traction": "4x2",
       "image_url": "",
@@ -139,14 +129,14 @@
       "origin": "República Checa",
       "versions": [
         {
-          "version": "Ambition",
-          "price": 18990000,
+          "version": "1.0L Selection TSi Aut",
+          "price": 23490000,
           "transmission": "automatica",
           "traction": "4x2"
         },
         {
-          "version": "Style",
-          "price": 21990000,
+          "version": "1.5L Design TSi Aut",
+          "price": 25990000,
           "transmission": "automatica",
           "traction": "4x2"
         }
@@ -180,7 +170,9 @@
       ],
       "warranty_years": 4,
       "warranty_km": 120000,
-      "origin_country": "República Checa"
+      "origin_country": "República Checa",
+      "price_source": "https://www.autocosmos.cl/catalogo/vigente/skoda/kamiq",
+      "price_checked_at": "2026-11-12"
     },
     {
       "id": 334,
@@ -190,24 +182,24 @@
       "type": "suv",
       "fuel": "gasolina",
       "seats": 5,
-      "price": 22990000,
+      "price": 29490000,
       "transmission": "automatica",
-      "traction": "4x4",
+      "traction": "4x2",
       "image_url": "",
       "description": "SUV compacto con amplio espacio.",
       "origin": "República Checa",
       "versions": [
         {
-          "version": "Ambition",
-          "price": 22990000,
+          "version": "1.4L Selection",
+          "price": 29490000,
           "transmission": "automatica",
           "traction": "4x2"
         },
         {
-          "version": "Style 4x4",
-          "price": 27990000,
+          "version": "1.4L Design",
+          "price": 34490000,
           "transmission": "automatica",
-          "traction": "4x4"
+          "traction": "4x2"
         }
       ],
       "hp": 150,
@@ -241,7 +233,9 @@
       ],
       "warranty_years": 4,
       "warranty_km": 120000,
-      "origin_country": "República Checa"
+      "origin_country": "República Checa",
+      "price_source": "https://www.autocosmos.cl/catalogo/vigente/skoda/karoq",
+      "price_checked_at": "2026-11-12"
     },
     {
       "id": 335,
@@ -251,30 +245,24 @@
       "type": "suv",
       "fuel": "gasolina",
       "seats": 7,
-      "price": 27990000,
+      "price": 38490000,
       "transmission": "automatica",
-      "traction": "4x4",
+      "traction": "4x2",
       "image_url": "",
       "description": "SUV grande de 7 plazas con versatilidad.",
       "origin": "República Checa",
       "versions": [
         {
-          "version": "Ambition 4x2",
-          "price": 27990000,
+          "version": "1.5L TSI Selection",
+          "price": 38490000,
           "transmission": "automatica",
           "traction": "4x2"
         },
         {
-          "version": "Style 4x4",
-          "price": 32990000,
+          "version": "2.0L TSI Design",
+          "price": 43990000,
           "transmission": "automatica",
-          "traction": "4x4"
-        },
-        {
-          "version": "Laurin & Klement 4x4",
-          "price": 37990000,
-          "transmission": "automatica",
-          "traction": "4x4"
+          "traction": "awd"
         }
       ],
       "hp": 186,
@@ -308,7 +296,9 @@
       ],
       "warranty_years": 4,
       "warranty_km": 120000,
-      "origin_country": "República Checa"
+      "origin_country": "República Checa",
+      "price_source": "https://www.autocosmos.cl/catalogo/vigente/skoda/kodiaq",
+      "price_checked_at": "2026-11-12"
     },
     {
       "id": 336,
@@ -431,6 +421,82 @@
       ],
       "warranty_years": 4,
       "warranty_km": 120000,
+      "origin_country": "República Checa"
+    },
+    {
+      "id": 734,
+      "brand": "Škoda",
+      "model": "Elroq",
+      "year": 2025,
+      "type": "suv",
+      "fuel": "electrico",
+      "seats": 5,
+      "price": 44990000,
+      "transmission": "automatica",
+      "traction": "4x2",
+      "image_url": "",
+      "description": "SUV 100% eléctrico de 282 HP con caja automática y tracción 4X2. 1 versión con precio de lista.",
+      "origin": "República Checa",
+      "versions": [
+        {
+          "version": "82 Design",
+          "price": 44990000,
+          "transmission": "automatica",
+          "traction": "4x2"
+        }
+      ],
+      "hp": 282,
+      "torque_nm": 545,
+      "length_mm": 4488,
+      "height_mm": 1654,
+      "wheelbase_mm": 2770,
+      "trunk_liters": 470,
+      "airbags": 4,
+      "year_start": 2025,
+      "price_source": "https://www.autocosmos.cl/catalogo/vigente/skoda/elroq",
+      "price_checked_at": "2026-11-12",
+      "origin_country": "República Checa"
+    },
+    {
+      "id": 735,
+      "brand": "Škoda",
+      "model": "Scala",
+      "year": 2025,
+      "type": "hatchback",
+      "fuel": "gasolina",
+      "seats": 5,
+      "price": 23990000,
+      "transmission": "automatica",
+      "traction": "4x2",
+      "image_url": "",
+      "description": "Hatchback bencinero de 150 HP con caja automática y tracción 4X2. 2 versiones con precio de lista.",
+      "origin": "República Checa",
+      "versions": [
+        {
+          "version": "1.5L Selection TSi Aut",
+          "price": 23990000,
+          "transmission": "automatica",
+          "traction": "4x2"
+        },
+        {
+          "version": "1.5L Design TSi Aut",
+          "price": 25990000,
+          "transmission": "automatica",
+          "traction": "4x2"
+        }
+      ],
+      "hp": 150,
+      "torque_nm": 250,
+      "length_mm": 4362,
+      "width_mm": 1793,
+      "height_mm": 1471,
+      "wheelbase_mm": 2636,
+      "trunk_liters": 467,
+      "fuel_tank_liters": 50,
+      "airbags": 7,
+      "year_start": 2025,
+      "price_source": "https://www.autocosmos.cl/catalogo/vigente/skoda/scala",
+      "price_checked_at": "2026-11-12",
       "origin_country": "República Checa"
     }
   ]

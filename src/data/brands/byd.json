@@ -10,24 +10,24 @@
       "type": "suv",
       "fuel": "hibrido_enchufable",
       "seats": 7,
-      "price": 43990000,
+      "price": 44990000,
       "transmission": "automatica",
-      "traction": "awd",
+      "traction": "4x2",
       "image_url": "",
       "description": "SUV híbrido enchufable de siete plazas con autonomía combinada cercana a 1000 km.",
       "origin": "China",
       "versions": [
         {
-          "version": "GL DM-i",
-          "price": 43990000,
+          "version": "DM-i GL",
+          "price": 44990000,
           "transmission": "automatica",
           "traction": "4x2"
         },
         {
-          "version": "GS DM-p",
-          "price": 48990000,
+          "version": "DM-p GS",
+          "price": 49990000,
           "transmission": "automatica",
-          "traction": "awd"
+          "traction": "4x2"
         }
       ],
       "hp": 525,
@@ -56,7 +56,9 @@
       ],
       "warranty_years": 6,
       "warranty_km": 150000,
-      "origin_country": "China"
+      "origin_country": "China",
+      "price_source": "https://www.autocosmos.cl/catalogo/vigente/byd/atto-8",
+      "price_checked_at": "2026-11-12"
     },
     {
       "id": 64,
@@ -66,9 +68,9 @@
       "type": "hatchback",
       "fuel": "electrico",
       "seats": 5,
-      "price": 21990000,
+      "price": 28990000,
       "transmission": "automatica",
-      "traction": "4x2",
+      "traction": "awd",
       "image_url": "",
       "description": "Hatchback eléctrico compacto con batería Blade y excelente autonomía urbana.",
       "origin": "China",
@@ -98,18 +100,14 @@
       "origin_country": "China",
       "versions": [
         {
-          "version": "Standard",
-          "price": 21990000,
+          "version": "Pure Electric",
+          "price": 28990000,
           "transmission": "automatica",
-          "traction": "4x2"
-        },
-        {
-          "version": "Comfort",
-          "price": 24990000,
-          "transmission": "automatica",
-          "traction": "4x2"
+          "traction": "awd"
         }
-      ]
+      ],
+      "price_source": "https://www.autocosmos.cl/catalogo/vigente/byd/dolphin-ev",
+      "price_checked_at": "2026-11-12"
     },
     {
       "id": 65,
@@ -121,22 +119,22 @@
       "seats": 4,
       "price": 18990000,
       "transmission": "automatica",
-      "traction": "4x2",
+      "traction": "awd",
       "image_url": "",
       "description": "Citycar eléctrico compacto con diseño moderno y tecnología Blade Battery de BYD.",
       "origin": "China",
       "versions": [
         {
-          "version": "Standard",
+          "version": "GL",
           "price": 18990000,
           "transmission": "automatica",
-          "traction": "4x2"
+          "traction": "awd"
         },
         {
-          "version": "Comfort",
-          "price": 19990000,
+          "version": "GS",
+          "price": 20990000,
           "transmission": "automatica",
-          "traction": "4x2"
+          "traction": "awd"
         }
       ],
       "hp": 95,
@@ -156,7 +154,9 @@
       ],
       "warranty_years": 6,
       "warranty_km": 150000,
-      "origin_country": "China"
+      "origin_country": "China",
+      "price_source": "https://www.autocosmos.cl/catalogo/vigente/byd/dolphin-mini",
+      "price_checked_at": "2026-11-12"
     },
     {
       "id": 66,
@@ -230,7 +230,7 @@
       "origin": "China",
       "versions": [
         {
-          "version": "Excellence AWD",
+          "version": "GS",
           "price": 62990000,
           "transmission": "automatica",
           "traction": "awd"
@@ -262,7 +262,9 @@
       ],
       "warranty_years": 6,
       "warranty_km": 150000,
-      "origin_country": "China"
+      "origin_country": "China",
+      "price_source": "https://www.autocosmos.cl/catalogo/vigente/byd/han-ev",
+      "price_checked_at": "2026-11-12"
     },
     {
       "id": 68,
@@ -321,24 +323,24 @@
       "type": "suv",
       "fuel": "electrico",
       "seats": 5,
-      "price": 36990000,
+      "price": 37990000,
       "transmission": "automatica",
-      "traction": "awd",
+      "traction": "4x2",
       "image_url": "",
       "description": "SUV eléctrico deportivo con 0 a 100 km/h en 4,5 segundos y autonomía de hasta 542 km.",
       "origin": "China",
       "versions": [
         {
           "version": "GL RWD",
-          "price": 36990000,
+          "price": 37990000,
           "transmission": "automatica",
           "traction": "4x2"
         },
         {
           "version": "GS AWD",
-          "price": 43990000,
+          "price": 44990000,
           "transmission": "automatica",
-          "traction": "awd"
+          "traction": "4x2"
         }
       ],
       "hp": 525,
@@ -366,7 +368,9 @@
       ],
       "warranty_years": 6,
       "warranty_km": 150000,
-      "origin_country": "China"
+      "origin_country": "China",
+      "price_source": "https://www.autocosmos.cl/catalogo/vigente/byd/sealion-7",
+      "price_checked_at": "2026-11-12"
     },
     {
       "id": 70,
@@ -431,13 +435,13 @@
       "origin": "China",
       "versions": [
         {
-          "version": "GL DM-i",
+          "version": "GL",
           "price": 36990000,
           "transmission": "automatica",
           "traction": "4x2"
         },
         {
-          "version": "GS DM-i",
+          "version": "GX",
           "price": 39990000,
           "transmission": "automatica",
           "traction": "4x2"
@@ -462,7 +466,9 @@
       ],
       "warranty_years": 6,
       "warranty_km": 150000,
-      "origin_country": "China"
+      "origin_country": "China",
+      "price_source": "https://www.autocosmos.cl/catalogo/vigente/byd/song-plus-dm-i",
+      "price_checked_at": "2026-11-12"
     },
     {
       "id": 72,
@@ -521,7 +527,7 @@
       "type": "suv",
       "fuel": "electrico",
       "seats": 7,
-      "price": 44990000,
+      "price": 70990000,
       "transmission": "automatica",
       "traction": "awd",
       "image_url": "",
@@ -555,18 +561,14 @@
       "origin_country": "China",
       "versions": [
         {
-          "version": "AWD",
-          "price": 44990000,
-          "transmission": "automatica",
-          "traction": "awd"
-        },
-        {
-          "version": "AWD Luxury",
-          "price": 49990000,
+          "version": "GS",
+          "price": 70990000,
           "transmission": "automatica",
           "traction": "awd"
         }
-      ]
+      ],
+      "price_source": "https://www.autocosmos.cl/catalogo/vigente/byd/tang",
+      "price_checked_at": "2026-11-12"
     },
     {
       "id": 74,
@@ -584,7 +586,7 @@
       "origin": "China",
       "versions": [
         {
-          "version": "GL",
+          "version": "GS",
           "price": 32990000,
           "transmission": "automatica",
           "traction": "4x2"
@@ -609,7 +611,9 @@
       ],
       "warranty_years": 6,
       "warranty_km": 150000,
-      "origin_country": "China"
+      "origin_country": "China",
+      "price_source": "https://www.autocosmos.cl/catalogo/vigente/byd/yuan-plus-ev",
+      "price_checked_at": "2026-11-12"
     },
     {
       "id": 75,
@@ -627,7 +631,7 @@
       "origin": "China",
       "versions": [
         {
-          "version": "GL",
+          "version": "GS",
           "price": 27990000,
           "transmission": "automatica",
           "traction": "4x2"
@@ -650,7 +654,9 @@
       ],
       "warranty_years": 6,
       "warranty_km": 150000,
-      "origin_country": "China"
+      "origin_country": "China",
+      "price_source": "https://www.autocosmos.cl/catalogo/vigente/byd/yuan-pro",
+      "price_checked_at": "2026-11-12"
     }
   ]
 }

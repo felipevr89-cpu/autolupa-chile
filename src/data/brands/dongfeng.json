@@ -61,7 +61,7 @@
       "type": "suv",
       "fuel": "gasolina",
       "seats": 5,
-      "price": 17990000,
+      "price": 15590000,
       "transmission": "automatica",
       "traction": "4x2",
       "image_url": "",
@@ -69,8 +69,20 @@
       "origin": "China",
       "versions": [
         {
-          "version": "1.5T Luxury CVT",
-          "price": 17990000,
+          "version": "E1",
+          "price": 15590000,
+          "transmission": "automatica",
+          "traction": "4x2"
+        },
+        {
+          "version": "E2",
+          "price": 16990000,
+          "transmission": "automatica",
+          "traction": "4x2"
+        },
+        {
+          "version": "E2 Bicolor",
+          "price": 17290000,
           "transmission": "automatica",
           "traction": "4x2"
         }
@@ -100,7 +112,9 @@
       ],
       "warranty_years": 5,
       "warranty_km": 100000,
-      "origin_country": "China"
+      "origin_country": "China",
+      "price_source": "https://www.autocosmos.cl/catalogo/vigente/dongfeng/mage",
+      "price_checked_at": "2026-11-12"
     },
     {
       "id": 151,
@@ -110,22 +124,28 @@
       "type": "pickup",
       "fuel": "diesel",
       "seats": 5,
-      "price": 17990000,
-      "transmission": "automatica",
-      "traction": "4x4",
+      "price": 17290900,
+      "transmission": "manual",
+      "traction": "4x2",
       "image_url": "",
       "description": "Pickup mediana diésel con motor 2.0 turbo y tracción total.",
       "origin": "China",
       "versions": [
         {
-          "version": "2.0T 4x2 MT",
-          "price": 17990000,
+          "version": "4x2",
+          "price": 17290900,
           "transmission": "manual",
           "traction": "4x2"
         },
         {
-          "version": "2.0T 4x4 AT",
-          "price": 19990000,
+          "version": "4x4",
+          "price": 19831900,
+          "transmission": "manual",
+          "traction": "4x4"
+        },
+        {
+          "version": "4x4 Aut",
+          "price": 21767900,
           "transmission": "automatica",
           "traction": "4x4"
         }
@@ -151,7 +171,9 @@
       ],
       "warranty_years": 5,
       "warranty_km": 100000,
-      "origin_country": "China"
+      "origin_country": "China",
+      "price_source": "https://www.autocosmos.cl/catalogo/vigente/dongfeng/rich",
+      "price_checked_at": "2026-11-12"
     },
     {
       "id": 152,
@@ -162,15 +184,27 @@
       "fuel": "gasolina",
       "seats": 5,
       "price": 15990000,
-      "transmission": "automatica",
+      "transmission": "manual",
       "traction": "4x2",
       "image_url": "",
       "description": "SUV compacto con motor 1.5 turbo de 197 hp y diseño deportivo.",
       "origin": "China",
       "versions": [
         {
-          "version": "1.5T Luxury CVT",
+          "version": "Luxury",
           "price": 15990000,
+          "transmission": "manual",
+          "traction": "4x2"
+        },
+        {
+          "version": "Luxury Aut",
+          "price": 19990000,
+          "transmission": "automatica",
+          "traction": "4x2"
+        },
+        {
+          "version": "Noble Aut",
+          "price": 21690000,
           "transmission": "automatica",
           "traction": "4x2"
         }
@@ -196,6 +230,194 @@
       ],
       "warranty_years": 5,
       "warranty_km": 100000,
+      "origin_country": "China",
+      "price_source": "https://www.autocosmos.cl/catalogo/vigente/dongfeng/t5-evo",
+      "price_checked_at": "2026-11-12"
+    },
+    {
+      "id": 718,
+      "brand": "Dongfeng",
+      "model": "SX6",
+      "year": 2025,
+      "type": "suv",
+      "fuel": "gasolina",
+      "seats": 7,
+      "price": 11990000,
+      "transmission": "manual",
+      "traction": "4x2",
+      "image_url": "",
+      "description": "SUV bencinero de 121 HP con caja manual y tracción 4X2. 1 versión con precio de lista.",
+      "origin": "China",
+      "versions": [
+        {
+          "version": "1.6L",
+          "price": 11990000,
+          "transmission": "manual",
+          "traction": "4x2"
+        }
+      ],
+      "hp": 121,
+      "torque_nm": 151,
+      "length_mm": 4660,
+      "width_mm": 1810,
+      "height_mm": 1790,
+      "wheelbase_mm": 2750,
+      "trunk_liters": 260,
+      "fuel_tank_liters": 55,
+      "airbags": 2,
+      "year_start": 2025,
+      "price_source": "https://www.autocosmos.cl/catalogo/vigente/dongfeng/sx6",
+      "price_checked_at": "2026-11-12",
+      "origin_country": "China"
+    },
+    {
+      "id": 719,
+      "brand": "Dongfeng",
+      "model": "T5 L",
+      "year": 2025,
+      "type": "suv",
+      "fuel": "gasolina",
+      "seats": 7,
+      "price": 15690000,
+      "transmission": "manual",
+      "traction": "4x2",
+      "image_url": "",
+      "description": "SUV bencinero de 158 HP con caja automática o manual y tracción 4X2. 2 versiones con precio de lista.",
+      "origin": "China",
+      "versions": [
+        {
+          "version": "1.8L",
+          "price": 15690000,
+          "transmission": "manual",
+          "traction": "4x2"
+        },
+        {
+          "version": "1.8L Aut",
+          "price": 15690000,
+          "transmission": "automatica",
+          "traction": "4x2"
+        }
+      ],
+      "hp": 158,
+      "torque_nm": 240,
+      "length_mm": 4545,
+      "width_mm": 1825,
+      "height_mm": 1750,
+      "wheelbase_mm": 2720,
+      "fuel_tank_liters": 55,
+      "fuel_consumption_city_km_l": 9.6,
+      "fuel_consumption_highway_km_l": 15.4,
+      "fuel_consumption_mixed_km_l": 12.7,
+      "airbags": 2,
+      "year_start": 2025,
+      "price_source": "https://www.autocosmos.cl/catalogo/vigente/dongfeng/t5-l",
+      "price_checked_at": "2026-11-12",
+      "origin_country": "China"
+    },
+    {
+      "id": 720,
+      "brand": "Dongfeng",
+      "model": "T5 HCV",
+      "year": 2025,
+      "type": "suv",
+      "fuel": "hibrido",
+      "seats": 5,
+      "price": 23990000,
+      "transmission": "manual",
+      "traction": "4x2",
+      "image_url": "",
+      "description": "SUV híbrido de 154 HP con caja manual y tracción 4X2. 1 versión con precio de lista.",
+      "origin": "China",
+      "versions": [
+        {
+          "version": "1.5L",
+          "price": 23990000,
+          "transmission": "manual",
+          "traction": "4x2"
+        }
+      ],
+      "hp": 154,
+      "length_mm": 4565,
+      "width_mm": 1860,
+      "height_mm": 1680,
+      "wheelbase_mm": 2715,
+      "trunk_liters": 480,
+      "airbags": 6,
+      "year_start": 2025,
+      "price_source": "https://www.autocosmos.cl/catalogo/vigente/dongfeng/t5-hcv",
+      "price_checked_at": "2026-11-12",
+      "origin_country": "China"
+    },
+    {
+      "id": 721,
+      "brand": "Dongfeng",
+      "model": "S50 EV",
+      "year": 2025,
+      "type": "sedan",
+      "fuel": "electrico",
+      "seats": 5,
+      "price": 26990000,
+      "transmission": "automatica",
+      "traction": "4x2",
+      "image_url": "",
+      "description": "Sedán 100% eléctrico de 120 HP con caja automática y tracción 4X2. 1 versión con precio de lista.",
+      "origin": "China",
+      "versions": [
+        {
+          "version": "1.5L EV",
+          "price": 26990000,
+          "transmission": "automatica",
+          "traction": "4x2"
+        }
+      ],
+      "hp": 120,
+      "torque_nm": 280,
+      "length_mm": 4745,
+      "width_mm": 1790,
+      "height_mm": 1550,
+      "wheelbase_mm": 2700,
+      "trunk_liters": 500,
+      "top_speed_kmh": 150,
+      "airbags": 2,
+      "year_start": 2025,
+      "price_source": "https://www.autocosmos.cl/catalogo/vigente/dongfeng/s50-ev",
+      "price_checked_at": "2026-11-12",
+      "origin_country": "China"
+    },
+    {
+      "id": 722,
+      "brand": "Dongfeng",
+      "model": "MAGE EV",
+      "year": 2026,
+      "type": "suv",
+      "fuel": "electrico",
+      "seats": 5,
+      "price": 21980000,
+      "transmission": "automatica",
+      "traction": "4x2",
+      "image_url": "",
+      "description": "SUV 100% eléctrico de 162 HP con caja automática y tracción 4X2. 1 versión con precio de lista.",
+      "origin": "China",
+      "versions": [
+        {
+          "version": "EV",
+          "price": 21980000,
+          "transmission": "automatica",
+          "traction": "4x2"
+        }
+      ],
+      "hp": 162,
+      "torque_nm": 240,
+      "length_mm": 4670,
+      "width_mm": 1900,
+      "height_mm": 1613,
+      "wheelbase_mm": 2775,
+      "ground_clearance_mm": 145,
+      "trunk_liters": 360,
+      "airbags": 2,
+      "year_start": 2026,
+      "price_source": "https://www.autocosmos.cl/catalogo/vigente/dongfeng/mage-ev",
+      "price_checked_at": "2026-11-12",
       "origin_country": "China"
     }
   ]

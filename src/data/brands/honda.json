@@ -122,7 +122,7 @@
       "type": "sedan",
       "fuel": "gasolina",
       "seats": 5,
-      "price": 20990000,
+      "price": 31390000,
       "transmission": "automatica",
       "traction": "4x2",
       "image_url": "",
@@ -131,20 +131,8 @@
       "origin_country": "Japón",
       "versions": [
         {
-          "version": "LX",
-          "price": 20990000,
-          "transmission": "automatica",
-          "traction": "4x2"
-        },
-        {
-          "version": "EX",
-          "price": 23990000,
-          "transmission": "automatica",
-          "traction": "4x2"
-        },
-        {
-          "version": "Touring",
-          "price": 26990000,
+          "version": "1.5L Touring",
+          "price": 31390000,
           "transmission": "automatica",
           "traction": "4x2"
         }
@@ -173,7 +161,9 @@
         "Lane Keep Assist"
       ],
       "warranty_years": 3,
-      "warranty_km": 100000
+      "warranty_km": 100000,
+      "price_source": "https://www.autocosmos.cl/catalogo/vigente/honda/civic",
+      "price_checked_at": "2026-11-12"
     },
     {
       "id": 232,
@@ -233,29 +223,17 @@
       "type": "suv",
       "fuel": "gasolina",
       "seats": 5,
-      "price": 27990000,
+      "price": 42990000,
       "transmission": "automatica",
-      "traction": "4x2",
+      "traction": "awd",
       "image_url": "",
       "description": "SUV mediano espacioso y confiable",
       "origin": "Tailandia",
       "origin_country": "Japón",
       "versions": [
         {
-          "version": "LX",
-          "price": 27990000,
-          "transmission": "automatica",
-          "traction": "4x2"
-        },
-        {
-          "version": "EX",
-          "price": 30990000,
-          "transmission": "automatica",
-          "traction": "4x2"
-        },
-        {
-          "version": "Touring",
-          "price": 34990000,
+          "version": "1.5L Touring AWD",
+          "price": 42990000,
           "transmission": "automatica",
           "traction": "awd"
         }
@@ -285,7 +263,9 @@
         "Control crucero adaptativo"
       ],
       "warranty_years": 3,
-      "warranty_km": 100000
+      "warranty_km": 100000,
+      "price_source": "https://www.autocosmos.cl/catalogo/vigente/honda/cr-v",
+      "price_checked_at": "2026-11-12"
     },
     {
       "id": 234,
@@ -295,7 +275,7 @@
       "type": "suv",
       "fuel": "gasolina",
       "seats": 5,
-      "price": 19990000,
+      "price": 24990000,
       "transmission": "automatica",
       "traction": "4x2",
       "image_url": "",
@@ -304,20 +284,8 @@
       "origin_country": "Japón",
       "versions": [
         {
-          "version": "LX",
-          "price": 19990000,
-          "transmission": "automatica",
-          "traction": "4x2"
-        },
-        {
-          "version": "EX",
-          "price": 22990000,
-          "transmission": "automatica",
-          "traction": "4x2"
-        },
-        {
-          "version": "EX-L",
-          "price": 25990000,
+          "version": "1.5 i-VTEC",
+          "price": 24990000,
           "transmission": "automatica",
           "traction": "4x2"
         }
@@ -341,7 +309,9 @@
         "Android Auto"
       ],
       "warranty_years": 3,
-      "warranty_km": 100000
+      "warranty_km": 100000,
+      "price_source": "https://www.autocosmos.cl/catalogo/vigente/honda/hrv-touring",
+      "price_checked_at": "2026-11-12"
     },
     {
       "id": 235,
@@ -351,9 +321,9 @@
       "type": "suv",
       "fuel": "gasolina",
       "seats": 7,
-      "price": 39990000,
+      "price": 59990000,
       "transmission": "automatica",
-      "traction": "4x4",
+      "traction": "awd",
       "image_url": "",
       "description": "SUV mediano con capacidad para 7 pasajeros y sistema de tracción integral.",
       "origin": "USA",
@@ -387,18 +357,20 @@
       "origin_country": "USA",
       "versions": [
         {
-          "version": "3.5L V6 AT AWD",
-          "price": 39990000,
-          "transmission": "automática",
-          "traction": "4x4"
+          "version": "3.5L Touring AWD Aut",
+          "price": 59990000,
+          "transmission": "automatica",
+          "traction": "awd"
         },
         {
-          "version": "3.5L V6 AT AWD Elite",
-          "price": 45990000,
-          "transmission": "automática",
-          "traction": "4x4"
+          "version": "3.5L Elite AWD Aut",
+          "price": 61990000,
+          "transmission": "automatica",
+          "traction": "awd"
         }
-      ]
+      ],
+      "price_source": "https://www.autocosmos.cl/catalogo/vigente/honda/pilot",
+      "price_checked_at": "2026-11-12"
     },
     {
       "id": 236,
@@ -465,7 +437,7 @@
       "type": "suv",
       "fuel": "gasolina",
       "seats": 5,
-      "price": 20990000,
+      "price": 18790000,
       "transmission": "automatica",
       "traction": "4x2",
       "image_url": "",
@@ -500,18 +472,26 @@
       "origin_country": "Japón",
       "versions": [
         {
-          "version": "1.5L CVT",
-          "price": 20990000,
+          "version": "1.5L LX Aut",
+          "price": 18790000,
           "transmission": "automatica",
           "traction": "4x2"
         },
         {
-          "version": "1.5L CVT EX",
-          "price": 22990000,
+          "version": "1.5L EX Aut",
+          "price": 19890000,
+          "transmission": "automatica",
+          "traction": "4x2"
+        },
+        {
+          "version": "1.5L EXL Aut",
+          "price": 20890000,
           "transmission": "automatica",
           "traction": "4x2"
         }
-      ]
+      ],
+      "price_source": "https://www.autocosmos.cl/catalogo/vigente/honda/wr-v",
+      "price_checked_at": "2026-11-12"
     },
     {
       "id": 238,
@@ -521,7 +501,7 @@
       "type": "suv",
       "fuel": "gasolina",
       "seats": 5,
-      "price": 24990000,
+      "price": 31990000,
       "transmission": "automatica",
       "traction": "4x2",
       "image_url": "",
@@ -530,14 +510,14 @@
       "origin_country": "Japón",
       "versions": [
         {
-          "version": "EX",
-          "price": 24990000,
+          "version": "2.0L EXL",
+          "price": 31990000,
           "transmission": "automatica",
           "traction": "4x2"
         },
         {
-          "version": "EX-L",
-          "price": 27990000,
+          "version": "2.0L Touring",
+          "price": 33490000,
           "transmission": "automatica",
           "traction": "4x2"
         }
@@ -567,7 +547,45 @@
         "Control crucero adaptativo"
       ],
       "warranty_years": 3,
-      "warranty_km": 100000
+      "warranty_km": 100000,
+      "price_source": "https://www.autocosmos.cl/catalogo/vigente/honda/zr-v",
+      "price_checked_at": "2026-11-12"
+    },
+    {
+      "id": 713,
+      "brand": "Honda",
+      "model": "CR-V Híbrido",
+      "year": 2025,
+      "type": "suv",
+      "fuel": "hibrido",
+      "seats": 5,
+      "price": 49990000,
+      "transmission": "automatica",
+      "traction": "awd",
+      "image_url": "",
+      "description": "SUV híbrido de 332 HP con caja automática y tracción AWD. 1 versión con precio de lista.",
+      "origin": "Japón",
+      "versions": [
+        {
+          "version": "2.0L",
+          "price": 49990000,
+          "transmission": "automatica",
+          "traction": "awd"
+        }
+      ],
+      "hp": 332,
+      "length_mm": 4706,
+      "width_mm": 1866,
+      "height_mm": 1691,
+      "wheelbase_mm": 2700,
+      "ground_clearance_mm": 208,
+      "trunk_liters": 581,
+      "fuel_tank_liters": 53,
+      "airbags": 7,
+      "year_start": 2025,
+      "price_source": "https://www.autocosmos.cl/catalogo/vigente/honda/cr-v-hybrid",
+      "price_checked_at": "2026-11-12",
+      "origin_country": "Japón"
     }
   ]
 }

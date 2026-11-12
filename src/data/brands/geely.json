@@ -74,19 +74,19 @@
       "origin": "China",
       "versions": [
         {
-          "version": "1.5T Comfort DCT",
+          "version": "Comfort",
           "price": 17890000,
           "transmission": "automatica",
           "traction": "4x2"
         },
         {
-          "version": "1.5T Exclusive DCT",
+          "version": "Exclusive",
           "price": 19490000,
           "transmission": "automatica",
           "traction": "4x2"
         },
         {
-          "version": "1.5T Signature DCT",
+          "version": "Signature",
           "price": 20890000,
           "transmission": "automatica",
           "traction": "4x2"
@@ -118,7 +118,9 @@
       ],
       "warranty_years": 6,
       "warranty_km": 120000,
-      "origin_country": "China"
+      "origin_country": "China",
+      "price_source": "https://www.autocosmos.cl/catalogo/vigente/geely/cityray",
+      "price_checked_at": "2026-11-12"
     },
     {
       "id": 200,
@@ -128,7 +130,7 @@
       "type": "suv",
       "fuel": "gasolina",
       "seats": 5,
-      "price": 10490000,
+      "price": 12490000,
       "transmission": "manual",
       "traction": "4x2",
       "image_url": "",
@@ -136,14 +138,26 @@
       "origin": "China",
       "versions": [
         {
-          "version": "1.5T Comfort MT",
-          "price": 10490000,
+          "version": "Pop",
+          "price": 12490000,
           "transmission": "manual",
           "traction": "4x2"
         },
         {
-          "version": "1.5T Elite AT",
-          "price": 12990000,
+          "version": "Pop Plus",
+          "price": 13290000,
+          "transmission": "manual",
+          "traction": "4x2"
+        },
+        {
+          "version": "Prime",
+          "price": 13490000,
+          "transmission": "automatica",
+          "traction": "4x2"
+        },
+        {
+          "version": "Prime Plus",
+          "price": 14290000,
           "transmission": "automatica",
           "traction": "4x2"
         }
@@ -169,7 +183,9 @@
       ],
       "warranty_years": 6,
       "warranty_km": 120000,
-      "origin_country": "China"
+      "origin_country": "China",
+      "price_source": "https://www.autocosmos.cl/catalogo/vigente/geely/coolray-lite",
+      "price_checked_at": "2026-11-12"
     },
     {
       "id": 201,
@@ -460,7 +476,7 @@
       "type": "minivan",
       "fuel": "gasolina",
       "seats": 7,
-      "price": 20690000,
+      "price": 24690000,
       "transmission": "automatica",
       "traction": "4x2",
       "image_url": "",
@@ -468,14 +484,14 @@
       "origin": "China",
       "versions": [
         {
-          "version": "1.5T Comfort DCT",
-          "price": 20690000,
+          "version": "Exclusive",
+          "price": 24690000,
           "transmission": "automatica",
           "traction": "4x2"
         },
         {
-          "version": "1.5T Luxury DCT",
-          "price": 22990000,
+          "version": "Signature",
+          "price": 26690000,
           "transmission": "automatica",
           "traction": "4x2"
         }
@@ -501,7 +517,9 @@
       ],
       "warranty_years": 6,
       "warranty_km": 120000,
-      "origin_country": "China"
+      "origin_country": "China",
+      "price_source": "https://www.autocosmos.cl/catalogo/vigente/geely/okavango",
+      "price_checked_at": "2026-11-12"
     },
     {
       "id": 207,
@@ -511,7 +529,7 @@
       "type": "suv",
       "fuel": "gasolina",
       "seats": 5,
-      "price": 19990000,
+      "price": 23990000,
       "transmission": "automatica",
       "traction": "4x2",
       "image_url": "",
@@ -519,14 +537,14 @@
       "origin": "China",
       "versions": [
         {
-          "version": "2.0T Comfort DCT",
-          "price": 19990000,
+          "version": "Exclusive",
+          "price": 23990000,
           "transmission": "automatica",
           "traction": "4x2"
         },
         {
-          "version": "2.0T Luxury DCT",
-          "price": 22490000,
+          "version": "Signature",
+          "price": 25690000,
           "transmission": "automatica",
           "traction": "4x2"
         }
@@ -557,7 +575,9 @@
       ],
       "warranty_years": 6,
       "warranty_km": 120000,
-      "origin_country": "China"
+      "origin_country": "China",
+      "price_source": "https://www.autocosmos.cl/catalogo/vigente/geely/starray",
+      "price_checked_at": "2026-11-12"
     },
     {
       "id": 712,

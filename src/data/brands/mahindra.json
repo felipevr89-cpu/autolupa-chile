@@ -181,6 +181,55 @@
           "traction": "awd"
         }
       ]
+    },
+    {
+      "id": 733,
+      "brand": "Mahindra",
+      "model": "XUV300",
+      "year": 2025,
+      "type": "suv",
+      "fuel": "gasolina",
+      "seats": 5,
+      "price": 10290000,
+      "transmission": "manual",
+      "traction": "4x2",
+      "image_url": "",
+      "description": "SUV bencinero de 110 HP con caja manual y tracción 4X2. 3 versiones con precio de lista.",
+      "origin": "India",
+      "versions": [
+        {
+          "version": "Comfort",
+          "price": 10290000,
+          "transmission": "manual",
+          "traction": "4x2"
+        },
+        {
+          "version": "Elite",
+          "price": 11790000,
+          "transmission": "manual",
+          "traction": "4x2"
+        },
+        {
+          "version": "Luxury",
+          "price": 13490000,
+          "transmission": "manual",
+          "traction": "4x2"
+        }
+      ],
+      "hp": 110,
+      "torque_nm": 200,
+      "length_mm": 3995,
+      "width_mm": 1727,
+      "height_mm": 1627,
+      "wheelbase_mm": 2600,
+      "ground_clearance_mm": 160,
+      "trunk_liters": 257,
+      "fuel_tank_liters": 42,
+      "airbags": 2,
+      "year_start": 2025,
+      "price_source": "https://www.autocosmos.cl/catalogo/vigente/mahindra/xuv-300",
+      "price_checked_at": "2026-11-12",
+      "origin_country": "India"
     }
   ]
 }

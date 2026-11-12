@@ -10,22 +10,28 @@
       "type": "suv",
       "fuel": "gasolina",
       "seats": 5,
-      "price": 13990000,
-      "transmission": "automatica",
+      "price": 13590000,
+      "transmission": "manual",
       "traction": "4x2",
       "image_url": "",
       "description": "SUV compacto con motor 1.5 turbo y transmisión CVT.",
       "origin": "China",
       "versions": [
         {
-          "version": "1.5T Comfort CVT",
-          "price": 13990000,
-          "transmission": "automatica",
+          "version": "1.5L Comfort",
+          "price": 13590000,
+          "transmission": "manual",
           "traction": "4x2"
         },
         {
-          "version": "1.5T Luxury CVT",
-          "price": 15490000,
+          "version": "1.5L Luxury",
+          "price": 14090000,
+          "transmission": "manual",
+          "traction": "4x2"
+        },
+        {
+          "version": "1.5L Luxury CVT SK",
+          "price": 14690000,
           "transmission": "automatica",
           "traction": "4x2"
         }
@@ -51,7 +57,9 @@
       ],
       "warranty_years": 5,
       "warranty_km": 100000,
-      "origin_country": "China"
+      "origin_country": "China",
+      "price_source": "https://www.autocosmos.cl/catalogo/vigente/dfsk/500-active",
+      "price_checked_at": "2026-11-12"
     },
     {
       "id": 144,
@@ -61,23 +69,17 @@
       "type": "suv",
       "fuel": "gasolina",
       "seats": 7,
-      "price": 16990000,
-      "transmission": "automatica",
+      "price": 16890000,
+      "transmission": "manual",
       "traction": "4x2",
       "image_url": "",
       "description": "SUV de tres filas con motor 1.5 turbo y espacio para siete pasajeros.",
       "origin": "China",
       "versions": [
         {
-          "version": "1.5T Comfort CVT",
-          "price": 16990000,
-          "transmission": "automatica",
-          "traction": "4x2"
-        },
-        {
-          "version": "1.5T Luxury CVT",
-          "price": 18990000,
-          "transmission": "automatica",
+          "version": "1.8L Comfort",
+          "price": 16890000,
+          "transmission": "manual",
           "traction": "4x2"
         }
       ],
@@ -102,7 +104,9 @@
       ],
       "warranty_years": 5,
       "warranty_km": 100000,
-      "origin_country": "China"
+      "origin_country": "China",
+      "price_source": "https://www.autocosmos.cl/catalogo/vigente/dfsk/580",
+      "price_checked_at": "2026-11-12"
     },
     {
       "id": 145,
@@ -233,6 +237,94 @@
       ],
       "warranty_years": 5,
       "warranty_km": 100000,
+      "origin_country": "China"
+    },
+    {
+      "id": 716,
+      "brand": "DFSK",
+      "model": "Glory 600",
+      "year": 2025,
+      "type": "suv",
+      "fuel": "gasolina",
+      "seats": 5,
+      "price": 18490000,
+      "transmission": "manual",
+      "traction": "4x2",
+      "image_url": "",
+      "description": "SUV bencinero de 181 HP con caja automática o manual y tracción 4X2. 3 versiones con precio de lista.",
+      "origin": "China",
+      "versions": [
+        {
+          "version": "1.5L Comfort",
+          "price": 18490000,
+          "transmission": "manual",
+          "traction": "4x2"
+        },
+        {
+          "version": "1.5L Comfort Aut",
+          "price": 20490000,
+          "transmission": "automatica",
+          "traction": "4x2"
+        },
+        {
+          "version": "1.5L Luxury Aut",
+          "price": 21490000,
+          "transmission": "automatica",
+          "traction": "4x2"
+        }
+      ],
+      "hp": 181,
+      "torque_nm": 300,
+      "length_mm": 4720,
+      "width_mm": 1865,
+      "height_mm": 1710,
+      "wheelbase_mm": 2785,
+      "ground_clearance_mm": 200,
+      "fuel_consumption_mixed_km_l": 13.0,
+      "airbags": 2,
+      "year_start": 2025,
+      "price_source": "https://www.autocosmos.cl/catalogo/vigente/dfsk/600",
+      "price_checked_at": "2026-11-12",
+      "origin_country": "China"
+    },
+    {
+      "id": 717,
+      "brand": "DFSK",
+      "model": "Glory 600 PHEV",
+      "year": 2025,
+      "type": "suv",
+      "fuel": "hibrido_enchufable",
+      "seats": 5,
+      "price": 24990000,
+      "transmission": "automatica",
+      "traction": "4x2",
+      "image_url": "",
+      "description": "SUV híbrido enchufable de 210 HP con caja automática y tracción 4X2. 2 versiones con precio de lista.",
+      "origin": "China",
+      "versions": [
+        {
+          "version": "Elite",
+          "price": 24990000,
+          "transmission": "automatica",
+          "traction": "4x2"
+        },
+        {
+          "version": "Elite PRO",
+          "price": 28990000,
+          "transmission": "automatica",
+          "traction": "4x2"
+        }
+      ],
+      "hp": 210,
+      "length_mm": 4760,
+      "width_mm": 1865,
+      "height_mm": 1710,
+      "wheelbase_mm": 2785,
+      "ground_clearance_mm": 180,
+      "airbags": 4,
+      "year_start": 2025,
+      "price_source": "https://www.autocosmos.cl/catalogo/vigente/dfsk/600-phev",
+      "price_checked_at": "2026-11-12",
       "origin_country": "China"
     }
   ]

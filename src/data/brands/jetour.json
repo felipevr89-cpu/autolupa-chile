@@ -10,22 +10,22 @@
       "type": "suv",
       "fuel": "gasolina",
       "seats": 5,
-      "price": 9490000,
-      "transmission": "manual",
+      "price": 12490000,
+      "transmission": "automatica",
       "traction": "4x2",
       "image_url": "",
       "description": "SUV compacto de entrada con excelente relación precio-equipamiento.",
       "origin": "China",
       "versions": [
         {
-          "version": "1.5L MT",
-          "price": 9490000,
-          "transmission": "manual",
+          "version": "1.5 Lux",
+          "price": 12490000,
+          "transmission": "automatica",
           "traction": "4x2"
         },
         {
-          "version": "1.5L AT",
-          "price": 11490000,
+          "version": "1.5 Lux DCT",
+          "price": 15490000,
           "transmission": "automatica",
           "traction": "4x2"
         }
@@ -49,7 +49,9 @@
       "fuel_consumption_mixed_km_l": 14,
       "warranty_years": 5,
       "warranty_km": 150000,
-      "origin_country": "China"
+      "origin_country": "China",
+      "price_source": "https://www.autocosmos.cl/catalogo/vigente/jetour/x50",
+      "price_checked_at": "2026-11-12"
     },
     {
       "id": 635,
@@ -59,8 +61,8 @@
       "type": "suv",
       "fuel": "gasolina",
       "seats": 5,
-      "price": 17990000,
-      "transmission": "automatica",
+      "price": 16490000,
+      "transmission": "manual",
       "traction": "4x2",
       "image_url": "",
       "description": "SUV coupé deportivo juvenil con diseño llamativo.",
@@ -93,18 +95,26 @@
       "origin_country": "China",
       "versions": [
         {
-          "version": "1.5T",
-          "price": 17990000,
-          "transmission": "automática",
+          "version": "1.5T Special Edition",
+          "price": 16490000,
+          "transmission": "manual",
           "traction": "4x2"
         },
         {
-          "version": "1.5T Sport",
-          "price": 19990000,
-          "transmission": "automática",
+          "version": "1.5T Lux",
+          "price": 17490000,
+          "transmission": "manual",
+          "traction": "4x2"
+        },
+        {
+          "version": "1.5T Special Edition DCT",
+          "price": 18490000,
+          "transmission": "automatica",
           "traction": "4x2"
         }
-      ]
+      ],
+      "price_source": "https://www.autocosmos.cl/catalogo/vigente/jetour/dashing",
+      "price_checked_at": "2026-11-12"
     },
     {
       "id": 290,
@@ -114,8 +124,8 @@
       "type": "suv",
       "fuel": "gasolina",
       "seats": 5,
-      "price": 15990000,
-      "transmission": "automatica",
+      "price": 17490000,
+      "transmission": "manual",
       "traction": "4x2",
       "image_url": "",
       "description": "SUV mediano con amplio espacio interior y diseño moderno, representado por Tattersall Automotriz.",
@@ -148,18 +158,20 @@
       "origin_country": "China",
       "versions": [
         {
-          "version": "1.5T",
-          "price": 15990000,
-          "transmission": "automática",
+          "version": "1.5L Lux FL",
+          "price": 17490000,
+          "transmission": "manual",
           "traction": "4x2"
         },
         {
-          "version": "1.5T Sport",
-          "price": 17990000,
-          "transmission": "automática",
+          "version": "1.5L Lux Aut FL",
+          "price": 19490000,
+          "transmission": "automatica",
           "traction": "4x2"
         }
-      ]
+      ],
+      "price_source": "https://www.autocosmos.cl/catalogo/vigente/jetour/x70",
+      "price_checked_at": "2026-11-12"
     },
     {
       "id": 291,
@@ -169,7 +181,7 @@
       "type": "suv",
       "fuel": "gasolina",
       "seats": 7,
-      "price": 19990000,
+      "price": 20990000,
       "transmission": "automatica",
       "traction": "4x2",
       "image_url": "",
@@ -203,18 +215,20 @@
       "origin_country": "China",
       "versions": [
         {
-          "version": "1.5T 7 plazas",
-          "price": 19990000,
-          "transmission": "automática",
+          "version": "1.5T",
+          "price": 20990000,
+          "transmission": "automatica",
           "traction": "4x2"
         },
         {
-          "version": "1.5T Sport 7 plazas",
-          "price": 21990000,
-          "transmission": "automática",
+          "version": "1.6T Lux",
+          "price": 22490000,
+          "transmission": "automatica",
           "traction": "4x2"
         }
-      ]
+      ],
+      "price_source": "https://www.autocosmos.cl/catalogo/vigente/jetour/x70-plus",
+      "price_checked_at": "2026-11-12"
     },
     {
       "id": 292,
@@ -224,7 +238,7 @@
       "type": "suv",
       "fuel": "gasolina",
       "seats": 7,
-      "price": 23490000,
+      "price": 27490000,
       "transmission": "automatica",
       "traction": "4x2",
       "image_url": "",
@@ -260,18 +274,14 @@
       "origin_country": "China",
       "versions": [
         {
-          "version": "1.6T 7 plazas",
-          "price": 23490000,
-          "transmission": "automática",
-          "traction": "4x2"
-        },
-        {
-          "version": "1.6T Luxury 7 plazas",
-          "price": 26990000,
-          "transmission": "automática",
+          "version": "2.0T",
+          "price": 27490000,
+          "transmission": "automatica",
           "traction": "4x2"
         }
-      ]
+      ],
+      "price_source": "https://www.autocosmos.cl/catalogo/vigente/jetour/x90-plus",
+      "price_checked_at": "2026-11-12"
     },
     {
       "id": 636,
@@ -281,7 +291,7 @@
       "type": "suv",
       "fuel": "gasolina",
       "seats": 5,
-      "price": 18490000,
+      "price": 22990000,
       "transmission": "automatica",
       "traction": "4x2",
       "image_url": "",
@@ -289,14 +299,14 @@
       "origin": "China",
       "versions": [
         {
-          "version": "1.5T AT",
-          "price": 18490000,
+          "version": "1.5 Turbo DCT Lux",
+          "price": 22990000,
           "transmission": "automatica",
           "traction": "4x2"
         },
         {
-          "version": "1.5T Luxury AT",
-          "price": 20990000,
+          "version": "2.0 Turbo Aut Limited AWD",
+          "price": 26990000,
           "transmission": "automatica",
           "traction": "4x2"
         }
@@ -320,7 +330,9 @@
       "fuel_consumption_mixed_km_l": 13,
       "warranty_years": 5,
       "warranty_km": 150000,
-      "origin_country": "China"
+      "origin_country": "China",
+      "price_source": "https://www.autocosmos.cl/catalogo/vigente/jetour/t1",
+      "price_checked_at": "2026-11-12"
     },
     {
       "id": 637,
@@ -330,18 +342,18 @@
       "type": "suv",
       "fuel": "hibrido_enchufable",
       "seats": 5,
-      "price": 27990000,
+      "price": 29990000,
       "transmission": "automatica",
-      "traction": "4x2",
+      "traction": "awd",
       "image_url": "",
       "description": "SUV híbrido enchufable con etiqueta ecológica y eficiencia superior.",
       "origin": "China",
       "versions": [
         {
-          "version": "1.5T PHEV AT",
-          "price": 27990000,
+          "version": "1.5T Limited",
+          "price": 29990000,
           "transmission": "automatica",
-          "traction": "4x2"
+          "traction": "awd"
         }
       ],
       "hp": 180,
@@ -363,7 +375,9 @@
       "fuel_consumption_mixed_km_l": 20,
       "warranty_years": 5,
       "warranty_km": 150000,
-      "origin_country": "China"
+      "origin_country": "China",
+      "price_source": "https://www.autocosmos.cl/catalogo/vigente/jetour/t1-phev",
+      "price_checked_at": "2026-11-12"
     },
     {
       "id": 638,
@@ -373,24 +387,18 @@
       "type": "suv",
       "fuel": "gasolina",
       "seats": 5,
-      "price": 26990000,
+      "price": 29990000,
       "transmission": "automatica",
-      "traction": "4x4",
+      "traction": "4x2",
       "image_url": "",
       "description": "SUV off-road mediano con tracción 4x4 y diseño robusto.",
       "origin": "China",
       "versions": [
         {
-          "version": "1.6T 4x4 AT",
-          "price": 26990000,
-          "transmission": "automatica",
-          "traction": "4x4"
-        },
-        {
-          "version": "1.6T Luxury 4x4 AT",
+          "version": "2.0T AWD Limited",
           "price": 29990000,
           "transmission": "automatica",
-          "traction": "4x4"
+          "traction": "4x2"
         }
       ],
       "hp": 197,
@@ -412,7 +420,9 @@
       "fuel_consumption_mixed_km_l": 11,
       "warranty_years": 5,
       "warranty_km": 150000,
-      "origin_country": "China"
+      "origin_country": "China",
+      "price_source": "https://www.autocosmos.cl/catalogo/vigente/jetour/t2",
+      "price_checked_at": "2026-11-12"
     },
     {
       "id": 639,
@@ -422,18 +432,18 @@
       "type": "suv",
       "fuel": "hibrido_enchufable",
       "seats": 5,
-      "price": 33490000,
+      "price": 36990000,
       "transmission": "automatica",
-      "traction": "4x4",
+      "traction": "4x2",
       "image_url": "",
       "description": "SUV híbrido enchufable 4x4 con gran potencia y eficiencia.",
       "origin": "China",
       "versions": [
         {
-          "version": "1.6T PHEV 4x4 AT",
-          "price": 33490000,
+          "version": "1.5T Limited",
+          "price": 36990000,
           "transmission": "automatica",
-          "traction": "4x4"
+          "traction": "4x2"
         }
       ],
       "hp": 280,
@@ -455,7 +465,9 @@
       "fuel_consumption_mixed_km_l": 18,
       "warranty_years": 5,
       "warranty_km": 150000,
-      "origin_country": "China"
+      "origin_country": "China",
+      "price_source": "https://www.autocosmos.cl/catalogo/vigente/jetour/t2-phev",
+      "price_checked_at": "2026-11-12"
     }
   ]
 }

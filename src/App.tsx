@@ -10,6 +10,7 @@ import { SEO } from './components/SEO';
 import { SignatureModal } from './components/Documents/SignatureModal';
 import { Home } from './pages/Home';
 import { CarGridSkeleton } from './components/Cars/CarSkeleton';
+import { LEGAL_DOC_TYPES } from './lib/legalDocTypes';
 
 const Compare = lazy(() => import('./pages/Compare').then(m => ({ default: m.Compare })));
 const Favorites = lazy(() => import('./pages/Favorites').then(m => ({ default: m.Favorites })));
@@ -218,14 +219,17 @@ function AppContent() {
             </Suspense>
           }
         />
-        <Route
-          path="/:docType(privacidad|responsabilidad|terminos)"
-          element={
-            <Suspense fallback={<PageSkeleton />}>
-              <LegalDocs />
-            </Suspense>
-          }
-        />
+        {LEGAL_DOC_TYPES.map((docType) => (
+          <Route
+            key={docType}
+            path={`/${docType}`}
+            element={
+              <Suspense fallback={<PageSkeleton />}>
+                <LegalDocs docType={docType} />
+              </Suspense>
+            }
+          />
+        ))}
         <Route
           path="/quienes-somos"
           element={

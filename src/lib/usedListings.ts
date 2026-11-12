@@ -121,20 +121,8 @@ export async function submitUsedListingLead(lead: UsedListingLead): Promise<void
     message: lead.message,
   };
 
-  if (!supabase) {
-    console.info('[used-listing-lead]', { ...payload, listingTitle: lead.listingTitle, sellerName: lead.sellerName });
-    return;
-  }
-
-  const { error } = await supabase.from('used_listing_leads').insert(payload);
-  if (error) {
-    console.info('[used-listing-lead:fallback]', {
-      ...payload,
-      listingTitle: lead.listingTitle,
-      sellerName: lead.sellerName,
-      error: error.message,
-    });
-  }
+  const { error } = await client().from('used_listing_leads').insert(payload);
+  if (error) throw new Error(error.message);
 }
 
 export class MarketplaceUnavailableError extends Error {

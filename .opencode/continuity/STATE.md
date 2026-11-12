@@ -1,5 +1,5 @@
 # AutoLupa — estado de continuidad
-Actualizado: 2026-11-11 19:40 UTC
+Actualizado: 2026-11-12 17:10 UTC
 Fase: Cierre — L1–L5 y rediseño completos; pendiente revisión del usuario
 Estado: EN_PROGRESO
 
@@ -7,7 +7,7 @@ Estado: EN_PROGRESO
 Revisar en escritorio la ficha, el TCO, el simulador de crédito y el estado sin resultados; confirmar que los ajustes móviles no rompen el layout amplio.
 
 ## Último punto seguro
-L1–L5 + rediseño (Lotes 27–30) completos en el árbol local, sin commit. `npm test` 277/277, `lint` 0, `build` 0, `audit:catalog` 0 errores.
+L1–L5 + rediseño y los arreglos de rutas legales y leads están en commits locales de `feat/catalog-coverage-search`, sin push. `npm test` 282/282, `lint` 0, `tsc` 0.
 
 ## Trabajo en curso
 Ninguno. Esperando que el usuario revise y autorice commit/PR/deploy, y resuelva Supabase y el dominio/correos.
@@ -55,7 +55,7 @@ Ninguno. Esperando que el usuario revise y autorice commit/PR/deploy, y resuelva
 - `npm run audit:tasar` — PASÓ (0 faltantes).
 
 ## Problemas / riesgos abiertos
-- El lote anterior sigue sin commit; no se debe mezclar con cambios nuevos sin autorización.
+- Los commits son locales: falta push, PR y deploy; producción sigue mostrando la 404 en las páginas legales.
 - La producción es SPA sin prerender: las rutas profundas no exponen título/H1/contenido en el HTML inicial.
 - En headless, la foto de portada puede no pintarse y se ve el gradiente; en navegador normal la imagen se muestra con la silueta de respaldo.
 - Las herramientas usan botones con `aria-pressed`, no un `tablist` con navegación por flechas; queda como mejora de accesibilidad.
@@ -63,7 +63,7 @@ Ninguno. Esperando que el usuario revise y autorice commit/PR/deploy, y resuelva
 - No hay despliegue ni push en esta fase.
 
 ## Próximo paso exacto
-Con autorización: commit en `feat/catalog-coverage-search` y PR a `main`. Luego, siguiente lote de datos según `docs/AUDIT-CATALOGO-2026-11.md` (Chery, BYD, Jetour).
+Con autorización: push de `feat/catalog-coverage-search` y PR a `main` (ejecutar antes `npm run build`). Luego, siguiente lote de datos según `docs/AUDIT-CATALOGO-2026-11.md` (Chery, BYD, Jetour).
 
 ## Instrucción de reanudación
 Leer `STATE.md`, `PLAN.md`, `WORKLOG.md`, `DECISIONS.md`, `TESTS.md`, `AGENTS.md` y el estado Git; confirmar el último punto seguro; continuar desde “Próximo paso exacto”, sin repetir trabajo terminado.

@@ -86,3 +86,7 @@
 - `npx vitest run src/test/smartAskInitial.test.tsx` — PASÓ — 2/2 (consulta inicial, teclado).
 - `npm test` — PASÓ — 277/277; `npm run lint` — 0; `npm run build` — PASÓ.
 - Capturas CDP 1440×900 / 390×844 (claro y oscuro): `scrollWidth == clientWidth` en todas las rutas revisadas.
+
+## Rutas legales y leads (12-11-2026)
+- `npx vitest run src/test/legalRoutes.test.tsx src/test/leadForm.test.tsx` — PASÓ — 5/5.
+- `npm test` — PASÓ — 282/282; `npm run lint` — 0; `npx tsc -p tsconfig.app.json --noEmit` — 0. `npm run build` no ejecutado en este lote.

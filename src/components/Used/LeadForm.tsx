@@ -33,15 +33,21 @@ export function LeadForm({ listingId, listingTitle, sellerName, onClose }: Props
     }
     setError('');
     setState('sending');
-    await submitUsedListingLead({
-      listingId,
-      listingTitle,
-      sellerName,
-      name: name.trim(),
-      email: email.trim(),
-      phone: phone.trim(),
-      message: message.trim(),
-    });
+    try {
+      await submitUsedListingLead({
+        listingId,
+        listingTitle,
+        sellerName,
+        name: name.trim(),
+        email: email.trim(),
+        phone: phone.trim(),
+        message: message.trim(),
+      });
+    } catch {
+      setState('idle');
+      setError('No pudimos enviar tu mensaje. Intenta de nuevo o contacta al vendedor por WhatsApp.');
+      return;
+    }
     track('ContactSeller', { origen: 'formulario', listingId });
     setState('sent');
   };

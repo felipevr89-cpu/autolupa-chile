@@ -1,12 +1,12 @@
 # Auditoría de assets de modelos
 
-Generado: 2026-11-11
+Generado: 2026-11-12
 
 ## Resumen
 
-- Modelos en catálogo: **688**
+- Modelos en catálogo: **713**
 - Modelos con foto: **618**
-- Modelos sin clave en el manifiesto: **35**
+- Modelos sin clave en el manifiesto: **60**
 - Modelos con clave `null` (silueta): **35**
 - Archivos declarados que no existen en disco: **0**
 - Nombres genéricos: **0**
@@ -15,20 +15,42 @@ Generado: 2026-11-11
 
 ## Modelos sin clave en el manifiesto
 
+- 714 · BAIC EU5 (2026)
+- 715 · Changan CS55 Plus iDD (2025)
 - 697 · Chery Tiggo 8 (2026)
 - 678 · Chevrolet Spark EUV (2026)
 - 689 · Citroën Berlingo (2026)
+- 737 · Cupra Terramar (2025)
 - 710 · Deepal S05 EV (2026)
+- 716 · DFSK Glory 600 (2025)
+- 717 · DFSK Glory 600 PHEV (2025)
+- 718 · Dongfeng SX6 (2025)
+- 719 · Dongfeng T5 L (2025)
+- 720 · Dongfeng T5 HCV (2025)
+- 721 · Dongfeng S50 EV (2025)
+- 722 · Dongfeng MAGE EV (2026)
+- 723 · Exeed TXL (2025)
 - 679 · Ford Transit Custom (2026)
 - 680 · Ford Transit Custom Minibús (2026)
 - 681 · Ford Transit Bus (2026)
 - 682 · Ford Transit Chasis (2026)
 - 683 · Ford E-Transit Furgón (2026)
 - 684 · Ford E-Transit Chasis (2026)
+- 724 · GAC Aion ES (2025)
+- 725 · GAC Aion Y (2025)
+- 726 · GAC Emkoo (2025)
+- 727 · GAC Emkoo HEV (2025)
+- 728 · GAC Empow (2025)
+- 729 · GAC Emzoom (2026)
 - 712 · Geely EX5 (2026)
+- 713 · Honda CR-V Híbrido (2025)
+- 730 · JAC JS8 (2025)
+- 731 · JAC JS8 Pro (2025)
+- 732 · JAC E-JS4 (2025)
 - 711 · Jaecoo J6 (2026)
 - 691 · Jeep Avenger Hybrid (2026)
 - 692 · Jeep Avenger Electric (2026)
+- 733 · Mahindra XUV300 (2025)
 - 694 · Mitsubishi Destinator (2026)
 - 695 · Mitsubishi Outlander PHEV (2026)
 - 696 · Mitsubishi Outlander Sport (2026)
@@ -38,6 +60,9 @@ Generado: 2026-11-11
 - 688 · Peugeot 208 Electric (2026)
 - 693 · RAM Dakota (2026)
 - 685 · Renault Koleos Híbrido (2026)
+- 734 · Škoda Elroq (2025)
+- 735 · Škoda Scala (2025)
+- 736 · smart #5 (2026)
 - 537 · Subaru Crosstrek Híbrido (2026)
 - 699 · Subaru Forester Híbrido (2026)
 - 700 · Subaru WRX (2026)

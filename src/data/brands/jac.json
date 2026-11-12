@@ -40,16 +40,12 @@
         {
           "version": "1.5L Comfort",
           "price": 11890000,
-          "transmission": "Manual 5V",
-          "traction": "4x2"
-        },
-        {
-          "version": "1.5L Lux",
-          "price": 12890000,
-          "transmission": "Manual 5V",
+          "transmission": "manual",
           "traction": "4x2"
         }
-      ]
+      ],
+      "price_source": "https://www.autocosmos.cl/catalogo/vigente/jac/js2",
+      "price_checked_at": "2026-11-12"
     },
     {
       "id": 266,
@@ -59,8 +55,8 @@
       "type": "suv",
       "fuel": "gasolina",
       "seats": 5,
-      "price": 13790000,
-      "transmission": "automatica",
+      "price": 13290000,
+      "transmission": "manual",
       "traction": "4x2",
       "image_url": "",
       "description": "Versión mejorada del JS2 con motor turbo y transmisión automática CVT.",
@@ -85,18 +81,20 @@
       "origin_country": "China",
       "versions": [
         {
-          "version": "1.5T Comfort CVT",
-          "price": 13790000,
-          "transmission": "CVT",
+          "version": "1.5L Luxury",
+          "price": 13290000,
+          "transmission": "manual",
           "traction": "4x2"
         },
         {
-          "version": "1.5T Lux CVT",
-          "price": 14790000,
-          "transmission": "CVT",
+          "version": "1.5L Advance CVT",
+          "price": 14290000,
+          "transmission": "automatica",
           "traction": "4x2"
         }
-      ]
+      ],
+      "price_source": "https://www.autocosmos.cl/catalogo/vigente/jac/js2-pro",
+      "price_checked_at": "2026-11-12"
     },
     {
       "id": 267,
@@ -106,8 +104,8 @@
       "type": "suv",
       "fuel": "gasolina",
       "seats": 5,
-      "price": 14990000,
-      "transmission": "automatica",
+      "price": 14190000,
+      "transmission": "manual",
       "traction": "4x2",
       "image_url": "",
       "description": "SUV compacta con buen equipamiento y motor turbo eficiente.",
@@ -132,18 +130,32 @@
       "origin_country": "China",
       "versions": [
         {
-          "version": "1.5T Comfort CVT",
-          "price": 14990000,
-          "transmission": "CVT",
+          "version": "1.6L Comfort",
+          "price": 14190000,
+          "transmission": "manual",
           "traction": "4x2"
         },
         {
-          "version": "1.5T Lux CVT",
-          "price": 15990000,
-          "transmission": "CVT",
+          "version": "1.5T Luxury",
+          "price": 15190000,
+          "transmission": "manual",
+          "traction": "4x2"
+        },
+        {
+          "version": "1.5T Luxury Aut",
+          "price": 16190000,
+          "transmission": "automatica",
+          "traction": "4x2"
+        },
+        {
+          "version": "1.5T Advance Aut",
+          "price": 17690000,
+          "transmission": "automatica",
           "traction": "4x2"
         }
-      ]
+      ],
+      "price_source": "https://www.autocosmos.cl/catalogo/vigente/jac/js4",
+      "price_checked_at": "2026-11-12"
     },
     {
       "id": 268,
@@ -220,16 +232,18 @@
         {
           "version": "Luxury 4x4",
           "price": 20990000,
-          "transmission": "Manual 6V",
+          "transmission": "manual",
           "traction": "4x4"
         },
         {
           "version": "Advance 4x4",
           "price": 21990000,
-          "transmission": "Manual 6V",
+          "transmission": "manual",
           "traction": "4x4"
         }
-      ]
+      ],
+      "price_source": "https://www.autocosmos.cl/catalogo/vigente/jac/t8-pro",
+      "price_checked_at": "2026-11-12"
     },
     {
       "id": 270,
@@ -239,7 +253,7 @@
       "type": "pickup",
       "fuel": "diesel",
       "seats": 5,
-      "price": 28800000,
+      "price": 28786100,
       "transmission": "automatica",
       "traction": "4x4",
       "image_url": "",
@@ -266,12 +280,143 @@
       "origin_country": "China",
       "versions": [
         {
-          "version": "2.0T 4x4 Automática",
-          "price": 28800000,
-          "transmission": "Automática 8V",
+          "version": "4x4 Aut",
+          "price": 28786100,
+          "transmission": "automatica",
           "traction": "4x4"
         }
-      ]
+      ],
+      "price_source": "https://www.autocosmos.cl/catalogo/vigente/jac/t9",
+      "price_checked_at": "2026-11-12"
+    },
+    {
+      "id": 730,
+      "brand": "JAC",
+      "model": "JS8",
+      "year": 2025,
+      "type": "suv",
+      "fuel": "gasolina",
+      "seats": 7,
+      "price": 17690000,
+      "transmission": "manual",
+      "traction": "4x2",
+      "image_url": "",
+      "description": "SUV bencinero de 180 HP con caja manual y tracción 4X2. 2 versiones con precio de lista.",
+      "origin": "China",
+      "versions": [
+        {
+          "version": "1.5L Comfort",
+          "price": 17690000,
+          "transmission": "manual",
+          "traction": "4x2"
+        },
+        {
+          "version": "1.5L Luxury",
+          "price": 18190000,
+          "transmission": "manual",
+          "traction": "4x2"
+        }
+      ],
+      "hp": 180,
+      "torque_nm": 288,
+      "length_mm": 4810,
+      "width_mm": 1870,
+      "height_mm": 1758,
+      "wheelbase_mm": 2810,
+      "ground_clearance_mm": 170,
+      "trunk_liters": 418,
+      "fuel_tank_liters": 58,
+      "fuel_consumption_city_km_l": 9.8,
+      "fuel_consumption_highway_km_l": 14.5,
+      "fuel_consumption_mixed_km_l": 12.3,
+      "airbags": 2,
+      "year_start": 2025,
+      "price_source": "https://www.autocosmos.cl/catalogo/vigente/jac/js8",
+      "price_checked_at": "2026-11-12",
+      "origin_country": "China"
+    },
+    {
+      "id": 731,
+      "brand": "JAC",
+      "model": "JS8 Pro",
+      "year": 2025,
+      "type": "suv",
+      "fuel": "gasolina",
+      "seats": 7,
+      "price": 20990000,
+      "transmission": "automatica",
+      "traction": "4x2",
+      "image_url": "",
+      "description": "SUV bencinero de 182 HP con caja automática y tracción 4X2. 2 versiones con precio de lista.",
+      "origin": "China",
+      "versions": [
+        {
+          "version": "1.5L Luxury",
+          "price": 20990000,
+          "transmission": "automatica",
+          "traction": "4x2"
+        },
+        {
+          "version": "1.5L Advance",
+          "price": 21990000,
+          "transmission": "automatica",
+          "traction": "4x2"
+        }
+      ],
+      "hp": 182,
+      "torque_nm": 300,
+      "length_mm": 4825,
+      "width_mm": 1870,
+      "height_mm": 1758,
+      "wheelbase_mm": 2830,
+      "ground_clearance_mm": 160,
+      "trunk_liters": 418,
+      "fuel_tank_liters": 58,
+      "top_speed_kmh": 170,
+      "fuel_consumption_city_km_l": 9.2,
+      "fuel_consumption_highway_km_l": 14.7,
+      "fuel_consumption_mixed_km_l": 12.0,
+      "airbags": 6,
+      "year_start": 2025,
+      "price_source": "https://www.autocosmos.cl/catalogo/vigente/jac/js8-pro",
+      "price_checked_at": "2026-11-12",
+      "origin_country": "China"
+    },
+    {
+      "id": 732,
+      "brand": "JAC",
+      "model": "E-JS4",
+      "year": 2025,
+      "type": "suv",
+      "fuel": "electrico",
+      "seats": 5,
+      "price": 28990000,
+      "transmission": "automatica",
+      "traction": "4x2",
+      "image_url": "",
+      "description": "SUV 100% eléctrico de 148 HP con caja automática y tracción 4X2. 1 versión con precio de lista.",
+      "origin": "China",
+      "versions": [
+        {
+          "version": "Luxury",
+          "price": 28990000,
+          "transmission": "automatica",
+          "traction": "4x2"
+        }
+      ],
+      "hp": 148,
+      "torque_nm": 340,
+      "length_mm": 4410,
+      "width_mm": 1800,
+      "height_mm": 1660,
+      "wheelbase_mm": 2620,
+      "ground_clearance_mm": 200,
+      "trunk_liters": 520,
+      "airbags": 6,
+      "year_start": 2025,
+      "price_source": "https://www.autocosmos.cl/catalogo/vigente/jac/e-js4",
+      "price_checked_at": "2026-11-12",
+      "origin_country": "China"
     }
   ]
 }

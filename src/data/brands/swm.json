@@ -49,8 +49,8 @@
       "type": "suv",
       "fuel": "gasolina",
       "seats": 7,
-      "price": 11990000,
-      "transmission": "automatica",
+      "price": 14990000,
+      "transmission": "manual",
       "traction": "4x2",
       "image_url": "",
       "description": "SUV familiar de 7 asientos con motor 1.5T turbo y transmisión DCT.",
@@ -75,18 +75,20 @@
       "origin_country": "China",
       "versions": [
         {
-          "version": "Pro 2.0L Elite MT",
-          "price": 11990000,
-          "transmission": "Manual 5V",
+          "version": "Pro 2.0 Elite",
+          "price": 14990000,
+          "transmission": "manual",
           "traction": "4x2"
         },
         {
-          "version": "Pro 1.5T DCT Elite",
-          "price": 13990000,
-          "transmission": "DCT 6V",
+          "version": "Pro 1.5T Luxury",
+          "price": 15990000,
+          "transmission": "manual",
           "traction": "4x2"
         }
-      ]
+      ],
+      "price_source": "https://www.autocosmos.cl/catalogo/vigente/swm/g05",
+      "price_checked_at": "2026-11-12"
     }
   ]
 }

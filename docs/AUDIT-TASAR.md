@@ -1,14 +1,14 @@
 # Auditoría de cobertura del tasador
 
-Generado: 2026-11-11
+Generado: 2026-11-12
 
 ## Resumen
 
 - Marcas: **98**
-- Modelos en catálogo: **688**
+- Modelos en catálogo: **713**
 - Faltantes en tasador: **0**
 - Sobrantes en tasador: **0**
-- Colisiones por prefijo detectadas: **84**
+- Colisiones por prefijo detectadas: **90**
 
 ## Chery
 
@@ -42,6 +42,7 @@ Generado: 2026-11-11
 - BYD · Dolphin ⊂ Dolphin Mini
 - BYD · Han ⊂ Han EV
 - BYD · Seal ⊂ Sealion 7
+- Changan · CS55 Plus ⊂ CS55 Plus iDD
 - Changan · Hunter ⊂ Hunter REEV
 - Chery · Tiggo 2 Pro ⊂ Tiggo 2 Pro Max
 - Chery · Tiggo 7 Pro Max ⊂ Tiggo 7 Pro Max PHEV
@@ -55,12 +56,15 @@ Generado: 2026-11-11
 - Chevrolet · Onix ⊂ Onix Sedán
 - Citroën · C3 ⊂ C3 Aircross
 - Citroën · Berlingo ⊂ Berlingo Multispace
+- DFSK · Glory 600 ⊂ Glory 600 PHEV
+- Dongfeng · MAGE ⊂ MAGE EV
 - Ford · Mustang ⊂ Mustang Dark Horse
 - Ford · Ranger ⊂ Ranger Raptor
 - Ford · Territory ⊂ Territory Híbrida
 - Ford · Maverick ⊂ Maverick FHEV
 - Ford · Bronco ⊂ Bronco Sport
 - Ford · Transit Custom ⊂ Transit Custom Minibús
+- GAC · Emkoo ⊂ Emkoo HEV
 - Geely · EX5 ⊂ EX5 EM-i
 - GWM · H6 ⊂ H6 Híbrido, H6 PHEV, H6 GT
 - GWM · H7 ⊂ H7 Híbrido, H7 Max, H7 Max PHEV
@@ -69,12 +73,14 @@ Generado: 2026-11-11
 - GWM · Poer ⊂ Poer P500 Híbrido, Poer Plus
 - GWM · H7 Max ⊂ H7 Max PHEV
 - Honda · Civic ⊂ Civic Type R
+- Honda · CR-V ⊂ CR-V Híbrido
 - Hyundai · Creta ⊂ Creta Grand
 - Hyundai · Grand i10 ⊂ Grand i10 Sedán
 - Hyundai · Kona ⊂ Kona Híbrido, Kona Eléctrico
 - Hyundai · Staria ⊂ Staria Furgón
 - Hyundai · Tucson ⊂ Tucson Híbrido
 - JAC · JS2 ⊂ JS2 Pro
+- JAC · JS8 ⊂ JS8 Pro
 - Jaecoo · J7 ⊂ J7 SHS
 - Jeep · Avenger ⊂ Avenger Hybrid, Avenger Electric
 - Jeep · Compass ⊂ Compass 4xe

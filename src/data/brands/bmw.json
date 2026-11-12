@@ -10,9 +10,9 @@
       "type": "sedan",
       "fuel": "electrico",
       "seats": 5,
-      "price": 44990000,
+      "price": 85900000,
       "transmission": "automatica",
-      "traction": "awd",
+      "traction": "4x2",
       "image_url": "",
       "description": "Gran coupé 100% eléctrico con autonomía de hasta 590 km.",
       "origin": "Alemania",
@@ -45,24 +45,14 @@
       "origin_country": "Alemania",
       "versions": [
         {
-          "version": "eDrive35",
-          "price": 44990000,
+          "version": "i4 eDrive 40 M Sport",
+          "price": 85900000,
           "transmission": "automatica",
-          "traction": "awd"
-        },
-        {
-          "version": "eDrive40",
-          "price": 47990000,
-          "transmission": "automatica",
-          "traction": "awd"
-        },
-        {
-          "version": "M50 xDrive",
-          "price": 59990000,
-          "transmission": "automatica",
-          "traction": "awd"
+          "traction": "4x2"
         }
-      ]
+      ],
+      "price_source": "https://www.autocosmos.cl/catalogo/vigente/bmw/i4",
+      "price_checked_at": "2026-11-12"
     },
     {
       "id": 38,
@@ -72,9 +62,9 @@
       "type": "sedan",
       "fuel": "electrico",
       "seats": 5,
-      "price": 72990000,
+      "price": 102900000,
       "transmission": "automatica",
-      "traction": "awd",
+      "traction": "4x2",
       "image_url": "",
       "description": "Sedán ejecutivo 100% eléctrico con autonomía de hasta 580 km.",
       "origin": "Alemania",
@@ -109,18 +99,14 @@
       "origin_country": "Alemania",
       "versions": [
         {
-          "version": "eDrive40",
-          "price": 72990000,
+          "version": "eDrive 40 M Sport",
+          "price": 102900000,
           "transmission": "automatica",
-          "traction": "awd"
-        },
-        {
-          "version": "M60 xDrive",
-          "price": 89990000,
-          "transmission": "automatica",
-          "traction": "awd"
+          "traction": "4x2"
         }
-      ]
+      ],
+      "price_source": "https://www.autocosmos.cl/catalogo/vigente/bmw/i5",
+      "price_checked_at": "2026-11-12"
     },
     {
       "id": 39,
@@ -130,9 +116,9 @@
       "type": "sedan",
       "fuel": "electrico",
       "seats": 5,
-      "price": 110990000,
+      "price": 199900000,
       "transmission": "automatica",
-      "traction": "awd",
+      "traction": "4x2",
       "image_url": "",
       "description": "Sedán de lujo 100% eléctrico con la máxima tecnología y confort.",
       "origin": "Alemania",
@@ -168,18 +154,14 @@
       "origin_country": "Alemania",
       "versions": [
         {
-          "version": "xDrive60",
-          "price": 110990000,
-          "transmission": "automatica",
-          "traction": "awd"
-        },
-        {
           "version": "M70 xDrive",
-          "price": 139990000,
+          "price": 199900000,
           "transmission": "automatica",
-          "traction": "awd"
+          "traction": "4x2"
         }
-      ]
+      ],
+      "price_source": "https://www.autocosmos.cl/catalogo/vigente/bmw/i7",
+      "price_checked_at": "2026-11-12"
     },
     {
       "id": 40,
@@ -189,9 +171,9 @@
       "type": "suv",
       "fuel": "electrico",
       "seats": 5,
-      "price": 74990000,
+      "price": 106900000,
       "transmission": "automatica",
-      "traction": "awd",
+      "traction": "4x2",
       "image_url": "",
       "description": "SUV eléctrico de lujo con diseño vanguardista y autonomía superior.",
       "origin": "Alemania",
@@ -226,18 +208,14 @@
       "origin_country": "Alemania",
       "versions": [
         {
-          "version": "xDrive40",
-          "price": 74990000,
+          "version": "xDrive45 Atelier",
+          "price": 106900000,
           "transmission": "automatica",
-          "traction": "awd"
-        },
-        {
-          "version": "xDrive50",
-          "price": 89990000,
-          "transmission": "automatica",
-          "traction": "awd"
+          "traction": "4x2"
         }
-      ]
+      ],
+      "price_source": "https://www.autocosmos.cl/catalogo/vigente/bmw/ix",
+      "price_checked_at": "2026-11-12"
     },
     {
       "id": 41,
@@ -247,24 +225,24 @@
       "type": "suv",
       "fuel": "electrico",
       "seats": 5,
-      "price": 42990000,
+      "price": 55900000,
       "transmission": "automatica",
-      "traction": "awd",
+      "traction": "4x2",
       "image_url": "",
       "description": "SUV eléctrico compacto con autonomía de hasta 440 km.",
       "origin": "Alemania",
       "versions": [
         {
-          "version": "xDrive20",
-          "price": 42990000,
+          "version": "iX1 xDrive20 Comfort",
+          "price": 55900000,
           "transmission": "automatica",
-          "traction": "awd"
+          "traction": "4x2"
         },
         {
-          "version": "xDrive30",
-          "price": 48990000,
+          "version": "iX1 xDrive30 Comfort",
+          "price": 60900000,
           "transmission": "automatica",
-          "traction": "awd"
+          "traction": "4x2"
         }
       ],
       "hp": 313,
@@ -294,7 +272,9 @@
       ],
       "warranty_years": 4,
       "warranty_km": 120000,
-      "origin_country": "Alemania"
+      "origin_country": "Alemania",
+      "price_source": "https://www.autocosmos.cl/catalogo/vigente/bmw/ix1",
+      "price_checked_at": "2026-11-12"
     },
     {
       "id": 42,
@@ -304,24 +284,18 @@
       "type": "suv",
       "fuel": "electrico",
       "seats": 5,
-      "price": 47990000,
+      "price": 79900000,
       "transmission": "automatica",
-      "traction": "awd",
+      "traction": "4x2",
       "image_url": "",
       "description": "SUV eléctrico con autonomía de hasta 460 km.",
       "origin": "Alemania",
       "versions": [
         {
-          "version": "eDrive20",
-          "price": 47990000,
+          "version": "Impressive",
+          "price": 79900000,
           "transmission": "automatica",
-          "traction": "awd"
-        },
-        {
-          "version": "xDrive30",
-          "price": 52990000,
-          "transmission": "automatica",
-          "traction": "awd"
+          "traction": "4x2"
         }
       ],
       "hp": 286,
@@ -352,7 +326,9 @@
       ],
       "warranty_years": 4,
       "warranty_km": 120000,
-      "origin_country": "Alemania"
+      "origin_country": "Alemania",
+      "price_source": "https://www.autocosmos.cl/catalogo/vigente/bmw/ix3",
+      "price_checked_at": "2026-11-12"
     },
     {
       "id": 43,
@@ -534,9 +510,9 @@
       "type": "sedan",
       "fuel": "gasolina",
       "seats": 5,
-      "price": 119990000,
+      "price": 169900000,
       "transmission": "automatica",
-      "traction": "4x4",
+      "traction": "4x2",
       "image_url": "",
       "description": "Sedán deportivo de lujo con motor V8 biturbo y tracción integral.",
       "origin": "Alemania",
@@ -572,18 +548,14 @@
       "origin_country": "Alemania",
       "versions": [
         {
-          "version": "M5 Competition",
-          "price": 119990000,
+          "version": "Competition",
+          "price": 169900000,
           "transmission": "automatica",
-          "traction": "4x4"
-        },
-        {
-          "version": "M5 CS",
-          "price": 139990000,
-          "transmission": "automatica",
-          "traction": "4x4"
+          "traction": "4x2"
         }
-      ]
+      ],
+      "price_source": "https://www.autocosmos.cl/catalogo/vigente/bmw/m5",
+      "price_checked_at": "2026-11-12"
     },
     {
       "id": 47,
@@ -593,7 +565,7 @@
       "type": "hatchback",
       "fuel": "gasolina",
       "seats": 5,
-      "price": 21990000,
+      "price": 38900000,
       "transmission": "automatica",
       "traction": "4x2",
       "image_url": "",
@@ -601,14 +573,20 @@
       "origin": "Alemania",
       "versions": [
         {
-          "version": "118i",
-          "price": 21990000,
+          "version": "120i Dynamic",
+          "price": 38900000,
           "transmission": "automatica",
           "traction": "4x2"
         },
         {
           "version": "120i M Sport",
-          "price": 26990000,
+          "price": 43900000,
+          "transmission": "automatica",
+          "traction": "4x2"
+        },
+        {
+          "version": "M135i Xdrive",
+          "price": 61900000,
           "transmission": "automatica",
           "traction": "4x2"
         }
@@ -642,7 +620,9 @@
       ],
       "warranty_years": 4,
       "warranty_km": 120000,
-      "origin_country": "Alemania"
+      "origin_country": "Alemania",
+      "price_source": "https://www.autocosmos.cl/catalogo/vigente/bmw/serie-1",
+      "price_checked_at": "2026-11-12"
     },
     {
       "id": 48,
@@ -652,7 +632,7 @@
       "type": "sedan",
       "fuel": "gasolina",
       "seats": 5,
-      "price": 31990000,
+      "price": 40900000,
       "transmission": "automatica",
       "traction": "4x2",
       "image_url": "",
@@ -687,18 +667,20 @@
       "origin_country": "Alemania",
       "versions": [
         {
-          "version": "218i",
-          "price": 31990000,
+          "version": "220 Dynamic",
+          "price": 40900000,
           "transmission": "automatica",
           "traction": "4x2"
         },
         {
           "version": "M235i xDrive",
-          "price": 42990000,
+          "price": 68900000,
           "transmission": "automatica",
-          "traction": "4x4"
+          "traction": "4x2"
         }
-      ]
+      ],
+      "price_source": "https://www.autocosmos.cl/catalogo/vigente/bmw/serie-2-gran-coupe",
+      "price_checked_at": "2026-11-12"
     },
     {
       "id": 49,
@@ -708,7 +690,7 @@
       "type": "sedan",
       "fuel": "gasolina",
       "seats": 5,
-      "price": 29990000,
+      "price": 46900000,
       "transmission": "automatica",
       "traction": "4x2",
       "image_url": "",
@@ -716,22 +698,22 @@
       "origin": "Alemania",
       "versions": [
         {
-          "version": "320i",
-          "price": 29990000,
+          "version": "320i Urban LCI",
+          "price": 46900000,
           "transmission": "automatica",
           "traction": "4x2"
         },
         {
-          "version": "330i",
-          "price": 36990000,
+          "version": "320i M Sport LCI",
+          "price": 52900000,
           "transmission": "automatica",
           "traction": "4x2"
         },
         {
-          "version": "M340i xDrive",
-          "price": 45990000,
+          "version": "M340i Xdrive LCI",
+          "price": 77900000,
           "transmission": "automatica",
-          "traction": "4x4"
+          "traction": "4x2"
         }
       ],
       "hp": 258,
@@ -766,7 +748,9 @@
       ],
       "warranty_years": 4,
       "warranty_km": 120000,
-      "origin_country": "Alemania"
+      "origin_country": "Alemania",
+      "price_source": "https://www.autocosmos.cl/catalogo/vigente/bmw/serie-3",
+      "price_checked_at": "2026-11-12"
     },
     {
       "id": 50,
@@ -834,7 +818,7 @@
       "type": "sedan",
       "fuel": "gasolina",
       "seats": 5,
-      "price": 42990000,
+      "price": 69900000,
       "transmission": "automatica",
       "traction": "4x2",
       "image_url": "",
@@ -842,16 +826,10 @@
       "origin": "Alemania",
       "versions": [
         {
-          "version": "520i",
-          "price": 42990000,
+          "version": "520i Heritage",
+          "price": 69900000,
           "transmission": "automatica",
           "traction": "4x2"
-        },
-        {
-          "version": "530i xDrive",
-          "price": 52990000,
-          "transmission": "automatica",
-          "traction": "4x4"
         }
       ],
       "hp": 258,
@@ -888,7 +866,9 @@
       ],
       "warranty_years": 4,
       "warranty_km": 120000,
-      "origin_country": "Alemania"
+      "origin_country": "Alemania",
+      "price_source": "https://www.autocosmos.cl/catalogo/vigente/bmw/serie-5",
+      "price_checked_at": "2026-11-12"
     },
     {
       "id": 52,
@@ -898,9 +878,9 @@
       "type": "sedan",
       "fuel": "gasolina",
       "seats": 5,
-      "price": 74990000,
+      "price": 172900000,
       "transmission": "automatica",
-      "traction": "4x4",
+      "traction": "4x2",
       "image_url": "",
       "description": "Sedán de lujo tope de gama con la máxima sofisticación y confort.",
       "origin": "Alemania",
@@ -938,18 +918,14 @@
       "origin_country": "Alemania",
       "versions": [
         {
-          "version": "740i xDrive",
-          "price": 74990000,
+          "version": "750e",
+          "price": 172900000,
           "transmission": "automatica",
-          "traction": "4x4"
-        },
-        {
-          "version": "760i xDrive",
-          "price": 119990000,
-          "transmission": "automatica",
-          "traction": "4x4"
+          "traction": "4x2"
         }
-      ]
+      ],
+      "price_source": "https://www.autocosmos.cl/catalogo/vigente/bmw/serie-7",
+      "price_checked_at": "2026-11-12"
     },
     {
       "id": 53,
@@ -959,7 +935,7 @@
       "type": "suv",
       "fuel": "gasolina",
       "seats": 5,
-      "price": 26990000,
+      "price": 40900000,
       "transmission": "automatica",
       "traction": "4x2",
       "image_url": "",
@@ -967,14 +943,32 @@
       "origin": "Alemania",
       "versions": [
         {
-          "version": "sDrive18i",
-          "price": 26990000,
+          "version": "sDrive18i Comfort Aut",
+          "price": 40900000,
           "transmission": "automatica",
           "traction": "4x2"
         },
         {
-          "version": "sDrive20i M Sport",
-          "price": 31990000,
+          "version": "sDrive18i Dynamic Aut",
+          "price": 45900000,
+          "transmission": "automatica",
+          "traction": "4x2"
+        },
+        {
+          "version": "sDrive18d Dynamic Aut",
+          "price": 47900000,
+          "transmission": "automatica",
+          "traction": "4x2"
+        },
+        {
+          "version": "sDrive18i M Sport Aut",
+          "price": 50900000,
+          "transmission": "automatica",
+          "traction": "4x2"
+        },
+        {
+          "version": "sDrive18d M Sport Aut",
+          "price": 52900000,
           "transmission": "automatica",
           "traction": "4x2"
         }
@@ -1008,7 +1002,9 @@
       ],
       "warranty_years": 4,
       "warranty_km": 120000,
-      "origin_country": "Alemania"
+      "origin_country": "Alemania",
+      "price_source": "https://www.autocosmos.cl/catalogo/vigente/bmw/x1",
+      "price_checked_at": "2026-11-12"
     },
     {
       "id": 54,
@@ -1018,7 +1014,7 @@
       "type": "suv",
       "fuel": "gasolina",
       "seats": 5,
-      "price": 42990000,
+      "price": 48900000,
       "transmission": "automatica",
       "traction": "4x2",
       "image_url": "",
@@ -1054,18 +1050,26 @@
       "origin_country": "Alemania",
       "versions": [
         {
-          "version": "sDrive20i",
-          "price": 42990000,
+          "version": "xDrive20i Dynamic",
+          "price": 48900000,
+          "transmission": "automatica",
+          "traction": "4x2"
+        },
+        {
+          "version": "xDrive20i M Sport",
+          "price": 54900000,
           "transmission": "automatica",
           "traction": "4x2"
         },
         {
           "version": "M35i xDrive",
-          "price": 54990000,
+          "price": 68900000,
           "transmission": "automatica",
-          "traction": "4x4"
+          "traction": "4x2"
         }
-      ]
+      ],
+      "price_source": "https://www.autocosmos.cl/catalogo/vigente/bmw/x2",
+      "price_checked_at": "2026-11-12"
     },
     {
       "id": 55,
@@ -1075,24 +1079,30 @@
       "type": "suv",
       "fuel": "gasolina",
       "seats": 5,
-      "price": 35990000,
+      "price": 56900000,
       "transmission": "automatica",
-      "traction": "4x4",
+      "traction": "awd",
       "image_url": "",
       "description": "SUV mediano con equilibrio entre deportividad y versatilidad.",
       "origin": "Alemania",
       "versions": [
         {
-          "version": "xDrive20i",
-          "price": 35990000,
+          "version": "20 sDrive Dynamic",
+          "price": 56900000,
           "transmission": "automatica",
-          "traction": "4x4"
+          "traction": "awd"
         },
         {
-          "version": "xDrive30i M Sport",
-          "price": 43990000,
+          "version": "20 sDrive Heritage",
+          "price": 64900000,
           "transmission": "automatica",
-          "traction": "4x4"
+          "traction": "awd"
+        },
+        {
+          "version": "M50 xDrive",
+          "price": 89900000,
+          "transmission": "automatica",
+          "traction": "awd"
         }
       ],
       "hp": 245,
@@ -1127,7 +1137,9 @@
       ],
       "warranty_years": 4,
       "warranty_km": 120000,
-      "origin_country": "Alemania"
+      "origin_country": "Alemania",
+      "price_source": "https://www.autocosmos.cl/catalogo/vigente/bmw/x3",
+      "price_checked_at": "2026-11-12"
     },
     {
       "id": 56,
@@ -1137,9 +1149,9 @@
       "type": "suv",
       "fuel": "gasolina",
       "seats": 5,
-      "price": 44990000,
+      "price": 57900000,
       "transmission": "automatica",
-      "traction": "4x4",
+      "traction": "awd",
       "image_url": "",
       "description": "SUV coupé deportivo con diseño dinámico y tracción integral.",
       "origin": "Alemania",
@@ -1174,18 +1186,26 @@
       "origin_country": "Alemania",
       "versions": [
         {
-          "version": "xDrive20i",
-          "price": 44990000,
+          "version": "xDrive 20i Dynamic",
+          "price": 57900000,
           "transmission": "automatica",
-          "traction": "4x4"
+          "traction": "awd"
         },
         {
-          "version": "M40i",
-          "price": 59990000,
+          "version": "xDrive 30i Heritage",
+          "price": 74900000,
           "transmission": "automatica",
-          "traction": "4x4"
+          "traction": "awd"
+        },
+        {
+          "version": "M40i LCI",
+          "price": 89900000,
+          "transmission": "automatica",
+          "traction": "awd"
         }
-      ]
+      ],
+      "price_source": "https://www.autocosmos.cl/catalogo/vigente/bmw/x4",
+      "price_checked_at": "2026-11-12"
     },
     {
       "id": 57,
@@ -1195,24 +1215,30 @@
       "type": "suv",
       "fuel": "gasolina",
       "seats": 5,
-      "price": 52990000,
+      "price": 86900000,
       "transmission": "automatica",
-      "traction": "4x4",
+      "traction": "awd",
       "image_url": "",
       "description": "SUV grande de lujo con prestaciones de alto rendimiento.",
       "origin": "Alemania",
       "versions": [
         {
-          "version": "xDrive40i",
-          "price": 52990000,
+          "version": "xDrive 40i xLine LCI",
+          "price": 86900000,
           "transmission": "automatica",
-          "traction": "4x4"
+          "traction": "awd"
         },
         {
-          "version": "M50i",
-          "price": 68990000,
+          "version": "xDrive 40i M Sport",
+          "price": 108900000,
           "transmission": "automatica",
-          "traction": "4x4"
+          "traction": "awd"
+        },
+        {
+          "version": "xDrive M60i",
+          "price": 135900000,
+          "transmission": "automatica",
+          "traction": "awd"
         }
       ],
       "hp": 340,
@@ -1249,7 +1275,9 @@
       ],
       "warranty_years": 4,
       "warranty_km": 120000,
-      "origin_country": "Alemania"
+      "origin_country": "Alemania",
+      "price_source": "https://www.autocosmos.cl/catalogo/vigente/bmw/x5",
+      "price_checked_at": "2026-11-12"
     },
     {
       "id": 58,
@@ -1259,9 +1287,9 @@
       "type": "suv",
       "fuel": "gasolina",
       "seats": 5,
-      "price": 64990000,
+      "price": 113900000,
       "transmission": "automatica",
-      "traction": "4x4",
+      "traction": "awd",
       "image_url": "",
       "description": "SUV coupé de lujo con presencia imponente y alto rendimiento.",
       "origin": "Alemania",
@@ -1297,18 +1325,20 @@
       "origin_country": "Alemania",
       "versions": [
         {
-          "version": "xDrive40i",
-          "price": 64990000,
+          "version": "xDrive 40i M Sport LCI",
+          "price": 113900000,
           "transmission": "automatica",
-          "traction": "4x4"
+          "traction": "awd"
         },
         {
-          "version": "M60i",
-          "price": 84990000,
+          "version": "M60i LCI",
+          "price": 141900000,
           "transmission": "automatica",
-          "traction": "4x4"
+          "traction": "awd"
         }
-      ]
+      ],
+      "price_source": "https://www.autocosmos.cl/catalogo/vigente/bmw/x6",
+      "price_checked_at": "2026-11-12"
     },
     {
       "id": 59,
@@ -1318,42 +1348,30 @@
       "type": "suv",
       "fuel": "gasolina",
       "seats": 7,
-      "price": 84990000,
+      "price": 133900000,
       "transmission": "automatica",
-      "traction": "4x4",
+      "traction": "awd",
       "image_url": "",
       "description": "SUV de lujo de 7 plazas con prestaciones excepcionales, el BMW más grande y lujoso.",
       "origin": "Alemania",
       "versions": [
         {
-          "version": "xDrive40i",
-          "price": 84990000,
+          "version": "xDrive 40i Pure Excellence",
+          "price": 133900000,
           "transmission": "automatica",
-          "traction": "4x4"
+          "traction": "awd"
         },
         {
-          "version": "xDrive40i M Sport",
-          "price": 94990000,
+          "version": "xDrive 40i M Sport",
+          "price": 136900000,
           "transmission": "automatica",
-          "traction": "4x4"
-        },
-        {
-          "version": "xDrive40d",
-          "price": 89990000,
-          "transmission": "automatica",
-          "traction": "4x4"
+          "traction": "awd"
         },
         {
           "version": "M60i xDrive",
-          "price": 119990000,
+          "price": 170900000,
           "transmission": "automatica",
-          "traction": "4x4"
-        },
-        {
-          "version": "Alpina XB7",
-          "price": 159990000,
-          "transmission": "automatica",
-          "traction": "4x4"
+          "traction": "awd"
         }
       ],
       "hp": 380,
@@ -1390,7 +1408,9 @@
       ],
       "warranty_years": 4,
       "warranty_km": 120000,
-      "origin_country": "Alemania"
+      "origin_country": "Alemania",
+      "price_source": "https://www.autocosmos.cl/catalogo/vigente/bmw/x7",
+      "price_checked_at": "2026-11-12"
     },
     {
       "id": 60,
@@ -1460,7 +1480,7 @@
       "type": "convertible",
       "fuel": "gasolina",
       "seats": 2,
-      "price": 42990000,
+      "price": 89900000,
       "transmission": "automatica",
       "traction": "4x2",
       "image_url": "",
@@ -1468,14 +1488,8 @@
       "origin": "Alemania",
       "versions": [
         {
-          "version": "sDrive20i",
-          "price": 42990000,
-          "transmission": "automatica",
-          "traction": "4x2"
-        },
-        {
           "version": "M40i",
-          "price": 56990000,
+          "price": 89900000,
           "transmission": "automatica",
           "traction": "4x2"
         }
@@ -1509,7 +1523,9 @@
       ],
       "warranty_years": 4,
       "warranty_km": 120000,
-      "origin_country": "Alemania"
+      "origin_country": "Alemania",
+      "price_source": "https://www.autocosmos.cl/catalogo/vigente/bmw/z4",
+      "price_checked_at": "2026-11-12"
     }
   ]
 }

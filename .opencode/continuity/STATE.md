@@ -1,5 +1,5 @@
 # AutoLupa — estado de continuidad
-Actualizado: 2026-11-12 17:10 UTC
+Actualizado: 2026-11-12 21:00 UTC
 Fase: Cierre — L1–L5 y rediseño completos; pendiente revisión del usuario
 Estado: EN_PROGRESO
 
@@ -7,7 +7,7 @@ Estado: EN_PROGRESO
 Revisar en escritorio la ficha, el TCO, el simulador de crédito y el estado sin resultados; confirmar que los ajustes móviles no rompen el layout amplio.
 
 ## Último punto seguro
-L1–L5 + rediseño y los arreglos de rutas legales y leads están en commits locales de `feat/catalog-coverage-search`, sin push. `npm test` 282/282, `lint` 0, `tsc` 0.
+PR #2 abierto con L1–L5, rediseño previo y arreglos de rutas legales y leads. En la rama `feat/home-redesign-market-update` (sin commit): portada con `HomeSearch`, menú «Herramientas», paleta azul marino y Lote 31 de datos (713 modelos / 1.556 versiones). `npm test` 285/285, `lint` 0, auditorías 0 errores.
 
 ## Trabajo en curso
 Ninguno. Esperando que el usuario revise y autorice commit/PR/deploy, y resuelva Supabase y el dominio/correos.
@@ -63,7 +63,7 @@ Ninguno. Esperando que el usuario revise y autorice commit/PR/deploy, y resuelva
 - No hay despliegue ni push en esta fase.
 
 ## Próximo paso exacto
-Con autorización: push de `feat/catalog-coverage-search` y PR a `main` (ejecutar antes `npm run build`). Luego, siguiente lote de datos según `docs/AUDIT-CATALOGO-2026-11.md` (Chery, BYD, Jetour).
+Con autorización: commit de la rama `feat/home-redesign-market-update` y PR. Luego verificar plazas, batería y autonomía de los ids 713–737 y resolver los 15 modelos con motorización distinta (`docs/AUDIT-MERCADO-2026-11.md`).
 
 ## Instrucción de reanudación
 Leer `STATE.md`, `PLAN.md`, `WORKLOG.md`, `DECISIONS.md`, `TESTS.md`, `AGENTS.md` y el estado Git; confirmar el último punto seguro; continuar desde “Próximo paso exacto”, sin repetir trabajo terminado.

@@ -10,7 +10,7 @@
       "type": "pickup",
       "fuel": "electrico",
       "seats": 5,
-      "price": 51600000,
+      "price": 51597900,
       "transmission": "automatica",
       "traction": "4x2",
       "image_url": "",
@@ -39,30 +39,32 @@
       "origin_country": "China",
       "versions": [
         {
-          "version": "4x2 Air 63kWh",
-          "price": 51600000,
-          "transmission": "Automática",
+          "version": "4x2 Air",
+          "price": 51597900,
+          "transmission": "automatica",
           "traction": "4x2"
         },
         {
-          "version": "4x2 Ultra 86kWh",
-          "price": 57500000,
-          "transmission": "Automática",
+          "version": "4x2 Ultra",
+          "price": 57539000,
+          "transmission": "automatica",
           "traction": "4x2"
         },
         {
-          "version": "4x4 Pro 86kWh",
-          "price": 57600000,
-          "transmission": "Automática",
+          "version": "4x4 Pro",
+          "price": 57647900,
+          "transmission": "automatica",
           "traction": "4x4"
         },
         {
-          "version": "4x4 Ultra 100kWh",
-          "price": 64800000,
-          "transmission": "Automática",
+          "version": "4x4 Ultra",
+          "price": 64799000,
+          "transmission": "automatica",
           "traction": "4x4"
         }
-      ]
+      ],
+      "price_source": "https://www.autocosmos.cl/catalogo/vigente/riddara/rd6",
+      "price_checked_at": "2026-11-12"
     }
   ]
 }

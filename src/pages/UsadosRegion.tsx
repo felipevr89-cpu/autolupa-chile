@@ -135,7 +135,7 @@ export function UsadosRegion() {
         <span className="text-gray-700 dark:text-gray-300">{region.name}</span>
       </nav>
 
-      <section className="bg-gradient-to-br from-blue-700 via-blue-600 to-purple-700 rounded-3xl px-6 py-10 sm:px-10 sm:py-12 text-white mb-8">
+      <section className="bg-gradient-to-br from-slate-900 via-blue-950 to-blue-800 rounded-3xl px-6 py-10 sm:px-10 sm:py-12 text-white mb-8">
         <p className="text-blue-100 font-medium mb-3">{region.fullName}</p>
         <h1 className="text-3xl sm:text-4xl font-bold mb-4">Autos usados en {region.name}</h1>
         <p className="text-blue-100 text-lg mb-6 max-w-3xl">{getRegionIntro(region, total)}</p>

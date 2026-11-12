@@ -217,7 +217,7 @@ export function TasarAuto() {
 
           {resultado && (
             <>
-              <div className="rounded-3xl p-6 bg-gradient-to-br from-blue-700 via-blue-600 to-purple-700 text-white">
+              <div className="rounded-3xl p-6 bg-gradient-to-br from-slate-900 via-blue-950 to-blue-800 text-white">
                 <p className="text-sm text-blue-100">
                   {resultado.car.brand} {resultado.car.model}{resultado.versionName ? ` ${resultado.versionName}` : ''} {currentYear - resultado.anios}
                 </p>

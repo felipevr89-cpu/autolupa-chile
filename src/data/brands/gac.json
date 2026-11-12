@@ -52,21 +52,33 @@
       "type": "suv",
       "fuel": "gasolina",
       "seats": 5,
-      "price": 13490000,
-      "transmission": "automatica",
+      "price": 12990000,
+      "transmission": "manual",
       "traction": "4x2",
       "image_url": "",
       "description": "SUV subcompacto con motor 1.5 turbo y diseño moderno.",
       "origin": "China",
       "versions": [
         {
-          "version": "1.5T Com CVT",
-          "price": 13490000,
+          "version": "1.5L GS",
+          "price": 12990000,
+          "transmission": "manual",
+          "traction": "4x2"
+        },
+        {
+          "version": "1.5L GB",
+          "price": 14490000,
+          "transmission": "manual",
+          "traction": "4x2"
+        },
+        {
+          "version": "1.5L GS Aut",
+          "price": 14490000,
           "transmission": "automatica",
           "traction": "4x2"
         },
         {
-          "version": "1.5T GS CVT",
+          "version": "1.5L GB Aut",
           "price": 15490000,
           "transmission": "automatica",
           "traction": "4x2"
@@ -93,7 +105,9 @@
       ],
       "warranty_years": 5,
       "warranty_km": 100000,
-      "origin_country": "China"
+      "origin_country": "China",
+      "price_source": "https://www.autocosmos.cl/catalogo/vigente/gac/gs3-power",
+      "price_checked_at": "2026-11-12"
     },
     {
       "id": 196,
@@ -103,22 +117,34 @@
       "type": "suv",
       "fuel": "gasolina",
       "seats": 5,
-      "price": 16490000,
-      "transmission": "automatica",
+      "price": 15990000,
+      "transmission": "manual",
       "traction": "4x2",
       "image_url": "",
       "description": "SUV compacto con motor 1.5 turbo y caja automática de 6 velocidades.",
       "origin": "China",
       "versions": [
         {
-          "version": "1.5T GB AT",
-          "price": 16490000,
+          "version": "1.5L GB",
+          "price": 15990000,
+          "transmission": "manual",
+          "traction": "4x2"
+        },
+        {
+          "version": "1.5L GB Aut",
+          "price": 18490000,
           "transmission": "automatica",
           "traction": "4x2"
         },
         {
-          "version": "1.5T GLS AT",
-          "price": 17990000,
+          "version": "1.5L GE Aut",
+          "price": 18990000,
+          "transmission": "automatica",
+          "traction": "4x2"
+        },
+        {
+          "version": "1.5L GL Aut",
+          "price": 20990000,
           "transmission": "automatica",
           "traction": "4x2"
         }
@@ -144,7 +170,9 @@
       ],
       "warranty_years": 5,
       "warranty_km": 100000,
-      "origin_country": "China"
+      "origin_country": "China",
+      "price_source": "https://www.autocosmos.cl/catalogo/vigente/gac/gs4-power",
+      "price_checked_at": "2026-11-12"
     },
     {
       "id": 197,
@@ -156,22 +184,34 @@
       "seats": 7,
       "price": 27990000,
       "transmission": "automatica",
-      "traction": "awd",
+      "traction": "4x2",
       "image_url": "",
       "description": "SUV premium de tres filas con motor 2.0 turbo y tecnología de punta.",
       "origin": "China",
       "versions": [
         {
-          "version": "2.0T 4x2 AT",
+          "version": "GL",
           "price": 27990000,
           "transmission": "automatica",
           "traction": "4x2"
         },
         {
-          "version": "2.0T 4x4 AT",
-          "price": 29990000,
+          "version": "GT",
+          "price": 30990000,
           "transmission": "automatica",
-          "traction": "awd"
+          "traction": "4x2"
+        },
+        {
+          "version": "GT 4x4",
+          "price": 34990000,
+          "transmission": "automatica",
+          "traction": "4x4"
+        },
+        {
+          "version": "GX 4x4",
+          "price": 37990000,
+          "transmission": "automatica",
+          "traction": "4x4"
         }
       ],
       "hp": 252,
@@ -201,6 +241,239 @@
       ],
       "warranty_years": 5,
       "warranty_km": 100000,
+      "origin_country": "China",
+      "price_source": "https://www.autocosmos.cl/catalogo/vigente/gac/gs8",
+      "price_checked_at": "2026-11-12"
+    },
+    {
+      "id": 724,
+      "brand": "GAC",
+      "model": "Aion ES",
+      "year": 2025,
+      "type": "sedan",
+      "fuel": "electrico",
+      "seats": 5,
+      "price": 25990000,
+      "transmission": "automatica",
+      "traction": "4x2",
+      "image_url": "",
+      "description": "Sedán 100% eléctrico de 134 HP con caja automática y tracción 4X2. 1 versión con precio de lista.",
+      "origin": "China",
+      "versions": [
+        {
+          "version": "134HP",
+          "price": 25990000,
+          "transmission": "automatica",
+          "traction": "4x2"
+        }
+      ],
+      "hp": 134,
+      "torque_nm": 225,
+      "length_mm": 4810,
+      "width_mm": 1880,
+      "height_mm": 1545,
+      "wheelbase_mm": 2750,
+      "trunk_liters": 453,
+      "airbags": 2,
+      "year_start": 2025,
+      "price_source": "https://www.autocosmos.cl/catalogo/vigente/gac/aion-es",
+      "price_checked_at": "2026-11-12",
+      "origin_country": "China"
+    },
+    {
+      "id": 725,
+      "brand": "GAC",
+      "model": "Aion Y",
+      "year": 2025,
+      "type": "suv",
+      "fuel": "electrico",
+      "seats": 5,
+      "price": 30990000,
+      "transmission": "automatica",
+      "traction": "4x2",
+      "image_url": "",
+      "description": "SUV 100% eléctrico de 201 HP con caja automática y tracción 4X2. 1 versión con precio de lista.",
+      "origin": "China",
+      "versions": [
+        {
+          "version": "201HP",
+          "price": 30990000,
+          "transmission": "automatica",
+          "traction": "4x2"
+        }
+      ],
+      "hp": 201,
+      "torque_nm": 225,
+      "length_mm": 4535,
+      "width_mm": 1870,
+      "height_mm": 1650,
+      "wheelbase_mm": 2750,
+      "trunk_liters": 405,
+      "airbags": 4,
+      "year_start": 2025,
+      "price_source": "https://www.autocosmos.cl/catalogo/vigente/gac/aion-y",
+      "price_checked_at": "2026-11-12",
+      "origin_country": "China"
+    },
+    {
+      "id": 726,
+      "brand": "GAC",
+      "model": "Emkoo",
+      "year": 2025,
+      "type": "suv",
+      "fuel": "gasolina",
+      "seats": 5,
+      "price": 18490000,
+      "transmission": "automatica",
+      "traction": "4x2",
+      "image_url": "",
+      "description": "SUV bencinero de 177 HP con caja automática y tracción 4X2. 2 versiones con precio de lista.",
+      "origin": "China",
+      "versions": [
+        {
+          "version": "1.5T GE",
+          "price": 18490000,
+          "transmission": "automatica",
+          "traction": "4x2"
+        },
+        {
+          "version": "1.5T GL",
+          "price": 21990000,
+          "transmission": "automatica",
+          "traction": "4x2"
+        }
+      ],
+      "hp": 177,
+      "torque_nm": 270,
+      "length_mm": 4680,
+      "width_mm": 1901,
+      "height_mm": 1670,
+      "wheelbase_mm": 2750,
+      "trunk_liters": 638,
+      "fuel_tank_liters": 55,
+      "airbags": 4,
+      "year_start": 2025,
+      "price_source": "https://www.autocosmos.cl/catalogo/vigente/gac/emkoo",
+      "price_checked_at": "2026-11-12",
+      "origin_country": "China"
+    },
+    {
+      "id": 727,
+      "brand": "GAC",
+      "model": "Emkoo HEV",
+      "year": 2025,
+      "type": "suv",
+      "fuel": "hibrido",
+      "seats": 5,
+      "price": 28990000,
+      "transmission": "automatica",
+      "traction": "4x2",
+      "image_url": "",
+      "description": "SUV híbrido de 179 HP con caja automática y tracción 4X2. 1 versión con precio de lista.",
+      "origin": "China",
+      "versions": [
+        {
+          "version": "2.0 DHT GL",
+          "price": 28990000,
+          "transmission": "automatica",
+          "traction": "4x2"
+        }
+      ],
+      "hp": 179,
+      "length_mm": 4680,
+      "width_mm": 1901,
+      "height_mm": 1660,
+      "wheelbase_mm": 2750,
+      "trunk_liters": 638,
+      "fuel_tank_liters": 50,
+      "fuel_consumption_city_km_l": 38.5,
+      "fuel_consumption_highway_km_l": 16.4,
+      "fuel_consumption_mixed_km_l": 20.8,
+      "airbags": 4,
+      "year_start": 2025,
+      "price_source": "https://www.autocosmos.cl/catalogo/vigente/gac/emkoo-hev",
+      "price_checked_at": "2026-11-12",
+      "origin_country": "China"
+    },
+    {
+      "id": 728,
+      "brand": "GAC",
+      "model": "Empow",
+      "year": 2025,
+      "type": "sedan",
+      "fuel": "gasolina",
+      "seats": 5,
+      "price": 20990000,
+      "transmission": "manual",
+      "traction": "4x2",
+      "image_url": "",
+      "description": "Sedán bencinero de 167 HP con caja manual y tracción 4X2. 1 versión con precio de lista.",
+      "origin": "China",
+      "versions": [
+        {
+          "version": "GE",
+          "price": 20990000,
+          "transmission": "manual",
+          "traction": "4x2"
+        }
+      ],
+      "hp": 167,
+      "torque_nm": 270,
+      "length_mm": 4700,
+      "width_mm": 1850,
+      "height_mm": 1432,
+      "wheelbase_mm": 2736,
+      "trunk_liters": 415,
+      "fuel_tank_liters": 47,
+      "fuel_consumption_city_km_l": 11.4,
+      "fuel_consumption_highway_km_l": 18.9,
+      "fuel_consumption_mixed_km_l": 15.4,
+      "airbags": 2,
+      "year_start": 2025,
+      "price_source": "https://www.autocosmos.cl/catalogo/vigente/gac/empow",
+      "price_checked_at": "2026-11-12",
+      "origin_country": "China"
+    },
+    {
+      "id": 729,
+      "brand": "GAC",
+      "model": "Emzoom",
+      "year": 2026,
+      "type": "suv",
+      "fuel": "gasolina",
+      "seats": 5,
+      "price": 17990000,
+      "transmission": "automatica",
+      "traction": "4x2",
+      "image_url": "",
+      "description": "SUV bencinero de 174 HP con caja automática y tracción 4X2. 2 versiones con precio de lista.",
+      "origin": "China",
+      "versions": [
+        {
+          "version": "1.5T GL",
+          "price": 17990000,
+          "transmission": "automatica",
+          "traction": "4x2"
+        },
+        {
+          "version": "1.5T GL R-Style",
+          "price": 19990000,
+          "transmission": "automatica",
+          "traction": "4x2"
+        }
+      ],
+      "hp": 174,
+      "torque_nm": 270,
+      "length_mm": 4410,
+      "width_mm": 1850,
+      "height_mm": 1600,
+      "wheelbase_mm": 2650,
+      "trunk_liters": 641,
+      "fuel_tank_liters": 47,
+      "airbags": 6,
+      "year_start": 2026,
+      "price_source": "https://www.autocosmos.cl/catalogo/vigente/gac/emzoom",
+      "price_checked_at": "2026-11-12",
       "origin_country": "China"
     }
   ]

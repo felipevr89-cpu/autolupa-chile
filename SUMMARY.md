@@ -4,6 +4,8 @@
 Marketplace chileno de autos usados con comparador integrado de vehículos nuevos. React + TypeScript + Vite + Supabase. Hosting: Cloudflare Pages (`autolupa.pages.dev`).
 
 ## Estado Actual
+- **Lote 31 (12-11-2026)**: cruce con el catálogo vigente de Autocosmos (69 marcas / 693 modelos / 1.574 versiones). Agregados 25 modelos (ids 713–737: Honda CR-V Híbrido, BAIC EU5, Changan CS55 Plus iDD, DFSK Glory 600 y 600 PHEV, Dongfeng SX6, T5 L, T5 HCV, S50 EV y MAGE EV, Exeed TXL, GAC Aion ES, Aion Y, Emkoo, Emkoo HEV, Empow y Emzoom, JAC JS8, JS8 Pro y E-JS4, Mahindra XUV300, Škoda Elroq y Scala, smart #5, Cupra Terramar) y actualizados precios y versiones de 122 modelos sin fuente previa a precio de lista. Total: **713 modelos / 1.556 versiones**. Plazas de los modelos nuevos asignadas por conocimiento del modelo (pendiente de verificar); sin foto. Detalle en `docs/AUDIT-MERCADO-2026-11.md`.
+- **Portada (12-11-2026)**: `HomeSearch` con filtros arriba, accesos rápidos, catálogo antes de novedades y marcas; menú con desplegable «Herramientas»; degradados azul marino en lugar de azul-morado.
 - **Marketplace de usados**: `/usados`, detalle por slug, filtros, CTA, publicación en 4 pasos, gestión de avisos, reportes y moderación en Supabase
 - **Persistencia**: listings, fotos, favoritos, perfiles, preferencias y firmas en Supabase; RLS y moderación obligatorias antes de publicar
 - **Seguridad de datos**: máquina de estados en base de datos, proyección pública de columnas, fotos no enumerables, `_headers` con cabeceras de seguridad, `_redirects` para el fallback SPA, CI con lint + tests + build

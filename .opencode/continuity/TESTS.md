@@ -90,3 +90,8 @@
 ## Rutas legales y leads (12-11-2026)
 - `npx vitest run src/test/legalRoutes.test.tsx src/test/leadForm.test.tsx` — PASÓ — 5/5.
 - `npm test` — PASÓ — 282/282; `npm run lint` — 0; `npx tsc -p tsconfig.app.json --noEmit` — 0. `npm run build` no ejecutado en este lote.
+
+## Portada y Lote 31 (12-11-2026)
+- `npx vitest run src/test/homeSearch.test.tsx` — PASÓ — 11/11 (filtros de portada, accesos rápidos, orden de secciones).
+- `npm test` — PASÓ — 285/285; `npm run lint` — 0; `audit:catalog` 713 modelos / 1.556 versiones, 0 errores; `audit:coverage` 0 gaps; `audit:assets` 60 sin clave / 35 null.
+- Capturas Puppeteer 1440×900 y 390×844 de `/` y `/autos`: sin errores de página ni desborde horizontal.

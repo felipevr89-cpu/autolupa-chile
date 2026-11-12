@@ -10,24 +10,18 @@
       "type": "suv",
       "fuel": "gasolina",
       "seats": 5,
-      "price": 32990000,
-      "transmission": "automatica",
-      "traction": "4x4",
+      "price": 67900000,
+      "transmission": "manual",
+      "traction": "awd",
       "image_url": "",
       "description": "SUV compacto deportivo con diseño británico.",
       "origin": "Reino Unido",
       "versions": [
         {
-          "version": "E-Pace",
-          "price": 32990000,
-          "transmission": "automatica",
-          "traction": "4x2"
-        },
-        {
-          "version": "E-Pace R-Dynamic",
-          "price": 38990000,
-          "transmission": "automatica",
-          "traction": "4x4"
+          "version": "2.0L",
+          "price": 67900000,
+          "transmission": "manual",
+          "traction": "awd"
         }
       ],
       "hp": 200,
@@ -62,7 +56,9 @@
       ],
       "warranty_years": 4,
       "warranty_km": 120000,
-      "origin_country": "Reino Unido"
+      "origin_country": "Reino Unido",
+      "price_source": "https://www.autocosmos.cl/catalogo/vigente/jaguar/e-pace",
+      "price_checked_at": "2026-11-12"
     },
     {
       "id": 276,
@@ -141,9 +137,9 @@
       "type": "coupe",
       "fuel": "gasolina",
       "seats": 2,
-      "price": 85990000,
+      "price": 113900000,
       "transmission": "automatica",
-      "traction": "4x4",
+      "traction": "4x2",
       "image_url": "",
       "description": "Deportivo biplaza británico con motor V8 y diseño elegante.",
       "origin": "Reino Unido",
@@ -177,18 +173,14 @@
       "origin_country": "Reino Unido",
       "versions": [
         {
-          "version": "P450 RWD",
-          "price": 85990000,
+          "version": "2.0L",
+          "price": 113900000,
           "transmission": "automatica",
           "traction": "4x2"
-        },
-        {
-          "version": "P575 AWD SVR",
-          "price": 109990000,
-          "transmission": "automatica",
-          "traction": "4x4"
         }
-      ]
+      ],
+      "price_source": "https://www.autocosmos.cl/catalogo/vigente/jaguar/f-type",
+      "price_checked_at": "2026-11-12"
     },
     {
       "id": 278,

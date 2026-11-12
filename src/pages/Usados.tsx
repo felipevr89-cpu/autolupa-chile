@@ -3,6 +3,8 @@ import { Link, useSearchParams } from 'react-router-dom';
 import { SEO } from '../components/SEO';
 import { Breadcrumbs } from '../components/Breadcrumbs';
 import { UsedListingCard } from '../components/Used/UsedListingCard';
+import { DemoListings } from '../components/Used/DemoListings';
+import { ServiceNotice } from '../components/Used/ServiceNotice';
 import { SavedSearches } from '../components/Used/SavedSearches';
 import { isSupabaseConfigured } from '../lib/supabase';
 import { track } from '../lib/analytics';
@@ -38,6 +40,7 @@ export function Usados() {
   const [page, setPage] = useState(1);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
+  const unavailable = error !== '';
 
   const totalPages = Math.max(1, Math.ceil(total / PAGE_SIZE));
   const hasFilters = useMemo(() => Object.values(filters).some((value) => value !== '' && value !== 'recent'), [filters]);
@@ -246,23 +249,29 @@ export function Usados() {
             <section>
               <div className="flex items-center justify-between gap-4 mb-4">
                 <p className="text-sm text-gray-500 dark:text-gray-400" aria-live="polite">
-                  {loading ? 'Cargando avisos…' : `${total} ${total === 1 ? 'aviso' : 'avisos'} disponible${total === 1 ? '' : 's'}`}
+                  {loading ? 'Cargando avisos…' : unavailable ? 'Servicio de avisos no disponible' : total === 0 ? 'Aún no hay avisos publicados' : `${total} ${total === 1 ? 'aviso' : 'avisos'} disponible${total === 1 ? '' : 's'}`}
                 </p>
               </div>
-
-              {error && <p role="alert" className="rounded-xl bg-red-50 dark:bg-red-950/40 p-4 text-sm text-red-700 dark:text-red-200 mb-4">{error}</p>}
 
               {loading ? (
                 <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-5" aria-label="Cargando">
                   {Array.from({ length: 6 }, (_, index) => <div key={index} className="h-80 rounded-2xl bg-gray-200 dark:bg-gray-700 animate-pulse" />)}
                 </div>
+              ) : unavailable ? (
+                <>
+                  <ServiceNotice context="listings" />
+                  <DemoListings reason="unavailable" />
+                </>
               ) : listings.length === 0 ? (
-                <div className="rounded-2xl border-2 border-dashed border-blue-200 dark:border-blue-900 p-10 text-center">
-                  <p className="text-5xl mb-4">🚙</p>
-                  <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-2">Sé el primero en publicar</h2>
-                  <p className="text-gray-600 dark:text-gray-300 max-w-md mx-auto mb-6">Crea tu aviso gratis. Nuestro equipo lo revisará antes de publicarlo.</p>
-                  <Link to="/publicar-auto" className="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 text-white rounded-xl font-bold hover:bg-blue-700">Publicar mi auto gratis</Link>
-                </div>
+                <>
+                  <div className="rounded-2xl border-2 border-dashed border-blue-200 dark:border-blue-900 p-10 text-center">
+                    <p className="text-5xl mb-4">🚙</p>
+                    <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-2">Sé el primero en publicar</h2>
+                    <p className="text-gray-600 dark:text-gray-300 max-w-md mx-auto mb-6">Crea tu aviso gratis. Nuestro equipo lo revisará antes de publicarlo.</p>
+                    <Link to="/publicar-auto" className="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 text-white rounded-xl font-bold hover:bg-blue-700">Publicar mi auto gratis</Link>
+                  </div>
+                  <DemoListings />
+                </>
               ) : (
                 <>
                   <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-5">

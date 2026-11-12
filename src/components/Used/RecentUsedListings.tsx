@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { isSupabaseConfigured } from '../../lib/supabase';
+import { useBackendStatus } from '../../lib/backendStatus';
 import { getLatestUsedListings } from '../../lib/usedListings';
 import type { UsedListing } from '../../data/usedListings';
 import { UsedListingCard } from './UsedListingCard';
@@ -8,9 +9,10 @@ import { UsedListingCard } from './UsedListingCard';
 export function RecentUsedListings() {
   const [listings, setListings] = useState<UsedListing[]>([]);
   const [loading, setLoading] = useState(false);
+  const status = useBackendStatus();
 
   useEffect(() => {
-    if (!isSupabaseConfigured) return;
+    if (!isSupabaseConfigured || status !== 'ok') return;
     let cancelled = false;
     setLoading(true);
     getLatestUsedListings(8)
@@ -26,9 +28,9 @@ export function RecentUsedListings() {
     return () => {
       cancelled = true;
     };
-  }, []);
+  }, [status]);
 
-  if (!isSupabaseConfigured || (!loading && listings.length === 0)) return null;
+  if (!isSupabaseConfigured || status !== 'ok' || (!loading && listings.length === 0)) return null;
 
   return (
     <section className="mb-10">

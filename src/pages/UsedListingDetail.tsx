@@ -13,6 +13,8 @@ import { USED_FUEL_OPTIONS, USED_TRANSMISSION_OPTIONS, type UsedListing, usedLis
 import { toSavedListing } from '../lib/savedListings';
 import { getUsedListingBySlug, reportUsedListing } from '../lib/usedListings';
 import { isSupabaseConfigured } from '../lib/supabase';
+import { checkBackend } from '../lib/backendStatus';
+import { ServiceNotice } from '../components/Used/ServiceNotice';
 import { track } from '../lib/analytics';
 import type { User } from '../types';
 
@@ -42,6 +44,7 @@ export function UsedListingDetail({ user, isCloudAuthAvailable, onSignIn }: Prop
   const [reportState, setReportState] = useState<'idle' | 'sending' | 'sent'>('idle');
   const [reportError, setReportError] = useState('');
   const [leadOpen, setLeadOpen] = useState(false);
+  const [unavailable, setUnavailable] = useState(false);
 
   useEffect(() => {
     let cancelled = false;
@@ -58,8 +61,12 @@ export function UsedListingDetail({ user, isCloudAuthAvailable, onSignIn }: Prop
         setListing(result);
         setSelectedPhoto(0);
       })
-      .catch(() => {
-        if (!cancelled) setNotFound(true);
+      .catch(async () => {
+        if (cancelled) return;
+        const status = await checkBackend();
+        if (cancelled) return;
+        if (status === 'down') setUnavailable(true);
+        else setNotFound(true);
       })
       .finally(() => {
         if (!cancelled) setLoading(false);
@@ -88,6 +95,16 @@ export function UsedListingDetail({ user, isCloudAuthAvailable, onSignIn }: Prop
     return (
       <div className="max-w-5xl mx-auto px-4 py-10">
         <div className="h-96 rounded-3xl bg-gray-200 dark:bg-gray-700 animate-pulse" />
+      </div>
+    );
+  }
+
+  if (unavailable) {
+    return (
+      <div className="max-w-3xl mx-auto px-4 py-20">
+        <SEO title="Aviso no disponible" description="El servicio de avisos no responde en este momento." noIndex />
+        <h1 className="sr-only">Aviso no disponible</h1>
+        <ServiceNotice context="listing" />
       </div>
     );
   }

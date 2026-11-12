@@ -52,16 +52,16 @@
     {
       "id": 141,
       "brand": "Deepal",
-      "model": "S05",
-      "year": 2025,
+      "model": "S05 REEV",
+      "year": 2026,
       "type": "suv",
-      "fuel": "gasolina",
+      "fuel": "hibrido_enchufable",
       "seats": 5,
-      "price": 25990000,
+      "price": 26890000,
       "transmission": "automatica",
       "traction": "4x2",
       "image_url": "",
-      "description": "SUV compacta con motor REEV de rango extendido, diseño futurista.",
+      "description": "SUV compacta de rango extendido (REEV) con batería de 27,28 kWh y 160 km en modo eléctrico.",
       "origin": "China",
       "hp": 218,
       "torque_nm": 320,
@@ -88,12 +88,20 @@
       "origin_country": "China",
       "versions": [
         {
-          "version": "REEV Standard",
-          "price": 25990000,
-          "transmission": "Automática",
-          "traction": "4x2"
+          "version": "REEV",
+          "price": 26890000,
+          "transmission": "automatica",
+          "traction": "4x2",
+          "price_list": 29990000,
+          "price_bonus": 3100000
         }
-      ]
+      ],
+      "battery_kwh": 27.28,
+      "electric_range_km": 160,
+      "price_list": 29990000,
+      "price_bonus": 3100000,
+      "price_source": "https://www.changan.cl/vehiculo/deepal/s05/",
+      "price_checked_at": "2026-11-11"
     },
     {
       "id": 142,
@@ -145,6 +153,58 @@
           "traction": "4x2"
         }
       ]
+    },
+    {
+      "id": 710,
+      "brand": "Deepal",
+      "model": "S05 EV",
+      "year": 2026,
+      "type": "suv",
+      "fuel": "electrico",
+      "seats": 5,
+      "price": 28990000,
+      "transmission": "automatica",
+      "traction": "4x2",
+      "image_url": "",
+      "description": "SUV compacta 100% eléctrica con batería de 56,12 kWh y 470 km WLTP.",
+      "origin": "China",
+      "origin_country": "China",
+      "versions": [
+        {
+          "version": "EV",
+          "price": 28990000,
+          "transmission": "automatica",
+          "traction": "4x2",
+          "price_list": 30990000,
+          "price_bonus": 2000000
+        }
+      ],
+      "battery_kwh": 56.12,
+      "electric_range_km": 470,
+      "hp": 218,
+      "torque_nm": 320,
+      "length_mm": 4539,
+      "width_mm": 1865,
+      "height_mm": 1680,
+      "wheelbase_mm": 2730,
+      "airbags": 6,
+      "isofix": true,
+      "adas": [
+        "Frenado automático AEB",
+        "Control crucero adaptativo",
+        "Alerta de punto ciego"
+      ],
+      "infotainment": [
+        "Pantalla 13.2\"",
+        "Apple CarPlay",
+        "Android Auto"
+      ],
+      "warranty_years": 5,
+      "warranty_km": 100000,
+      "price_list": 30990000,
+      "price_bonus": 2000000,
+      "price_source": "https://www.changan.cl/vehiculo/deepal/s05/",
+      "price_checked_at": "2026-11-11"
     }
   ]
 }

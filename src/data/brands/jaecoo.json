@@ -6,11 +6,11 @@
       "id": 271,
       "brand": "Jaecoo",
       "model": "J5",
-      "year": 2025,
+      "year": 2026,
       "type": "suv",
       "fuel": "gasolina",
       "seats": 5,
-      "price": 14490000,
+      "price": 15990000,
       "transmission": "automatica",
       "traction": "4x2",
       "image_url": "",
@@ -39,34 +39,36 @@
       "origin_country": "China",
       "versions": [
         {
-          "version": "Elemental",
-          "price": 14490000,
-          "transmission": "CVT",
+          "version": "Elemental 1.5T CVT9",
+          "price": 15990000,
+          "transmission": "automatica",
           "traction": "4x2"
         },
         {
-          "version": "Prime",
-          "price": 16490000,
-          "transmission": "CVT",
+          "version": "Prime 1.5T CVT9",
+          "price": 17990000,
+          "transmission": "automatica",
           "traction": "4x2"
         },
         {
-          "version": "Summit",
-          "price": 18490000,
-          "transmission": "CVT",
+          "version": "Summit 1.5T CVT9",
+          "price": 19990000,
+          "transmission": "automatica",
           "traction": "4x2"
         }
-      ]
+      ],
+      "price_source": "https://www.omodajaecoo.cl/modelos/jaecoo-5-2/",
+      "price_checked_at": "2026-11-11"
     },
     {
       "id": 272,
       "brand": "Jaecoo",
       "model": "J7",
-      "year": 2025,
+      "year": 2026,
       "type": "suv",
       "fuel": "gasolina",
       "seats": 5,
-      "price": 18490000,
+      "price": 22690000,
       "transmission": "automatica",
       "traction": "4x2",
       "image_url": "",
@@ -97,28 +99,30 @@
       "origin_country": "China",
       "versions": [
         {
-          "version": "Elemental 1.6 TGDI",
-          "price": 18490000,
-          "transmission": "DCT 7V",
+          "version": "New Elemental 1.6 TGDI DCT",
+          "price": 22690000,
+          "transmission": "automatica",
           "traction": "4x2"
         },
         {
-          "version": "Prime AWD 1.6 TGDI",
-          "price": 22990000,
-          "transmission": "DCT 7V",
+          "version": "New Prime AWD 1.6 TGDI DCT",
+          "price": 25690000,
+          "transmission": "automatica",
           "traction": "awd"
         }
-      ]
+      ],
+      "price_source": "https://www.omodajaecoo.cl/modelos/jaecoo-7/",
+      "price_checked_at": "2026-11-11"
     },
     {
       "id": 273,
       "brand": "Jaecoo",
       "model": "J7 SHS",
-      "year": 2025,
+      "year": 2026,
       "type": "suv",
       "fuel": "hibrido_enchufable",
       "seats": 5,
-      "price": 22990000,
+      "price": 26990000,
       "transmission": "automatica",
       "traction": "4x2",
       "image_url": "",
@@ -147,28 +151,31 @@
       "origin_country": "China",
       "versions": [
         {
-          "version": "SHS Anandes",
-          "price": 22990000,
-          "transmission": "DHT",
+          "version": "Andes",
+          "price": 26990000,
+          "transmission": "automatica",
           "traction": "4x2"
         },
         {
-          "version": "SHS Patagonia",
-          "price": 24990000,
-          "transmission": "DHT",
-          "traction": "awd"
+          "version": "Patagonia",
+          "price": 28990000,
+          "transmission": "automatica",
+          "traction": "4x2"
         }
-      ]
+      ],
+      "electric_range_km": 90,
+      "price_source": "https://www.omodajaecoo.cl/modelos/jaecoo-7-shs/",
+      "price_checked_at": "2026-11-11"
     },
     {
       "id": 274,
       "brand": "Jaecoo",
       "model": "J8",
-      "year": 2025,
+      "year": 2026,
       "type": "suv",
       "fuel": "gasolina",
-      "seats": 7,
-      "price": 29990000,
+      "seats": 6,
+      "price": 30990000,
       "transmission": "automatica",
       "traction": "awd",
       "image_url": "",
@@ -199,12 +206,49 @@
       "origin_country": "China",
       "versions": [
         {
-          "version": "Anandes 1.6T AWD",
-          "price": 29990000,
-          "transmission": "DCT 7V",
+          "version": "Andes 2.0 TGDI DCT",
+          "price": 30990000,
+          "transmission": "automatica",
           "traction": "awd"
         }
-      ]
+      ],
+      "price_source": "https://www.omodajaecoo.cl/modelos/jaecoo-8/",
+      "price_checked_at": "2026-11-11"
+    },
+    {
+      "id": 711,
+      "brand": "Jaecoo",
+      "model": "J6",
+      "year": 2026,
+      "type": "suv",
+      "fuel": "electrico",
+      "seats": 5,
+      "price": 29990000,
+      "transmission": "automatica",
+      "traction": "4x2",
+      "image_url": "",
+      "description": "SUV compacto 100% eléctrico de estética todoterreno; versión Patagonia con tracción i-WD.",
+      "origin": "China",
+      "origin_country": "China",
+      "versions": [
+        {
+          "version": "Andes RWD",
+          "price": 29990000,
+          "transmission": "automatica",
+          "traction": "4x2"
+        },
+        {
+          "version": "Patagonia i-WD",
+          "price": 32490000,
+          "transmission": "automatica",
+          "traction": "awd"
+        }
+      ],
+      "battery_kwh": 65.69,
+      "electric_range_km": 364,
+      "year_start": 2026,
+      "price_source": "https://www.omodajaecoo.cl/modelos/jaecoo-6/",
+      "price_checked_at": "2026-11-11"
     }
   ]
 }

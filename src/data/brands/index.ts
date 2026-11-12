@@ -29,6 +29,9 @@ function applyEnrichment(car: Car): Car {
 
 export const carsData: Car[] = allBrands.flatMap(b => b.models.map(applyEnrichment));
 
+const catalogYearList = carsData.map(c => c.year);
+export const catalogYears: [number, number] = [Math.min(...catalogYearList), Math.max(...catalogYearList)];
+
 export const brandUrls: Record<string, string> = Object.fromEntries(
   allBrands.map(b => [b.brand, b.brandUrl])
 );

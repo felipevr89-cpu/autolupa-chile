@@ -749,6 +749,67 @@
       "origin_country": "China",
       "price_source": "https://chery.cl/tiggo-8/",
       "price_checked_at": "2026-10-30"
+    },
+    {
+      "id": 698,
+      "brand": "Chery",
+      "model": "Tiggo 8 Pro",
+      "year": 2026,
+      "type": "suv",
+      "fuel": "gasolina",
+      "seats": 7,
+      "price": 18990000,
+      "transmission": "automatica",
+      "traction": "4x2",
+      "image_url": "",
+      "description": "Denominación comercial anterior del Tiggo 8 Pro Max. En la parrilla 2026 se comercializa como Tiggo 8 Pro Max; se mantiene para búsquedas y tasación de unidades usadas.",
+      "origin": "China",
+      "versions": [
+        {
+          "version": "1.6T DCT GLS",
+          "price": 18990000,
+          "price_list": 22990000,
+          "price_bonus": 4000000,
+          "transmission": "automatica",
+          "traction": "4x2"
+        },
+        {
+          "version": "1.6T DCT GLX",
+          "price": 20990000,
+          "price_list": 25490000,
+          "price_bonus": 4500000,
+          "transmission": "automatica",
+          "traction": "4x2"
+        }
+      ],
+      "hp": 183,
+      "torque_nm": 275,
+      "fuel_consumption_city_km_l": 10.5,
+      "fuel_consumption_highway_km_l": 17.8,
+      "fuel_consumption_mixed_km_l": 13.7,
+      "fuel_tank_liters": 57,
+      "length_mm": 4720,
+      "width_mm": 1860,
+      "height_mm": 1710,
+      "wheelbase_mm": 2710,
+      "ground_clearance_mm": 190,
+      "trunk_liters": 340,
+      "airbags": 6,
+      "isofix": true,
+      "infotainment": [
+        "Pantalla táctil 24.6\"",
+        "Apple CarPlay",
+        "Android Auto",
+        "Cámara 360°"
+      ],
+      "warranty_years": 5,
+      "warranty_km": 100000,
+      "origin_country": "China",
+      "price_list": 22990000,
+      "price_bonus": 4000000,
+      "price_source": "https://chery.cl/tiggo-8/",
+      "price_checked_at": "2026-10-31",
+      "lineup_2026": false
     }
   ]
 }

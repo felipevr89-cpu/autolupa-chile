@@ -55,7 +55,8 @@
           "transmission": "automatica",
           "traction": "4x2"
         }
-      ]
+      ],
+      "lineup_2026": false
     },
     {
       "id": 199,
@@ -178,7 +179,7 @@
       "type": "hatchback",
       "fuel": "electrico",
       "seats": 4,
-      "price": 17490000,
+      "price": 18990000,
       "transmission": "automatica",
       "traction": "4x2",
       "image_url": "",
@@ -186,13 +187,19 @@
       "origin": "China",
       "versions": [
         {
-          "version": "Comfort",
-          "price": 17490000,
+          "version": "Pro",
+          "price": 18990000,
+          "transmission": "automatica",
+          "traction": "4x2"
+        },
+        {
+          "version": "Max",
+          "price": 20490000,
           "transmission": "automatica",
           "traction": "4x2"
         }
       ],
-      "hp": 109,
+      "hp": 114,
       "torque_nm": 180,
       "top_speed_kmh": 140,
       "length_mm": 3620,
@@ -210,7 +217,11 @@
       ],
       "warranty_years": 6,
       "warranty_km": 120000,
-      "origin_country": "China"
+      "origin_country": "China",
+      "battery_kwh": 39.4,
+      "electric_range_km": 395,
+      "price_source": "https://www.geely.cl/modelos/geely-ex2/",
+      "price_checked_at": "2026-11-11"
     },
     {
       "id": 202,
@@ -220,7 +231,7 @@
       "type": "suv",
       "fuel": "hibrido_enchufable",
       "seats": 5,
-      "price": 22490000,
+      "price": 23990000,
       "transmission": "automatica",
       "traction": "4x2",
       "image_url": "",
@@ -228,8 +239,20 @@
       "origin": "China",
       "versions": [
         {
-          "version": "1.5T EM-i Deluxe",
-          "price": 22490000,
+          "version": "Pro",
+          "price": 23990000,
+          "transmission": "automatica",
+          "traction": "4x2"
+        },
+        {
+          "version": "Max",
+          "price": 26490000,
+          "transmission": "automatica",
+          "traction": "4x2"
+        },
+        {
+          "version": "Max+",
+          "price": 28990000,
           "transmission": "automatica",
           "traction": "4x2"
         }
@@ -258,7 +281,11 @@
       ],
       "warranty_years": 6,
       "warranty_km": 120000,
-      "origin_country": "China"
+      "origin_country": "China",
+      "battery_kwh": 29.8,
+      "electric_range_km": 170,
+      "price_source": "https://www.geely.cl/modelos/geely-ex5-em-i/",
+      "price_checked_at": "2026-11-11"
     },
     {
       "id": 203,
@@ -311,7 +338,8 @@
           "transmission": "automatica",
           "traction": "4x2"
         }
-      ]
+      ],
+      "lineup_2026": false
     },
     {
       "id": 204,
@@ -368,7 +396,8 @@
           "transmission": "automatica",
           "traction": "4x4"
         }
-      ]
+      ],
+      "lineup_2026": false
     },
     {
       "id": 205,
@@ -378,7 +407,7 @@
       "type": "suv",
       "fuel": "gasolina",
       "seats": 5,
-      "price": 13990000,
+      "price": 15490000,
       "transmission": "automatica",
       "traction": "4x2",
       "image_url": "",
@@ -386,19 +415,13 @@
       "origin": "China",
       "versions": [
         {
-          "version": "1.5T Comfort DCT",
-          "price": 13990000,
-          "transmission": "automatica",
-          "traction": "4x2"
-        },
-        {
-          "version": "1.5T Elite DCT",
+          "version": "Comfort 1.5T DCT",
           "price": 15490000,
           "transmission": "automatica",
           "traction": "4x2"
         },
         {
-          "version": "1.5T Luxury DCT",
+          "version": "Sport 1.5T DCT",
           "price": 17990000,
           "transmission": "automatica",
           "traction": "4x2"
@@ -425,7 +448,9 @@
       ],
       "warranty_years": 6,
       "warranty_km": 120000,
-      "origin_country": "China"
+      "origin_country": "China",
+      "price_source": "https://www.geely.cl/modelos/new-coolray/",
+      "price_checked_at": "2026-11-11"
     },
     {
       "id": 206,
@@ -533,6 +558,40 @@
       "warranty_years": 6,
       "warranty_km": 120000,
       "origin_country": "China"
+    },
+    {
+      "id": 712,
+      "brand": "Geely",
+      "model": "EX5",
+      "year": 2026,
+      "type": "suv",
+      "fuel": "electrico",
+      "seats": 5,
+      "price": 30990000,
+      "transmission": "automatica",
+      "traction": "4x2",
+      "image_url": "",
+      "description": "SUV 100% eléctrico de 214 HP con hasta 495 km de autonomía NEDC.",
+      "origin": "China",
+      "origin_country": "China",
+      "versions": [
+        {
+          "version": "Pro",
+          "price": 30990000,
+          "transmission": "automatica",
+          "traction": "4x2"
+        },
+        {
+          "version": "Max",
+          "price": 33990000,
+          "transmission": "automatica",
+          "traction": "4x2"
+        }
+      ],
+      "hp": 214,
+      "electric_range_km": 495,
+      "price_source": "https://www.geely.cl/modelos/ex5/",
+      "price_checked_at": "2026-11-11"
     }
   ]
 }

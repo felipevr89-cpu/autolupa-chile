@@ -274,7 +274,8 @@
       "warranty_km": 100000,
       "origin_country": "China",
       "price_source": "https://www.ford.cl/suvs-crossovers/territory/",
-      "price_checked_at": "2026-10-22"
+      "price_checked_at": "2026-10-22",
+      "year_start": 2023
     },
     {
       "id": 620,
@@ -672,7 +673,8 @@
       "warranty_km": 100000,
       "origin_country": "China",
       "price_source": "https://www.ford.cl/hibridos/territory-hibrida/",
-      "price_checked_at": "2026-10-22"
+      "price_checked_at": "2026-10-22",
+      "year_start": 2023
     },
     {
       "id": 627,

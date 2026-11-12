@@ -741,6 +741,11 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://autolupa.pages.dev/auto/714-baic-eu5-2026</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://autolupa.pages.dev/auto/33-bentley-bentayga-2025</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
@@ -1036,6 +1041,11 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://autolupa.pages.dev/auto/715-changan-cs55-plus-idd-2025</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://autolupa.pages.dev/auto/92-chery-arrizo-6-2026</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
@@ -1316,6 +1326,11 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://autolupa.pages.dev/auto/737-cupra-terramar-2025</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://autolupa.pages.dev/auto/140-deepal-g318-2025</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
@@ -1361,6 +1376,16 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://autolupa.pages.dev/auto/716-dfsk-glory-600-2025</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://autolupa.pages.dev/auto/717-dfsk-glory-600-phev-2025</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://autolupa.pages.dev/auto/148-dodge-durango-2025</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
@@ -1382,6 +1407,31 @@
   </url>
   <url>
     <loc>https://autolupa.pages.dev/auto/152-dongfeng-t5-evo-2026</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://autolupa.pages.dev/auto/718-dongfeng-sx6-2025</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://autolupa.pages.dev/auto/719-dongfeng-t5-l-2025</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://autolupa.pages.dev/auto/720-dongfeng-t5-hcv-2025</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://autolupa.pages.dev/auto/721-dongfeng-s50-ev-2025</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://autolupa.pages.dev/auto/722-dongfeng-mage-ev-2026</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -1412,6 +1462,11 @@
   </url>
   <url>
     <loc>https://autolupa.pages.dev/auto/158-exeed-vx-2025</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://autolupa.pages.dev/auto/723-exeed-txl-2025</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -1627,6 +1682,36 @@
   </url>
   <url>
     <loc>https://autolupa.pages.dev/auto/197-gac-gs8-2026</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://autolupa.pages.dev/auto/724-gac-aion-es-2025</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://autolupa.pages.dev/auto/725-gac-aion-y-2025</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://autolupa.pages.dev/auto/726-gac-emkoo-2025</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://autolupa.pages.dev/auto/727-gac-emkoo-hev-2025</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://autolupa.pages.dev/auto/728-gac-empow-2025</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://autolupa.pages.dev/auto/729-gac-emzoom-2026</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -1876,6 +1961,11 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://autolupa.pages.dev/auto/713-honda-cr-v-hibrido-2025</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://autolupa.pages.dev/auto/239-hongqi-hs5-2025</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
@@ -2057,6 +2147,21 @@
   </url>
   <url>
     <loc>https://autolupa.pages.dev/auto/270-jac-t9-2025</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://autolupa.pages.dev/auto/730-jac-js8-2025</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://autolupa.pages.dev/auto/731-jac-js8-pro-2025</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://autolupa.pages.dev/auto/732-jac-e-js4-2025</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -2602,6 +2707,11 @@
   </url>
   <url>
     <loc>https://autolupa.pages.dev/auto/373-mahindra-xuv700-diesel-2025</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://autolupa.pages.dev/auto/733-mahindra-xuv300-2025</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -3516,12 +3626,27 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://autolupa.pages.dev/auto/734-skoda-elroq-2025</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://autolupa.pages.dev/auto/735-skoda-scala-2025</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://autolupa.pages.dev/auto/530-smart-1-2025</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://autolupa.pages.dev/auto/531-smart-3-2025</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://autolupa.pages.dev/auto/736-smart-5-2026</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>

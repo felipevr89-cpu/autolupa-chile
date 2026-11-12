@@ -1,5 +1,7 @@
 # Changelog
 
+- 2026-11-12: Portada rediseñada: buscador con filtros arriba (`HomeSearch`), accesos rápidos, menú «Herramientas» y paleta azul marino.
+- 2026-11-12: Cruce con Autocosmos: 25 modelos nuevos (ids 713–737) y 122 modelos con precio de lista y versiones actualizados (`docs/AUDIT-MERCADO-2026-11.md`).
 - 2026-10-30: Corregida foto del Ford Territory 2026 (generación nueva).
 - 2026-10-30: Agregado Chery Tiggo 8 y actualizado Tiggo 8 Pro Max a precios/versiones oficiales 2026.
 - 2026-10-30: Agregadas páginas Quiénes somos, Contacto, Cómo funciona y Compra segura.

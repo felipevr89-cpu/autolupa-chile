@@ -14,6 +14,7 @@ import {
   type UsedListingValidationErrors,
   usedListingWhatsappUrl,
 } from '../data/usedListings';
+import { getListingViews } from '../lib/visits';
 import { getMyUsedListings, markUsedListingAsSold, updateUsedListing } from '../lib/usedListings';
 import type { User } from '../types';
 
@@ -30,13 +31,17 @@ export function MisAnuncios({ user, isCloudAuthAvailable, onSignIn }: Props) {
   const [notice, setNotice] = useState('');
   const [actionId, setActionId] = useState('');
   const [editingId, setEditingId] = useState('');
+  const [views, setViews] = useState<Record<string, number>>({});
 
   const load = () => {
     if (!user) return;
     setLoading(true);
     setError('');
     getMyUsedListings()
-      .then(setListings)
+      .then((result) => {
+        setListings(result);
+        getListingViews(result.map((item) => item.id)).then(setViews);
+      })
       .catch((reason) => setError(reason instanceof Error ? reason.message : 'No pudimos cargar tus avisos.'))
       .finally(() => setLoading(false));
   };
@@ -90,7 +95,7 @@ export function MisAnuncios({ user, isCloudAuthAvailable, onSignIn }: Props) {
             <Fragment key={listing.id}>
               <article className="bg-white dark:bg-gray-800 rounded-2xl p-4 sm:p-5 card-shadow flex flex-col sm:flex-row gap-5">
               <div className="w-full sm:w-44 h-32 rounded-xl overflow-hidden bg-gray-100 dark:bg-gray-700 shrink-0">{listing.photoUrls[0] ? <img src={listing.photoUrls[0]} alt={`${listing.brand} ${listing.model}`} className="w-full h-full object-cover" /> : <div className="w-full h-full flex items-center justify-center text-4xl">🚗</div>}</div>
-              <div className="flex-1 min-w-0"><div className="flex flex-wrap items-center gap-2"><h2 className="text-lg font-bold text-gray-900 dark:text-white">{listing.brand} {listing.model} {listing.year}</h2><Status status={listing.status} /></div><p className="text-blue-600 dark:text-blue-400 font-bold mt-1">{formatPrice(listing.price)}</p><p className="text-sm text-gray-500 dark:text-gray-400 mt-1">{listing.mileage.toLocaleString('es-CL')} km · {listing.region}</p>{listing.moderationNote && <p className="text-sm text-red-600 dark:text-red-400 mt-2">Nota: {listing.moderationNote}</p>}</div>
+              <div className="flex-1 min-w-0"><div className="flex flex-wrap items-center gap-2"><h2 className="text-lg font-bold text-gray-900 dark:text-white">{listing.brand} {listing.model} {listing.year}</h2><Status status={listing.status} /></div><p className="text-blue-600 dark:text-blue-400 font-bold mt-1">{formatPrice(listing.price)}</p><p className="text-sm text-gray-500 dark:text-gray-400 mt-1">{listing.mileage.toLocaleString('es-CL')} km · {listing.region}</p>{listing.status === 'active' && <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">👁 {(views[listing.id] ?? 0).toLocaleString('es-CL')} {views[listing.id] === 1 ? 'persona vio' : 'personas vieron'} tu aviso</p>}{listing.moderationNote && <p className="text-sm text-red-600 dark:text-red-400 mt-2">Nota: {listing.moderationNote}</p>}</div>
               <div className="flex sm:flex-col gap-2 sm:justify-center"><a href={usedListingWhatsappUrl(listing)} target="_blank" rel="noopener noreferrer" className="text-center px-3 py-2 rounded-lg border border-green-500 text-green-600 dark:text-green-400 text-sm font-semibold">WhatsApp</a>{listing.status === 'active' && <button type="button" onClick={() => markSold(listing)} disabled={actionId === listing.id} className="px-3 py-2 rounded-lg border border-gray-300 dark:border-gray-600 text-sm text-gray-700 dark:text-gray-300 disabled:opacity-50">Marcar vendido</button>}{canEdit(listing) && <button type="button" onClick={() => { setEditingId(editingId === listing.id ? '' : listing.id); setNotice(''); setError(''); }} className="px-3 py-2 rounded-lg border border-blue-500 text-blue-600 dark:text-blue-400 text-sm font-semibold" aria-expanded={editingId === listing.id}>{editingId === listing.id ? 'Cerrar edición' : 'Editar'}</button>}</div>
               </article>
               {editingId === listing.id && (

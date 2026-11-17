@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { SEO } from '../components/SEO';
+import { VisitCounter } from '../components/Layout/VisitCounter';
 import { brands as catalogBrands, getModelsByBrand } from '../data/brands';
 import { cropListingPhoto, prepareListingPhoto } from '../lib/listingImages';
 import { verificationErrorMessage } from '../lib/authVerification';
@@ -425,6 +426,7 @@ export function PublicarAuto({ user, isCloudAuthAvailable, onSignIn, onSignInAno
             Sin registro ni comisión. Solo pedimos un correo para confirmar que eres real: lo revisamos, tu aviso entra
             en revisión y aparece en la web cuando lo aprobamos.
           </p>
+          <VisitCounter className="-mt-3 mb-6 text-sm text-gray-500 dark:text-gray-400" template={(n) => `${n} personas visitaron AutoLupa en los últimos 30 días`} />
           <div className="flex flex-col gap-3">
             <button
               type="button"
@@ -486,6 +488,7 @@ export function PublicarAuto({ user, isCloudAuthAvailable, onSignIn, onSignInAno
         <p className="text-sm font-semibold text-blue-600 dark:text-blue-400 mb-2">Publicación gratuita</p>
         <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white">Vende tu auto en AutoLupa</h1>
         <p className="text-gray-600 dark:text-gray-300 mt-2">Te guíamos en 4 pasos. Sin suscripciones ni comisiones.</p>
+        <VisitCounter className="mt-2 text-sm text-gray-500 dark:text-gray-400" template={(n) => `${n} personas visitaron AutoLupa en los últimos 30 días`} />
       </div>
 
       {restoredDraft && step > 1 && draft.photos.length === 0 && (

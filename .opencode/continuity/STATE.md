@@ -1,5 +1,5 @@
 # AutoLupa — estado de continuidad
-Actualizado: 2026-11-12 21:00 UTC
+Actualizado: 2026-11-17 UTC
 Fase: Cierre — L1–L5 y rediseño completos; pendiente revisión del usuario
 Estado: EN_PROGRESO
 
@@ -63,7 +63,7 @@ Ninguno. Esperando que el usuario revise y autorice commit/PR/deploy, y resuelva
 - No hay despliegue ni push en esta fase.
 
 ## Próximo paso exacto
-Con autorización: commit de la rama `feat/home-redesign-market-update` y PR. Luego verificar plazas, batería y autonomía de los ids 713–737 y resolver los 15 modelos con motorización distinta (`docs/AUDIT-MERCADO-2026-11.md`).
+Con autorización: commit del Lote 32 (consentimiento + contadores) y PR. Aplicar `supabase/migrations/202611170001_visit_counters.sql` cuando Supabase esté restaurado. Luego plan de Instagram (generador de reels + Graph API).
 
 ## Instrucción de reanudación
 Leer `STATE.md`, `PLAN.md`, `WORKLOG.md`, `DECISIONS.md`, `TESTS.md`, `AGENTS.md` y el estado Git; confirmar el último punto seguro; continuar desde “Próximo paso exacto”, sin repetir trabajo terminado.

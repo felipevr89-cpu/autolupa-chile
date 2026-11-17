@@ -1,4 +1,4 @@
-export const PRIVACY_POLICY_VERSION = '1.2';
+export const PRIVACY_POLICY_VERSION = '1.3';
 export const RESPONSIBILITY_VERSION = '1.1';
 export const TERMS_VERSION = '1.1';
 
@@ -100,6 +100,7 @@ Usamos **encargados del tratamiento** que procesan datos por cuenta y bajo instr
 | Supabase | Base de datos, autenticación y almacenamiento de fotos | Estados Unidos |
 | Cloudflare | Alojamiento y entrega del sitio | Estados Unidos |
 | Google | Inicio de sesión con Google | Estados Unidos |
+| Plausible Analytics | Medición agregada de visitas, sin cookies | Unión Europea |
 
 Cada encargado está sujeto a contrato de encargo de tratamiento (DPA) que obliga a confidencialidad y medidas de seguridad. Las transferencias internacionales se realizan con salvaguardas apropiadas, conforme a los Arts. 38 y siguientes de la Ley 21.719. Puedes pedir información sobre las garantías aplicables escribiendo a privacidad@autolupa.cl.
 
@@ -115,7 +116,13 @@ El servicio está dirigido a mayores de 18 años. No tratamos conscientemente da
 Quienes intervienen en la operación del servicio están sujetos al deber de secreto respecto de los datos personales, incluso después de concluida la relación, salvo que el titular los haya hecho manifiestamente públicos.
 
 ## 13. CAMBIOS EN LA POLÍTICA
-Los cambios serán notificados y requerirán nuevo consentimiento. Cada versión queda registrada con su fecha y el identificador de quien la aceptó.`;
+Los cambios serán notificados y requerirán nuevo consentimiento. Cada versión queda registrada con su fecha y el identificador de quien la aceptó.
+
+## 14. ALMACENAMIENTO LOCAL, MEDICIÓN Y PUBLICIDAD
+14.1. **Esencial:** guardamos en tu navegador favoritos, filtros, borradores, búsquedas guardadas, la sesión y tu elección de privacidad. Es necesario para prestar el servicio y no requiere consentimiento.
+14.2. **Medición (opcional):** contamos visitas al sitio y a cada aviso de forma agregada, sin cookies ni identificadores personales, mediante Plausible Analytics y un contador propio. El total de visitas y las visitas de cada aviso pueden mostrarse públicamente como cifras agregadas. Puedes desactivarla en «Preferencias de privacidad», al pie de cada página.
+14.3. **Publicidad (opcional):** solo si la aceptas, podremos mostrar anuncios de terceros que usen cookies para personalizarse. Por defecto está desactivada.
+14.4. Puedes cambiar o retirar tu consentimiento en cualquier momento desde «Preferencias de privacidad», sin afectar la licitud del tratamiento previo.`;
 
 export const RESPONSIBILITY_CONTENT = `# DECLARACIÓN DE RESPONSABILIDAD Y USO DEL SERVICIO
 ## AutoLupa Chile

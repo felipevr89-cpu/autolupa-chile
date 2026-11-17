@@ -95,3 +95,8 @@
 - `npx vitest run src/test/homeSearch.test.tsx` — PASÓ — 11/11 (filtros de portada, accesos rápidos, orden de secciones).
 - `npm test` — PASÓ — 285/285; `npm run lint` — 0; `audit:catalog` 713 modelos / 1.556 versiones, 0 errores; `audit:coverage` 0 gaps; `audit:assets` 60 sin clave / 35 null.
 - Capturas Puppeteer 1440×900 y 390×844 de `/` y `/autos`: sin errores de página ni desborde horizontal.
+
+## Consentimiento y contadores (17-11-2026)
+- `npx vitest run src/test/consentVisits.test.tsx` — PASÓ — 9/9.
+- `npm test` — PASÓ — 294/294; `npm run lint` — 0; `npm run build` — PASÓ (861 páginas prerenderizadas).
+- Capturas headless 390×844 y 1440×900: banner visible, sin tapar el buscador en escritorio.

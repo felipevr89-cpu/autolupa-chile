@@ -2,6 +2,8 @@ import { Link } from 'react-router-dom';
 import { carsData, brands } from '../data/brands';
 import { InstallHint } from './Layout/InstallHint';
 import { SUPPORT_EMAIL } from '../config/support';
+import { VisitCounter } from './Layout/VisitCounter';
+import { openConsentPreferences } from '../lib/consent';
 
 export function Footer() {
   const year = new Date().getFullYear();
@@ -49,6 +51,7 @@ export function Footer() {
               <li><Link to="/privacidad" className="hover:text-white transition-colors">Política de privacidad</Link></li>
               <li><Link to="/tus-datos" className="hover:text-white transition-colors">Tus datos (derechos Ley 21.719)</Link></li>
               <li><Link to="/reclamos" className="hover:text-white transition-colors">Reclamos y sugerencias</Link></li>
+              <li><button type="button" onClick={openConsentPreferences} className="hover:text-white transition-colors text-left">Preferencias de privacidad</button></li>
               <li><Link to="/publicar-auto" className="hover:text-white transition-colors">Publicar gratis</Link></li>
             </ul>
           </div>
@@ -62,6 +65,7 @@ export function Footer() {
         <div className="border-t border-gray-800 dark:border-gray-700 mt-8 pt-8 text-center text-sm">
           <p>© {year} AutoLupa. Todos los derechos reservados.</p>
           <p className="mt-1 text-xs">Los precios son referenciales y pueden variar según concesionario.</p>
+          <VisitCounter className="mt-2 text-xs text-gray-500" />
         </div>
       </div>
     </footer>

@@ -1,4 +1,4 @@
-import { lazy, Suspense } from 'react';
+import { lazy, Suspense, useEffect } from 'react';
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import { useAuth } from './hooks/useAuth';
 import { useCars } from './hooks/useCars';
@@ -6,6 +6,8 @@ import { useDocuments } from './hooks/useDocuments';
 import { Navbar } from './components/Layout/Navbar';
 import { Footer } from './components/Footer';
 import { PublishFloat } from './components/Layout/PublishFloat';
+import { ConsentBanner } from './components/Layout/ConsentBanner';
+import { registerSiteVisit } from './lib/visits';
 import { SEO } from './components/SEO';
 import { SignatureModal } from './components/Documents/SignatureModal';
 import { Home } from './pages/Home';
@@ -52,6 +54,9 @@ function PageSkeleton() {
 }
 
 function AppContent() {
+  useEffect(() => {
+    void registerSiteVisit();
+  }, []);
   const { user, loading: authLoading, signInWithGoogle, signInAnonymously, signOut, isCloudAuthAvailable } = useAuth();
   const {
     cars,
@@ -410,6 +415,7 @@ function AppContent() {
       </main>
 
       <PublishFloat />
+      <ConsentBanner />
 
       <div className="pb-24 sm:pb-0">
         <Footer />

@@ -16,6 +16,7 @@ import { isSupabaseConfigured } from '../lib/supabase';
 import { checkBackend } from '../lib/backendStatus';
 import { ServiceNotice } from '../components/Used/ServiceNotice';
 import { track } from '../lib/analytics';
+import { trackListingView } from '../lib/visits';
 import type { User } from '../types';
 
 interface Props {
@@ -45,6 +46,7 @@ export function UsedListingDetail({ user, isCloudAuthAvailable, onSignIn }: Prop
   const [reportError, setReportError] = useState('');
   const [leadOpen, setLeadOpen] = useState(false);
   const [unavailable, setUnavailable] = useState(false);
+  const [views, setViews] = useState<number | null>(null);
 
   useEffect(() => {
     let cancelled = false;
@@ -75,6 +77,13 @@ export function UsedListingDetail({ user, isCloudAuthAvailable, onSignIn }: Prop
       cancelled = true;
     };
   }, [slug]);
+
+  useEffect(() => {
+    if (!listing || listing.status !== 'active') return;
+    let alive = true;
+    trackListingView(listing.id).then((count) => { if (alive) setViews(count); });
+    return () => { alive = false; };
+  }, [listing]);
 
   const submitReport = async () => {
     if (!listing || !user) return;
@@ -223,6 +232,11 @@ export function UsedListingDetail({ user, isCloudAuthAvailable, onSignIn }: Prop
             <p className="text-2xl font-bold text-blue-600 dark:text-blue-400 mt-4">{formatPrice(listing.price)}</p>
             <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">{listing.year} · {listing.mileage.toLocaleString('es-CL')} km</p>
             <p className="text-sm text-gray-600 dark:text-gray-300 mt-4">📍 {listing.commune ? `${listing.commune}, ` : ''}{listing.region}</p>
+            {views !== null && views > 0 && (
+              <p className="text-xs text-gray-500 dark:text-gray-400 mt-1" data-testid="listing-views">
+                <span aria-hidden="true">👁 </span>{views.toLocaleString('es-CL')} {views === 1 ? 'persona vio' : 'personas vieron'} este aviso
+              </p>
+            )}
             <div className="mt-4">
               <SaveListingButton listing={toSavedListing(listing)} />
             </div>
